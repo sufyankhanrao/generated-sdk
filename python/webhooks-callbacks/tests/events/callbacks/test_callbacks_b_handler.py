@@ -1,0 +1,161 @@
+import hashlib
+import hmac
+from typing import (
+    Any,
+    Callable,
+    Optional,
+    Union
+)
+
+import unittest
+from apimatic_core.security.signature_verifiers.hmac_signature_verifier import (
+    HexEncoder
+)
+
+from webhooksandcallbacksapi.api_helper import (
+    APIHelper
+)
+from webhooksandcallbacksapi.events.callbacks.callbacks_b_handler import (
+    CallbacksBHandler
+)
+from webhooksandcallbacksapi.events.signature_verification_failure import (
+    SignatureVerificationFailure
+)
+from webhooksandcallbacksapi.events.unknown_event import (
+    UnknownEvent
+)
+from webhooksandcallbacksapi.http.request import (
+    Request
+)
+from webhooksandcallbacksapi.models.notification_callback import (
+    NotificationCallback
+)
+
+class TestCallbacksBHandler(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.handler = CallbacksBHandler("dummy_signing_key")
+
+    @staticmethod
+    def _compute_expected_signature(
+        secret_key: str,
+        request: Request,
+        resolver: Optional[Callable[[Request], Union[bytes, None]]] = None,
+    ) -> str:
+        if resolver is None:
+            message = getattr(request, "raw_body", None)
+        else:
+            message = resolver(request)
+
+        digest = hmac.new(secret_key.encode("utf-8"), message, hashlib.sha256).digest()
+        encoded = HexEncoder().encode(digest)
+        signature_value_template = "{digest}"
+        if "{digest}" in signature_value_template:
+            return signature_value_template.replace("{digest}", encoded)
+        else:
+            return signature_value_template
+
+    @staticmethod
+    def _canonical_message_builder(request: Request) -> Optional[bytes]:
+        """
+         Builds the canonical message from the request for the signature
+        verification.
+
+        :param request: The incoming HTTP request.
+        :type request: Request
+
+        :return: The canonical message as bytes, or None if the message could
+                 not be constructed.
+        :rtype: Optional[bytes]
+        """
+
+        payload = request.raw_body.decode()
+        notification_type = APIHelper.get_value_by_json_pointer(
+            APIHelper.json_deserialize(payload), "notificationType"
+        )
+        return f"{notification_type}".encode()
+
+    @staticmethod
+    def _json_bytes(obj: Any) -> bytes:
+        return APIHelper.json_serialize(obj).encode("utf-8")
+
+    @staticmethod
+    def _make_request(body_obj, add_signature_header = True) -> Request:
+        raw = TestCallbacksBHandler._json_bytes(body_obj)
+        request = Request(
+            method="POST",
+            path="/callbacks",
+            url=f"https://example.test/callbacks",
+            headers={"Content-Type": "application/json"},
+            raw_body=raw,
+        )
+        if add_signature_header:
+            request.headers["X-Signature"] = TestCallbacksBHandler._compute_expected_signature(
+                secret_key="dummy_signing_key",
+                request=request,
+                resolver=TestCallbacksBHandler._canonical_message_builder,
+            )
+        return request
+
+    def test_email_notification_callback_from_callbacks_b_handler(self):
+        """
+         Tests the `emailNotificationCallback` event from callbacksBHandler.
+        """
+
+        # arrange
+        event_payload = {"notificationType": "emailNotificationCallback", "subject": "Order Confirmation", "message": "msg_email_789"}
+        core_req = self._make_request(event_payload)
+
+        # act
+        event = self.handler.verify_and_parse_event(core_req)
+
+        # assert
+        assert isinstance(event, NotificationCallback) and getattr(event, "notification_type", None) == "emailNotificationCallback"
+
+
+    def test_sms_notification_callback_from_callbacks_b_handler(self):
+        """
+         Tests the `smsNotificationCallback` event from callbacksBHandler.
+        """
+
+        # arrange
+        event_payload = {"notificationType": "smsNotificationCallback", "subject": "Order Confirmation", "message": "msg_email_789"}
+        core_req = self._make_request(event_payload)
+
+        # act
+        event = self.handler.verify_and_parse_event(core_req)
+
+        # assert
+        assert isinstance(event, NotificationCallback) and getattr(event, "notification_type", None) == "smsNotificationCallback"
+
+
+    def test_signature_verification_failure(self):
+        """
+         Tests the `SignatureVerificationFailure` case from CallbacksBHandler.
+        """
+
+        # arrange
+        event_payload = {"key": "value"}
+        core_req = self._make_request(event_payload, False)
+
+        # act
+        event = self.handler.verify_and_parse_event(core_req)
+
+        # assert
+        assert isinstance(event, SignatureVerificationFailure)
+
+
+    def test_unknown_event(self):
+        """
+         Tests the `UnknownEvent` case from CallbacksBHandler.
+        """
+
+        # arrange
+        event_payload = ""
+        core_req = self._make_request(event_payload)
+
+        # act
+        event = self.handler.verify_and_parse_event(core_req)
+
+        # assert
+        assert isinstance(event, UnknownEvent)

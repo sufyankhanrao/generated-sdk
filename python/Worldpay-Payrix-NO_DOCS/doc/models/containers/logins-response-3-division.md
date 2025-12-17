@@ -1,0 +1,14 @@
+
+# Logins Response 3 Division
+
+## Data Type
+
+`str | DivisionsResponse`
+
+## Cases
+
+| Type |
+|  --- |
+| `str` |
+| [`DivisionsResponse`](../../../doc/models/divisions-response.md) |
+

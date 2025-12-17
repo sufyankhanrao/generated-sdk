@@ -1,0 +1,99 @@
+from fortisapi.configuration import Environment
+from fortisapi.exceptions.api_exception import APIException
+from fortisapi.exceptions.response_401_token_exception import Response401tokenException
+from fortisapi.exceptions.response_412_exception import Response412Exception
+from fortisapi.fortisapi_client import FortisapiClient
+from fortisapi.http.auth.developer_id import DeveloperIdCredentials
+from fortisapi.http.auth.user_api_key import UserApiKeyCredentials
+from fortisapi.http.auth.user_id import UserIdCredentials
+from fortisapi.models.entry_mode_id_enum import EntryModeIdEnum
+from fortisapi.models.iias_ind_enum import IiasIndEnum
+from fortisapi.models.v_1_transactions_cc_force_keyed_request import V1TransactionsCcForceKeyedRequest
+
+client = FortisapiClient(
+    user_id_credentials=UserIdCredentials(
+        user_id='user-id'
+    ),
+    user_api_key_credentials=UserApiKeyCredentials(
+        user_api_key='user-api-key'
+    ),
+    developer_id_credentials=DeveloperIdCredentials(
+        developer_id='developer-id'
+    ),
+    environment=Environment.SANDBOX
+)
+
+transactions_credit_card_controller = client.transactions_credit_card
+body = V1TransactionsCcForceKeyedRequest(
+    account_number='5454545454545454',
+    exp_date='0722',
+    auth_code='abc123',
+    checkin_date='2021-12-01',
+    checkout_date='2021-12-01',
+    clerk_number='AE1234',
+    contact_id='11e95f8ec39de8fbdb0a4f1a',
+    custom_data={"data1":"custom1","data2":"custom2"},
+    customer_id='customerid',
+    description='some description',
+    iias_ind=IiasIndEnum.ENUM_1,
+    image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
+    image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
+    installment=True,
+    installment_number=1,
+    installment_count=1,
+    location_api_id='location-api-id-florida-2',
+    location_id='11e95f8ec39de8fbdb0a4f1a',
+    product_transaction_id='11e95f8ec39de8fbdb0a4f1a',
+    advance_deposit=False,
+    no_show=False,
+    notification_email_address='johnsmith@smiths.com',
+    order_number='433659378839',
+    po_number='555555553123',
+    quick_invoice_id='11e95f8ec39de8fbdb0a4f1a',
+    recurring=False,
+    recurring_number=1,
+    room_num='303',
+    room_rate=95,
+    save_account=False,
+    save_account_title='John Account',
+    subtotal_amount=599,
+    surcharge_amount=100,
+    tax=0,
+    tip_amount=0,
+    transaction_amount=0,
+    secondary_amount=0,
+    transaction_api_id='transaction-payment-abcd123',
+    transaction_c_1='custom-data-1',
+    transaction_c_2='custom-data-2',
+    transaction_c_3='custom-data-3',
+    bank_funded_only_override=False,
+    allow_partial_authorization_override=False,
+    auto_decline_cvv_override=False,
+    auto_decline_street_override=False,
+    auto_decline_zip_override=False,
+    secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
+    secure_protocol_version=2,
+    secure_crytogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
+    secure_directory_server_transaction_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
+    terminal_serial_number='1234567890',
+    threedsecure=True,
+    account_holder_name='smith',
+    entry_mode_id=EntryModeIdEnum.K,
+    track_data='T051904524T 741025349520O 8520748520963'
+)
+
+try:
+    result = transactions_credit_card_controller.cc_force(body)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
+except Response401tokenException as e: 
+    print(e)
+except Response412Exception as e: 
+    print(e)
+except APIException as e: 
+    print(e)
+

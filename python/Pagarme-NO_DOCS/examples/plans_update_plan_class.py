@@ -1,0 +1,62 @@
+from pagarmeapisdk.configuration import Environment
+from pagarmeapisdk.exceptions.api_exception import APIException
+from pagarmeapisdk.exceptions.error_exception import ErrorException
+from pagarmeapisdk.http.auth.basic_auth import BasicAuthCredentials
+from pagarmeapisdk.models.update_plan_request import UpdatePlanRequest
+from pagarmeapisdk.pagarmeapisdk_client import PagarmeapisdkClient
+
+client = PagarmeapisdkClient(
+    service_referer_name='ServiceRefererName',
+    basic_auth_credentials=BasicAuthCredentials(
+        username='BasicAuthUserName',
+        password='BasicAuthPassword'
+    ),
+    environment=Environment.PRODUCTION
+)
+
+plans_controller = client.plans
+plan_id = 'plan_id8'
+
+request = UpdatePlanRequest(
+    name='name6',
+    description='description6',
+    installments=[
+        151,
+        152
+    ],
+    statement_descriptor='statement_descriptor6',
+    currency='currency6',
+    interval='interval4',
+    interval_count=114,
+    payment_methods=[
+        'payment_methods1',
+        'payment_methods0',
+        'payment_methods9'
+    ],
+    billing_type='billing_type0',
+    status='status8',
+    shippable=False,
+    billing_days=[
+        115
+    ],
+    metadata={
+        'key0': 'metadata3'
+    }
+)
+
+try:
+    result = plans_controller.update_plan(
+        plan_id,
+        request
+    )
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
+except ErrorException as e: 
+    print(e)
+except APIException as e: 
+    print(e)
+

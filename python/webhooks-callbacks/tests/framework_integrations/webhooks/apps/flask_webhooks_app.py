@@ -1,0 +1,48 @@
+from flask import (
+    Flask,
+    Response,
+    request
+)
+
+from webhooksandcallbacksapi.events.signature_verification_failure import (
+    SignatureVerificationFailure
+)
+from webhooksandcallbacksapi.events.unknown_event import (
+    UnknownEvent
+)
+from webhooksandcallbacksapi.events.webhooks.webhooks_handler import (
+    WebhooksHandler
+)
+from webhooksandcallbacksapi.models.order_updated_event import (
+    OrderUpdatedEvent
+)
+from webhooksandcallbacksapi.utilities.request_adapter import (
+    to_core_request
+)
+
+def create_app() -> Flask:
+    app = Flask(__name__)
+    @app.route("/webhooks", methods=["POST"])
+    def webhooks() -> Response:
+        # Step 1: Create the handler with your shared secret key.
+        handler = WebhooksHandler(secret_key="your-shared-secret")
+
+        # Step 2: Convert the incoming request using to_core_request (Django/Flask)
+        #         or await to_core_request_async (FastAPI).
+        core_req = to_core_request(request)
+
+        # Step 3: Verify and parse the request into a typed event.
+        event = handler.verify_and_parse_event(core_req)
+
+        # Step 4: Pattern match for orderUpdated only.
+        if isinstance(event, OrderUpdatedEvent):
+            return Response(status=200)
+        elif isinstance(event, SignatureVerificationFailure):
+            print("Signature verification failed")
+            # TODO: add signature verification failure handling
+        elif isinstance(event, UnknownEvent):
+            print("Unknown event")
+            # TODO: add unknown event handling
+
+        return Response(status=400)
+    return app

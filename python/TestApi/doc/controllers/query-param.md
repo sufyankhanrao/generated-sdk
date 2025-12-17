@@ -1,0 +1,870 @@
+# Query Param
+
+```python
+query_param_controller = client.query_param
+```
+
+## Class Name
+
+`QueryParamController`
+
+## Methods
+
+* [Date Array](../../doc/controllers/query-param.md#date-array)
+* [Optional Dynamic Query Param](../../doc/controllers/query-param.md#optional-dynamic-query-param)
+* [Date](../../doc/controllers/query-param.md#date)
+* [Unix Date Time Array](../../doc/controllers/query-param.md#unix-date-time-array)
+* [Unix Date Time](../../doc/controllers/query-param.md#unix-date-time)
+* [Rfc 1123 Date Time](../../doc/controllers/query-param.md#rfc-1123-date-time)
+* [Rfc 1123 Date Time Array](../../doc/controllers/query-param.md#rfc-1123-date-time-array)
+* [Rfc 3339 Date Time Array](../../doc/controllers/query-param.md#rfc-3339-date-time-array)
+* [Rfc 3339 Date Time](../../doc/controllers/query-param.md#rfc-3339-date-time)
+* [No Params](../../doc/controllers/query-param.md#no-params)
+* [String Param](../../doc/controllers/query-param.md#string-param)
+* [Url Param](../../doc/controllers/query-param.md#url-param)
+* [Number Array](../../doc/controllers/query-param.md#number-array)
+* [String Array](../../doc/controllers/query-param.md#string-array)
+* [Simple Query](../../doc/controllers/query-param.md#simple-query)
+* [String Enum Array](../../doc/controllers/query-param.md#string-enum-array)
+* [Multiple Params](../../doc/controllers/query-param.md#multiple-params)
+* [Integer Enum Array](../../doc/controllers/query-param.md#integer-enum-array)
+* [Send Indexed Complex Type in Query](../../doc/controllers/query-param.md#send-indexed-complex-type-in-query)
+* [Send Indexed List of Complex Type in Query](../../doc/controllers/query-param.md#send-indexed-list-of-complex-type-in-query)
+* [Send Indexed Map of Complex Type in Query](../../doc/controllers/query-param.md#send-indexed-map-of-complex-type-in-query)
+
+
+# Date Array
+
+```python
+def date_array(self,
+              dates)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `dates` | `List[date]` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+dates = [
+    dateutil.parser.parse('2016-03-13').date(),
+    dateutil.parser.parse('2016-03-13').date()
+]
+
+result = query_param_controller.date_array(dates)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Optional Dynamic Query Param
+
+get optional dynamic query parameter
+
+```python
+def optional_dynamic_query_param(self,
+                                name,
+                                _optional_query_parameters=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `name` | `str` | Query, Required | - |
+| `_optional_query_parameters` | `array` | Optional | Pass additional query parameters. |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+name = 'name0'
+
+_optional_query_parameters = {
+    'key0': 'additionalQueryParams2'
+}
+
+result = query_param_controller.optional_dynamic_query_param(
+    name,
+    _optional_query_parameters=_optional_query_parameters
+)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Date
+
+```python
+def date(self,
+        date)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `date` | `date` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+date = dateutil.parser.parse('2016-03-13').date()
+
+result = query_param_controller.date(date)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Unix Date Time Array
+
+```python
+def unix_date_time_array(self,
+                        datetimes)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `datetimes` | `List[datetime]` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+datetimes = [
+    dateutil.datetime.utcfromtimestamp(1480809600),
+    dateutil.datetime.utcfromtimestamp(1480809600),
+    dateutil.datetime.utcfromtimestamp(1480809600)
+]
+
+result = query_param_controller.unix_date_time_array(datetimes)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Unix Date Time
+
+```python
+def unix_date_time(self,
+                  datetime)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `datetime` | `datetime` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+datetime = dateutil.datetime.utcfromtimestamp(1480809600)
+
+result = query_param_controller.unix_date_time(datetime)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Rfc 1123 Date Time
+
+```python
+def rfc_1123_date_time(self,
+                      datetime)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `datetime` | `datetime` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+datetime = APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime
+
+result = query_param_controller.rfc_1123_date_time(datetime)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Rfc 1123 Date Time Array
+
+```python
+def rfc_1123_date_time_array(self,
+                            datetimes)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `datetimes` | `List[datetime]` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+datetimes = [
+    APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
+    APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
+    APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime
+]
+
+result = query_param_controller.rfc_1123_date_time_array(datetimes)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Rfc 3339 Date Time Array
+
+```python
+def rfc_3339_date_time_array(self,
+                            datetimes)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `datetimes` | `List[datetime]` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+datetimes = [
+    dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
+    dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
+    dateutil.parser.parse('2016-03-13T12:52:32.123Z')
+]
+
+result = query_param_controller.rfc_3339_date_time_array(datetimes)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Rfc 3339 Date Time
+
+```python
+def rfc_3339_date_time(self,
+                      datetime)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `datetime` | `datetime` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+datetime = dateutil.parser.parse('2016-03-13T12:52:32.123Z')
+
+result = query_param_controller.rfc_3339_date_time(datetime)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# No Params
+
+```python
+def no_params(self)
+```
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+result = query_param_controller.no_params()
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# String Param
+
+```python
+def string_param(self,
+                string)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `string` | `str` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+string = 'string4'
+
+result = query_param_controller.string_param(string)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Url Param
+
+```python
+def url_param(self,
+             url)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `url` | `str` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+url = 'url4'
+
+result = query_param_controller.url_param(url)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Number Array
+
+```python
+def number_array(self,
+                integers)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `integers` | `List[int]` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+integers = [
+    45,
+    46,
+    47
+]
+
+result = query_param_controller.number_array(integers)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# String Array
+
+```python
+def string_array(self,
+                strings)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `strings` | `List[str]` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+strings = [
+    'strings5'
+]
+
+result = query_param_controller.string_array(strings)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Simple Query
+
+```python
+def simple_query(self,
+                boolean,
+                number,
+                string,
+                _optional_query_parameters=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `boolean` | `bool` | Query, Required | - |
+| `number` | `int` | Query, Required | - |
+| `string` | `str` | Query, Required | - |
+| `_optional_query_parameters` | `array` | Optional | Pass additional query parameters. |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+boolean = False
+
+number = 158
+
+string = 'string4'
+
+_optional_query_parameters = {
+    'key0': 'additionalQueryParams2'
+}
+
+result = query_param_controller.simple_query(
+    boolean,
+    number,
+    string,
+    _optional_query_parameters=_optional_query_parameters
+)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# String Enum Array
+
+```python
+def string_enum_array(self,
+                     days)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `days` | [`List[Days1Enum]`](../../doc/models/days-1-enum.md) | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+days = [
+    Days1Enum.SUNDAY,
+    Days1Enum.MONDAY,
+    Days1Enum.TUESDAY
+]
+
+result = query_param_controller.string_enum_array(days)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Multiple Params
+
+```python
+def multiple_params(self,
+                   number,
+                   precision,
+                   string,
+                   url)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `number` | `int` | Query, Required | - |
+| `precision` | `float` | Query, Required | - |
+| `string` | `str` | Query, Required | - |
+| `url` | `str` | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+number = 158
+
+precision = 112.04
+
+string = 'string4'
+
+url = 'url4'
+
+result = query_param_controller.multiple_params(
+    number,
+    precision,
+    string,
+    url
+)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Integer Enum Array
+
+```python
+def integer_enum_array(self,
+                      suites)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `suites` | [`List[SuiteCodeEnum]`](../../doc/models/suite-code-enum.md) | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+suites = [
+    SuiteCodeEnum.HEARTS,
+    SuiteCodeEnum.SPADES,
+    SuiteCodeEnum.CLUBS
+]
+
+result = query_param_controller.integer_enum_array(suites)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Send Indexed Complex Type in Query
+
+```python
+def send_indexed_complex_type_in_query(self,
+                                      complex_type)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `complex_type` | [`ComplexType`](../../doc/models/complex-type.md) | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+complex_type = ComplexType(
+    number_list_type=[
+        232
+    ],
+    number_map_type={
+        'key0': 149,
+        'key1': 150
+    },
+    inner_complex_type=InnerComplexType(
+        string_type='stringType8',
+        boolean_type=False,
+        date_time_type=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
+        date_type=dateutil.parser.parse('2016-03-13').date(),
+        uuid_type='00001742-0000-0000-0000-000000000000',
+        long_type=40,
+        precision_type=8.18,
+        object_type=jsonpickle.decode('{"key1":"val1","key2":"val2"}'),
+        string_list_type=[
+            'stringListType8'
+        ]
+    ),
+    inner_complex_list_type=[
+        InnerComplexType(
+            string_type='stringType0',
+            boolean_type=False,
+            date_time_type=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
+            date_type=dateutil.parser.parse('2016-03-13').date(),
+            uuid_type='00001992-0000-0000-0000-000000000000',
+            long_type=88,
+            precision_type=70.1,
+            object_type=jsonpickle.decode('{"key1":"val1","key2":"val2"}'),
+            string_list_type=[
+                'stringListType0',
+                'stringListType1',
+                'stringListType2'
+            ]
+        )
+    ]
+)
+
+result = query_param_controller.send_indexed_complex_type_in_query(complex_type)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Send Indexed List of Complex Type in Query
+
+```python
+def send_indexed_list_of_complex_type_in_query(self,
+                                              complex_type)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `complex_type` | [`List[ComplexType]`](../../doc/models/complex-type.md) | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+complex_type = [
+    ComplexType(
+        number_list_type=[
+            232
+        ],
+        number_map_type={
+            'key0': 149,
+            'key1': 150
+        },
+        inner_complex_type=InnerComplexType(
+            string_type='stringType8',
+            boolean_type=False,
+            date_time_type=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
+            date_type=dateutil.parser.parse('2016-03-13').date(),
+            uuid_type='00001742-0000-0000-0000-000000000000',
+            long_type=40,
+            precision_type=8.18,
+            object_type=jsonpickle.decode('{"key1":"val1","key2":"val2"}'),
+            string_list_type=[
+                'stringListType8'
+            ]
+        ),
+        inner_complex_list_type=[
+            InnerComplexType(
+                string_type='stringType0',
+                boolean_type=False,
+                date_time_type=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
+                date_type=dateutil.parser.parse('2016-03-13').date(),
+                uuid_type='00001992-0000-0000-0000-000000000000',
+                long_type=88,
+                precision_type=70.1,
+                object_type=jsonpickle.decode('{"key1":"val1","key2":"val2"}'),
+                string_list_type=[
+                    'stringListType0',
+                    'stringListType1',
+                    'stringListType2'
+                ]
+            )
+        ]
+    )
+]
+
+result = query_param_controller.send_indexed_list_of_complex_type_in_query(complex_type)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Send Indexed Map of Complex Type in Query
+
+```python
+def send_indexed_map_of_complex_type_in_query(self,
+                                             complex_type)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `complex_type` | [`Dict[str, ComplexType]`](../../doc/models/complex-type.md) | Query, Required | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+
+## Example Usage
+
+```python
+complex_type = {
+    'key0': ComplexType(
+        number_list_type=[
+            232
+        ],
+        number_map_type={
+            'key0': 149,
+            'key1': 150
+        },
+        inner_complex_type=InnerComplexType(
+            string_type='stringType8',
+            boolean_type=False,
+            date_time_type=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
+            date_type=dateutil.parser.parse('2016-03-13').date(),
+            uuid_type='00001742-0000-0000-0000-000000000000',
+            long_type=40,
+            precision_type=8.18,
+            object_type=jsonpickle.decode('{"key1":"val1","key2":"val2"}'),
+            string_list_type=[
+                'stringListType8'
+            ]
+        ),
+        inner_complex_list_type=[
+            InnerComplexType(
+                string_type='stringType0',
+                boolean_type=False,
+                date_time_type=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
+                date_type=dateutil.parser.parse('2016-03-13').date(),
+                uuid_type='00001992-0000-0000-0000-000000000000',
+                long_type=88,
+                precision_type=70.1,
+                object_type=jsonpickle.decode('{"key1":"val1","key2":"val2"}'),
+                string_list_type=[
+                    'stringListType0',
+                    'stringListType1',
+                    'stringListType2'
+                ]
+            )
+        ]
+    )
+}
+
+result = query_param_controller.send_indexed_map_of_complex_type_in_query(complex_type)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+

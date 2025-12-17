@@ -1,0 +1,15 @@
+
+# Send Collect Params Input Query Date Time
+
+## Data Type
+
+`date | datetime`
+
+## Cases
+
+| Type |
+|  --- |
+| `date` |
+| `datetime` |
+| `datetime` |
+

@@ -1,0 +1,360 @@
+# -*- coding: utf-8 -*-
+
+"""
+jsonvaluetester
+
+This file was automatically generated for Stamplay by APIMATIC v3.0 (
+ https://www.apimatic.io ).
+"""
+
+from jsonvaluetester.api_helper import APIHelper
+from jsonvaluetester.configuration import Server
+from jsonvaluetester.http.api_response import ApiResponse
+from jsonvaluetester.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from jsonvaluetester.http.http_method_enum import HttpMethodEnum
+from jsonvaluetester.models.server_response import ServerResponse
+from jsonvaluetester.models.value_container import ValueContainer
+
+
+class JsonValController(BaseController):
+
+    """A Controller to access Endpoints in the jsonvaluetester API."""
+    def __init__(self, config):
+        super(JsonValController, self).__init__(config)
+
+    def send_valuein_model(self,
+                           body):
+        """Does a POST request to /body/sendValueInModel.
+
+        Send Value in Model
+
+        Args:
+            body (ValueContainer): The request body parameter.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path('/body/sendValueInModel')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('application/json'))
+            .body_param(Parameter()
+                        .value(body)
+                        .is_required(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+        ).response(
+            ResponseHandler()
+            .is_nullify404(True)
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
+        ).execute()
+
+    def send_valueas_body(self,
+                          body):
+        """Does a POST request to /body/sendValue.
+
+        Send Value as Body
+
+        Args:
+            body (Any): The request body parameter.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path('/body/sendValue')
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                          .key('Content-Type')
+                          .value('text/plain'))
+            .body_param(Parameter()
+                        .value(body)
+                        .is_required(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+            .body_serializer(APIHelper.json_serialize)
+        ).response(
+            ResponseHandler()
+            .is_nullify404(True)
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
+        ).execute()
+
+    def send_valueas_form(self,
+                          options=dict()):
+        """Does a POST request to /form/sendValue.
+
+        Send Value as Form
+
+        Args:
+            options (dict, optional): Key-value pairs for any of the
+                parameters to this API Endpoint. All parameters to the
+                endpoint are supplied through the dictionary with their names
+                being the key and their desired values being the value. A list
+                of parameters that can be used are::
+
+                    content_type -- ContentType -- The request header
+                        parameter.
+                    id -- int -- The request form parameter.
+                    model -- Any -- The request form parameter.
+                    model_array -- List[Any] -- The request form parameter.
+                    model_map -- Dict[str, Any] -- The request form parameter.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path('/form/sendValue')
+            .http_method(HttpMethodEnum.POST)
+            .form_param(Parameter()
+                        .key('id')
+                        .value(options.get('id', None))
+                        .is_required(True))
+            .form_param(Parameter()
+                        .key('model')
+                        .value(options.get('model', None))
+                        .is_required(True))
+            .form_param(Parameter()
+                        .key('modelArray')
+                        .value(options.get('model_array', None)))
+            .form_param(Parameter()
+                        .key('modelMap')
+                        .value(options.get('model_map', None)))
+            .header_param(Parameter()
+                          .key('content-type')
+                          .value('application/x-www-form-urlencoded'))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+        ).response(
+            ResponseHandler()
+            .is_nullify404(True)
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
+        ).execute()
+
+    def send_valueas_query(self,
+                           options=dict()):
+        """Does a POST request to /query/sendValue.
+
+        Send Value as Query
+
+        Args:
+            options (dict, optional): Key-value pairs for any of the
+                parameters to this API Endpoint. All parameters to the
+                endpoint are supplied through the dictionary with their names
+                being the key and their desired values being the value. A list
+                of parameters that can be used are::
+
+                    id -- int -- The request query parameter.
+                    model -- Any -- The request query parameter.
+                    model_array -- List[Any] -- The request query parameter.
+                    model_map -- Dict[str, Any] -- The request query parameter.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path('/query/sendValue')
+            .http_method(HttpMethodEnum.POST)
+            .query_param(Parameter()
+                         .key('id')
+                         .value(options.get('id', None))
+                         .is_required(True))
+            .query_param(Parameter()
+                         .key('model')
+                         .value(options.get('model', None))
+                         .is_required(True))
+            .query_param(Parameter()
+                         .key('modelArray')
+                         .value(options.get('model_array', None)))
+            .query_param(Parameter()
+                         .key('modelMap')
+                         .value(options.get('model_map', None)))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+        ).response(
+            ResponseHandler()
+            .is_nullify404(True)
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
+        ).execute()
+
+    def get_value(self):
+        """Does a GET request to /response/getValue.
+
+        Get Value
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path('/response/getValue')
+            .http_method(HttpMethodEnum.GET)
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+        ).response(
+            ResponseHandler()
+            .is_nullify404(True)
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+        ).execute()
+
+    def get_value_array(self):
+        """Does a GET request to /response/getValueArray.
+
+        Get Value Array
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path('/response/getValueArray')
+            .http_method(HttpMethodEnum.GET)
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+        ).response(
+            ResponseHandler()
+            .is_nullify404(True)
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+        ).execute()
+
+    def get_value_map(self):
+        """Does a GET request to /response/getValueMap.
+
+        Get Value Map
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path('/response/getValueMap')
+            .http_method(HttpMethodEnum.GET)
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+        ).response(
+            ResponseHandler()
+            .is_nullify404(True)
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
+        ).execute()
+
+    def get_valuein_model(self):
+        """Does a GET request to /response/getValueInModel.
+
+        Get Value in Model
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path('/response/getValueInModel')
+            .http_method(HttpMethodEnum.GET)
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+        ).response(
+            ResponseHandler()
+            .is_nullify404(True)
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(ValueContainer.from_dictionary)
+            .is_api_response(True)
+        ).execute()

@@ -1,0 +1,14 @@
+
+# Orgs VAS Pinless Debit Conversions Response Creator
+
+## Data Type
+
+`str | LoginsResponse`
+
+## Cases
+
+| Type |
+|  --- |
+| `str` |
+| [`LoginsResponse`](../../../doc/models/logins-response.md) |
+

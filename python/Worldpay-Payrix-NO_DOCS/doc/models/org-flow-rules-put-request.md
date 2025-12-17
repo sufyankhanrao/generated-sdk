@@ -1,0 +1,35 @@
+
+# Org Flow Rules Put Request
+
+## Structure
+
+`OrgFlowRulesPutRequest`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `org_flow` | `str` | Optional | The identifier of the orgFlow resource that this orgFlowActions resource is associated with. |
+| `name` | `str` | Optional | The name of the orgFlowRules resource. |
+| `description` | `str` | Optional | The description of the orgFlowRules resource. |
+| `mtype` | [`OrgFlowRulesTypeEnum`](../../doc/models/org-flow-rules-type-enum.md) | Optional | The type of logic to apply with this OrgFlow Rule.<br><br><details><br><summary>Valid Values</summary><br>- `MCC` - **Type MCC.** The Orgflow applies based on the MCC properties of the merchants.<br>- `Custom` - **Type Custom.** The Orgflow applies based on the custom properties of the entities.<br></details><br> |
+| `value` | `str` | Optional | The value to compare against when evaluating this OrgFlowRule. |
+| `grouping` | `str` | Optional | A name for a group of rules to be applied in conjunction when evaluating this OrgFlow Rule. \nWhen grouping is used the OrgFlow will be allowed to be processed if at least one of the rules are matched. |
+| `inactive` | [`InactiveEnum`](../../doc/models/inactive-enum.md) | Optional | Whether this resource is marked as inactive.<br><br><details><br><summary>Valid Values</summary><br>- `0` - **Active**<br>- `1` - **Inactive**<br></details><br>**Default**: `0`<br> |
+| `frozen` | [`FrozenEnum`](../../doc/models/frozen-enum.md) | Optional | Whether this resource is marked as frozen.<br><br><details><br><summary>Valid Values</summary><br>- `0` - **Not Frozen**<br>- `1` - **Frozen**<br></details><br>**Default**: `0`<br> |
+
+## Example (as JSON)
+
+```json
+{
+  "orgFlow": "t1_ofr_6810c6e4dad2480c7733b00",
+  "name": "Test1",
+  "description": "Test1 Description",
+  "type": "MCC",
+  "value": "0742",
+  "grouping": "portalgroup_2",
+  "inactive": 0,
+  "frozen": 0
+}
+```
+

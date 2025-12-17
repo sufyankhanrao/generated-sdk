@@ -1,0 +1,17 @@
+__all__ = [
+    'base_for_discriminator_in_attribute',
+    'base_for_discriminator_in_element',
+    'attributes_and_elements',
+    'server_response',
+    'simple_attributes',
+    'simple_elements',
+    'single_element_with_node_name',
+    'model_with_nested_attributes_model',
+    'model_with_nested_elements_model',
+    'simple_array',
+    'simple_array_with_element_name',
+    'wrapped_array_with_element_name',
+    'wrapped_array_with_element_and_wrapping_name',
+    'string_enum',
+    'integer_enum',
+]

@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "foxitesigntest"
+description = "This page will help you configure or install the Foxit eSign APIs and SDKs.  To get an overview of Foxit eSign features, please head over to our [Getting Started](https://developers.foxitesign.foxit.com/v/1_0_0#/rest/guides/getting-started) guide.  ## Creating a Developer Account 1. Activate the developer account with Foxit eSign under the API tab in the settings menu. (This menu will only be visible after you have purchased the API service from Foxit eSign.) 1. Fill in the form to obtain your API Key and API Secret under your API settings.  This is how your API information will display:  ![Create Developer Account](https://developers.esigngenie.com/images/createdevacc.png)"
+version = "1.0.0"
+dependencies = ["apimatic-core~=0.2.0, >= 0.2.24", "apimatic-core-interfaces~=0.1.0, >= 0.1.8", "apimatic-requests-client-adapter~=0.1.0, >= 0.1.10", "python-dotenv>=0.21, <2.0"]
+requires-python = ">=3.7"
+[[project.authors]]
+name = "Foxit eSign API Developers"
+email = "api@esigngenie.com"
+
+[project.optional-dependencies]
+testutils = ["pytest>=7.2.2"]
+[tool]
+[tool.setuptools]
+[tool.setuptools.packages]
+[tool.setuptools.packages.find]
+exclude = ["tests", "tests.*"]

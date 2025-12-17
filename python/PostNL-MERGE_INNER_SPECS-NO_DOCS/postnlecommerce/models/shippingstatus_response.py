@@ -1,0 +1,98 @@
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
+
+This file was automatically generated for PostNL by APIMATIC v3.0 (
+ https://www.apimatic.io ).
+"""
+from postnlecommerce.api_helper import APIHelper
+from postnlecommerce.models.complete_status import CompleteStatus
+from postnlecommerce.models.current_status import CurrentStatus
+from postnlecommerce.models.warning_2 import Warning2
+
+
+class ShippingstatusResponse(object):
+
+    """Implementation of the 'shippingstatusResponse' model.
+
+    Attributes:
+        complete_status (CompleteStatus): The current status and old statuses
+            of the shipment
+        current_status (CurrentStatus): The current status and old statuses of
+            the shipment
+        warnings (List[Warning2]): Possible warnings (see [Error
+            Codes](https://developer.postnl.nl/docs/#/http/reference-data/error
+            -codes) for possible values)
+
+    """
+
+    # Create a mapping from Model property names to API property names
+    _names = {
+        "complete_status": 'CompleteStatus',
+        "current_status": 'CurrentStatus',
+        "warnings": 'Warnings'
+    }
+
+    _optionals = [
+        'complete_status',
+        'current_status',
+        'warnings',
+    ]
+
+    def __init__(self,
+                 complete_status=APIHelper.SKIP,
+                 current_status=APIHelper.SKIP,
+                 warnings=APIHelper.SKIP):
+        """Constructor for the ShippingstatusResponse class"""
+
+        # Initialize members of the class
+        if complete_status is not APIHelper.SKIP:
+            self.complete_status = complete_status 
+        if current_status is not APIHelper.SKIP:
+            self.current_status = current_status 
+        if warnings is not APIHelper.SKIP:
+            self.warnings = warnings 
+
+    @classmethod
+    def from_dictionary(cls,
+                        dictionary):
+        """Creates an instance of this model from a dictionary
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            object: An instance of this structure class.
+
+        """
+
+        if not isinstance(dictionary, dict) or dictionary is None:
+            return None
+
+        # Extract variables from the dictionary
+        complete_status = CompleteStatus.from_dictionary(dictionary.get('CompleteStatus')) if 'CompleteStatus' in dictionary.keys() else APIHelper.SKIP
+        current_status = CurrentStatus.from_dictionary(dictionary.get('CurrentStatus')) if 'CurrentStatus' in dictionary.keys() else APIHelper.SKIP
+        warnings = None
+        if dictionary.get('Warnings') is not None:
+            warnings = [Warning2.from_dictionary(x) for x in dictionary.get('Warnings')]
+        else:
+            warnings = APIHelper.SKIP
+        # Return an object of this model
+        return cls(complete_status,
+                   current_status,
+                   warnings)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'complete_status={(self.complete_status if hasattr(self, "complete_status") else None)!r}, '
+                f'current_status={(self.current_status if hasattr(self, "current_status") else None)!r}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'complete_status={(self.complete_status if hasattr(self, "complete_status") else None)!s}, '
+                f'current_status={(self.current_status if hasattr(self, "current_status") else None)!s}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!s})')

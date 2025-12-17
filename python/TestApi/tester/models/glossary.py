@@ -1,0 +1,83 @@
+# -*- coding: utf-8 -*-
+
+"""
+tester
+
+This file was automatically generated for Stamplay by APIMATIC v3.0 (
+ https://www.apimatic.io ).
+"""
+from tester.models.gloss_div import GlossDiv
+
+
+class Glossary(object):
+
+    """Implementation of the 'Glossary' model.
+
+    Attributes:
+        title (str): The model property of type str.
+        gloss_div (GlossDiv): The model property of type GlossDiv.
+        additional_properties (Dict[str, object]): The additional properties
+            for the model.
+
+    """
+
+    # Create a mapping from Model property names to API property names
+    _names = {
+        "gloss_div": 'GlossDiv',
+        "title": 'title'
+    }
+
+    def __init__(self,
+                 gloss_div=None,
+                 title=None,
+                 additional_properties=None):
+        """Constructor for the Glossary class"""
+
+        # Initialize members of the class
+        self.title = title 
+        self.gloss_div = gloss_div 
+
+        # Add additional model properties to the instance
+        if additional_properties is None:
+            additional_properties = {}
+        self.additional_properties = additional_properties
+
+    @classmethod
+    def from_dictionary(cls,
+                        dictionary):
+        """Creates an instance of this model from a dictionary
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            object: An instance of this structure class.
+
+        """
+
+        if not isinstance(dictionary, dict) or dictionary is None:
+            return None
+
+        # Extract variables from the dictionary
+        gloss_div = GlossDiv.from_dictionary(dictionary.get('GlossDiv')) if dictionary.get('GlossDiv') else None
+        title = dictionary.get("title") if dictionary.get("title") else None
+        # Clean out expected properties from dictionary
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        # Return an object of this model
+        return cls(gloss_div,
+                   title,
+                   additional_properties)
+
+    def __repr__(self):
+        return (f'{self.__class__.__name__}('
+                f'title={self.title!r}, '
+                f'gloss_div={self.gloss_div!r}, '
+                f'additional_properties={self.additional_properties!r})')
+
+    def __str__(self):
+        return (f'{self.__class__.__name__}('
+                f'title={self.title!s}, '
+                f'gloss_div={self.gloss_div!s}, '
+                f'additional_properties={self.additional_properties!s})')

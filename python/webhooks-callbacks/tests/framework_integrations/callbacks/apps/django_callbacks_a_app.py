@@ -1,0 +1,43 @@
+from django.http import (
+    HttpRequest,
+    JsonResponse
+)
+
+from webhooksandcallbacksapi.events.callbacks.callbacks_a_handler import (
+    CallbacksAHandler
+)
+from webhooksandcallbacksapi.events.signature_verification_failure import (
+    SignatureVerificationFailure
+)
+from webhooksandcallbacksapi.events.unknown_event import (
+    UnknownEvent
+)
+from webhooksandcallbacksapi.models.fulfillment_callback import (
+    FulfillmentCallback
+)
+from webhooksandcallbacksapi.utilities.request_adapter import (
+    to_core_request
+)
+
+def callbacks(request: HttpRequest) -> JsonResponse:
+    # Step 1: Create the handler with your shared secret key.
+    handler = CallbacksAHandler(secret_key="your-shared-secret")
+
+    # Step 2: Convert the incoming request using to_core_request (Django/Flask)
+    #         or await to_core_request_async (FastAPI).
+    core_req = to_core_request(request)
+
+    # Step 3: Verify and parse the request into a typed event.
+    event = handler.verify_and_parse_event(core_req)
+
+    # Step 4: Pattern match for fulfillmentCallback only.
+    if isinstance(event, FulfillmentCallback):
+        return JsonResponse(status=200, data={})
+    elif isinstance(event, SignatureVerificationFailure):
+        print("Signature verification failed")
+        # TODO: add signature verification failure handling
+    elif isinstance(event, UnknownEvent):
+        print("Unknown event")
+        # TODO: add unknown event handling
+
+    return JsonResponse(status=400, data={})

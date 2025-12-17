@@ -1,0 +1,583 @@
+# Charges
+
+```python
+charges_controller = client.charges
+```
+
+## Class Name
+
+`ChargesController`
+
+## Methods
+
+* [Update Charge Metadata](../../doc/controllers/charges.md#update-charge-metadata)
+* [Capture Charge](../../doc/controllers/charges.md#capture-charge)
+* [Get Charge](../../doc/controllers/charges.md#get-charge)
+* [Confirm Payment](../../doc/controllers/charges.md#confirm-payment)
+* [Get Charge Transactions](../../doc/controllers/charges.md#get-charge-transactions)
+* [Update Charge Card](../../doc/controllers/charges.md#update-charge-card)
+* [Create Charge](../../doc/controllers/charges.md#create-charge)
+* [Update Charge Payment Method](../../doc/controllers/charges.md#update-charge-payment-method)
+* [Update Charge Due Date](../../doc/controllers/charges.md#update-charge-due-date)
+* [Get Charges Summary](../../doc/controllers/charges.md#get-charges-summary)
+* [Retry Charge](../../doc/controllers/charges.md#retry-charge)
+* [Get Charges](../../doc/controllers/charges.md#get-charges)
+* [Cancel Charge](../../doc/controllers/charges.md#cancel-charge)
+
+
+# Update Charge Metadata
+
+Updates the metadata from a charge
+
+```python
+def update_charge_metadata(self,
+                          charge_id,
+                          request,
+                          idempotency_key=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `charge_id` | `str` | Template, Required | The charge id |
+| `request` | [`UpdateMetadataRequest`](../../doc/models/update-metadata-request.md) | Body, Required | Request for updating the charge metadata |
+| `idempotency_key` | `str` | Header, Optional | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargeResponse`](../../doc/models/get-charge-response.md).
+
+## Example Usage
+
+```python
+charge_id = 'charge_id8'
+
+request = UpdateMetadataRequest(
+    metadata={
+        'key0': 'metadata3'
+    }
+)
+
+result = charges_controller.update_charge_metadata(
+    charge_id,
+    request
+)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Capture Charge
+
+Captures a charge
+
+```python
+def capture_charge(self,
+                  charge_id,
+                  request=None,
+                  idempotency_key=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `charge_id` | `str` | Template, Required | Charge id |
+| `request` | [`CreateCaptureChargeRequest`](../../doc/models/create-capture-charge-request.md) | Body, Optional | Request for capturing a charge |
+| `idempotency_key` | `str` | Header, Optional | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargeResponse`](../../doc/models/get-charge-response.md).
+
+## Example Usage
+
+```python
+charge_id = 'charge_id8'
+
+result = charges_controller.capture_charge(charge_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Get Charge
+
+Get a charge from its id
+
+```python
+def get_charge(self,
+              charge_id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `charge_id` | `str` | Template, Required | Charge id |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargeResponse`](../../doc/models/get-charge-response.md).
+
+## Example Usage
+
+```python
+charge_id = 'charge_id8'
+
+result = charges_controller.get_charge(charge_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Confirm Payment
+
+```python
+def confirm_payment(self,
+                   charge_id,
+                   request=None,
+                   idempotency_key=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `charge_id` | `str` | Template, Required | - |
+| `request` | [`CreateConfirmPaymentRequest`](../../doc/models/create-confirm-payment-request.md) | Body, Optional | Request for confirm payment |
+| `idempotency_key` | `str` | Header, Optional | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargeResponse`](../../doc/models/get-charge-response.md).
+
+## Example Usage
+
+```python
+charge_id = 'charge_id8'
+
+result = charges_controller.confirm_payment(charge_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Get Charge Transactions
+
+```python
+def get_charge_transactions(self,
+                           charge_id,
+                           page=None,
+                           size=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `charge_id` | `str` | Template, Required | Charge Id |
+| `page` | `int` | Query, Optional | Page number |
+| `size` | `int` | Query, Optional | Page size |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListChargeTransactionsResponse`](../../doc/models/list-charge-transactions-response.md).
+
+## Example Usage
+
+```python
+charge_id = 'charge_id8'
+
+result = charges_controller.get_charge_transactions(charge_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Update Charge Card
+
+Updates the card from a charge
+
+```python
+def update_charge_card(self,
+                      charge_id,
+                      request,
+                      idempotency_key=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `charge_id` | `str` | Template, Required | Charge id |
+| `request` | [`UpdateChargeCardRequest`](../../doc/models/update-charge-card-request.md) | Body, Required | Request for updating a charge's card |
+| `idempotency_key` | `str` | Header, Optional | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargeResponse`](../../doc/models/get-charge-response.md).
+
+## Example Usage
+
+```python
+charge_id = 'charge_id8'
+
+request = UpdateChargeCardRequest(
+    update_subscription=False,
+    card_id='card_id2',
+    card=CreateCardRequest(
+        mtype='credit'
+    ),
+    recurrence=False
+)
+
+result = charges_controller.update_charge_card(
+    charge_id,
+    request
+)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Create Charge
+
+Creates a new charge
+
+```python
+def create_charge(self,
+                 request,
+                 idempotency_key=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `request` | [`CreateChargeRequest`](../../doc/models/create-charge-request.md) | Body, Required | Request for creating a charge |
+| `idempotency_key` | `str` | Header, Optional | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargeResponse`](../../doc/models/get-charge-response.md).
+
+## Example Usage
+
+```python
+request = CreateChargeRequest(
+    amount=242,
+    payment=CreatePaymentRequest(
+        payment_method='payment_method4'
+    ),
+    order_id='order_id0'
+)
+
+result = charges_controller.create_charge(request)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Update Charge Payment Method
+
+Updates a charge's payment method
+
+```python
+def update_charge_payment_method(self,
+                                charge_id,
+                                request,
+                                idempotency_key=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `charge_id` | `str` | Template, Required | Charge id |
+| `request` | [`UpdateChargePaymentMethodRequest`](../../doc/models/update-charge-payment-method-request.md) | Body, Required | Request for updating the payment method from a charge |
+| `idempotency_key` | `str` | Header, Optional | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargeResponse`](../../doc/models/get-charge-response.md).
+
+## Example Usage
+
+```python
+charge_id = 'charge_id8'
+
+request = UpdateChargePaymentMethodRequest(
+    update_subscription=False,
+    payment_method='payment_method4',
+    credit_card=CreateCreditCardPaymentRequest(
+        installments=1,
+        capture=True,
+        recurrency_cycle='"first" or "subsequent"'
+    ),
+    debit_card=CreateDebitCardPaymentRequest(),
+    boleto=CreateBoletoPaymentRequest(
+        retries=226,
+        instructions='instructions2',
+        billing_address=CreateAddressRequest(
+            street='street8',
+            number='number4',
+            zip_code='zip_code2',
+            neighborhood='neighborhood4',
+            city='city2',
+            state='state6',
+            country='country2',
+            complement='complement6',
+            line_1='line_18',
+            line_2='line_26'
+        ),
+        document_number='document_number6',
+        statement_descriptor='statement_descriptor0'
+    ),
+    voucher=CreateVoucherPaymentRequest(
+        recurrency_cycle='"first" or "subsequent"'
+    ),
+    cash=CreateCashPaymentRequest(
+        description='description0',
+        confirm=False
+    ),
+    bank_transfer=CreateBankTransferPaymentRequest(
+        bank='bank0',
+        retries=236
+    ),
+    private_label=CreatePrivateLabelPaymentRequest(
+        installments=1,
+        capture=True,
+        recurrency_cycle='"first" or "subsequent"'
+    )
+)
+
+result = charges_controller.update_charge_payment_method(
+    charge_id,
+    request
+)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Update Charge Due Date
+
+Updates the due date from a charge
+
+```python
+def update_charge_due_date(self,
+                          charge_id,
+                          request,
+                          idempotency_key=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `charge_id` | `str` | Template, Required | Charge Id |
+| `request` | [`UpdateChargeDueDateRequest`](../../doc/models/update-charge-due-date-request.md) | Body, Required | Request for updating the due date |
+| `idempotency_key` | `str` | Header, Optional | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargeResponse`](../../doc/models/get-charge-response.md).
+
+## Example Usage
+
+```python
+charge_id = 'charge_id8'
+
+request = UpdateChargeDueDateRequest()
+
+result = charges_controller.update_charge_due_date(
+    charge_id,
+    request
+)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Get Charges Summary
+
+```python
+def get_charges_summary(self,
+                       status,
+                       created_since=None,
+                       created_until=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `status` | `str` | Query, Required | - |
+| `created_since` | `datetime` | Query, Optional | - |
+| `created_until` | `datetime` | Query, Optional | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargesSummaryResponse`](../../doc/models/get-charges-summary-response.md).
+
+## Example Usage
+
+```python
+status = 'status8'
+
+result = charges_controller.get_charges_summary(status)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Retry Charge
+
+Retries a charge
+
+```python
+def retry_charge(self,
+                charge_id,
+                idempotency_key=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `charge_id` | `str` | Template, Required | Charge id |
+| `idempotency_key` | `str` | Header, Optional | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargeResponse`](../../doc/models/get-charge-response.md).
+
+## Example Usage
+
+```python
+charge_id = 'charge_id8'
+
+result = charges_controller.retry_charge(charge_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Get Charges
+
+Lists all charges
+
+```python
+def get_charges(self,
+               page=None,
+               size=None,
+               code=None,
+               status=None,
+               payment_method=None,
+               customer_id=None,
+               order_id=None,
+               created_since=None,
+               created_until=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `page` | `int` | Query, Optional | Page number |
+| `size` | `int` | Query, Optional | Page size |
+| `code` | `str` | Query, Optional | Filter for charge's code |
+| `status` | `str` | Query, Optional | Filter for charge's status |
+| `payment_method` | `str` | Query, Optional | Filter for charge's payment method |
+| `customer_id` | `str` | Query, Optional | Filter for charge's customer id |
+| `order_id` | `str` | Query, Optional | Filter for charge's order id |
+| `created_since` | `datetime` | Query, Optional | Filter for the beginning of the range for charge's creation |
+| `created_until` | `datetime` | Query, Optional | Filter for the end of the range for charge's creation |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListChargesResponse`](../../doc/models/list-charges-response.md).
+
+## Example Usage
+
+```python
+result = charges_controller.get_charges()
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+
+# Cancel Charge
+
+Cancel a charge
+
+```python
+def cancel_charge(self,
+                 charge_id,
+                 request=None,
+                 idempotency_key=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `charge_id` | `str` | Template, Required | Charge id |
+| `request` | [`CreateCancelChargeRequest`](../../doc/models/create-cancel-charge-request.md) | Body, Optional | Request for cancelling a charge |
+| `idempotency_key` | `str` | Header, Optional | - |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetChargeResponse`](../../doc/models/get-charge-response.md).
+
+## Example Usage
+
+```python
+charge_id = 'charge_id8'
+
+result = charges_controller.cancel_charge(charge_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+

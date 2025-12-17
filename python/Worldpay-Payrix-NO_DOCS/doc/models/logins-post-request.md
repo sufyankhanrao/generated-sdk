@@ -1,0 +1,91 @@
+
+# Logins Post Request
+
+## Structure
+
+`LoginsPostRequest`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `login` | `str` | Optional | The parent user that owns this user. Defaults to authenticated user’s ID if no value is explicitly set. |
+| `partition` | `str` | Required | The partition that this Login is associated with. The partition association is required and opens access to partition-level administrators on this user and all records owned by this user. Defaults to authenticated user’s partition if no value is explicitly set. |
+| `division` | str \| [divisionsPostRequest1](../../doc/models/divisions-post-request-1.md) \| None | Optional | This is a container for any-of cases. |
+| `parent_division` | `str` | Optional | The parent division that this Login belongs to. Children of this Login will inherit its parent division. The parentDivision association may be used for whitelabeling the user experience for parent divisions that have implemented a whitelabel solution (as long as the child division that the user is associated with has not implemented their own). Defaults to authenticated user’s parentDivision if no value is explicitly set. |
+| `roles` | `int` | Required | The roles associated with this Login, specified as an integer. <details> <summary>Single Roles- Valid Values</summary> <ul> <li><code>16</code> - Entity</li> <li><code>64</code> - Vendor</li> <li><code>128</code> - Merchant</li> <li><code>256</code> - Create Merchant</li> <li><code>512</code> - Password</li> <li><code>1024</code> - Log</li> <li><code>2048</code> - Unfreeze</li> <li><code>4096</code> - Modify Roles</li> <li><code>8192</code> - Payment IDs</li> <li><code>65536</code> - MCC</li> <li><code>131072</code> - TXN Report</li> <li><code>262144</code> - Disbursement</li> <li><code>524288</code> - Fund Reserve</li> <li><code>1048576</code> - Platform Refs</li> <li><code>2097152</code> - Verification</li> <li><code>4194304</code> - Fee</li> <li><code>8388608</code> - Challenge</li> <li><code>16777216</code> - Reserve TXN</li> <li><code>33554432</code> - Set Boarded</li> <li><code>67108864</code> - Assessment</li> <li><code>134217728</code> - Adjustment</li> <li><code>268435456</code> - Merchant Flow</li> <li><code>1073741824</code> - Confirm Email</li> <li><code>2147483648</code> - TIN Status</li> <li><code>4294967296</code> - Entity Route</li> <li><code>8589934592</code> - Files</li> <li><code>17179869184</code> - Unmask Private</li> <li><code>34359738368</code> - Unmask Bank</li> <li><code>68719476736</code> - Thread Create</li> <li><code>137438953472</code> - BIN Query</li> <li><code>274877906944</code> - BIN Change</li> <li><code>1099511627776</code> - Assessment View</li> <li><code>17592186044416</code> - Entity Return</li> <li><code>70368744177664</code> - Watchlist</li> <li><code>140737488355328</code> - Profit Share</li> <li><code>281474976710656</code> - MFA</li> </ul> </details> <details> <summary>Multi-Roles- Valid Values</summary> <ul> <li><code>144</code> - Entity, Merchant</li> <li><code>192</code> - Vendor, Merchant</li> <li><code>208</code> - Entity, Vendor, Merchant</li> <li><code>320</code> - Vendor, Create Merchant</li> <li><code>384</code> - Merchant, Create Merchant</li> <li><code>400</code> - Entity, Merchant, Create Merchant</li> <li><code>131136</code> - Vendor, TXN Report</li> <li><code>131200</code> - Merchant, TXN Report</li> <li><code>131456</code> - Merchant, Create Merchant, TXN Report</li> <li><code>1048640</code> - Vendor, Platform Refs</li> <li><code>1048704</code> - Merchant, Platform Refs</li> <li><code>1048768</code> - Vendor, Merchant, Platform Refs</li> <li><code>2097216</code> - Vendor, Verification</li> <li><code>4194368</code> - Vendor, Fee</li> <li><code>4194384</code> - Entity, Vendor, Fee</li> <li><code>134217792</code> - Vendor, Adjustment</li> <li><code>268435584</code> - Merchant, Merchant Flow</li> <li><code>272630160</code> - Entity, Merchant, Create Merchant, Fee, Merchant Flow</li> <li><code>272630224</code> - Entity, Vendor, Merchant, Create Merchant, Fee, Merchant Flow</li> <li><code>273154512</code> - Entity, Vendor, Merchant, Create Merchant, Fund Reserve, Fee, Merchant Flow</li> <li><code>1099511627840</code> - Vendor, Assessment View</li> <li><code>1099511758912</code> - Vendor, TXN Report, Assessment View</li> </ul> </details><br><br>**Default**: `0` |
+| `username` | `str` | Required | The username associated with this Login.<br>This field is stored as a text string, all lowercase, and must be between 0 and 50 characters long. |
+| `password` | `str` | Required | The password associated with this Login.<br>This field is stored as a text string and must be between 0 and 100 characters long. |
+| `first` | `str` | Required | The first name associated with this Login. |
+| `middle` | `str` | Optional | The middle name associated with this Login. |
+| `last` | `str` | Required | The last name associated with this Login. |
+| `email` | `str` | Required | The email address associated with this Login. |
+| `allowed_resources` | `str` | Required | The allowedResources field specifies the actions and resources a user can access. The JSON structure includes action keys (create, update, read, delete, totals) and lists of resources (e.g., logins, apikeys, sessions). Omitted action keys indicate no access for those actions. <details> <summary>Instructions</summary> In addition to the roles for this login, you can specify API functionality by creating a JSON object as the value for this field using with data arrays titled: <code>”create”: []</code>, <code>”read”: []</code>, <code>”update”: []</code>, <code>”delete”: []</code>, and <code>”totals”: []</code> for their API CRUD functions <code>POST</code>, <code>GET</code>, <code>PUT</code>, <code>DELETE</code> with the <code>totals</code> array setting users ability to calculate and report on disbursements, funds, and other monetary totals relevant to the specified endpoint resources. Add the names of each endpoint resource separated by a comma (<code>,</code>) for which you want to provide functionality.<br>For example, <code>{ "create": ["payouts"] }</code> allows this login to create payout transactions using the <code>POST /payouts</code> API request method.<br><br><ul> <li><strong>Note:</strong> Resources are case sensitive. Our API uses <a href="https://en.wikipedia.org/wiki/Camel_case">camelCase</a>. If you are unsure of formatting, refer to the API specification to copy the exact endpoint title without the initial forward slash ( / ) for the relevant allowedResources or restrictedResources arrays.</li> </ul><br></details><br> |
+| `restricted_resources` | `str` | Required | The restrictedResources field defines the actions and resources a user is restricted from accessing. The JSON structure includes action keys (create, update, read, delete, totals) and lists of resources (e.g., logins, apikeys, sessions). Omitted action keys indicate no restrictions for those actions. <details> <summary>Instructions</summary> In addition to the roles for this login, you can specify API functionality by creating a JSON object as the value for this field using with data arrays titled: <code>”create”: []</code>, <code>”read”: []</code>, <code>”update”: []</code>, <code>”delete”: []</code>, and <code>”totals”: []</code> for their API CRUD functions <code>POST</code>, <code>GET</code>, <code>PUT</code>, <code>DELETE</code> with the <code>totals</code> array setting users ability to calculate and report on disbursements, funds, and other monetary totals relevant to the specified endpoint resources. Add the names of each endpoint resource separated by a comma (<code>,</code>) for which you want to provide functionality.<br>For example, <code>{ "create": ["payouts"] }</code> allows this login to create payout transactions using the <code>POST /payouts</code> API request method.<br><br><ul> <li><strong>Note:</strong> Resources are case sensitive. Our API uses <a href="https://en.wikipedia.org/wiki/Camel_case">camelCase</a>. If you are unsure of formatting, refer to the API specification to copy the exact endpoint title without the initial forward slash ( / ) for the relevant allowedResources or restrictedResources arrays.</li> </ul><br></details><br> |
+| `portal_access` | [`PortalAccessEnum`](../../doc/models/portal-access-enum.md) | Required | Whether or not this user should have access to portal functionality.<br><br><details><br><summary>Valid Values</summary><br>- `0` - **No Portal access.**<br>- `1` - **Portal access.**<br><br></details><br>**Default**: `1`<br> |
+| `mfa_enabled` | [`MfaEnabledEnum`](../../doc/models/mfa-enabled-enum.md) | Required | Whether or not this user should have multi factor authentication (MFA) feature.<br><br><details><br><summary>Valid Values</summary><br>- `0` - **Disabled**<br>- `1` - **Enabled**<br></details><br> |
+| `mfa_secret` | `str` | Optional | The MFA secret key used to link the MFA device with this Login.<br>This field is stored as a text string and must be between 1 and 128 characters long. |
+| `mfa_enrolled_date` | `str` | Optional | The datetimestamp when this Login was enabled for MFA.<br><br>**Constraints**: *Pattern*: `^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}` |
+| `mfa_type` | `str` | Optional | The Type of the MFA enrolled.<br>This field is stored as a text string and must be between 1 and 50 characters long. |
+| `address_1` | `str` | Optional | The first line of the address associated with this Login.<br>This field is stored as a text string and must be between 1 and 500 characters long. |
+| `address_2` | `str` | Optional | The second line of the address associated with this Login.<br>This field is stored as a text string and must be between 1 and 500 characters long. |
+| `city` | `str` | Optional | The name of the city in the address associated with this Login.<br>This field is stored as a text string and must be between 1 and 500 characters long. |
+| `state` | `str` | Optional | The U.S. state or Canadian province relevant to the address provided here. If the location is within the U.S. and Canada, specify the 2-character postal abbreviation for the state. If the location is outside of the U.S. and Canada, provide the full state name. This field is stored as a text string and must be between 2 and 100 characters long.<br><br><details><br><summary>U.S. States</summary><br> <br> - `AK` - **Alaska (US)**<br> <br> - `AR` - **Arkansas (US)**<br> <br> - `AL` - **Alabama (US)**<br> <br> - `AZ` - **Arizona (US)**<br> <br> - `CA` - **California (US)**<br> <br> - `CO` - **Colorado (US)**<br> <br> - `CT` - **Connecticut (US)**<br> <br> - `DE` - **Delaware (US)**<br> <br> - `FL` - **Florida (US)**<br> <br> - `GA` - **Georgia (US)**<br> <br> - `HI` - **Hawaii (US)**<br> <br> - `IA` - **Iowa (US)**<br> <br> - `ID` - **Idaho (US)**<br> <br> - `IL` - **Illinois (US)**<br> <br> - `IN` - **Indiana (US)**<br> <br> - `KY` - **Kentucky (US)**<br> <br> - `KS` - **Kansas (US)**<br> <br> - `LA` - **Louisiana (US)**<br> <br> - `MA` - **Massachusetts (US)**<br> <br> - `MD` - **Maryland (US)**<br> <br> - `ME` - **Maine (US)**<br> <br> - `MI` - **Michigan (US)**<br> <br> - `MN` - **Minnesota (US)**<br> <br> - `MO` - **Missouri (US)**<br> <br> - `MS` - **Mississippi (US)**<br> <br> - `MT` - **Montana (US)**<br> <br> - `NC` - **North Carolina (US)**<br> <br> - `ND` - **North Dakota (US)**<br> <br> - `NE` - **Nebraska (US)**<br> <br> - `NH` - **New Hampshire (US)**<br> <br> - `NJ` - **New Jersey (US)**<br> <br> - `NM` - **New Mexico (US)**<br> <br> - `NV` - **Nevada (US)**<br> <br> - `NY` - **New York (US)**<br> <br> - `OH` - **Ohio (US)**<br> <br> - `OK`- **Oklahoma (US)**<br> <br> - `OR` - **Oregon (US)**<br> <br> - `PA` - **Pennsylvania (US)**<br> <br> - `RI` - **Rhode Island (US)**<br> <br> - `SC`- **South Carolina (US)**<br> <br> - `SD` - **South Dakota (US)**<br> <br> - `TN` - **Tennessee (US)**<br> <br> - `TX` - **Texas (US)**<br> <br> - `UT` - **Utah (US)**<br> <br> - `VA` - **Virginia (US)**<br> <br> - `VT` - **Vermont (US)**<br> <br> - `WA` - **Washington (US)**<br> <br> - `WI` - **Wisconsin (US)**<br> <br> - `WV` - **West Virginia (US)**<br> <br> - `WY` - **Wyoming (US)**<br> </details><br> <details><br><summary>Canada Provinces and Territories</summary><br> <br> - `AB` - **Alberta (CAN)**<br> <br> - `BC` - **British Columbia (CAN)**<br> <br> - `MB` - **Manitoba (CAN)**<br> <br> - `ON` - **Ontario (CAN)**<br> <br> - `NS` - **Nova Scotia (CAN)**<br> <br> - `NB` - **New Brunswick (CAN)**<br> <br> - `NL` - **Newfoundland and Labrador (CAN)**<br> <br> - `NT` - **Northwest Territories (CAN)**<br> <br> - `NU` - **Nunavut (CAN)**<br> <br> - `PE` - **Prince Edward Island (CAN)**<br> <br> - `QC` - **Quebec (CAN)**<br> <br> - `SK` - **Saskatchewan (CAN)**<br> <br> - `YT` - **Yukon (CAN)**<br> </details><br> |
+| `zip` | `str` | Optional | The ZIP code in the address associated with this Login.<br>This field is stored as a text string and must be between 1 and 20 characters long. |
+| `country` | [`CountryEnum`](../../doc/models/country-enum.md) | Optional | The country associated with this Customer/InvoiceResult, valid values for this field are the 3-letter ISO code for the country. |
+| `phone` | `str` | Optional | The phone number associated with this Login.<br>This field is stored as a text string and must be between 10 and 15 characters long. |
+| `fax` | `str` | Optional | The fax number associated with this Login.<br>This field is stored as a text string and must be between 10 and 15 characters long. |
+| `inactive` | [`InactiveEnum`](../../doc/models/inactive-enum.md) | Required | Whether this resource is marked as inactive.<br><br><details><br><summary>Valid Values</summary><br>- `0` - **Active**<br>- `1` - **Inactive**<br></details><br>**Default**: `0`<br> |
+| `frozen` | [`FrozenEnum`](../../doc/models/frozen-enum.md) | Required | Whether this resource is marked as frozen.<br><br><details><br><summary>Valid Values</summary><br>- `0` - **Not Frozen**<br>- `1` - **Frozen**<br></details><br>**Default**: `0`<br> |
+| `aggregations` | [`List[AggregationsPostRequest]`](../../doc/models/aggregations-post-request.md) | Optional | - |
+| `customers` | [`List[CustomersPostRequest]`](../../doc/models/customers-post-request.md) | Optional | - |
+| `billings` | [`List[BillingsPostRequest]`](../../doc/models/billings-post-request.md) | Optional | - |
+| `divisions` | [`List[DivisionsPostRequest]`](../../doc/models/divisions-post-request.md) | Optional | - |
+| `entities` | [`List[EntitiesPostRequest]`](../../doc/models/entities-post-request.md) | Optional | - |
+| `invoice_parameters` | [`List[InvoiceParametersPostRequest]`](../../doc/models/invoice-parameters-post-request.md) | Optional | - |
+| `message_threads` | [`List[MessageThreadsPostRequest]`](../../doc/models/message-threads-post-request.md) | Optional | - |
+| `notes` | [`List[NotesPostRequest]`](../../doc/models/notes-post-request.md) | Optional | - |
+| `org_flows` | [`List[OrgFlowsPostRequest]`](../../doc/models/org-flows-post-request.md) | Optional | - |
+| `org_flowsforlogin` | [`List[OrgFlowsPostRequest]`](../../doc/models/org-flows-post-request.md) | Optional | - |
+| `profit_shares` | [`List[ProfitSharesPostRequest]`](../../doc/models/profit-shares-post-request.md) | Optional | - |
+| `team_logins` | [`List[TeamLoginPostRequest]`](../../doc/models/team-login-post-request.md) | Optional | - |
+| `teams` | [`List[TeamsPostRequest]`](../../doc/models/teams-post-request.md) | Optional | - |
+
+## Example (as JSON)
+
+```json
+{
+  "email": "user2118145526@example.com",
+  "first": "John",
+  "inactive": 0,
+  "frozen": 0,
+  "last": "Doe",
+  "mfaEnabled": 0,
+  "partition": "g157713aff9b946",
+  "division": "t1_div_67c56806728fbbf0bae0b10",
+  "password": "****",
+  "portalAccess": 1,
+  "roles": 64,
+  "username": "user9287347954",
+  "login": "g15967a6e0d7cf6",
+  "parentDivision": "Login belongs to",
+  "allowedResources": "{\"create\":[\"accounts\",\"payouts\"],\"read\":[\"disbursements\",\"disbursementResults\"],\"update\":[\"accounts\",\"payouts\"],\"delete\":[\"accounts\",\"payouts\"],\"totals\":[\"disbursements\",\"disbursementResults\"]}",
+  "restrictedResources": "{\"create\":[\"ltxns\"],\"read\":[\"txnResults\"],\"update\":[\"txns\"],\"delete\":[\"txns\"],\"totals\":[\"txns\"]}",
+  "mfaSecret": "****",
+  "mfaEnrolledDate": "2025-06-16 08:02:53",
+  "mfaType": "totp",
+  "address1": "9337 SPRING CYPRESS RD STE A413",
+  "address2": "Suite 403",
+  "city": "Spring",
+  "state": "TX",
+  "zip": "77379",
+  "country": "USA",
+  "phone": "1028106820",
+  "fax": "1085069293",
+  "loginAsEnabled": 1,
+  "mfaSmsCodesCount": 0,
+  "mfaSmsWindow": 0,
+  "middle": "middle2"
+}
+```
+

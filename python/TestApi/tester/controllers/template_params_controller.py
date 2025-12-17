@@ -1,0 +1,103 @@
+# -*- coding: utf-8 -*-
+
+"""
+tester
+
+This file was automatically generated for Stamplay by APIMATIC v3.0 (
+ https://www.apimatic.io ).
+"""
+
+from tester.api_helper import APIHelper
+from tester.configuration import Server
+from tester.http.api_response import ApiResponse
+from tester.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from tester.http.http_method_enum import HttpMethodEnum
+from tester.models.echo_response import EchoResponse
+
+
+class TemplateParamsController(BaseController):
+
+    """A Controller to access Endpoints in the tester API."""
+    def __init__(self, config):
+        super(TemplateParamsController, self).__init__(config)
+
+    def send_string_array(self,
+                          strings):
+        """Does a GET request to /template/{strings}.
+
+        Args:
+            strings (List[str]): The request template parameter.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path('/template/{strings}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('strings')
+                            .value(strings)
+                            .is_required(True)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+        ).response(
+            ResponseHandler()
+            .is_nullify404(True)
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(EchoResponse.from_dictionary)
+            .is_api_response(True)
+        ).execute()
+
+    def send_integer_array(self,
+                           integers):
+        """Does a GET request to /template/{integers}.
+
+        Args:
+            integers (List[int]): The request template parameter.
+
+        Returns:
+            ApiResponse: An object with the response value as well as other
+                useful information such as status codes and headers.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from
+                the remote API. This exception includes the HTTP Response
+                code, an error message, and the HTTP body that was received in
+                the request.
+
+        """
+
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path('/template/{integers}')
+            .http_method(HttpMethodEnum.GET)
+            .template_param(Parameter()
+                            .key('integers')
+                            .value(integers)
+                            .is_required(True)
+                            .should_encode(True))
+            .header_param(Parameter()
+                          .key('accept')
+                          .value('application/json'))
+        ).response(
+            ResponseHandler()
+            .is_nullify404(True)
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(EchoResponse.from_dictionary)
+            .is_api_response(True)
+        ).execute()

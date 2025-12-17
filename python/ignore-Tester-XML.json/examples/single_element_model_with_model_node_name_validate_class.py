@@ -1,0 +1,25 @@
+from testerxml.configuration import Environment
+from testerxml.exceptions.api_exception import APIException
+from testerxml.models.single_element_with_node_name import SingleElementWithNodeName
+from testerxml.testerxml_client import TesterxmlClient
+
+client = TesterxmlClient(
+    environment=Environment.TESTING
+)
+
+single_element_model_with_model_node_name_controller = client.single_element_model_with_model_node_name
+body = SingleElementWithNodeName(
+    string_element='string-element4'
+)
+
+try:
+    result = single_element_model_with_model_node_name_controller.validate(body)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
+except APIException as e: 
+    print(e)
+

@@ -1,0 +1,131 @@
+import hashlib
+import hmac
+from typing import (
+    Any,
+    Callable,
+    Optional,
+    Union
+)
+
+import unittest
+from apimatic_core.security.signature_verifiers.hmac_signature_verifier import (
+    HexEncoder
+)
+
+from webhooksandcallbacksapi.api_helper import (
+    APIHelper
+)
+from webhooksandcallbacksapi.events.callbacks.callbacks_a_handler import (
+    CallbacksAHandler
+)
+from webhooksandcallbacksapi.events.signature_verification_failure import (
+    SignatureVerificationFailure
+)
+from webhooksandcallbacksapi.events.unknown_event import (
+    UnknownEvent
+)
+from webhooksandcallbacksapi.http.request import (
+    Request
+)
+from webhooksandcallbacksapi.models.fulfillment_callback import (
+    FulfillmentCallback
+)
+
+class TestCallbacksAHandler(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.handler = CallbacksAHandler("dummy_signing_key")
+
+    @staticmethod
+    def _compute_expected_signature(
+        secret_key: str,
+        request: Request,
+        resolver: Optional[Callable[[Request], Union[bytes, None]]] = None,
+    ) -> str:
+        if resolver is None:
+            message = getattr(request, "raw_body", None)
+        else:
+            message = resolver(request)
+
+        digest = hmac.new(secret_key.encode("utf-8"), message, hashlib.sha256).digest()
+        encoded = HexEncoder().encode(digest)
+        signature_value_template = "{digest}"
+        if "{digest}" in signature_value_template:
+            return signature_value_template.replace("{digest}", encoded)
+        else:
+            return signature_value_template
+
+    @staticmethod
+    def _json_bytes(obj: Any) -> bytes:
+        return APIHelper.json_serialize(obj).encode("utf-8")
+
+    @staticmethod
+    def _make_request(body_obj, add_signature_header = True) -> Request:
+        raw = TestCallbacksAHandler._json_bytes(body_obj)
+        request = Request(
+            method="POST",
+            path="/callbacks",
+            url=f"https://example.test/callbacks",
+            headers={"Content-Type": "application/json"},
+            raw_body=raw,
+        )
+        if add_signature_header:
+            request.headers["X-Signature"] = TestCallbacksAHandler._compute_expected_signature(
+                secret_key="dummy_signing_key",
+                request=request,
+            )
+        return request
+
+    def test_fulfillment_callback_from_callbacks_a_handler(self):
+        """
+         Tests the `fulfillmentCallback` event from callbacksAHandler.
+        """
+
+        # arrange
+        event_payload = {
+            "orderId": "order_789",
+            "fulfillmentStatus": "fulfilled",
+            "trackingNumber": "TRK123456789",
+            "carrier": "FedEx",
+            "estimatedDelivery": "2025-09-22",
+            "timestamp": "2025-09-19T14:00:00Z"
+        }
+        core_req = self._make_request(event_payload)
+
+        # act
+        event = self.handler.verify_and_parse_event(core_req)
+
+        # assert
+        assert isinstance(event, FulfillmentCallback)
+
+
+    def test_signature_verification_failure(self):
+        """
+         Tests the `SignatureVerificationFailure` case from CallbacksAHandler.
+        """
+
+        # arrange
+        event_payload = {"key": "value"}
+        core_req = self._make_request(event_payload, False)
+
+        # act
+        event = self.handler.verify_and_parse_event(core_req)
+
+        # assert
+        assert isinstance(event, SignatureVerificationFailure)
+
+
+    def test_unknown_event(self):
+        """
+         Tests the `UnknownEvent` case from CallbacksAHandler.
+        """
+
+        # arrange
+        event_payload = ""
+        core_req = self._make_request(event_payload)
+
+        # act
+        event = self.handler.verify_and_parse_event(core_req)
+
+        # assert
+        assert isinstance(event, UnknownEvent)

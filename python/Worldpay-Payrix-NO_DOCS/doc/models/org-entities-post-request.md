@@ -1,0 +1,23 @@
+
+# Org Entities Post Request
+
+## Structure
+
+`OrgEntitiesPostRequest`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `org` | `str` | Required | The identifier of the Org that this orgEntity is associated with. |
+| `entity` | `str` | Required | The identifier of the Entity that this orgEntity is associated with. |
+
+## Example (as JSON)
+
+```json
+{
+  "org": "t1_org_5b0e08025ec790d3f9b8c11",
+  "entity": "t1_ent_10c99d558e910765c164a01"
+}
+```
+

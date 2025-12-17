@@ -1,0 +1,50 @@
+from payrix.configuration import Environment
+from payrix.exceptions.api_exception import APIException
+from payrix.exceptions.error_four_hundred_exception import ErrorFourHundredException
+from payrix.http.auth.api_key import ApiKeyCredentials
+from payrix.http.auth.session_key import SessionKeyCredentials
+from payrix.http.auth.txn_session_key import TxnSessionKeyCredentials
+from payrix.models.entity_reserves_put_request import EntityReservesPutRequest
+from payrix.payrix_client import PayrixClient
+
+client = PayrixClient(
+    api_key_credentials=ApiKeyCredentials(
+        apikey='APIKEY'
+    ),
+    session_key_credentials=SessionKeyCredentials(
+        sessionkey='SESSIONKEY'
+    ),
+    txn_session_key_credentials=TxnSessionKeyCredentials(
+        txnsessionkey='TXNSESSIONKEY'
+    ),
+    environment=Environment.QA
+)
+
+entity_reserves_controller = client.entity_reserves
+id = 't1_erv_67a0e0072f9c059e59a66b0'
+
+body = EntityReservesPutRequest(
+    total=0,
+    name='EntityReserve1',
+    description='EntityReserve'
+)
+
+request_token = '20250423-yourmerchant-refunds-001'
+
+try:
+    result = entity_reserves_controller.put_entity_reserves_id(
+        id,
+        body,
+        request_token=request_token
+    )
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
+except ErrorFourHundredException as e: 
+    print(e)
+except APIException as e: 
+    print(e)
+
