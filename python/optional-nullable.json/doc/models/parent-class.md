@@ -16,10 +16,10 @@
 | `mclass` | `int` | Optional | **Default**: `23` |
 | `precision` | `float` | Optional | - |
 | `big_decimal` | `float` | Optional | - |
-| `parent_optional_nullable_with_default_value` | `str` | Optional | **Default**: `'Has default value'` |
+| `parent_optional_nullable_with_default_value` | `str` | Optional | **Default**: `"Has default value"` |
 | `parent_optional` | `str` | Optional | - |
 | `parent_required_nullable` | `str` | Required | - |
-| `parent_required` | `str` | Required | **Default**: `'not nullable and required'` |
+| `parent_required` | `str` | Required | **Default**: `"not nullable and required"` |
 
 ## Example (as JSON)
 

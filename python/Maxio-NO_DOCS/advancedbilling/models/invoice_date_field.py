@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class InvoiceDateField(object):
-
     """Implementation of the 'Invoice Date Field' enum.
 
     Attributes:
@@ -22,18 +18,20 @@ class InvoiceDateField(object):
             for the model.
 
     """
-    CREATED_AT = 'created_at'
 
-    DUE_DATE = 'due_date'
+    CREATED_AT = "created_at"
 
-    ISSUE_DATE = 'issue_date'
+    DUE_DATE = "due_date"
 
-    UPDATED_AT = 'updated_at'
+    ISSUE_DATE = "issue_date"
 
-    PAID_DATE = 'paid_date'
+    UPDATED_AT = "updated_at"
+
+    PAID_DATE = "paid_date"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

@@ -135,7 +135,7 @@ def find_submerchants(self,
                      chain_code,
                      from_created_date,
                      to_created_date,
-                     content_type='application/json',
+                     content_type="application/json",
                      sort_by=None,
                      sort_order=None,
                      limit=None,
@@ -152,7 +152,7 @@ def find_submerchants(self,
 | `chain_code` | `str` | Template, Required | The Chain Code a list of submerchants will be returned for |
 | `from_created_date` | `date` | Query, Required | Filter by when the sub-merchant was created |
 | `to_created_date` | `date` | Query, Required | Filter by when the sub-merchant was created |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 | `sort_by` | [`SortByEnum`](../../doc/models/sort-by-enum.md) | Query, Optional | Sort by certain value |
 | `sort_order` | [`SortOrderEnum`](../../doc/models/sort-order-enum.md) | Query, Optional | Sort in ascending or descending order |
 | `limit` | `int` | Query, Optional | Limit of Sub-Merchants to respond. Maximum limit is 10. |
@@ -215,7 +215,7 @@ def find_submerchants_vas(self,
                          vas,
                          from_created_date,
                          to_created_date,
-                         content_type='application/json',
+                         content_type="application/json",
                          sort_by=None,
                          sort_order=None,
                          limit=None,
@@ -233,7 +233,7 @@ def find_submerchants_vas(self,
 | `vas` | [`Vas2Enum`](../../doc/models/vas-2-enum.md) | Template, Required | The Value Added Service a submerchant under a specific Chain is enrolled for |
 | `from_created_date` | `date` | Query, Required | Filter by when the sub-merchant was created |
 | `to_created_date` | `date` | Query, Required | Filter by when the sub-merchant was created |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 | `sort_by` | [`SortByEnum`](../../doc/models/sort-by-enum.md) | Query, Optional | Sort by certain value |
 | `sort_order` | [`SortOrderEnum`](../../doc/models/sort-order-enum.md) | Query, Optional | Sort in ascending or descending order |
 | `limit` | `int` | Query, Optional | Limit of Sub-Merchants to respond. Maximum limit is 10. |
@@ -296,7 +296,7 @@ URI to get information of a PayFac submerchant resource.
 def get_submerchant(self,
                    v_correlation_id,
                    id,
-                   content_type='application/json')
+                   content_type="application/json")
 ```
 
 ## Parameters
@@ -305,7 +305,7 @@ def get_submerchant(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 
@@ -413,7 +413,7 @@ URI to remove a submerchant from the PayFac submerchants collection.
 def delete_submerchant(self,
                       v_correlation_id,
                       id,
-                      content_type='application/json')
+                      content_type="application/json")
 ```
 
 ## Parameters
@@ -422,7 +422,7 @@ def delete_submerchant(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 

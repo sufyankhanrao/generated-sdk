@@ -1,26 +1,43 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.ach_agreement import ACHAgreement
-from advancedbilling.models.agreement_acceptance import AgreementAcceptance
-from advancedbilling.models.bank_account_attributes import BankAccountAttributes
-from advancedbilling.models.calendar_billing import CalendarBilling
-from advancedbilling.models.create_subscription_component import CreateSubscriptionComponent
-from advancedbilling.models.customer_attributes import CustomerAttributes
-from advancedbilling.models.group_settings import GroupSettings
-from advancedbilling.models.payment_profile_attributes import PaymentProfileAttributes
-from advancedbilling.models.subscription_custom_price import SubscriptionCustomPrice
-from advancedbilling.models.upsert_prepaid_configuration import UpsertPrepaidConfiguration
+from advancedbilling.models.ach_agreement import (
+    ACHAgreement,
+)
+from advancedbilling.models.agreement_acceptance import (
+    AgreementAcceptance,
+)
+from advancedbilling.models.bank_account_attributes import (
+    BankAccountAttributes,
+)
+from advancedbilling.models.calendar_billing import (
+    CalendarBilling,
+)
+from advancedbilling.models.create_subscription_component import (
+    CreateSubscriptionComponent,
+)
+from advancedbilling.models.customer_attributes import (
+    CustomerAttributes,
+)
+from advancedbilling.models.group_settings import (
+    GroupSettings,
+)
+from advancedbilling.models.payment_profile_attributes import (
+    PaymentProfileAttributes,
+)
+from advancedbilling.models.subscription_custom_price import (
+    SubscriptionCustomPrice,
+)
+from advancedbilling.models.upsert_prepaid_configuration import (
+    UpsertPrepaidConfiguration,
+)
 
 
 class CreateSubscription(object):
-
     """Implementation of the 'Create Subscription' model.
 
     Attributes:
@@ -208,112 +225,114 @@ class CreateSubscription(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "product_handle": 'product_handle',
-        "product_id": 'product_id',
-        "product_price_point_handle": 'product_price_point_handle',
-        "product_price_point_id": 'product_price_point_id',
-        "custom_price": 'custom_price',
-        "coupon_code": 'coupon_code',
-        "coupon_codes": 'coupon_codes',
-        "payment_collection_method": 'payment_collection_method',
-        "receives_invoice_emails": 'receives_invoice_emails',
-        "net_terms": 'net_terms',
-        "customer_id": 'customer_id',
-        "next_billing_at": 'next_billing_at',
-        "initial_billing_at": 'initial_billing_at',
-        "stored_credential_transaction_id": 'stored_credential_transaction_id',
-        "sales_rep_id": 'sales_rep_id',
-        "payment_profile_id": 'payment_profile_id',
-        "reference": 'reference',
-        "customer_attributes": 'customer_attributes',
-        "payment_profile_attributes": 'payment_profile_attributes',
-        "credit_card_attributes": 'credit_card_attributes',
-        "bank_account_attributes": 'bank_account_attributes',
-        "components": 'components',
-        "calendar_billing": 'calendar_billing',
-        "metafields": 'metafields',
-        "customer_reference": 'customer_reference',
-        "group": 'group',
-        "ref": 'ref',
-        "cancellation_message": 'cancellation_message',
-        "cancellation_method": 'cancellation_method',
-        "currency": 'currency',
-        "expires_at": 'expires_at',
-        "expiration_tracks_next_billing_change": 'expiration_tracks_next_billing_change',
-        "agreement_terms": 'agreement_terms',
-        "authorizer_first_name": 'authorizer_first_name',
-        "authorizer_last_name": 'authorizer_last_name',
-        "calendar_billing_first_charge": 'calendar_billing_first_charge',
-        "reason_code": 'reason_code',
-        "product_change_delayed": 'product_change_delayed',
-        "offer_id": 'offer_id',
-        "prepaid_configuration": 'prepaid_configuration',
-        "previous_billing_at": 'previous_billing_at',
-        "import_mrr": 'import_mrr',
-        "canceled_at": 'canceled_at',
-        "activated_at": 'activated_at',
-        "agreement_acceptance": 'agreement_acceptance',
-        "ach_agreement": 'ach_agreement',
-        "dunning_communication_delay_enabled": 'dunning_communication_delay_enabled',
-        "dunning_communication_delay_time_zone": 'dunning_communication_delay_time_zone',
-        "skip_billing_manifest_taxes": 'skip_billing_manifest_taxes'
+        "product_handle": "product_handle",
+        "product_id": "product_id",
+        "product_price_point_handle": "product_price_point_handle",
+        "product_price_point_id": "product_price_point_id",
+        "custom_price": "custom_price",
+        "coupon_code": "coupon_code",
+        "coupon_codes": "coupon_codes",
+        "payment_collection_method": "payment_collection_method",
+        "receives_invoice_emails": "receives_invoice_emails",
+        "net_terms": "net_terms",
+        "customer_id": "customer_id",
+        "next_billing_at": "next_billing_at",
+        "initial_billing_at": "initial_billing_at",
+        "stored_credential_transaction_id": "stored_credential_transaction_id",
+        "sales_rep_id": "sales_rep_id",
+        "payment_profile_id": "payment_profile_id",
+        "reference": "reference",
+        "customer_attributes": "customer_attributes",
+        "payment_profile_attributes": "payment_profile_attributes",
+        "credit_card_attributes": "credit_card_attributes",
+        "bank_account_attributes": "bank_account_attributes",
+        "components": "components",
+        "calendar_billing": "calendar_billing",
+        "metafields": "metafields",
+        "customer_reference": "customer_reference",
+        "group": "group",
+        "ref": "ref",
+        "cancellation_message": "cancellation_message",
+        "cancellation_method": "cancellation_method",
+        "currency": "currency",
+        "expires_at": "expires_at",
+        "expiration_tracks_next_billing_change":
+            "expiration_tracks_next_billing_change",
+        "agreement_terms": "agreement_terms",
+        "authorizer_first_name": "authorizer_first_name",
+        "authorizer_last_name": "authorizer_last_name",
+        "calendar_billing_first_charge": "calendar_billing_first_charge",
+        "reason_code": "reason_code",
+        "product_change_delayed": "product_change_delayed",
+        "offer_id": "offer_id",
+        "prepaid_configuration": "prepaid_configuration",
+        "previous_billing_at": "previous_billing_at",
+        "import_mrr": "import_mrr",
+        "canceled_at": "canceled_at",
+        "activated_at": "activated_at",
+        "agreement_acceptance": "agreement_acceptance",
+        "ach_agreement": "ach_agreement",
+        "dunning_communication_delay_enabled": "dunning_communication_delay_enabled",
+        "dunning_communication_delay_time_zone":
+            "dunning_communication_delay_time_zone",
+        "skip_billing_manifest_taxes": "skip_billing_manifest_taxes",
     }
 
     _optionals = [
-        'product_handle',
-        'product_id',
-        'product_price_point_handle',
-        'product_price_point_id',
-        'custom_price',
-        'coupon_code',
-        'coupon_codes',
-        'payment_collection_method',
-        'receives_invoice_emails',
-        'net_terms',
-        'customer_id',
-        'next_billing_at',
-        'initial_billing_at',
-        'stored_credential_transaction_id',
-        'sales_rep_id',
-        'payment_profile_id',
-        'reference',
-        'customer_attributes',
-        'payment_profile_attributes',
-        'credit_card_attributes',
-        'bank_account_attributes',
-        'components',
-        'calendar_billing',
-        'metafields',
-        'customer_reference',
-        'group',
-        'ref',
-        'cancellation_message',
-        'cancellation_method',
-        'currency',
-        'expires_at',
-        'expiration_tracks_next_billing_change',
-        'agreement_terms',
-        'authorizer_first_name',
-        'authorizer_last_name',
-        'calendar_billing_first_charge',
-        'reason_code',
-        'product_change_delayed',
-        'offer_id',
-        'prepaid_configuration',
-        'previous_billing_at',
-        'import_mrr',
-        'canceled_at',
-        'activated_at',
-        'agreement_acceptance',
-        'ach_agreement',
-        'dunning_communication_delay_enabled',
-        'dunning_communication_delay_time_zone',
-        'skip_billing_manifest_taxes',
+        "product_handle",
+        "product_id",
+        "product_price_point_handle",
+        "product_price_point_id",
+        "custom_price",
+        "coupon_code",
+        "coupon_codes",
+        "payment_collection_method",
+        "receives_invoice_emails",
+        "net_terms",
+        "customer_id",
+        "next_billing_at",
+        "initial_billing_at",
+        "stored_credential_transaction_id",
+        "sales_rep_id",
+        "payment_profile_id",
+        "reference",
+        "customer_attributes",
+        "payment_profile_attributes",
+        "credit_card_attributes",
+        "bank_account_attributes",
+        "components",
+        "calendar_billing",
+        "metafields",
+        "customer_reference",
+        "group",
+        "ref",
+        "cancellation_message",
+        "cancellation_method",
+        "currency",
+        "expires_at",
+        "expiration_tracks_next_billing_change",
+        "agreement_terms",
+        "authorizer_first_name",
+        "authorizer_last_name",
+        "calendar_billing_first_charge",
+        "reason_code",
+        "product_change_delayed",
+        "offer_id",
+        "prepaid_configuration",
+        "previous_billing_at",
+        "import_mrr",
+        "canceled_at",
+        "activated_at",
+        "agreement_acceptance",
+        "ach_agreement",
+        "dunning_communication_delay_enabled",
+        "dunning_communication_delay_time_zone",
+        "skip_billing_manifest_taxes",
     ]
 
     _nullables = [
-        'dunning_communication_delay_enabled',
-        'dunning_communication_delay_time_zone',
+        "dunning_communication_delay_enabled",
+        "dunning_communication_delay_time_zone",
     ]
 
     def __init__(self,
@@ -367,105 +386,119 @@ class CreateSubscription(object):
                  dunning_communication_delay_time_zone=APIHelper.SKIP,
                  skip_billing_manifest_taxes=False,
                  additional_properties=None):
-        """Constructor for the CreateSubscription class"""
-
+        """Initialize a CreateSubscription instance."""
         # Initialize members of the class
         if product_handle is not APIHelper.SKIP:
-            self.product_handle = product_handle 
+            self.product_handle = product_handle
         if product_id is not APIHelper.SKIP:
-            self.product_id = product_id 
+            self.product_id = product_id
         if product_price_point_handle is not APIHelper.SKIP:
-            self.product_price_point_handle = product_price_point_handle 
+            self.product_price_point_handle = product_price_point_handle
         if product_price_point_id is not APIHelper.SKIP:
-            self.product_price_point_id = product_price_point_id 
+            self.product_price_point_id = product_price_point_id
         if custom_price is not APIHelper.SKIP:
-            self.custom_price = custom_price 
+            self.custom_price = custom_price
         if coupon_code is not APIHelper.SKIP:
-            self.coupon_code = coupon_code 
+            self.coupon_code = coupon_code
         if coupon_codes is not APIHelper.SKIP:
-            self.coupon_codes = coupon_codes 
+            self.coupon_codes = coupon_codes
         if payment_collection_method is not APIHelper.SKIP:
-            self.payment_collection_method = payment_collection_method 
+            self.payment_collection_method = payment_collection_method
         if receives_invoice_emails is not APIHelper.SKIP:
-            self.receives_invoice_emails = receives_invoice_emails 
+            self.receives_invoice_emails = receives_invoice_emails
         if net_terms is not APIHelper.SKIP:
-            self.net_terms = net_terms 
+            self.net_terms = net_terms
         if customer_id is not APIHelper.SKIP:
-            self.customer_id = customer_id 
+            self.customer_id = customer_id
         if next_billing_at is not APIHelper.SKIP:
-            self.next_billing_at = APIHelper.apply_datetime_converter(next_billing_at, APIHelper.RFC3339DateTime) if next_billing_at else None 
+            self.next_billing_at =\
+                 APIHelper.apply_datetime_converter(
+                next_billing_at, APIHelper.RFC3339DateTime) if next_billing_at else None
         if initial_billing_at is not APIHelper.SKIP:
-            self.initial_billing_at = APIHelper.apply_datetime_converter(initial_billing_at, APIHelper.RFC3339DateTime) if initial_billing_at else None 
+            self.initial_billing_at =\
+                 APIHelper.apply_datetime_converter(
+                initial_billing_at, APIHelper.RFC3339DateTime) if initial_billing_at else None
         if stored_credential_transaction_id is not APIHelper.SKIP:
-            self.stored_credential_transaction_id = stored_credential_transaction_id 
+            self.stored_credential_transaction_id = stored_credential_transaction_id
         if sales_rep_id is not APIHelper.SKIP:
-            self.sales_rep_id = sales_rep_id 
+            self.sales_rep_id = sales_rep_id
         if payment_profile_id is not APIHelper.SKIP:
-            self.payment_profile_id = payment_profile_id 
+            self.payment_profile_id = payment_profile_id
         if reference is not APIHelper.SKIP:
-            self.reference = reference 
+            self.reference = reference
         if customer_attributes is not APIHelper.SKIP:
-            self.customer_attributes = customer_attributes 
+            self.customer_attributes = customer_attributes
         if payment_profile_attributes is not APIHelper.SKIP:
-            self.payment_profile_attributes = payment_profile_attributes 
+            self.payment_profile_attributes = payment_profile_attributes
         if credit_card_attributes is not APIHelper.SKIP:
-            self.credit_card_attributes = credit_card_attributes 
+            self.credit_card_attributes = credit_card_attributes
         if bank_account_attributes is not APIHelper.SKIP:
-            self.bank_account_attributes = bank_account_attributes 
+            self.bank_account_attributes = bank_account_attributes
         if components is not APIHelper.SKIP:
-            self.components = components 
+            self.components = components
         if calendar_billing is not APIHelper.SKIP:
-            self.calendar_billing = calendar_billing 
+            self.calendar_billing = calendar_billing
         if metafields is not APIHelper.SKIP:
-            self.metafields = metafields 
+            self.metafields = metafields
         if customer_reference is not APIHelper.SKIP:
-            self.customer_reference = customer_reference 
+            self.customer_reference = customer_reference
         if group is not APIHelper.SKIP:
-            self.group = group 
+            self.group = group
         if ref is not APIHelper.SKIP:
-            self.ref = ref 
+            self.ref = ref
         if cancellation_message is not APIHelper.SKIP:
-            self.cancellation_message = cancellation_message 
+            self.cancellation_message = cancellation_message
         if cancellation_method is not APIHelper.SKIP:
-            self.cancellation_method = cancellation_method 
+            self.cancellation_method = cancellation_method
         if currency is not APIHelper.SKIP:
-            self.currency = currency 
+            self.currency = currency
         if expires_at is not APIHelper.SKIP:
-            self.expires_at = APIHelper.apply_datetime_converter(expires_at, APIHelper.RFC3339DateTime) if expires_at else None 
+            self.expires_at =\
+                 APIHelper.apply_datetime_converter(
+                expires_at, APIHelper.RFC3339DateTime) if expires_at else None
         if expiration_tracks_next_billing_change is not APIHelper.SKIP:
-            self.expiration_tracks_next_billing_change = expiration_tracks_next_billing_change 
+            self.expiration_tracks_next_billing_change =\
+                 expiration_tracks_next_billing_change
         if agreement_terms is not APIHelper.SKIP:
-            self.agreement_terms = agreement_terms 
+            self.agreement_terms = agreement_terms
         if authorizer_first_name is not APIHelper.SKIP:
-            self.authorizer_first_name = authorizer_first_name 
+            self.authorizer_first_name = authorizer_first_name
         if authorizer_last_name is not APIHelper.SKIP:
-            self.authorizer_last_name = authorizer_last_name 
+            self.authorizer_last_name = authorizer_last_name
         if calendar_billing_first_charge is not APIHelper.SKIP:
-            self.calendar_billing_first_charge = calendar_billing_first_charge 
+            self.calendar_billing_first_charge = calendar_billing_first_charge
         if reason_code is not APIHelper.SKIP:
-            self.reason_code = reason_code 
+            self.reason_code = reason_code
         if product_change_delayed is not APIHelper.SKIP:
-            self.product_change_delayed = product_change_delayed 
+            self.product_change_delayed = product_change_delayed
         if offer_id is not APIHelper.SKIP:
-            self.offer_id = offer_id 
+            self.offer_id = offer_id
         if prepaid_configuration is not APIHelper.SKIP:
-            self.prepaid_configuration = prepaid_configuration 
+            self.prepaid_configuration = prepaid_configuration
         if previous_billing_at is not APIHelper.SKIP:
-            self.previous_billing_at = APIHelper.apply_datetime_converter(previous_billing_at, APIHelper.RFC3339DateTime) if previous_billing_at else None 
+            self.previous_billing_at =\
+                 APIHelper.apply_datetime_converter(
+                previous_billing_at, APIHelper.RFC3339DateTime) if previous_billing_at else None
         if import_mrr is not APIHelper.SKIP:
-            self.import_mrr = import_mrr 
+            self.import_mrr = import_mrr
         if canceled_at is not APIHelper.SKIP:
-            self.canceled_at = APIHelper.apply_datetime_converter(canceled_at, APIHelper.RFC3339DateTime) if canceled_at else None 
+            self.canceled_at =\
+                 APIHelper.apply_datetime_converter(
+                canceled_at, APIHelper.RFC3339DateTime) if canceled_at else None
         if activated_at is not APIHelper.SKIP:
-            self.activated_at = APIHelper.apply_datetime_converter(activated_at, APIHelper.RFC3339DateTime) if activated_at else None 
+            self.activated_at =\
+                 APIHelper.apply_datetime_converter(
+                activated_at, APIHelper.RFC3339DateTime) if activated_at else None
         if agreement_acceptance is not APIHelper.SKIP:
-            self.agreement_acceptance = agreement_acceptance 
+            self.agreement_acceptance = agreement_acceptance
         if ach_agreement is not APIHelper.SKIP:
-            self.ach_agreement = ach_agreement 
-        self.dunning_communication_delay_enabled = dunning_communication_delay_enabled 
+            self.ach_agreement = ach_agreement
+        self.dunning_communication_delay_enabled =\
+             dunning_communication_delay_enabled
         if dunning_communication_delay_time_zone is not APIHelper.SKIP:
-            self.dunning_communication_delay_time_zone = dunning_communication_delay_time_zone 
-        self.skip_billing_manifest_taxes = skip_billing_manifest_taxes 
+            self.dunning_communication_delay_time_zone =\
+                 dunning_communication_delay_time_zone
+        self.skip_billing_manifest_taxes = skip_billing_manifest_taxes
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -475,7 +508,7 @@ class CreateSubscription(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -486,67 +519,165 @@ class CreateSubscription(object):
             object: An instance of this structure class.
 
         """
-        from advancedbilling.utilities.union_type_lookup import UnionTypeLookUp
+        from advancedbilling.utilities.union_type_lookup import (
+            UnionTypeLookUp,
+        )
 
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        product_handle = dictionary.get("product_handle") if dictionary.get("product_handle") else APIHelper.SKIP
-        product_id = dictionary.get("product_id") if dictionary.get("product_id") else APIHelper.SKIP
-        product_price_point_handle = dictionary.get("product_price_point_handle") if dictionary.get("product_price_point_handle") else APIHelper.SKIP
-        product_price_point_id = dictionary.get("product_price_point_id") if dictionary.get("product_price_point_id") else APIHelper.SKIP
-        custom_price = SubscriptionCustomPrice.from_dictionary(dictionary.get('custom_price')) if 'custom_price' in dictionary.keys() else APIHelper.SKIP
-        coupon_code = dictionary.get("coupon_code") if dictionary.get("coupon_code") else APIHelper.SKIP
-        coupon_codes = dictionary.get("coupon_codes") if dictionary.get("coupon_codes") else APIHelper.SKIP
-        payment_collection_method = dictionary.get("payment_collection_method") if dictionary.get("payment_collection_method") else APIHelper.SKIP
-        receives_invoice_emails = dictionary.get("receives_invoice_emails") if dictionary.get("receives_invoice_emails") else APIHelper.SKIP
-        net_terms = dictionary.get("net_terms") if dictionary.get("net_terms") else APIHelper.SKIP
-        customer_id = dictionary.get("customer_id") if dictionary.get("customer_id") else APIHelper.SKIP
-        next_billing_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("next_billing_at")).datetime if dictionary.get("next_billing_at") else APIHelper.SKIP
-        initial_billing_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("initial_billing_at")).datetime if dictionary.get("initial_billing_at") else APIHelper.SKIP
-        stored_credential_transaction_id = dictionary.get("stored_credential_transaction_id") if dictionary.get("stored_credential_transaction_id") else APIHelper.SKIP
-        sales_rep_id = dictionary.get("sales_rep_id") if dictionary.get("sales_rep_id") else APIHelper.SKIP
-        payment_profile_id = dictionary.get("payment_profile_id") if dictionary.get("payment_profile_id") else APIHelper.SKIP
-        reference = dictionary.get("reference") if dictionary.get("reference") else APIHelper.SKIP
-        customer_attributes = CustomerAttributes.from_dictionary(dictionary.get('customer_attributes')) if 'customer_attributes' in dictionary.keys() else APIHelper.SKIP
-        payment_profile_attributes = PaymentProfileAttributes.from_dictionary(dictionary.get('payment_profile_attributes')) if 'payment_profile_attributes' in dictionary.keys() else APIHelper.SKIP
-        credit_card_attributes = PaymentProfileAttributes.from_dictionary(dictionary.get('credit_card_attributes')) if 'credit_card_attributes' in dictionary.keys() else APIHelper.SKIP
-        bank_account_attributes = BankAccountAttributes.from_dictionary(dictionary.get('bank_account_attributes')) if 'bank_account_attributes' in dictionary.keys() else APIHelper.SKIP
+        product_handle =\
+            dictionary.get("product_handle")\
+            if dictionary.get("product_handle") else APIHelper.SKIP
+        product_id =\
+            dictionary.get("product_id")\
+            if dictionary.get("product_id") else APIHelper.SKIP
+        product_price_point_handle =\
+            dictionary.get("product_price_point_handle")\
+            if dictionary.get("product_price_point_handle") else APIHelper.SKIP
+        product_price_point_id =\
+            dictionary.get("product_price_point_id")\
+            if dictionary.get("product_price_point_id") else APIHelper.SKIP
+        custom_price = SubscriptionCustomPrice.from_dictionary(
+            dictionary.get("custom_price"))\
+            if "custom_price" in dictionary.keys() else APIHelper.SKIP
+        coupon_code =\
+            dictionary.get("coupon_code")\
+            if dictionary.get("coupon_code") else APIHelper.SKIP
+        coupon_codes =\
+            dictionary.get("coupon_codes")\
+            if dictionary.get("coupon_codes") else APIHelper.SKIP
+        payment_collection_method =\
+            dictionary.get("payment_collection_method")\
+            if dictionary.get("payment_collection_method") else APIHelper.SKIP
+        receives_invoice_emails =\
+            dictionary.get("receives_invoice_emails")\
+            if dictionary.get("receives_invoice_emails") else APIHelper.SKIP
+        net_terms =\
+            dictionary.get("net_terms")\
+            if dictionary.get("net_terms") else APIHelper.SKIP
+        customer_id =\
+            dictionary.get("customer_id")\
+            if dictionary.get("customer_id") else APIHelper.SKIP
+        next_billing_at = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("next_billing_at")).datetime\
+            if dictionary.get("next_billing_at") else APIHelper.SKIP
+        initial_billing_at = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("initial_billing_at")).datetime\
+            if dictionary.get("initial_billing_at") else APIHelper.SKIP
+        stored_credential_transaction_id =\
+            dictionary.get("stored_credential_transaction_id")\
+            if dictionary.get("stored_credential_transaction_id") else APIHelper.SKIP
+        sales_rep_id =\
+            dictionary.get("sales_rep_id")\
+            if dictionary.get("sales_rep_id") else APIHelper.SKIP
+        payment_profile_id =\
+            dictionary.get("payment_profile_id")\
+            if dictionary.get("payment_profile_id") else APIHelper.SKIP
+        reference =\
+            dictionary.get("reference")\
+            if dictionary.get("reference") else APIHelper.SKIP
+        customer_attributes = CustomerAttributes.from_dictionary(
+            dictionary.get("customer_attributes"))\
+            if "customer_attributes" in dictionary.keys() else APIHelper.SKIP
+        payment_profile_attributes = PaymentProfileAttributes.from_dictionary(
+            dictionary.get("payment_profile_attributes"))\
+            if "payment_profile_attributes" in dictionary.keys() else APIHelper.SKIP
+        credit_card_attributes = PaymentProfileAttributes.from_dictionary(
+            dictionary.get("credit_card_attributes"))\
+            if "credit_card_attributes" in dictionary.keys() else APIHelper.SKIP
+        bank_account_attributes = BankAccountAttributes.from_dictionary(
+            dictionary.get("bank_account_attributes"))\
+            if "bank_account_attributes" in dictionary.keys() else APIHelper.SKIP
         components = None
-        if dictionary.get('components') is not None:
-            components = [CreateSubscriptionComponent.from_dictionary(x) for x in dictionary.get('components')]
+        if dictionary.get("components") is not None:
+            components = [
+                CreateSubscriptionComponent.from_dictionary(x)
+                    for x in dictionary.get("components")
+            ]
         else:
             components = APIHelper.SKIP
-        calendar_billing = CalendarBilling.from_dictionary(dictionary.get('calendar_billing')) if 'calendar_billing' in dictionary.keys() else APIHelper.SKIP
-        metafields = dictionary.get("metafields") if dictionary.get("metafields") else APIHelper.SKIP
-        customer_reference = dictionary.get("customer_reference") if dictionary.get("customer_reference") else APIHelper.SKIP
-        group = GroupSettings.from_dictionary(dictionary.get('group')) if 'group' in dictionary.keys() else APIHelper.SKIP
+        calendar_billing = CalendarBilling.from_dictionary(
+            dictionary.get("calendar_billing"))\
+            if "calendar_billing" in dictionary.keys() else APIHelper.SKIP
+        metafields =\
+            dictionary.get("metafields")\
+            if dictionary.get("metafields") else APIHelper.SKIP
+        customer_reference =\
+            dictionary.get("customer_reference")\
+            if dictionary.get("customer_reference") else APIHelper.SKIP
+        group = GroupSettings.from_dictionary(
+            dictionary.get("group"))\
+            if "group" in dictionary.keys() else APIHelper.SKIP
         ref = dictionary.get("ref") if dictionary.get("ref") else APIHelper.SKIP
-        cancellation_message = dictionary.get("cancellation_message") if dictionary.get("cancellation_message") else APIHelper.SKIP
-        cancellation_method = dictionary.get("cancellation_method") if dictionary.get("cancellation_method") else APIHelper.SKIP
-        currency = dictionary.get("currency") if dictionary.get("currency") else APIHelper.SKIP
-        expires_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("expires_at")).datetime if dictionary.get("expires_at") else APIHelper.SKIP
-        expiration_tracks_next_billing_change = dictionary.get("expiration_tracks_next_billing_change") if dictionary.get("expiration_tracks_next_billing_change") else APIHelper.SKIP
-        agreement_terms = dictionary.get("agreement_terms") if dictionary.get("agreement_terms") else APIHelper.SKIP
-        authorizer_first_name = dictionary.get("authorizer_first_name") if dictionary.get("authorizer_first_name") else APIHelper.SKIP
-        authorizer_last_name = dictionary.get("authorizer_last_name") if dictionary.get("authorizer_last_name") else APIHelper.SKIP
-        calendar_billing_first_charge = dictionary.get("calendar_billing_first_charge") if dictionary.get("calendar_billing_first_charge") else APIHelper.SKIP
-        reason_code = dictionary.get("reason_code") if dictionary.get("reason_code") else APIHelper.SKIP
-        product_change_delayed = dictionary.get("product_change_delayed") if "product_change_delayed" in dictionary.keys() else APIHelper.SKIP
-        offer_id = APIHelper.deserialize_union_type(UnionTypeLookUp.get('CreateSubscriptionOfferId'), dictionary.get('offer_id'), False) if dictionary.get('offer_id') is not None else APIHelper.SKIP
-        prepaid_configuration = UpsertPrepaidConfiguration.from_dictionary(dictionary.get('prepaid_configuration')) if 'prepaid_configuration' in dictionary.keys() else APIHelper.SKIP
-        previous_billing_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("previous_billing_at")).datetime if dictionary.get("previous_billing_at") else APIHelper.SKIP
-        import_mrr = dictionary.get("import_mrr") if "import_mrr" in dictionary.keys() else APIHelper.SKIP
-        canceled_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("canceled_at")).datetime if dictionary.get("canceled_at") else APIHelper.SKIP
-        activated_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("activated_at")).datetime if dictionary.get("activated_at") else APIHelper.SKIP
-        agreement_acceptance = AgreementAcceptance.from_dictionary(dictionary.get('agreement_acceptance')) if 'agreement_acceptance' in dictionary.keys() else APIHelper.SKIP
-        ach_agreement = ACHAgreement.from_dictionary(dictionary.get('ach_agreement')) if 'ach_agreement' in dictionary.keys() else APIHelper.SKIP
-        dunning_communication_delay_enabled = dictionary.get("dunning_communication_delay_enabled") if dictionary.get("dunning_communication_delay_enabled") else False
-        dunning_communication_delay_time_zone = dictionary.get("dunning_communication_delay_time_zone") if "dunning_communication_delay_time_zone" in dictionary.keys() else APIHelper.SKIP
-        skip_billing_manifest_taxes = dictionary.get("skip_billing_manifest_taxes") if dictionary.get("skip_billing_manifest_taxes") else False
+        cancellation_message =\
+            dictionary.get("cancellation_message")\
+            if dictionary.get("cancellation_message") else APIHelper.SKIP
+        cancellation_method =\
+            dictionary.get("cancellation_method")\
+            if dictionary.get("cancellation_method") else APIHelper.SKIP
+        currency =\
+            dictionary.get("currency")\
+            if dictionary.get("currency") else APIHelper.SKIP
+        expires_at = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("expires_at")).datetime\
+            if dictionary.get("expires_at") else APIHelper.SKIP
+        expiration_tracks_next_billing_change =\
+            dictionary.get("expiration_tracks_next_billing_change")\
+            if dictionary.get("expiration_tracks_next_billing_change") else APIHelper.SKIP
+        agreement_terms =\
+            dictionary.get("agreement_terms")\
+            if dictionary.get("agreement_terms") else APIHelper.SKIP
+        authorizer_first_name =\
+            dictionary.get("authorizer_first_name")\
+            if dictionary.get("authorizer_first_name") else APIHelper.SKIP
+        authorizer_last_name =\
+            dictionary.get("authorizer_last_name")\
+            if dictionary.get("authorizer_last_name") else APIHelper.SKIP
+        calendar_billing_first_charge =\
+            dictionary.get("calendar_billing_first_charge")\
+            if dictionary.get("calendar_billing_first_charge") else APIHelper.SKIP
+        reason_code =\
+            dictionary.get("reason_code")\
+            if dictionary.get("reason_code") else APIHelper.SKIP
+        product_change_delayed =\
+            dictionary.get("product_change_delayed")\
+            if "product_change_delayed" in dictionary.keys() else APIHelper.SKIP
+        offer_id = APIHelper.deserialize_union_type(UnionTypeLookUp.get("CreateSubscriptionOfferId"), dictionary.get("offer_id"), False) if dictionary.get("offer_id") is not None else APIHelper.SKIP
+        prepaid_configuration = UpsertPrepaidConfiguration.from_dictionary(
+            dictionary.get("prepaid_configuration"))\
+            if "prepaid_configuration" in dictionary.keys() else APIHelper.SKIP
+        previous_billing_at = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("previous_billing_at")).datetime\
+            if dictionary.get("previous_billing_at") else APIHelper.SKIP
+        import_mrr =\
+            dictionary.get("import_mrr")\
+            if "import_mrr" in dictionary.keys() else APIHelper.SKIP
+        canceled_at = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("canceled_at")).datetime\
+            if dictionary.get("canceled_at") else APIHelper.SKIP
+        activated_at = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("activated_at")).datetime\
+            if dictionary.get("activated_at") else APIHelper.SKIP
+        agreement_acceptance = AgreementAcceptance.from_dictionary(
+            dictionary.get("agreement_acceptance"))\
+            if "agreement_acceptance" in dictionary.keys() else APIHelper.SKIP
+        ach_agreement = ACHAgreement.from_dictionary(
+            dictionary.get("ach_agreement"))\
+            if "ach_agreement" in dictionary.keys() else APIHelper.SKIP
+        dunning_communication_delay_enabled =\
+            dictionary.get("dunning_communication_delay_enabled")\
+            if dictionary.get("dunning_communication_delay_enabled") else False
+        dunning_communication_delay_time_zone =\
+            dictionary.get("dunning_communication_delay_time_zone")\
+            if "dunning_communication_delay_time_zone" in dictionary.keys() else APIHelper.SKIP
+        skip_billing_manifest_taxes =\
+            dictionary.get("skip_billing_manifest_taxes")\
+            if dictionary.get("skip_billing_manifest_taxes") else False
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(product_handle,
                    product_id,
@@ -600,107 +731,203 @@ class CreateSubscription(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'product_handle={(self.product_handle if hasattr(self, "product_handle") else None)!r}, '
-                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
-                f'product_price_point_handle={(self.product_price_point_handle if hasattr(self, "product_price_point_handle") else None)!r}, '
-                f'product_price_point_id={(self.product_price_point_id if hasattr(self, "product_price_point_id") else None)!r}, '
-                f'custom_price={(self.custom_price if hasattr(self, "custom_price") else None)!r}, '
-                f'coupon_code={(self.coupon_code if hasattr(self, "coupon_code") else None)!r}, '
-                f'coupon_codes={(self.coupon_codes if hasattr(self, "coupon_codes") else None)!r}, '
-                f'payment_collection_method={(self.payment_collection_method if hasattr(self, "payment_collection_method") else None)!r}, '
-                f'receives_invoice_emails={(self.receives_invoice_emails if hasattr(self, "receives_invoice_emails") else None)!r}, '
-                f'net_terms={(self.net_terms if hasattr(self, "net_terms") else None)!r}, '
-                f'customer_id={(self.customer_id if hasattr(self, "customer_id") else None)!r}, '
-                f'next_billing_at={(self.next_billing_at if hasattr(self, "next_billing_at") else None)!r}, '
-                f'initial_billing_at={(self.initial_billing_at if hasattr(self, "initial_billing_at") else None)!r}, '
-                f'stored_credential_transaction_id={(self.stored_credential_transaction_id if hasattr(self, "stored_credential_transaction_id") else None)!r}, '
-                f'sales_rep_id={(self.sales_rep_id if hasattr(self, "sales_rep_id") else None)!r}, '
-                f'payment_profile_id={(self.payment_profile_id if hasattr(self, "payment_profile_id") else None)!r}, '
-                f'reference={(self.reference if hasattr(self, "reference") else None)!r}, '
-                f'customer_attributes={(self.customer_attributes if hasattr(self, "customer_attributes") else None)!r}, '
-                f'payment_profile_attributes={(self.payment_profile_attributes if hasattr(self, "payment_profile_attributes") else None)!r}, '
-                f'credit_card_attributes={(self.credit_card_attributes if hasattr(self, "credit_card_attributes") else None)!r}, '
-                f'bank_account_attributes={(self.bank_account_attributes if hasattr(self, "bank_account_attributes") else None)!r}, '
-                f'components={(self.components if hasattr(self, "components") else None)!r}, '
-                f'calendar_billing={(self.calendar_billing if hasattr(self, "calendar_billing") else None)!r}, '
-                f'metafields={(self.metafields if hasattr(self, "metafields") else None)!r}, '
-                f'customer_reference={(self.customer_reference if hasattr(self, "customer_reference") else None)!r}, '
-                f'group={(self.group if hasattr(self, "group") else None)!r}, '
-                f'ref={(self.ref if hasattr(self, "ref") else None)!r}, '
-                f'cancellation_message={(self.cancellation_message if hasattr(self, "cancellation_message") else None)!r}, '
-                f'cancellation_method={(self.cancellation_method if hasattr(self, "cancellation_method") else None)!r}, '
-                f'currency={(self.currency if hasattr(self, "currency") else None)!r}, '
-                f'expires_at={(self.expires_at if hasattr(self, "expires_at") else None)!r}, '
-                f'expiration_tracks_next_billing_change={(self.expiration_tracks_next_billing_change if hasattr(self, "expiration_tracks_next_billing_change") else None)!r}, '
-                f'agreement_terms={(self.agreement_terms if hasattr(self, "agreement_terms") else None)!r}, '
-                f'authorizer_first_name={(self.authorizer_first_name if hasattr(self, "authorizer_first_name") else None)!r}, '
-                f'authorizer_last_name={(self.authorizer_last_name if hasattr(self, "authorizer_last_name") else None)!r}, '
-                f'calendar_billing_first_charge={(self.calendar_billing_first_charge if hasattr(self, "calendar_billing_first_charge") else None)!r}, '
-                f'reason_code={(self.reason_code if hasattr(self, "reason_code") else None)!r}, '
-                f'product_change_delayed={(self.product_change_delayed if hasattr(self, "product_change_delayed") else None)!r}, '
-                f'offer_id={(self.offer_id if hasattr(self, "offer_id") else None)!r}, '
-                f'prepaid_configuration={(self.prepaid_configuration if hasattr(self, "prepaid_configuration") else None)!r}, '
-                f'previous_billing_at={(self.previous_billing_at if hasattr(self, "previous_billing_at") else None)!r}, '
-                f'import_mrr={(self.import_mrr if hasattr(self, "import_mrr") else None)!r}, '
-                f'canceled_at={(self.canceled_at if hasattr(self, "canceled_at") else None)!r}, '
-                f'activated_at={(self.activated_at if hasattr(self, "activated_at") else None)!r}, '
-                f'agreement_acceptance={(self.agreement_acceptance if hasattr(self, "agreement_acceptance") else None)!r}, '
-                f'ach_agreement={(self.ach_agreement if hasattr(self, "ach_agreement") else None)!r}, '
-                f'dunning_communication_delay_enabled={(self.dunning_communication_delay_enabled if hasattr(self, "dunning_communication_delay_enabled") else None)!r}, '
-                f'dunning_communication_delay_time_zone={(self.dunning_communication_delay_time_zone if hasattr(self, "dunning_communication_delay_time_zone") else None)!r}, '
-                f'skip_billing_manifest_taxes={(self.skip_billing_manifest_taxes if hasattr(self, "skip_billing_manifest_taxes") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"product_handle={(self.product_handle
+                     if hasattr(self, 'product_handle') else None)!r}, "
+                f"product_id={(self.product_id
+                     if hasattr(self, 'product_id') else None)!r}, "
+                f"product_price_point_handle={(self.product_price_point_handle
+                     if hasattr(self, 'product_price_point_handle') else None)!r}, "
+                f"product_price_point_id={(self.product_price_point_id
+                     if hasattr(self, 'product_price_point_id') else None)!r}, "
+                f"custom_price={(self.custom_price
+                     if hasattr(self, 'custom_price') else None)!r}, "
+                f"coupon_code={(self.coupon_code
+                     if hasattr(self, 'coupon_code') else None)!r}, "
+                f"coupon_codes={(self.coupon_codes
+                     if hasattr(self, 'coupon_codes') else None)!r}, "
+                f"payment_collection_method={(self.payment_collection_method
+                     if hasattr(self, 'payment_collection_method') else None)!r}, "
+                f"receives_invoice_emails={(self.receives_invoice_emails
+                     if hasattr(self, 'receives_invoice_emails') else None)!r}, "
+                f"net_terms={(self.net_terms
+                     if hasattr(self, 'net_terms') else None)!r}, "
+                f"customer_id={(self.customer_id
+                     if hasattr(self, 'customer_id') else None)!r}, "
+                f"next_billing_at={(self.next_billing_at
+                     if hasattr(self, 'next_billing_at') else None)!r}, "
+                f"initial_billing_at={(self.initial_billing_at
+                     if hasattr(self, 'initial_billing_at') else None)!r}, "
+                f"stored_credential_transaction_id={(self.stored_credential_transaction_id
+                     if hasattr(self, 'stored_credential_transaction_id') else None)!r}, "
+                f"sales_rep_id={(self.sales_rep_id
+                     if hasattr(self, 'sales_rep_id') else None)!r}, "
+                f"payment_profile_id={(self.payment_profile_id
+                     if hasattr(self, 'payment_profile_id') else None)!r}, "
+                f"reference={(self.reference
+                     if hasattr(self, 'reference') else None)!r}, "
+                f"customer_attributes={(self.customer_attributes
+                     if hasattr(self, 'customer_attributes') else None)!r}, "
+                f"payment_profile_attributes={(self.payment_profile_attributes
+                     if hasattr(self, 'payment_profile_attributes') else None)!r}, "
+                f"credit_card_attributes={(self.credit_card_attributes
+                     if hasattr(self, 'credit_card_attributes') else None)!r}, "
+                f"bank_account_attributes={(self.bank_account_attributes
+                     if hasattr(self, 'bank_account_attributes') else None)!r}, "
+                f"components={(self.components
+                     if hasattr(self, 'components') else None)!r}, "
+                f"calendar_billing={(self.calendar_billing
+                     if hasattr(self, 'calendar_billing') else None)!r}, "
+                f"metafields={(self.metafields
+                     if hasattr(self, 'metafields') else None)!r}, "
+                f"customer_reference={(self.customer_reference
+                     if hasattr(self, 'customer_reference') else None)!r}, "
+                f"group={(self.group if hasattr(self, 'group') else None)!r}, "
+                f"ref={(self.ref if hasattr(self, 'ref') else None)!r}, "
+                f"cancellation_message={(self.cancellation_message
+                     if hasattr(self, 'cancellation_message') else None)!r}, "
+                f"cancellation_method={(self.cancellation_method
+                     if hasattr(self, 'cancellation_method') else None)!r}, "
+                f"currency={(self.currency
+                     if hasattr(self, 'currency') else None)!r}, "
+                f"expires_at={(self.expires_at
+                     if hasattr(self, 'expires_at') else None)!r}, "
+                f"expiration_tracks_next_billing_change={(self.expiration_tracks_next_billing_change
+                     if hasattr(self, 'expiration_tracks_next_billing_change') else None)!r}, "
+                f"agreement_terms={(self.agreement_terms
+                     if hasattr(self, 'agreement_terms') else None)!r}, "
+                f"authorizer_first_name={(self.authorizer_first_name
+                     if hasattr(self, 'authorizer_first_name') else None)!r}, "
+                f"authorizer_last_name={(self.authorizer_last_name
+                     if hasattr(self, 'authorizer_last_name') else None)!r}, "
+                f"calendar_billing_first_charge={(self.calendar_billing_first_charge
+                     if hasattr(self, 'calendar_billing_first_charge') else None)!r}, "
+                f"reason_code={(self.reason_code
+                     if hasattr(self, 'reason_code') else None)!r}, "
+                f"product_change_delayed={(self.product_change_delayed
+                     if hasattr(self, 'product_change_delayed') else None)!r}, "
+                f"offer_id={(self.offer_id
+                     if hasattr(self, 'offer_id') else None)!r}, "
+                f"prepaid_configuration={(self.prepaid_configuration
+                     if hasattr(self, 'prepaid_configuration') else None)!r}, "
+                f"previous_billing_at={(self.previous_billing_at
+                     if hasattr(self, 'previous_billing_at') else None)!r}, "
+                f"import_mrr={(self.import_mrr
+                     if hasattr(self, 'import_mrr') else None)!r}, "
+                f"canceled_at={(self.canceled_at
+                     if hasattr(self, 'canceled_at') else None)!r}, "
+                f"activated_at={(self.activated_at
+                     if hasattr(self, 'activated_at') else None)!r}, "
+                f"agreement_acceptance={(self.agreement_acceptance
+                     if hasattr(self, 'agreement_acceptance') else None)!r}, "
+                f"ach_agreement={(self.ach_agreement
+                     if hasattr(self, 'ach_agreement') else None)!r}, "
+                f"dunning_communication_delay_enabled={(self.dunning_communication_delay_enabled
+                     if hasattr(self, 'dunning_communication_delay_enabled') else None)!r}, "
+                f"dunning_communication_delay_time_zone={(self.dunning_communication_delay_time_zone
+                     if hasattr(self, 'dunning_communication_delay_time_zone') else None)!r}, "
+                f"skip_billing_manifest_taxes={(self.skip_billing_manifest_taxes
+                     if hasattr(self, 'skip_billing_manifest_taxes') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'product_handle={(self.product_handle if hasattr(self, "product_handle") else None)!s}, '
-                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
-                f'product_price_point_handle={(self.product_price_point_handle if hasattr(self, "product_price_point_handle") else None)!s}, '
-                f'product_price_point_id={(self.product_price_point_id if hasattr(self, "product_price_point_id") else None)!s}, '
-                f'custom_price={(self.custom_price if hasattr(self, "custom_price") else None)!s}, '
-                f'coupon_code={(self.coupon_code if hasattr(self, "coupon_code") else None)!s}, '
-                f'coupon_codes={(self.coupon_codes if hasattr(self, "coupon_codes") else None)!s}, '
-                f'payment_collection_method={(self.payment_collection_method if hasattr(self, "payment_collection_method") else None)!s}, '
-                f'receives_invoice_emails={(self.receives_invoice_emails if hasattr(self, "receives_invoice_emails") else None)!s}, '
-                f'net_terms={(self.net_terms if hasattr(self, "net_terms") else None)!s}, '
-                f'customer_id={(self.customer_id if hasattr(self, "customer_id") else None)!s}, '
-                f'next_billing_at={(self.next_billing_at if hasattr(self, "next_billing_at") else None)!s}, '
-                f'initial_billing_at={(self.initial_billing_at if hasattr(self, "initial_billing_at") else None)!s}, '
-                f'stored_credential_transaction_id={(self.stored_credential_transaction_id if hasattr(self, "stored_credential_transaction_id") else None)!s}, '
-                f'sales_rep_id={(self.sales_rep_id if hasattr(self, "sales_rep_id") else None)!s}, '
-                f'payment_profile_id={(self.payment_profile_id if hasattr(self, "payment_profile_id") else None)!s}, '
-                f'reference={(self.reference if hasattr(self, "reference") else None)!s}, '
-                f'customer_attributes={(self.customer_attributes if hasattr(self, "customer_attributes") else None)!s}, '
-                f'payment_profile_attributes={(self.payment_profile_attributes if hasattr(self, "payment_profile_attributes") else None)!s}, '
-                f'credit_card_attributes={(self.credit_card_attributes if hasattr(self, "credit_card_attributes") else None)!s}, '
-                f'bank_account_attributes={(self.bank_account_attributes if hasattr(self, "bank_account_attributes") else None)!s}, '
-                f'components={(self.components if hasattr(self, "components") else None)!s}, '
-                f'calendar_billing={(self.calendar_billing if hasattr(self, "calendar_billing") else None)!s}, '
-                f'metafields={(self.metafields if hasattr(self, "metafields") else None)!s}, '
-                f'customer_reference={(self.customer_reference if hasattr(self, "customer_reference") else None)!s}, '
-                f'group={(self.group if hasattr(self, "group") else None)!s}, '
-                f'ref={(self.ref if hasattr(self, "ref") else None)!s}, '
-                f'cancellation_message={(self.cancellation_message if hasattr(self, "cancellation_message") else None)!s}, '
-                f'cancellation_method={(self.cancellation_method if hasattr(self, "cancellation_method") else None)!s}, '
-                f'currency={(self.currency if hasattr(self, "currency") else None)!s}, '
-                f'expires_at={(self.expires_at if hasattr(self, "expires_at") else None)!s}, '
-                f'expiration_tracks_next_billing_change={(self.expiration_tracks_next_billing_change if hasattr(self, "expiration_tracks_next_billing_change") else None)!s}, '
-                f'agreement_terms={(self.agreement_terms if hasattr(self, "agreement_terms") else None)!s}, '
-                f'authorizer_first_name={(self.authorizer_first_name if hasattr(self, "authorizer_first_name") else None)!s}, '
-                f'authorizer_last_name={(self.authorizer_last_name if hasattr(self, "authorizer_last_name") else None)!s}, '
-                f'calendar_billing_first_charge={(self.calendar_billing_first_charge if hasattr(self, "calendar_billing_first_charge") else None)!s}, '
-                f'reason_code={(self.reason_code if hasattr(self, "reason_code") else None)!s}, '
-                f'product_change_delayed={(self.product_change_delayed if hasattr(self, "product_change_delayed") else None)!s}, '
-                f'offer_id={(self.offer_id if hasattr(self, "offer_id") else None)!s}, '
-                f'prepaid_configuration={(self.prepaid_configuration if hasattr(self, "prepaid_configuration") else None)!s}, '
-                f'previous_billing_at={(self.previous_billing_at if hasattr(self, "previous_billing_at") else None)!s}, '
-                f'import_mrr={(self.import_mrr if hasattr(self, "import_mrr") else None)!s}, '
-                f'canceled_at={(self.canceled_at if hasattr(self, "canceled_at") else None)!s}, '
-                f'activated_at={(self.activated_at if hasattr(self, "activated_at") else None)!s}, '
-                f'agreement_acceptance={(self.agreement_acceptance if hasattr(self, "agreement_acceptance") else None)!s}, '
-                f'ach_agreement={(self.ach_agreement if hasattr(self, "ach_agreement") else None)!s}, '
-                f'dunning_communication_delay_enabled={(self.dunning_communication_delay_enabled if hasattr(self, "dunning_communication_delay_enabled") else None)!s}, '
-                f'dunning_communication_delay_time_zone={(self.dunning_communication_delay_time_zone if hasattr(self, "dunning_communication_delay_time_zone") else None)!s}, '
-                f'skip_billing_manifest_taxes={(self.skip_billing_manifest_taxes if hasattr(self, "skip_billing_manifest_taxes") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"product_handle={(self.product_handle
+                     if hasattr(self, 'product_handle') else None)!s}, "
+                f"product_id={(self.product_id
+                     if hasattr(self, 'product_id') else None)!s}, "
+                f"product_price_point_handle={(self.product_price_point_handle
+                     if hasattr(self, 'product_price_point_handle') else None)!s}, "
+                f"product_price_point_id={(self.product_price_point_id
+                     if hasattr(self, 'product_price_point_id') else None)!s}, "
+                f"custom_price={(self.custom_price
+                     if hasattr(self, 'custom_price') else None)!s}, "
+                f"coupon_code={(self.coupon_code
+                     if hasattr(self, 'coupon_code') else None)!s}, "
+                f"coupon_codes={(self.coupon_codes
+                     if hasattr(self, 'coupon_codes') else None)!s}, "
+                f"payment_collection_method={(self.payment_collection_method
+                     if hasattr(self, 'payment_collection_method') else None)!s}, "
+                f"receives_invoice_emails={(self.receives_invoice_emails
+                     if hasattr(self, 'receives_invoice_emails') else None)!s}, "
+                f"net_terms={(self.net_terms
+                     if hasattr(self, 'net_terms') else None)!s}, "
+                f"customer_id={(self.customer_id
+                     if hasattr(self, 'customer_id') else None)!s}, "
+                f"next_billing_at={(self.next_billing_at
+                     if hasattr(self, 'next_billing_at') else None)!s}, "
+                f"initial_billing_at={(self.initial_billing_at
+                     if hasattr(self, 'initial_billing_at') else None)!s}, "
+                f"stored_credential_transaction_id={(self.stored_credential_transaction_id
+                     if hasattr(self, 'stored_credential_transaction_id') else None)!s}, "
+                f"sales_rep_id={(self.sales_rep_id
+                     if hasattr(self, 'sales_rep_id') else None)!s}, "
+                f"payment_profile_id={(self.payment_profile_id
+                     if hasattr(self, 'payment_profile_id') else None)!s}, "
+                f"reference={(self.reference
+                     if hasattr(self, 'reference') else None)!s}, "
+                f"customer_attributes={(self.customer_attributes
+                     if hasattr(self, 'customer_attributes') else None)!s}, "
+                f"payment_profile_attributes={(self.payment_profile_attributes
+                     if hasattr(self, 'payment_profile_attributes') else None)!s}, "
+                f"credit_card_attributes={(self.credit_card_attributes
+                     if hasattr(self, 'credit_card_attributes') else None)!s}, "
+                f"bank_account_attributes={(self.bank_account_attributes
+                     if hasattr(self, 'bank_account_attributes') else None)!s}, "
+                f"components={(self.components
+                     if hasattr(self, 'components') else None)!s}, "
+                f"calendar_billing={(self.calendar_billing
+                     if hasattr(self, 'calendar_billing') else None)!s}, "
+                f"metafields={(self.metafields
+                     if hasattr(self, 'metafields') else None)!s}, "
+                f"customer_reference={(self.customer_reference
+                     if hasattr(self, 'customer_reference') else None)!s}, "
+                f"group={(self.group if hasattr(self, 'group') else None)!s}, "
+                f"ref={(self.ref if hasattr(self, 'ref') else None)!s}, "
+                f"cancellation_message={(self.cancellation_message
+                     if hasattr(self, 'cancellation_message') else None)!s}, "
+                f"cancellation_method={(self.cancellation_method
+                     if hasattr(self, 'cancellation_method') else None)!s}, "
+                f"currency={(self.currency
+                     if hasattr(self, 'currency') else None)!s}, "
+                f"expires_at={(self.expires_at
+                     if hasattr(self, 'expires_at') else None)!s}, "
+                f"expiration_tracks_next_billing_change={(self.expiration_tracks_next_billing_change
+                     if hasattr(self, 'expiration_tracks_next_billing_change') else None)!s}, "
+                f"agreement_terms={(self.agreement_terms
+                     if hasattr(self, 'agreement_terms') else None)!s}, "
+                f"authorizer_first_name={(self.authorizer_first_name
+                     if hasattr(self, 'authorizer_first_name') else None)!s}, "
+                f"authorizer_last_name={(self.authorizer_last_name
+                     if hasattr(self, 'authorizer_last_name') else None)!s}, "
+                f"calendar_billing_first_charge={(self.calendar_billing_first_charge
+                     if hasattr(self, 'calendar_billing_first_charge') else None)!s}, "
+                f"reason_code={(self.reason_code
+                     if hasattr(self, 'reason_code') else None)!s}, "
+                f"product_change_delayed={(self.product_change_delayed
+                     if hasattr(self, 'product_change_delayed') else None)!s}, "
+                f"offer_id={(self.offer_id
+                     if hasattr(self, 'offer_id') else None)!s}, "
+                f"prepaid_configuration={(self.prepaid_configuration
+                     if hasattr(self, 'prepaid_configuration') else None)!s}, "
+                f"previous_billing_at={(self.previous_billing_at
+                     if hasattr(self, 'previous_billing_at') else None)!s}, "
+                f"import_mrr={(self.import_mrr
+                     if hasattr(self, 'import_mrr') else None)!s}, "
+                f"canceled_at={(self.canceled_at
+                     if hasattr(self, 'canceled_at') else None)!s}, "
+                f"activated_at={(self.activated_at
+                     if hasattr(self, 'activated_at') else None)!s}, "
+                f"agreement_acceptance={(self.agreement_acceptance
+                     if hasattr(self, 'agreement_acceptance') else None)!s}, "
+                f"ach_agreement={(self.ach_agreement
+                     if hasattr(self, 'ach_agreement') else None)!s}, "
+                f"dunning_communication_delay_enabled={(self.dunning_communication_delay_enabled
+                     if hasattr(self, 'dunning_communication_delay_enabled') else None)!s}, "
+                f"dunning_communication_delay_time_zone={(self.dunning_communication_delay_time_zone
+                     if hasattr(self, 'dunning_communication_delay_time_zone') else None)!s}, "
+                f"skip_billing_manifest_taxes={(self.skip_billing_manifest_taxes
+                     if hasattr(self, 'skip_billing_manifest_taxes') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

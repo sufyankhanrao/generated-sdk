@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type45Enum`](../../doc/models/type-45-enum.md) | Optional | Resource Type<br><br>**Default**: `'Onboarding'` |
+| `mtype` | [`Type45Enum`](../../doc/models/type-45-enum.md) | Optional | Resource Type<br><br>**Default**: `"Onboarding"` |
 | `data` | [`Data12`](../../doc/models/data-12.md) | Optional | - |
 
 ## Example (as JSON)

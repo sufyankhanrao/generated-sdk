@@ -1,19 +1,18 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
 from tester.api_helper import APIHelper
-from tester.exceptions.global_test_exception import GlobalTestException
+from tester.exceptions.global_test_exception import (
+    GlobalTestException,
+)
 
 
 class LocalTestException(GlobalTestException):
     def __init__(self, reason, response):
-        """Constructor for the LocalTestException class
+        """Initialize LocalTestException object.
 
         Args:
             reason (string): The reason (or error message) for the Exception
@@ -27,7 +26,7 @@ class LocalTestException(GlobalTestException):
             self.unbox(dictionary)
 
     def unbox(self, dictionary):
-        """Populates the properties of this object by extracting them from a dictionary.
+        """Populate the properties of this object by extracting them from a dictionary.
 
         Args:
             dictionary (dictionary): A dictionary representation of the object as
@@ -36,12 +35,19 @@ class LocalTestException(GlobalTestException):
 
         """
         super(LocalTestException, self).unbox(dictionary)
-        self.secret_message_for_endpoint = dictionary.get("SecretMessageForEndpoint") if dictionary.get("SecretMessageForEndpoint") else None
-        self.error_days = dictionary.get("errorDays") if dictionary.get("errorDays") else 'Friday'
+        self.secret_message_for_endpoint =\
+            dictionary.get("SecretMessageForEndpoint")\
+            if dictionary.get("SecretMessageForEndpoint") else None
+        self.error_days =\
+            dictionary.get("errorDays")\
+            if dictionary.get("errorDays") else "Friday"
 
     def __str__(self):
+        """Return a human-readable string representation."""
         base_str = super().__str__()
-        return (f'{self.__class__.__name__}('
-                f'{base_str[base_str.find("(") + 1:-1]}, '
-                f'secret_message_for_endpoint={self.secret_message_for_endpoint!s}, '
-                f'error_days={(self.error_days if hasattr(self, "error_days") else None)!s})')
+        return (f"{self.__class__.__name__}("
+                f"{base_str[base_str.find('(') + 1:-1]}, "
+                f"secret_message_for_endpoint={
+                    self.secret_message_for_endpoint!s}, "
+                f"error_days={(self.error_days
+                     if hasattr(self, 'error_days') else None)!s})")

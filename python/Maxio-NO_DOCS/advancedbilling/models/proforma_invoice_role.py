@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class ProformaInvoiceRole(object):
-
     """Implementation of the 'Proforma Invoice Role' enum.
 
     'proforma' value is deprecated in favor of proforma_adhoc and
@@ -24,16 +20,18 @@ class ProformaInvoiceRole(object):
             for the model.
 
     """
-    UNSET = 'unset'
 
-    PROFORMA = 'proforma'
+    UNSET = "unset"
 
-    PROFORMA_ADHOC = 'proforma_adhoc'
+    PROFORMA = "proforma"
 
-    PROFORMA_AUTOMATIC = 'proforma_automatic'
+    PROFORMA_ADHOC = "proforma_adhoc"
+
+    PROFORMA_AUTOMATIC = "proforma_automatic"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

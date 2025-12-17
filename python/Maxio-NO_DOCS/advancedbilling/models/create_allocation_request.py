@@ -1,16 +1,15 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-from advancedbilling.models.create_allocation import CreateAllocation
+
+from advancedbilling.models.create_allocation import (
+    CreateAllocation,
+)
 
 
 class CreateAllocationRequest(object):
-
     """Implementation of the 'Create Allocation Request' model.
 
     Attributes:
@@ -23,16 +22,15 @@ class CreateAllocationRequest(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "allocation": 'allocation'
+        "allocation": "allocation",
     }
 
     def __init__(self,
                  allocation=None,
                  additional_properties=None):
-        """Constructor for the CreateAllocationRequest class"""
-
+        """Initialize a CreateAllocationRequest instance."""
         # Initialize members of the class
-        self.allocation = allocation 
+        self.allocation = allocation
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -42,7 +40,7 @@ class CreateAllocationRequest(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -53,24 +51,28 @@ class CreateAllocationRequest(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        allocation = CreateAllocation.from_dictionary(dictionary.get('allocation')) if dictionary.get('allocation') else None
+        allocation = CreateAllocation.from_dictionary(
+            dictionary.get("allocation"))\
+            if dictionary.get("allocation") else None
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(allocation,
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'allocation={self.allocation!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"allocation={self.allocation!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'allocation={self.allocation!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"allocation={self.allocation!s}, "
+                f"additional_properties={self.additional_properties!s})")

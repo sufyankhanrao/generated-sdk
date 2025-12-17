@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type79Enum`](../../doc/models/type-79-enum.md) | Optional | Resource Type<br><br>**Default**: `'Ticket'` |
+| `mtype` | [`Type79Enum`](../../doc/models/type-79-enum.md) | Optional | Resource Type<br><br>**Default**: `"Ticket"` |
 | `data` | [`Data20`](../../doc/models/data-20.md) | Optional | - |
 
 ## Example (as JSON)

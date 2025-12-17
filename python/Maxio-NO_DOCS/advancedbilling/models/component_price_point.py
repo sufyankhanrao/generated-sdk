@@ -1,18 +1,19 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.component_currency_price import ComponentCurrencyPrice
-from advancedbilling.models.component_price import ComponentPrice
+from advancedbilling.models.component_currency_price import (
+    ComponentCurrencyPrice,
+)
+from advancedbilling.models.component_price import (
+    ComponentPrice,
+)
 
 
 class ComponentPricePoint(object):
-
     """Implementation of the 'Component Price Point' model.
 
     Attributes:
@@ -63,50 +64,50 @@ class ComponentPricePoint(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "id": 'id',
-        "mtype": 'type',
-        "default": 'default',
-        "name": 'name',
-        "pricing_scheme": 'pricing_scheme',
-        "component_id": 'component_id',
-        "handle": 'handle',
-        "archived_at": 'archived_at',
-        "created_at": 'created_at',
-        "updated_at": 'updated_at',
-        "prices": 'prices',
-        "use_site_exchange_rate": 'use_site_exchange_rate',
-        "subscription_id": 'subscription_id',
-        "tax_included": 'tax_included',
-        "interval": 'interval',
-        "interval_unit": 'interval_unit',
-        "currency_prices": 'currency_prices'
+        "id": "id",
+        "mtype": "type",
+        "default": "default",
+        "name": "name",
+        "pricing_scheme": "pricing_scheme",
+        "component_id": "component_id",
+        "handle": "handle",
+        "archived_at": "archived_at",
+        "created_at": "created_at",
+        "updated_at": "updated_at",
+        "prices": "prices",
+        "use_site_exchange_rate": "use_site_exchange_rate",
+        "subscription_id": "subscription_id",
+        "tax_included": "tax_included",
+        "interval": "interval",
+        "interval_unit": "interval_unit",
+        "currency_prices": "currency_prices",
     }
 
     _optionals = [
-        'id',
-        'mtype',
-        'default',
-        'name',
-        'pricing_scheme',
-        'component_id',
-        'handle',
-        'archived_at',
-        'created_at',
-        'updated_at',
-        'prices',
-        'use_site_exchange_rate',
-        'subscription_id',
-        'tax_included',
-        'interval',
-        'interval_unit',
-        'currency_prices',
+        "id",
+        "mtype",
+        "default",
+        "name",
+        "pricing_scheme",
+        "component_id",
+        "handle",
+        "archived_at",
+        "created_at",
+        "updated_at",
+        "prices",
+        "use_site_exchange_rate",
+        "subscription_id",
+        "tax_included",
+        "interval",
+        "interval_unit",
+        "currency_prices",
     ]
 
     _nullables = [
-        'handle',
-        'archived_at',
-        'interval',
-        'interval_unit',
+        "handle",
+        "archived_at",
+        "interval",
+        "interval_unit",
     ]
 
     def __init__(self,
@@ -128,43 +129,48 @@ class ComponentPricePoint(object):
                  interval_unit=APIHelper.SKIP,
                  currency_prices=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the ComponentPricePoint class"""
-
+        """Initialize a ComponentPricePoint instance."""
         # Initialize members of the class
         if id is not APIHelper.SKIP:
-            self.id = id 
+            self.id = id
         if mtype is not APIHelper.SKIP:
-            self.mtype = mtype 
+            self.mtype = mtype
         if default is not APIHelper.SKIP:
-            self.default = default 
+            self.default = default
         if name is not APIHelper.SKIP:
-            self.name = name 
+            self.name = name
         if pricing_scheme is not APIHelper.SKIP:
-            self.pricing_scheme = pricing_scheme 
+            self.pricing_scheme = pricing_scheme
         if component_id is not APIHelper.SKIP:
-            self.component_id = component_id 
+            self.component_id = component_id
         if handle is not APIHelper.SKIP:
-            self.handle = handle 
+            self.handle = handle
         if archived_at is not APIHelper.SKIP:
-            self.archived_at = APIHelper.apply_datetime_converter(archived_at, APIHelper.RFC3339DateTime) if archived_at else None 
+            self.archived_at =\
+                 APIHelper.apply_datetime_converter(
+                archived_at, APIHelper.RFC3339DateTime) if archived_at else None
         if created_at is not APIHelper.SKIP:
-            self.created_at = APIHelper.apply_datetime_converter(created_at, APIHelper.RFC3339DateTime) if created_at else None 
+            self.created_at =\
+                 APIHelper.apply_datetime_converter(
+                created_at, APIHelper.RFC3339DateTime) if created_at else None
         if updated_at is not APIHelper.SKIP:
-            self.updated_at = APIHelper.apply_datetime_converter(updated_at, APIHelper.RFC3339DateTime) if updated_at else None 
+            self.updated_at =\
+                 APIHelper.apply_datetime_converter(
+                updated_at, APIHelper.RFC3339DateTime) if updated_at else None
         if prices is not APIHelper.SKIP:
-            self.prices = prices 
+            self.prices = prices
         if use_site_exchange_rate is not APIHelper.SKIP:
-            self.use_site_exchange_rate = use_site_exchange_rate 
+            self.use_site_exchange_rate = use_site_exchange_rate
         if subscription_id is not APIHelper.SKIP:
-            self.subscription_id = subscription_id 
+            self.subscription_id = subscription_id
         if tax_included is not APIHelper.SKIP:
-            self.tax_included = tax_included 
+            self.tax_included = tax_included
         if interval is not APIHelper.SKIP:
-            self.interval = interval 
+            self.interval = interval
         if interval_unit is not APIHelper.SKIP:
-            self.interval_unit = interval_unit 
+            self.interval_unit = interval_unit
         if currency_prices is not APIHelper.SKIP:
-            self.currency_prices = currency_prices 
+            self.currency_prices = currency_prices
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -174,7 +180,7 @@ class ComponentPricePoint(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -185,41 +191,76 @@ class ComponentPricePoint(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
-        mtype = dictionary.get("type") if dictionary.get("type") else APIHelper.SKIP
-        default = dictionary.get("default") if "default" in dictionary.keys() else APIHelper.SKIP
-        name = dictionary.get("name") if dictionary.get("name") else APIHelper.SKIP
-        pricing_scheme = dictionary.get("pricing_scheme") if dictionary.get("pricing_scheme") else APIHelper.SKIP
-        component_id = dictionary.get("component_id") if dictionary.get("component_id") else APIHelper.SKIP
-        handle = dictionary.get("handle") if "handle" in dictionary.keys() else APIHelper.SKIP
-        if 'archived_at' in dictionary.keys():
-            archived_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("archived_at")).datetime if dictionary.get("archived_at") else None
+        mtype =\
+            dictionary.get("type")\
+            if dictionary.get("type") else APIHelper.SKIP
+        default =\
+            dictionary.get("default")\
+            if "default" in dictionary.keys() else APIHelper.SKIP
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name") else APIHelper.SKIP
+        pricing_scheme =\
+            dictionary.get("pricing_scheme")\
+            if dictionary.get("pricing_scheme") else APIHelper.SKIP
+        component_id =\
+            dictionary.get("component_id")\
+            if dictionary.get("component_id") else APIHelper.SKIP
+        handle =\
+            dictionary.get("handle")\
+            if "handle" in dictionary.keys() else APIHelper.SKIP
+        if "archived_at" in dictionary.keys():
+            archived_at = APIHelper.RFC3339DateTime.from_value(
+                dictionary.get("archived_at")).datetime\
+                if dictionary.get("archived_at") else None
+
         else:
             archived_at = APIHelper.SKIP
-        created_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("created_at")).datetime if dictionary.get("created_at") else APIHelper.SKIP
-        updated_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("updated_at")).datetime if dictionary.get("updated_at") else APIHelper.SKIP
+        created_at = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("created_at")).datetime\
+            if dictionary.get("created_at") else APIHelper.SKIP
+        updated_at = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("updated_at")).datetime\
+            if dictionary.get("updated_at") else APIHelper.SKIP
         prices = None
-        if dictionary.get('prices') is not None:
-            prices = [ComponentPrice.from_dictionary(x) for x in dictionary.get('prices')]
+        if dictionary.get("prices") is not None:
+            prices = [
+                ComponentPrice.from_dictionary(x)
+                    for x in dictionary.get("prices")
+            ]
         else:
             prices = APIHelper.SKIP
-        use_site_exchange_rate = dictionary.get("use_site_exchange_rate") if "use_site_exchange_rate" in dictionary.keys() else APIHelper.SKIP
-        subscription_id = dictionary.get("subscription_id") if dictionary.get("subscription_id") else APIHelper.SKIP
-        tax_included = dictionary.get("tax_included") if "tax_included" in dictionary.keys() else APIHelper.SKIP
-        interval = dictionary.get("interval") if "interval" in dictionary.keys() else APIHelper.SKIP
-        interval_unit = dictionary.get("interval_unit") if "interval_unit" in dictionary.keys() else APIHelper.SKIP
+        use_site_exchange_rate =\
+            dictionary.get("use_site_exchange_rate")\
+            if "use_site_exchange_rate" in dictionary.keys() else APIHelper.SKIP
+        subscription_id =\
+            dictionary.get("subscription_id")\
+            if dictionary.get("subscription_id") else APIHelper.SKIP
+        tax_included =\
+            dictionary.get("tax_included")\
+            if "tax_included" in dictionary.keys() else APIHelper.SKIP
+        interval =\
+            dictionary.get("interval")\
+            if "interval" in dictionary.keys() else APIHelper.SKIP
+        interval_unit =\
+            dictionary.get("interval_unit")\
+            if "interval_unit" in dictionary.keys() else APIHelper.SKIP
         currency_prices = None
-        if dictionary.get('currency_prices') is not None:
-            currency_prices = [ComponentCurrencyPrice.from_dictionary(x) for x in dictionary.get('currency_prices')]
+        if dictionary.get("currency_prices") is not None:
+            currency_prices = [
+                ComponentCurrencyPrice.from_dictionary(x)
+                    for x in dictionary.get("currency_prices")
+            ]
         else:
             currency_prices = APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(id,
                    mtype,
@@ -241,43 +282,69 @@ class ComponentPricePoint(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'id={(self.id if hasattr(self, "id") else None)!r}, '
-                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r}, '
-                f'default={(self.default if hasattr(self, "default") else None)!r}, '
-                f'name={(self.name if hasattr(self, "name") else None)!r}, '
-                f'pricing_scheme={(self.pricing_scheme if hasattr(self, "pricing_scheme") else None)!r}, '
-                f'component_id={(self.component_id if hasattr(self, "component_id") else None)!r}, '
-                f'handle={(self.handle if hasattr(self, "handle") else None)!r}, '
-                f'archived_at={(self.archived_at if hasattr(self, "archived_at") else None)!r}, '
-                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!r}, '
-                f'updated_at={(self.updated_at if hasattr(self, "updated_at") else None)!r}, '
-                f'prices={(self.prices if hasattr(self, "prices") else None)!r}, '
-                f'use_site_exchange_rate={(self.use_site_exchange_rate if hasattr(self, "use_site_exchange_rate") else None)!r}, '
-                f'subscription_id={(self.subscription_id if hasattr(self, "subscription_id") else None)!r}, '
-                f'tax_included={(self.tax_included if hasattr(self, "tax_included") else None)!r}, '
-                f'interval={(self.interval if hasattr(self, "interval") else None)!r}, '
-                f'interval_unit={(self.interval_unit if hasattr(self, "interval_unit") else None)!r}, '
-                f'currency_prices={(self.currency_prices if hasattr(self, "currency_prices") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
+                f"mtype={(self.mtype if hasattr(self, 'mtype') else None)!r}, "
+                f"default={(self.default
+                     if hasattr(self, 'default') else None)!r}, "
+                f"name={(self.name if hasattr(self, 'name') else None)!r}, "
+                f"pricing_scheme={(self.pricing_scheme
+                     if hasattr(self, 'pricing_scheme') else None)!r}, "
+                f"component_id={(self.component_id
+                     if hasattr(self, 'component_id') else None)!r}, "
+                f"handle={(self.handle if hasattr(self, 'handle') else None)!r}, "
+                f"archived_at={(self.archived_at
+                     if hasattr(self, 'archived_at') else None)!r}, "
+                f"created_at={(self.created_at
+                     if hasattr(self, 'created_at') else None)!r}, "
+                f"updated_at={(self.updated_at
+                     if hasattr(self, 'updated_at') else None)!r}, "
+                f"prices={(self.prices if hasattr(self, 'prices') else None)!r}, "
+                f"use_site_exchange_rate={(self.use_site_exchange_rate
+                     if hasattr(self, 'use_site_exchange_rate') else None)!r}, "
+                f"subscription_id={(self.subscription_id
+                     if hasattr(self, 'subscription_id') else None)!r}, "
+                f"tax_included={(self.tax_included
+                     if hasattr(self, 'tax_included') else None)!r}, "
+                f"interval={(self.interval
+                     if hasattr(self, 'interval') else None)!r}, "
+                f"interval_unit={(self.interval_unit
+                     if hasattr(self, 'interval_unit') else None)!r}, "
+                f"currency_prices={(self.currency_prices
+                     if hasattr(self, 'currency_prices') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'id={(self.id if hasattr(self, "id") else None)!s}, '
-                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s}, '
-                f'default={(self.default if hasattr(self, "default") else None)!s}, '
-                f'name={(self.name if hasattr(self, "name") else None)!s}, '
-                f'pricing_scheme={(self.pricing_scheme if hasattr(self, "pricing_scheme") else None)!s}, '
-                f'component_id={(self.component_id if hasattr(self, "component_id") else None)!s}, '
-                f'handle={(self.handle if hasattr(self, "handle") else None)!s}, '
-                f'archived_at={(self.archived_at if hasattr(self, "archived_at") else None)!s}, '
-                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!s}, '
-                f'updated_at={(self.updated_at if hasattr(self, "updated_at") else None)!s}, '
-                f'prices={(self.prices if hasattr(self, "prices") else None)!s}, '
-                f'use_site_exchange_rate={(self.use_site_exchange_rate if hasattr(self, "use_site_exchange_rate") else None)!s}, '
-                f'subscription_id={(self.subscription_id if hasattr(self, "subscription_id") else None)!s}, '
-                f'tax_included={(self.tax_included if hasattr(self, "tax_included") else None)!s}, '
-                f'interval={(self.interval if hasattr(self, "interval") else None)!s}, '
-                f'interval_unit={(self.interval_unit if hasattr(self, "interval_unit") else None)!s}, '
-                f'currency_prices={(self.currency_prices if hasattr(self, "currency_prices") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
+                f"mtype={(self.mtype if hasattr(self, 'mtype') else None)!s}, "
+                f"default={(self.default
+                     if hasattr(self, 'default') else None)!s}, "
+                f"name={(self.name if hasattr(self, 'name') else None)!s}, "
+                f"pricing_scheme={(self.pricing_scheme
+                     if hasattr(self, 'pricing_scheme') else None)!s}, "
+                f"component_id={(self.component_id
+                     if hasattr(self, 'component_id') else None)!s}, "
+                f"handle={(self.handle if hasattr(self, 'handle') else None)!s}, "
+                f"archived_at={(self.archived_at
+                     if hasattr(self, 'archived_at') else None)!s}, "
+                f"created_at={(self.created_at
+                     if hasattr(self, 'created_at') else None)!s}, "
+                f"updated_at={(self.updated_at
+                     if hasattr(self, 'updated_at') else None)!s}, "
+                f"prices={(self.prices if hasattr(self, 'prices') else None)!s}, "
+                f"use_site_exchange_rate={(self.use_site_exchange_rate
+                     if hasattr(self, 'use_site_exchange_rate') else None)!s}, "
+                f"subscription_id={(self.subscription_id
+                     if hasattr(self, 'subscription_id') else None)!s}, "
+                f"tax_included={(self.tax_included
+                     if hasattr(self, 'tax_included') else None)!s}, "
+                f"interval={(self.interval
+                     if hasattr(self, 'interval') else None)!s}, "
+                f"interval_unit={(self.interval_unit
+                     if hasattr(self, 'interval_unit') else None)!s}, "
+                f"currency_prices={(self.currency_prices
+                     if hasattr(self, 'currency_prices') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

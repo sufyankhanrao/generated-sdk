@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.response_shipment import ResponseShipment
+from postnlecommerce.models.response_shipment import (
+    ResponseShipment,
+)
 
 
 class ConfirmingResponse(object):
-
     """Implementation of the 'confirmingResponse' model.
 
     Attributes:
@@ -22,25 +21,24 @@ class ConfirmingResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "response_shipments": 'ResponseShipments'
+        "response_shipments": "ResponseShipments",
     }
 
     _optionals = [
-        'response_shipments',
+        "response_shipments",
     ]
 
     def __init__(self,
                  response_shipments=APIHelper.SKIP):
-        """Constructor for the ConfirmingResponse class"""
-
+        """Initialize a ConfirmingResponse instance."""
         # Initialize members of the class
         if response_shipments is not APIHelper.SKIP:
-            self.response_shipments = response_shipments 
+            self.response_shipments = response_shipments
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -51,23 +49,29 @@ class ConfirmingResponse(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         response_shipments = None
-        if dictionary.get('ResponseShipments') is not None:
-            response_shipments = [ResponseShipment.from_dictionary(x) for x in dictionary.get('ResponseShipments')]
+        if dictionary.get("ResponseShipments") is not None:
+            response_shipments = [
+                ResponseShipment.from_dictionary(x)
+                    for x in dictionary.get("ResponseShipments")
+            ]
         else:
             response_shipments = APIHelper.SKIP
         # Return an object of this model
         return cls(response_shipments)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'response_shipments={(self.response_shipments if hasattr(self, "response_shipments") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"response_shipments={(self.response_shipments
+                     if hasattr(self, 'response_shipments') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'response_shipments={(self.response_shipments if hasattr(self, "response_shipments") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"response_shipments={(self.response_shipments
+                     if hasattr(self, 'response_shipments') else None)!s})")

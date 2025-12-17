@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type98Enum`](../../doc/models/type-98-enum.md) | Optional | Resource Type<br><br>**Default**: `'TransactionsCollection'` |
+| `mtype` | [`Type98Enum`](../../doc/models/type-98-enum.md) | Optional | Resource Type<br><br>**Default**: `"TransactionsCollection"` |
 | `list` | [`List[List16]`](../../doc/models/list-16.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

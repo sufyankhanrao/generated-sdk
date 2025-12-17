@@ -1,37 +1,51 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.http.api_response import ApiResponse
-from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.authentication.multiple.single_auth import (
+    Single,
+)
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-from advancedbilling.http.http_method_enum import HttpMethodEnum
-from apimatic_core.authentication.multiple.single_auth import Single
-from advancedbilling.models.subscription_response import SubscriptionResponse
-from advancedbilling.models.delayed_cancellation_response import DelayedCancellationResponse
-from advancedbilling.models.renewal_preview_response import RenewalPreviewResponse
-from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
-from advancedbilling.exceptions.api_exception import APIException
+
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.controllers.base_controller import (
+    BaseController,
+)
+from advancedbilling.exceptions.api_exception import (
+    APIException,
+)
+from advancedbilling.exceptions.error_list_response_exception import (
+    ErrorListResponseException,
+)
+from advancedbilling.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from advancedbilling.models.delayed_cancellation_response import (
+    DelayedCancellationResponse,
+)
+from advancedbilling.models.renewal_preview_response import (
+    RenewalPreviewResponse,
+)
+from advancedbilling.models.subscription_response import (
+    SubscriptionResponse,
+)
 
 
 class SubscriptionStatusController(BaseController):
-
     """A Controller to access Endpoints in the advancedbilling API."""
+
     def __init__(self, config):
+        """Initialize SubscriptionStatusController object."""
         super(SubscriptionStatusController, self).__init__(config)
 
     def retry_subscription(self,
                            subscription_id):
-        """Does a PUT request to /subscriptions/{subscription_id}/retry.json.
+        """Perform a PUT request to /subscriptions/{subscription_id}/retry.json.
 
         Chargify offers the ability to retry collecting the balance due on a
         past due Subscription without waiting for the next scheduled attempt.
@@ -54,32 +68,34 @@ class SubscriptionStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/retry.json')
+            .path("/subscriptions/{subscription_id}/retry.json")
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def cancel_subscription(self,
                             subscription_id,
                             body=None):
-        """Does a DELETE request to /subscriptions/{subscription_id}.json.
+        """Perform a DELETE request to /subscriptions/{subscription_id}.json.
 
         The DELETE action causes the cancellation of the Subscription. This
         means, the method sets the Subscription state to "canceled".
@@ -99,39 +115,41 @@ class SubscriptionStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}.json')
+            .path("/subscriptions/{subscription_id}.json")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                APIException),
         ).execute()
 
     def resume_subscription(self,
                             subscription_id,
-                            calendar_billing_resumption_charge='prorated'):
-        """Does a POST request to /subscriptions/{subscription_id}/resume.json.
+                            calendar_billing_resumption_charge="prorated"):
+        """Perform a POST request to /subscriptions/{subscription_id}/resume.json.
 
         Resume a paused (on-hold) subscription. If the normal next renewal
         date has not passed, the subscription will return to active and will
@@ -155,35 +173,37 @@ class SubscriptionStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/resume.json')
+            .path("/subscriptions/{subscription_id}/resume.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('calendar_billing[\'resumption_charge\']')
+                         .key("calendar_billing['resumption_charge']")
                          .value(calendar_billing_resumption_charge))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def pause_subscription(self,
                            subscription_id,
                            body=None):
-        """Does a POST request to /subscriptions/{subscription_id}/hold.json.
+        """Perform a POST request to /subscriptions/{subscription_id}/hold.json.
 
         This will place the subscription in the on_hold state and it will not
         renew.
@@ -206,38 +226,40 @@ class SubscriptionStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/hold.json')
+            .path("/subscriptions/{subscription_id}/hold.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def update_automatic_subscription_resumption(self,
                                                  subscription_id,
                                                  body=None):
-        """Does a PUT request to /subscriptions/{subscription_id}/hold.json.
+        """Perform a PUT request to /subscriptions/{subscription_id}/hold.json.
 
         Once a subscription has been paused / put on hold, you can update the
         date which was specified to automatically resume the subscription.
@@ -262,38 +284,40 @@ class SubscriptionStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/hold.json')
+            .path("/subscriptions/{subscription_id}/hold.json")
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def reactivate_subscription(self,
                                 subscription_id,
                                 body=None):
-        """Does a PUT request to /subscriptions/{subscription_id}/reactivate.json.
+        """Perform a PUT request to /subscriptions/{subscription_id}/reactivate.json.
 
         Chargify offers the ability to reactivate a previously canceled
         subscription. For details on how the reactivation works, and how to
@@ -452,38 +476,41 @@ class SubscriptionStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/reactivate.json')
+            .path("/subscriptions/{subscription_id}/reactivate.json")
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def initiate_delayed_cancellation(self,
                                       subscription_id,
                                       body=None):
-        """Does a POST request to /subscriptions/{subscription_id}/delayed_cancel.json.
+        """Perform a POST request to
+        /subscriptions/{subscription_id}/delayed_cancel.json.
 
         Chargify offers the ability to cancel a subscription at the end of the
         current billing period. This period is set by its current product.
@@ -507,37 +534,37 @@ class SubscriptionStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/delayed_cancel.json')
+            .path("/subscriptions/{subscription_id}/delayed_cancel.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DelayedCancellationResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()
 
     def cancel_delayed_cancellation(self,
                                     subscription_id):
-        """Does a DELETE request to /subscriptions/{subscription_id}/delayed_cancel.json.
+        """Perform a DELETE request to
+        /subscriptions/{subscription_id}/delayed_cancel.json.
 
         Removing the delayed cancellation on a subscription will ensure that
         it doesn't get canceled at the end of the period that it is in. The
@@ -560,31 +587,31 @@ class SubscriptionStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/delayed_cancel.json')
+            .path("/subscriptions/{subscription_id}/delayed_cancel.json")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DelayedCancellationResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()
 
     def cancel_dunning(self,
                        subscription_id):
-        """Does a POST request to /subscriptions/{subscription_id}/cancel_dunning.json.
+        """Perform a POST request to
+        /subscriptions/{subscription_id}/cancel_dunning.json.
 
         If a subscription is currently in dunning, the subscription will be
         set to active and the active Dunner will be resolved.
@@ -603,31 +630,31 @@ class SubscriptionStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/cancel_dunning.json')
+            .path("/subscriptions/{subscription_id}/cancel_dunning.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def preview_renewal(self,
                         subscription_id,
                         body=None):
-        """Does a POST request to /subscriptions/{subscription_id}/renewals/preview.json.
+        """Perform a POST request to
+        /subscriptions/{subscription_id}/renewals/preview.json.
 
         The Chargify API allows you to preview a renewal by posting to the
         renewals endpoint. Renewal Preview is an object representing a
@@ -677,30 +704,32 @@ class SubscriptionStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/renewals/preview.json')
+            .path("/subscriptions/{subscription_id}/renewals/preview.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(RenewalPreviewResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()

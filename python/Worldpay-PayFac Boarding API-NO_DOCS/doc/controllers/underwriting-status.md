@@ -17,7 +17,7 @@ URI to get underwritingstatus of a PayFac submerchant.
 def get_underwriting_status(self,
                            v_correlation_id,
                            id,
-                           content_type='application/json')
+                           content_type="application/json")
 ```
 
 ## Parameters
@@ -26,7 +26,7 @@ def get_underwriting_status(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 

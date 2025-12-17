@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type94Enum`](../../doc/models/type-94-enum.md) | Optional | Resource Type<br><br>**Default**: `'TransactionBinInfo'` |
+| `mtype` | [`Type94Enum`](../../doc/models/type-94-enum.md) | Optional | Resource Type<br><br>**Default**: `"TransactionBinInfo"` |
 | `data` | [`Data23`](../../doc/models/data-23.md) | Optional | - |
 
 ## Example (as JSON)

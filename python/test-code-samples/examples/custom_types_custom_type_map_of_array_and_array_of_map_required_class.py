@@ -41,7 +41,7 @@ employee_array_of_map = EmployeeRequired(
         )
     ],
     hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-    joining_day='Monday',
+    joining_day="Monday",
     salary=230,
     boss=Person(
         address='address8',

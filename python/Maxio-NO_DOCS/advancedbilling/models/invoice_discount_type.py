@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class InvoiceDiscountType(object):
-
     """Implementation of the 'Invoice Discount Type' enum.
 
     Attributes:
@@ -20,16 +16,17 @@ class InvoiceDiscountType(object):
             for the model.
 
     """
-    _all_values = ['percentage', 'flat_amount', 'rollover']
-    PERCENTAGE = 'percentage'
 
-    FLAT_AMOUNT = 'flat_amount'
+    _all_values = ["percentage", "flat_amount", "rollover"]
+    PERCENTAGE = "percentage"
 
-    ROLLOVER = 'rollover'
+    FLAT_AMOUNT = "flat_amount"
+
+    ROLLOVER = "rollover"
 
     @classmethod
     def validate(cls, value):
-        """Validates value contains in enum
+        """Validate value contains in enum
 
         Args:
             value: the value to be validated
@@ -39,9 +36,10 @@ class InvoiceDiscountType(object):
 
         """
         return value in cls._all_values
-   
+
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

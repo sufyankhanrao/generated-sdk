@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type91Enum`](../../doc/models/type-91-enum.md) | Optional | Resource Type<br><br>**Default**: `'Transaction'` |
+| `mtype` | [`Type91Enum`](../../doc/models/type-91-enum.md) | Optional | Resource Type<br><br>**Default**: `"Transaction"` |
 | `data` | [`Data22`](../../doc/models/data-22.md) | Optional | - |
 
 ## Example (as JSON)

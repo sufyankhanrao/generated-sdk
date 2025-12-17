@@ -1,20 +1,21 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
 from tester.api_helper import APIHelper
-from tester.exceptions.api_exception import APIException
-from tester.models.add_uuid_in_global_exception import AddUuidInGlobalException
+from tester.exceptions.api_exception import (
+    APIException,
+)
+from tester.models.add_uuid_in_global_exception import (
+    AddUuidInGlobalException,
+)
 
 
 class SendUuidInModelAsException(APIException):
     def __init__(self, reason, response):
-        """Constructor for the SendUuidInModelAsException class
+        """Initialize SendUuidInModelAsException object.
 
         Args:
             reason (string): The reason (or error message) for the Exception
@@ -28,7 +29,7 @@ class SendUuidInModelAsException(APIException):
             self.unbox(dictionary)
 
     def unbox(self, dictionary):
-        """Populates the properties of this object by extracting them from a dictionary.
+        """Populate the properties of this object by extracting them from a dictionary.
 
         Args:
             dictionary (dictionary): A dictionary representation of the object as
@@ -36,10 +37,13 @@ class SendUuidInModelAsException(APIException):
             MUST match property names in the API description.
 
         """
-        self.body = AddUuidInGlobalException.from_dictionary(dictionary.get('body')) if dictionary.get('body') else None
+        self.body = AddUuidInGlobalException.from_dictionary(
+            dictionary.get("body"))\
+            if dictionary.get("body") else None
 
     def __str__(self):
+        """Return a human-readable string representation."""
         base_str = super().__str__()
-        return (f'{self.__class__.__name__}('
-                f'{base_str[base_str.find("(") + 1:-1]}, '
-                f'body={self.body!s})')
+        return (f"{self.__class__.__name__}("
+                f"{base_str[base_str.find('(') + 1:-1]}, "
+                f"body={self.body!s})")

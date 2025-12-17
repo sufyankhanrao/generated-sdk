@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class SubscriptionDateField(object):
-
     """Implementation of the 'Subscription Date Field' enum.
 
     Attributes:
@@ -26,26 +22,28 @@ class SubscriptionDateField(object):
             for the model.
 
     """
-    CURRENT_PERIOD_ENDS_AT = 'current_period_ends_at'
 
-    CURRENT_PERIOD_STARTS_AT = 'current_period_starts_at'
+    CURRENT_PERIOD_ENDS_AT = "current_period_ends_at"
 
-    CREATED_AT = 'created_at'
+    CURRENT_PERIOD_STARTS_AT = "current_period_starts_at"
 
-    ACTIVATED_AT = 'activated_at'
+    CREATED_AT = "created_at"
 
-    CANCELED_AT = 'canceled_at'
+    ACTIVATED_AT = "activated_at"
 
-    EXPIRES_AT = 'expires_at'
+    CANCELED_AT = "canceled_at"
 
-    TRIAL_STARTED_AT = 'trial_started_at'
+    EXPIRES_AT = "expires_at"
 
-    TRIAL_ENDED_AT = 'trial_ended_at'
+    TRIAL_STARTED_AT = "trial_started_at"
 
-    UPDATED_AT = 'updated_at'
+    TRIAL_ENDED_AT = "trial_ended_at"
+
+    UPDATED_AT = "updated_at"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

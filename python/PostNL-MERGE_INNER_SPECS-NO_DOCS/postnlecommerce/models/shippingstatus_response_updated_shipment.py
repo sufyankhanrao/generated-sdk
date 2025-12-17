@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.status_2 import Status2
+from postnlecommerce.models.status_2 import (
+    Status2,
+)
 
 
 class ShippingstatusResponseUpdatedShipment(object):
-
     """Implementation of the 'shippingstatusResponseUpdatedShipment' model.
 
     Attributes:
@@ -27,19 +26,19 @@ class ShippingstatusResponseUpdatedShipment(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "barcode": 'Barcode',
-        "creation_date": 'CreationDate',
-        "customer_number": 'CustomerNumber',
-        "customer_code": 'CustomerCode',
-        "status": 'Status'
+        "barcode": "Barcode",
+        "creation_date": "CreationDate",
+        "customer_number": "CustomerNumber",
+        "customer_code": "CustomerCode",
+        "status": "Status",
     }
 
     _optionals = [
-        'barcode',
-        'creation_date',
-        'customer_number',
-        'customer_code',
-        'status',
+        "barcode",
+        "creation_date",
+        "customer_number",
+        "customer_code",
+        "status",
     ]
 
     def __init__(self,
@@ -48,24 +47,23 @@ class ShippingstatusResponseUpdatedShipment(object):
                  customer_number=APIHelper.SKIP,
                  customer_code=APIHelper.SKIP,
                  status=APIHelper.SKIP):
-        """Constructor for the ShippingstatusResponseUpdatedShipment class"""
-
+        """Initialize a ShippingstatusResponseUpdatedShipment instance."""
         # Initialize members of the class
         if barcode is not APIHelper.SKIP:
-            self.barcode = barcode 
+            self.barcode = barcode
         if creation_date is not APIHelper.SKIP:
-            self.creation_date = creation_date 
+            self.creation_date = creation_date
         if customer_number is not APIHelper.SKIP:
-            self.customer_number = customer_number 
+            self.customer_number = customer_number
         if customer_code is not APIHelper.SKIP:
-            self.customer_code = customer_code 
+            self.customer_code = customer_code
         if status is not APIHelper.SKIP:
-            self.status = status 
+            self.status = status
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -76,16 +74,25 @@ class ShippingstatusResponseUpdatedShipment(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        barcode = dictionary.get("Barcode") if dictionary.get("Barcode") else APIHelper.SKIP
-        creation_date = dictionary.get("CreationDate") if dictionary.get("CreationDate") else APIHelper.SKIP
-        customer_number = dictionary.get("CustomerNumber") if dictionary.get("CustomerNumber") else APIHelper.SKIP
-        customer_code = dictionary.get("CustomerCode") if dictionary.get("CustomerCode") else APIHelper.SKIP
-        status = Status2.from_dictionary(dictionary.get('Status')) if 'Status' in dictionary.keys() else APIHelper.SKIP
+        barcode =\
+            dictionary.get("Barcode")\
+            if dictionary.get("Barcode") else APIHelper.SKIP
+        creation_date =\
+            dictionary.get("CreationDate")\
+            if dictionary.get("CreationDate") else APIHelper.SKIP
+        customer_number =\
+            dictionary.get("CustomerNumber")\
+            if dictionary.get("CustomerNumber") else APIHelper.SKIP
+        customer_code =\
+            dictionary.get("CustomerCode")\
+            if dictionary.get("CustomerCode") else APIHelper.SKIP
+        status = Status2.from_dictionary(
+            dictionary.get("Status"))\
+            if "Status" in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(barcode,
                    creation_date,
@@ -94,17 +101,27 @@ class ShippingstatusResponseUpdatedShipment(object):
                    status)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!r}, '
-                f'creation_date={(self.creation_date if hasattr(self, "creation_date") else None)!r}, '
-                f'customer_number={(self.customer_number if hasattr(self, "customer_number") else None)!r}, '
-                f'customer_code={(self.customer_code if hasattr(self, "customer_code") else None)!r}, '
-                f'status={(self.status if hasattr(self, "status") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"barcode={(self.barcode
+                     if hasattr(self, 'barcode') else None)!r}, "
+                f"creation_date={(self.creation_date
+                     if hasattr(self, 'creation_date') else None)!r}, "
+                f"customer_number={(self.customer_number
+                     if hasattr(self, 'customer_number') else None)!r}, "
+                f"customer_code={(self.customer_code
+                     if hasattr(self, 'customer_code') else None)!r}, "
+                f"status={(self.status if hasattr(self, 'status') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!s}, '
-                f'creation_date={(self.creation_date if hasattr(self, "creation_date") else None)!s}, '
-                f'customer_number={(self.customer_number if hasattr(self, "customer_number") else None)!s}, '
-                f'customer_code={(self.customer_code if hasattr(self, "customer_code") else None)!s}, '
-                f'status={(self.status if hasattr(self, "status") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"barcode={(self.barcode
+                     if hasattr(self, 'barcode') else None)!s}, "
+                f"creation_date={(self.creation_date
+                     if hasattr(self, 'creation_date') else None)!s}, "
+                f"customer_number={(self.customer_number
+                     if hasattr(self, 'customer_number') else None)!s}, "
+                f"customer_code={(self.customer_code
+                     if hasattr(self, 'customer_code') else None)!s}, "
+                f"status={(self.status if hasattr(self, 'status') else None)!s})")

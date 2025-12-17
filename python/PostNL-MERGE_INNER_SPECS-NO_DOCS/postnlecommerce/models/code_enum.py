@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class CodeEnum(object):
-
     """Implementation of the 'Code' enum.
 
     Sustainability score code
@@ -21,16 +17,18 @@ class CodeEnum(object):
         ENUM_03: The enum member of type str.
 
     """
-    ENUM_00 = '00'
 
-    ENUM_01 = '01'
+    ENUM_00 = "00"
 
-    ENUM_02 = '02'
+    ENUM_01 = "01"
 
-    ENUM_03 = '03'
+    ENUM_02 = "02"
+
+    ENUM_03 = "03"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

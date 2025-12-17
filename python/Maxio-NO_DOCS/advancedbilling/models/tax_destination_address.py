@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class TaxDestinationAddress(object):
-
     """Implementation of the 'Tax Destination Address' enum.
 
     Attributes:
@@ -21,16 +17,18 @@ class TaxDestinationAddress(object):
             for the model.
 
     """
-    SHIPPING_THEN_BILLING = 'shipping_then_billing'
 
-    BILLING_THEN_SHIPPING = 'billing_then_shipping'
+    SHIPPING_THEN_BILLING = "shipping_then_billing"
 
-    SHIPPING_ONLY = 'shipping_only'
+    BILLING_THEN_SHIPPING = "billing_then_shipping"
 
-    BILLING_ONLY = 'billing_only'
+    SHIPPING_ONLY = "shipping_only"
+
+    BILLING_ONLY = "billing_only"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

@@ -12,7 +12,7 @@
 | `txid` | `str` | Required | Transaction identifier |
 | `account_name` | `str` | Required | Managed account identifier |
 | `paccount_name` | `str` | Required | Primary account identifier |
-| `service_name` | [`ServiceNameEnum`](../../doc/models/service-name-enum.md) | Required | Service name<br><br>**Default**: `'Location'` |
+| `service_name` | [`ServiceNameEnum`](../../doc/models/service-name-enum.md) | Required | Service name<br><br>**Default**: `"Location"` |
 | `status` | `str` | Required | Deactivate/cancel status, Success or Fail |
 | `reason` | `str` | Required | Detailed reason |
 

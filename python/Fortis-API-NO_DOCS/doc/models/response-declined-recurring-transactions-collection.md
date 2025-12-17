@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type16Enum`](../../doc/models/type-16-enum.md) | Optional | Resource Type<br><br>**Default**: `'DeclinedRecurringTransactionsCollection'` |
+| `mtype` | [`Type16Enum`](../../doc/models/type-16-enum.md) | Optional | Resource Type<br><br>**Default**: `"DeclinedRecurringTransactionsCollection"` |
 | `list` | [`List[List3]`](../../doc/models/list-3.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

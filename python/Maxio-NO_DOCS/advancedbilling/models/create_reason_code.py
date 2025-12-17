@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
 
 
 class CreateReasonCode(object):
-
     """Implementation of the 'Create Reason Code' model.
 
     Attributes:
@@ -24,13 +21,13 @@ class CreateReasonCode(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "code": 'code',
-        "description": 'description',
-        "position": 'position'
+        "code": "code",
+        "description": "description",
+        "position": "position",
     }
 
     _optionals = [
-        'position',
+        "position",
     ]
 
     def __init__(self,
@@ -38,13 +35,12 @@ class CreateReasonCode(object):
                  description=None,
                  position=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the CreateReasonCode class"""
-
+        """Initialize a CreateReasonCode instance."""
         # Initialize members of the class
-        self.code = code 
-        self.description = description 
+        self.code = code
+        self.description = description
         if position is not APIHelper.SKIP:
-            self.position = position 
+            self.position = position
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -54,7 +50,7 @@ class CreateReasonCode(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -65,16 +61,20 @@ class CreateReasonCode(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         code = dictionary.get("code") if dictionary.get("code") else None
-        description = dictionary.get("description") if dictionary.get("description") else None
-        position = dictionary.get("position") if dictionary.get("position") else APIHelper.SKIP
+        description =\
+            dictionary.get("description")\
+            if dictionary.get("description") else None
+        position =\
+            dictionary.get("position")\
+            if dictionary.get("position") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(code,
                    description,
@@ -82,15 +82,19 @@ class CreateReasonCode(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'code={self.code!r}, '
-                f'description={self.description!r}, '
-                f'position={(self.position if hasattr(self, "position") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"code={self.code!r}, "
+                f"description={self.description!r}, "
+                f"position={(self.position
+                     if hasattr(self, 'position') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'code={self.code!s}, '
-                f'description={self.description!s}, '
-                f'position={(self.position if hasattr(self, "position") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"code={self.code!s}, "
+                f"description={self.description!s}, "
+                f"position={(self.position
+                     if hasattr(self, 'position') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

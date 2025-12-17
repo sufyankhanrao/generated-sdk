@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
 
 
 class SuiteCodeEnum(object):
-
     """Implementation of the 'SuiteCode' enum.
 
     A integer based enum representing a Suite in a game of cards
@@ -23,6 +19,7 @@ class SuiteCodeEnum(object):
             for the model.
 
     """
+
     HEARTS = 1
 
     SPADES = 2
@@ -33,6 +30,7 @@ class SuiteCodeEnum(object):
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

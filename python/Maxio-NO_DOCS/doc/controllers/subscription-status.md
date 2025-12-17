@@ -390,7 +390,7 @@ Resume a paused (on-hold) subscription. If the normal next renewal date has not 
 ```python
 def resume_subscription(self,
                        subscription_id,
-                       calendar_billing_resumption_charge='prorated')
+                       calendar_billing_resumption_charge="prorated")
 ```
 
 ## Parameters
@@ -398,7 +398,7 @@ def resume_subscription(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `subscription_id` | `int` | Template, Required | The Chargify id of the subscription |
-| `calendar_billing_resumption_charge` | [`ResumptionCharge`](../../doc/models/resumption-charge.md) | Query, Optional | (For calendar billing subscriptions only) The way that the resumed subscription's charge should be handled<br><br>**Default**: `'prorated'` |
+| `calendar_billing_resumption_charge` | [`ResumptionCharge`](../../doc/models/resumption-charge.md) | Query, Optional | (For calendar billing subscriptions only) The way that the resumed subscription's charge should be handled<br><br>**Default**: `"prorated"` |
 
 ## Response Type
 

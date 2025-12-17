@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
 
 
 class TypeEnum(object):
-
     """Implementation of the 'Type' enum.
 
     Attributes:
@@ -24,22 +20,24 @@ class TypeEnum(object):
             for the model.
 
     """
-    LONG = 'Long'
 
-    NUMBER = 'Number'
+    LONG = "Long"
 
-    PRECISION = 'Precision'
+    NUMBER = "Number"
 
-    BOOLEAN = 'Boolean'
+    PRECISION = "Precision"
 
-    DATETIME = 'DateTime'
+    BOOLEAN = "Boolean"
 
-    DATE = 'Date'
+    DATETIME = "DateTime"
 
-    STRING = 'String'
+    DATE = "Date"
+
+    STRING = "String"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

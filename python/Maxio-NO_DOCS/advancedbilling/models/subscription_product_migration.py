@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.proration import Proration
+from advancedbilling.models.proration import (
+    Proration,
+)
 
 
 class SubscriptionProductMigration(object):
-
     """Implementation of the 'Subscription Product Migration' model.
 
     Attributes:
@@ -53,27 +52,27 @@ class SubscriptionProductMigration(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "product_id": 'product_id',
-        "product_price_point_id": 'product_price_point_id',
-        "include_trial": 'include_trial',
-        "include_initial_charge": 'include_initial_charge',
-        "include_coupons": 'include_coupons',
-        "preserve_period": 'preserve_period',
-        "product_handle": 'product_handle',
-        "product_price_point_handle": 'product_price_point_handle',
-        "proration": 'proration'
+        "product_id": "product_id",
+        "product_price_point_id": "product_price_point_id",
+        "include_trial": "include_trial",
+        "include_initial_charge": "include_initial_charge",
+        "include_coupons": "include_coupons",
+        "preserve_period": "preserve_period",
+        "product_handle": "product_handle",
+        "product_price_point_handle": "product_price_point_handle",
+        "proration": "proration",
     }
 
     _optionals = [
-        'product_id',
-        'product_price_point_id',
-        'include_trial',
-        'include_initial_charge',
-        'include_coupons',
-        'preserve_period',
-        'product_handle',
-        'product_price_point_handle',
-        'proration',
+        "product_id",
+        "product_price_point_id",
+        "include_trial",
+        "include_initial_charge",
+        "include_coupons",
+        "preserve_period",
+        "product_handle",
+        "product_price_point_handle",
+        "proration",
     ]
 
     def __init__(self,
@@ -87,23 +86,22 @@ class SubscriptionProductMigration(object):
                  product_price_point_handle=APIHelper.SKIP,
                  proration=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the SubscriptionProductMigration class"""
-
+        """Initialize a SubscriptionProductMigration instance."""
         # Initialize members of the class
         if product_id is not APIHelper.SKIP:
-            self.product_id = product_id 
+            self.product_id = product_id
         if product_price_point_id is not APIHelper.SKIP:
-            self.product_price_point_id = product_price_point_id 
-        self.include_trial = include_trial 
-        self.include_initial_charge = include_initial_charge 
-        self.include_coupons = include_coupons 
-        self.preserve_period = preserve_period 
+            self.product_price_point_id = product_price_point_id
+        self.include_trial = include_trial
+        self.include_initial_charge = include_initial_charge
+        self.include_coupons = include_coupons
+        self.preserve_period = preserve_period
         if product_handle is not APIHelper.SKIP:
-            self.product_handle = product_handle 
+            self.product_handle = product_handle
         if product_price_point_handle is not APIHelper.SKIP:
-            self.product_price_point_handle = product_price_point_handle 
+            self.product_price_point_handle = product_price_point_handle
         if proration is not APIHelper.SKIP:
-            self.proration = proration 
+            self.proration = proration
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -113,7 +111,7 @@ class SubscriptionProductMigration(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -124,22 +122,40 @@ class SubscriptionProductMigration(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        product_id = dictionary.get("product_id") if dictionary.get("product_id") else APIHelper.SKIP
-        product_price_point_id = dictionary.get("product_price_point_id") if dictionary.get("product_price_point_id") else APIHelper.SKIP
-        include_trial = dictionary.get("include_trial") if dictionary.get("include_trial") else False
-        include_initial_charge = dictionary.get("include_initial_charge") if dictionary.get("include_initial_charge") else False
-        include_coupons = dictionary.get("include_coupons") if dictionary.get("include_coupons") else True
-        preserve_period = dictionary.get("preserve_period") if dictionary.get("preserve_period") else False
-        product_handle = dictionary.get("product_handle") if dictionary.get("product_handle") else APIHelper.SKIP
-        product_price_point_handle = dictionary.get("product_price_point_handle") if dictionary.get("product_price_point_handle") else APIHelper.SKIP
-        proration = Proration.from_dictionary(dictionary.get('proration')) if 'proration' in dictionary.keys() else APIHelper.SKIP
+        product_id =\
+            dictionary.get("product_id")\
+            if dictionary.get("product_id") else APIHelper.SKIP
+        product_price_point_id =\
+            dictionary.get("product_price_point_id")\
+            if dictionary.get("product_price_point_id") else APIHelper.SKIP
+        include_trial =\
+            dictionary.get("include_trial")\
+            if dictionary.get("include_trial") else False
+        include_initial_charge =\
+            dictionary.get("include_initial_charge")\
+            if dictionary.get("include_initial_charge") else False
+        include_coupons =\
+            dictionary.get("include_coupons")\
+            if dictionary.get("include_coupons") else True
+        preserve_period =\
+            dictionary.get("preserve_period")\
+            if dictionary.get("preserve_period") else False
+        product_handle =\
+            dictionary.get("product_handle")\
+            if dictionary.get("product_handle") else APIHelper.SKIP
+        product_price_point_handle =\
+            dictionary.get("product_price_point_handle")\
+            if dictionary.get("product_price_point_handle") else APIHelper.SKIP
+        proration = Proration.from_dictionary(
+            dictionary.get("proration"))\
+            if "proration" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(product_id,
                    product_price_point_id,
@@ -153,27 +169,47 @@ class SubscriptionProductMigration(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
-                f'product_price_point_id={(self.product_price_point_id if hasattr(self, "product_price_point_id") else None)!r}, '
-                f'include_trial={(self.include_trial if hasattr(self, "include_trial") else None)!r}, '
-                f'include_initial_charge={(self.include_initial_charge if hasattr(self, "include_initial_charge") else None)!r}, '
-                f'include_coupons={(self.include_coupons if hasattr(self, "include_coupons") else None)!r}, '
-                f'preserve_period={(self.preserve_period if hasattr(self, "preserve_period") else None)!r}, '
-                f'product_handle={(self.product_handle if hasattr(self, "product_handle") else None)!r}, '
-                f'product_price_point_handle={(self.product_price_point_handle if hasattr(self, "product_price_point_handle") else None)!r}, '
-                f'proration={(self.proration if hasattr(self, "proration") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"product_id={(self.product_id
+                     if hasattr(self, 'product_id') else None)!r}, "
+                f"product_price_point_id={(self.product_price_point_id
+                     if hasattr(self, 'product_price_point_id') else None)!r}, "
+                f"include_trial={(self.include_trial
+                     if hasattr(self, 'include_trial') else None)!r}, "
+                f"include_initial_charge={(self.include_initial_charge
+                     if hasattr(self, 'include_initial_charge') else None)!r}, "
+                f"include_coupons={(self.include_coupons
+                     if hasattr(self, 'include_coupons') else None)!r}, "
+                f"preserve_period={(self.preserve_period
+                     if hasattr(self, 'preserve_period') else None)!r}, "
+                f"product_handle={(self.product_handle
+                     if hasattr(self, 'product_handle') else None)!r}, "
+                f"product_price_point_handle={(self.product_price_point_handle
+                     if hasattr(self, 'product_price_point_handle') else None)!r}, "
+                f"proration={(self.proration
+                     if hasattr(self, 'proration') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
-                f'product_price_point_id={(self.product_price_point_id if hasattr(self, "product_price_point_id") else None)!s}, '
-                f'include_trial={(self.include_trial if hasattr(self, "include_trial") else None)!s}, '
-                f'include_initial_charge={(self.include_initial_charge if hasattr(self, "include_initial_charge") else None)!s}, '
-                f'include_coupons={(self.include_coupons if hasattr(self, "include_coupons") else None)!s}, '
-                f'preserve_period={(self.preserve_period if hasattr(self, "preserve_period") else None)!s}, '
-                f'product_handle={(self.product_handle if hasattr(self, "product_handle") else None)!s}, '
-                f'product_price_point_handle={(self.product_price_point_handle if hasattr(self, "product_price_point_handle") else None)!s}, '
-                f'proration={(self.proration if hasattr(self, "proration") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"product_id={(self.product_id
+                     if hasattr(self, 'product_id') else None)!s}, "
+                f"product_price_point_id={(self.product_price_point_id
+                     if hasattr(self, 'product_price_point_id') else None)!s}, "
+                f"include_trial={(self.include_trial
+                     if hasattr(self, 'include_trial') else None)!s}, "
+                f"include_initial_charge={(self.include_initial_charge
+                     if hasattr(self, 'include_initial_charge') else None)!s}, "
+                f"include_coupons={(self.include_coupons
+                     if hasattr(self, 'include_coupons') else None)!s}, "
+                f"preserve_period={(self.preserve_period
+                     if hasattr(self, 'preserve_period') else None)!s}, "
+                f"product_handle={(self.product_handle
+                     if hasattr(self, 'product_handle') else None)!s}, "
+                f"product_price_point_handle={(self.product_price_point_handle
+                     if hasattr(self, 'product_price_point_handle') else None)!s}, "
+                f"proration={(self.proration
+                     if hasattr(self, 'proration') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

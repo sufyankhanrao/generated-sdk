@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class BankAccountHolderType(object):
-
     """Implementation of the 'Bank Account Holder Type' enum.
 
     Defaults to personal
@@ -21,14 +17,15 @@ class BankAccountHolderType(object):
             for the model.
 
     """
-    _all_values = ['personal', 'business']
-    PERSONAL = 'personal'
 
-    BUSINESS = 'business'
+    _all_values = ["personal", "business"]
+    PERSONAL = "personal"
+
+    BUSINESS = "business"
 
     @classmethod
     def validate(cls, value):
-        """Validates value contains in enum
+        """Validate value contains in enum
 
         Args:
             value: the value to be validated
@@ -38,9 +35,10 @@ class BankAccountHolderType(object):
 
         """
         return value in cls._all_values
-   
+
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

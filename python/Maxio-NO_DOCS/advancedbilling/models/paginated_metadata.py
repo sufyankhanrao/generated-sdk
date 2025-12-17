@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.metadata import Metadata
+from advancedbilling.models.metadata import (
+    Metadata,
+)
 
 
 class PaginatedMetadata(object):
-
     """Implementation of the 'Paginated Metadata' model.
 
     Attributes:
@@ -27,19 +26,19 @@ class PaginatedMetadata(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "total_count": 'total_count',
-        "current_page": 'current_page',
-        "total_pages": 'total_pages',
-        "per_page": 'per_page',
-        "metadata": 'metadata'
+        "total_count": "total_count",
+        "current_page": "current_page",
+        "total_pages": "total_pages",
+        "per_page": "per_page",
+        "metadata": "metadata",
     }
 
     _optionals = [
-        'total_count',
-        'current_page',
-        'total_pages',
-        'per_page',
-        'metadata',
+        "total_count",
+        "current_page",
+        "total_pages",
+        "per_page",
+        "metadata",
     ]
 
     def __init__(self,
@@ -49,19 +48,18 @@ class PaginatedMetadata(object):
                  per_page=APIHelper.SKIP,
                  metadata=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the PaginatedMetadata class"""
-
+        """Initialize a PaginatedMetadata instance."""
         # Initialize members of the class
         if total_count is not APIHelper.SKIP:
-            self.total_count = total_count 
+            self.total_count = total_count
         if current_page is not APIHelper.SKIP:
-            self.current_page = current_page 
+            self.current_page = current_page
         if total_pages is not APIHelper.SKIP:
-            self.total_pages = total_pages 
+            self.total_pages = total_pages
         if per_page is not APIHelper.SKIP:
-            self.per_page = per_page 
+            self.per_page = per_page
         if metadata is not APIHelper.SKIP:
-            self.metadata = metadata 
+            self.metadata = metadata
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -71,7 +69,7 @@ class PaginatedMetadata(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -82,22 +80,33 @@ class PaginatedMetadata(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        total_count = dictionary.get("total_count") if dictionary.get("total_count") else APIHelper.SKIP
-        current_page = dictionary.get("current_page") if dictionary.get("current_page") else APIHelper.SKIP
-        total_pages = dictionary.get("total_pages") if dictionary.get("total_pages") else APIHelper.SKIP
-        per_page = dictionary.get("per_page") if dictionary.get("per_page") else APIHelper.SKIP
+        total_count =\
+            dictionary.get("total_count")\
+            if dictionary.get("total_count") else APIHelper.SKIP
+        current_page =\
+            dictionary.get("current_page")\
+            if dictionary.get("current_page") else APIHelper.SKIP
+        total_pages =\
+            dictionary.get("total_pages")\
+            if dictionary.get("total_pages") else APIHelper.SKIP
+        per_page =\
+            dictionary.get("per_page")\
+            if dictionary.get("per_page") else APIHelper.SKIP
         metadata = None
-        if dictionary.get('metadata') is not None:
-            metadata = [Metadata.from_dictionary(x) for x in dictionary.get('metadata')]
+        if dictionary.get("metadata") is not None:
+            metadata = [
+                Metadata.from_dictionary(x)
+                    for x in dictionary.get("metadata")
+            ]
         else:
             metadata = APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(total_count,
                    current_page,
@@ -107,19 +116,31 @@ class PaginatedMetadata(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'total_count={(self.total_count if hasattr(self, "total_count") else None)!r}, '
-                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!r}, '
-                f'total_pages={(self.total_pages if hasattr(self, "total_pages") else None)!r}, '
-                f'per_page={(self.per_page if hasattr(self, "per_page") else None)!r}, '
-                f'metadata={(self.metadata if hasattr(self, "metadata") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"total_count={(self.total_count
+                     if hasattr(self, 'total_count') else None)!r}, "
+                f"current_page={(self.current_page
+                     if hasattr(self, 'current_page') else None)!r}, "
+                f"total_pages={(self.total_pages
+                     if hasattr(self, 'total_pages') else None)!r}, "
+                f"per_page={(self.per_page
+                     if hasattr(self, 'per_page') else None)!r}, "
+                f"metadata={(self.metadata
+                     if hasattr(self, 'metadata') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'total_count={(self.total_count if hasattr(self, "total_count") else None)!s}, '
-                f'current_page={(self.current_page if hasattr(self, "current_page") else None)!s}, '
-                f'total_pages={(self.total_pages if hasattr(self, "total_pages") else None)!s}, '
-                f'per_page={(self.per_page if hasattr(self, "per_page") else None)!s}, '
-                f'metadata={(self.metadata if hasattr(self, "metadata") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"total_count={(self.total_count
+                     if hasattr(self, 'total_count') else None)!s}, "
+                f"current_page={(self.current_page
+                     if hasattr(self, 'current_page') else None)!s}, "
+                f"total_pages={(self.total_pages
+                     if hasattr(self, 'total_pages') else None)!s}, "
+                f"per_page={(self.per_page
+                     if hasattr(self, 'per_page') else None)!s}, "
+                f"metadata={(self.metadata
+                     if hasattr(self, 'metadata') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type115Enum`](../../doc/models/type-115-enum.md) | Optional | Resource Type<br><br>**Default**: `'RemoveVerification'` |
+| `mtype` | [`Type115Enum`](../../doc/models/type-115-enum.md) | Optional | Resource Type<br><br>**Default**: `"RemoveVerification"` |
 | `data` | [`Data27`](../../doc/models/data-27.md) | Optional | - |
 
 ## Example (as JSON)

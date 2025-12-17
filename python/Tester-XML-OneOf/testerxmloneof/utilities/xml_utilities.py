@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 """
 testerxmloneof
 
@@ -11,6 +9,4 @@ from apimatic_core.utilities.xml_helper import XmlHelper
 
 
 class XmlUtilities(XmlHelper):
-    """This class hold utility methods for xml serialization and
-        deserialization.
-    """
+    """Holds utility methods for XML serialization and deserialization."""

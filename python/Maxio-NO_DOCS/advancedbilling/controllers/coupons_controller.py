@@ -1,42 +1,65 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.http.api_response import ApiResponse
-from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.authentication.multiple.single_auth import (
+    Single,
+)
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.array_serialization_format import (
+    SerializationFormats,
+)
 from apimatic_core.types.parameter import Parameter
-from advancedbilling.http.http_method_enum import HttpMethodEnum
-from apimatic_core.types.array_serialization_format import SerializationFormats
-from apimatic_core.authentication.multiple.single_auth import Single
-from advancedbilling.models.coupon_response import CouponResponse
-from advancedbilling.models.coupon_usage import CouponUsage
-from advancedbilling.models.coupon_currency_response import CouponCurrencyResponse
-from advancedbilling.models.coupon_subcodes_response import CouponSubcodesResponse
-from advancedbilling.models.coupon_subcodes import CouponSubcodes
-from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
-from advancedbilling.exceptions.single_string_error_response_exception import SingleStringErrorResponseException
-from advancedbilling.exceptions.api_exception import APIException
+
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.controllers.base_controller import (
+    BaseController,
+)
+from advancedbilling.exceptions.api_exception import (
+    APIException,
+)
+from advancedbilling.exceptions.error_list_response_exception import (
+    ErrorListResponseException,
+)
+from advancedbilling.exceptions.single_string_error_response_exception import (
+    SingleStringErrorResponseException,
+)
+from advancedbilling.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from advancedbilling.models.coupon_currency_response import (
+    CouponCurrencyResponse,
+)
+from advancedbilling.models.coupon_response import (
+    CouponResponse,
+)
+from advancedbilling.models.coupon_subcodes import (
+    CouponSubcodes,
+)
+from advancedbilling.models.coupon_subcodes_response import (
+    CouponSubcodesResponse,
+)
+from advancedbilling.models.coupon_usage import (
+    CouponUsage,
+)
 
 
 class CouponsController(BaseController):
-
     """A Controller to access Endpoints in the advancedbilling API."""
+
     def __init__(self, config):
+        """Initialize CouponsController object."""
         super(CouponsController, self).__init__(config)
 
     def create_coupon(self,
                       product_family_id,
                       body=None):
-        """Does a POST request to /product_families/{product_family_id}/coupons.json.
+        """Perform a POST request to
+        /product_families/{product_family_id}/coupons.json.
 
         ## Coupons Documentation
         Coupons can be administered in the Chargify application or created via
@@ -74,37 +97,40 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/product_families/{product_family_id}/coupons.json')
+            .path("/product_families/{product_family_id}/coupons.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('product_family_id')
+                            .key("product_family_id")
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def list_coupons_for_product_family(self,
                                         options=dict()):
-        """Does a GET request to /product_families/{product_family_id}/coupons.json.
+        """Perform a GET request to
+        /product_families/{product_family_id}/coupons.json.
 
         List coupons for a specific Product Family in a Site.
         If the coupon is set to `use_site_exchange_rate: true`, it will return
@@ -117,7 +143,6 @@ class CouponsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     product_family_id -- int -- The Chargify id of the product
                         family to which the coupon belongs
                     page -- int -- Result records are organized in pages. By
@@ -153,44 +178,43 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/product_families/{product_family_id}/coupons.json')
+            .path("/product_families/{product_family_id}/coupons.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('product_family_id')
-                            .value(options.get('product_family_id', None))
+                            .key("product_family_id")
+                            .value(options.get("product_family_id", None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('page')
-                         .value(options.get('page', None)))
+                         .key("page")
+                         .value(options.get("page", None)))
             .query_param(Parameter()
-                         .key('per_page')
-                         .value(options.get('per_page', None)))
+                         .key("per_page")
+                         .value(options.get("per_page", None)))
             .query_param(Parameter()
-                         .key('filter')
-                         .value(options.get('filter', None)))
+                         .key("filter")
+                         .value(options.get("filter", None)))
             .query_param(Parameter()
-                         .key('currency_prices')
-                         .value(options.get('currency_prices', None)))
+                         .key("currency_prices")
+                         .value(options.get("currency_prices", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def find_coupon(self,
                     product_family_id=None,
                     code=None):
-        """Does a GET request to /coupons/find.json.
+        """Perform a GET request to /coupons/find.json.
 
         You can search for a coupon via the API with the find method. By
         passing a code parameter, the find will attempt to locate a coupon
@@ -216,32 +240,32 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/coupons/find.json')
+            .path("/coupons/find.json")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key('product_family_id')
+                         .key("product_family_id")
                          .value(product_family_id))
             .query_param(Parameter()
-                         .key('code')
+                         .key("code")
                          .value(code))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def read_coupon(self,
                     product_family_id,
                     coupon_id):
-        """Does a GET request to /product_families/{product_family_id}/coupons/{coupon_id}.json.
+        """Perform a GET request to
+        /product_families/{product_family_id}/coupons/{coupon_id}.json.
 
         You can retrieve the Coupon via the API with the Show method. You must
         identify the Coupon in this call by the ID parameter that Chargify
@@ -271,37 +295,37 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/product_families/{product_family_id}/coupons/{coupon_id}.json')
+            .path("/product_families/{product_family_id}/coupons/{coupon_id}.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('product_family_id')
+                            .key("product_family_id")
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('coupon_id')
+                            .key("coupon_id")
                             .value(coupon_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def update_coupon(self,
                       product_family_id,
                       coupon_id,
                       body=None):
-        """Does a PUT request to /product_families/{product_family_id}/coupons/{coupon_id}.json.
+        """Perform a PUT request to
+        /product_families/{product_family_id}/coupons/{coupon_id}.json.
 
         ## Update Coupon
         You can update a Coupon via the API with a PUT request to the resource
@@ -328,42 +352,42 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/product_families/{product_family_id}/coupons/{coupon_id}.json')
+            .path("/product_families/{product_family_id}/coupons/{coupon_id}.json")
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key('product_family_id')
+                            .key("product_family_id")
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('coupon_id')
+                            .key("coupon_id")
                             .value(coupon_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def archive_coupon(self,
                        product_family_id,
                        coupon_id):
-        """Does a DELETE request to /product_families/{product_family_id}/coupons/{coupon_id}.json.
+        """Perform a DELETE request to
+        /product_families/{product_family_id}/coupons/{coupon_id}.json.
 
         You can archive a Coupon via the API with the archive method.
         Archiving makes that Coupon unavailable for future use, but allows it
@@ -387,35 +411,34 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/product_families/{product_family_id}/coupons/{coupon_id}.json')
+            .path("/product_families/{product_family_id}/coupons/{coupon_id}.json")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key('product_family_id')
+                            .key("product_family_id")
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('coupon_id')
+                            .key("coupon_id")
                             .value(coupon_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def list_coupons(self,
                      options=dict()):
-        """Does a GET request to /coupons.json.
+        """Perform a GET request to /coupons.json.
 
         You can retrieve a list of coupons.
         If the coupon is set to `use_site_exchange_rate: true`, it will return
@@ -428,7 +451,6 @@ class CouponsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
                         page parameter specifies a page number of results to
@@ -462,39 +484,39 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/coupons.json')
+            .path("/coupons.json")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key('page')
-                         .value(options.get('page', None)))
+                         .key("page")
+                         .value(options.get("page", None)))
             .query_param(Parameter()
-                         .key('per_page')
-                         .value(options.get('per_page', None)))
+                         .key("per_page")
+                         .value(options.get("per_page", None)))
             .query_param(Parameter()
-                         .key('filter')
-                         .value(options.get('filter', None)))
+                         .key("filter")
+                         .value(options.get("filter", None)))
             .query_param(Parameter()
-                         .key('currency_prices')
-                         .value(options.get('currency_prices', None)))
+                         .key("currency_prices")
+                         .value(options.get("currency_prices", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def read_coupon_usage(self,
                           product_family_id,
                           coupon_id):
-        """Does a GET request to /product_families/{product_family_id}/coupons/{coupon_id}/usage.json.
+        """Perform a GET request to
+        /product_families/{product_family_id}/coupons/{coupon_id}/usage.json.
 
         This request will provide details about the coupon usage as an array
         of data hashes, one per product.
@@ -515,36 +537,35 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/product_families/{product_family_id}/coupons/{coupon_id}/usage.json')
+            .path("/product_families/{product_family_id}/coupons/{coupon_id}/usage.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('product_family_id')
+                            .key("product_family_id")
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('coupon_id')
+                            .key("coupon_id")
                             .value(coupon_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponUsage.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def validate_coupon(self,
                         code,
                         product_family_id=None):
-        """Does a GET request to /coupons/validate.json.
+        """Perform a GET request to /coupons/validate.json.
 
         You can verify if a specific coupon code is valid using the `validate`
         method. This method is useful for validating coupon codes that are
@@ -589,34 +610,35 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/coupons/validate.json')
+            .path("/coupons/validate.json")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key('code')
+                         .key("code")
                          .value(code)
                          .is_required(True))
             .query_param(Parameter()
-                         .key('product_family_id')
+                         .key("product_family_id")
                          .value(product_family_id))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found: \'{$response.body}\'', SingleStringErrorResponseException)
+            .local_error_template("404",
+                "Not Found: '{$response.body}'",
+                SingleStringErrorResponseException),
         ).execute()
 
     def create_or_update_coupon_currency_prices(self,
                                                 coupon_id,
                                                 body=None):
-        """Does a PUT request to /coupons/{coupon_id}/currency_prices.json.
+        """Perform a PUT request to /coupons/{coupon_id}/currency_prices.json.
 
         This endpoint allows you to create and/or update currency prices for
         an existing coupon. Multiple prices can be created or updated in a
@@ -642,37 +664,36 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/coupons/{coupon_id}/currency_prices.json')
+            .path("/coupons/{coupon_id}/currency_prices.json")
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key('coupon_id')
+                            .key("coupon_id")
                             .value(coupon_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponCurrencyResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def create_coupon_subcodes(self,
                                coupon_id,
                                body=None):
-        """Does a POST request to /coupons/{coupon_id}/codes.json.
+        """Perform a POST request to /coupons/{coupon_id}/codes.json.
 
         ## Coupon Subcodes Intro
         Coupon Subcodes allow you to create a set of unique codes that allow
@@ -729,36 +750,35 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/coupons/{coupon_id}/codes.json')
+            .path("/coupons/{coupon_id}/codes.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('coupon_id')
+                            .key("coupon_id")
                             .value(coupon_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponSubcodesResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def list_coupon_subcodes(self,
                              options=dict()):
-        """Does a GET request to /coupons/{coupon_id}/codes.json.
+        """Perform a GET request to /coupons/{coupon_id}/codes.json.
 
         This request allows you to request the subcodes that are attached to a
         coupon.
@@ -769,7 +789,6 @@ class CouponsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     coupon_id -- int -- The Chargify id of the coupon
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
@@ -797,37 +816,36 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/coupons/{coupon_id}/codes.json')
+            .path("/coupons/{coupon_id}/codes.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('coupon_id')
-                            .value(options.get('coupon_id', None))
+                            .key("coupon_id")
+                            .value(options.get("coupon_id", None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('page')
-                         .value(options.get('page', None)))
+                         .key("page")
+                         .value(options.get("page", None)))
             .query_param(Parameter()
-                         .key('per_page')
-                         .value(options.get('per_page', None)))
+                         .key("per_page")
+                         .value(options.get("per_page", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponSubcodes.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def update_coupon_subcodes(self,
                                coupon_id,
                                body=None):
-        """Does a PUT request to /coupons/{coupon_id}/codes.json.
+        """Perform a PUT request to /coupons/{coupon_id}/codes.json.
 
         You can update the subcodes for the given Coupon via the API with a
         PUT request to the resource endpoint.
@@ -854,37 +872,36 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/coupons/{coupon_id}/codes.json')
+            .path("/coupons/{coupon_id}/codes.json")
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key('coupon_id')
+                            .key("coupon_id")
                             .value(coupon_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CouponSubcodesResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def delete_coupon_subcode(self,
                               coupon_id,
                               subcode):
-        """Does a DELETE request to /coupons/{coupon_id}/codes/{subcode}.json.
+        """Perform a DELETE request to /coupons/{coupon_id}/codes/{subcode}.json.
 
         ## Example
         Given a coupon with an ID of 567, and a coupon subcode of 20OFF, the
@@ -923,24 +940,23 @@ class CouponsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/coupons/{coupon_id}/codes/{subcode}.json')
+            .path("/coupons/{coupon_id}/codes/{subcode}.json")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key('coupon_id')
+                            .key("coupon_id")
                             .value(coupon_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('subcode')
+                            .key("subcode")
                             .value(subcode)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()

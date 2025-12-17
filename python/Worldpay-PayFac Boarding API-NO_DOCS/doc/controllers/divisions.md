@@ -28,7 +28,7 @@ URI to get all the divisions for a PayFac. A list of divisions will only be retu
 ```python
 def divisions(self,
              v_correlation_id,
-             content_type='application/json')
+             content_type="application/json")
 ```
 
 ## Parameters
@@ -36,7 +36,7 @@ def divisions(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 
@@ -130,7 +130,7 @@ URI to get the all the divisions for a Chain Code. A list of divisions will only
 def divisions_by_chain(self,
                       v_correlation_id,
                       chain_code,
-                      content_type='application/json')
+                      content_type="application/json")
 ```
 
 ## Parameters
@@ -139,7 +139,7 @@ def divisions_by_chain(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `chain_code` | `str` | Template, Required | The Chain Code a list of divisions will be returned for |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 
@@ -185,7 +185,7 @@ def division_by_division_code(self,
                              v_correlation_id,
                              chain_code,
                              division_code,
-                             content_type='application/json')
+                             content_type="application/json")
 ```
 
 ## Parameters
@@ -195,7 +195,7 @@ def division_by_division_code(self,
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `chain_code` | `str` | Template, Required | The Chain Code for which a list of divisions will be returned |
 | `division_code` | `str` | Template, Required | The division code for which the information needs to be returned |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 
@@ -306,7 +306,7 @@ def delete_divisions(self,
                     v_correlation_id,
                     chain_code,
                     division_code,
-                    content_type='application/json')
+                    content_type="application/json")
 ```
 
 ## Parameters
@@ -316,7 +316,7 @@ def delete_divisions(self,
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `chain_code` | `str` | Template, Required | The chain code under which the division has to be removed. |
 | `division_code` | `str` | Template, Required | The division code |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 

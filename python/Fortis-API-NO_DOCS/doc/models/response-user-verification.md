@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type104Enum`](../../doc/models/type-104-enum.md) | Optional | Resource Type<br><br>**Default**: `'UserVerification'` |
+| `mtype` | [`Type104Enum`](../../doc/models/type-104-enum.md) | Optional | Resource Type<br><br>**Default**: `"UserVerification"` |
 | `data` | [`Data27`](../../doc/models/data-27.md) | Optional | - |
 
 ## Example (as JSON)

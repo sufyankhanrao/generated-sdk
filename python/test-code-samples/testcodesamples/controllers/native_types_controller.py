@@ -1,27 +1,31 @@
-# -*- coding: utf-8 -*-
-
-"""
-testcodesamples
+"""testcodesamples.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from testcodesamples.api_helper import APIHelper
-from testcodesamples.configuration import Server
-from testcodesamples.http.api_response import ApiResponse
-from testcodesamples.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-from testcodesamples.http.http_method_enum import HttpMethodEnum
-from testcodesamples.models.server_response import ServerResponse
+
+from testcodesamples.api_helper import APIHelper
+from testcodesamples.configuration import Server
+from testcodesamples.controllers.base_controller import (
+    BaseController,
+)
+from testcodesamples.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from testcodesamples.models.server_response import (
+    ServerResponse,
+)
 
 
 class NativeTypesController(BaseController):
-
     """A Controller to access Endpoints in the testcodesamples API."""
+
     def __init__(self, config):
+        """Initialize NativeTypesController object."""
         super(NativeTypesController, self).__init__(config)
 
     def send_string_boolean_object_dynamic_required(self,
@@ -29,7 +33,7 @@ class NativeTypesController(BaseController):
                                                     boolean_var,
                                                     object_var,
                                                     dynamic_var):
-        """Does a POST request to /NativeTypes/First.
+        """Perform a POST request to /NativeTypes/First.
 
         Args:
             string_var (str): The request form parameter.
@@ -48,39 +52,38 @@ class NativeTypesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/NativeTypes/First')
+            .path("/NativeTypes/First")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key('stringVar')
+                        .key("stringVar")
                         .value(string_var)
                         .is_required(True))
             .form_param(Parameter()
-                        .key('booleanVar')
+                        .key("booleanVar")
                         .value(boolean_var)
                         .is_required(True))
             .form_param(Parameter()
-                        .key('objectVar')
+                        .key("objectVar")
                         .value(object_var)
                         .is_required(True))
             .form_param(Parameter()
-                        .key('dynamicVar')
+                        .key("dynamicVar")
                         .value(dynamic_var)
                         .is_required(True))
             .header_param(Parameter()
-                          .key('content-type')
-                          .value('application/x-www-form-urlencoded'))
+                          .key("content-type")
+                          .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def send_string_boolean_object_dynamic_optional(self,
@@ -88,7 +91,7 @@ class NativeTypesController(BaseController):
                                                     boolean_var=None,
                                                     object_var=None,
                                                     dynamic_var=None):
-        """Does a POST request to /NativeTypes/Second.
+        """Perform a POST request to /NativeTypes/Second.
 
         Args:
             string_var (str, optional): The request form parameter.
@@ -107,35 +110,34 @@ class NativeTypesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/NativeTypes/Second')
+            .path("/NativeTypes/Second")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key('stringVar')
+                        .key("stringVar")
                         .value(string_var))
             .form_param(Parameter()
-                        .key('booleanVar')
+                        .key("booleanVar")
                         .value(boolean_var))
             .form_param(Parameter()
-                        .key('objectVar')
+                        .key("objectVar")
                         .value(object_var))
             .form_param(Parameter()
-                        .key('dynamicVar')
+                        .key("dynamicVar")
                         .value(dynamic_var))
             .header_param(Parameter()
-                          .key('content-type')
-                          .value('application/x-www-form-urlencoded'))
+                          .key("content-type")
+                          .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def send_date_and_time_required(self,
@@ -143,7 +145,7 @@ class NativeTypesController(BaseController):
                                     rfc_1123_date_time_var,
                                     rfc_3339_date_time,
                                     date_var):
-        """Does a POST request to /NativeTypes/Third.
+        """Perform a POST request to /NativeTypes/Third.
 
         Args:
             unix_date_time_var (datetime): The request form parameter.
@@ -162,39 +164,41 @@ class NativeTypesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/NativeTypes/Third')
+            .path("/NativeTypes/Third")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key('unixDateTimeVar')
-                        .value(APIHelper.when_defined(APIHelper.UnixDateTime, unix_date_time_var))
+                        .key("unixDateTimeVar")
+                        .value(APIHelper.when_defined(APIHelper.UnixDateTime,
+                            unix_date_time_var))
                         .is_required(True))
             .form_param(Parameter()
-                        .key('rfc1123DateTimeVar')
-                        .value(APIHelper.when_defined(APIHelper.HttpDateTime, rfc_1123_date_time_var))
+                        .key("rfc1123DateTimeVar")
+                        .value(APIHelper.when_defined(APIHelper.HttpDateTime,
+                            rfc_1123_date_time_var))
                         .is_required(True))
             .form_param(Parameter()
-                        .key('rfc3339DateTime')
-                        .value(APIHelper.when_defined(APIHelper.RFC3339DateTime, rfc_3339_date_time))
+                        .key("rfc3339DateTime")
+                        .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
+                            rfc_3339_date_time))
                         .is_required(True))
             .form_param(Parameter()
-                        .key('dateVar')
+                        .key("dateVar")
                         .value(date_var)
                         .is_required(True))
             .header_param(Parameter()
-                          .key('content-type')
-                          .value('application/x-www-form-urlencoded'))
+                          .key("content-type")
+                          .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def send_date_and_time_optional(self,
@@ -202,7 +206,7 @@ class NativeTypesController(BaseController):
                                     rfc_1123_date_time_var=None,
                                     rfc_3339_date_time=None,
                                     date_var=None):
-        """Does a POST request to /NativeTypes/Fourth.
+        """Perform a POST request to /NativeTypes/Fourth.
 
         Args:
             unix_date_time_var (datetime, optional): The request form
@@ -224,40 +228,42 @@ class NativeTypesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/NativeTypes/Fourth')
+            .path("/NativeTypes/Fourth")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key('unixDateTimeVar')
-                        .value(APIHelper.when_defined(APIHelper.UnixDateTime, unix_date_time_var)))
+                        .key("unixDateTimeVar")
+                        .value(APIHelper.when_defined(APIHelper.UnixDateTime,
+                            unix_date_time_var)))
             .form_param(Parameter()
-                        .key('rfc1123DateTimeVar')
-                        .value(APIHelper.when_defined(APIHelper.HttpDateTime, rfc_1123_date_time_var)))
+                        .key("rfc1123DateTimeVar")
+                        .value(APIHelper.when_defined(APIHelper.HttpDateTime,
+                            rfc_1123_date_time_var)))
             .form_param(Parameter()
-                        .key('rfc3339DateTime')
-                        .value(APIHelper.when_defined(APIHelper.RFC3339DateTime, rfc_3339_date_time)))
+                        .key("rfc3339DateTime")
+                        .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
+                            rfc_3339_date_time)))
             .form_param(Parameter()
-                        .key('dateVar')
+                        .key("dateVar")
                         .value(date_var))
             .header_param(Parameter()
-                          .key('content-type')
-                          .value('application/x-www-form-urlencoded'))
+                          .key("content-type")
+                          .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def multi_dimensional_native_array_required(self,
                                                 boolean_array):
-        """Does a POST request to /NativeTypes/Seventh.
+        """Perform a POST request to /NativeTypes/Seventh.
 
         Args:
             boolean_array (List[bool]): The request form parameter.
@@ -273,32 +279,31 @@ class NativeTypesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/NativeTypes/Seventh')
+            .path("/NativeTypes/Seventh")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key('booleanArray')
+                        .key("booleanArray")
                         .value(boolean_array)
                         .is_required(True))
             .header_param(Parameter()
-                          .key('content-type')
-                          .value('application/x-www-form-urlencoded'))
+                          .key("content-type")
+                          .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def multi_dimensional_native_array_optional(self,
                                                 boolean_array=None):
-        """Does a POST request to /NativeTypes/Eighth.
+        """Perform a POST request to /NativeTypes/Eighth.
 
         Args:
             boolean_array (List[bool], optional): The request form parameter.
@@ -314,32 +319,31 @@ class NativeTypesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/NativeTypes/Eighth')
+            .path("/NativeTypes/Eighth")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key('booleanArray')
+                        .key("booleanArray")
                         .value(boolean_array))
             .header_param(Parameter()
-                          .key('content-type')
-                          .value('application/x-www-form-urlencoded'))
+                          .key("content-type")
+                          .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def native_map_of_array_and_array_of_map_required(self,
                                                       boolean_array_of_map,
                                                       boolean_map_of_array):
-        """Does a POST request to /NativeTypes/Nineth.
+        """Perform a POST request to /NativeTypes/Nineth.
 
         Args:
             boolean_array_of_map (bool): The request form parameter.
@@ -356,37 +360,36 @@ class NativeTypesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/NativeTypes/Nineth')
+            .path("/NativeTypes/Nineth")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key('booleanArrayOfMap')
+                        .key("booleanArrayOfMap")
                         .value(boolean_array_of_map)
                         .is_required(True))
             .form_param(Parameter()
-                        .key('booleanMapOfArray')
+                        .key("booleanMapOfArray")
                         .value(boolean_map_of_array)
                         .is_required(True))
             .header_param(Parameter()
-                          .key('content-type')
-                          .value('application/x-www-form-urlencoded'))
+                          .key("content-type")
+                          .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def native_map_of_array_and_array_of_map_optional(self,
                                                       boolean_array_of_map=None,
                                                       boolean_map_of_array=None):
-        """Does a POST request to /NativeTypes/Tenth.
+        """Perform a POST request to /NativeTypes/Tenth.
 
         Args:
             boolean_array_of_map (bool, optional): The request form parameter.
@@ -404,27 +407,26 @@ class NativeTypesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/NativeTypes/Tenth')
+            .path("/NativeTypes/Tenth")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key('booleanArrayOfMap')
+                        .key("booleanArrayOfMap")
                         .value(boolean_array_of_map))
             .form_param(Parameter()
-                        .key('booleanMapOfArray')
+                        .key("booleanMapOfArray")
                         .value(boolean_map_of_array))
             .header_param(Parameter()
-                          .key('content-type')
-                          .value('application/x-www-form-urlencoded'))
+                          .key("content-type")
+                          .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()

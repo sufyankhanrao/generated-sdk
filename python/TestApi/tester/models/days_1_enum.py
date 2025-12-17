@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
 
 
 class Days1Enum(object):
-
     """Implementation of the 'Days' enum.
 
     A string enum representing days of the week
@@ -26,22 +22,24 @@ class Days1Enum(object):
             for the model.
 
     """
-    SUNDAY = 'Sunday'
 
-    MONDAY = 'Monday'
+    SUNDAY = "Sunday"
 
-    TUESDAY = 'Tuesday'
+    MONDAY = "Monday"
 
-    WEDNESDAY_ = 'Wednesday'
+    TUESDAY = "Tuesday"
 
-    THURSDAY = 'Thursday'
+    WEDNESDAY_ = "Wednesday"
 
-    FRI_DAY = 'Friday'
+    THURSDAY = "Thursday"
 
-    SATURDAY = 'Saturday'
+    FRI_DAY = "Friday"
+
+    SATURDAY = "Saturday"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

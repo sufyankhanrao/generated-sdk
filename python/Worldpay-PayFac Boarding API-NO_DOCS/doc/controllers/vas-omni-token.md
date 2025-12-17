@@ -23,7 +23,7 @@ URI to get the Omni token flag of a PayFac submerchant.
 def get_omni_token(self,
                   v_correlation_id,
                   id,
-                  content_type='application/json')
+                  content_type="application/json")
 ```
 
 ## Parameters
@@ -32,7 +32,7 @@ def get_omni_token(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 
@@ -133,7 +133,7 @@ URI to remove an Omni token resource for a PayFac submerchant. When using Delete
 def delete_omni_token(self,
                      v_correlation_id,
                      id,
-                     content_type='application/json')
+                     content_type="application/json")
 ```
 
 ## Parameters
@@ -142,7 +142,7 @@ def delete_omni_token(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 

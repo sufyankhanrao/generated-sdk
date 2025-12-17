@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type11Enum`](../../doc/models/type-11-enum.md) | Optional | Resource Type<br><br>**Default**: `'ContactsCollection'` |
+| `mtype` | [`Type11Enum`](../../doc/models/type-11-enum.md) | Optional | Resource Type<br><br>**Default**: `"ContactsCollection"` |
 | `list` | [`List[List1]`](../../doc/models/list-1.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

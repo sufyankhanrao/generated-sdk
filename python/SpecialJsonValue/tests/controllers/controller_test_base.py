@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 """
 jsonvaluetester
@@ -7,17 +6,20 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-import os
 import unittest
+
+from jsonvaluetester.configuration import Configuration
+from jsonvaluetester.jsonvaluetester_client import (
+    JsonvaluetesterClient,
+)
 from tests.http_response_catcher import HttpResponseCatcher
-from jsonvaluetester.configuration import Configuration, Environment
-from jsonvaluetester.jsonvaluetester_client import JsonvaluetesterClient
 
 
 class ControllerTestBase(unittest.TestCase):
-
-    """All test classes inherit from this base class. It abstracts out
-    common functionality and configuration variables set up."""
+    """
+    All test classes inherit from this base class. It abstracts out
+    common functionality and configuration variables set up.
+    """
 
     client = None
     config = None
@@ -32,5 +34,10 @@ class ControllerTestBase(unittest.TestCase):
 
     @staticmethod
     def create_configuration():
-        return Configuration.from_environment(
-            http_call_back=HttpResponseCatcher())
+        """
+        Build and return the configuration used for controller tests.
+
+        Centralizes common setup such as authentication and callback handling
+        to ensure consistent client initialization across the test suite.
+        """
+        return Configuration(http_call_back=HttpResponseCatcher())

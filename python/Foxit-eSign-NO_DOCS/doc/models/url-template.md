@@ -13,7 +13,7 @@ Create a template by uploading a PDF document using URL or Base64. To create a t
 |  --- | --- | --- | --- |
 | `template_name` | `str` | Required | Name of the template |
 | `template_url` | `str` | Required | URL to PDF document for template creation. It should be publicly accessible while creating the template. |
-| `input_type` | `str` | Optional | Value can be either url or base64.<br><br>**Default**: `'url'` |
+| `input_type` | `str` | Optional | Value can be either url or base64.<br><br>**Default**: `"url"` |
 | `process_text_tags` | `bool` | Required | This field is used to determine whether Foxit eSign should parse the documents for Text Tags to convert them into Foxit eSign fields.<br><br>**Default**: `True` |
 | `process_acro_fields` | `bool` | Required | This field is used to determine whether Foxit eSign should parse the documents for AcroFields to convert them into Foxit eSign fields. |
 | `share_all` | `bool` | Required | Share this template with all users in your account.<br><br>**Default**: `False` |

@@ -1,18 +1,17 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
 from postnlecommerce.models.address import Address
-from postnlecommerce.models.cut_off_time import CutOffTime
+from postnlecommerce.models.cut_off_time import (
+    CutOffTime,
+)
 
 
 class CheckoutRequest(object):
-
     """Implementation of the 'checkoutRequest' model.
 
     Attributes:
@@ -36,19 +35,19 @@ class CheckoutRequest(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "order_date": 'OrderDate',
-        "cut_off_times": 'CutOffTimes',
-        "options": 'Options',
-        "locations": 'Locations',
-        "days": 'Days',
-        "addresses": 'Addresses',
-        "shipping_duration": 'ShippingDuration',
-        "holiday_sorting": 'HolidaySorting'
+        "order_date": "OrderDate",
+        "cut_off_times": "CutOffTimes",
+        "options": "Options",
+        "locations": "Locations",
+        "days": "Days",
+        "addresses": "Addresses",
+        "shipping_duration": "ShippingDuration",
+        "holiday_sorting": "HolidaySorting",
     }
 
     _optionals = [
-        'shipping_duration',
-        'holiday_sorting',
+        "shipping_duration",
+        "holiday_sorting",
     ]
 
     def __init__(self,
@@ -60,24 +59,23 @@ class CheckoutRequest(object):
                  addresses=None,
                  shipping_duration=APIHelper.SKIP,
                  holiday_sorting=APIHelper.SKIP):
-        """Constructor for the CheckoutRequest class"""
-
+        """Initialize a CheckoutRequest instance."""
         # Initialize members of the class
-        self.order_date = order_date 
+        self.order_date = order_date
         if shipping_duration is not APIHelper.SKIP:
-            self.shipping_duration = shipping_duration 
-        self.cut_off_times = cut_off_times 
+            self.shipping_duration = shipping_duration
+        self.cut_off_times = cut_off_times
         if holiday_sorting is not APIHelper.SKIP:
-            self.holiday_sorting = holiday_sorting 
-        self.options = options 
-        self.locations = locations 
-        self.days = days 
-        self.addresses = addresses 
+            self.holiday_sorting = holiday_sorting
+        self.options = options
+        self.locations = locations
+        self.days = days
+        self.addresses = addresses
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -88,23 +86,36 @@ class CheckoutRequest(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        order_date = dictionary.get("OrderDate") if dictionary.get("OrderDate") else None
+        order_date =\
+            dictionary.get("OrderDate")\
+            if dictionary.get("OrderDate") else None
         cut_off_times = None
-        if dictionary.get('CutOffTimes') is not None:
-            cut_off_times = [CutOffTime.from_dictionary(x) for x in dictionary.get('CutOffTimes')]
+        if dictionary.get("CutOffTimes") is not None:
+            cut_off_times = [
+                CutOffTime.from_dictionary(x)
+                    for x in dictionary.get("CutOffTimes")
+            ]
         options = dictionary.get("Options") if dictionary.get("Options") else None
-        locations = dictionary.get("Locations") if dictionary.get("Locations") else None
+        locations =\
+            dictionary.get("Locations")\
+            if dictionary.get("Locations") else None
         days = dictionary.get("Days") if dictionary.get("Days") else None
         addresses = None
-        if dictionary.get('Addresses') is not None:
-            addresses = [Address.from_dictionary(x) for x in dictionary.get('Addresses')]
-        shipping_duration = dictionary.get("ShippingDuration") if dictionary.get("ShippingDuration") else APIHelper.SKIP
-        holiday_sorting = dictionary.get("HolidaySorting") if "HolidaySorting" in dictionary.keys() else APIHelper.SKIP
+        if dictionary.get("Addresses") is not None:
+            addresses = [
+                Address.from_dictionary(x)
+                    for x in dictionary.get("Addresses")
+            ]
+        shipping_duration =\
+            dictionary.get("ShippingDuration")\
+            if dictionary.get("ShippingDuration") else APIHelper.SKIP
+        holiday_sorting =\
+            dictionary.get("HolidaySorting")\
+            if "HolidaySorting" in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(order_date,
                    cut_off_times,
@@ -116,23 +127,29 @@ class CheckoutRequest(object):
                    holiday_sorting)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'order_date={self.order_date!r}, '
-                f'shipping_duration={(self.shipping_duration if hasattr(self, "shipping_duration") else None)!r}, '
-                f'cut_off_times={self.cut_off_times!r}, '
-                f'holiday_sorting={(self.holiday_sorting if hasattr(self, "holiday_sorting") else None)!r}, '
-                f'options={self.options!r}, '
-                f'locations={self.locations!r}, '
-                f'days={self.days!r}, '
-                f'addresses={self.addresses!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"order_date={self.order_date!r}, "
+                f"shipping_duration={(self.shipping_duration
+                     if hasattr(self, 'shipping_duration') else None)!r}, "
+                f"cut_off_times={self.cut_off_times!r}, "
+                f"holiday_sorting={(self.holiday_sorting
+                     if hasattr(self, 'holiday_sorting') else None)!r}, "
+                f"options={self.options!r}, "
+                f"locations={self.locations!r}, "
+                f"days={self.days!r}, "
+                f"addresses={self.addresses!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'order_date={self.order_date!s}, '
-                f'shipping_duration={(self.shipping_duration if hasattr(self, "shipping_duration") else None)!s}, '
-                f'cut_off_times={self.cut_off_times!s}, '
-                f'holiday_sorting={(self.holiday_sorting if hasattr(self, "holiday_sorting") else None)!s}, '
-                f'options={self.options!s}, '
-                f'locations={self.locations!s}, '
-                f'days={self.days!s}, '
-                f'addresses={self.addresses!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"order_date={self.order_date!s}, "
+                f"shipping_duration={(self.shipping_duration
+                     if hasattr(self, 'shipping_duration') else None)!s}, "
+                f"cut_off_times={self.cut_off_times!s}, "
+                f"holiday_sorting={(self.holiday_sorting
+                     if hasattr(self, 'holiday_sorting') else None)!s}, "
+                f"options={self.options!s}, "
+                f"locations={self.locations!s}, "
+                f"days={self.days!s}, "
+                f"addresses={self.addresses!s})")

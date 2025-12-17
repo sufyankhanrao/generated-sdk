@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class CreditType(object):
-
     """Implementation of the 'Credit Type' enum.
 
     The type of credit to be created when upgrading/downgrading. Defaults to
@@ -24,16 +20,17 @@ class CreditType(object):
             for the model.
 
     """
-    _all_values = ['full', 'prorated', 'none']
-    FULL = 'full'
 
-    PRORATED = 'prorated'
+    _all_values = ["full", "prorated", "none"]
+    FULL = "full"
 
-    NONE = 'none'
+    PRORATED = "prorated"
+
+    NONE = "none"
 
     @classmethod
     def validate(cls, value):
-        """Validates value contains in enum
+        """Validate value contains in enum
 
         Args:
             value: the value to be validated
@@ -43,9 +40,10 @@ class CreditType(object):
 
         """
         return value in cls._all_values
-   
+
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

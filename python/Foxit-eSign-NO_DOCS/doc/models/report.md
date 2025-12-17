@@ -15,7 +15,7 @@ The optional filters that a report may leverage
 | `creation_date_from` | `str` | Required | Start of the Creation Date range. Accepted format: YYYY-MM-DD.<br><br>**Constraints**: *Pattern*: `^\d{4}\-(0[1-9]\|1[012])\-(0[1-9]\|[12][0-9]\|3[01])$` |
 | `creation_date_to` | `str` | Required | End of the Creation Date range. Accepted format: YYYY-MM-DD.<br><br>**Constraints**: *Pattern*: `^\d{4}\-(0[1-9]\|1[012])\-(0[1-9]\|[12][0-9]\|3[01])$` |
 | `folder_name` | `str` | Optional | Any folder which contains this string. |
-| `include_fields` | `str` | Optional | Including folder fields in report.<br><br>**Default**: `'false'` |
+| `include_fields` | `str` | Optional | Including folder fields in report.<br><br>**Default**: `"false"` |
 | `author_email` | `str` | Optional | Author email in report. |
 | `signer_email` | `str` | Optional | Signer email in report. |
 

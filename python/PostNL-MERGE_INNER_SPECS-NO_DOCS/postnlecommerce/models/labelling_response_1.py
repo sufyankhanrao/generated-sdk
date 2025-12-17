@@ -1,18 +1,19 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.merged_label import MergedLabel
-from postnlecommerce.models.response_shipment_2 import ResponseShipment2
+from postnlecommerce.models.merged_label import (
+    MergedLabel,
+)
+from postnlecommerce.models.response_shipment_2 import (
+    ResponseShipment2,
+)
 
 
 class LabellingResponse1(object):
-
     """Implementation of the 'labellingResponse1' model.
 
     Attributes:
@@ -26,30 +27,29 @@ class LabellingResponse1(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "merged_labels": 'MergedLabels',
-        "response_shipments": 'ResponseShipments'
+        "merged_labels": "MergedLabels",
+        "response_shipments": "ResponseShipments",
     }
 
     _optionals = [
-        'merged_labels',
-        'response_shipments',
+        "merged_labels",
+        "response_shipments",
     ]
 
     def __init__(self,
                  merged_labels=APIHelper.SKIP,
                  response_shipments=APIHelper.SKIP):
-        """Constructor for the LabellingResponse1 class"""
-
+        """Initialize a LabellingResponse1 instance."""
         # Initialize members of the class
         if merged_labels is not APIHelper.SKIP:
-            self.merged_labels = merged_labels 
+            self.merged_labels = merged_labels
         if response_shipments is not APIHelper.SKIP:
-            self.response_shipments = response_shipments 
+            self.response_shipments = response_shipments
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -60,19 +60,24 @@ class LabellingResponse1(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         merged_labels = None
-        if dictionary.get('MergedLabels') is not None:
-            merged_labels = [MergedLabel.from_dictionary(x) for x in dictionary.get('MergedLabels')]
+        if dictionary.get("MergedLabels") is not None:
+            merged_labels = [
+                MergedLabel.from_dictionary(x)
+                    for x in dictionary.get("MergedLabels")
+            ]
         else:
             merged_labels = APIHelper.SKIP
         response_shipments = None
-        if dictionary.get('ResponseShipments') is not None:
-            response_shipments = [ResponseShipment2.from_dictionary(x) for x in dictionary.get('ResponseShipments')]
+        if dictionary.get("ResponseShipments") is not None:
+            response_shipments = [
+                ResponseShipment2.from_dictionary(x)
+                    for x in dictionary.get("ResponseShipments")
+            ]
         else:
             response_shipments = APIHelper.SKIP
         # Return an object of this model
@@ -80,11 +85,17 @@ class LabellingResponse1(object):
                    response_shipments)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'merged_labels={(self.merged_labels if hasattr(self, "merged_labels") else None)!r}, '
-                f'response_shipments={(self.response_shipments if hasattr(self, "response_shipments") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"merged_labels={(self.merged_labels
+                     if hasattr(self, 'merged_labels') else None)!r}, "
+                f"response_shipments={(self.response_shipments
+                     if hasattr(self, 'response_shipments') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'merged_labels={(self.merged_labels if hasattr(self, "merged_labels") else None)!s}, '
-                f'response_shipments={(self.response_shipments if hasattr(self, "response_shipments") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"merged_labels={(self.merged_labels
+                     if hasattr(self, 'merged_labels') else None)!s}, "
+                f"response_shipments={(self.response_shipments
+                     if hasattr(self, 'response_shipments') else None)!s})")

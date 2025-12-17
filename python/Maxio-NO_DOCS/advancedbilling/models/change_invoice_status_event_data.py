@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.invoice_status import InvoiceStatus
+from advancedbilling.models.invoice_status import (
+    InvoiceStatus,
+)
 
 
 class ChangeInvoiceStatusEventData(object):
-
     """Implementation of the 'Change Invoice Status Event Data' model.
 
     Example schema for an `change_invoice_status` event
@@ -38,17 +37,17 @@ class ChangeInvoiceStatusEventData(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "from_status": 'from_status',
-        "to_status": 'to_status',
-        "gateway_trans_id": 'gateway_trans_id',
-        "amount": 'amount',
-        "consolidation_level": 'consolidation_level'
+        "from_status": "from_status",
+        "to_status": "to_status",
+        "gateway_trans_id": "gateway_trans_id",
+        "amount": "amount",
+        "consolidation_level": "consolidation_level",
     }
 
     _optionals = [
-        'gateway_trans_id',
-        'amount',
-        'consolidation_level',
+        "gateway_trans_id",
+        "amount",
+        "consolidation_level",
     ]
 
     def __init__(self,
@@ -58,17 +57,16 @@ class ChangeInvoiceStatusEventData(object):
                  amount=APIHelper.SKIP,
                  consolidation_level=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the ChangeInvoiceStatusEventData class"""
-
+        """Initialize a ChangeInvoiceStatusEventData instance."""
         # Initialize members of the class
         if gateway_trans_id is not APIHelper.SKIP:
-            self.gateway_trans_id = gateway_trans_id 
+            self.gateway_trans_id = gateway_trans_id
         if amount is not APIHelper.SKIP:
-            self.amount = amount 
-        self.from_status = from_status 
-        self.to_status = to_status 
+            self.amount = amount
+        self.from_status = from_status
+        self.to_status = to_status
         if consolidation_level is not APIHelper.SKIP:
-            self.consolidation_level = consolidation_level 
+            self.consolidation_level = consolidation_level
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -78,7 +76,7 @@ class ChangeInvoiceStatusEventData(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -89,18 +87,28 @@ class ChangeInvoiceStatusEventData(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        from_status = dictionary.get("from_status") if dictionary.get("from_status") else None
-        to_status = dictionary.get("to_status") if dictionary.get("to_status") else None
-        gateway_trans_id = dictionary.get("gateway_trans_id") if dictionary.get("gateway_trans_id") else APIHelper.SKIP
-        amount = dictionary.get("amount") if dictionary.get("amount") else APIHelper.SKIP
-        consolidation_level = dictionary.get("consolidation_level") if dictionary.get("consolidation_level") else APIHelper.SKIP
+        from_status =\
+            dictionary.get("from_status")\
+            if dictionary.get("from_status") else None
+        to_status =\
+            dictionary.get("to_status")\
+            if dictionary.get("to_status") else None
+        gateway_trans_id =\
+            dictionary.get("gateway_trans_id")\
+            if dictionary.get("gateway_trans_id") else APIHelper.SKIP
+        amount =\
+            dictionary.get("amount")\
+            if dictionary.get("amount") else APIHelper.SKIP
+        consolidation_level =\
+            dictionary.get("consolidation_level")\
+            if dictionary.get("consolidation_level") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(from_status,
                    to_status,
@@ -111,7 +119,7 @@ class ChangeInvoiceStatusEventData(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validates dictionary against class required properties
+        """Validate dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -122,35 +130,44 @@ class ChangeInvoiceStatusEventData(object):
             boolean : if dictionary is valid contains required properties.
 
         """
-
         if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(value=dictionary.from_status,
-                                           type_callable=lambda value: InvoiceStatus.validate(value)) \
-                and APIHelper.is_valid_type(value=dictionary.to_status,
-                                            type_callable=lambda value: InvoiceStatus.validate(value))
+            return APIHelper.is_valid_type(
+                value=dictionary.from_status,
+                type_callable=lambda value: InvoiceStatus.validate(value)) \
+                and APIHelper.is_valid_type(
+                value=dictionary.to_status,
+                type_callable=lambda value: InvoiceStatus.validate(value))
 
         if not isinstance(dictionary, dict):
             return False
 
-        return APIHelper.is_valid_type(value=dictionary.get('from_status'),
-                                       type_callable=lambda value: InvoiceStatus.validate(value)) \
-            and APIHelper.is_valid_type(value=dictionary.get('to_status'),
-                                        type_callable=lambda value: InvoiceStatus.validate(value))
+        return APIHelper.is_valid_type(
+            value=dictionary.get("from_status"),
+            type_callable=lambda value: InvoiceStatus.validate(value)) \
+            and APIHelper.is_valid_type(
+            value=dictionary.get("to_status"),
+            type_callable=lambda value: InvoiceStatus.validate(value))
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'gateway_trans_id={(self.gateway_trans_id if hasattr(self, "gateway_trans_id") else None)!r}, '
-                f'amount={(self.amount if hasattr(self, "amount") else None)!r}, '
-                f'from_status={self.from_status!r}, '
-                f'to_status={self.to_status!r}, '
-                f'consolidation_level={(self.consolidation_level if hasattr(self, "consolidation_level") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"gateway_trans_id={(self.gateway_trans_id
+                     if hasattr(self, 'gateway_trans_id') else None)!r}, "
+                f"amount={(self.amount if hasattr(self, 'amount') else None)!r}, "
+                f"from_status={self.from_status!r}, "
+                f"to_status={self.to_status!r}, "
+                f"consolidation_level={(self.consolidation_level
+                     if hasattr(self, 'consolidation_level') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'gateway_trans_id={(self.gateway_trans_id if hasattr(self, "gateway_trans_id") else None)!s}, '
-                f'amount={(self.amount if hasattr(self, "amount") else None)!s}, '
-                f'from_status={self.from_status!s}, '
-                f'to_status={self.to_status!s}, '
-                f'consolidation_level={(self.consolidation_level if hasattr(self, "consolidation_level") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"gateway_trans_id={(self.gateway_trans_id
+                     if hasattr(self, 'gateway_trans_id') else None)!s}, "
+                f"amount={(self.amount if hasattr(self, 'amount') else None)!s}, "
+                f"from_status={self.from_status!s}, "
+                f"to_status={self.to_status!s}, "
+                f"consolidation_level={(self.consolidation_level
+                     if hasattr(self, 'consolidation_level') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

@@ -22,52 +22,54 @@ Events available in this group. Subscribe to receive webhook notifications when 
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.signature_verification_failure import (
-    SignatureVerificationFailure
+    SignatureVerificationFailure,
 )
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.events.webhooks.webhooks_b_handler import (
-    WebhooksBHandler
+    WebhooksBHandler,
 )
 from webhooksandcallbacksapi.models.inventory_stock_decrease_event import (
-    InventoryStockDecreaseEvent
+    InventoryStockDecreaseEvent,
 )
 from webhooksandcallbacksapi.models.inventory_stock_depleted_event import (
-    InventoryStockDepletedEvent
+    InventoryStockDepletedEvent,
 )
 from webhooksandcallbacksapi.models.inventory_stock_increase_event import (
-    InventoryStockIncreaseEvent
+    InventoryStockIncreaseEvent,
 )
 from webhooksandcallbacksapi.models.system_alert_notification_event import (
-    SystemAlertNotificationEvent
+    SystemAlertNotificationEvent,
 )
 from webhooksandcallbacksapi.models.system_maintenance_notification_event import (
-    SystemMaintenanceNotificationEvent
+    SystemMaintenanceNotificationEvent,
 )
 from webhooksandcallbacksapi.models.system_performance_notification_event import (
-    SystemPerformanceNotificationEvent
+    SystemPerformanceNotificationEvent,
 )
 from webhooksandcallbacksapi.models.user_action_notification_event import (
-    UserActionNotificationEvent
+    UserActionNotificationEvent,
 )
 from webhooksandcallbacksapi.models.user_preference_notification_event import (
-    UserPreferenceNotificationEvent
+    UserPreferenceNotificationEvent,
 )
 from webhooksandcallbacksapi.models.user_status_notification_event import (
-    UserStatusNotificationEvent
+    UserStatusNotificationEvent,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/webhooks", methods=["POST"])
+@app.route("/webhooks", methods=[
+    "POST",
+])
 def Webhooks():
     # Step 1: Create the handler with your shared secret key.
     handler = WebhooksBHandler(secret_key="your-shared-secret")
@@ -80,13 +82,25 @@ def Webhooks():
     event = handler.verify_and_parse_event(core_req)
 
     # Step 4: Pattern match on the event type and handle it.
-    if isinstance(event, UserActionNotificationEvent) or isinstance(event, UserStatusNotificationEvent) or isinstance(event, UserPreferenceNotificationEvent):
+    if (
+        isinstance(event, UserActionNotificationEvent) or
+        isinstance(event, UserStatusNotificationEvent) or
+        isinstance(event, UserPreferenceNotificationEvent)
+    ):
         print("userNotificationEvent received")
         # TODO: add handling logic
-    elif isinstance(event, SystemAlertNotificationEvent) or isinstance(event, SystemMaintenanceNotificationEvent) or isinstance(event, SystemPerformanceNotificationEvent):
+    elif (
+        isinstance(event, SystemAlertNotificationEvent) or
+        isinstance(event, SystemMaintenanceNotificationEvent) or
+        isinstance(event, SystemPerformanceNotificationEvent)
+    ):
         print("systemNotificationEvent received")
         # TODO: add handling logic
-    elif isinstance(event, InventoryStockIncreaseEvent) or isinstance(event, InventoryStockDecreaseEvent) or isinstance(event, InventoryStockDepletedEvent):
+    elif (
+        isinstance(event, InventoryStockIncreaseEvent) or
+        isinstance(event, InventoryStockDecreaseEvent) or
+        isinstance(event, InventoryStockDepletedEvent)
+    ):
         print("inventoryChangeEvent received")
         # TODO: add handling logic
     elif isinstance(event, SignatureVerificationFailure):

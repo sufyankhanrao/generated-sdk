@@ -35,25 +35,27 @@ This event's request payload is of type [AuditLogEvent](../../../../doc/models/a
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.events.webhooks.webhooks_no_verification_handler import (
-    WebhooksNoVerificationHandler
+    WebhooksNoVerificationHandler,
 )
 from webhooksandcallbacksapi.models.audit_log_event import (
-    AuditLogEvent
+    AuditLogEvent,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/webhooks", methods=["POST"])
+@app.route("/webhooks", methods=[
+    "POST",
+])
 def Webhooks() -> Response:
     # Step 1: Convert the incoming request using to_core_request (Django/Flask)
     #         or await to_core_request_async (FastAPI).

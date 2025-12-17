@@ -29,7 +29,7 @@ def get_statement_list(self,
                       provider_id,
                       start_time=None,
                       end_time=None,
-                      offset='0',
+                      offset="0",
                       limit=50,
                       x_akoya_interaction_type=None)
 ```
@@ -43,7 +43,7 @@ def get_statement_list(self,
 | `provider_id` | `str` | Template, Required | Id of provider |
 | `start_time` | `datetime` | Query, Optional | Start date for use in retrieval of statements (ISO 8601) |
 | `end_time` | `datetime` | Query, Optional | End date for use in retrieval of statements (ISO 8601) |
-| `offset` | `str` | Query, Optional | The number of items to skip before the first in the response. The default is 0.<br><br>**Default**: `'0'` |
+| `offset` | `str` | Query, Optional | The number of items to skip before the first in the response. The default is 0.<br><br>**Default**: `"0"` |
 | `limit` | `int` | Query, Optional | The maximum number of items to be returned in the response. The default is 50.<br><br>**Default**: `50` |
 | `x_akoya_interaction_type` | [`InteractionType`](../../doc/models/interaction-type.md) | Header, Optional | Optional but recommended header to include with each data request.<br>Allowed values are `user` or `batch`.<br>`user` indicates a request is prompted by an end-user action.<br>`batch` indicates the request is part of a batch process. |
 
@@ -117,7 +117,7 @@ def get_statements(self,
                   version,
                   provider_id,
                   statement_id,
-                  accept='application/pdf',
+                  accept="application/pdf",
                   x_akoya_interaction_type=None)
 ```
 
@@ -129,7 +129,7 @@ def get_statements(self,
 | `version` | `str` | Template, Required | Akoya major version number. Do not use minor version numbers. For instance, use v2 and not v2.2 |
 | `provider_id` | `str` | Template, Required | Id of provider |
 | `statement_id` | `str` | Template, Required | Statement Identifier |
-| `accept` | [`Accept`](../../doc/models/accept.md) | Header, Optional | **Default**: `'application/pdf'` |
+| `accept` | [`Accept`](../../doc/models/accept.md) | Header, Optional | **Default**: `"application/pdf"` |
 | `x_akoya_interaction_type` | [`InteractionType`](../../doc/models/interaction-type.md) | Header, Optional | Optional but recommended header to include with each data request.<br>Allowed values are `user` or `batch`.<br>`user` indicates a request is prompted by an end-user action.<br>`batch` indicates the request is part of a batch process. |
 
 ## Response Type

@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class MetafieldInput(object):
-
     """Implementation of the 'Metafield Input' enum.
 
     Indicates how data should be added to the metafield. For example, a text
@@ -27,18 +23,19 @@ class MetafieldInput(object):
             for the model.
 
     """
-    _all_values = ['balance_tracker', 'text', 'radio', 'dropdown']
-    BALANCE_TRACKER = 'balance_tracker'
 
-    TEXT = 'text'
+    _all_values = ["balance_tracker", "text", "radio", "dropdown"]
+    BALANCE_TRACKER = "balance_tracker"
 
-    RADIO = 'radio'
+    TEXT = "text"
 
-    DROPDOWN = 'dropdown'
+    RADIO = "radio"
+
+    DROPDOWN = "dropdown"
 
     @classmethod
     def validate(cls, value):
-        """Validates value contains in enum
+        """Validate value contains in enum
 
         Args:
             value: the value to be validated
@@ -48,9 +45,10 @@ class MetafieldInput(object):
 
         """
         return value in cls._all_values
-   
+
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

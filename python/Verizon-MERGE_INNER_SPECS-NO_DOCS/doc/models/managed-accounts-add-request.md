@@ -10,7 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `account_name` | `str` | Required | Account identifier |
-| `service_name` | [`ServiceNameEnum`](../../doc/models/service-name-enum.md) | Required | Service name<br><br>**Default**: `'Location'` |
+| `service_name` | [`ServiceNameEnum`](../../doc/models/service-name-enum.md) | Required | Service name<br><br>**Default**: `"Location"` |
 | `mtype` | `str` | Required | SKU name |
 | `managed_acc_list` | `List[str]` | Required | managed account list |
 

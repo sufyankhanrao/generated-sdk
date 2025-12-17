@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type46Enum`](../../doc/models/type-46-enum.md) | Optional | Resource Type<br><br>**Default**: `'Paylink'` |
+| `mtype` | [`Type46Enum`](../../doc/models/type-46-enum.md) | Optional | Resource Type<br><br>**Default**: `"Paylink"` |
 | `data` | [`Data13`](../../doc/models/data-13.md) | Optional | - |
 
 ## Example (as JSON)

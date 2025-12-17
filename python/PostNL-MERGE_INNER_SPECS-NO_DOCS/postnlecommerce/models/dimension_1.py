@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
 
 
 class Dimension1(object):
-
     """Implementation of the 'Dimension1' model.
 
     Attributes:
@@ -24,19 +21,19 @@ class Dimension1(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "weight": 'Weight',
-        "height": 'Height',
-        "length": 'Length',
-        "width": 'Width',
-        "volume": 'Volume'
+        "weight": "Weight",
+        "height": "Height",
+        "length": "Length",
+        "width": "Width",
+        "volume": "Volume",
     }
 
     _optionals = [
-        'weight',
-        'height',
-        'length',
-        'width',
-        'volume',
+        "weight",
+        "height",
+        "length",
+        "width",
+        "volume",
     ]
 
     def __init__(self,
@@ -45,24 +42,23 @@ class Dimension1(object):
                  length=APIHelper.SKIP,
                  width=APIHelper.SKIP,
                  volume=APIHelper.SKIP):
-        """Constructor for the Dimension1 class"""
-
+        """Initialize a Dimension1 instance."""
         # Initialize members of the class
         if weight is not APIHelper.SKIP:
-            self.weight = weight 
+            self.weight = weight
         if height is not APIHelper.SKIP:
-            self.height = height 
+            self.height = height
         if length is not APIHelper.SKIP:
-            self.length = length 
+            self.length = length
         if width is not APIHelper.SKIP:
-            self.width = width 
+            self.width = width
         if volume is not APIHelper.SKIP:
-            self.volume = volume 
+            self.volume = volume
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -73,16 +69,25 @@ class Dimension1(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        weight = dictionary.get("Weight") if dictionary.get("Weight") else APIHelper.SKIP
-        height = dictionary.get("Height") if dictionary.get("Height") else APIHelper.SKIP
-        length = dictionary.get("Length") if dictionary.get("Length") else APIHelper.SKIP
-        width = dictionary.get("Width") if dictionary.get("Width") else APIHelper.SKIP
-        volume = dictionary.get("Volume") if dictionary.get("Volume") else APIHelper.SKIP
+        weight =\
+            dictionary.get("Weight")\
+            if dictionary.get("Weight") else APIHelper.SKIP
+        height =\
+            dictionary.get("Height")\
+            if dictionary.get("Height") else APIHelper.SKIP
+        length =\
+            dictionary.get("Length")\
+            if dictionary.get("Length") else APIHelper.SKIP
+        width =\
+            dictionary.get("Width")\
+            if dictionary.get("Width") else APIHelper.SKIP
+        volume =\
+            dictionary.get("Volume")\
+            if dictionary.get("Volume") else APIHelper.SKIP
         # Return an object of this model
         return cls(weight,
                    height,
@@ -91,17 +96,19 @@ class Dimension1(object):
                    volume)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'weight={(self.weight if hasattr(self, "weight") else None)!r}, '
-                f'height={(self.height if hasattr(self, "height") else None)!r}, '
-                f'length={(self.length if hasattr(self, "length") else None)!r}, '
-                f'width={(self.width if hasattr(self, "width") else None)!r}, '
-                f'volume={(self.volume if hasattr(self, "volume") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"weight={(self.weight if hasattr(self, 'weight') else None)!r}, "
+                f"height={(self.height if hasattr(self, 'height') else None)!r}, "
+                f"length={(self.length if hasattr(self, 'length') else None)!r}, "
+                f"width={(self.width if hasattr(self, 'width') else None)!r}, "
+                f"volume={(self.volume if hasattr(self, 'volume') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'weight={(self.weight if hasattr(self, "weight") else None)!s}, '
-                f'height={(self.height if hasattr(self, "height") else None)!s}, '
-                f'length={(self.length if hasattr(self, "length") else None)!s}, '
-                f'width={(self.width if hasattr(self, "width") else None)!s}, '
-                f'volume={(self.volume if hasattr(self, "volume") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"weight={(self.weight if hasattr(self, 'weight') else None)!s}, "
+                f"height={(self.height if hasattr(self, 'height') else None)!s}, "
+                f"length={(self.length if hasattr(self, 'length') else None)!s}, "
+                f"width={(self.width if hasattr(self, 'width') else None)!s}, "
+                f"volume={(self.volume if hasattr(self, 'volume') else None)!s})")

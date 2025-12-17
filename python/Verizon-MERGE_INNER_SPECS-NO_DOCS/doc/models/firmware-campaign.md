@@ -17,7 +17,7 @@ Firmware upgrade information.
 | `firmware_name` | `str` | Optional | Firmware name (for firmware upgrade only). |
 | `firmware_from` | `str` | Required | Old firmware version (for firmware upgrade only). |
 | `firmware_to` | `str` | Required | New firmware version (for firmware upgrade only). |
-| `protocol` | `str` | Required | Available values: LWM2M.<br><br>**Default**: `'LWM2M'` |
+| `protocol` | `str` | Required | Available values: LWM2M.<br><br>**Default**: `"LWM2M"` |
 | `make` | `str` | Required | - |
 | `model` | `str` | Required | - |
 | `start_date` | `date` | Required | Campaign start date. |

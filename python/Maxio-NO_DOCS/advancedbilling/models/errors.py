@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
 
 
 class Errors(object):
-
     """Implementation of the 'Errors' model.
 
     Attributes:
@@ -23,26 +20,25 @@ class Errors(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "per_page": 'per_page',
-        "price_point": 'price_point'
+        "per_page": "per_page",
+        "price_point": "price_point",
     }
 
     _optionals = [
-        'per_page',
-        'price_point',
+        "per_page",
+        "price_point",
     ]
 
     def __init__(self,
                  per_page=APIHelper.SKIP,
                  price_point=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the Errors class"""
-
+        """Initialize a Errors instance."""
         # Initialize members of the class
         if per_page is not APIHelper.SKIP:
-            self.per_page = per_page 
+            self.per_page = per_page
         if price_point is not APIHelper.SKIP:
-            self.price_point = price_point 
+            self.price_point = price_point
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -52,7 +48,7 @@ class Errors(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -63,28 +59,38 @@ class Errors(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        per_page = dictionary.get("per_page") if dictionary.get("per_page") else APIHelper.SKIP
-        price_point = dictionary.get("price_point") if dictionary.get("price_point") else APIHelper.SKIP
+        per_page =\
+            dictionary.get("per_page")\
+            if dictionary.get("per_page") else APIHelper.SKIP
+        price_point =\
+            dictionary.get("price_point")\
+            if dictionary.get("price_point") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(per_page,
                    price_point,
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'per_page={(self.per_page if hasattr(self, "per_page") else None)!r}, '
-                f'price_point={(self.price_point if hasattr(self, "price_point") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"per_page={(self.per_page
+                     if hasattr(self, 'per_page') else None)!r}, "
+                f"price_point={(self.price_point
+                     if hasattr(self, 'price_point') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'per_page={(self.per_page if hasattr(self, "per_page") else None)!s}, '
-                f'price_point={(self.price_point if hasattr(self, "price_point") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"per_page={(self.per_page
+                     if hasattr(self, 'per_page') else None)!s}, "
+                f"price_point={(self.price_point
+                     if hasattr(self, 'price_point') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

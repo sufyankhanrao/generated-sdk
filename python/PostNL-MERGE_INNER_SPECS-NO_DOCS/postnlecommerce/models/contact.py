@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
 
 
 class Contact(object):
-
     """Implementation of the 'Contact' model.
 
     Attributes:
@@ -35,16 +32,16 @@ class Contact(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "contact_type": 'ContactType',
-        "email": 'Email',
-        "sms_nr": 'SMSNr',
-        "tel_nr": 'TelNr'
+        "contact_type": "ContactType",
+        "email": "Email",
+        "sms_nr": "SMSNr",
+        "tel_nr": "TelNr",
     }
 
     _optionals = [
-        'email',
-        'sms_nr',
-        'tel_nr',
+        "email",
+        "sms_nr",
+        "tel_nr",
     ]
 
     def __init__(self,
@@ -52,21 +49,20 @@ class Contact(object):
                  email=APIHelper.SKIP,
                  sms_nr=APIHelper.SKIP,
                  tel_nr=APIHelper.SKIP):
-        """Constructor for the Contact class"""
-
+        """Initialize a Contact instance."""
         # Initialize members of the class
-        self.contact_type = contact_type 
+        self.contact_type = contact_type
         if email is not APIHelper.SKIP:
-            self.email = email 
+            self.email = email
         if sms_nr is not APIHelper.SKIP:
-            self.sms_nr = sms_nr 
+            self.sms_nr = sms_nr
         if tel_nr is not APIHelper.SKIP:
-            self.tel_nr = tel_nr 
+            self.tel_nr = tel_nr
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -77,15 +73,22 @@ class Contact(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        contact_type = dictionary.get("ContactType") if dictionary.get("ContactType") else None
-        email = dictionary.get("Email") if dictionary.get("Email") else APIHelper.SKIP
-        sms_nr = dictionary.get("SMSNr") if dictionary.get("SMSNr") else APIHelper.SKIP
-        tel_nr = dictionary.get("TelNr") if dictionary.get("TelNr") else APIHelper.SKIP
+        contact_type =\
+            dictionary.get("ContactType")\
+            if dictionary.get("ContactType") else None
+        email =\
+            dictionary.get("Email")\
+            if dictionary.get("Email") else APIHelper.SKIP
+        sms_nr =\
+            dictionary.get("SMSNr")\
+            if dictionary.get("SMSNr") else APIHelper.SKIP
+        tel_nr =\
+            dictionary.get("TelNr")\
+            if dictionary.get("TelNr") else APIHelper.SKIP
         # Return an object of this model
         return cls(contact_type,
                    email,
@@ -93,15 +96,17 @@ class Contact(object):
                    tel_nr)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'contact_type={self.contact_type!r}, '
-                f'email={(self.email if hasattr(self, "email") else None)!r}, '
-                f'sms_nr={(self.sms_nr if hasattr(self, "sms_nr") else None)!r}, '
-                f'tel_nr={(self.tel_nr if hasattr(self, "tel_nr") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"contact_type={self.contact_type!r}, "
+                f"email={(self.email if hasattr(self, 'email') else None)!r}, "
+                f"sms_nr={(self.sms_nr if hasattr(self, 'sms_nr') else None)!r}, "
+                f"tel_nr={(self.tel_nr if hasattr(self, 'tel_nr') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'contact_type={self.contact_type!s}, '
-                f'email={(self.email if hasattr(self, "email") else None)!s}, '
-                f'sms_nr={(self.sms_nr if hasattr(self, "sms_nr") else None)!s}, '
-                f'tel_nr={(self.tel_nr if hasattr(self, "tel_nr") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"contact_type={self.contact_type!s}, "
+                f"email={(self.email if hasattr(self, 'email') else None)!s}, "
+                f"sms_nr={(self.sms_nr if hasattr(self, 'sms_nr') else None)!s}, "
+                f"tel_nr={(self.tel_nr if hasattr(self, 'tel_nr') else None)!s})")

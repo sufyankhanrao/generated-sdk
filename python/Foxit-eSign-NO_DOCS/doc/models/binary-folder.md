@@ -17,8 +17,8 @@ A folder meant to be used when sending PDF files in multipart
 | `parties` | [`List[Party]`](../../doc/models/party.md) | Required | - |
 | `fields` | `List[Any]` | Required | - |
 | `send_now` | `bool` | Optional | Use this field to send the folder to the recipient parties. Each party will then receive a unique link in their email to sign the document. The invitation mail and subject in this case will be the same as the default invitation mail setup in your account.<br><br>**Default**: `True` |
-| `create_embedded_signing_session` | `str` | Required | **Default**: `'true'` |
-| `create_embedded_signing_session_for_all_parties` | `str` | Required | **Default**: `'true'` |
+| `create_embedded_signing_session` | `str` | Required | **Default**: `"true"` |
+| `create_embedded_signing_session_for_all_parties` | `str` | Required | **Default**: `"true"` |
 
 ## Example (as JSON)
 

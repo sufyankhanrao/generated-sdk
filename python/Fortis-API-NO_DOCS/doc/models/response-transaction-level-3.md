@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type97Enum`](../../doc/models/type-97-enum.md) | Optional | Resource Type<br><br>**Default**: `'TransactionLevel3'` |
+| `mtype` | [`Type97Enum`](../../doc/models/type-97-enum.md) | Optional | Resource Type<br><br>**Default**: `"TransactionLevel3"` |
 | `data` | [`Data24`](../../doc/models/data-24.md) | Optional | - |
 
 ## Example (as JSON)

@@ -1,15 +1,10 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-
 class Diuretic(object):
-
     """Implementation of the 'Diuretic' model.
 
     Attributes:
@@ -27,13 +22,13 @@ class Diuretic(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "dose": 'dose',
-        "name": 'name',
-        "pill_count": 'pillCount',
-        "refills": 'refills',
-        "route": 'route',
-        "sig": 'sig',
-        "strength": 'strength'
+        "dose": "dose",
+        "name": "name",
+        "pill_count": "pillCount",
+        "refills": "refills",
+        "route": "route",
+        "sig": "sig",
+        "strength": "strength",
     }
 
     def __init__(self,
@@ -45,16 +40,15 @@ class Diuretic(object):
                  sig=None,
                  strength=None,
                  additional_properties=None):
-        """Constructor for the Diuretic class"""
-
+        """Initialize a Diuretic instance."""
         # Initialize members of the class
-        self.name = name 
-        self.strength = strength 
-        self.dose = dose 
-        self.route = route 
-        self.sig = sig 
-        self.pill_count = pill_count 
-        self.refills = refills 
+        self.name = name
+        self.strength = strength
+        self.dose = dose
+        self.route = route
+        self.sig = sig
+        self.pill_count = pill_count
+        self.refills = refills
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -64,7 +58,7 @@ class Diuretic(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -75,20 +69,24 @@ class Diuretic(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         dose = dictionary.get("dose") if dictionary.get("dose") else None
         name = dictionary.get("name") if dictionary.get("name") else None
-        pill_count = dictionary.get("pillCount") if dictionary.get("pillCount") else None
+        pill_count =\
+            dictionary.get("pillCount")\
+            if dictionary.get("pillCount") else None
         refills = dictionary.get("refills") if dictionary.get("refills") else None
         route = dictionary.get("route") if dictionary.get("route") else None
         sig = dictionary.get("sig") if dictionary.get("sig") else None
-        strength = dictionary.get("strength") if dictionary.get("strength") else None
+        strength =\
+            dictionary.get("strength")\
+            if dictionary.get("strength") else None
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(dose,
                    name,
@@ -100,23 +98,25 @@ class Diuretic(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'name={self.name!r}, '
-                f'strength={self.strength!r}, '
-                f'dose={self.dose!r}, '
-                f'route={self.route!r}, '
-                f'sig={self.sig!r}, '
-                f'pill_count={self.pill_count!r}, '
-                f'refills={self.refills!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"name={self.name!r}, "
+                f"strength={self.strength!r}, "
+                f"dose={self.dose!r}, "
+                f"route={self.route!r}, "
+                f"sig={self.sig!r}, "
+                f"pill_count={self.pill_count!r}, "
+                f"refills={self.refills!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'name={self.name!s}, '
-                f'strength={self.strength!s}, '
-                f'dose={self.dose!s}, '
-                f'route={self.route!s}, '
-                f'sig={self.sig!s}, '
-                f'pill_count={self.pill_count!s}, '
-                f'refills={self.refills!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"name={self.name!s}, "
+                f"strength={self.strength!s}, "
+                f"dose={self.dose!s}, "
+                f"route={self.route!s}, "
+                f"sig={self.sig!s}, "
+                f"pill_count={self.pill_count!s}, "
+                f"refills={self.refills!s}, "
+                f"additional_properties={self.additional_properties!s})")

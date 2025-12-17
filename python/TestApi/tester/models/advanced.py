@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from tester.models.time_to_live import TimeToLive
 
 
 class Advanced(object):
-
     """Implementation of the 'Advanced' model.
 
     Attributes:
@@ -26,11 +23,11 @@ class Advanced(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "attachments": 'attachments',
-        "get_social_security_number": 'getSocialSecurityNumber',
-        "required_signatures": 'requiredSignatures',
-        "tags": 'tags',
-        "time_to_live": 'timeToLive'
+        "attachments": "attachments",
+        "get_social_security_number": "getSocialSecurityNumber",
+        "required_signatures": "requiredSignatures",
+        "tags": "tags",
+        "time_to_live": "timeToLive",
     }
 
     def __init__(self,
@@ -40,14 +37,13 @@ class Advanced(object):
                  tags=None,
                  time_to_live=None,
                  additional_properties=None):
-        """Constructor for the Advanced class"""
-
+        """Initialize a Advanced instance."""
         # Initialize members of the class
-        self.tags = tags 
-        self.attachments = attachments 
-        self.required_signatures = required_signatures 
-        self.get_social_security_number = get_social_security_number 
-        self.time_to_live = time_to_live 
+        self.tags = tags
+        self.attachments = attachments
+        self.required_signatures = required_signatures
+        self.get_social_security_number = get_social_security_number
+        self.time_to_live = time_to_live
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -57,7 +53,7 @@ class Advanced(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -68,18 +64,26 @@ class Advanced(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        attachments = dictionary.get("attachments") if dictionary.get("attachments") else None
-        get_social_security_number = dictionary.get("getSocialSecurityNumber") if "getSocialSecurityNumber" in dictionary.keys() else None
-        required_signatures = dictionary.get("requiredSignatures") if dictionary.get("requiredSignatures") else None
+        attachments =\
+            dictionary.get("attachments")\
+            if dictionary.get("attachments") else None
+        get_social_security_number =\
+            dictionary.get("getSocialSecurityNumber")\
+            if "getSocialSecurityNumber" in dictionary.keys() else None
+        required_signatures =\
+            dictionary.get("requiredSignatures")\
+            if dictionary.get("requiredSignatures") else None
         tags = dictionary.get("tags") if dictionary.get("tags") else None
-        time_to_live = TimeToLive.from_dictionary(dictionary.get('timeToLive')) if dictionary.get('timeToLive') else None
+        time_to_live = TimeToLive.from_dictionary(
+            dictionary.get("timeToLive"))\
+            if dictionary.get("timeToLive") else None
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(attachments,
                    get_social_security_number,
@@ -89,19 +93,21 @@ class Advanced(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'tags={self.tags!r}, '
-                f'attachments={self.attachments!r}, '
-                f'required_signatures={self.required_signatures!r}, '
-                f'get_social_security_number={self.get_social_security_number!r}, '
-                f'time_to_live={self.time_to_live!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"tags={self.tags!r}, "
+                f"attachments={self.attachments!r}, "
+                f"required_signatures={self.required_signatures!r}, "
+                f"get_social_security_number={self.get_social_security_number!r}, "
+                f"time_to_live={self.time_to_live!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'tags={self.tags!s}, '
-                f'attachments={self.attachments!s}, '
-                f'required_signatures={self.required_signatures!s}, '
-                f'get_social_security_number={self.get_social_security_number!s}, '
-                f'time_to_live={self.time_to_live!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"tags={self.tags!s}, "
+                f"attachments={self.attachments!s}, "
+                f"required_signatures={self.required_signatures!s}, "
+                f"get_social_security_number={self.get_social_security_number!s}, "
+                f"time_to_live={self.time_to_live!s}, "
+                f"additional_properties={self.additional_properties!s})")

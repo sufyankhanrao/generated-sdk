@@ -31,7 +31,7 @@
 | `currency` | [`CurrencyEnum`](../../doc/models/currency-enum.md) | Optional | The currency of the amount in this billing. See <a href="https://www.iban.com/currency-codes" target="_blank">Currency codes</a>  for all valid values. |
 | `inactive` | [`InactiveEnum`](../../doc/models/inactive-enum.md) | Optional | Whether this resource is marked as inactive.<br><br><details><br><summary>Valid Values</summary><br>- `0` - **Active**<br>- `1` - **Inactive**<br></details><br>**Default**: `0`<br> |
 | `frozen` | [`FrozenEnum`](../../doc/models/frozen-enum.md) | Optional | Whether this resource is marked as frozen.<br><br><details><br><summary>Valid Values</summary><br>- `0` - **Not Frozen**<br>- `1` - **Frozen**<br></details><br>**Default**: `0`<br> |
-| `collection` | [`BillingCollectionEnum`](../../doc/models/billing-collection-enum.md) | Optional | Determines who will be billed.<br><br><details><br><summary>Valid Values</summary><br>- `entity` - **The entity will be billed.**<br></details><br>**Default**: `'entity'`<br> |
+| `collection` | [`BillingCollectionEnum`](../../doc/models/billing-collection-enum.md) | Optional | Determines who will be billed.<br><br><details><br><summary>Valid Values</summary><br>- `entity` - **The entity will be billed.**<br></details><br>**Default**: `"entity"`<br> |
 
 ## Example (as JSON)
 

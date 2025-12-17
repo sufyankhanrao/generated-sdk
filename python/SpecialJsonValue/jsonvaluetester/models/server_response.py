@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-
-"""
-jsonvaluetester
+"""jsonvaluetester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from jsonvaluetester.api_helper import APIHelper
 
 
 class ServerResponse(object):
-
     """Implementation of the 'ServerResponse' model.
 
     Attributes:
@@ -28,18 +25,18 @@ class ServerResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "passed": 'passed',
-        "message": 'Message',
-        "input": 'input',
-        "nullable_number_array": 'nullableNumberArray',
-        "nullable_number_map": 'nullableNumberMap'
+        "passed": "passed",
+        "message": "Message",
+        "input": "input",
+        "nullable_number_array": "nullableNumberArray",
+        "nullable_number_map": "nullableNumberMap",
     }
 
     _optionals = [
-        'message',
-        'input',
-        'nullable_number_map',
-        'nullable_number_array',
+        "message",
+        "input",
+        "nullable_number_map",
+        "nullable_number_array",
     ]
 
     def __init__(self,
@@ -49,18 +46,17 @@ class ServerResponse(object):
                  nullable_number_array=APIHelper.SKIP,
                  nullable_number_map=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the ServerResponse class"""
-
+        """Initialize a ServerResponse instance."""
         # Initialize members of the class
-        self.passed = passed 
+        self.passed = passed
         if message is not APIHelper.SKIP:
-            self.message = message 
+            self.message = message
         if input is not APIHelper.SKIP:
-            self.input = input 
+            self.input = input
         if nullable_number_map is not APIHelper.SKIP:
-            self.nullable_number_map = nullable_number_map 
+            self.nullable_number_map = nullable_number_map
         if nullable_number_array is not APIHelper.SKIP:
-            self.nullable_number_array = nullable_number_array 
+            self.nullable_number_array = nullable_number_array
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -70,7 +66,7 @@ class ServerResponse(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -81,18 +77,28 @@ class ServerResponse(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        passed = dictionary.get("passed") if "passed" in dictionary.keys() else None
-        message = dictionary.get("Message") if dictionary.get("Message") else APIHelper.SKIP
-        input = dictionary.get("input") if dictionary.get("input") else APIHelper.SKIP
-        nullable_number_array = dictionary.get("nullableNumberArray") if dictionary.get("nullableNumberArray") else APIHelper.SKIP
-        nullable_number_map = dictionary.get("nullableNumberMap") if dictionary.get("nullableNumberMap") else APIHelper.SKIP
+        passed =\
+            dictionary.get("passed")\
+            if "passed" in dictionary.keys() else None
+        message =\
+            dictionary.get("Message")\
+            if dictionary.get("Message") else APIHelper.SKIP
+        input =\
+            dictionary.get("input")\
+            if dictionary.get("input") else APIHelper.SKIP
+        nullable_number_array =\
+            dictionary.get("nullableNumberArray")\
+            if dictionary.get("nullableNumberArray") else APIHelper.SKIP
+        nullable_number_map =\
+            dictionary.get("nullableNumberMap")\
+            if dictionary.get("nullableNumberMap") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(passed,
                    message,
@@ -102,19 +108,27 @@ class ServerResponse(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'passed={self.passed!r}, '
-                f'message={(self.message if hasattr(self, "message") else None)!r}, '
-                f'input={(self.input if hasattr(self, "input") else None)!r}, '
-                f'nullable_number_map={(self.nullable_number_map if hasattr(self, "nullable_number_map") else None)!r}, '
-                f'nullable_number_array={(self.nullable_number_array if hasattr(self, "nullable_number_array") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"passed={self.passed!r}, "
+                f"message={(self.message
+                     if hasattr(self, 'message') else None)!r}, "
+                f"input={(self.input if hasattr(self, 'input') else None)!r}, "
+                f"nullable_number_map={(self.nullable_number_map
+                     if hasattr(self, 'nullable_number_map') else None)!r}, "
+                f"nullable_number_array={(self.nullable_number_array
+                     if hasattr(self, 'nullable_number_array') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'passed={self.passed!s}, '
-                f'message={(self.message if hasattr(self, "message") else None)!s}, '
-                f'input={(self.input if hasattr(self, "input") else None)!s}, '
-                f'nullable_number_map={(self.nullable_number_map if hasattr(self, "nullable_number_map") else None)!s}, '
-                f'nullable_number_array={(self.nullable_number_array if hasattr(self, "nullable_number_array") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"passed={self.passed!s}, "
+                f"message={(self.message
+                     if hasattr(self, 'message') else None)!s}, "
+                f"input={(self.input if hasattr(self, 'input') else None)!s}, "
+                f"nullable_number_map={(self.nullable_number_map
+                     if hasattr(self, 'nullable_number_map') else None)!s}, "
+                f"nullable_number_array={(self.nullable_number_array
+                     if hasattr(self, 'nullable_number_array') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

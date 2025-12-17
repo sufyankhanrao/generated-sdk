@@ -33,28 +33,30 @@ This event's request payload is of type [PaymentStatusUpdatedEvent](../../../../
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.signature_verification_failure import (
-    SignatureVerificationFailure
+    SignatureVerificationFailure,
 )
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.events.webhooks.webhooks_a_handler import (
-    WebhooksAHandler
+    WebhooksAHandler,
 )
 from webhooksandcallbacksapi.models.payment_status_updated_event import (
-    PaymentStatusUpdatedEvent
+    PaymentStatusUpdatedEvent,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/webhooks", methods=["POST"])
+@app.route("/webhooks", methods=[
+    "POST",
+])
 def Webhooks() -> Response:
     # Step 1: Create the handler with your shared secret key.
     handler = WebhooksAHandler(secret_key="your-shared-secret")

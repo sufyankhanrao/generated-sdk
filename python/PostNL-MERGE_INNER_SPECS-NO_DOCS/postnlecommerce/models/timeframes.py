@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.timeframe_1 import Timeframe1
+from postnlecommerce.models.timeframe_1 import (
+    Timeframe1,
+)
 
 
 class Timeframes(object):
-
     """Implementation of the 'Timeframes' model.
 
     Attributes:
@@ -21,25 +20,24 @@ class Timeframes(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "timeframe": 'Timeframe'
+        "timeframe": "Timeframe",
     }
 
     _optionals = [
-        'timeframe',
+        "timeframe",
     ]
 
     def __init__(self,
                  timeframe=APIHelper.SKIP):
-        """Constructor for the Timeframes class"""
-
+        """Initialize a Timeframes instance."""
         # Initialize members of the class
         if timeframe is not APIHelper.SKIP:
-            self.timeframe = timeframe 
+            self.timeframe = timeframe
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -50,23 +48,29 @@ class Timeframes(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         timeframe = None
-        if dictionary.get('Timeframe') is not None:
-            timeframe = [Timeframe1.from_dictionary(x) for x in dictionary.get('Timeframe')]
+        if dictionary.get("Timeframe") is not None:
+            timeframe = [
+                Timeframe1.from_dictionary(x)
+                    for x in dictionary.get("Timeframe")
+            ]
         else:
             timeframe = APIHelper.SKIP
         # Return an object of this model
         return cls(timeframe)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'timeframe={(self.timeframe if hasattr(self, "timeframe") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"timeframe={(self.timeframe
+                     if hasattr(self, 'timeframe') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'timeframe={(self.timeframe if hasattr(self, "timeframe") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"timeframe={(self.timeframe
+                     if hasattr(self, 'timeframe') else None)!s})")

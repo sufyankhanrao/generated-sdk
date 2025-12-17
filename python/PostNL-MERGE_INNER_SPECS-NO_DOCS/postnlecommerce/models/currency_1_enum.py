@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class Currency1Enum(object):
-
     """Implementation of the 'Currency1' enum.
 
     Currency code,only EUR and USS are allowed
@@ -19,12 +15,14 @@ class Currency1Enum(object):
         USS: The enum member of type str.
 
     """
-    EUR = 'EUR'
 
-    USS = 'USS'
+    EUR = "EUR"
+
+    USS = "USS"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

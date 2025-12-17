@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.coupon_currency import CouponCurrency
+from advancedbilling.models.coupon_currency import (
+    CouponCurrency,
+)
 
 
 class CouponCurrencyResponse(object):
-
     """Implementation of the 'Coupon Currency Response' model.
 
     Attributes:
@@ -24,21 +23,20 @@ class CouponCurrencyResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "currency_prices": 'currency_prices'
+        "currency_prices": "currency_prices",
     }
 
     _optionals = [
-        'currency_prices',
+        "currency_prices",
     ]
 
     def __init__(self,
                  currency_prices=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the CouponCurrencyResponse class"""
-
+        """Initialize a CouponCurrencyResponse instance."""
         # Initialize members of the class
         if currency_prices is not APIHelper.SKIP:
-            self.currency_prices = currency_prices 
+            self.currency_prices = currency_prices
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -48,7 +46,7 @@ class CouponCurrencyResponse(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -59,28 +57,35 @@ class CouponCurrencyResponse(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         currency_prices = None
-        if dictionary.get('currency_prices') is not None:
-            currency_prices = [CouponCurrency.from_dictionary(x) for x in dictionary.get('currency_prices')]
+        if dictionary.get("currency_prices") is not None:
+            currency_prices = [
+                CouponCurrency.from_dictionary(x)
+                    for x in dictionary.get("currency_prices")
+            ]
         else:
             currency_prices = APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(currency_prices,
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'currency_prices={(self.currency_prices if hasattr(self, "currency_prices") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"currency_prices={(self.currency_prices
+                     if hasattr(self, 'currency_prices') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'currency_prices={(self.currency_prices if hasattr(self, "currency_prices") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"currency_prices={(self.currency_prices
+                     if hasattr(self, 'currency_prices') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

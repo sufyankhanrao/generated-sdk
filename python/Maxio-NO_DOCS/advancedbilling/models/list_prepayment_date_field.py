@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class ListPrepaymentDateField(object):
-
     """Implementation of the 'List Prepayment Date Field' enum.
 
     Attributes:
@@ -19,12 +15,14 @@ class ListPrepaymentDateField(object):
             for the model.
 
     """
-    CREATED_AT = 'created_at'
 
-    APPLICATION_AT = 'application_at'
+    CREATED_AT = "created_at"
+
+    APPLICATION_AT = "application_at"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

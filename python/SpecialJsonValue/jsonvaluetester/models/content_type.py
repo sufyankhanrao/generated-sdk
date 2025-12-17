@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-jsonvaluetester
+"""jsonvaluetester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
 
 
 class ContentType(object):
-
     """Implementation of the 'Content-Type' enum.
 
     Attributes:
@@ -18,10 +14,12 @@ class ContentType(object):
             for the model.
 
     """
-    ENUM_APPLICATIONXWWWFORMURLENCODED = 'application/x-www-form-urlencoded'
+
+    ENUM_APPLICATIONXWWWFORMURLENCODED = "application/x-www-form-urlencoded"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

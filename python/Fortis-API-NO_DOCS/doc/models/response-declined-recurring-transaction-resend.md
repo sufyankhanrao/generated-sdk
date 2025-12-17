@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type21Enum`](../../doc/models/type-21-enum.md) | Optional | Resource Type<br><br>**Default**: `'DeclinedRecurringTransactionResend'` |
+| `mtype` | [`Type21Enum`](../../doc/models/type-21-enum.md) | Optional | Resource Type<br><br>**Default**: `"DeclinedRecurringTransactionResend"` |
 | `data` | [`Data5`](../../doc/models/data-5.md) | Optional | - |
 
 ## Example (as JSON)

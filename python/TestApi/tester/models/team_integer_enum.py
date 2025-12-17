@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
 
 
 class TeamIntegerEnum(object):
-
     """Implementation of the 'team_integer' enum.
 
     Attributes:
@@ -21,6 +17,7 @@ class TeamIntegerEnum(object):
             for the model.
 
     """
+
     CODEGEN = 1
 
     CGAAS = 2
@@ -31,6 +28,7 @@ class TeamIntegerEnum(object):
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

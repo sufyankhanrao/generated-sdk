@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.billing_schedule import BillingSchedule
+from advancedbilling.models.billing_schedule import (
+    BillingSchedule,
+)
 
 
 class CreateAllocation(object):
-
     """Implementation of the 'Create Allocation' model.
 
     Attributes:
@@ -58,36 +57,36 @@ class CreateAllocation(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "quantity": 'quantity',
-        "component_id": 'component_id',
-        "memo": 'memo',
-        "proration_downgrade_scheme": 'proration_downgrade_scheme',
-        "proration_upgrade_scheme": 'proration_upgrade_scheme',
-        "accrue_charge": 'accrue_charge',
-        "downgrade_credit": 'downgrade_credit',
-        "upgrade_charge": 'upgrade_charge',
-        "initiate_dunning": 'initiate_dunning',
-        "price_point_id": 'price_point_id',
-        "billing_schedule": 'billing_schedule'
+        "quantity": "quantity",
+        "component_id": "component_id",
+        "memo": "memo",
+        "proration_downgrade_scheme": "proration_downgrade_scheme",
+        "proration_upgrade_scheme": "proration_upgrade_scheme",
+        "accrue_charge": "accrue_charge",
+        "downgrade_credit": "downgrade_credit",
+        "upgrade_charge": "upgrade_charge",
+        "initiate_dunning": "initiate_dunning",
+        "price_point_id": "price_point_id",
+        "billing_schedule": "billing_schedule",
     }
 
     _optionals = [
-        'component_id',
-        'memo',
-        'proration_downgrade_scheme',
-        'proration_upgrade_scheme',
-        'accrue_charge',
-        'downgrade_credit',
-        'upgrade_charge',
-        'initiate_dunning',
-        'price_point_id',
-        'billing_schedule',
+        "component_id",
+        "memo",
+        "proration_downgrade_scheme",
+        "proration_upgrade_scheme",
+        "accrue_charge",
+        "downgrade_credit",
+        "upgrade_charge",
+        "initiate_dunning",
+        "price_point_id",
+        "billing_schedule",
     ]
 
     _nullables = [
-        'downgrade_credit',
-        'upgrade_charge',
-        'price_point_id',
+        "downgrade_credit",
+        "upgrade_charge",
+        "price_point_id",
     ]
 
     def __init__(self,
@@ -103,30 +102,29 @@ class CreateAllocation(object):
                  price_point_id=APIHelper.SKIP,
                  billing_schedule=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the CreateAllocation class"""
-
+        """Initialize a CreateAllocation instance."""
         # Initialize members of the class
-        self.quantity = quantity 
+        self.quantity = quantity
         if component_id is not APIHelper.SKIP:
-            self.component_id = component_id 
+            self.component_id = component_id
         if memo is not APIHelper.SKIP:
-            self.memo = memo 
+            self.memo = memo
         if proration_downgrade_scheme is not APIHelper.SKIP:
-            self.proration_downgrade_scheme = proration_downgrade_scheme 
+            self.proration_downgrade_scheme = proration_downgrade_scheme
         if proration_upgrade_scheme is not APIHelper.SKIP:
-            self.proration_upgrade_scheme = proration_upgrade_scheme 
+            self.proration_upgrade_scheme = proration_upgrade_scheme
         if accrue_charge is not APIHelper.SKIP:
-            self.accrue_charge = accrue_charge 
+            self.accrue_charge = accrue_charge
         if downgrade_credit is not APIHelper.SKIP:
-            self.downgrade_credit = downgrade_credit 
+            self.downgrade_credit = downgrade_credit
         if upgrade_charge is not APIHelper.SKIP:
-            self.upgrade_charge = upgrade_charge 
+            self.upgrade_charge = upgrade_charge
         if initiate_dunning is not APIHelper.SKIP:
-            self.initiate_dunning = initiate_dunning 
+            self.initiate_dunning = initiate_dunning
         if price_point_id is not APIHelper.SKIP:
-            self.price_point_id = price_point_id 
+            self.price_point_id = price_point_id
         if billing_schedule is not APIHelper.SKIP:
-            self.billing_schedule = billing_schedule 
+            self.billing_schedule = billing_schedule
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -136,7 +134,7 @@ class CreateAllocation(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -147,28 +145,51 @@ class CreateAllocation(object):
             object: An instance of this structure class.
 
         """
-        from advancedbilling.utilities.union_type_lookup import UnionTypeLookUp
+        from advancedbilling.utilities.union_type_lookup import (
+            UnionTypeLookUp,
+        )
 
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        quantity = dictionary.get("quantity") if dictionary.get("quantity") else None
-        component_id = dictionary.get("component_id") if dictionary.get("component_id") else APIHelper.SKIP
-        memo = dictionary.get("memo") if dictionary.get("memo") else APIHelper.SKIP
-        proration_downgrade_scheme = dictionary.get("proration_downgrade_scheme") if dictionary.get("proration_downgrade_scheme") else APIHelper.SKIP
-        proration_upgrade_scheme = dictionary.get("proration_upgrade_scheme") if dictionary.get("proration_upgrade_scheme") else APIHelper.SKIP
-        accrue_charge = dictionary.get("accrue_charge") if "accrue_charge" in dictionary.keys() else APIHelper.SKIP
-        downgrade_credit = dictionary.get("downgrade_credit") if "downgrade_credit" in dictionary.keys() else APIHelper.SKIP
-        upgrade_charge = dictionary.get("upgrade_charge") if "upgrade_charge" in dictionary.keys() else APIHelper.SKIP
-        initiate_dunning = dictionary.get("initiate_dunning") if "initiate_dunning" in dictionary.keys() else APIHelper.SKIP
-        if 'price_point_id' in dictionary.keys():
-            price_point_id = APIHelper.deserialize_union_type(UnionTypeLookUp.get('CreateAllocationPricePointId'), dictionary.get('price_point_id'), False) if dictionary.get('price_point_id') is not None else None
+        quantity =\
+            dictionary.get("quantity")\
+            if dictionary.get("quantity") else None
+        component_id =\
+            dictionary.get("component_id")\
+            if dictionary.get("component_id") else APIHelper.SKIP
+        memo =\
+            dictionary.get("memo")\
+            if dictionary.get("memo") else APIHelper.SKIP
+        proration_downgrade_scheme =\
+            dictionary.get("proration_downgrade_scheme")\
+            if dictionary.get("proration_downgrade_scheme") else APIHelper.SKIP
+        proration_upgrade_scheme =\
+            dictionary.get("proration_upgrade_scheme")\
+            if dictionary.get("proration_upgrade_scheme") else APIHelper.SKIP
+        accrue_charge =\
+            dictionary.get("accrue_charge")\
+            if "accrue_charge" in dictionary.keys() else APIHelper.SKIP
+        downgrade_credit =\
+            dictionary.get("downgrade_credit")\
+            if "downgrade_credit" in dictionary.keys() else APIHelper.SKIP
+        upgrade_charge =\
+            dictionary.get("upgrade_charge")\
+            if "upgrade_charge" in dictionary.keys() else APIHelper.SKIP
+        initiate_dunning =\
+            dictionary.get("initiate_dunning")\
+            if "initiate_dunning" in dictionary.keys() else APIHelper.SKIP
+        if "price_point_id" in dictionary.keys():
+            price_point_id = APIHelper.deserialize_union_type(UnionTypeLookUp.get("CreateAllocationPricePointId"), dictionary.get("price_point_id"), False) if dictionary.get("price_point_id") is not None else None
         else:
             price_point_id = APIHelper.SKIP
-        billing_schedule = BillingSchedule.from_dictionary(dictionary.get('billing_schedule')) if 'billing_schedule' in dictionary.keys() else APIHelper.SKIP
+        billing_schedule = BillingSchedule.from_dictionary(
+            dictionary.get("billing_schedule"))\
+            if "billing_schedule" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(quantity,
                    component_id,
@@ -184,31 +205,51 @@ class CreateAllocation(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'quantity={self.quantity!r}, '
-                f'component_id={(self.component_id if hasattr(self, "component_id") else None)!r}, '
-                f'memo={(self.memo if hasattr(self, "memo") else None)!r}, '
-                f'proration_downgrade_scheme={(self.proration_downgrade_scheme if hasattr(self, "proration_downgrade_scheme") else None)!r}, '
-                f'proration_upgrade_scheme={(self.proration_upgrade_scheme if hasattr(self, "proration_upgrade_scheme") else None)!r}, '
-                f'accrue_charge={(self.accrue_charge if hasattr(self, "accrue_charge") else None)!r}, '
-                f'downgrade_credit={(self.downgrade_credit if hasattr(self, "downgrade_credit") else None)!r}, '
-                f'upgrade_charge={(self.upgrade_charge if hasattr(self, "upgrade_charge") else None)!r}, '
-                f'initiate_dunning={(self.initiate_dunning if hasattr(self, "initiate_dunning") else None)!r}, '
-                f'price_point_id={(self.price_point_id if hasattr(self, "price_point_id") else None)!r}, '
-                f'billing_schedule={(self.billing_schedule if hasattr(self, "billing_schedule") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"quantity={self.quantity!r}, "
+                f"component_id={(self.component_id
+                     if hasattr(self, 'component_id') else None)!r}, "
+                f"memo={(self.memo if hasattr(self, 'memo') else None)!r}, "
+                f"proration_downgrade_scheme={(self.proration_downgrade_scheme
+                     if hasattr(self, 'proration_downgrade_scheme') else None)!r}, "
+                f"proration_upgrade_scheme={(self.proration_upgrade_scheme
+                     if hasattr(self, 'proration_upgrade_scheme') else None)!r}, "
+                f"accrue_charge={(self.accrue_charge
+                     if hasattr(self, 'accrue_charge') else None)!r}, "
+                f"downgrade_credit={(self.downgrade_credit
+                     if hasattr(self, 'downgrade_credit') else None)!r}, "
+                f"upgrade_charge={(self.upgrade_charge
+                     if hasattr(self, 'upgrade_charge') else None)!r}, "
+                f"initiate_dunning={(self.initiate_dunning
+                     if hasattr(self, 'initiate_dunning') else None)!r}, "
+                f"price_point_id={(self.price_point_id
+                     if hasattr(self, 'price_point_id') else None)!r}, "
+                f"billing_schedule={(self.billing_schedule
+                     if hasattr(self, 'billing_schedule') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'quantity={self.quantity!s}, '
-                f'component_id={(self.component_id if hasattr(self, "component_id") else None)!s}, '
-                f'memo={(self.memo if hasattr(self, "memo") else None)!s}, '
-                f'proration_downgrade_scheme={(self.proration_downgrade_scheme if hasattr(self, "proration_downgrade_scheme") else None)!s}, '
-                f'proration_upgrade_scheme={(self.proration_upgrade_scheme if hasattr(self, "proration_upgrade_scheme") else None)!s}, '
-                f'accrue_charge={(self.accrue_charge if hasattr(self, "accrue_charge") else None)!s}, '
-                f'downgrade_credit={(self.downgrade_credit if hasattr(self, "downgrade_credit") else None)!s}, '
-                f'upgrade_charge={(self.upgrade_charge if hasattr(self, "upgrade_charge") else None)!s}, '
-                f'initiate_dunning={(self.initiate_dunning if hasattr(self, "initiate_dunning") else None)!s}, '
-                f'price_point_id={(self.price_point_id if hasattr(self, "price_point_id") else None)!s}, '
-                f'billing_schedule={(self.billing_schedule if hasattr(self, "billing_schedule") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"quantity={self.quantity!s}, "
+                f"component_id={(self.component_id
+                     if hasattr(self, 'component_id') else None)!s}, "
+                f"memo={(self.memo if hasattr(self, 'memo') else None)!s}, "
+                f"proration_downgrade_scheme={(self.proration_downgrade_scheme
+                     if hasattr(self, 'proration_downgrade_scheme') else None)!s}, "
+                f"proration_upgrade_scheme={(self.proration_upgrade_scheme
+                     if hasattr(self, 'proration_upgrade_scheme') else None)!s}, "
+                f"accrue_charge={(self.accrue_charge
+                     if hasattr(self, 'accrue_charge') else None)!s}, "
+                f"downgrade_credit={(self.downgrade_credit
+                     if hasattr(self, 'downgrade_credit') else None)!s}, "
+                f"upgrade_charge={(self.upgrade_charge
+                     if hasattr(self, 'upgrade_charge') else None)!s}, "
+                f"initiate_dunning={(self.initiate_dunning
+                     if hasattr(self, 'initiate_dunning') else None)!s}, "
+                f"price_point_id={(self.price_point_id
+                     if hasattr(self, 'price_point_id') else None)!s}, "
+                f"billing_schedule={(self.billing_schedule
+                     if hasattr(self, 'billing_schedule') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

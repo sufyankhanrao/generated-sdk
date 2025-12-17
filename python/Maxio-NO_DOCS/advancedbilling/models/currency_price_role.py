@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class CurrencyPriceRole(object):
-
     """Implementation of the 'Currency Price Role' enum.
 
     Role for the price.
@@ -22,14 +18,16 @@ class CurrencyPriceRole(object):
             for the model.
 
     """
-    BASELINE = 'baseline'
 
-    TRIAL = 'trial'
+    BASELINE = "baseline"
 
-    INITIAL = 'initial'
+    TRIAL = "trial"
+
+    INITIAL = "initial"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

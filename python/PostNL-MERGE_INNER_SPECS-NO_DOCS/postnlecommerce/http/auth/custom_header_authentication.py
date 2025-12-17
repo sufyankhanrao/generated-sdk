@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 """
 postnlecommerce
@@ -8,48 +7,94 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 """
 
 import os
+
 from apimatic_core.authentication.header_auth import HeaderAuth
 
 
 class CustomHeaderAuthentication(HeaderAuth):
+    """
+    An authentication handler that applies `CustomHeaderAuthentication` to
+    outgoing requests. It constructs the required credential values and integrates
+    with the core authentication framework.
+    """
 
     @property
     def error_message(self):
-        """Display error message on occurrence of authentication failure
-        in CustomHeaderAuthentication
-
-        """
+        """Return reason about the authentication failure."""
         return "CustomHeaderAuthentication: apikey is undefined."
 
-    def __init__(self, custom_header_authentication_credentials):
+    def __init__(self, auth_model):
+        """
+        Initialize the authentication handler with credential data.
+
+        Args:
+            auth_model: The credentials object used to generate the authorization
+             header.
+
+        """
         auth_params = {}
-        if custom_header_authentication_credentials is not None \
-                and custom_header_authentication_credentials.apikey is not None:
-            auth_params["apikey"] = custom_header_authentication_credentials.apikey
+        if auth_model is not None \
+                and auth_model.apikey is not None:
+            auth_params["apikey"] = auth_model.apikey
         super().__init__(auth_params=auth_params)
 
 
 class CustomHeaderAuthenticationCredentials:
+    """
+    A model for authentication credentials. Provides simple validation,
+    cloning support, and optional construction from environment variables.
+    Suitable as a pattern for other auth models.
+    """
 
     @property
     def apikey(self):
+        """
+        Return the stored apikey.
+        """
         return self._apikey
 
     def __init__(self, apikey):
+        """
+        Initialize the credentials.
+
+        Args:
+            apikey: The apikey property value to set.
+
+        Raises:
+            ValueError: If any required value is missing.
+
+        """
         if apikey is None:
-            raise ValueError('apikey cannot be None')
+            raise ValueError("apikey cannot be None")
         self._apikey = apikey
 
     def clone_with(self, apikey=None):
+        """
+        Return a new instance with optional value overrides.
+
+        Args:
+            apikey: The apikey property value to set.
+
+        """
         return CustomHeaderAuthenticationCredentials(apikey or self.apikey)
 
     @classmethod
     def from_environment(cls):
-        apikey = os.getenv('APIKEY', None)
+        """
+        Create credentials from environment variables, if available.
 
-        if apikey is None:
+        Returns:
+            A credentials instance or ``None`` if values are missing.
+
+        """
+        apikey = os.getenv(
+            "APIKEY",
+            None,
+        )
+
+        if (apikey is None):
             return None
 
         return cls(
-            apikey=apikey
+            apikey=apikey,
         )

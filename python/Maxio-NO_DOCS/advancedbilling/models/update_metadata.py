@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
 
 
 class UpdateMetadata(object):
-
     """Implementation of the 'Update Metadata' model.
 
     Attributes:
@@ -24,15 +21,15 @@ class UpdateMetadata(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "current_name": 'current_name',
-        "name": 'name',
-        "value": 'value'
+        "current_name": "current_name",
+        "name": "name",
+        "value": "value",
     }
 
     _optionals = [
-        'current_name',
-        'name',
-        'value',
+        "current_name",
+        "name",
+        "value",
     ]
 
     def __init__(self,
@@ -40,15 +37,14 @@ class UpdateMetadata(object):
                  name=APIHelper.SKIP,
                  value=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the UpdateMetadata class"""
-
+        """Initialize a UpdateMetadata instance."""
         # Initialize members of the class
         if current_name is not APIHelper.SKIP:
-            self.current_name = current_name 
+            self.current_name = current_name
         if name is not APIHelper.SKIP:
-            self.name = name 
+            self.name = name
         if value is not APIHelper.SKIP:
-            self.value = value 
+            self.value = value
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -58,7 +54,7 @@ class UpdateMetadata(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -69,16 +65,22 @@ class UpdateMetadata(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        current_name = dictionary.get("current_name") if dictionary.get("current_name") else APIHelper.SKIP
-        name = dictionary.get("name") if dictionary.get("name") else APIHelper.SKIP
-        value = dictionary.get("value") if dictionary.get("value") else APIHelper.SKIP
+        current_name =\
+            dictionary.get("current_name")\
+            if dictionary.get("current_name") else APIHelper.SKIP
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name") else APIHelper.SKIP
+        value =\
+            dictionary.get("value")\
+            if dictionary.get("value") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(current_name,
                    name,
@@ -86,15 +88,19 @@ class UpdateMetadata(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'current_name={(self.current_name if hasattr(self, "current_name") else None)!r}, '
-                f'name={(self.name if hasattr(self, "name") else None)!r}, '
-                f'value={(self.value if hasattr(self, "value") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"current_name={(self.current_name
+                     if hasattr(self, 'current_name') else None)!r}, "
+                f"name={(self.name if hasattr(self, 'name') else None)!r}, "
+                f"value={(self.value if hasattr(self, 'value') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'current_name={(self.current_name if hasattr(self, "current_name") else None)!s}, '
-                f'name={(self.name if hasattr(self, "name") else None)!s}, '
-                f'value={(self.value if hasattr(self, "value") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"current_name={(self.current_name
+                     if hasattr(self, 'current_name') else None)!s}, "
+                f"name={(self.name if hasattr(self, 'name') else None)!s}, "
+                f"value={(self.value if hasattr(self, 'value') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

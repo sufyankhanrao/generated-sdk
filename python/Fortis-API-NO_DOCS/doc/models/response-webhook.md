@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type119Enum`](../../doc/models/type-119-enum.md) | Optional | Resource Type<br><br>**Default**: `'Webhook'` |
+| `mtype` | [`Type119Enum`](../../doc/models/type-119-enum.md) | Optional | Resource Type<br><br>**Default**: `"Webhook"` |
 | `data` | [`Data34`](../../doc/models/data-34.md) | Optional | - |
 
 ## Example (as JSON)

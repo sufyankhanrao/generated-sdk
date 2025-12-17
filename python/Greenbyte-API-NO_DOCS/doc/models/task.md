@@ -16,7 +16,7 @@ A task.
 | `created_by` | [`User`](../../doc/models/user.md) | Required | - |
 | `description` | `str` | Optional | - |
 | `category` | [`TaskCategory`](../../doc/models/task-category.md) | Optional | Basic information about a task category. |
-| `priority` | [`TaskPriorityEnum`](../../doc/models/task-priority-enum.md) | Required | The priority of a task.<br><br>**Default**: `'medium'` |
+| `priority` | [`TaskPriorityEnum`](../../doc/models/task-priority-enum.md) | Required | The priority of a task.<br><br>**Default**: `"medium"` |
 | `timestamp_start` | `datetime` | Required | The timestamp when the task is/was planned to start. The timestamp is in the time zone configured in the Greenbyte Platform without UTC offset. |
 | `timestamp_end` | `datetime` | Required | The timestamp when the is/was planned to end. The timestamp is in the time zone configured in the Greenbyte Platform without UTC offset. |
 | `state` | [`TaskStateEnum`](../../doc/models/task-state-enum.md) | Required | The state of a task. |

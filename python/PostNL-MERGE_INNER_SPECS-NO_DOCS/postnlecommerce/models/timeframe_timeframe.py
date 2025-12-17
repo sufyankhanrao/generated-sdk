@@ -1,18 +1,17 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
 from postnlecommerce.models.options import Options
-from postnlecommerce.models.warning_1 import Warning1
+from postnlecommerce.models.warning_1 import (
+    Warning1,
+)
 
 
 class TimeframeTimeframe(object):
-
     """Implementation of the 'TimeframeTimeframe' model.
 
     Attributes:
@@ -28,17 +27,17 @@ class TimeframeTimeframe(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "mfrom": 'From',
-        "options": 'Options',
-        "to": 'To',
-        "sustainability": 'Sustainability'
+        "mfrom": "From",
+        "options": "Options",
+        "to": "To",
+        "sustainability": "Sustainability",
     }
 
     _optionals = [
-        'mfrom',
-        'options',
-        'to',
-        'sustainability',
+        "mfrom",
+        "options",
+        "to",
+        "sustainability",
     ]
 
     def __init__(self,
@@ -46,22 +45,21 @@ class TimeframeTimeframe(object):
                  options=APIHelper.SKIP,
                  to=APIHelper.SKIP,
                  sustainability=APIHelper.SKIP):
-        """Constructor for the TimeframeTimeframe class"""
-
+        """Initialize a TimeframeTimeframe instance."""
         # Initialize members of the class
         if mfrom is not APIHelper.SKIP:
-            self.mfrom = mfrom 
+            self.mfrom = mfrom
         if options is not APIHelper.SKIP:
-            self.options = options 
+            self.options = options
         if to is not APIHelper.SKIP:
-            self.to = to 
+            self.to = to
         if sustainability is not APIHelper.SKIP:
-            self.sustainability = sustainability 
+            self.sustainability = sustainability
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -72,15 +70,20 @@ class TimeframeTimeframe(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        mfrom = dictionary.get("From") if dictionary.get("From") else APIHelper.SKIP
-        options = Options.from_dictionary(dictionary.get('Options')) if 'Options' in dictionary.keys() else APIHelper.SKIP
+        mfrom =\
+            dictionary.get("From")\
+            if dictionary.get("From") else APIHelper.SKIP
+        options = Options.from_dictionary(
+            dictionary.get("Options"))\
+            if "Options" in dictionary.keys() else APIHelper.SKIP
         to = dictionary.get("To") if dictionary.get("To") else APIHelper.SKIP
-        sustainability = Warning1.from_dictionary(dictionary.get('Sustainability')) if 'Sustainability' in dictionary.keys() else APIHelper.SKIP
+        sustainability = Warning1.from_dictionary(
+            dictionary.get("Sustainability"))\
+            if "Sustainability" in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(mfrom,
                    options,
@@ -88,15 +91,21 @@ class TimeframeTimeframe(object):
                    sustainability)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'mfrom={(self.mfrom if hasattr(self, "mfrom") else None)!r}, '
-                f'options={(self.options if hasattr(self, "options") else None)!r}, '
-                f'to={(self.to if hasattr(self, "to") else None)!r}, '
-                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"mfrom={(self.mfrom if hasattr(self, 'mfrom') else None)!r}, "
+                f"options={(self.options
+                     if hasattr(self, 'options') else None)!r}, "
+                f"to={(self.to if hasattr(self, 'to') else None)!r}, "
+                f"sustainability={(self.sustainability
+                     if hasattr(self, 'sustainability') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'mfrom={(self.mfrom if hasattr(self, "mfrom") else None)!s}, '
-                f'options={(self.options if hasattr(self, "options") else None)!s}, '
-                f'to={(self.to if hasattr(self, "to") else None)!s}, '
-                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"mfrom={(self.mfrom if hasattr(self, 'mfrom') else None)!s}, "
+                f"options={(self.options
+                     if hasattr(self, 'options') else None)!s}, "
+                f"to={(self.to if hasattr(self, 'to') else None)!s}, "
+                f"sustainability={(self.sustainability
+                     if hasattr(self, 'sustainability') else None)!s})")

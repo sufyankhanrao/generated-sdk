@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class IncludeOption(object):
-
     """Implementation of the 'Include Option' enum.
 
     Attributes:
@@ -19,14 +15,15 @@ class IncludeOption(object):
             for the model.
 
     """
-    _all_values = ['0', '1']
-    EXCLUDE = '0'
 
-    INCLUDE = '1'
+    _all_values = ["0", "1"]
+    EXCLUDE = "0"
+
+    INCLUDE = "1"
 
     @classmethod
     def validate(cls, value):
-        """Validates value contains in enum
+        """Validate value contains in enum
 
         Args:
             value: the value to be validated
@@ -36,9 +33,10 @@ class IncludeOption(object):
 
         """
         return value in cls._all_values
-   
+
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

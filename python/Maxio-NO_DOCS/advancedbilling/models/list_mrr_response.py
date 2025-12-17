@@ -1,16 +1,15 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-from advancedbilling.models.list_mrr_response_result import ListMRRResponseResult
+
+from advancedbilling.models.list_mrr_response_result import (
+    ListMRRResponseResult,
+)
 
 
 class ListMRRResponse(object):
-
     """Implementation of the 'List MRR Response' model.
 
     Attributes:
@@ -23,16 +22,15 @@ class ListMRRResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "mrr": 'mrr'
+        "mrr": "mrr",
     }
 
     def __init__(self,
                  mrr=None,
                  additional_properties=None):
-        """Constructor for the ListMRRResponse class"""
-
+        """Initialize a ListMRRResponse instance."""
         # Initialize members of the class
-        self.mrr = mrr 
+        self.mrr = mrr
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -42,7 +40,7 @@ class ListMRRResponse(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -53,24 +51,28 @@ class ListMRRResponse(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        mrr = ListMRRResponseResult.from_dictionary(dictionary.get('mrr')) if dictionary.get('mrr') else None
+        mrr = ListMRRResponseResult.from_dictionary(
+            dictionary.get("mrr"))\
+            if dictionary.get("mrr") else None
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(mrr,
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'mrr={self.mrr!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"mrr={self.mrr!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'mrr={self.mrr!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"mrr={self.mrr!s}, "
+                f"additional_properties={self.additional_properties!s})")

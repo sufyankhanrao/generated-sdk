@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class FailedPaymentAction(object):
-
     """Implementation of the 'Failed Payment Action' enum.
 
     Action taken when payment for an invoice fails:
@@ -34,14 +30,16 @@ class FailedPaymentAction(object):
             for the model.
 
     """
-    LEAVE_OPEN_INVOICE = 'leave_open_invoice'
 
-    ROLLBACK_TO_PENDING = 'rollback_to_pending'
+    LEAVE_OPEN_INVOICE = "leave_open_invoice"
 
-    INITIATE_DUNNING = 'initiate_dunning'
+    ROLLBACK_TO_PENDING = "rollback_to_pending"
+
+    INITIATE_DUNNING = "initiate_dunning"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

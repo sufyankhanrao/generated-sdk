@@ -23,28 +23,30 @@ Events available in this group. Subscribe to receive webhook notifications when 
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.callbacks.callbacks_b_handler import (
-    CallbacksBHandler
+    CallbacksBHandler,
 )
 from webhooksandcallbacksapi.events.signature_verification_failure import (
-    SignatureVerificationFailure
+    SignatureVerificationFailure,
 )
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.models.notification_callback import (
-    NotificationCallback
+    NotificationCallback,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/callbacks", methods=["POST"])
+@app.route("/callbacks", methods=[
+    "POST",
+])
 def Callbacks():
     # Step 1: Create the handler with your shared secret key.
     handler = CallbacksBHandler(secret_key="your-shared-secret")
@@ -57,10 +59,16 @@ def Callbacks():
     event = handler.verify_and_parse_event(core_req)
 
     # Step 4: Pattern match on the event type and handle it.
-    if isinstance(event, NotificationCallback) and getattr(event, "notification_type", None) == "emailNotificationCallback":
+    if (
+        isinstance(event, NotificationCallback) and
+        getattr(event, "notification_type", None) == "emailNotificationCallback"
+    ):
         print("emailNotificationCallback received")
         # TODO: add handling logic
-    elif isinstance(event, NotificationCallback) and getattr(event, "notification_type", None) == "smsNotificationCallback":
+    elif (
+        isinstance(event, NotificationCallback) and
+        getattr(event, "notification_type", None) == "smsNotificationCallback"
+    ):
         print("smsNotificationCallback received")
         # TODO: add handling logic
     elif isinstance(event, SignatureVerificationFailure):

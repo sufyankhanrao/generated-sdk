@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type74Enum`](../../doc/models/type-74-enum.md) | Optional | Resource Type<br><br>**Default**: `'Terminal'` |
+| `mtype` | [`Type74Enum`](../../doc/models/type-74-enum.md) | Optional | Resource Type<br><br>**Default**: `"Terminal"` |
 | `data` | [`Data19`](../../doc/models/data-19.md) | Optional | - |
 
 ## Example (as JSON)

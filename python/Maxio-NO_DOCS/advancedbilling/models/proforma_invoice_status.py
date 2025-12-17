@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class ProformaInvoiceStatus(object):
-
     """Implementation of the 'Proforma Invoice Status' enum.
 
     Attributes:
@@ -20,14 +16,16 @@ class ProformaInvoiceStatus(object):
             for the model.
 
     """
-    DRAFT = 'draft'
 
-    VOIDED = 'voided'
+    DRAFT = "draft"
 
-    ARCHIVED = 'archived'
+    VOIDED = "voided"
+
+    ARCHIVED = "archived"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

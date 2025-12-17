@@ -29,7 +29,7 @@ goe_api = client.goe
 ```python
 def run_pipe(self,
             body,
-            version='4')
+            version="4")
 ```
 
 ## Parameters
@@ -37,7 +37,7 @@ def run_pipe(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`RunPipeInputModel`](../../doc/models/run-pipe-input-model.md) | Body, Required | - |
-| `version` | `str` | Header, Optional | **Default**: `'4'` |
+| `version` | `str` | Header, Optional | **Default**: `"4"` |
 
 ## Response Type
 

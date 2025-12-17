@@ -1,19 +1,18 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.exceptions.api_exception import APIException
+from postnlecommerce.exceptions.api_exception import (
+    APIException,
+)
 
 
 class MethodNotAllowedOnlyGetPostException(APIException):
     def __init__(self, reason, response):
-        """Constructor for the MethodNotAllowedOnlyGetPostException class
+        """Initialize MethodNotAllowedOnlyGetPostException object.
 
         Args:
             reason (string): The reason (or error message) for the Exception
@@ -27,7 +26,7 @@ class MethodNotAllowedOnlyGetPostException(APIException):
             self.unbox(dictionary)
 
     def unbox(self, dictionary):
-        """Populates the properties of this object by extracting them from a dictionary.
+        """Populate the properties of this object by extracting them from a dictionary.
 
         Args:
             dictionary (dictionary): A dictionary representation of the object as
@@ -35,12 +34,19 @@ class MethodNotAllowedOnlyGetPostException(APIException):
             MUST match property names in the API description.
 
         """
-        self.message = dictionary.get("message") if dictionary.get("message") else None
-        self.http_status_code = dictionary.get("http_status_code") if dictionary.get("http_status_code") else None
+        self.message =\
+            dictionary.get("message")\
+            if dictionary.get("message") else None
+        self.http_status_code =\
+            dictionary.get("http_status_code")\
+            if dictionary.get("http_status_code") else None
 
     def __str__(self):
+        """Return a human-readable string representation."""
         base_str = super().__str__()
-        return (f'{self.__class__.__name__}('
-                f'{base_str[base_str.find("(") + 1:-1]}, '
-                f'message={(self.message if hasattr(self, "message") else None)!s}, '
-                f'http_status_code={(self.http_status_code if hasattr(self, "http_status_code") else None)!s})')
+        return (f"{self.__class__.__name__}("
+                f"{base_str[base_str.find('(') + 1:-1]}, "
+                f"message={(self.message
+                     if hasattr(self, 'message') else None)!s}, "
+                f"http_status_code={(self.http_status_code
+                     if hasattr(self, 'http_status_code') else None)!s})")

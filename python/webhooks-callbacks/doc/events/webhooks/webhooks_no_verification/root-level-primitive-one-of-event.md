@@ -27,22 +27,24 @@ This event's request payload is of type [RootLevelPrimitiveOneOfEventRequestEnum
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.events.webhooks.webhooks_no_verification_handler import (
-    WebhooksNoVerificationHandler
+    WebhooksNoVerificationHandler,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/webhooks", methods=["POST"])
+@app.route("/webhooks", methods=[
+    "POST",
+])
 def Webhooks() -> Response:
     # Step 1: Convert the incoming request using to_core_request (Django/Flask)
     #         or await to_core_request_async (FastAPI).
@@ -52,7 +54,12 @@ def Webhooks() -> Response:
     event = WebhooksNoVerificationHandler.parse_event(core_req)
 
     # Step 3: Pattern match for rootLevelPrimitiveOneOfEvent only.
-    if isinstance(event, str) or isinstance(event, int) or isinstance(event, list) and all(isinstance(x, str) for x in event) or isinstance(event, list) and all(isinstance(x, int) for x in event):
+    if (
+        isinstance(event, str) or
+        isinstance(event, int) or
+        (isinstance(event, list) and all(isinstance(x, str) for x in event)) or
+        (isinstance(event, list) and all(isinstance(x, int) for x in event))
+    ):
         print("rootLevelPrimitiveOneOfEvent received")
         # TODO: add handling logic
     elif isinstance(event, UnknownEvent):

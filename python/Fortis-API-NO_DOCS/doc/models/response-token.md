@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type84Enum`](../../doc/models/type-84-enum.md) | Optional | Resource Type<br><br>**Default**: `'Token'` |
+| `mtype` | [`Type84Enum`](../../doc/models/type-84-enum.md) | Optional | Resource Type<br><br>**Default**: `"Token"` |
 | `data` | [`Data21`](../../doc/models/data-21.md) | Optional | - |
 
 ## Example (as JSON)

@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.reason_no_timeframe import ReasonNoTimeframe
+from postnlecommerce.models.reason_no_timeframe import (
+    ReasonNoTimeframe,
+)
 
 
 class ReasonNoTimeframes(object):
-
     """Implementation of the 'ReasonNoTimeframes' model.
 
     Attributes:
@@ -22,25 +21,24 @@ class ReasonNoTimeframes(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "reason_no_timeframe": 'ReasonNoTimeframe'
+        "reason_no_timeframe": "ReasonNoTimeframe",
     }
 
     _optionals = [
-        'reason_no_timeframe',
+        "reason_no_timeframe",
     ]
 
     def __init__(self,
                  reason_no_timeframe=APIHelper.SKIP):
-        """Constructor for the ReasonNoTimeframes class"""
-
+        """Initialize a ReasonNoTimeframes instance."""
         # Initialize members of the class
         if reason_no_timeframe is not APIHelper.SKIP:
-            self.reason_no_timeframe = reason_no_timeframe 
+            self.reason_no_timeframe = reason_no_timeframe
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -51,23 +49,29 @@ class ReasonNoTimeframes(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         reason_no_timeframe = None
-        if dictionary.get('ReasonNoTimeframe') is not None:
-            reason_no_timeframe = [ReasonNoTimeframe.from_dictionary(x) for x in dictionary.get('ReasonNoTimeframe')]
+        if dictionary.get("ReasonNoTimeframe") is not None:
+            reason_no_timeframe = [
+                ReasonNoTimeframe.from_dictionary(x)
+                    for x in dictionary.get("ReasonNoTimeframe")
+            ]
         else:
             reason_no_timeframe = APIHelper.SKIP
         # Return an object of this model
         return cls(reason_no_timeframe)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'reason_no_timeframe={(self.reason_no_timeframe if hasattr(self, "reason_no_timeframe") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"reason_no_timeframe={(self.reason_no_timeframe
+                     if hasattr(self, 'reason_no_timeframe') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'reason_no_timeframe={(self.reason_no_timeframe if hasattr(self, "reason_no_timeframe") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"reason_no_timeframe={(self.reason_no_timeframe
+                     if hasattr(self, 'reason_no_timeframe') else None)!s})")

@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
 
 
 class LanguageEnum(object):
-
     """Implementation of the 'language_enum' enum.
 
     Attributes:
@@ -20,14 +16,16 @@ class LanguageEnum(object):
             for the model.
 
     """
-    EN = 'EN'
 
-    DZ = 'DZ'
+    EN = "EN"
 
-    NL = 'NL'
+    DZ = "DZ"
+
+    NL = "NL"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

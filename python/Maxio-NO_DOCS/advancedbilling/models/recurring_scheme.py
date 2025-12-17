@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class RecurringScheme(object):
-
     """Implementation of the 'Recurring Scheme' enum.
 
     Attributes:
@@ -20,14 +16,16 @@ class RecurringScheme(object):
             for the model.
 
     """
-    DO_NOT_RECUR = 'do_not_recur'
 
-    RECUR_INDEFINITELY = 'recur_indefinitely'
+    DO_NOT_RECUR = "do_not_recur"
 
-    RECUR_WITH_DURATION = 'recur_with_duration'
+    RECUR_INDEFINITELY = "recur_indefinitely"
+
+    RECUR_WITH_DURATION = "recur_with_duration"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

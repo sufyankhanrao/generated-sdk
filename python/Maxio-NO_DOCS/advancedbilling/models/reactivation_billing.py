@@ -1,16 +1,10 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-from advancedbilling.api_helper import APIHelper
-
 
 class ReactivationBilling(object):
-
     """Implementation of the 'Reactivation Billing' model.
 
     These values are only applicable to subscriptions using calendar billing
@@ -30,20 +24,19 @@ class ReactivationBilling(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "reactivation_charge": 'reactivation_charge'
+        "reactivation_charge": "reactivation_charge",
     }
 
     _optionals = [
-        'reactivation_charge',
+        "reactivation_charge",
     ]
 
     def __init__(self,
-                 reactivation_charge='prorated',
+                 reactivation_charge="prorated",
                  additional_properties=None):
-        """Constructor for the ReactivationBilling class"""
-
+        """Initialize a ReactivationBilling instance."""
         # Initialize members of the class
-        self.reactivation_charge = reactivation_charge 
+        self.reactivation_charge = reactivation_charge
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -53,7 +46,7 @@ class ReactivationBilling(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -64,21 +57,23 @@ class ReactivationBilling(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        reactivation_charge = dictionary.get("reactivation_charge") if dictionary.get("reactivation_charge") else 'prorated'
+        reactivation_charge =\
+            dictionary.get("reactivation_charge")\
+            if dictionary.get("reactivation_charge") else "prorated"
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(reactivation_charge,
                    additional_properties)
 
     @classmethod
     def validate(cls, dictionary):
-        """Validates dictionary against class required properties
+        """Validate dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -89,7 +84,6 @@ class ReactivationBilling(object):
             boolean : if dictionary is valid contains required properties.
 
         """
-
         if isinstance(dictionary, cls):
             return True
 
@@ -99,11 +93,15 @@ class ReactivationBilling(object):
         return True
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'reactivation_charge={(self.reactivation_charge if hasattr(self, "reactivation_charge") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"reactivation_charge={(self.reactivation_charge
+                     if hasattr(self, 'reactivation_charge') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'reactivation_charge={(self.reactivation_charge if hasattr(self, "reactivation_charge") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"reactivation_charge={(self.reactivation_charge
+                     if hasattr(self, 'reactivation_charge') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

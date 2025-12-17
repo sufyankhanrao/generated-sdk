@@ -32,7 +32,7 @@
 | `reply` | `int` | Optional | The deadline to submit a reply for the Chargeback. |
 | `bank_ref` | `str` | Optional | The issuing bank's reference number for this Chargeback. |
 | `chargeback_ref` | `str` | Optional | Chargeback reference number. |
-| `status` | [`ChargebackStatusEnum`](../../doc/models/chargeback-status-enum.md) | Optional | The Chargeback's status.<br><br><details><br><summary>Valid Values</summary><br>- `open` - **Chargeback is open, responses may be submitted.**<br>- `closed` - **Chargeback is closed, responses may no longer be submitted.**<br>- `won` - **Chargeback won.**<br>- `lost` - **Chargeback lost.**<br></details><br>**Default**: `'open'`<br> |
+| `status` | [`ChargebackStatusEnum`](../../doc/models/chargeback-status-enum.md) | Optional | The Chargeback's status.<br><br><details><br><summary>Valid Values</summary><br>- `open` - **Chargeback is open, responses may be submitted.**<br>- `closed` - **Chargeback is closed, responses may no longer be submitted.**<br>- `won` - **Chargeback won.**<br>- `lost` - **Chargeback lost.**<br></details><br>**Default**: `"open"`<br> |
 | `last_status_change` | `str` | Optional | The ID of the ChargebackStatus representing the latest status change for this Chargeback. |
 | `actionable` | [`ActionableEnum`](../../doc/models/actionable-enum.md) | Optional | Whether the Chargeback is actionable and can be responded to.<br><br><details><br><summary>Valid Values</summary><br>- `0` - **Not actionable**<br>- `1` - **Actionable**<br><br></details><br> |
 | `shadow` | [`ShadowEnum`](../../doc/models/shadow-enum.md) | Optional | <details><br><summary>Valid Values</summary><br>- `0` - **Not shadowed.**<br>- `1` - **Shadowed.**<br><br></details><br> |

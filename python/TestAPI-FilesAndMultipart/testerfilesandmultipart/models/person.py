@@ -1,18 +1,17 @@
-# -*- coding: utf-8 -*-
-
-"""
-testerfilesandmultipart
+"""testerfilesandmultipart.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 import dateutil.parser
 
-from testerfilesandmultipart.api_helper import APIHelper
+from testerfilesandmultipart.api_helper import (
+    APIHelper,
+)
 
 
 class Person(object):
-
     """Implementation of the 'Person' model.
 
     Attributes:
@@ -30,17 +29,17 @@ class Person(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "address": 'address',
-        "age": 'age',
-        "birthday": 'birthday',
-        "birthtime": 'birthtime',
-        "name": 'name',
-        "uid": 'uid',
-        "person_type": 'personType'
+        "address": "address",
+        "age": "age",
+        "birthday": "birthday",
+        "birthtime": "birthtime",
+        "name": "name",
+        "uid": "uid",
+        "person_type": "personType",
     }
 
     _optionals = [
-        'person_type',
+        "person_type",
     ]
 
     def __init__(self,
@@ -50,18 +49,19 @@ class Person(object):
                  birthtime=None,
                  name=None,
                  uid=None,
-                 person_type='Per',
+                 person_type="Per",
                  additional_properties=None):
-        """Constructor for the Person class"""
-
+        """Initialize a Person instance."""
         # Initialize members of the class
-        self.address = address 
-        self.age = age 
-        self.birthday = birthday 
-        self.birthtime = APIHelper.apply_datetime_converter(birthtime, APIHelper.RFC3339DateTime) if birthtime else None 
-        self.name = name 
-        self.uid = uid 
-        self.person_type = person_type 
+        self.address = address
+        self.age = age
+        self.birthday = birthday
+        self.birthtime =\
+             APIHelper.apply_datetime_converter(
+            birthtime, APIHelper.RFC3339DateTime) if birthtime else None
+        self.name = name
+        self.uid = uid
+        self.person_type = person_type
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -71,7 +71,7 @@ class Person(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -82,15 +82,14 @@ class Person(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         discriminators = {
-            'Empl': Employee.from_dictionary,
-            'Boss': Boss.from_dictionary
+            "Empl": Employee.from_dictionary,
+            "Boss": Boss.from_dictionary,
         }
-        unboxer = discriminators.get(dictionary.get('personType'))
+        unboxer = discriminators.get(dictionary.get("personType"))
 
         # Delegate unboxing to another function if a discriminator
         # value for a child class is present.
@@ -100,13 +99,19 @@ class Person(object):
         # Extract variables from the dictionary
         address = dictionary.get("address") if dictionary.get("address") else None
         age = dictionary.get("age") if dictionary.get("age") else None
-        birthday = dateutil.parser.parse(dictionary.get('birthday')).date() if dictionary.get('birthday') else None
-        birthtime = APIHelper.RFC3339DateTime.from_value(dictionary.get("birthtime")).datetime if dictionary.get("birthtime") else None
+        birthday = dateutil.parser.parse(dictionary.get("birthday")).date()\
+            if dictionary.get("birthday") else None
+        birthtime = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("birthtime")).datetime\
+            if dictionary.get("birthtime") else None
         name = dictionary.get("name") if dictionary.get("name") else None
         uid = dictionary.get("uid") if dictionary.get("uid") else None
-        person_type = dictionary.get("personType") if dictionary.get("personType") else 'Per'
+        person_type =\
+            dictionary.get("personType")\
+            if dictionary.get("personType") else "Per"
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(address,
                    age,
@@ -118,29 +123,32 @@ class Person(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'address={self.address!r}, '
-                f'age={self.age!r}, '
-                f'birthday={self.birthday!r}, '
-                f'birthtime={self.birthtime!r}, '
-                f'name={self.name!r}, '
-                f'uid={self.uid!r}, '
-                f'person_type={(self.person_type if hasattr(self, "person_type") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"address={self.address!r}, "
+                f"age={self.age!r}, "
+                f"birthday={self.birthday!r}, "
+                f"birthtime={self.birthtime!r}, "
+                f"name={self.name!r}, "
+                f"uid={self.uid!r}, "
+                f"person_type={(self.person_type
+                     if hasattr(self, 'person_type') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'address={self.address!s}, '
-                f'age={self.age!s}, '
-                f'birthday={self.birthday!s}, '
-                f'birthtime={self.birthtime!s}, '
-                f'name={self.name!s}, '
-                f'uid={self.uid!s}, '
-                f'person_type={(self.person_type if hasattr(self, "person_type") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"address={self.address!s}, "
+                f"age={self.age!s}, "
+                f"birthday={self.birthday!s}, "
+                f"birthtime={self.birthtime!s}, "
+                f"name={self.name!s}, "
+                f"uid={self.uid!s}, "
+                f"person_type={(self.person_type
+                     if hasattr(self, 'person_type') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")
 
 class Employee(Person):
-
     """Implementation of the 'Employee' model.
     NOTE: This class inherits from 'Person'.
 
@@ -159,24 +167,24 @@ class Employee(Person):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "address": 'address',
-        "age": 'age',
-        "birthday": 'birthday',
-        "birthtime": 'birthtime',
-        "boss": 'boss',
-        "department": 'department',
-        "dependents": 'dependents',
-        "hired_at": 'hiredAt',
-        "joining_day": 'joiningDay',
-        "name": 'name',
-        "salary": 'salary',
-        "uid": 'uid',
-        "working_days": 'workingDays',
-        "person_type": 'personType'
+        "address": "address",
+        "age": "age",
+        "birthday": "birthday",
+        "birthtime": "birthtime",
+        "boss": "boss",
+        "department": "department",
+        "dependents": "dependents",
+        "hired_at": "hiredAt",
+        "joining_day": "joiningDay",
+        "name": "name",
+        "salary": "salary",
+        "uid": "uid",
+        "working_days": "workingDays",
+        "person_type": "personType",
     }
 
     _nullables = [
-        'boss',
+        "boss",
     ]
 
     def __init__(self,
@@ -188,23 +196,24 @@ class Employee(Person):
                  department=None,
                  dependents=None,
                  hired_at=None,
-                 joining_day='Monday',
+                 joining_day="Monday",
                  name=None,
                  salary=None,
                  uid=None,
                  working_days=None,
-                 person_type='Empl',
+                 person_type="Empl",
                  additional_properties=None):
-        """Constructor for the Employee class"""
-
+        """Initialize a Employee instance."""
         # Initialize members of the class
-        self.department = department 
-        self.dependents = dependents 
-        self.hired_at = APIHelper.apply_datetime_converter(hired_at, APIHelper.HttpDateTime) if hired_at else None 
-        self.joining_day = joining_day 
-        self.salary = salary 
-        self.working_days = working_days 
-        self.boss = boss 
+        self.department = department
+        self.dependents = dependents
+        self.hired_at =\
+             APIHelper.apply_datetime_converter(
+            hired_at, APIHelper.HttpDateTime) if hired_at else None
+        self.joining_day = joining_day
+        self.salary = salary
+        self.working_days = working_days
+        self.boss = boss
 
         # Call the constructor for the base class
         super(Employee, self).__init__(address,
@@ -219,7 +228,7 @@ class Employee(Person):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -230,14 +239,13 @@ class Employee(Person):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         discriminators = {
-            'Boss': Boss.from_dictionary
+            "Boss": Boss.from_dictionary,
         }
-        unboxer = discriminators.get(dictionary.get('personType'))
+        unboxer = discriminators.get(dictionary.get("personType"))
 
         # Delegate unboxing to another function if a discriminator
         # value for a child class is present.
@@ -247,22 +255,41 @@ class Employee(Person):
         # Extract variables from the dictionary
         address = dictionary.get("address") if dictionary.get("address") else None
         age = dictionary.get("age") if dictionary.get("age") else None
-        birthday = dateutil.parser.parse(dictionary.get('birthday')).date() if dictionary.get('birthday') else None
-        birthtime = APIHelper.RFC3339DateTime.from_value(dictionary.get("birthtime")).datetime if dictionary.get("birthtime") else None
-        boss = Person.from_dictionary(dictionary.get('boss')) if dictionary.get('boss') else None
-        department = dictionary.get("department") if dictionary.get("department") else None
+        birthday = dateutil.parser.parse(dictionary.get("birthday")).date()\
+            if dictionary.get("birthday") else None
+        birthtime = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("birthtime")).datetime\
+            if dictionary.get("birthtime") else None
+        boss = Person.from_dictionary(
+            dictionary.get("boss"))\
+            if dictionary.get("boss") else None
+        department =\
+            dictionary.get("department")\
+            if dictionary.get("department") else None
         dependents = None
-        if dictionary.get('dependents') is not None:
-            dependents = [Person.from_dictionary(x) for x in dictionary.get('dependents')]
-        hired_at = APIHelper.HttpDateTime.from_value(dictionary.get("hiredAt")).datetime if dictionary.get("hiredAt") else None
-        joining_day = dictionary.get("joiningDay") if dictionary.get("joiningDay") else 'Monday'
+        if dictionary.get("dependents") is not None:
+            dependents = [
+                Person.from_dictionary(x)
+                    for x in dictionary.get("dependents")
+            ]
+        hired_at = APIHelper.HttpDateTime.from_value(
+            dictionary.get("hiredAt")).datetime\
+            if dictionary.get("hiredAt") else None
+        joining_day =\
+            dictionary.get("joiningDay")\
+            if dictionary.get("joiningDay") else "Monday"
         name = dictionary.get("name") if dictionary.get("name") else None
         salary = dictionary.get("salary") if dictionary.get("salary") else None
         uid = dictionary.get("uid") if dictionary.get("uid") else None
-        working_days = dictionary.get("workingDays") if dictionary.get("workingDays") else None
-        person_type = dictionary.get("personType") if dictionary.get("personType") else 'Empl'
+        working_days =\
+            dictionary.get("workingDays")\
+            if dictionary.get("workingDays") else None
+        person_type =\
+            dictionary.get("personType")\
+            if dictionary.get("personType") else "Empl"
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(address,
                    age,
@@ -281,31 +308,32 @@ class Employee(Person):
                    additional_properties)
 
     def __repr__(self):
+        """Return a unambiguous string representation."""
         base_repr = super().__repr__()
-        return (f'{self.__class__.__name__}('
-                f'{base_repr[base_repr.find("(") + 1:-1]}, '
-                f'department={self.department!r}, '
-                f'dependents={self.dependents!r}, '
-                f'hired_at={self.hired_at!r}, '
-                f'joining_day={self.joining_day!r}, '
-                f'salary={self.salary!r}, '
-                f'working_days={self.working_days!r}, '
-                f'boss={self.boss!r})')
+        return (f"{self.__class__.__name__}("
+                f"{base_repr[base_repr.find('(') + 1:-1]}, "
+                f"department={self.department!r}, "
+                f"dependents={self.dependents!r}, "
+                f"hired_at={self.hired_at!r}, "
+                f"joining_day={self.joining_day!r}, "
+                f"salary={self.salary!r}, "
+                f"working_days={self.working_days!r}, "
+                f"boss={self.boss!r})")
 
     def __str__(self):
+        """Return a human-readable string representation."""
         base_str = super().__str__()
-        return (f'{self.__class__.__name__}('
-                f'{base_str[base_str.find("(") + 1:-1]}, '
-                f'department={self.department!s}, '
-                f'dependents={self.dependents!s}, '
-                f'hired_at={self.hired_at!s}, '
-                f'joining_day={self.joining_day!s}, '
-                f'salary={self.salary!s}, '
-                f'working_days={self.working_days!s}, '
-                f'boss={self.boss!s})')
+        return (f"{self.__class__.__name__}("
+                f"{base_str[base_str.find('(') + 1:-1]}, "
+                f"department={self.department!s}, "
+                f"dependents={self.dependents!s}, "
+                f"hired_at={self.hired_at!s}, "
+                f"joining_day={self.joining_day!s}, "
+                f"salary={self.salary!s}, "
+                f"working_days={self.working_days!s}, "
+                f"boss={self.boss!s})")
 
 class Boss(Employee):
-
     """Implementation of the 'Boss' model.
 
     Testing circular reference.
@@ -321,26 +349,26 @@ class Boss(Employee):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "address": 'address',
-        "age": 'age',
-        "assistant": 'assistant',
-        "birthday": 'birthday',
-        "birthtime": 'birthtime',
-        "boss": 'boss',
-        "department": 'department',
-        "dependents": 'dependents',
-        "hired_at": 'hiredAt',
-        "joining_day": 'joiningDay',
-        "name": 'name',
-        "promoted_at": 'promotedAt',
-        "salary": 'salary',
-        "uid": 'uid',
-        "working_days": 'workingDays',
-        "person_type": 'personType'
+        "address": "address",
+        "age": "age",
+        "assistant": "assistant",
+        "birthday": "birthday",
+        "birthtime": "birthtime",
+        "boss": "boss",
+        "department": "department",
+        "dependents": "dependents",
+        "hired_at": "hiredAt",
+        "joining_day": "joiningDay",
+        "name": "name",
+        "promoted_at": "promotedAt",
+        "salary": "salary",
+        "uid": "uid",
+        "working_days": "workingDays",
+        "person_type": "personType",
     }
 
     _nullables = [
-        'assistant',
+        "assistant",
     ]
     _nullables.extend(Employee._nullables)
 
@@ -354,19 +382,20 @@ class Boss(Employee):
                  department=None,
                  dependents=None,
                  hired_at=None,
-                 joining_day='Monday',
+                 joining_day="Monday",
                  name=None,
                  promoted_at=None,
                  salary=None,
                  uid=None,
                  working_days=None,
-                 person_type='Boss',
+                 person_type="Boss",
                  additional_properties=None):
-        """Constructor for the Boss class"""
-
+        """Initialize a Boss instance."""
         # Initialize members of the class
-        self.promoted_at = APIHelper.apply_datetime_converter(promoted_at, APIHelper.UnixDateTime) if promoted_at else None 
-        self.assistant = assistant 
+        self.promoted_at =\
+             APIHelper.apply_datetime_converter(
+            promoted_at, APIHelper.UnixDateTime) if promoted_at else None
+        self.assistant = assistant
 
         # Call the constructor for the base class
         super(Boss, self).__init__(address,
@@ -388,7 +417,7 @@ class Boss(Employee):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -399,31 +428,53 @@ class Boss(Employee):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         address = dictionary.get("address") if dictionary.get("address") else None
         age = dictionary.get("age") if dictionary.get("age") else None
-        assistant = Employee.from_dictionary(dictionary.get('assistant')) if dictionary.get('assistant') else None
-        birthday = dateutil.parser.parse(dictionary.get('birthday')).date() if dictionary.get('birthday') else None
-        birthtime = APIHelper.RFC3339DateTime.from_value(dictionary.get("birthtime")).datetime if dictionary.get("birthtime") else None
-        boss = Person.from_dictionary(dictionary.get('boss')) if dictionary.get('boss') else None
-        department = dictionary.get("department") if dictionary.get("department") else None
+        assistant = Employee.from_dictionary(
+            dictionary.get("assistant"))\
+            if dictionary.get("assistant") else None
+        birthday = dateutil.parser.parse(dictionary.get("birthday")).date()\
+            if dictionary.get("birthday") else None
+        birthtime = APIHelper.RFC3339DateTime.from_value(
+            dictionary.get("birthtime")).datetime\
+            if dictionary.get("birthtime") else None
+        boss = Person.from_dictionary(
+            dictionary.get("boss"))\
+            if dictionary.get("boss") else None
+        department =\
+            dictionary.get("department")\
+            if dictionary.get("department") else None
         dependents = None
-        if dictionary.get('dependents') is not None:
-            dependents = [Person.from_dictionary(x) for x in dictionary.get('dependents')]
-        hired_at = APIHelper.HttpDateTime.from_value(dictionary.get("hiredAt")).datetime if dictionary.get("hiredAt") else None
-        joining_day = dictionary.get("joiningDay") if dictionary.get("joiningDay") else 'Monday'
+        if dictionary.get("dependents") is not None:
+            dependents = [
+                Person.from_dictionary(x)
+                    for x in dictionary.get("dependents")
+            ]
+        hired_at = APIHelper.HttpDateTime.from_value(
+            dictionary.get("hiredAt")).datetime\
+            if dictionary.get("hiredAt") else None
+        joining_day =\
+            dictionary.get("joiningDay")\
+            if dictionary.get("joiningDay") else "Monday"
         name = dictionary.get("name") if dictionary.get("name") else None
-        promoted_at = APIHelper.UnixDateTime.from_value(dictionary.get("promotedAt")).datetime if dictionary.get("promotedAt") else None
+        promoted_at = APIHelper.UnixDateTime.from_value(
+            dictionary.get("promotedAt")).datetime\
+            if dictionary.get("promotedAt") else None
         salary = dictionary.get("salary") if dictionary.get("salary") else None
         uid = dictionary.get("uid") if dictionary.get("uid") else None
-        working_days = dictionary.get("workingDays") if dictionary.get("workingDays") else None
-        person_type = dictionary.get("personType") if dictionary.get("personType") else 'Boss'
+        working_days =\
+            dictionary.get("workingDays")\
+            if dictionary.get("workingDays") else None
+        person_type =\
+            dictionary.get("personType")\
+            if dictionary.get("personType") else "Boss"
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(address,
                    age,
@@ -444,15 +495,17 @@ class Boss(Employee):
                    additional_properties)
 
     def __repr__(self):
+        """Return a unambiguous string representation."""
         base_repr = super().__repr__()
-        return (f'{self.__class__.__name__}('
-                f'{base_repr[base_repr.find("(") + 1:-1]}, '
-                f'promoted_at={self.promoted_at!r}, '
-                f'assistant={self.assistant!r})')
+        return (f"{self.__class__.__name__}("
+                f"{base_repr[base_repr.find('(') + 1:-1]}, "
+                f"promoted_at={self.promoted_at!r}, "
+                f"assistant={self.assistant!r})")
 
     def __str__(self):
+        """Return a human-readable string representation."""
         base_str = super().__str__()
-        return (f'{self.__class__.__name__}('
-                f'{base_str[base_str.find("(") + 1:-1]}, '
-                f'promoted_at={self.promoted_at!s}, '
-                f'assistant={self.assistant!s})')
+        return (f"{self.__class__.__name__}("
+                f"{base_str[base_str.find('(') + 1:-1]}, "
+                f"promoted_at={self.promoted_at!s}, "
+                f"assistant={self.assistant!s})")

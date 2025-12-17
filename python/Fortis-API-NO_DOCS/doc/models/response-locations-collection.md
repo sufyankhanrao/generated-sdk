@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type35Enum`](../../doc/models/type-35-enum.md) | Optional | Resource Type<br><br>**Default**: `'LocationsCollection'` |
+| `mtype` | [`Type35Enum`](../../doc/models/type-35-enum.md) | Optional | Resource Type<br><br>**Default**: `"LocationsCollection"` |
 | `list` | [`List[List6]`](../../doc/models/list-6.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

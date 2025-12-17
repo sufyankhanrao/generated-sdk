@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type110Enum`](../../doc/models/type-110-enum.md) | Optional | Resource Type<br><br>**Default**: `'User'` |
+| `mtype` | [`Type110Enum`](../../doc/models/type-110-enum.md) | Optional | Resource Type<br><br>**Default**: `"User"` |
 | `data` | [`Data29`](../../doc/models/data-29.md) | Optional | - |
 
 ## Example (as JSON)

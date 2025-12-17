@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type43Enum`](../../doc/models/type-43-enum.md) | Optional | Resource Type<br><br>**Default**: `'Location'` |
+| `mtype` | [`Type43Enum`](../../doc/models/type-43-enum.md) | Optional | Resource Type<br><br>**Default**: `"Location"` |
 | `data` | [`Data10`](../../doc/models/data-10.md) | Optional | - |
 
 ## Example (as JSON)

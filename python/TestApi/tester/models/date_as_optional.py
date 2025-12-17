@@ -1,18 +1,15 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 import dateutil.parser
 
 from tester.api_helper import APIHelper
 
 
 class DateAsOptional(object):
-
     """Implementation of the 'date as optional' model.
 
     Attributes:
@@ -24,21 +21,20 @@ class DateAsOptional(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "date": 'date'
+        "date": "date",
     }
 
     _optionals = [
-        'date',
+        "date",
     ]
 
     def __init__(self,
                  date=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the DateAsOptional class"""
-
+        """Initialize a DateAsOptional instance."""
         # Initialize members of the class
         if date is not APIHelper.SKIP:
-            self.date = date 
+            self.date = date
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -48,7 +44,7 @@ class DateAsOptional(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -59,24 +55,27 @@ class DateAsOptional(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        date = dateutil.parser.parse(dictionary.get('date')).date() if dictionary.get('date') else APIHelper.SKIP
+        date = dateutil.parser.parse(dictionary.get("date")).date()\
+            if dictionary.get("date") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(date,
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'date={(self.date if hasattr(self, "date") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"date={(self.date if hasattr(self, 'date') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'date={(self.date if hasattr(self, "date") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"date={(self.date if hasattr(self, 'date') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

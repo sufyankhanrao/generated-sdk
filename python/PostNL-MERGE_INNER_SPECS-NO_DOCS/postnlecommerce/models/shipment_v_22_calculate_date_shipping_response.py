@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
 
 
 class ShipmentV22CalculateDateShippingResponse(object):
-
     """Implementation of the 'Shipment V2 2 Calculate Date Shipping Response' model.
 
     Attributes:
@@ -20,25 +17,24 @@ class ShipmentV22CalculateDateShippingResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "sent_date": 'SentDate'
+        "sent_date": "SentDate",
     }
 
     _optionals = [
-        'sent_date',
+        "sent_date",
     ]
 
     def __init__(self,
                  sent_date=APIHelper.SKIP):
-        """Constructor for the ShipmentV22CalculateDateShippingResponse class"""
-
+        """Initialize a ShipmentV22CalculateDateShippingResponse instance."""
         # Initialize members of the class
         if sent_date is not APIHelper.SKIP:
-            self.sent_date = sent_date 
+            self.sent_date = sent_date
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -49,19 +45,24 @@ class ShipmentV22CalculateDateShippingResponse(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        sent_date = dictionary.get("SentDate") if dictionary.get("SentDate") else APIHelper.SKIP
+        sent_date =\
+            dictionary.get("SentDate")\
+            if dictionary.get("SentDate") else APIHelper.SKIP
         # Return an object of this model
         return cls(sent_date)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'sent_date={(self.sent_date if hasattr(self, "sent_date") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"sent_date={(self.sent_date
+                     if hasattr(self, 'sent_date') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'sent_date={(self.sent_date if hasattr(self, "sent_date") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"sent_date={(self.sent_date
+                     if hasattr(self, 'sent_date') else None)!s})")

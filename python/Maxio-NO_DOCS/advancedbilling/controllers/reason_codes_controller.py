@@ -1,36 +1,48 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.http.api_response import ApiResponse
-from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.authentication.multiple.single_auth import (
+    Single,
+)
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-from advancedbilling.http.http_method_enum import HttpMethodEnum
-from apimatic_core.authentication.multiple.single_auth import Single
-from advancedbilling.models.reason_code_response import ReasonCodeResponse
-from advancedbilling.models.reason_codes_json_response import ReasonCodesJsonResponse
-from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
-from advancedbilling.exceptions.api_exception import APIException
+
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.controllers.base_controller import (
+    BaseController,
+)
+from advancedbilling.exceptions.api_exception import (
+    APIException,
+)
+from advancedbilling.exceptions.error_list_response_exception import (
+    ErrorListResponseException,
+)
+from advancedbilling.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from advancedbilling.models.reason_code_response import (
+    ReasonCodeResponse,
+)
+from advancedbilling.models.reason_codes_json_response import (
+    ReasonCodesJsonResponse,
+)
 
 
 class ReasonCodesController(BaseController):
-
     """A Controller to access Endpoints in the advancedbilling API."""
+
     def __init__(self, config):
+        """Initialize ReasonCodesController object."""
         super(ReasonCodesController, self).__init__(config)
 
     def create_reason_code(self,
                            body=None):
-        """Does a POST request to /reason_codes.json.
+        """Perform a POST request to /reason_codes.json.
 
         # Reason Codes Intro
         ReasonCodes are a way to gain a high level view of why your customers
@@ -63,32 +75,34 @@ class ReasonCodesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/reason_codes.json')
+            .path("/reason_codes.json")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ReasonCodeResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def list_reason_codes(self,
                           options=dict()):
-        """Does a GET request to /reason_codes.json.
+        """Perform a GET request to /reason_codes.json.
 
         This method gives a merchant the option to retrieve a list of all of
         the current churn codes for a given site.
@@ -99,7 +113,6 @@ class ReasonCodesController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
                         page parameter specifies a page number of results to
@@ -126,31 +139,30 @@ class ReasonCodesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/reason_codes.json')
+            .path("/reason_codes.json")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key('page')
-                         .value(options.get('page', None)))
+                         .key("page")
+                         .value(options.get("page", None)))
             .query_param(Parameter()
-                         .key('per_page')
-                         .value(options.get('per_page', None)))
+                         .key("per_page")
+                         .value(options.get("per_page", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ReasonCodeResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def read_reason_code(self,
                          reason_code_id):
-        """Does a GET request to /reason_codes/{reason_code_id}.json.
+        """Perform a GET request to /reason_codes/{reason_code_id}.json.
 
         This method gives a merchant the option to retrieve a list of a
         particular code for a given Site by providing the unique numerical ID
@@ -170,32 +182,31 @@ class ReasonCodesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/reason_codes/{reason_code_id}.json')
+            .path("/reason_codes/{reason_code_id}.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('reason_code_id')
+                            .key("reason_code_id")
                             .value(reason_code_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ReasonCodeResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()
 
     def update_reason_code(self,
                            reason_code_id,
                            body=None):
-        """Does a PUT request to /reason_codes/{reason_code_id}.json.
+        """Perform a PUT request to /reason_codes/{reason_code_id}.json.
 
         This method gives a merchant the option to update an existing reason
         code for a given site.
@@ -216,37 +227,36 @@ class ReasonCodesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/reason_codes/{reason_code_id}.json')
+            .path("/reason_codes/{reason_code_id}.json")
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key('reason_code_id')
+                            .key("reason_code_id")
                             .value(reason_code_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ReasonCodeResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()
 
     def delete_reason_code(self,
                            reason_code_id):
-        """Does a DELETE request to /reason_codes/{reason_code_id}.json.
+        """Perform a DELETE request to /reason_codes/{reason_code_id}.json.
 
         This method gives a merchant the option to delete one reason code from
         the Churn Reason Codes. This code will be immediately removed. This
@@ -266,24 +276,23 @@ class ReasonCodesController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/reason_codes/{reason_code_id}.json')
+            .path("/reason_codes/{reason_code_id}.json")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key('reason_code_id')
+                            .key("reason_code_id")
                             .value(reason_code_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ReasonCodesJsonResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()

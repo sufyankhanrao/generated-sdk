@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type109Enum`](../../doc/models/type-109-enum.md) | Optional | Resource Type<br><br>**Default**: `'UserApiKey'` |
+| `mtype` | [`Type109Enum`](../../doc/models/type-109-enum.md) | Optional | Resource Type<br><br>**Default**: `"UserApiKey"` |
 | `data` | [`Data28`](../../doc/models/data-28.md) | Optional | - |
 
 ## Example (as JSON)

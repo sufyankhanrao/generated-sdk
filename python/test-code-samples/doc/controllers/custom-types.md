@@ -78,7 +78,7 @@ employee_array = [
                         )
                     ],
                     hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-                    joining_day='Monday',
+                    joining_day="Monday",
                     salary=82,
                     boss=Person(
                         address='address8',
@@ -136,7 +136,7 @@ employee_array_optional = [
                         )
                     ],
                     hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-                    joining_day='Monday',
+                    joining_day="Monday",
                     salary=70,
                     boss=Person(
                         address='address8',
@@ -228,7 +228,7 @@ employee_array = [
                         )
                     ],
                     hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-                    joining_day='Monday',
+                    joining_day="Monday",
                     salary=82,
                     boss=Person(
                         address='address8',
@@ -262,7 +262,7 @@ employee_array_optional = [
                     object_var=jsonpickle.decode('{"key1":"val1","key2":"val2"}'),
                     dynamic_var=jsonpickle.decode('{"key1":"val1","key2":"val2"}'),
                     date_time_unix_var=dateutil.datetime.utcfromtimestamp(1480809600),
-                    joining_day='Monday',
+                    joining_day="Monday",
                     birthday=dateutil.parser.parse('2016-03-13').date(),
                     birthtime=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
                     person_type='Empl'
@@ -331,7 +331,7 @@ employee_array_of_map = EmployeeRequired(
         )
     ],
     hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-    joining_day='Monday',
+    joining_day="Monday",
     salary=230,
     boss=Person(
         address='address8',
@@ -421,7 +421,7 @@ employee_array_of_map = EmployeeRequired(
         )
     ],
     hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-    joining_day='Monday',
+    joining_day="Monday",
     salary=230,
     boss=Person(
         address='address8',
@@ -512,7 +512,7 @@ model = {
             )
         ],
         hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-        joining_day='Tuesday',
+        joining_day="Tuesday",
         salary=240,
         boss=Person(
             address='address8',
@@ -552,7 +552,7 @@ model = {
             )
         ],
         hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-        joining_day='Tuesday',
+        joining_day="Tuesday",
         salary=240,
         boss=Person(
             address='address8',
@@ -613,7 +613,7 @@ model_optional = {
             )
         ],
         hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-        joining_day='Sunday',
+        joining_day="Sunday",
         salary=24,
         boss=Person(
             address='address8',

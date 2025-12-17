@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type28Enum`](../../doc/models/type-28-enum.md) | Optional | Resource Type<br><br>**Default**: `'TransactionIntention'` |
+| `mtype` | [`Type28Enum`](../../doc/models/type-28-enum.md) | Optional | Resource Type<br><br>**Default**: `"TransactionIntention"` |
 | `data` | [`Data8`](../../doc/models/data-8.md) | Optional | - |
 
 ## Example (as JSON)

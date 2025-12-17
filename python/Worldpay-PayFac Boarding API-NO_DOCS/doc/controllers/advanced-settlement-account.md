@@ -24,7 +24,7 @@ URI to get all advancedsettlemtaccounts of a PayFac submerchant.
 def get_advanced_settlement_accounts(self,
                                     v_correlation_id,
                                     id,
-                                    content_type='application/json',
+                                    content_type="application/json",
                                     account_number=None)
 ```
 
@@ -34,7 +34,7 @@ def get_advanced_settlement_accounts(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 | `account_number` | `str` | Header, Optional | The unique bank account number |
 
 ## Response Type
@@ -223,7 +223,7 @@ def delete_advanced_settlement_account(self,
                                       v_correlation_id,
                                       account_number,
                                       id,
-                                      content_type='application/json')
+                                      content_type="application/json")
 ```
 
 ## Parameters
@@ -233,7 +233,7 @@ def delete_advanced_settlement_account(self,
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `account_number` | `str` | Header, Required | The unique bank account number |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 

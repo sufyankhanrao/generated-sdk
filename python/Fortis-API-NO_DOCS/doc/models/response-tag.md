@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type69Enum`](../../doc/models/type-69-enum.md) | Optional | Resource Type<br><br>**Default**: `'Tag'` |
+| `mtype` | [`Type69Enum`](../../doc/models/type-69-enum.md) | Optional | Resource Type<br><br>**Default**: `"Tag"` |
 | `data` | [`Data18`](../../doc/models/data-18.md) | Optional | - |
 
 ## Example (as JSON)

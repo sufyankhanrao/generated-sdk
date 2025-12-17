@@ -137,8 +137,8 @@ def get_data(self,
             timestamp_start,
             timestamp_end,
             use_utc=False,
-            resolution='10minute',
-            aggregate='device',
+            resolution="10minute",
+            aggregate="device",
             aggregate_level=0,
             calculation=None)
 ```
@@ -152,8 +152,8 @@ def get_data(self,
 | `timestamp_start` | `datetime` | Query, Required | The beginning of the time interval to get data for (inclusive),<br>in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6)<br>**date-time** format:<br><br>* Timestamps ending with 'Z' are treated as UTC. Example: "2020-01-01T00:00:00Z"<br>* Time zone (UTC) offset timestamps ending with '+HH:mm'/"-HH:mm" are also supported. Example: "2020-01-01T02:00:00-02:00"<br>* Other timestamps are treated as being in the time zone configured in the Greenbyte Platform. Example: "2020-01-01T00:00:00"<br><br>The start timestamp **is** included in the time interval: for<br>example, to select the full month of March 2020, set<br>`timestampStart` to "2020-03-01T00:00:00" and `timestampEnd` to<br>"2020-04-01T00:00:00".<br><br>Timestamps selected in the portal will by default be in UTC. |
 | `timestamp_end` | `datetime` | Query, Required | The end of the time interval to get data for (exclusive),<br>in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6)<br>**date-time** format:<br><br>* Timestamps ending with 'Z' are treated as UTC. Example: "2020-01-01T00:00:00Z"<br>* Time zone (UTC) offset timestamps ending with '+HH:mm'/"-HH:mm" are also supported. Example: "2020-01-01T02:00:00-02:00"<br>* Other timestamps are treated as being in the time zone configured in the Greenbyte Platform. Example: "2020-01-01T00:00:00"<br><br>The end timestamp is **not** included in the time interval: for<br>example, to select the full month of March 2020, set<br>`timestampStart` to "2020-03-01T00:00:00" and `timestampEnd` to<br>"2020-04-01T00:00:00".<br><br>Timestamps selected in the portal will by default be in UTC. |
 | `use_utc` | `bool` | Query, Optional | Set to true to get timestamps in UTC. UTC timestamps are available for all resolutions other than daily, weekly, monthly and yearly.<br><br>**Default**: `False` |
-| `resolution` | [`ResolutionEnum`](../../doc/models/resolution-enum.md) | Query, Optional | The desired data resolution.<br><br>**Default**: `'10minute'` |
-| `aggregate` | [`AggregateModeEnum`](../../doc/models/aggregate-mode-enum.md) | Query, Optional | How the data should be aggregated with regards to device(s) or site(s).<br><br>**Default**: `'device'` |
+| `resolution` | [`ResolutionEnum`](../../doc/models/resolution-enum.md) | Query, Optional | The desired data resolution.<br><br>**Default**: `"10minute"` |
+| `aggregate` | [`AggregateModeEnum`](../../doc/models/aggregate-mode-enum.md) | Query, Optional | How the data should be aggregated with regards to device(s) or site(s).<br><br>**Default**: `"device"` |
 | `aggregate_level` | `int` | Query, Optional | When AggregateMode `siteLevel` is used this parameter controls down to which level in the hierarchy to aggregate.<br><br>**Default**: `0` |
 | `calculation` | [`CalculationModeEnum`](../../doc/models/calculation-mode-enum.md) | Query, Optional | The calculation used when aggregating data, both over time and across devices. The default is the data signal default. |
 
@@ -278,7 +278,7 @@ a JSON request body instead of query parameters._
 def get_real_time_data(self,
                       device_ids,
                       data_signal_ids,
-                      aggregate='device',
+                      aggregate="device",
                       aggregate_level=0,
                       calculation=None)
 ```
@@ -289,7 +289,7 @@ def get_real_time_data(self,
 |  --- | --- | --- | --- |
 | `device_ids` | `List[int]` | Query, Required | Which devices to get data for.<br><br>**Constraints**: `>= 1` |
 | `data_signal_ids` | `List[int]` | Query, Required | Which data signals to get data for.<br><br>**Constraints**: `>= 1` |
-| `aggregate` | [`AggregateModeEnum`](../../doc/models/aggregate-mode-enum.md) | Query, Optional | How the data should be aggregated with regards to device(s) or site(s).<br><br>**Default**: `'device'` |
+| `aggregate` | [`AggregateModeEnum`](../../doc/models/aggregate-mode-enum.md) | Query, Optional | How the data should be aggregated with regards to device(s) or site(s).<br><br>**Default**: `"device"` |
 | `aggregate_level` | `int` | Query, Optional | When AggregateMode `siteLevel` is used this parameter controls down to which level in the hierarchy to aggregate.<br><br>**Default**: `0` |
 | `calculation` | [`CalculationModeRealTimeEnum`](../../doc/models/calculation-mode-real-time-enum.md) | Query, Optional | The calculation used when aggregating data, both over time and across devices. The default is the data signal default. |
 
@@ -399,10 +399,10 @@ def get_data_per_category(self,
                          data_signal_id,
                          timestamp_start,
                          timestamp_end,
-                         aggregate='device',
+                         aggregate="device",
                          aggregate_level=0,
                          category=None,
-                         contract_type='service')
+                         contract_type="service")
 ```
 
 ## Parameters
@@ -413,10 +413,10 @@ def get_data_per_category(self,
 | `data_signal_id` | `int` | Query, Required | Which signal to get data for; only Lost Production signals are supported at the moment.<br><br>**Constraints**: `>= 1` |
 | `timestamp_start` | `datetime` | Query, Required | The beginning of the time interval to get data for (inclusive),<br>in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6)<br>**date-time** format:<br><br>* Timestamps ending with 'Z' are treated as UTC. Example: "2020-01-01T00:00:00Z"<br>* Time zone (UTC) offset timestamps ending with '+HH:mm'/"-HH:mm" are also supported. Example: "2020-01-01T02:00:00-02:00"<br>* Other timestamps are treated as being in the time zone configured in the Greenbyte Platform. Example: "2020-01-01T00:00:00"<br><br>The start timestamp **is** included in the time interval: for<br>example, to select the full month of March 2020, set<br>`timestampStart` to "2020-03-01T00:00:00" and `timestampEnd` to<br>"2020-04-01T00:00:00".<br><br>Timestamps selected in the portal will by default be in UTC. |
 | `timestamp_end` | `datetime` | Query, Required | The end of the time interval to get data for (exclusive),<br>in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6)<br>**date-time** format:<br><br>* Timestamps ending with 'Z' are treated as UTC. Example: "2020-01-01T00:00:00Z"<br>* Time zone (UTC) offset timestamps ending with '+HH:mm'/"-HH:mm" are also supported. Example: "2020-01-01T02:00:00-02:00"<br>* Other timestamps are treated as being in the time zone configured in the Greenbyte Platform. Example: "2020-01-01T00:00:00"<br><br>The end timestamp is **not** included in the time interval: for<br>example, to select the full month of March 2020, set<br>`timestampStart` to "2020-03-01T00:00:00" and `timestampEnd` to<br>"2020-04-01T00:00:00".<br><br>Timestamps selected in the portal will by default be in UTC. |
-| `aggregate` | [`AggregateModeEnum`](../../doc/models/aggregate-mode-enum.md) | Query, Optional | How the data should be aggregated with regards to device(s) or site(s).<br><br>**Default**: `'device'` |
+| `aggregate` | [`AggregateModeEnum`](../../doc/models/aggregate-mode-enum.md) | Query, Optional | How the data should be aggregated with regards to device(s) or site(s).<br><br>**Default**: `"device"` |
 | `aggregate_level` | `int` | Query, Optional | When AggregateMode `siteLevel` is used this parameter controls down to which level in the hierarchy to aggregate.<br><br>**Default**: `0` |
 | `category` | [`List[StatusCategoryEnum]`](../../doc/models/status-category-enum.md) | Query, Optional | Which status categories to include. By default all categories are included. |
-| `contract_type` | [`ContractTypeEnum`](../../doc/models/contract-type-enum.md) | Query, Optional | Which contract type to use if using multiple availability contracts.<br><br>**Default**: `'service'` |
+| `contract_type` | [`ContractTypeEnum`](../../doc/models/contract-type-enum.md) | Query, Optional | Which contract type to use if using multiple availability contracts.<br><br>**Default**: `"service"` |
 
 ## Response Type
 

@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class SubscriptionGroupPrepaymentMethod(object):
-
     """Implementation of the 'Subscription Group Prepayment Method' enum.
 
     Attributes:
@@ -23,20 +19,22 @@ class SubscriptionGroupPrepaymentMethod(object):
             for the model.
 
     """
-    CHECK = 'check'
 
-    CASH = 'cash'
+    CHECK = "check"
 
-    MONEY_ORDER = 'money_order'
+    CASH = "cash"
 
-    ACH = 'ach'
+    MONEY_ORDER = "money_order"
 
-    PAYPAL_ACCOUNT = 'paypal_account'
+    ACH = "ach"
 
-    OTHER = 'other'
+    PAYPAL_ACCOUNT = "paypal_account"
+
+    OTHER = "other"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

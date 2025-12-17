@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type22Enum`](../../doc/models/type-22-enum.md) | Optional | Resource Type<br><br>**Default**: `'DeviceTerm'` |
+| `mtype` | [`Type22Enum`](../../doc/models/type-22-enum.md) | Optional | Resource Type<br><br>**Default**: `"DeviceTerm"` |
 | `data` | [`Data6`](../../doc/models/data-6.md) | Optional | - |
 
 ## Example (as JSON)

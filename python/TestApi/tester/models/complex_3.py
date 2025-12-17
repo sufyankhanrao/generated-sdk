@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from tester.models.advanced import Advanced
 from tester.models.contact_details import ContactDetails
 from tester.models.data_to_sign import DataToSign
@@ -14,7 +12,6 @@ from tester.models.status import Status
 
 
 class Complex3(object):
-
     """Implementation of the 'complex3' model.
 
     Attributes:
@@ -35,15 +32,15 @@ class Complex3(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "advanced": 'advanced',
-        "contact_details": 'contactDetails',
-        "data_to_sign": 'dataToSign',
-        "description": 'description',
-        "document_id": 'documentId',
-        "external_id": 'externalId',
-        "signers": 'signers',
-        "status": 'status',
-        "title": 'title'
+        "advanced": "advanced",
+        "contact_details": "contactDetails",
+        "data_to_sign": "dataToSign",
+        "description": "description",
+        "document_id": "documentId",
+        "external_id": "externalId",
+        "signers": "signers",
+        "status": "status",
+        "title": "title",
     }
 
     def __init__(self,
@@ -57,18 +54,17 @@ class Complex3(object):
                  status=None,
                  title=None,
                  additional_properties=None):
-        """Constructor for the Complex3 class"""
-
+        """Initialize a Complex3 instance."""
         # Initialize members of the class
-        self.document_id = document_id 
-        self.signers = signers 
-        self.status = status 
-        self.title = title 
-        self.description = description 
-        self.external_id = external_id 
-        self.data_to_sign = data_to_sign 
-        self.contact_details = contact_details 
-        self.advanced = advanced 
+        self.document_id = document_id
+        self.signers = signers
+        self.status = status
+        self.title = title
+        self.description = description
+        self.external_id = external_id
+        self.data_to_sign = data_to_sign
+        self.contact_details = contact_details
+        self.advanced = advanced
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -78,7 +74,7 @@ class Complex3(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -89,24 +85,41 @@ class Complex3(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        advanced = Advanced.from_dictionary(dictionary.get('advanced')) if dictionary.get('advanced') else None
-        contact_details = ContactDetails.from_dictionary(dictionary.get('contactDetails')) if dictionary.get('contactDetails') else None
-        data_to_sign = DataToSign.from_dictionary(dictionary.get('dataToSign')) if dictionary.get('dataToSign') else None
-        description = dictionary.get("description") if dictionary.get("description") else None
-        document_id = dictionary.get("documentId") if dictionary.get("documentId") else None
-        external_id = dictionary.get("externalId") if dictionary.get("externalId") else None
+        advanced = Advanced.from_dictionary(
+            dictionary.get("advanced"))\
+            if dictionary.get("advanced") else None
+        contact_details = ContactDetails.from_dictionary(
+            dictionary.get("contactDetails"))\
+            if dictionary.get("contactDetails") else None
+        data_to_sign = DataToSign.from_dictionary(
+            dictionary.get("dataToSign"))\
+            if dictionary.get("dataToSign") else None
+        description =\
+            dictionary.get("description")\
+            if dictionary.get("description") else None
+        document_id =\
+            dictionary.get("documentId")\
+            if dictionary.get("documentId") else None
+        external_id =\
+            dictionary.get("externalId")\
+            if dictionary.get("externalId") else None
         signers = None
-        if dictionary.get('signers') is not None:
-            signers = [Signer.from_dictionary(x) for x in dictionary.get('signers')]
-        status = Status.from_dictionary(dictionary.get('status')) if dictionary.get('status') else None
+        if dictionary.get("signers") is not None:
+            signers = [
+                Signer.from_dictionary(x)
+                    for x in dictionary.get("signers")
+            ]
+        status = Status.from_dictionary(
+            dictionary.get("status"))\
+            if dictionary.get("status") else None
         title = dictionary.get("title") if dictionary.get("title") else None
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(advanced,
                    contact_details,
@@ -120,27 +133,29 @@ class Complex3(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'document_id={self.document_id!r}, '
-                f'signers={self.signers!r}, '
-                f'status={self.status!r}, '
-                f'title={self.title!r}, '
-                f'description={self.description!r}, '
-                f'external_id={self.external_id!r}, '
-                f'data_to_sign={self.data_to_sign!r}, '
-                f'contact_details={self.contact_details!r}, '
-                f'advanced={self.advanced!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"document_id={self.document_id!r}, "
+                f"signers={self.signers!r}, "
+                f"status={self.status!r}, "
+                f"title={self.title!r}, "
+                f"description={self.description!r}, "
+                f"external_id={self.external_id!r}, "
+                f"data_to_sign={self.data_to_sign!r}, "
+                f"contact_details={self.contact_details!r}, "
+                f"advanced={self.advanced!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'document_id={self.document_id!s}, '
-                f'signers={self.signers!s}, '
-                f'status={self.status!s}, '
-                f'title={self.title!s}, '
-                f'description={self.description!s}, '
-                f'external_id={self.external_id!s}, '
-                f'data_to_sign={self.data_to_sign!s}, '
-                f'contact_details={self.contact_details!s}, '
-                f'advanced={self.advanced!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"document_id={self.document_id!s}, "
+                f"signers={self.signers!s}, "
+                f"status={self.status!s}, "
+                f"title={self.title!s}, "
+                f"description={self.description!s}, "
+                f"external_id={self.external_id!s}, "
+                f"data_to_sign={self.data_to_sign!s}, "
+                f"contact_details={self.contact_details!s}, "
+                f"advanced={self.advanced!s}, "
+                f"additional_properties={self.additional_properties!s})")

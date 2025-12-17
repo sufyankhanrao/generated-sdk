@@ -1,18 +1,19 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.invoice_consolidation_level import InvoiceConsolidationLevel
-from advancedbilling.models.invoice_status import InvoiceStatus
+from advancedbilling.models.invoice_consolidation_level import (
+    InvoiceConsolidationLevel,
+)
+from advancedbilling.models.invoice_status import (
+    InvoiceStatus,
+)
 
 
 class IssueInvoiceEventData(object):
-
     """Implementation of the 'Issue Invoice Event Data' model.
 
     Example schema for an `issue_invoice` event
@@ -48,11 +49,11 @@ class IssueInvoiceEventData(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "consolidation_level": 'consolidation_level',
-        "from_status": 'from_status',
-        "to_status": 'to_status',
-        "due_amount": 'due_amount',
-        "total_amount": 'total_amount'
+        "consolidation_level": "consolidation_level",
+        "from_status": "from_status",
+        "to_status": "to_status",
+        "due_amount": "due_amount",
+        "total_amount": "total_amount",
     }
 
     def __init__(self,
@@ -62,14 +63,13 @@ class IssueInvoiceEventData(object):
                  due_amount=None,
                  total_amount=None,
                  additional_properties=None):
-        """Constructor for the IssueInvoiceEventData class"""
-
+        """Initialize a IssueInvoiceEventData instance."""
         # Initialize members of the class
-        self.consolidation_level = consolidation_level 
-        self.from_status = from_status 
-        self.to_status = to_status 
-        self.due_amount = due_amount 
-        self.total_amount = total_amount 
+        self.consolidation_level = consolidation_level
+        self.from_status = from_status
+        self.to_status = to_status
+        self.due_amount = due_amount
+        self.total_amount = total_amount
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -79,7 +79,7 @@ class IssueInvoiceEventData(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -90,18 +90,28 @@ class IssueInvoiceEventData(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        consolidation_level = dictionary.get("consolidation_level") if dictionary.get("consolidation_level") else None
-        from_status = dictionary.get("from_status") if dictionary.get("from_status") else None
-        to_status = dictionary.get("to_status") if dictionary.get("to_status") else None
-        due_amount = dictionary.get("due_amount") if dictionary.get("due_amount") else None
-        total_amount = dictionary.get("total_amount") if dictionary.get("total_amount") else None
+        consolidation_level =\
+            dictionary.get("consolidation_level")\
+            if dictionary.get("consolidation_level") else None
+        from_status =\
+            dictionary.get("from_status")\
+            if dictionary.get("from_status") else None
+        to_status =\
+            dictionary.get("to_status")\
+            if dictionary.get("to_status") else None
+        due_amount =\
+            dictionary.get("due_amount")\
+            if dictionary.get("due_amount") else None
+        total_amount =\
+            dictionary.get("total_amount")\
+            if dictionary.get("total_amount") else None
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(consolidation_level,
                    from_status,
@@ -112,7 +122,7 @@ class IssueInvoiceEventData(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validates dictionary against class required properties
+        """Validate dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -123,47 +133,58 @@ class IssueInvoiceEventData(object):
             boolean : if dictionary is valid contains required properties.
 
         """
-
         if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(value=dictionary.consolidation_level,
-                                           type_callable=lambda value: InvoiceConsolidationLevel.validate(value)) \
-                and APIHelper.is_valid_type(value=dictionary.from_status,
-                                            type_callable=lambda value: InvoiceStatus.validate(value)) \
-                and APIHelper.is_valid_type(value=dictionary.to_status,
-                                            type_callable=lambda value: InvoiceStatus.validate(value)) \
-                and APIHelper.is_valid_type(value=dictionary.due_amount,
-                                            type_callable=lambda value: isinstance(value, str)) \
-                and APIHelper.is_valid_type(value=dictionary.total_amount,
-                                            type_callable=lambda value: isinstance(value, str))
+            return APIHelper.is_valid_type(
+                value=dictionary.consolidation_level,
+                type_callable=lambda value: InvoiceConsolidationLevel.validate(value)) \
+                and APIHelper.is_valid_type(
+                value=dictionary.from_status,
+                type_callable=lambda value: InvoiceStatus.validate(value)) \
+                and APIHelper.is_valid_type(
+                value=dictionary.to_status,
+                type_callable=lambda value: InvoiceStatus.validate(value)) \
+                and APIHelper.is_valid_type(
+                value=dictionary.due_amount,
+                type_callable=lambda value: isinstance(value, str)) \
+                and APIHelper.is_valid_type(
+                value=dictionary.total_amount,
+                type_callable=lambda value: isinstance(value, str))
 
         if not isinstance(dictionary, dict):
             return False
 
-        return APIHelper.is_valid_type(value=dictionary.get('consolidation_level'),
-                                       type_callable=lambda value: InvoiceConsolidationLevel.validate(value)) \
-            and APIHelper.is_valid_type(value=dictionary.get('from_status'),
-                                        type_callable=lambda value: InvoiceStatus.validate(value)) \
-            and APIHelper.is_valid_type(value=dictionary.get('to_status'),
-                                        type_callable=lambda value: InvoiceStatus.validate(value)) \
-            and APIHelper.is_valid_type(value=dictionary.get('due_amount'),
-                                        type_callable=lambda value: isinstance(value, str)) \
-            and APIHelper.is_valid_type(value=dictionary.get('total_amount'),
-                                        type_callable=lambda value: isinstance(value, str))
+        return APIHelper.is_valid_type(
+            value=dictionary.get("consolidation_level"),
+            type_callable=lambda value: InvoiceConsolidationLevel.validate(value)) \
+            and APIHelper.is_valid_type(
+            value=dictionary.get("from_status"),
+            type_callable=lambda value: InvoiceStatus.validate(value)) \
+            and APIHelper.is_valid_type(
+            value=dictionary.get("to_status"),
+            type_callable=lambda value: InvoiceStatus.validate(value)) \
+            and APIHelper.is_valid_type(
+            value=dictionary.get("due_amount"),
+            type_callable=lambda value: isinstance(value, str)) \
+            and APIHelper.is_valid_type(
+            value=dictionary.get("total_amount"),
+            type_callable=lambda value: isinstance(value, str))
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'consolidation_level={self.consolidation_level!r}, '
-                f'from_status={self.from_status!r}, '
-                f'to_status={self.to_status!r}, '
-                f'due_amount={self.due_amount!r}, '
-                f'total_amount={self.total_amount!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"consolidation_level={self.consolidation_level!r}, "
+                f"from_status={self.from_status!r}, "
+                f"to_status={self.to_status!r}, "
+                f"due_amount={self.due_amount!r}, "
+                f"total_amount={self.total_amount!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'consolidation_level={self.consolidation_level!s}, '
-                f'from_status={self.from_status!s}, '
-                f'to_status={self.to_status!s}, '
-                f'due_amount={self.due_amount!s}, '
-                f'total_amount={self.total_amount!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"consolidation_level={self.consolidation_level!s}, "
+                f"from_status={self.from_status!s}, "
+                f"to_status={self.to_status!s}, "
+                f"due_amount={self.due_amount!s}, "
+                f"total_amount={self.total_amount!s}, "
+                f"additional_properties={self.additional_properties!s})")

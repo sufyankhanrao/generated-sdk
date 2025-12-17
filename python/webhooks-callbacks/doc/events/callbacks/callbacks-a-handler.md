@@ -20,28 +20,30 @@ Events available in this group. Subscribe to receive webhook notifications when 
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.callbacks.callbacks_a_handler import (
-    CallbacksAHandler
+    CallbacksAHandler,
 )
 from webhooksandcallbacksapi.events.signature_verification_failure import (
-    SignatureVerificationFailure
+    SignatureVerificationFailure,
 )
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.models.fulfillment_callback import (
-    FulfillmentCallback
+    FulfillmentCallback,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/callbacks", methods=["POST"])
+@app.route("/callbacks", methods=[
+    "POST",
+])
 def Callbacks():
     # Step 1: Create the handler with your shared secret key.
     handler = CallbacksAHandler(secret_key="your-shared-secret")

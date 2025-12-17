@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type1Enum`](../../doc/models/type-1-enum.md) | Optional | Resource Type<br><br>**Default**: `'BatchsCollection'` |
+| `mtype` | [`Type1Enum`](../../doc/models/type-1-enum.md) | Optional | Resource Type<br><br>**Default**: `"BatchsCollection"` |
 | `list` | [`List[List]`](../../doc/models/list.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

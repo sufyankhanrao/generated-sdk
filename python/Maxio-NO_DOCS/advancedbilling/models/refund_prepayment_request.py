@@ -1,16 +1,15 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-from advancedbilling.models.refund_prepayment import RefundPrepayment
+
+from advancedbilling.models.refund_prepayment import (
+    RefundPrepayment,
+)
 
 
 class RefundPrepaymentRequest(object):
-
     """Implementation of the 'Refund Prepayment Request' model.
 
     Attributes:
@@ -22,16 +21,15 @@ class RefundPrepaymentRequest(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "refund": 'refund'
+        "refund": "refund",
     }
 
     def __init__(self,
                  refund=None,
                  additional_properties=None):
-        """Constructor for the RefundPrepaymentRequest class"""
-
+        """Initialize a RefundPrepaymentRequest instance."""
         # Initialize members of the class
-        self.refund = refund 
+        self.refund = refund
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -41,7 +39,7 @@ class RefundPrepaymentRequest(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -52,24 +50,28 @@ class RefundPrepaymentRequest(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        refund = RefundPrepayment.from_dictionary(dictionary.get('refund')) if dictionary.get('refund') else None
+        refund = RefundPrepayment.from_dictionary(
+            dictionary.get("refund"))\
+            if dictionary.get("refund") else None
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(refund,
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'refund={self.refund!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"refund={self.refund!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'refund={self.refund!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"refund={self.refund!s}, "
+                f"additional_properties={self.additional_properties!s})")

@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.base_refund_error import BaseRefundError
+from advancedbilling.models.base_refund_error import (
+    BaseRefundError,
+)
 
 
 class RefundPrepaymentBaseRefundError(object):
-
     """Implementation of the 'Refund Prepayment Base Refund Error' model.
 
     Attributes:
@@ -23,21 +22,20 @@ class RefundPrepaymentBaseRefundError(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "refund": 'refund'
+        "refund": "refund",
     }
 
     _optionals = [
-        'refund',
+        "refund",
     ]
 
     def __init__(self,
                  refund=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the RefundPrepaymentBaseRefundError class"""
-
+        """Initialize a RefundPrepaymentBaseRefundError instance."""
         # Initialize members of the class
         if refund is not APIHelper.SKIP:
-            self.refund = refund 
+            self.refund = refund
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -47,7 +45,7 @@ class RefundPrepaymentBaseRefundError(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -58,24 +56,28 @@ class RefundPrepaymentBaseRefundError(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        refund = BaseRefundError.from_dictionary(dictionary.get('refund')) if 'refund' in dictionary.keys() else APIHelper.SKIP
+        refund = BaseRefundError.from_dictionary(
+            dictionary.get("refund"))\
+            if "refund" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(refund,
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'refund={(self.refund if hasattr(self, "refund") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"refund={(self.refund if hasattr(self, 'refund') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'refund={(self.refund if hasattr(self, "refund") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"refund={(self.refund if hasattr(self, 'refund') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

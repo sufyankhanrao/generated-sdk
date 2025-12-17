@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.location import Location
+from postnlecommerce.models.location import (
+    Location,
+)
 
 
 class PickupOption(object):
-
     """Implementation of the 'PickupOption' model.
 
     Attributes:
@@ -27,17 +26,17 @@ class PickupOption(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "pickup_date": 'PickupDate',
-        "shipping_date": 'ShippingDate',
-        "option": 'Option',
-        "locations": 'Locations'
+        "pickup_date": "PickupDate",
+        "shipping_date": "ShippingDate",
+        "option": "Option",
+        "locations": "Locations",
     }
 
     _optionals = [
-        'pickup_date',
-        'shipping_date',
-        'option',
-        'locations',
+        "pickup_date",
+        "shipping_date",
+        "option",
+        "locations",
     ]
 
     def __init__(self,
@@ -45,22 +44,21 @@ class PickupOption(object):
                  shipping_date=APIHelper.SKIP,
                  option=APIHelper.SKIP,
                  locations=APIHelper.SKIP):
-        """Constructor for the PickupOption class"""
-
+        """Initialize a PickupOption instance."""
         # Initialize members of the class
         if pickup_date is not APIHelper.SKIP:
-            self.pickup_date = pickup_date 
+            self.pickup_date = pickup_date
         if shipping_date is not APIHelper.SKIP:
-            self.shipping_date = shipping_date 
+            self.shipping_date = shipping_date
         if option is not APIHelper.SKIP:
-            self.option = option 
+            self.option = option
         if locations is not APIHelper.SKIP:
-            self.locations = locations 
+            self.locations = locations
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -71,17 +69,25 @@ class PickupOption(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        pickup_date = dictionary.get("PickupDate") if dictionary.get("PickupDate") else APIHelper.SKIP
-        shipping_date = dictionary.get("ShippingDate") if dictionary.get("ShippingDate") else APIHelper.SKIP
-        option = dictionary.get("Option") if dictionary.get("Option") else APIHelper.SKIP
+        pickup_date =\
+            dictionary.get("PickupDate")\
+            if dictionary.get("PickupDate") else APIHelper.SKIP
+        shipping_date =\
+            dictionary.get("ShippingDate")\
+            if dictionary.get("ShippingDate") else APIHelper.SKIP
+        option =\
+            dictionary.get("Option")\
+            if dictionary.get("Option") else APIHelper.SKIP
         locations = None
-        if dictionary.get('Locations') is not None:
-            locations = [Location.from_dictionary(x) for x in dictionary.get('Locations')]
+        if dictionary.get("Locations") is not None:
+            locations = [
+                Location.from_dictionary(x)
+                    for x in dictionary.get("Locations")
+            ]
         else:
             locations = APIHelper.SKIP
         # Return an object of this model
@@ -91,15 +97,23 @@ class PickupOption(object):
                    locations)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'pickup_date={(self.pickup_date if hasattr(self, "pickup_date") else None)!r}, '
-                f'shipping_date={(self.shipping_date if hasattr(self, "shipping_date") else None)!r}, '
-                f'option={(self.option if hasattr(self, "option") else None)!r}, '
-                f'locations={(self.locations if hasattr(self, "locations") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"pickup_date={(self.pickup_date
+                     if hasattr(self, 'pickup_date') else None)!r}, "
+                f"shipping_date={(self.shipping_date
+                     if hasattr(self, 'shipping_date') else None)!r}, "
+                f"option={(self.option if hasattr(self, 'option') else None)!r}, "
+                f"locations={(self.locations
+                     if hasattr(self, 'locations') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'pickup_date={(self.pickup_date if hasattr(self, "pickup_date") else None)!s}, '
-                f'shipping_date={(self.shipping_date if hasattr(self, "shipping_date") else None)!s}, '
-                f'option={(self.option if hasattr(self, "option") else None)!s}, '
-                f'locations={(self.locations if hasattr(self, "locations") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"pickup_date={(self.pickup_date
+                     if hasattr(self, 'pickup_date') else None)!s}, "
+                f"shipping_date={(self.shipping_date
+                     if hasattr(self, 'shipping_date') else None)!s}, "
+                f"option={(self.option if hasattr(self, 'option') else None)!s}, "
+                f"locations={(self.locations
+                     if hasattr(self, 'locations') else None)!s})")

@@ -1,35 +1,45 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.http.api_response import ApiResponse
-from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.authentication.multiple.single_auth import (
+    Single,
+)
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-from advancedbilling.http.http_method_enum import HttpMethodEnum
-from apimatic_core.authentication.multiple.single_auth import Single
-from advancedbilling.models.offer_response import OfferResponse
-from advancedbilling.models.list_offers_response import ListOffersResponse
-from advancedbilling.exceptions.error_array_map_response_exception import ErrorArrayMapResponseException
+
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.controllers.base_controller import (
+    BaseController,
+)
+from advancedbilling.exceptions.error_array_map_response_exception import (
+    ErrorArrayMapResponseException,
+)
+from advancedbilling.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from advancedbilling.models.list_offers_response import (
+    ListOffersResponse,
+)
+from advancedbilling.models.offer_response import (
+    OfferResponse,
+)
 
 
 class OffersController(BaseController):
-
     """A Controller to access Endpoints in the advancedbilling API."""
+
     def __init__(self, config):
+        """Initialize OffersController object."""
         super(OffersController, self).__init__(config)
 
     def create_offer(self,
                      body=None):
-        """Does a POST request to /offers.json.
+        """Perform a POST request to /offers.json.
 
         Create an offer within your Chargify site by sending a POST request.
         ## Documentation
@@ -61,32 +71,34 @@ class OffersController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/offers.json')
+            .path("/offers.json")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(OfferResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorArrayMapResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorArrayMapResponseException),
         ).execute()
 
     def list_offers(self,
                     options=dict()):
-        """Does a GET request to /offers.json.
+        """Perform a GET request to /offers.json.
 
         This endpoint will list offers for a site.
 
@@ -96,7 +108,6 @@ class OffersController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
                         page parameter specifies a page number of results to
@@ -125,34 +136,33 @@ class OffersController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/offers.json')
+            .path("/offers.json")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key('page')
-                         .value(options.get('page', None)))
+                         .key("page")
+                         .value(options.get("page", None)))
             .query_param(Parameter()
-                         .key('per_page')
-                         .value(options.get('per_page', None)))
+                         .key("per_page")
+                         .value(options.get("per_page", None)))
             .query_param(Parameter()
-                         .key('include_archived')
-                         .value(options.get('include_archived', None)))
+                         .key("include_archived")
+                         .value(options.get("include_archived", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListOffersResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def read_offer(self,
                    offer_id):
-        """Does a GET request to /offers/{offer_id}.json.
+        """Perform a GET request to /offers/{offer_id}.json.
 
         This method allows you to list a specific offer's attributes. This is
         different than list all offers for a site, as it requires an
@@ -172,30 +182,29 @@ class OffersController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/offers/{offer_id}.json')
+            .path("/offers/{offer_id}.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('offer_id')
+                            .key("offer_id")
                             .value(offer_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(OfferResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def archive_offer(self,
                       offer_id):
-        """Does a PUT request to /offers/{offer_id}/archive.json.
+        """Perform a PUT request to /offers/{offer_id}/archive.json.
 
         Archive an existing offer. Please provide an `offer_id` in order to
         archive the correct item.
@@ -214,25 +223,24 @@ class OffersController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/offers/{offer_id}/archive.json')
+            .path("/offers/{offer_id}/archive.json")
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key('offer_id')
+                            .key("offer_id")
                             .value(offer_id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def unarchive_offer(self,
                         offer_id):
-        """Does a PUT request to /offers/{offer_id}/unarchive.json.
+        """Perform a PUT request to /offers/{offer_id}/unarchive.json.
 
         Unarchive a previously archived offer. Please provide an `offer_id` in
         order to un-archive the correct item.
@@ -251,18 +259,17 @@ class OffersController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/offers/{offer_id}/unarchive.json')
+            .path("/offers/{offer_id}/unarchive.json")
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key('offer_id')
+                            .key("offer_id")
                             .value(offer_id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()

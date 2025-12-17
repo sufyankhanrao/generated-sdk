@@ -1,17 +1,16 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.warning_11 import Warning11
+from postnlecommerce.models.warning_11 import (
+    Warning11,
+)
 
 
 class Warnings(object):
-
     """Implementation of the 'Warnings' model.
 
     Attributes:
@@ -21,25 +20,24 @@ class Warnings(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "warning": 'Warning'
+        "warning": "Warning",
     }
 
     _optionals = [
-        'warning',
+        "warning",
     ]
 
     def __init__(self,
                  warning=APIHelper.SKIP):
-        """Constructor for the Warnings class"""
-
+        """Initialize a Warnings instance."""
         # Initialize members of the class
         if warning is not APIHelper.SKIP:
-            self.warning = warning 
+            self.warning = warning
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -50,19 +48,24 @@ class Warnings(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        warning = Warning11.from_dictionary(dictionary.get('Warning')) if 'Warning' in dictionary.keys() else APIHelper.SKIP
+        warning = Warning11.from_dictionary(
+            dictionary.get("Warning"))\
+            if "Warning" in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(warning)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'warning={(self.warning if hasattr(self, "warning") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"warning={(self.warning
+                     if hasattr(self, 'warning') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'warning={(self.warning if hasattr(self, "warning") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"warning={(self.warning
+                     if hasattr(self, 'warning') else None)!s})")

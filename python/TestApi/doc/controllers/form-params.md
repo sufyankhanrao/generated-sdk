@@ -1364,7 +1364,7 @@ elif result.is_error():
 ```python
 def all_optionals(self,
                  model,
-                 option='empty')
+                 option="empty")
 ```
 
 ## Parameters
@@ -1372,7 +1372,7 @@ def all_optionals(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `model` | [`AllOptionals`](../../doc/models/all-optionals.md) | Form, Required | - |
-| `option` | [`OptionalsEnum`](../../doc/models/optionals-enum.md) | Form, Optional | **Default**: `'empty'` |
+| `option` | [`OptionalsEnum`](../../doc/models/optionals-enum.md) | Form, Optional | **Default**: `"empty"` |
 
 ## Response Type
 

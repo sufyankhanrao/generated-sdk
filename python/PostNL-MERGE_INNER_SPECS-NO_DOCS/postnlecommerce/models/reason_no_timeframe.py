@@ -1,18 +1,17 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
 from postnlecommerce.models.options import Options
-from postnlecommerce.models.warning_1 import Warning1
+from postnlecommerce.models.warning_1 import (
+    Warning1,
+)
 
 
 class ReasonNoTimeframe(object):
-
     """Implementation of the 'ReasonNoTimeframe' model.
 
     Attributes:
@@ -29,19 +28,19 @@ class ReasonNoTimeframe(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "code": 'Code',
-        "date": 'Date',
-        "description": 'Description',
-        "options": 'Options',
-        "sustainability": 'Sustainability'
+        "code": "Code",
+        "date": "Date",
+        "description": "Description",
+        "options": "Options",
+        "sustainability": "Sustainability",
     }
 
     _optionals = [
-        'code',
-        'date',
-        'description',
-        'options',
-        'sustainability',
+        "code",
+        "date",
+        "description",
+        "options",
+        "sustainability",
     ]
 
     def __init__(self,
@@ -50,24 +49,23 @@ class ReasonNoTimeframe(object):
                  description=APIHelper.SKIP,
                  options=APIHelper.SKIP,
                  sustainability=APIHelper.SKIP):
-        """Constructor for the ReasonNoTimeframe class"""
-
+        """Initialize a ReasonNoTimeframe instance."""
         # Initialize members of the class
         if code is not APIHelper.SKIP:
-            self.code = code 
+            self.code = code
         if date is not APIHelper.SKIP:
-            self.date = date 
+            self.date = date
         if description is not APIHelper.SKIP:
-            self.description = description 
+            self.description = description
         if options is not APIHelper.SKIP:
-            self.options = options 
+            self.options = options
         if sustainability is not APIHelper.SKIP:
-            self.sustainability = sustainability 
+            self.sustainability = sustainability
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -78,16 +76,25 @@ class ReasonNoTimeframe(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        code = dictionary.get("Code") if dictionary.get("Code") else APIHelper.SKIP
-        date = dictionary.get("Date") if dictionary.get("Date") else APIHelper.SKIP
-        description = dictionary.get("Description") if dictionary.get("Description") else APIHelper.SKIP
-        options = Options.from_dictionary(dictionary.get('Options')) if 'Options' in dictionary.keys() else APIHelper.SKIP
-        sustainability = Warning1.from_dictionary(dictionary.get('Sustainability')) if 'Sustainability' in dictionary.keys() else APIHelper.SKIP
+        code =\
+            dictionary.get("Code")\
+            if dictionary.get("Code") else APIHelper.SKIP
+        date =\
+            dictionary.get("Date")\
+            if dictionary.get("Date") else APIHelper.SKIP
+        description =\
+            dictionary.get("Description")\
+            if dictionary.get("Description") else APIHelper.SKIP
+        options = Options.from_dictionary(
+            dictionary.get("Options"))\
+            if "Options" in dictionary.keys() else APIHelper.SKIP
+        sustainability = Warning1.from_dictionary(
+            dictionary.get("Sustainability"))\
+            if "Sustainability" in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(code,
                    date,
@@ -96,17 +103,25 @@ class ReasonNoTimeframe(object):
                    sustainability)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'code={(self.code if hasattr(self, "code") else None)!r}, '
-                f'date={(self.date if hasattr(self, "date") else None)!r}, '
-                f'description={(self.description if hasattr(self, "description") else None)!r}, '
-                f'options={(self.options if hasattr(self, "options") else None)!r}, '
-                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"code={(self.code if hasattr(self, 'code') else None)!r}, "
+                f"date={(self.date if hasattr(self, 'date') else None)!r}, "
+                f"description={(self.description
+                     if hasattr(self, 'description') else None)!r}, "
+                f"options={(self.options
+                     if hasattr(self, 'options') else None)!r}, "
+                f"sustainability={(self.sustainability
+                     if hasattr(self, 'sustainability') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'code={(self.code if hasattr(self, "code") else None)!s}, '
-                f'date={(self.date if hasattr(self, "date") else None)!s}, '
-                f'description={(self.description if hasattr(self, "description") else None)!s}, '
-                f'options={(self.options if hasattr(self, "options") else None)!s}, '
-                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"code={(self.code if hasattr(self, 'code') else None)!s}, "
+                f"date={(self.date if hasattr(self, 'date') else None)!s}, "
+                f"description={(self.description
+                     if hasattr(self, 'description') else None)!s}, "
+                f"options={(self.options
+                     if hasattr(self, 'options') else None)!s}, "
+                f"sustainability={(self.sustainability
+                     if hasattr(self, 'sustainability') else None)!s})")

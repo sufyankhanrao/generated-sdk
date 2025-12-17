@@ -1,20 +1,21 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.exceptions.api_exception import APIException
-from postnlecommerce.models.response_shipment import ResponseShipment
+from postnlecommerce.exceptions.api_exception import (
+    APIException,
+)
+from postnlecommerce.models.response_shipment import (
+    ResponseShipment,
+)
 
 
 class ConfirmingResponseError1Exception(APIException):
     def __init__(self, reason, response):
-        """Constructor for the ConfirmingResponseError1Exception class
+        """Initialize ConfirmingResponseError1Exception object.
 
         Args:
             reason (string): The reason (or error message) for the Exception
@@ -28,7 +29,7 @@ class ConfirmingResponseError1Exception(APIException):
             self.unbox(dictionary)
 
     def unbox(self, dictionary):
-        """Populates the properties of this object by extracting them from a dictionary.
+        """Populate the properties of this object by extracting them from a dictionary.
 
         Args:
             dictionary (dictionary): A dictionary representation of the object as
@@ -37,13 +38,18 @@ class ConfirmingResponseError1Exception(APIException):
 
         """
         self.response_shipments = None
-        if dictionary.get('ResponseShipments') is not None:
-            self.response_shipments = [ResponseShipment.from_dictionary(x) for x in dictionary.get('ResponseShipments')]
+        if dictionary.get("ResponseShipments") is not None:
+            self.response_shipments = [
+                ResponseShipment.from_dictionary(x)
+                    for x in dictionary.get("ResponseShipments")
+            ]
         else:
             self.response_shipments = None
 
     def __str__(self):
+        """Return a human-readable string representation."""
         base_str = super().__str__()
-        return (f'{self.__class__.__name__}('
-                f'{base_str[base_str.find("(") + 1:-1]}, '
-                f'response_shipments={(self.response_shipments if hasattr(self, "response_shipments") else None)!s})')
+        return (f"{self.__class__.__name__}("
+                f"{base_str[base_str.find('(') + 1:-1]}, "
+                f"response_shipments={(self.response_shipments
+                     if hasattr(self, 'response_shipments') else None)!s})")

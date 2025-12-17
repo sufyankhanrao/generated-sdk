@@ -1,19 +1,22 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.calendar_billing import CalendarBilling
-from advancedbilling.models.subscription_custom_price import SubscriptionCustomPrice
-from advancedbilling.models.subscription_group_signup_component import SubscriptionGroupSignupComponent
+from advancedbilling.models.calendar_billing import (
+    CalendarBilling,
+)
+from advancedbilling.models.subscription_custom_price import (
+    SubscriptionCustomPrice,
+)
+from advancedbilling.models.subscription_group_signup_component import (
+    SubscriptionGroupSignupComponent,
+)
 
 
 class SubscriptionGroupSignupItem(object):
-
     """Implementation of the 'Subscription Group Signup Item' model.
 
     Attributes:
@@ -59,35 +62,35 @@ class SubscriptionGroupSignupItem(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "product_handle": 'product_handle',
-        "product_id": 'product_id',
-        "product_price_point_id": 'product_price_point_id',
-        "product_price_point_handle": 'product_price_point_handle',
-        "offer_id": 'offer_id',
-        "reference": 'reference',
-        "primary": 'primary',
-        "currency": 'currency',
-        "coupon_codes": 'coupon_codes',
-        "components": 'components',
-        "custom_price": 'custom_price',
-        "calendar_billing": 'calendar_billing',
-        "metafields": 'metafields'
+        "product_handle": "product_handle",
+        "product_id": "product_id",
+        "product_price_point_id": "product_price_point_id",
+        "product_price_point_handle": "product_price_point_handle",
+        "offer_id": "offer_id",
+        "reference": "reference",
+        "primary": "primary",
+        "currency": "currency",
+        "coupon_codes": "coupon_codes",
+        "components": "components",
+        "custom_price": "custom_price",
+        "calendar_billing": "calendar_billing",
+        "metafields": "metafields",
     }
 
     _optionals = [
-        'product_handle',
-        'product_id',
-        'product_price_point_id',
-        'product_price_point_handle',
-        'offer_id',
-        'reference',
-        'primary',
-        'currency',
-        'coupon_codes',
-        'components',
-        'custom_price',
-        'calendar_billing',
-        'metafields',
+        "product_handle",
+        "product_id",
+        "product_price_point_id",
+        "product_price_point_handle",
+        "offer_id",
+        "reference",
+        "primary",
+        "currency",
+        "coupon_codes",
+        "components",
+        "custom_price",
+        "calendar_billing",
+        "metafields",
     ]
 
     def __init__(self,
@@ -105,35 +108,34 @@ class SubscriptionGroupSignupItem(object):
                  calendar_billing=APIHelper.SKIP,
                  metafields=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the SubscriptionGroupSignupItem class"""
-
+        """Initialize a SubscriptionGroupSignupItem instance."""
         # Initialize members of the class
         if product_handle is not APIHelper.SKIP:
-            self.product_handle = product_handle 
+            self.product_handle = product_handle
         if product_id is not APIHelper.SKIP:
-            self.product_id = product_id 
+            self.product_id = product_id
         if product_price_point_id is not APIHelper.SKIP:
-            self.product_price_point_id = product_price_point_id 
+            self.product_price_point_id = product_price_point_id
         if product_price_point_handle is not APIHelper.SKIP:
-            self.product_price_point_handle = product_price_point_handle 
+            self.product_price_point_handle = product_price_point_handle
         if offer_id is not APIHelper.SKIP:
-            self.offer_id = offer_id 
+            self.offer_id = offer_id
         if reference is not APIHelper.SKIP:
-            self.reference = reference 
+            self.reference = reference
         if primary is not APIHelper.SKIP:
-            self.primary = primary 
+            self.primary = primary
         if currency is not APIHelper.SKIP:
-            self.currency = currency 
+            self.currency = currency
         if coupon_codes is not APIHelper.SKIP:
-            self.coupon_codes = coupon_codes 
+            self.coupon_codes = coupon_codes
         if components is not APIHelper.SKIP:
-            self.components = components 
+            self.components = components
         if custom_price is not APIHelper.SKIP:
-            self.custom_price = custom_price 
+            self.custom_price = custom_price
         if calendar_billing is not APIHelper.SKIP:
-            self.calendar_billing = calendar_billing 
+            self.calendar_billing = calendar_billing
         if metafields is not APIHelper.SKIP:
-            self.metafields = metafields 
+            self.metafields = metafields
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -143,7 +145,7 @@ class SubscriptionGroupSignupItem(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -154,30 +156,57 @@ class SubscriptionGroupSignupItem(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        product_handle = dictionary.get("product_handle") if dictionary.get("product_handle") else APIHelper.SKIP
-        product_id = dictionary.get("product_id") if dictionary.get("product_id") else APIHelper.SKIP
-        product_price_point_id = dictionary.get("product_price_point_id") if dictionary.get("product_price_point_id") else APIHelper.SKIP
-        product_price_point_handle = dictionary.get("product_price_point_handle") if dictionary.get("product_price_point_handle") else APIHelper.SKIP
-        offer_id = dictionary.get("offer_id") if dictionary.get("offer_id") else APIHelper.SKIP
-        reference = dictionary.get("reference") if dictionary.get("reference") else APIHelper.SKIP
-        primary = dictionary.get("primary") if "primary" in dictionary.keys() else APIHelper.SKIP
-        currency = dictionary.get("currency") if dictionary.get("currency") else APIHelper.SKIP
-        coupon_codes = dictionary.get("coupon_codes") if dictionary.get("coupon_codes") else APIHelper.SKIP
+        product_handle =\
+            dictionary.get("product_handle")\
+            if dictionary.get("product_handle") else APIHelper.SKIP
+        product_id =\
+            dictionary.get("product_id")\
+            if dictionary.get("product_id") else APIHelper.SKIP
+        product_price_point_id =\
+            dictionary.get("product_price_point_id")\
+            if dictionary.get("product_price_point_id") else APIHelper.SKIP
+        product_price_point_handle =\
+            dictionary.get("product_price_point_handle")\
+            if dictionary.get("product_price_point_handle") else APIHelper.SKIP
+        offer_id =\
+            dictionary.get("offer_id")\
+            if dictionary.get("offer_id") else APIHelper.SKIP
+        reference =\
+            dictionary.get("reference")\
+            if dictionary.get("reference") else APIHelper.SKIP
+        primary =\
+            dictionary.get("primary")\
+            if "primary" in dictionary.keys() else APIHelper.SKIP
+        currency =\
+            dictionary.get("currency")\
+            if dictionary.get("currency") else APIHelper.SKIP
+        coupon_codes =\
+            dictionary.get("coupon_codes")\
+            if dictionary.get("coupon_codes") else APIHelper.SKIP
         components = None
-        if dictionary.get('components') is not None:
-            components = [SubscriptionGroupSignupComponent.from_dictionary(x) for x in dictionary.get('components')]
+        if dictionary.get("components") is not None:
+            components = [
+                SubscriptionGroupSignupComponent.from_dictionary(x)
+                    for x in dictionary.get("components")
+            ]
         else:
             components = APIHelper.SKIP
-        custom_price = SubscriptionCustomPrice.from_dictionary(dictionary.get('custom_price')) if 'custom_price' in dictionary.keys() else APIHelper.SKIP
-        calendar_billing = CalendarBilling.from_dictionary(dictionary.get('calendar_billing')) if 'calendar_billing' in dictionary.keys() else APIHelper.SKIP
-        metafields = dictionary.get("metafields") if dictionary.get("metafields") else APIHelper.SKIP
+        custom_price = SubscriptionCustomPrice.from_dictionary(
+            dictionary.get("custom_price"))\
+            if "custom_price" in dictionary.keys() else APIHelper.SKIP
+        calendar_billing = CalendarBilling.from_dictionary(
+            dictionary.get("calendar_billing"))\
+            if "calendar_billing" in dictionary.keys() else APIHelper.SKIP
+        metafields =\
+            dictionary.get("metafields")\
+            if dictionary.get("metafields") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(product_handle,
                    product_id,
@@ -196,7 +225,7 @@ class SubscriptionGroupSignupItem(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validates dictionary against class required properties
+        """Validate dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -207,7 +236,6 @@ class SubscriptionGroupSignupItem(object):
             boolean : if dictionary is valid contains required properties.
 
         """
-
         if isinstance(dictionary, cls):
             return True
 
@@ -217,35 +245,63 @@ class SubscriptionGroupSignupItem(object):
         return True
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'product_handle={(self.product_handle if hasattr(self, "product_handle") else None)!r}, '
-                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
-                f'product_price_point_id={(self.product_price_point_id if hasattr(self, "product_price_point_id") else None)!r}, '
-                f'product_price_point_handle={(self.product_price_point_handle if hasattr(self, "product_price_point_handle") else None)!r}, '
-                f'offer_id={(self.offer_id if hasattr(self, "offer_id") else None)!r}, '
-                f'reference={(self.reference if hasattr(self, "reference") else None)!r}, '
-                f'primary={(self.primary if hasattr(self, "primary") else None)!r}, '
-                f'currency={(self.currency if hasattr(self, "currency") else None)!r}, '
-                f'coupon_codes={(self.coupon_codes if hasattr(self, "coupon_codes") else None)!r}, '
-                f'components={(self.components if hasattr(self, "components") else None)!r}, '
-                f'custom_price={(self.custom_price if hasattr(self, "custom_price") else None)!r}, '
-                f'calendar_billing={(self.calendar_billing if hasattr(self, "calendar_billing") else None)!r}, '
-                f'metafields={(self.metafields if hasattr(self, "metafields") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"product_handle={(self.product_handle
+                     if hasattr(self, 'product_handle') else None)!r}, "
+                f"product_id={(self.product_id
+                     if hasattr(self, 'product_id') else None)!r}, "
+                f"product_price_point_id={(self.product_price_point_id
+                     if hasattr(self, 'product_price_point_id') else None)!r}, "
+                f"product_price_point_handle={(self.product_price_point_handle
+                     if hasattr(self, 'product_price_point_handle') else None)!r}, "
+                f"offer_id={(self.offer_id
+                     if hasattr(self, 'offer_id') else None)!r}, "
+                f"reference={(self.reference
+                     if hasattr(self, 'reference') else None)!r}, "
+                f"primary={(self.primary
+                     if hasattr(self, 'primary') else None)!r}, "
+                f"currency={(self.currency
+                     if hasattr(self, 'currency') else None)!r}, "
+                f"coupon_codes={(self.coupon_codes
+                     if hasattr(self, 'coupon_codes') else None)!r}, "
+                f"components={(self.components
+                     if hasattr(self, 'components') else None)!r}, "
+                f"custom_price={(self.custom_price
+                     if hasattr(self, 'custom_price') else None)!r}, "
+                f"calendar_billing={(self.calendar_billing
+                     if hasattr(self, 'calendar_billing') else None)!r}, "
+                f"metafields={(self.metafields
+                     if hasattr(self, 'metafields') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'product_handle={(self.product_handle if hasattr(self, "product_handle") else None)!s}, '
-                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
-                f'product_price_point_id={(self.product_price_point_id if hasattr(self, "product_price_point_id") else None)!s}, '
-                f'product_price_point_handle={(self.product_price_point_handle if hasattr(self, "product_price_point_handle") else None)!s}, '
-                f'offer_id={(self.offer_id if hasattr(self, "offer_id") else None)!s}, '
-                f'reference={(self.reference if hasattr(self, "reference") else None)!s}, '
-                f'primary={(self.primary if hasattr(self, "primary") else None)!s}, '
-                f'currency={(self.currency if hasattr(self, "currency") else None)!s}, '
-                f'coupon_codes={(self.coupon_codes if hasattr(self, "coupon_codes") else None)!s}, '
-                f'components={(self.components if hasattr(self, "components") else None)!s}, '
-                f'custom_price={(self.custom_price if hasattr(self, "custom_price") else None)!s}, '
-                f'calendar_billing={(self.calendar_billing if hasattr(self, "calendar_billing") else None)!s}, '
-                f'metafields={(self.metafields if hasattr(self, "metafields") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"product_handle={(self.product_handle
+                     if hasattr(self, 'product_handle') else None)!s}, "
+                f"product_id={(self.product_id
+                     if hasattr(self, 'product_id') else None)!s}, "
+                f"product_price_point_id={(self.product_price_point_id
+                     if hasattr(self, 'product_price_point_id') else None)!s}, "
+                f"product_price_point_handle={(self.product_price_point_handle
+                     if hasattr(self, 'product_price_point_handle') else None)!s}, "
+                f"offer_id={(self.offer_id
+                     if hasattr(self, 'offer_id') else None)!s}, "
+                f"reference={(self.reference
+                     if hasattr(self, 'reference') else None)!s}, "
+                f"primary={(self.primary
+                     if hasattr(self, 'primary') else None)!s}, "
+                f"currency={(self.currency
+                     if hasattr(self, 'currency') else None)!s}, "
+                f"coupon_codes={(self.coupon_codes
+                     if hasattr(self, 'coupon_codes') else None)!s}, "
+                f"components={(self.components
+                     if hasattr(self, 'components') else None)!s}, "
+                f"custom_price={(self.custom_price
+                     if hasattr(self, 'custom_price') else None)!s}, "
+                f"calendar_billing={(self.calendar_billing
+                     if hasattr(self, 'calendar_billing') else None)!s}, "
+                f"metafields={(self.metafields
+                     if hasattr(self, 'metafields') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

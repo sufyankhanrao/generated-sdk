@@ -1,32 +1,46 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.configuration import Server
-from postnlecommerce.http.api_response import ApiResponse
-from postnlecommerce.controllers.base_controller import BaseController
+from apimatic_core.authentication.multiple.single_auth import (
+    Single,
+)
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-from postnlecommerce.http.http_method_enum import HttpMethodEnum
-from apimatic_core.authentication.multiple.single_auth import Single
-from postnlecommerce.models.shippingstatus_response import ShippingstatusResponse
-from postnlecommerce.models.shippingstatus_response_signature import ShippingstatusResponseSignature
-from postnlecommerce.models.shippingstatus_response_updated_shipment import ShippingstatusResponseUpdatedShipment
-from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
-from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import MethodNotAllowedOnlyGetPostException
+
+from postnlecommerce.api_helper import APIHelper
+from postnlecommerce.configuration import Server
+from postnlecommerce.controllers.base_controller import (
+    BaseController,
+)
+from postnlecommerce.exceptions.barcode_response_error_exception import (
+    BarcodeResponseErrorException,
+)
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import (
+    MethodNotAllowedOnlyGetPostException,
+)
+from postnlecommerce.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from postnlecommerce.models.shippingstatus_response import (
+    ShippingstatusResponse,
+)
+from postnlecommerce.models.shippingstatus_response_signature import (
+    ShippingstatusResponseSignature,
+)
+from postnlecommerce.models.shippingstatus_response_updated_shipment import (
+    ShippingstatusResponseUpdatedShipment,
+)
 
 
 class ShippingStatusController(BaseController):
-
     """A Controller to access Endpoints in the postnlecommerce API."""
+
     def __init__(self, config):
+        """Initialize ShippingStatusController object."""
         super(ShippingStatusController, self).__init__(config)
 
     def get_status_by_barcode(self,
@@ -34,7 +48,7 @@ class ShippingStatusController(BaseController):
                               detail=False,
                               language=None,
                               max_days=None):
-        """Does a GET request to /shipment/v2/status/barcode/{barcode}.
+        """Perform a GET request to /shipment/v2/status/barcode/{barcode}.
 
         Request example:
         ```
@@ -66,38 +80,41 @@ class ShippingStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path('/shipment/v2/status/barcode/{barcode}')
+            .path("/shipment/v2/status/barcode/{barcode}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('barcode')
+                            .key("barcode")
                             .value(barcode)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('detail')
+                         .key("detail")
                          .value(detail))
             .query_param(Parameter()
-                         .key('language')
+                         .key("language")
                          .value(language))
             .query_param(Parameter()
-                         .key('maxDays')
+                         .key("maxDays")
                          .value(max_days))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('APIKeyHeader'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("APIKeyHeader")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ShippingstatusResponse.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Invalid request', BarcodeResponseErrorException)
-            .local_error('401', 'Invalid apikey', MethodNotAllowedOnlyGetPostException)
-            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
-            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error("400", "Invalid request", BarcodeResponseErrorException)
+            .local_error("401", "Invalid apikey", MethodNotAllowedOnlyGetPostException)
+            .local_error("405",
+                "Method not allowed",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("429",
+                "Too many requests",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("500", "Internal server error", BarcodeResponseErrorException),
         ).execute()
 
     def get_status_by_reference(self,
@@ -107,7 +124,7 @@ class ShippingStatusController(BaseController):
                                 detail=False,
                                 language=None,
                                 max_days=None):
-        """Does a GET request to /shipment/v2/status/reference/{referenceId}.
+        """Perform a GET request to /shipment/v2/status/reference/{referenceId}.
 
         Request example:
         ```
@@ -116,7 +133,7 @@ class ShippingStatusController(BaseController):
         &language=NL&customerCode={{CustomerCode}}&customerNumber={{CustomerNum
         ber}}&reference=REF98173245876329" \
          -H "Accept: application/json" \
-         -H "apikey: APIKEY-HERE" 
+         -H "apikey: APIKEY-HERE"
         ```
 
         Args:
@@ -144,49 +161,52 @@ class ShippingStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path('/shipment/v2/status/reference/{referenceId}')
+            .path("/shipment/v2/status/reference/{referenceId}")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key('customerCode')
+                         .key("customerCode")
                          .value(customer_code))
             .query_param(Parameter()
-                         .key('customerNumber')
+                         .key("customerNumber")
                          .value(customer_number))
             .template_param(Parameter()
-                            .key('referenceId')
+                            .key("referenceId")
                             .value(reference_id)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('detail')
+                         .key("detail")
                          .value(detail))
             .query_param(Parameter()
-                         .key('language')
+                         .key("language")
                          .value(language))
             .query_param(Parameter()
-                         .key('maxDays')
+                         .key("maxDays")
                          .value(max_days))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('APIKeyHeader'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("APIKeyHeader")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ShippingstatusResponse.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Invalid request', BarcodeResponseErrorException)
-            .local_error('401', 'Invalid apikey', MethodNotAllowedOnlyGetPostException)
-            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
-            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error("400", "Invalid request", BarcodeResponseErrorException)
+            .local_error("401", "Invalid apikey", MethodNotAllowedOnlyGetPostException)
+            .local_error("405",
+                "Method not allowed",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("429",
+                "Too many requests",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("500", "Internal server error", BarcodeResponseErrorException),
         ).execute()
 
     def get_shipment_signature(self,
                                barcode):
-        """Does a GET request to /shipment/v2/status/signature/{barcode}.
+        """Perform a GET request to /shipment/v2/status/signature/{barcode}.
 
         Request example:
         ```
@@ -194,7 +214,7 @@ class ShippingStatusController(BaseController):
         "https://api-sandbox.postnl.nl/shipment/v2/status/signature/3SDEVC17264
         9258" \
          -H "Accept: application/json" \
-         -H "apikey: APIKEY-HERE" 
+         -H "apikey: APIKEY-HERE"
         ```
 
         Args:
@@ -212,35 +232,39 @@ class ShippingStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path('/shipment/v2/status/signature/{barcode}')
+            .path("/shipment/v2/status/signature/{barcode}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('barcode')
+                            .key("barcode")
                             .value(barcode)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('APIKeyHeader'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("APIKeyHeader")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ShippingstatusResponseSignature.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Invalid request', BarcodeResponseErrorException)
-            .local_error('401', 'Invalid apikey', MethodNotAllowedOnlyGetPostException)
-            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
-            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error("400", "Invalid request", BarcodeResponseErrorException)
+            .local_error("401", "Invalid apikey", MethodNotAllowedOnlyGetPostException)
+            .local_error("405",
+                "Method not allowed",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("429",
+                "Too many requests",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("500", "Internal server error", BarcodeResponseErrorException),
         ).execute()
 
     def get_updated_status_by_customer_number(self,
                                               customernumber,
                                               period=None):
-        """Does a GET request to /shipment/v2/status/{customernumber}/updatedshipments.
+        """Perform a GET request to
+        /shipment/v2/status/{customernumber}/updatedshipments.
 
         Request example:
         ```
@@ -278,30 +302,33 @@ class ShippingStatusController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path('/shipment/v2/status/{customernumber}/updatedshipments')
+            .path("/shipment/v2/status/{customernumber}/updatedshipments")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('customernumber')
+                            .key("customernumber")
                             .value(customernumber)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('period')
+                         .key("period")
                          .value(period))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('APIKeyHeader'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("APIKeyHeader")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ShippingstatusResponseUpdatedShipment.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Invalid request', BarcodeResponseErrorException)
-            .local_error('401', 'Invalid apikey', MethodNotAllowedOnlyGetPostException)
-            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
-            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error("400", "Invalid request", BarcodeResponseErrorException)
+            .local_error("401", "Invalid apikey", MethodNotAllowedOnlyGetPostException)
+            .local_error("405",
+                "Method not allowed",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("429",
+                "Too many requests",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("500", "Internal server error", BarcodeResponseErrorException),
         ).execute()

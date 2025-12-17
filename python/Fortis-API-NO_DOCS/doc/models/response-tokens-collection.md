@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type86Enum`](../../doc/models/type-86-enum.md) | Optional | Resource Type<br><br>**Default**: `'TokensCollection'` |
+| `mtype` | [`Type86Enum`](../../doc/models/type-86-enum.md) | Optional | Resource Type<br><br>**Default**: `"TokensCollection"` |
 | `list` | [`List[List15]`](../../doc/models/list-15.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

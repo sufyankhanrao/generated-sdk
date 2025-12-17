@@ -32,7 +32,7 @@ def calculate_delivery_date(self,
                            postal_code,
                            country_code,
                            options,
-                           origin_country_code='NL',
+                           origin_country_code="NL",
                            city=None,
                            street=None,
                            house_number=None,
@@ -63,7 +63,7 @@ def calculate_delivery_date(self,
 | `postal_code` | [`str`](../../doc/models/string-enum.md) | Query, Required | Zipcode of the destination address<br><br>**Constraints**: *Pattern*: `^[0-9]{4}([A-Z]{2})?$` |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | The ISO2 destination country code |
 | `options` | [`List[Option3Enum]`](../../doc/models/option-3-enum.md) | Query, Required | The delivery options that you want to take into account when calculating the expected delivery date |
-| `origin_country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Optional | The ISO2 origin country code<br><br>**Default**: `'NL'` |
+| `origin_country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Optional | The ISO2 origin country code<br><br>**Default**: `"NL"` |
 | `city` | [`str`](../../doc/models/string-enum.md) | Query, Optional | City of the destination address |
 | `street` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The street name of the destination address. |
 | `house_number` | `int` | Query, Optional | The house number of the destination address |
@@ -164,7 +164,7 @@ def calculate_shipping_date(self,
                            shipping_duration,
                            postal_code,
                            country_code,
-                           origin_country_code='NL',
+                           origin_country_code="NL",
                            city=None,
                            street=None,
                            house_number=None,
@@ -179,7 +179,7 @@ def calculate_shipping_date(self,
 | `shipping_duration` | `int` | Query, Required | The duration it takes for the shipment to be delivered to PostNL in days. A value of 1 means that the parcel will be delivered to PostNL on the same day as the date specified in ShippingDate. A value of 2 means the parcel will arrive at PostNL a day later etc. |
 | `postal_code` | [`str`](../../doc/models/string-enum.md) | Query, Required | Zipcode of the address<br><br>**Constraints**: *Pattern*: `^[0-9]{4}([A-Z]{2})?$` |
 | `country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Required | The ISO2 destination country code |
-| `origin_country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Optional | The ISO2 country code of the origin country<br><br>**Default**: `'NL'` |
+| `origin_country_code` | [`CountrycodeEnum`](../../doc/models/countrycode-enum.md) | Query, Optional | The ISO2 country code of the origin country<br><br>**Default**: `"NL"` |
 | `city` | [`str`](../../doc/models/string-enum.md) | Query, Optional | City of the destination address |
 | `street` | [`str`](../../doc/models/string-enum.md) | Query, Optional | The street name of the destination address |
 | `house_number` | `int` | Query, Optional | The house number of the destination address |

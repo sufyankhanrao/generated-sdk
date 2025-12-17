@@ -33,34 +33,36 @@ This event's request payload is of type [InventoryStockIncreaseEvent | Inventory
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.signature_verification_failure import (
-    SignatureVerificationFailure
+    SignatureVerificationFailure,
 )
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.events.webhooks.webhooks_b_handler import (
-    WebhooksBHandler
+    WebhooksBHandler,
 )
 from webhooksandcallbacksapi.models.inventory_stock_decrease_event import (
-    InventoryStockDecreaseEvent
+    InventoryStockDecreaseEvent,
 )
 from webhooksandcallbacksapi.models.inventory_stock_depleted_event import (
-    InventoryStockDepletedEvent
+    InventoryStockDepletedEvent,
 )
 from webhooksandcallbacksapi.models.inventory_stock_increase_event import (
-    InventoryStockIncreaseEvent
+    InventoryStockIncreaseEvent,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/webhooks", methods=["POST"])
+@app.route("/webhooks", methods=[
+    "POST",
+])
 def Webhooks() -> Response:
     # Step 1: Create the handler with your shared secret key.
     handler = WebhooksBHandler(secret_key="your-shared-secret")
@@ -73,7 +75,11 @@ def Webhooks() -> Response:
     event = handler.verify_and_parse_event(core_req)
 
     # Step 4: Pattern match for inventoryChangeEvent only.
-    if isinstance(event, InventoryStockIncreaseEvent) or isinstance(event, InventoryStockDecreaseEvent) or isinstance(event, InventoryStockDepletedEvent):
+    if (
+        isinstance(event, InventoryStockIncreaseEvent) or
+        isinstance(event, InventoryStockDecreaseEvent) or
+        isinstance(event, InventoryStockDepletedEvent)
+    ):
         print("inventoryChangeEvent received")
         # TODO: add handling logic
     elif isinstance(event, SignatureVerificationFailure):

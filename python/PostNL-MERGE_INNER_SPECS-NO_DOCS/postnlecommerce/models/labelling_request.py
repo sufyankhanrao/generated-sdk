@@ -1,19 +1,22 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.customer_1 import Customer1
-from postnlecommerce.models.message_1 import Message1
-from postnlecommerce.models.shipment_1 import Shipment1
+from postnlecommerce.models.customer_1 import (
+    Customer1,
+)
+from postnlecommerce.models.message_1 import (
+    Message1,
+)
+from postnlecommerce.models.shipment_1 import (
+    Shipment1,
+)
 
 
 class LabellingRequest(object):
-
     """Implementation of the 'labellingRequest' model.
 
     Attributes:
@@ -34,14 +37,14 @@ class LabellingRequest(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "customer": 'Customer',
-        "message": 'Message',
-        "shipments": 'Shipments',
-        "label_signature": 'LabelSignature'
+        "customer": "Customer",
+        "message": "Message",
+        "shipments": "Shipments",
+        "label_signature": "LabelSignature",
     }
 
     _optionals = [
-        'label_signature',
+        "label_signature",
     ]
 
     def __init__(self,
@@ -49,19 +52,18 @@ class LabellingRequest(object):
                  message=None,
                  shipments=None,
                  label_signature=APIHelper.SKIP):
-        """Constructor for the LabellingRequest class"""
-
+        """Initialize a LabellingRequest instance."""
         # Initialize members of the class
-        self.customer = customer 
+        self.customer = customer
         if label_signature is not APIHelper.SKIP:
-            self.label_signature = label_signature 
-        self.message = message 
-        self.shipments = shipments 
+            self.label_signature = label_signature
+        self.message = message
+        self.shipments = shipments
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -72,17 +74,25 @@ class LabellingRequest(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        customer = Customer1.from_dictionary(dictionary.get('Customer')) if dictionary.get('Customer') else None
-        message = Message1.from_dictionary(dictionary.get('Message')) if dictionary.get('Message') else None
+        customer = Customer1.from_dictionary(
+            dictionary.get("Customer"))\
+            if dictionary.get("Customer") else None
+        message = Message1.from_dictionary(
+            dictionary.get("Message"))\
+            if dictionary.get("Message") else None
         shipments = None
-        if dictionary.get('Shipments') is not None:
-            shipments = [Shipment1.from_dictionary(x) for x in dictionary.get('Shipments')]
-        label_signature = dictionary.get("LabelSignature") if dictionary.get("LabelSignature") else APIHelper.SKIP
+        if dictionary.get("Shipments") is not None:
+            shipments = [
+                Shipment1.from_dictionary(x)
+                    for x in dictionary.get("Shipments")
+            ]
+        label_signature =\
+            dictionary.get("LabelSignature")\
+            if dictionary.get("LabelSignature") else APIHelper.SKIP
         # Return an object of this model
         return cls(customer,
                    message,
@@ -90,15 +100,19 @@ class LabellingRequest(object):
                    label_signature)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'customer={self.customer!r}, '
-                f'label_signature={(self.label_signature if hasattr(self, "label_signature") else None)!r}, '
-                f'message={self.message!r}, '
-                f'shipments={self.shipments!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"customer={self.customer!r}, "
+                f"label_signature={(self.label_signature
+                     if hasattr(self, 'label_signature') else None)!r}, "
+                f"message={self.message!r}, "
+                f"shipments={self.shipments!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'customer={self.customer!s}, '
-                f'label_signature={(self.label_signature if hasattr(self, "label_signature") else None)!s}, '
-                f'message={self.message!s}, '
-                f'shipments={self.shipments!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"customer={self.customer!s}, "
+                f"label_signature={(self.label_signature
+                     if hasattr(self, 'label_signature') else None)!s}, "
+                f"message={self.message!s}, "
+                f"shipments={self.shipments!s})")

@@ -1,37 +1,49 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.configuration import Server
-from postnlecommerce.http.api_response import ApiResponse
-from postnlecommerce.controllers.base_controller import BaseController
+from apimatic_core.authentication.multiple.single_auth import (
+    Single,
+)
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-from postnlecommerce.http.http_method_enum import HttpMethodEnum
-from apimatic_core.authentication.multiple.single_auth import Single
-from postnlecommerce.models.labelling_response import LabellingResponse
-from postnlecommerce.exceptions.labelling_response_invalid_exception import LabellingResponseInvalidException
-from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import MethodNotAllowedOnlyGetPostException
-from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
+
+from postnlecommerce.api_helper import APIHelper
+from postnlecommerce.configuration import Server
+from postnlecommerce.controllers.base_controller import (
+    BaseController,
+)
+from postnlecommerce.exceptions.barcode_response_error_exception import (
+    BarcodeResponseErrorException,
+)
+from postnlecommerce.exceptions.labelling_response_invalid_exception import (
+    LabellingResponseInvalidException,
+)
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import (
+    MethodNotAllowedOnlyGetPostException,
+)
+from postnlecommerce.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from postnlecommerce.models.labelling_response import (
+    LabellingResponse,
+)
 
 
 class LabellingController(BaseController):
-
     """A Controller to access Endpoints in the postnlecommerce API."""
+
     def __init__(self, config):
+        """Initialize LabellingController object."""
         super(LabellingController, self).__init__(config)
 
     def generate_label(self,
                        body,
                        confirm=True):
-        """Does a POST request to /shipment/v2_2/label.
+        """Perform a POST request to /shipment/v2_2/label.
 
         Args:
             body (LabellingRequest): The request body parameter.
@@ -52,32 +64,35 @@ class LabellingController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path('/shipment/v2_2/label')
+            .path("/shipment/v2_2/label")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .query_param(Parameter()
-                         .key('confirm')
+                         .key("confirm")
                          .value(confirm))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('APIKeyHeader'))
+            .auth(Single("APIKeyHeader")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(LabellingResponse.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Error payload', LabellingResponseInvalidException)
-            .local_error('401', 'Invalid apikey', MethodNotAllowedOnlyGetPostException)
-            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
-            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error("400", "Error payload", LabellingResponseInvalidException)
+            .local_error("401", "Invalid apikey", MethodNotAllowedOnlyGetPostException)
+            .local_error("405",
+                "Method not allowed",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("429",
+                "Too many requests",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("500", "Internal server error", BarcodeResponseErrorException),
         ).execute()

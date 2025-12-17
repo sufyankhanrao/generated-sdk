@@ -1,15 +1,10 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-
 class Attributes(object):
-
     """Implementation of the 'Attributes' model.
 
     Attributes:
@@ -23,9 +18,9 @@ class Attributes(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "exclusive_maximum": 'exclusiveMaximum',
-        "exclusive_minimum": 'exclusiveMinimum',
-        "id": 'id'
+        "exclusive_maximum": "exclusiveMaximum",
+        "exclusive_minimum": "exclusiveMinimum",
+        "id": "id",
     }
 
     def __init__(self,
@@ -33,12 +28,11 @@ class Attributes(object):
                  exclusive_minimum=None,
                  id=None,
                  additional_properties=None):
-        """Constructor for the Attributes class"""
-
+        """Initialize a Attributes instance."""
         # Initialize members of the class
-        self.exclusive_maximum = exclusive_maximum 
-        self.exclusive_minimum = exclusive_minimum 
-        self.id = id 
+        self.exclusive_maximum = exclusive_maximum
+        self.exclusive_minimum = exclusive_minimum
+        self.id = id
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -48,7 +42,7 @@ class Attributes(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -59,16 +53,20 @@ class Attributes(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        exclusive_maximum = dictionary.get("exclusiveMaximum") if "exclusiveMaximum" in dictionary.keys() else None
-        exclusive_minimum = dictionary.get("exclusiveMinimum") if "exclusiveMinimum" in dictionary.keys() else None
+        exclusive_maximum =\
+            dictionary.get("exclusiveMaximum")\
+            if "exclusiveMaximum" in dictionary.keys() else None
+        exclusive_minimum =\
+            dictionary.get("exclusiveMinimum")\
+            if "exclusiveMinimum" in dictionary.keys() else None
         id = dictionary.get("id") if dictionary.get("id") else None
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(exclusive_maximum,
                    exclusive_minimum,
@@ -76,15 +74,17 @@ class Attributes(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'exclusive_maximum={self.exclusive_maximum!r}, '
-                f'exclusive_minimum={self.exclusive_minimum!r}, '
-                f'id={self.id!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"exclusive_maximum={self.exclusive_maximum!r}, "
+                f"exclusive_minimum={self.exclusive_minimum!r}, "
+                f"id={self.id!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'exclusive_maximum={self.exclusive_maximum!s}, '
-                f'exclusive_minimum={self.exclusive_minimum!s}, '
-                f'id={self.id!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"exclusive_maximum={self.exclusive_maximum!s}, "
+                f"exclusive_minimum={self.exclusive_minimum!s}, "
+                f"id={self.id!s}, "
+                f"additional_properties={self.additional_properties!s})")

@@ -1,16 +1,10 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-from advancedbilling.api_helper import APIHelper
-
 
 class GroupBilling(object):
-
     """Implementation of the 'Group Billing' model.
 
     Optional attributes related to billing date and accrual. Note: Only
@@ -33,15 +27,15 @@ class GroupBilling(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "accrue": 'accrue',
-        "align_date": 'align_date',
-        "prorate": 'prorate'
+        "accrue": "accrue",
+        "align_date": "align_date",
+        "prorate": "prorate",
     }
 
     _optionals = [
-        'accrue',
-        'align_date',
-        'prorate',
+        "accrue",
+        "align_date",
+        "prorate",
     ]
 
     def __init__(self,
@@ -49,12 +43,11 @@ class GroupBilling(object):
                  align_date=False,
                  prorate=False,
                  additional_properties=None):
-        """Constructor for the GroupBilling class"""
-
+        """Initialize a GroupBilling instance."""
         # Initialize members of the class
-        self.accrue = accrue 
-        self.align_date = align_date 
-        self.prorate = prorate 
+        self.accrue = accrue
+        self.align_date = align_date
+        self.prorate = prorate
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -64,7 +57,7 @@ class GroupBilling(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -75,16 +68,20 @@ class GroupBilling(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         accrue = dictionary.get("accrue") if dictionary.get("accrue") else False
-        align_date = dictionary.get("align_date") if dictionary.get("align_date") else False
-        prorate = dictionary.get("prorate") if dictionary.get("prorate") else False
+        align_date =\
+            dictionary.get("align_date")\
+            if dictionary.get("align_date") else False
+        prorate =\
+            dictionary.get("prorate")\
+            if dictionary.get("prorate") else False
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(accrue,
                    align_date,
@@ -93,7 +90,7 @@ class GroupBilling(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validates dictionary against class required properties
+        """Validate dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -104,7 +101,6 @@ class GroupBilling(object):
             boolean : if dictionary is valid contains required properties.
 
         """
-
         if isinstance(dictionary, cls):
             return True
 
@@ -114,15 +110,21 @@ class GroupBilling(object):
         return True
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'accrue={(self.accrue if hasattr(self, "accrue") else None)!r}, '
-                f'align_date={(self.align_date if hasattr(self, "align_date") else None)!r}, '
-                f'prorate={(self.prorate if hasattr(self, "prorate") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"accrue={(self.accrue if hasattr(self, 'accrue') else None)!r}, "
+                f"align_date={(self.align_date
+                     if hasattr(self, 'align_date') else None)!r}, "
+                f"prorate={(self.prorate
+                     if hasattr(self, 'prorate') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'accrue={(self.accrue if hasattr(self, "accrue") else None)!s}, '
-                f'align_date={(self.align_date if hasattr(self, "align_date") else None)!s}, '
-                f'prorate={(self.prorate if hasattr(self, "prorate") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"accrue={(self.accrue if hasattr(self, 'accrue') else None)!s}, "
+                f"align_date={(self.align_date
+                     if hasattr(self, 'align_date') else None)!s}, "
+                f"prorate={(self.prorate
+                     if hasattr(self, 'prorate') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

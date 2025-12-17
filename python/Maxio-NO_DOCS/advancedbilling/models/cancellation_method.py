@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class CancellationMethod(object):
-
     """Implementation of the 'Cancellation Method' enum.
 
     The process used to cancel the subscription, if the subscription has been
@@ -25,18 +21,20 @@ class CancellationMethod(object):
             for the model.
 
     """
-    MERCHANT_UI = 'merchant_ui'
 
-    MERCHANT_API = 'merchant_api'
+    MERCHANT_UI = "merchant_ui"
 
-    DUNNING = 'dunning'
+    MERCHANT_API = "merchant_api"
 
-    BILLING_PORTAL = 'billing_portal'
+    DUNNING = "dunning"
 
-    UNKNOWN = 'unknown'
+    BILLING_PORTAL = "billing_portal"
+
+    UNKNOWN = "unknown"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

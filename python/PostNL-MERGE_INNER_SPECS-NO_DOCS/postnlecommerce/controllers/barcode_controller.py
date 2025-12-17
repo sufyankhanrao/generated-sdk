@@ -1,33 +1,49 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.configuration import Server
-from postnlecommerce.http.api_response import ApiResponse
-from postnlecommerce.controllers.base_controller import BaseController
+from apimatic_core.authentication.multiple.single_auth import (
+    Single,
+)
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-from postnlecommerce.http.http_method_enum import HttpMethodEnum
-from apimatic_core.authentication.multiple.single_auth import Single
-from postnlecommerce.models.barcode_response import BarcodeResponse
-from postnlecommerce.exceptions.barcode_response_invalid_exception import BarcodeResponseInvalidException
-from postnlecommerce.exceptions.unauthorized_exception import UnauthorizedException
-from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import MethodNotAllowedOnlyGetPostException
-from postnlecommerce.exceptions.too_many_requests_exception import TooManyRequestsException
-from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
+
+from postnlecommerce.api_helper import APIHelper
+from postnlecommerce.configuration import Server
+from postnlecommerce.controllers.base_controller import (
+    BaseController,
+)
+from postnlecommerce.exceptions.barcode_response_error_exception import (
+    BarcodeResponseErrorException,
+)
+from postnlecommerce.exceptions.barcode_response_invalid_exception import (
+    BarcodeResponseInvalidException,
+)
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import (
+    MethodNotAllowedOnlyGetPostException,
+)
+from postnlecommerce.exceptions.too_many_requests_exception import (
+    TooManyRequestsException,
+)
+from postnlecommerce.exceptions.unauthorized_exception import (
+    UnauthorizedException,
+)
+from postnlecommerce.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from postnlecommerce.models.barcode_response import (
+    BarcodeResponse,
+)
 
 
 class BarcodeController(BaseController):
-
     """A Controller to access Endpoints in the postnlecommerce API."""
+
     def __init__(self, config):
+        """Initialize BarcodeController object."""
         super(BarcodeController, self).__init__(config)
 
     def generate_barcode(self,
@@ -36,7 +52,7 @@ class BarcodeController(BaseController):
                          mtype,
                          serie=None,
                          range=None):
-        """Does a GET request to /shipment/v1_1/barcode.
+        """Perform a GET request to /shipment/v1_1/barcode.
 
         Request example:
         ```
@@ -45,7 +61,7 @@ class BarcodeController(BaseController):
         amp;CustomerNumber=11223344&amp;Type=3S&amp;Serie=000000000-999999999&a
         mp" \
          -H "Accept: application/json" \
-         -H "apikey: APIKEY-HERE" 
+         -H "apikey: APIKEY-HERE"
         ```
 
         Args:
@@ -75,38 +91,39 @@ class BarcodeController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path('/shipment/v1_1/barcode')
+            .path("/shipment/v1_1/barcode")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key('CustomerCode')
+                         .key("CustomerCode")
                          .value(customer_code))
             .query_param(Parameter()
-                         .key('CustomerNumber')
+                         .key("CustomerNumber")
                          .value(customer_number))
             .query_param(Parameter()
-                         .key('Type')
+                         .key("Type")
                          .value(mtype))
             .query_param(Parameter()
-                         .key('Serie')
+                         .key("Serie")
                          .value(serie))
             .query_param(Parameter()
-                         .key('Range')
+                         .key("Range")
                          .value(range))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('APIKeyHeader'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("APIKeyHeader")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BarcodeResponse.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Invalid request', BarcodeResponseInvalidException)
-            .local_error('401', 'Invalid apikey', UnauthorizedException)
-            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
-            .local_error('429', 'Too many requests', TooManyRequestsException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error("400", "Invalid request", BarcodeResponseInvalidException)
+            .local_error("401", "Invalid apikey", UnauthorizedException)
+            .local_error("405",
+                "Method not allowed",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("429", "Too many requests", TooManyRequestsException)
+            .local_error("500", "Internal server error", BarcodeResponseErrorException),
         ).execute()

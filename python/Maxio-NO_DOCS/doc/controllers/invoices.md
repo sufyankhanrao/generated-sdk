@@ -110,7 +110,7 @@ def list_invoices(self,
 | `subscription_group_uid` | `str` | Query, Optional | The UID of the subscription group you want to fetch consolidated invoices for. This will return a paginated list of consolidated invoices for the specified group. |
 | `page` | `int` | Query, Optional | Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned.<br>Use in query `page=1`.<br><br>**Default**: `1`<br><br>**Constraints**: `>= 1` |
 | `per_page` | `int` | Query, Optional | This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any per_page value over 200 will be changed to 200.<br>Use in query `per_page=200`.<br><br>**Default**: `20`<br><br>**Constraints**: `<= 200` |
-| `direction` | [`Direction`](../../doc/models/direction.md) | Query, Optional | The sort direction of the returned invoices.<br><br>**Default**: `'desc'` |
+| `direction` | [`Direction`](../../doc/models/direction.md) | Query, Optional | The sort direction of the returned invoices.<br><br>**Default**: `"desc"` |
 | `line_items` | `bool` | Query, Optional | Include line items data<br><br>**Default**: `False` |
 | `discounts` | `bool` | Query, Optional | Include discounts data<br><br>**Default**: `False` |
 | `taxes` | `bool` | Query, Optional | Include taxes data<br><br>**Default**: `False` |
@@ -118,13 +118,13 @@ def list_invoices(self,
 | `payments` | `bool` | Query, Optional | Include payments data<br><br>**Default**: `False` |
 | `custom_fields` | `bool` | Query, Optional | Include custom fields data<br><br>**Default**: `False` |
 | `refunds` | `bool` | Query, Optional | Include refunds data<br><br>**Default**: `False` |
-| `date_field` | [`InvoiceDateField`](../../doc/models/invoice-date-field.md) | Query, Optional | The type of filter you would like to apply to your search. Use in query `date_field=issue_date`.<br><br>**Default**: `'due_date'` |
+| `date_field` | [`InvoiceDateField`](../../doc/models/invoice-date-field.md) | Query, Optional | The type of filter you would like to apply to your search. Use in query `date_field=issue_date`.<br><br>**Default**: `"due_date"` |
 | `start_datetime` | `str` | Query, Optional | The start date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the date_field. Returns invoices with a timestamp at or after exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of start_date. Allowed to be used only along with date_field set to created_at or updated_at. |
 | `end_datetime` | `str` | Query, Optional | The end date and time (format YYYY-MM-DD HH:MM:SS) with which to filter the date_field. Returns invoices with a timestamp at or before exact time provided in query. You can specify timezone in query - otherwise your site's time zone will be used. If provided, this parameter will be used instead of end_date. Allowed to be used only along with date_field set to created_at or updated_at. |
 | `customer_ids` | `List[int]` | Query, Optional | Allows fetching invoices with matching customer id based on provided values. Use in query `customer_ids=1,2,3`. |
 | `number` | `List[str]` | Query, Optional | Allows fetching invoices with matching invoice number based on provided values. Use in query `number=1234,1235`. |
 | `product_ids` | `List[int]` | Query, Optional | Allows fetching invoices with matching line items product ids based on provided values. Use in query `product_ids=23,34`. |
-| `sort` | [`InvoiceSortField`](../../doc/models/invoice-sort-field.md) | Query, Optional | Allows specification of the order of the returned list. Use in query `sort=total_amount`.<br><br>**Default**: `'number'` |
+| `sort` | [`InvoiceSortField`](../../doc/models/invoice-sort-field.md) | Query, Optional | Allows specification of the order of the returned list. Use in query `sort=total_amount`.<br><br>**Default**: `"number"` |
 
 ## Response Type
 
@@ -2083,7 +2083,7 @@ def list_consolidated_invoice_segments(self,
 | `invoice_uid` | `str` | Template, Required | The unique identifier of the consolidated invoice |
 | `page` | `int` | Query, Optional | Result records are organized in pages. By default, the first page of results is displayed. The page parameter specifies a page number of results to fetch. You can start navigating through the pages to consume the results. You do this by passing in a page parameter. Retrieve the next page by adding ?page=2 to the query string. If there are no results to return, then an empty result set will be returned.<br>Use in query `page=1`.<br><br>**Default**: `1`<br><br>**Constraints**: `>= 1` |
 | `per_page` | `int` | Query, Optional | This parameter indicates how many records to fetch in each request. Default value is 20. The maximum allowed values is 200; any per_page value over 200 will be changed to 200.<br>Use in query `per_page=200`.<br><br>**Default**: `20`<br><br>**Constraints**: `<= 200` |
-| `direction` | [`Direction`](../../doc/models/direction.md) | Query, Optional | Sort direction of the returned segments.<br><br>**Default**: `'asc'` |
+| `direction` | [`Direction`](../../doc/models/direction.md) | Query, Optional | Sort direction of the returned segments.<br><br>**Default**: `"asc"` |
 
 ## Response Type
 

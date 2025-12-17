@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from postnlecommerce.api_helper import APIHelper
 
 
 class Event(object):
-
     """Implementation of the 'Event' model.
 
     Attributes:
@@ -26,23 +23,23 @@ class Event(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "code": 'Code',
-        "description": 'Description',
-        "destination_location_code": 'DestinationLocationCode',
-        "location_code": 'LocationCode',
-        "route_code": 'RouteCode',
-        "route_number": 'RouteNumber',
-        "time_stamp": 'TimeStamp'
+        "code": "Code",
+        "description": "Description",
+        "destination_location_code": "DestinationLocationCode",
+        "location_code": "LocationCode",
+        "route_code": "RouteCode",
+        "route_number": "RouteNumber",
+        "time_stamp": "TimeStamp",
     }
 
     _optionals = [
-        'code',
-        'description',
-        'destination_location_code',
-        'location_code',
-        'route_code',
-        'route_number',
-        'time_stamp',
+        "code",
+        "description",
+        "destination_location_code",
+        "location_code",
+        "route_code",
+        "route_number",
+        "time_stamp",
     ]
 
     def __init__(self,
@@ -53,28 +50,27 @@ class Event(object):
                  route_code=APIHelper.SKIP,
                  route_number=APIHelper.SKIP,
                  time_stamp=APIHelper.SKIP):
-        """Constructor for the Event class"""
-
+        """Initialize a Event instance."""
         # Initialize members of the class
         if code is not APIHelper.SKIP:
-            self.code = code 
+            self.code = code
         if description is not APIHelper.SKIP:
-            self.description = description 
+            self.description = description
         if destination_location_code is not APIHelper.SKIP:
-            self.destination_location_code = destination_location_code 
+            self.destination_location_code = destination_location_code
         if location_code is not APIHelper.SKIP:
-            self.location_code = location_code 
+            self.location_code = location_code
         if route_code is not APIHelper.SKIP:
-            self.route_code = route_code 
+            self.route_code = route_code
         if route_number is not APIHelper.SKIP:
-            self.route_number = route_number 
+            self.route_number = route_number
         if time_stamp is not APIHelper.SKIP:
-            self.time_stamp = time_stamp 
+            self.time_stamp = time_stamp
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -85,18 +81,31 @@ class Event(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        code = dictionary.get("Code") if dictionary.get("Code") else APIHelper.SKIP
-        description = dictionary.get("Description") if dictionary.get("Description") else APIHelper.SKIP
-        destination_location_code = dictionary.get("DestinationLocationCode") if dictionary.get("DestinationLocationCode") else APIHelper.SKIP
-        location_code = dictionary.get("LocationCode") if dictionary.get("LocationCode") else APIHelper.SKIP
-        route_code = dictionary.get("RouteCode") if dictionary.get("RouteCode") else APIHelper.SKIP
-        route_number = dictionary.get("RouteNumber") if dictionary.get("RouteNumber") else APIHelper.SKIP
-        time_stamp = dictionary.get("TimeStamp") if dictionary.get("TimeStamp") else APIHelper.SKIP
+        code =\
+            dictionary.get("Code")\
+            if dictionary.get("Code") else APIHelper.SKIP
+        description =\
+            dictionary.get("Description")\
+            if dictionary.get("Description") else APIHelper.SKIP
+        destination_location_code =\
+            dictionary.get("DestinationLocationCode")\
+            if dictionary.get("DestinationLocationCode") else APIHelper.SKIP
+        location_code =\
+            dictionary.get("LocationCode")\
+            if dictionary.get("LocationCode") else APIHelper.SKIP
+        route_code =\
+            dictionary.get("RouteCode")\
+            if dictionary.get("RouteCode") else APIHelper.SKIP
+        route_number =\
+            dictionary.get("RouteNumber")\
+            if dictionary.get("RouteNumber") else APIHelper.SKIP
+        time_stamp =\
+            dictionary.get("TimeStamp")\
+            if dictionary.get("TimeStamp") else APIHelper.SKIP
         # Return an object of this model
         return cls(code,
                    description,
@@ -107,21 +116,35 @@ class Event(object):
                    time_stamp)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'code={(self.code if hasattr(self, "code") else None)!r}, '
-                f'description={(self.description if hasattr(self, "description") else None)!r}, '
-                f'destination_location_code={(self.destination_location_code if hasattr(self, "destination_location_code") else None)!r}, '
-                f'location_code={(self.location_code if hasattr(self, "location_code") else None)!r}, '
-                f'route_code={(self.route_code if hasattr(self, "route_code") else None)!r}, '
-                f'route_number={(self.route_number if hasattr(self, "route_number") else None)!r}, '
-                f'time_stamp={(self.time_stamp if hasattr(self, "time_stamp") else None)!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"code={(self.code if hasattr(self, 'code') else None)!r}, "
+                f"description={(self.description
+                     if hasattr(self, 'description') else None)!r}, "
+                f"destination_location_code={(self.destination_location_code
+                     if hasattr(self, 'destination_location_code') else None)!r}, "
+                f"location_code={(self.location_code
+                     if hasattr(self, 'location_code') else None)!r}, "
+                f"route_code={(self.route_code
+                     if hasattr(self, 'route_code') else None)!r}, "
+                f"route_number={(self.route_number
+                     if hasattr(self, 'route_number') else None)!r}, "
+                f"time_stamp={(self.time_stamp
+                     if hasattr(self, 'time_stamp') else None)!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'code={(self.code if hasattr(self, "code") else None)!s}, '
-                f'description={(self.description if hasattr(self, "description") else None)!s}, '
-                f'destination_location_code={(self.destination_location_code if hasattr(self, "destination_location_code") else None)!s}, '
-                f'location_code={(self.location_code if hasattr(self, "location_code") else None)!s}, '
-                f'route_code={(self.route_code if hasattr(self, "route_code") else None)!s}, '
-                f'route_number={(self.route_number if hasattr(self, "route_number") else None)!s}, '
-                f'time_stamp={(self.time_stamp if hasattr(self, "time_stamp") else None)!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"code={(self.code if hasattr(self, 'code') else None)!s}, "
+                f"description={(self.description
+                     if hasattr(self, 'description') else None)!s}, "
+                f"destination_location_code={(self.destination_location_code
+                     if hasattr(self, 'destination_location_code') else None)!s}, "
+                f"location_code={(self.location_code
+                     if hasattr(self, 'location_code') else None)!s}, "
+                f"route_code={(self.route_code
+                     if hasattr(self, 'route_code') else None)!s}, "
+                f"route_number={(self.route_number
+                     if hasattr(self, 'route_number') else None)!s}, "
+                f"time_stamp={(self.time_stamp
+                     if hasattr(self, 'time_stamp') else None)!s})")

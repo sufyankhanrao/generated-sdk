@@ -1,16 +1,10 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-from advancedbilling.api_helper import APIHelper
-
 
 class IssueInvoiceRequest(object):
-
     """Implementation of the 'Issue Invoice Request' model.
 
     Attributes:
@@ -35,20 +29,19 @@ class IssueInvoiceRequest(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "on_failed_payment": 'on_failed_payment'
+        "on_failed_payment": "on_failed_payment",
     }
 
     _optionals = [
-        'on_failed_payment',
+        "on_failed_payment",
     ]
 
     def __init__(self,
-                 on_failed_payment='leave_open_invoice',
+                 on_failed_payment="leave_open_invoice",
                  additional_properties=None):
-        """Constructor for the IssueInvoiceRequest class"""
-
+        """Initialize a IssueInvoiceRequest instance."""
         # Initialize members of the class
-        self.on_failed_payment = on_failed_payment 
+        self.on_failed_payment = on_failed_payment
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -58,7 +51,7 @@ class IssueInvoiceRequest(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -69,24 +62,30 @@ class IssueInvoiceRequest(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        on_failed_payment = dictionary.get("on_failed_payment") if dictionary.get("on_failed_payment") else 'leave_open_invoice'
+        on_failed_payment =\
+            dictionary.get("on_failed_payment")\
+            if dictionary.get("on_failed_payment") else "leave_open_invoice"
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(on_failed_payment,
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'on_failed_payment={(self.on_failed_payment if hasattr(self, "on_failed_payment") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"on_failed_payment={(self.on_failed_payment
+                     if hasattr(self, 'on_failed_payment') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'on_failed_payment={(self.on_failed_payment if hasattr(self, "on_failed_payment") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"on_failed_payment={(self.on_failed_payment
+                     if hasattr(self, 'on_failed_payment') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

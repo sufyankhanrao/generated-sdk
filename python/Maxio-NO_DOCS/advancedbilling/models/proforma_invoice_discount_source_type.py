@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class ProformaInvoiceDiscountSourceType(object):
-
     """Implementation of the 'Proforma Invoice Discount Source Type' enum.
 
     Attributes:
@@ -19,12 +15,14 @@ class ProformaInvoiceDiscountSourceType(object):
             for the model.
 
     """
-    COUPON = 'Coupon'
 
-    REFERRAL = 'Referral'
+    COUPON = "Coupon"
+
+    REFERRAL = "Referral"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

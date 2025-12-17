@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type64Enum`](../../doc/models/type-64-enum.md) | Optional | Resource Type<br><br>**Default**: `'Signature'` |
+| `mtype` | [`Type64Enum`](../../doc/models/type-64-enum.md) | Optional | Resource Type<br><br>**Default**: `"Signature"` |
 | `data` | [`Data17`](../../doc/models/data-17.md) | Optional | - |
 
 ## Example (as JSON)

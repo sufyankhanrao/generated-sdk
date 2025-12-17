@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type30Enum`](../../doc/models/type-30-enum.md) | Optional | Resource Type<br><br>**Default**: `'Fullboarding'` |
+| `mtype` | [`Type30Enum`](../../doc/models/type-30-enum.md) | Optional | Resource Type<br><br>**Default**: `"Fullboarding"` |
 | `data` | [`Data9`](../../doc/models/data-9.md) | Optional | - |
 
 ## Example (as JSON)

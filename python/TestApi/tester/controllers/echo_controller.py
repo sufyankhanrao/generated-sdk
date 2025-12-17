@@ -1,32 +1,32 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from tester.api_helper import APIHelper
-from tester.configuration import Server
-from tester.http.api_response import ApiResponse
-from tester.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
+
+from tester.api_helper import APIHelper
+from tester.configuration import Server
+from tester.controllers.base_controller import (
+    BaseController,
+)
 from tester.http.http_method_enum import HttpMethodEnum
 from tester.models.echo_response import EchoResponse
 
 
 class EchoController(BaseController):
-
     """A Controller to access Endpoints in the tester API."""
+
     def __init__(self, config):
+        """Initialize EchoController object."""
         super(EchoController, self).__init__(config)
 
     def json_echo(self,
                   input):
-        """Does a POST request to /.
+        """Perform a POST request to /.
 
         Echo's back the request
 
@@ -44,34 +44,33 @@ class EchoController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/')
+            .path("/")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key('echo')
+                         .key("echo")
                          .value(True))
             .body_param(Parameter()
                         .value(input)
                         .is_required(True))
             .header_param(Parameter()
-                          .key('content-type')
-                          .value('application/json; charset=utf-8'))
+                          .key("content-type")
+                          .value("application/json; charset=utf-8"))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .body_serializer(APIHelper.json_serialize)
+                          .key("accept")
+                          .value("application/json"))
+            .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def form_echo(self,
                   input):
-        """Does a POST request to /.
+        """Perform a POST request to /.
 
         Sends the request including any form params as JSON
 
@@ -89,31 +88,30 @@ class EchoController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/')
+            .path("/")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key('input')
+                        .key("input")
                         .value(input)
                         .is_required(True))
             .header_param(Parameter()
-                          .key('content-type')
-                          .value('application/x-www-form-urlencoded'))
+                          .key("content-type")
+                          .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def query_echo(self,
                    _optional_query_parameters=None):
-        """Does a GET request to /.
+        """Perform a GET request to /.
 
         Args:
             _optional_query_parameters (Array, optional): Additional optional
@@ -130,19 +128,18 @@ class EchoController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/')
+            .path("/")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .additional_query_params(_optional_query_parameters)
+                          .key("accept")
+                          .value("application/json"))
+            .additional_query_params(_optional_query_parameters),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(EchoResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()

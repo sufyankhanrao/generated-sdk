@@ -1,47 +1,80 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.http.api_response import ApiResponse
-from advancedbilling.controllers.base_controller import BaseController
-from advancedbilling.utilities.union_type_lookup import UnionTypeLookUp
+from apimatic_core.authentication.multiple.single_auth import (
+    Single,
+)
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.array_serialization_format import (
+    SerializationFormats,
+)
 from apimatic_core.types.parameter import Parameter
-from advancedbilling.http.http_method_enum import HttpMethodEnum
-from apimatic_core.types.array_serialization_format import SerializationFormats
-from apimatic_core.authentication.multiple.single_auth import Single
-from advancedbilling.models.subscription_component_response import SubscriptionComponentResponse
-from advancedbilling.models.bulk_components_price_point_assignment import BulkComponentsPricePointAssignment
-from advancedbilling.models.subscription_response import SubscriptionResponse
-from advancedbilling.models.allocation_response import AllocationResponse
-from advancedbilling.models.allocation_preview_response import AllocationPreviewResponse
-from advancedbilling.models.usage_response import UsageResponse
-from advancedbilling.models.list_subscription_components_response import ListSubscriptionComponentsResponse
-from advancedbilling.exceptions.api_exception import APIException
-from advancedbilling.exceptions.component_price_point_error_exception import ComponentPricePointErrorException
-from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
-from advancedbilling.exceptions.component_allocation_error_exception import ComponentAllocationErrorException
-from advancedbilling.exceptions.subscription_component_allocation_error_exception import SubscriptionComponentAllocationErrorException
+
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.controllers.base_controller import (
+    BaseController,
+)
+from advancedbilling.exceptions.api_exception import (
+    APIException,
+)
+from advancedbilling.exceptions.component_allocation_error_exception import (
+    ComponentAllocationErrorException,
+)
+from advancedbilling.exceptions.component_price_point_error_exception import (
+    ComponentPricePointErrorException,
+)
+from advancedbilling.exceptions.error_list_response_exception import (
+    ErrorListResponseException,
+)
+from advancedbilling.exceptions.subscription_component_allocation_error_exception import (  # noqa: E501
+    SubscriptionComponentAllocationErrorException,
+)
+from advancedbilling.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from advancedbilling.models.allocation_preview_response import (
+    AllocationPreviewResponse,
+)
+from advancedbilling.models.allocation_response import (
+    AllocationResponse,
+)
+from advancedbilling.models.bulk_components_price_point_assignment import (
+    BulkComponentsPricePointAssignment,
+)
+from advancedbilling.models.list_subscription_components_response import (
+    ListSubscriptionComponentsResponse,
+)
+from advancedbilling.models.subscription_component_response import (
+    SubscriptionComponentResponse,
+)
+from advancedbilling.models.subscription_response import (
+    SubscriptionResponse,
+)
+from advancedbilling.models.usage_response import (
+    UsageResponse,
+)
+from advancedbilling.utilities.union_type_lookup import (
+    UnionTypeLookUp,
+)
 
 
 class SubscriptionComponentsController(BaseController):
-
     """A Controller to access Endpoints in the advancedbilling API."""
+
     def __init__(self, config):
+        """Initialize SubscriptionComponentsController object."""
         super(SubscriptionComponentsController, self).__init__(config)
 
     def read_subscription_component(self,
                                     subscription_id,
                                     component_id):
-        """Does a GET request to /subscriptions/{subscription_id}/components/{component_id}.json.
+        """Perform a GET request to
+        /subscriptions/{subscription_id}/components/{component_id}.json.
 
         This request will list information regarding a specific component
         owned by a subscription.
@@ -62,36 +95,35 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/components/{component_id}.json')
+            .path("/subscriptions/{subscription_id}/components/{component_id}.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('component_id')
+                            .key("component_id")
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionComponentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()
 
     def list_subscription_components(self,
                                      options=dict()):
-        """Does a GET request to /subscriptions/{subscription_id}/components.json.
+        """Perform a GET request to /subscriptions/{subscription_id}/components.json.
 
         This request will list a subscription's applied components.
         ## Archived Components
@@ -105,7 +137,6 @@ class SubscriptionComponentsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     subscription_id -- int -- The Chargify id of the
                         subscription
                     date_field -- SubscriptionListDateField -- The type of
@@ -167,68 +198,68 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/components.json')
+            .path("/subscriptions/{subscription_id}/components.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('subscription_id')
-                            .value(options.get('subscription_id', None))
+                            .key("subscription_id")
+                            .value(options.get("subscription_id", None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('date_field')
-                         .value(options.get('date_field', None)))
+                         .key("date_field")
+                         .value(options.get("date_field", None)))
             .query_param(Parameter()
-                         .key('direction')
-                         .value(options.get('direction', None)))
+                         .key("direction")
+                         .value(options.get("direction", None)))
             .query_param(Parameter()
-                         .key('filter')
-                         .value(options.get('filter', None)))
+                         .key("filter")
+                         .value(options.get("filter", None)))
             .query_param(Parameter()
-                         .key('end_date')
-                         .value(options.get('end_date', None)))
+                         .key("end_date")
+                         .value(options.get("end_date", None)))
             .query_param(Parameter()
-                         .key('end_datetime')
-                         .value(options.get('end_datetime', None)))
+                         .key("end_datetime")
+                         .value(options.get("end_datetime", None)))
             .query_param(Parameter()
-                         .key('price_point_ids')
-                         .value(options.get('price_point_ids', None)))
+                         .key("price_point_ids")
+                         .value(options.get("price_point_ids", None)))
             .query_param(Parameter()
-                         .key('product_family_ids')
-                         .value(options.get('product_family_ids', None)))
+                         .key("product_family_ids")
+                         .value(options.get("product_family_ids", None)))
             .query_param(Parameter()
-                         .key('sort')
-                         .value(options.get('sort', None)))
+                         .key("sort")
+                         .value(options.get("sort", None)))
             .query_param(Parameter()
-                         .key('start_date')
-                         .value(options.get('start_date', None)))
+                         .key("start_date")
+                         .value(options.get("start_date", None)))
             .query_param(Parameter()
-                         .key('start_datetime')
-                         .value(options.get('start_datetime', None)))
+                         .key("start_datetime")
+                         .value(options.get("start_datetime", None)))
             .query_param(Parameter()
-                         .key('include')
-                         .value(options.get('include', None)))
+                         .key("include")
+                         .value(options.get("include", None)))
             .query_param(Parameter()
-                         .key('in_use')
-                         .value(options.get('in_use', None)))
+                         .key("in_use")
+                         .value(options.get("in_use", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionComponentResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def bulk_update_subscription_components_price_points(self,
                                                          subscription_id,
                                                          body=None):
-        """Does a POST request to /subscriptions/{subscription_id}/price_points.json.
+        """Perform a POST request to
+        /subscriptions/{subscription_id}/price_points.json.
 
         Updates the price points on one or more of a subscription's components.
         The `price_point` key can take either a:
@@ -253,37 +284,40 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/price_points.json')
+            .path("/subscriptions/{subscription_id}/price_points.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BulkComponentsPricePointAssignment.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ComponentPricePointErrorException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ComponentPricePointErrorException),
         ).execute()
 
     def bulk_reset_subscription_components_price_points(self,
                                                         subscription_id):
-        """Does a POST request to /subscriptions/{subscription_id}/price_points/reset.json.
+        """Perform a POST request to
+        /subscriptions/{subscription_id}/price_points/reset.json.
 
         Resets all of a subscription's components to use the current default.
         **Note**: this will update the price point for all of the
@@ -303,32 +337,32 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/price_points/reset.json')
+            .path("/subscriptions/{subscription_id}/price_points/reset.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def allocate_component(self,
                            subscription_id,
                            component_id,
                            body=None):
-        """Does a POST request to /subscriptions/{subscription_id}/components/{component_id}/allocations.json.
+        """Perform a POST request to
+        /subscriptions/{subscription_id}/components/{component_id}/allocations.json.
 
         This endpoint creates a new allocation, setting the current allocated
         quantity for the Component and recording a memo.
@@ -356,7 +390,7 @@ class SubscriptionComponentsController(BaseController):
         Allocations.](https://maxio-chargify.zendesk.com/hc/en-us/articles/5404
         527849997#proration-upgrades-vs-downgrades).
         See the tables below for valid values.
-        | upgrade_charge | Definition                                        
+        | upgrade_charge | Definition
         |
         |----------------|-----------------------------------------------------
         --------------|
@@ -364,23 +398,23 @@ class SubscriptionComponentsController(BaseController):
         component.            |
         | `prorated`     | A charge is added for the prorated price of the
         component change. |
-        | `none`         | No charge is added.                                
+        | `none`         | No charge is added.
         |
-        | downgrade_credit | Definition                                      
+        | downgrade_credit | Definition
         |
         |------------------|---------------------------------------------------
         |
         | `full`           | A full price credit is added for the amount owed.
         |
-        | `prorated`       | A prorated credit is added for the amount owed.  
+        | `prorated`       | A prorated credit is added for the amount owed.
         |
-        | `none`           | No charge is added.                              
+        | `none`           | No charge is added.
         |
-        | accrue_charge | Definition                                          
+        | accrue_charge | Definition
         |
         |---------------|------------------------------------------------------
         ------------------------------------------------------|
-        | `true`        | Attempt to charge the customer at next renewal.     
+        | `true`        | Attempt to charge the customer at next renewal.
         |
         | `false`       | Attempt to charge the customer right away. If it
         fails, the charge will be accrued until the next renewal. |
@@ -420,44 +454,47 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/components/{component_id}/allocations.json')
+            .path("/subscriptions/{subscription_id}/components/{component_id}/allocations.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('component_id')
+                            .key("component_id")
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AllocationResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def list_allocations(self,
                          subscription_id,
                          component_id,
                          page=1):
-        """Does a GET request to /subscriptions/{subscription_id}/components/{component_id}/allocations.json.
+        """Perform a GET request to
+        /subscriptions/{subscription_id}/components/{component_id}/allocations.json.
 
         This endpoint returns the 50 most recent Allocations, ordered by most
         recent first.
@@ -501,41 +538,44 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/components/{component_id}/allocations.json')
+            .path("/subscriptions/{subscription_id}/components/{component_id}/allocations.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('component_id')
+                            .key("component_id")
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('page')
+                         .key("page")
                          .value(page))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AllocationResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def allocate_components(self,
                             subscription_id,
                             body=None):
-        """Does a POST request to /subscriptions/{subscription_id}/allocations.json.
+        """Perform a POST request to
+        /subscriptions/{subscription_id}/allocations.json.
 
         Creates multiple allocations, setting the current allocated quantity
         for each of the components and recording a memo. The charges and/or
@@ -561,39 +601,42 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/allocations.json')
+            .path("/subscriptions/{subscription_id}/allocations.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AllocationResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def preview_allocations(self,
                             subscription_id,
                             body=None):
-        """Does a POST request to /subscriptions/{subscription_id}/allocations/preview.json.
+        """Perform a POST request to
+        /subscriptions/{subscription_id}/allocations/preview.json.
 
         Chargify offers the ability to preview a potential subscription's
         **quantity-based** or **on/off** component allocation in the middle of
@@ -626,32 +669,34 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/allocations/preview.json')
+            .path("/subscriptions/{subscription_id}/allocations/preview.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AllocationPreviewResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ComponentAllocationErrorException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ComponentAllocationErrorException),
         ).execute()
 
     def update_prepaid_usage_allocation_expiration_date(self,
@@ -659,7 +704,8 @@ class SubscriptionComponentsController(BaseController):
                                                         component_id,
                                                         allocation_id,
                                                         body=None):
-        """Does a PUT request to /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json.
+        """Perform a PUT request to
+        /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json.
 
         When the expiration interval options are selected on a prepaid usage
         component price point, all allocations will be created with an
@@ -696,38 +742,40 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json')
+            .path("/subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json")
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('component_id')
+                            .key("component_id")
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('allocation_id')
+                            .key("allocation_id")
                             .value(allocation_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SubscriptionComponentAllocationErrorException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                SubscriptionComponentAllocationErrorException),
         ).execute()
 
     def delete_prepaid_usage_allocation(self,
@@ -735,7 +783,8 @@ class SubscriptionComponentsController(BaseController):
                                         component_id,
                                         allocation_id,
                                         body=None):
-        """Does a DELETE request to /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json.
+        """Perform a DELETE request to
+        /subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json.
 
         Prepaid Usage components are unique in that their allocations are
         always additive. In order to reduce a subscription's allocated
@@ -770,45 +819,48 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json')
+            .path("/subscriptions/{subscription_id}/components/{component_id}/allocations/{allocation_id}.json")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('component_id')
+                            .key("component_id")
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('allocation_id')
+                            .key("allocation_id")
                             .value(allocation_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SubscriptionComponentAllocationErrorException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                SubscriptionComponentAllocationErrorException),
         ).execute()
 
     def create_usage(self,
                      subscription_id,
                      component_id,
                      body=None):
-        """Does a POST request to /subscriptions/{subscription_id}/components/{component_id}/usages.json.
+        """Perform a POST request to
+        /subscriptions/{subscription_id}/components/{component_id}/usages.json.
 
         ## Documentation
         Full documentation on how to create Components in the Chargify UI can
@@ -898,43 +950,47 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/components/{component_id}/usages.json')
+            .path("/subscriptions/{subscription_id}/components/{component_id}/usages.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('component_id')
+                            .key("component_id")
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True)
-                            .validator(lambda value: UnionTypeLookUp.get('CreateUsageComponentId').validate(value)))
+                            .validator(lambda value: UnionTypeLookUp
+                                .get("CreateUsageComponentId").validate(value)))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(UsageResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template("422",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                ErrorListResponseException),
         ).execute()
 
     def list_usages(self,
                     options=dict()):
-        """Does a GET request to /subscriptions/{subscription_id}/components/{component_id}/usages.json.
+        """Perform a GET request to
+        /subscriptions/{subscription_id}/components/{component_id}/usages.json.
 
         This request will return a list of the usages associated with a
         subscription for a particular metered component. This will display the
@@ -959,7 +1015,6 @@ class SubscriptionComponentsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     subscription_id -- int -- The Chargify id of the
                         subscription
                     component_id -- int | str -- Either the Chargify id for
@@ -1001,55 +1056,56 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions/{subscription_id}/components/{component_id}/usages.json')
+            .path("/subscriptions/{subscription_id}/components/{component_id}/usages.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('subscription_id')
-                            .value(options.get('subscription_id', None))
+                            .key("subscription_id")
+                            .value(options.get("subscription_id", None))
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('component_id')
-                            .value(options.get('component_id', None))
+                            .key("component_id")
+                            .value(options.get("component_id", None))
                             .is_required(True)
                             .should_encode(True)
-                            .validator(lambda value: UnionTypeLookUp.get('ListUsagesInputComponentId').validate(value)))
+                            .validator(lambda value: UnionTypeLookUp
+                                .get("ListUsagesInputComponentId").validate(value)))
             .query_param(Parameter()
-                         .key('since_id')
-                         .value(options.get('since_id', None)))
+                         .key("since_id")
+                         .value(options.get("since_id", None)))
             .query_param(Parameter()
-                         .key('max_id')
-                         .value(options.get('max_id', None)))
+                         .key("max_id")
+                         .value(options.get("max_id", None)))
             .query_param(Parameter()
-                         .key('since_date')
-                         .value(options.get('since_date', None)))
+                         .key("since_date")
+                         .value(options.get("since_date", None)))
             .query_param(Parameter()
-                         .key('until_date')
-                         .value(options.get('until_date', None)))
+                         .key("until_date")
+                         .value(options.get("until_date", None)))
             .query_param(Parameter()
-                         .key('page')
-                         .value(options.get('page', None)))
+                         .key("page")
+                         .value(options.get("page", None)))
             .query_param(Parameter()
-                         .key('per_page')
-                         .value(options.get('per_page', None)))
+                         .key("per_page")
+                         .value(options.get("per_page", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(UsageResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def activate_event_based_component(self,
                                        subscription_id,
                                        component_id):
-        """Does a POST request to /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/activate.json.
+        """Perform a POST request to
+        /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/activate.json.
 
         In order to bill your subscribers on your Events data under the
         Events-Based Billing feature, the components must be activated for the
@@ -1080,31 +1136,31 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/event_based_billing/subscriptions/{subscription_id}/components/{component_id}/activate.json')
+            .path("/event_based_billing/subscriptions/{subscription_id}/components/{component_id}/activate.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('component_id')
+                            .key("component_id")
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def deactivate_event_based_component(self,
                                          subscription_id,
                                          component_id):
-        """Does a POST request to /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/deactivate.json.
+        """Perform a POST request to
+        /event_based_billing/subscriptions/{subscription_id}/components/{component_id}/deactivate.json.
 
         Use this endpoint to deactivate an event-based component for a single
         subscription. Deactivating the event-based component causes Chargify
@@ -1125,25 +1181,24 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/event_based_billing/subscriptions/{subscription_id}/components/{component_id}/deactivate.json')
+            .path("/event_based_billing/subscriptions/{subscription_id}/components/{component_id}/deactivate.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subscription_id')
+                            .key("subscription_id")
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('component_id')
+                            .key("component_id")
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def record_event(self,
@@ -1151,7 +1206,7 @@ class SubscriptionComponentsController(BaseController):
                      api_handle,
                      store_uid=None,
                      body=None):
-        """Does a POST request to /{subdomain}/events/{api_handle}.json.
+        """Perform a POST request to /{subdomain}/events/{api_handle}.json.
 
         ## Documentation
         Events-Based Billing is an evolved form of metered billing that is
@@ -1194,34 +1249,33 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/{subdomain}/events/{api_handle}.json')
+            .path("/{subdomain}/events/{api_handle}.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subdomain')
+                            .key("subdomain")
                             .value(subdomain)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('api_handle')
+                            .key("api_handle")
                             .value(api_handle)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .query_param(Parameter()
-                         .key('store_uid')
+                         .key("store_uid")
                          .value(store_uid))
             .body_param(Parameter()
                         .value(body))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def bulk_record_events(self,
@@ -1229,7 +1283,7 @@ class SubscriptionComponentsController(BaseController):
                            api_handle,
                            store_uid=None,
                            body=None):
-        """Does a POST request to /{subdomain}/events/{api_handle}/bulk.json.
+        """Perform a POST request to /{subdomain}/events/{api_handle}/bulk.json.
 
         Use this endpoint to record a collection of events.
         *Note: this endpoint differs from the standard Chargify endpoints in
@@ -1258,39 +1312,38 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/{subdomain}/events/{api_handle}/bulk.json')
+            .path("/{subdomain}/events/{api_handle}/bulk.json")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key('subdomain')
+                            .key("subdomain")
                             .value(subdomain)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key('api_handle')
+                            .key("api_handle")
                             .value(api_handle)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .query_param(Parameter()
-                         .key('store_uid')
+                         .key("store_uid")
                          .value(store_uid))
             .body_param(Parameter()
                         .value(body))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()
 
     def list_subscription_components_for_site(self,
                                               options=dict()):
-        """Does a GET request to /subscriptions_components.json.
+        """Perform a GET request to /subscriptions_components.json.
 
         This request will list components applied to each subscription.
 
@@ -1300,7 +1353,6 @@ class SubscriptionComponentsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
                         page parameter specifies a page number of results to
@@ -1378,61 +1430,60 @@ class SubscriptionComponentsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/subscriptions_components.json')
+            .path("/subscriptions_components.json")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key('page')
-                         .value(options.get('page', None)))
+                         .key("page")
+                         .value(options.get("page", None)))
             .query_param(Parameter()
-                         .key('per_page')
-                         .value(options.get('per_page', None)))
+                         .key("per_page")
+                         .value(options.get("per_page", None)))
             .query_param(Parameter()
-                         .key('sort')
-                         .value(options.get('sort', None)))
+                         .key("sort")
+                         .value(options.get("sort", None)))
             .query_param(Parameter()
-                         .key('direction')
-                         .value(options.get('direction', None)))
+                         .key("direction")
+                         .value(options.get("direction", None)))
             .query_param(Parameter()
-                         .key('filter')
-                         .value(options.get('filter', None)))
+                         .key("filter")
+                         .value(options.get("filter", None)))
             .query_param(Parameter()
-                         .key('date_field')
-                         .value(options.get('date_field', None)))
+                         .key("date_field")
+                         .value(options.get("date_field", None)))
             .query_param(Parameter()
-                         .key('start_date')
-                         .value(options.get('start_date', None)))
+                         .key("start_date")
+                         .value(options.get("start_date", None)))
             .query_param(Parameter()
-                         .key('start_datetime')
-                         .value(options.get('start_datetime', None)))
+                         .key("start_datetime")
+                         .value(options.get("start_datetime", None)))
             .query_param(Parameter()
-                         .key('end_date')
-                         .value(options.get('end_date', None)))
+                         .key("end_date")
+                         .value(options.get("end_date", None)))
             .query_param(Parameter()
-                         .key('end_datetime')
-                         .value(options.get('end_datetime', None)))
+                         .key("end_datetime")
+                         .value(options.get("end_datetime", None)))
             .query_param(Parameter()
-                         .key('subscription_ids')
-                         .value(options.get('subscription_ids', None)))
+                         .key("subscription_ids")
+                         .value(options.get("subscription_ids", None)))
             .query_param(Parameter()
-                         .key('price_point_ids')
-                         .value(options.get('price_point_ids', None)))
+                         .key("price_point_ids")
+                         .value(options.get("price_point_ids", None)))
             .query_param(Parameter()
-                         .key('product_family_ids')
-                         .value(options.get('product_family_ids', None)))
+                         .key("product_family_ids")
+                         .value(options.get("product_family_ids", None)))
             .query_param(Parameter()
-                         .key('include')
-                         .value(options.get('include', None)))
+                         .key("include")
+                         .value(options.get("include", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single('BasicAuth'))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListSubscriptionComponentsResponse.from_dictionary)
-            .is_api_response(True)
+            .is_api_response(True),
         ).execute()

@@ -1,16 +1,13 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from advancedbilling.api_helper import APIHelper
 
 
 class InvoiceRefund(object):
-
     """Implementation of the 'Invoice Refund' model.
 
     Attributes:
@@ -30,30 +27,30 @@ class InvoiceRefund(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "transaction_id": 'transaction_id',
-        "payment_id": 'payment_id',
-        "memo": 'memo',
-        "original_amount": 'original_amount',
-        "applied_amount": 'applied_amount',
-        "gateway_transaction_id": 'gateway_transaction_id',
-        "gateway_used": 'gateway_used',
-        "gateway_handle": 'gateway_handle'
+        "transaction_id": "transaction_id",
+        "payment_id": "payment_id",
+        "memo": "memo",
+        "original_amount": "original_amount",
+        "applied_amount": "applied_amount",
+        "gateway_transaction_id": "gateway_transaction_id",
+        "gateway_used": "gateway_used",
+        "gateway_handle": "gateway_handle",
     }
 
     _optionals = [
-        'transaction_id',
-        'payment_id',
-        'memo',
-        'original_amount',
-        'applied_amount',
-        'gateway_transaction_id',
-        'gateway_used',
-        'gateway_handle',
+        "transaction_id",
+        "payment_id",
+        "memo",
+        "original_amount",
+        "applied_amount",
+        "gateway_transaction_id",
+        "gateway_used",
+        "gateway_handle",
     ]
 
     _nullables = [
-        'gateway_transaction_id',
-        'gateway_handle',
+        "gateway_transaction_id",
+        "gateway_handle",
     ]
 
     def __init__(self,
@@ -66,25 +63,24 @@ class InvoiceRefund(object):
                  gateway_used=APIHelper.SKIP,
                  gateway_handle=APIHelper.SKIP,
                  additional_properties=None):
-        """Constructor for the InvoiceRefund class"""
-
+        """Initialize a InvoiceRefund instance."""
         # Initialize members of the class
         if transaction_id is not APIHelper.SKIP:
-            self.transaction_id = transaction_id 
+            self.transaction_id = transaction_id
         if payment_id is not APIHelper.SKIP:
-            self.payment_id = payment_id 
+            self.payment_id = payment_id
         if memo is not APIHelper.SKIP:
-            self.memo = memo 
+            self.memo = memo
         if original_amount is not APIHelper.SKIP:
-            self.original_amount = original_amount 
+            self.original_amount = original_amount
         if applied_amount is not APIHelper.SKIP:
-            self.applied_amount = applied_amount 
+            self.applied_amount = applied_amount
         if gateway_transaction_id is not APIHelper.SKIP:
-            self.gateway_transaction_id = gateway_transaction_id 
+            self.gateway_transaction_id = gateway_transaction_id
         if gateway_used is not APIHelper.SKIP:
-            self.gateway_used = gateway_used 
+            self.gateway_used = gateway_used
         if gateway_handle is not APIHelper.SKIP:
-            self.gateway_handle = gateway_handle 
+            self.gateway_handle = gateway_handle
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -94,7 +90,7 @@ class InvoiceRefund(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -105,21 +101,37 @@ class InvoiceRefund(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        transaction_id = dictionary.get("transaction_id") if dictionary.get("transaction_id") else APIHelper.SKIP
-        payment_id = dictionary.get("payment_id") if dictionary.get("payment_id") else APIHelper.SKIP
-        memo = dictionary.get("memo") if dictionary.get("memo") else APIHelper.SKIP
-        original_amount = dictionary.get("original_amount") if dictionary.get("original_amount") else APIHelper.SKIP
-        applied_amount = dictionary.get("applied_amount") if dictionary.get("applied_amount") else APIHelper.SKIP
-        gateway_transaction_id = dictionary.get("gateway_transaction_id") if "gateway_transaction_id" in dictionary.keys() else APIHelper.SKIP
-        gateway_used = dictionary.get("gateway_used") if dictionary.get("gateway_used") else APIHelper.SKIP
-        gateway_handle = dictionary.get("gateway_handle") if "gateway_handle" in dictionary.keys() else APIHelper.SKIP
+        transaction_id =\
+            dictionary.get("transaction_id")\
+            if dictionary.get("transaction_id") else APIHelper.SKIP
+        payment_id =\
+            dictionary.get("payment_id")\
+            if dictionary.get("payment_id") else APIHelper.SKIP
+        memo =\
+            dictionary.get("memo")\
+            if dictionary.get("memo") else APIHelper.SKIP
+        original_amount =\
+            dictionary.get("original_amount")\
+            if dictionary.get("original_amount") else APIHelper.SKIP
+        applied_amount =\
+            dictionary.get("applied_amount")\
+            if dictionary.get("applied_amount") else APIHelper.SKIP
+        gateway_transaction_id =\
+            dictionary.get("gateway_transaction_id")\
+            if "gateway_transaction_id" in dictionary.keys() else APIHelper.SKIP
+        gateway_used =\
+            dictionary.get("gateway_used")\
+            if dictionary.get("gateway_used") else APIHelper.SKIP
+        gateway_handle =\
+            dictionary.get("gateway_handle")\
+            if "gateway_handle" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(transaction_id,
                    payment_id,
@@ -133,7 +145,7 @@ class InvoiceRefund(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validates dictionary against class required properties
+        """Validate dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -144,7 +156,6 @@ class InvoiceRefund(object):
             boolean : if dictionary is valid contains required properties.
 
         """
-
         if isinstance(dictionary, cls):
             return True
 
@@ -154,25 +165,41 @@ class InvoiceRefund(object):
         return True
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'transaction_id={(self.transaction_id if hasattr(self, "transaction_id") else None)!r}, '
-                f'payment_id={(self.payment_id if hasattr(self, "payment_id") else None)!r}, '
-                f'memo={(self.memo if hasattr(self, "memo") else None)!r}, '
-                f'original_amount={(self.original_amount if hasattr(self, "original_amount") else None)!r}, '
-                f'applied_amount={(self.applied_amount if hasattr(self, "applied_amount") else None)!r}, '
-                f'gateway_transaction_id={(self.gateway_transaction_id if hasattr(self, "gateway_transaction_id") else None)!r}, '
-                f'gateway_used={(self.gateway_used if hasattr(self, "gateway_used") else None)!r}, '
-                f'gateway_handle={(self.gateway_handle if hasattr(self, "gateway_handle") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        return (f"{self.__class__.__name__}("
+                f"transaction_id={(self.transaction_id
+                     if hasattr(self, 'transaction_id') else None)!r}, "
+                f"payment_id={(self.payment_id
+                     if hasattr(self, 'payment_id') else None)!r}, "
+                f"memo={(self.memo if hasattr(self, 'memo') else None)!r}, "
+                f"original_amount={(self.original_amount
+                     if hasattr(self, 'original_amount') else None)!r}, "
+                f"applied_amount={(self.applied_amount
+                     if hasattr(self, 'applied_amount') else None)!r}, "
+                f"gateway_transaction_id={(self.gateway_transaction_id
+                     if hasattr(self, 'gateway_transaction_id') else None)!r}, "
+                f"gateway_used={(self.gateway_used
+                     if hasattr(self, 'gateway_used') else None)!r}, "
+                f"gateway_handle={(self.gateway_handle
+                     if hasattr(self, 'gateway_handle') else None)!r}, "
+                f"additional_properties={self.additional_properties!r})")
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'transaction_id={(self.transaction_id if hasattr(self, "transaction_id") else None)!s}, '
-                f'payment_id={(self.payment_id if hasattr(self, "payment_id") else None)!s}, '
-                f'memo={(self.memo if hasattr(self, "memo") else None)!s}, '
-                f'original_amount={(self.original_amount if hasattr(self, "original_amount") else None)!s}, '
-                f'applied_amount={(self.applied_amount if hasattr(self, "applied_amount") else None)!s}, '
-                f'gateway_transaction_id={(self.gateway_transaction_id if hasattr(self, "gateway_transaction_id") else None)!s}, '
-                f'gateway_used={(self.gateway_used if hasattr(self, "gateway_used") else None)!s}, '
-                f'gateway_handle={(self.gateway_handle if hasattr(self, "gateway_handle") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        return (f"{self.__class__.__name__}("
+                f"transaction_id={(self.transaction_id
+                     if hasattr(self, 'transaction_id') else None)!s}, "
+                f"payment_id={(self.payment_id
+                     if hasattr(self, 'payment_id') else None)!s}, "
+                f"memo={(self.memo if hasattr(self, 'memo') else None)!s}, "
+                f"original_amount={(self.original_amount
+                     if hasattr(self, 'original_amount') else None)!s}, "
+                f"applied_amount={(self.applied_amount
+                     if hasattr(self, 'applied_amount') else None)!s}, "
+                f"gateway_transaction_id={(self.gateway_transaction_id
+                     if hasattr(self, 'gateway_transaction_id') else None)!s}, "
+                f"gateway_used={(self.gateway_used
+                     if hasattr(self, 'gateway_used') else None)!s}, "
+                f"gateway_handle={(self.gateway_handle
+                     if hasattr(self, 'gateway_handle') else None)!s}, "
+                f"additional_properties={self.additional_properties!s})")

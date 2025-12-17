@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `address_type` | [`str`](../../doc/models/string-enum.md) | Required | Type of the address. This is a code. You can find the possible values at [Address types](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes/address-types)<br><br>**Default**: `'01'`<br><br>**Constraints**: *Pattern*: `^\d{2}$` |
+| `address_type` | [`str`](../../doc/models/string-enum.md) | Required | Type of the address. This is a code. You can find the possible values at [Address types](https://developer.postnl.nl/docs/#/http/reference-data/reference-codes/address-types)<br><br>**Default**: `"01"`<br><br>**Constraints**: *Pattern*: `^\d{2}$` |
 | `area` | [`str`](../../doc/models/string-enum.md) | Optional | Area of the address<br><br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `35` |
 | `buildingname` | [`str`](../../doc/models/string-enum.md) | Optional | Building name of the address<br><br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `35` |
 | `city` | [`str`](../../doc/models/string-enum.md) | Optional | City of the address<br><br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `35` |

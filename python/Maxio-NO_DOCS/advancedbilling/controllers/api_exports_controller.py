@@ -1,38 +1,53 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.http.api_response import ApiResponse
-from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.authentication.multiple.single_auth import (
+    Single,
+)
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-from advancedbilling.http.http_method_enum import HttpMethodEnum
-from apimatic_core.authentication.multiple.single_auth import Single
-from advancedbilling.models.proforma_invoice import ProformaInvoice
+
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.controllers.base_controller import (
+    BaseController,
+)
+from advancedbilling.exceptions.api_exception import (
+    APIException,
+)
+from advancedbilling.exceptions.single_error_response_exception import (
+    SingleErrorResponseException,
+)
+from advancedbilling.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from advancedbilling.models.batch_job_response import (
+    BatchJobResponse,
+)
 from advancedbilling.models.invoice import Invoice
-from advancedbilling.models.subscription import Subscription
-from advancedbilling.models.batch_job_response import BatchJobResponse
-from advancedbilling.exceptions.api_exception import APIException
-from advancedbilling.exceptions.single_error_response_exception import SingleErrorResponseException
+from advancedbilling.models.proforma_invoice import (
+    ProformaInvoice,
+)
+from advancedbilling.models.subscription import (
+    Subscription,
+)
 
 
 class APIExportsController(BaseController):
-
     """A Controller to access Endpoints in the advancedbilling API."""
+
     def __init__(self, config):
+        """Initialize APIExportsController object."""
         super(APIExportsController, self).__init__(config)
 
     def list_exported_proforma_invoices(self,
                                         options=dict()):
-        """Does a GET request to /api_exports/proforma_invoices/{batch_id}/rows.json.
+        """Perform a GET request to
+        /api_exports/proforma_invoices/{batch_id}/rows.json.
 
         This API returns an array of exported proforma invoices for a provided
         `batch_id`. Pay close attention to pagination in order to control
@@ -47,7 +62,6 @@ class APIExportsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     batch_id -- str -- Id of a Batch Job.
                     per_page -- int -- This parameter indicates how many
                         records to fetch in each request.  Default value is
@@ -74,37 +88,36 @@ class APIExportsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/api_exports/proforma_invoices/{batch_id}/rows.json')
+            .path("/api_exports/proforma_invoices/{batch_id}/rows.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('batch_id')
-                            .value(options.get('batch_id', None))
+                            .key("batch_id")
+                            .value(options.get("batch_id", None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('per_page')
-                         .value(options.get('per_page', None)))
+                         .key("per_page")
+                         .value(options.get("per_page", None)))
             .query_param(Parameter()
-                         .key('page')
-                         .value(options.get('page', None)))
+                         .key("page")
+                         .value(options.get("page", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProformaInvoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()
 
     def list_exported_invoices(self,
                                options=dict()):
-        """Does a GET request to /api_exports/invoices/{batch_id}/rows.json.
+        """Perform a GET request to /api_exports/invoices/{batch_id}/rows.json.
 
         This API returns an array of exported invoices for a provided
         `batch_id`. Pay close attention to pagination in order to control
@@ -119,7 +132,6 @@ class APIExportsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     batch_id -- str -- Id of a Batch Job.
                     per_page -- int -- This parameter indicates how many
                         records to fetch in each request.  Default value is
@@ -146,37 +158,36 @@ class APIExportsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/api_exports/invoices/{batch_id}/rows.json')
+            .path("/api_exports/invoices/{batch_id}/rows.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('batch_id')
-                            .value(options.get('batch_id', None))
+                            .key("batch_id")
+                            .value(options.get("batch_id", None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('per_page')
-                         .value(options.get('per_page', None)))
+                         .key("per_page")
+                         .value(options.get("per_page", None)))
             .query_param(Parameter()
-                         .key('page')
-                         .value(options.get('page', None)))
+                         .key("page")
+                         .value(options.get("page", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Invoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()
 
     def list_exported_subscriptions(self,
                                     options=dict()):
-        """Does a GET request to /api_exports/subscriptions/{batch_id}/rows.json.
+        """Perform a GET request to /api_exports/subscriptions/{batch_id}/rows.json.
 
         This API returns an array of exported subscriptions for a provided
         `batch_id`. Pay close attention to pagination in order to control
@@ -191,7 +202,6 @@ class APIExportsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
-
                     batch_id -- str -- Id of a Batch Job.
                     per_page -- int -- This parameter indicates how many
                         records to fetch in each request.  Default value is
@@ -218,36 +228,35 @@ class APIExportsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/api_exports/subscriptions/{batch_id}/rows.json')
+            .path("/api_exports/subscriptions/{batch_id}/rows.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('batch_id')
-                            .value(options.get('batch_id', None))
+                            .key("batch_id")
+                            .value(options.get("batch_id", None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key('per_page')
-                         .value(options.get('per_page', None)))
+                         .key("per_page")
+                         .value(options.get("per_page", None)))
             .query_param(Parameter()
-                         .key('page')
-                         .value(options.get('page', None)))
+                         .key("page")
+                         .value(options.get("page", None)))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Subscription.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()
 
     def export_proforma_invoices(self):
-        """Does a POST request to /api_exports/proforma_invoices.json.
+        """Perform a POST request to /api_exports/proforma_invoices.json.
 
         This API creates a proforma invoices export and returns a batchjob
         object.
@@ -264,26 +273,28 @@ class APIExportsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/api_exports/proforma_invoices.json')
+            .path("/api_exports/proforma_invoices.json")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BatchJobResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
-            .local_error_template('409', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SingleErrorResponseException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
+            .local_error_template("409",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                SingleErrorResponseException),
         ).execute()
 
     def export_invoices(self):
-        """Does a POST request to /api_exports/invoices.json.
+        """Perform a POST request to /api_exports/invoices.json.
 
         This API creates an invoices export and returns a batchjob object.
 
@@ -298,26 +309,28 @@ class APIExportsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/api_exports/invoices.json')
+            .path("/api_exports/invoices.json")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BatchJobResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
-            .local_error_template('409', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SingleErrorResponseException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
+            .local_error_template("409",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                SingleErrorResponseException),
         ).execute()
 
     def export_subscriptions(self):
-        """Does a POST request to /api_exports/subscriptions.json.
+        """Perform a POST request to /api_exports/subscriptions.json.
 
         This API creates a subscriptions export and returns a batchjob object.
 
@@ -332,26 +345,28 @@ class APIExportsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/api_exports/subscriptions.json')
+            .path("/api_exports/subscriptions.json")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BatchJobResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('409', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SingleErrorResponseException)
+            .local_error_template("409",
+                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
+                "$response.body}'.",
+                SingleErrorResponseException),
         ).execute()
 
     def read_proforma_invoices_export(self,
                                       batch_id):
-        """Does a GET request to /api_exports/proforma_invoices/{batch_id}.json.
+        """Perform a GET request to /api_exports/proforma_invoices/{batch_id}.json.
 
         This API returns a batchjob object for proforma invoices export.
 
@@ -369,31 +384,30 @@ class APIExportsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/api_exports/proforma_invoices/{batch_id}.json')
+            .path("/api_exports/proforma_invoices/{batch_id}.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('batch_id')
+                            .key("batch_id")
                             .value(batch_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BatchJobResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()
 
     def read_invoices_export(self,
                              batch_id):
-        """Does a GET request to /api_exports/invoices/{batch_id}.json.
+        """Perform a GET request to /api_exports/invoices/{batch_id}.json.
 
         This API returns a batchjob object for invoices export.
 
@@ -411,31 +425,30 @@ class APIExportsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/api_exports/invoices/{batch_id}.json')
+            .path("/api_exports/invoices/{batch_id}.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('batch_id')
+                            .key("batch_id")
                             .value(batch_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BatchJobResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()
 
     def read_subscriptions_export(self,
                                   batch_id):
-        """Does a GET request to /api_exports/subscriptions/{batch_id}.json.
+        """Perform a GET request to /api_exports/subscriptions/{batch_id}.json.
 
         This API returns a batchjob object for subscriptions export.
 
@@ -453,24 +466,23 @@ class APIExportsController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path('/api_exports/subscriptions/{batch_id}.json')
+            .path("/api_exports/subscriptions/{batch_id}.json")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key('batch_id')
+                            .key("batch_id")
                             .value(batch_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
-            .auth(Single('BasicAuth'))
+                          .key("accept")
+                          .value("application/json"))
+            .auth(Single("BasicAuth")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BatchJobResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
         ).execute()

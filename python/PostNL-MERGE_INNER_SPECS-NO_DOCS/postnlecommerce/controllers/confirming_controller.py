@@ -1,36 +1,48 @@
-# -*- coding: utf-8 -*-
-
-"""
-postnlecommerce
+"""postnlecommerce.
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.configuration import Server
-from postnlecommerce.http.api_response import ApiResponse
-from postnlecommerce.controllers.base_controller import BaseController
+from apimatic_core.authentication.multiple.single_auth import (
+    Single,
+)
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-from postnlecommerce.http.http_method_enum import HttpMethodEnum
-from apimatic_core.authentication.multiple.single_auth import Single
-from postnlecommerce.models.confirming_response import ConfirmingResponse
-from postnlecommerce.exceptions.confirming_response_error_1_exception import ConfirmingResponseError1Exception
-from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import MethodNotAllowedOnlyGetPostException
-from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
+
+from postnlecommerce.api_helper import APIHelper
+from postnlecommerce.configuration import Server
+from postnlecommerce.controllers.base_controller import (
+    BaseController,
+)
+from postnlecommerce.exceptions.barcode_response_error_exception import (
+    BarcodeResponseErrorException,
+)
+from postnlecommerce.exceptions.confirming_response_error_1_exception import (
+    ConfirmingResponseError1Exception,
+)
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import (
+    MethodNotAllowedOnlyGetPostException,
+)
+from postnlecommerce.http.http_method_enum import (
+    HttpMethodEnum,
+)
+from postnlecommerce.models.confirming_response import (
+    ConfirmingResponse,
+)
 
 
 class ConfirmingController(BaseController):
-
     """A Controller to access Endpoints in the postnlecommerce API."""
+
     def __init__(self, config):
+        """Initialize ConfirmingController object."""
         super(ConfirmingController, self).__init__(config)
 
     def confirm_shipment(self,
                          body):
-        """Does a POST request to /shipment/v2/confirm.
+        """Perform a POST request to /shipment/v2/confirm.
 
         Args:
             body (ConfirmingRequest): The request body parameter.
@@ -47,29 +59,32 @@ class ConfirmingController(BaseController):
                 the request.
 
         """
-
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path('/shipment/v2/confirm')
+            .path("/shipment/v2/confirm")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key('Content-Type')
-                          .value('application/json'))
+                          .key("Content-Type")
+                          .value("application/json"))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key('accept')
-                          .value('application/json'))
+                          .key("accept")
+                          .value("application/json"))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single('APIKeyHeader'))
+            .auth(Single("APIKeyHeader")),
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ConfirmingResponse.from_dictionary)
             .is_api_response(True)
-            .local_error('400', 'Error payload', ConfirmingResponseError1Exception)
-            .local_error('401', 'Invalid apikey', MethodNotAllowedOnlyGetPostException)
-            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
-            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
-            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
+            .local_error("400", "Error payload", ConfirmingResponseError1Exception)
+            .local_error("401", "Invalid apikey", MethodNotAllowedOnlyGetPostException)
+            .local_error("405",
+                "Method not allowed",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("429",
+                "Too many requests",
+                MethodNotAllowedOnlyGetPostException)
+            .local_error("500", "Internal server error", BarcodeResponseErrorException),
         ).execute()

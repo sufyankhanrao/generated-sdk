@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-advanced_billing
+"""advanced_billing.
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class CurrentVault(object):
-
     """Implementation of the 'Current Vault' enum.
 
     The vault that stores the payment profile with the provided `vault_token`.
@@ -47,64 +43,65 @@ class CurrentVault(object):
             for the model.
 
     """
-    _all_values = ['adyen', 'authorizenet', 'avalara', 'beanstream', 'blue_snap', 'bogus', 'braintree_blue', 'checkout', 'cybersource', 'elavon', 'eway', 'eway_rapid_std', 'firstdata', 'forte', 'gocardless', 'litle', 'maxio_payments', 'moduslink', 'moneris', 'nmi', 'orbital', 'payment_express', 'pin', 'square', 'stripe_connect', 'trust_commerce', 'unipaas']
-    ADYEN = 'adyen'
 
-    AUTHORIZENET = 'authorizenet'
+    _all_values = ["adyen", "authorizenet", "avalara", "beanstream", "blue_snap", "bogus", "braintree_blue", "checkout", "cybersource", "elavon", "eway", "eway_rapid_std", "firstdata", "forte", "gocardless", "litle", "maxio_payments", "moduslink", "moneris", "nmi", "orbital", "payment_express", "pin", "square", "stripe_connect", "trust_commerce", "unipaas"]
+    ADYEN = "adyen"
 
-    AVALARA = 'avalara'
+    AUTHORIZENET = "authorizenet"
 
-    BEANSTREAM = 'beanstream'
+    AVALARA = "avalara"
 
-    BLUE_SNAP = 'blue_snap'
+    BEANSTREAM = "beanstream"
 
-    BOGUS = 'bogus'
+    BLUE_SNAP = "blue_snap"
 
-    BRAINTREE_BLUE = 'braintree_blue'
+    BOGUS = "bogus"
 
-    CHECKOUT = 'checkout'
+    BRAINTREE_BLUE = "braintree_blue"
 
-    CYBERSOURCE = 'cybersource'
+    CHECKOUT = "checkout"
 
-    ELAVON = 'elavon'
+    CYBERSOURCE = "cybersource"
 
-    EWAY = 'eway'
+    ELAVON = "elavon"
 
-    EWAY_RAPID_STD = 'eway_rapid_std'
+    EWAY = "eway"
 
-    FIRSTDATA = 'firstdata'
+    EWAY_RAPID_STD = "eway_rapid_std"
 
-    FORTE = 'forte'
+    FIRSTDATA = "firstdata"
 
-    GOCARDLESS = 'gocardless'
+    FORTE = "forte"
 
-    LITLE = 'litle'
+    GOCARDLESS = "gocardless"
 
-    MAXIO_PAYMENTS = 'maxio_payments'
+    LITLE = "litle"
 
-    MODUSLINK = 'moduslink'
+    MAXIO_PAYMENTS = "maxio_payments"
 
-    MONERIS = 'moneris'
+    MODUSLINK = "moduslink"
 
-    NMI = 'nmi'
+    MONERIS = "moneris"
 
-    ORBITAL = 'orbital'
+    NMI = "nmi"
 
-    PAYMENT_EXPRESS = 'payment_express'
+    ORBITAL = "orbital"
 
-    PIN = 'pin'
+    PAYMENT_EXPRESS = "payment_express"
 
-    SQUARE = 'square'
+    PIN = "pin"
 
-    STRIPE_CONNECT = 'stripe_connect'
+    SQUARE = "square"
 
-    TRUST_COMMERCE = 'trust_commerce'
+    STRIPE_CONNECT = "stripe_connect"
 
-    UNIPAAS = 'unipaas'
+    TRUST_COMMERCE = "trust_commerce"
+
+    UNIPAAS = "unipaas"
 
     @classmethod
     def validate(cls, value):
-        """Validates value contains in enum
+        """Validate value contains in enum
 
         Args:
             value: the value to be validated
@@ -114,9 +111,10 @@ class CurrentVault(object):
 
         """
         return value in cls._all_values
-   
+
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

@@ -19,8 +19,8 @@ A list of recipient parties you're sending the folder to. Every entry must conta
 | `signer_auth_level` | [`SignerAuthLevelsEnum`](../../doc/models/signer-auth-levels-enum.md) | Optional | The level of authentication that a signer will leverage for verification purposes |
 | `is_placeholder` | `bool` | Optional | Use this field to initiate the party is a placeholder. Note: 1. firstName, lastName, emailId parameter's value must be blank of this party. 2. To add the placeholder, one recipient must be requred with 'PARTY_ASSIGNER' permission.<br><br>**Default**: `False` |
 | `party_role` | `str` | Optional | Use this field to assign a role of placeholder. |
-| `allow_name_change` | `str` | Optional | Value can be either true or false Use this parameter for allowing signer to update first and last name before completing the signing process.<br><br>**Default**: `'false'` |
-| `party_is_email_group` | `str` | Optional | Use this parameter when creating a party as bulk. **Note:** Please make sure the "Update Name Change"option is enabled from company settings.<br><br>**Default**: `'false'` |
+| `allow_name_change` | `str` | Optional | Value can be either true or false Use this parameter for allowing signer to update first and last name before completing the signing process.<br><br>**Default**: `"false"` |
+| `party_is_email_group` | `str` | Optional | Use this parameter when creating a party as bulk. **Note:** Please make sure the "Update Name Change"option is enabled from company settings.<br><br>**Default**: `"false"` |
 | `workflow_sequence` | `int` | Optional | **Default**: `1` |
 | `host_email_id` | `str` | Optional | Email address of In-Person Administrator |
 

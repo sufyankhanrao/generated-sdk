@@ -23,7 +23,7 @@ URI to get the all the chain codes for a PayFac.
 ```python
 def get_chains(self,
               v_correlation_id,
-              content_type='application/json')
+              content_type="application/json")
 ```
 
 ## Parameters
@@ -31,7 +31,7 @@ def get_chains(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 
@@ -73,7 +73,7 @@ URI to get the configuration for a specific chain code
 def get_chain_config(self,
                     v_correlation_id,
                     chain_code,
-                    content_type='application/json')
+                    content_type="application/json")
 ```
 
 ## Parameters
@@ -82,7 +82,7 @@ def get_chain_config(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `chain_code` | `str` | Template, Required | The chain code |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
 
 ## Response Type
 
