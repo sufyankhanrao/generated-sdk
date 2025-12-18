@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type5Enum`](../../doc/models/type-5-enum.md) | Optional | Resource Type<br><br>**Default**: `"AsyncProcessing"` |
+| `mtype` | [`Type5Enum`](../../doc/models/type-5-enum.md) | Optional | Resource Type<br><br>**Default**: `'AsyncProcessing'` |
 | `data` | [`Data1`](../../doc/models/data-1.md) | Optional | - |
 
 ## Example (as JSON)

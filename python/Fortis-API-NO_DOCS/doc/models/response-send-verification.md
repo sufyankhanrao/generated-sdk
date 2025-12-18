@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type116Enum`](../../doc/models/type-116-enum.md) | Optional | Resource Type<br><br>**Default**: `"SendVerification"` |
+| `mtype` | [`Type116Enum`](../../doc/models/type-116-enum.md) | Optional | Resource Type<br><br>**Default**: `'SendVerification'` |
 | `data` | [`Data27`](../../doc/models/data-27.md) | Optional | - |
 
 ## Example (as JSON)

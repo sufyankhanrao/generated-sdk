@@ -1,13 +1,16 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
 
 
 class Error3(object):
+
     """Implementation of the 'Error3' model.
 
     Attributes:
@@ -19,34 +22,35 @@ class Error3(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "error": "Error",
-        "code": "Code",
-        "description": "Description",
+        "error": 'Error',
+        "code": 'Code',
+        "description": 'Description'
     }
 
     _optionals = [
-        "error",
-        "code",
-        "description",
+        'error',
+        'code',
+        'description',
     ]
 
     def __init__(self,
                  error=APIHelper.SKIP,
                  code=APIHelper.SKIP,
                  description=APIHelper.SKIP):
-        """Initialize a Error3 instance."""
+        """Constructor for the Error3 class"""
+
         # Initialize members of the class
         if error is not APIHelper.SKIP:
-            self.error = error
+            self.error = error 
         if code is not APIHelper.SKIP:
-            self.code = code
+            self.code = code 
         if description is not APIHelper.SKIP:
-            self.description = description
+            self.description = description 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -57,36 +61,27 @@ class Error3(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        error =\
-            dictionary.get("Error")\
-            if dictionary.get("Error") else APIHelper.SKIP
-        code =\
-            dictionary.get("Code")\
-            if dictionary.get("Code") else APIHelper.SKIP
-        description =\
-            dictionary.get("Description")\
-            if dictionary.get("Description") else APIHelper.SKIP
+        error = dictionary.get("Error") if dictionary.get("Error") else APIHelper.SKIP
+        code = dictionary.get("Code") if dictionary.get("Code") else APIHelper.SKIP
+        description = dictionary.get("Description") if dictionary.get("Description") else APIHelper.SKIP
         # Return an object of this model
         return cls(error,
                    code,
                    description)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"error={(self.error if hasattr(self, 'error') else None)!r}, "
-                f"code={(self.code if hasattr(self, 'code') else None)!r}, "
-                f"description={(self.description
-                     if hasattr(self, 'description') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'error={(self.error if hasattr(self, "error") else None)!r}, '
+                f'code={(self.code if hasattr(self, "code") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"error={(self.error if hasattr(self, 'error') else None)!s}, "
-                f"code={(self.code if hasattr(self, 'code') else None)!s}, "
-                f"description={(self.description
-                     if hasattr(self, 'description') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'error={(self.error if hasattr(self, "error") else None)!s}, '
+                f'code={(self.code if hasattr(self, "code") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s})')

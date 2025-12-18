@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.models.invoice import Invoice
 
 
 class ListInvoicesResponse(object):
+
     """Implementation of the 'List Invoices Response' model.
 
     Attributes:
@@ -19,15 +22,16 @@ class ListInvoicesResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "invoices": "invoices",
+        "invoices": 'invoices'
     }
 
     def __init__(self,
                  invoices=None,
                  additional_properties=None):
-        """Initialize a ListInvoicesResponse instance."""
+        """Constructor for the ListInvoicesResponse class"""
+
         # Initialize members of the class
-        self.invoices = invoices
+        self.invoices = invoices 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -37,7 +41,7 @@ class ListInvoicesResponse(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -48,31 +52,26 @@ class ListInvoicesResponse(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         invoices = None
-        if dictionary.get("invoices") is not None:
-            invoices = [
-                Invoice.from_dictionary(x)
-                    for x in dictionary.get("invoices")
-            ]
+        if dictionary.get('invoices') is not None:
+            invoices = [Invoice.from_dictionary(x) for x in dictionary.get('invoices')]
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(invoices,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"invoices={self.invoices!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'invoices={self.invoices!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"invoices={self.invoices!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'invoices={self.invoices!s}, '
+                f'additional_properties={self.additional_properties!s})')

@@ -1,15 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
-from advancedbilling.models.subscription_component import (
-    SubscriptionComponent,
-)
+from advancedbilling.models.subscription_component import SubscriptionComponent
 
 
 class ListSubscriptionComponentsResponse(object):
+
     """Implementation of the 'List Subscription Components Response' model.
 
     Attributes:
@@ -22,15 +23,16 @@ class ListSubscriptionComponentsResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "subscriptions_components": "subscriptions_components",
+        "subscriptions_components": 'subscriptions_components'
     }
 
     def __init__(self,
                  subscriptions_components=None,
                  additional_properties=None):
-        """Initialize a ListSubscriptionComponentsResponse instance."""
+        """Constructor for the ListSubscriptionComponentsResponse class"""
+
         # Initialize members of the class
-        self.subscriptions_components = subscriptions_components
+        self.subscriptions_components = subscriptions_components 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -40,7 +42,7 @@ class ListSubscriptionComponentsResponse(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -51,31 +53,26 @@ class ListSubscriptionComponentsResponse(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         subscriptions_components = None
-        if dictionary.get("subscriptions_components") is not None:
-            subscriptions_components = [
-                SubscriptionComponent.from_dictionary(x)
-                    for x in dictionary.get("subscriptions_components")
-            ]
+        if dictionary.get('subscriptions_components') is not None:
+            subscriptions_components = [SubscriptionComponent.from_dictionary(x) for x in dictionary.get('subscriptions_components')]
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(subscriptions_components,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"subscriptions_components={self.subscriptions_components!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'subscriptions_components={self.subscriptions_components!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"subscriptions_components={self.subscriptions_components!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'subscriptions_components={self.subscriptions_components!s}, '
+                f'additional_properties={self.additional_properties!s})')

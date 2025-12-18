@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class UpdatePaymentProfile(object):
+
     """Implementation of the 'Update Payment Profile' model.
 
     Attributes:
@@ -53,39 +56,39 @@ class UpdatePaymentProfile(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "first_name": "first_name",
-        "last_name": "last_name",
-        "full_number": "full_number",
-        "card_type": "card_type",
-        "expiration_month": "expiration_month",
-        "expiration_year": "expiration_year",
-        "current_vault": "current_vault",
-        "billing_address": "billing_address",
-        "billing_city": "billing_city",
-        "billing_state": "billing_state",
-        "billing_zip": "billing_zip",
-        "billing_country": "billing_country",
-        "billing_address_2": "billing_address_2",
+        "first_name": 'first_name',
+        "last_name": 'last_name',
+        "full_number": 'full_number',
+        "card_type": 'card_type',
+        "expiration_month": 'expiration_month',
+        "expiration_year": 'expiration_year',
+        "current_vault": 'current_vault',
+        "billing_address": 'billing_address',
+        "billing_city": 'billing_city',
+        "billing_state": 'billing_state',
+        "billing_zip": 'billing_zip',
+        "billing_country": 'billing_country',
+        "billing_address_2": 'billing_address_2'
     }
 
     _optionals = [
-        "first_name",
-        "last_name",
-        "full_number",
-        "card_type",
-        "expiration_month",
-        "expiration_year",
-        "current_vault",
-        "billing_address",
-        "billing_city",
-        "billing_state",
-        "billing_zip",
-        "billing_country",
-        "billing_address_2",
+        'first_name',
+        'last_name',
+        'full_number',
+        'card_type',
+        'expiration_month',
+        'expiration_year',
+        'current_vault',
+        'billing_address',
+        'billing_city',
+        'billing_state',
+        'billing_zip',
+        'billing_country',
+        'billing_address_2',
     ]
 
     _nullables = [
-        "billing_address_2",
+        'billing_address_2',
     ]
 
     def __init__(self,
@@ -103,34 +106,35 @@ class UpdatePaymentProfile(object):
                  billing_country=APIHelper.SKIP,
                  billing_address_2=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a UpdatePaymentProfile instance."""
+        """Constructor for the UpdatePaymentProfile class"""
+
         # Initialize members of the class
         if first_name is not APIHelper.SKIP:
-            self.first_name = first_name
+            self.first_name = first_name 
         if last_name is not APIHelper.SKIP:
-            self.last_name = last_name
+            self.last_name = last_name 
         if full_number is not APIHelper.SKIP:
-            self.full_number = full_number
+            self.full_number = full_number 
         if card_type is not APIHelper.SKIP:
-            self.card_type = card_type
+            self.card_type = card_type 
         if expiration_month is not APIHelper.SKIP:
-            self.expiration_month = expiration_month
+            self.expiration_month = expiration_month 
         if expiration_year is not APIHelper.SKIP:
-            self.expiration_year = expiration_year
+            self.expiration_year = expiration_year 
         if current_vault is not APIHelper.SKIP:
-            self.current_vault = current_vault
+            self.current_vault = current_vault 
         if billing_address is not APIHelper.SKIP:
-            self.billing_address = billing_address
+            self.billing_address = billing_address 
         if billing_city is not APIHelper.SKIP:
-            self.billing_city = billing_city
+            self.billing_city = billing_city 
         if billing_state is not APIHelper.SKIP:
-            self.billing_state = billing_state
+            self.billing_state = billing_state 
         if billing_zip is not APIHelper.SKIP:
-            self.billing_zip = billing_zip
+            self.billing_zip = billing_zip 
         if billing_country is not APIHelper.SKIP:
-            self.billing_country = billing_country
+            self.billing_country = billing_country 
         if billing_address_2 is not APIHelper.SKIP:
-            self.billing_address_2 = billing_address_2
+            self.billing_address_2 = billing_address_2 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -140,7 +144,7 @@ class UpdatePaymentProfile(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -151,52 +155,26 @@ class UpdatePaymentProfile(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        first_name =\
-            dictionary.get("first_name")\
-            if dictionary.get("first_name") else APIHelper.SKIP
-        last_name =\
-            dictionary.get("last_name")\
-            if dictionary.get("last_name") else APIHelper.SKIP
-        full_number =\
-            dictionary.get("full_number")\
-            if dictionary.get("full_number") else APIHelper.SKIP
-        card_type =\
-            dictionary.get("card_type")\
-            if dictionary.get("card_type") else APIHelper.SKIP
-        expiration_month =\
-            dictionary.get("expiration_month")\
-            if dictionary.get("expiration_month") else APIHelper.SKIP
-        expiration_year =\
-            dictionary.get("expiration_year")\
-            if dictionary.get("expiration_year") else APIHelper.SKIP
-        current_vault =\
-            dictionary.get("current_vault")\
-            if dictionary.get("current_vault") else APIHelper.SKIP
-        billing_address =\
-            dictionary.get("billing_address")\
-            if dictionary.get("billing_address") else APIHelper.SKIP
-        billing_city =\
-            dictionary.get("billing_city")\
-            if dictionary.get("billing_city") else APIHelper.SKIP
-        billing_state =\
-            dictionary.get("billing_state")\
-            if dictionary.get("billing_state") else APIHelper.SKIP
-        billing_zip =\
-            dictionary.get("billing_zip")\
-            if dictionary.get("billing_zip") else APIHelper.SKIP
-        billing_country =\
-            dictionary.get("billing_country")\
-            if dictionary.get("billing_country") else APIHelper.SKIP
-        billing_address_2 =\
-            dictionary.get("billing_address_2")\
-            if "billing_address_2" in dictionary.keys() else APIHelper.SKIP
+        first_name = dictionary.get("first_name") if dictionary.get("first_name") else APIHelper.SKIP
+        last_name = dictionary.get("last_name") if dictionary.get("last_name") else APIHelper.SKIP
+        full_number = dictionary.get("full_number") if dictionary.get("full_number") else APIHelper.SKIP
+        card_type = dictionary.get("card_type") if dictionary.get("card_type") else APIHelper.SKIP
+        expiration_month = dictionary.get("expiration_month") if dictionary.get("expiration_month") else APIHelper.SKIP
+        expiration_year = dictionary.get("expiration_year") if dictionary.get("expiration_year") else APIHelper.SKIP
+        current_vault = dictionary.get("current_vault") if dictionary.get("current_vault") else APIHelper.SKIP
+        billing_address = dictionary.get("billing_address") if dictionary.get("billing_address") else APIHelper.SKIP
+        billing_city = dictionary.get("billing_city") if dictionary.get("billing_city") else APIHelper.SKIP
+        billing_state = dictionary.get("billing_state") if dictionary.get("billing_state") else APIHelper.SKIP
+        billing_zip = dictionary.get("billing_zip") if dictionary.get("billing_zip") else APIHelper.SKIP
+        billing_country = dictionary.get("billing_country") if dictionary.get("billing_country") else APIHelper.SKIP
+        billing_address_2 = dictionary.get("billing_address_2") if "billing_address_2" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(first_name,
                    last_name,
@@ -214,63 +192,35 @@ class UpdatePaymentProfile(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"first_name={(self.first_name
-                     if hasattr(self, 'first_name') else None)!r}, "
-                f"last_name={(self.last_name
-                     if hasattr(self, 'last_name') else None)!r}, "
-                f"full_number={(self.full_number
-                     if hasattr(self, 'full_number') else None)!r}, "
-                f"card_type={(self.card_type
-                     if hasattr(self, 'card_type') else None)!r}, "
-                f"expiration_month={(self.expiration_month
-                     if hasattr(self, 'expiration_month') else None)!r}, "
-                f"expiration_year={(self.expiration_year
-                     if hasattr(self, 'expiration_year') else None)!r}, "
-                f"current_vault={(self.current_vault
-                     if hasattr(self, 'current_vault') else None)!r}, "
-                f"billing_address={(self.billing_address
-                     if hasattr(self, 'billing_address') else None)!r}, "
-                f"billing_city={(self.billing_city
-                     if hasattr(self, 'billing_city') else None)!r}, "
-                f"billing_state={(self.billing_state
-                     if hasattr(self, 'billing_state') else None)!r}, "
-                f"billing_zip={(self.billing_zip
-                     if hasattr(self, 'billing_zip') else None)!r}, "
-                f"billing_country={(self.billing_country
-                     if hasattr(self, 'billing_country') else None)!r}, "
-                f"billing_address_2={(self.billing_address_2
-                     if hasattr(self, 'billing_address_2') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!r}, '
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!r}, '
+                f'full_number={(self.full_number if hasattr(self, "full_number") else None)!r}, '
+                f'card_type={(self.card_type if hasattr(self, "card_type") else None)!r}, '
+                f'expiration_month={(self.expiration_month if hasattr(self, "expiration_month") else None)!r}, '
+                f'expiration_year={(self.expiration_year if hasattr(self, "expiration_year") else None)!r}, '
+                f'current_vault={(self.current_vault if hasattr(self, "current_vault") else None)!r}, '
+                f'billing_address={(self.billing_address if hasattr(self, "billing_address") else None)!r}, '
+                f'billing_city={(self.billing_city if hasattr(self, "billing_city") else None)!r}, '
+                f'billing_state={(self.billing_state if hasattr(self, "billing_state") else None)!r}, '
+                f'billing_zip={(self.billing_zip if hasattr(self, "billing_zip") else None)!r}, '
+                f'billing_country={(self.billing_country if hasattr(self, "billing_country") else None)!r}, '
+                f'billing_address_2={(self.billing_address_2 if hasattr(self, "billing_address_2") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"first_name={(self.first_name
-                     if hasattr(self, 'first_name') else None)!s}, "
-                f"last_name={(self.last_name
-                     if hasattr(self, 'last_name') else None)!s}, "
-                f"full_number={(self.full_number
-                     if hasattr(self, 'full_number') else None)!s}, "
-                f"card_type={(self.card_type
-                     if hasattr(self, 'card_type') else None)!s}, "
-                f"expiration_month={(self.expiration_month
-                     if hasattr(self, 'expiration_month') else None)!s}, "
-                f"expiration_year={(self.expiration_year
-                     if hasattr(self, 'expiration_year') else None)!s}, "
-                f"current_vault={(self.current_vault
-                     if hasattr(self, 'current_vault') else None)!s}, "
-                f"billing_address={(self.billing_address
-                     if hasattr(self, 'billing_address') else None)!s}, "
-                f"billing_city={(self.billing_city
-                     if hasattr(self, 'billing_city') else None)!s}, "
-                f"billing_state={(self.billing_state
-                     if hasattr(self, 'billing_state') else None)!s}, "
-                f"billing_zip={(self.billing_zip
-                     if hasattr(self, 'billing_zip') else None)!s}, "
-                f"billing_country={(self.billing_country
-                     if hasattr(self, 'billing_country') else None)!s}, "
-                f"billing_address_2={(self.billing_address_2
-                     if hasattr(self, 'billing_address_2') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!s}, '
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!s}, '
+                f'full_number={(self.full_number if hasattr(self, "full_number") else None)!s}, '
+                f'card_type={(self.card_type if hasattr(self, "card_type") else None)!s}, '
+                f'expiration_month={(self.expiration_month if hasattr(self, "expiration_month") else None)!s}, '
+                f'expiration_year={(self.expiration_year if hasattr(self, "expiration_year") else None)!s}, '
+                f'current_vault={(self.current_vault if hasattr(self, "current_vault") else None)!s}, '
+                f'billing_address={(self.billing_address if hasattr(self, "billing_address") else None)!s}, '
+                f'billing_city={(self.billing_city if hasattr(self, "billing_city") else None)!s}, '
+                f'billing_state={(self.billing_state if hasattr(self, "billing_state") else None)!s}, '
+                f'billing_zip={(self.billing_zip if hasattr(self, "billing_zip") else None)!s}, '
+                f'billing_country={(self.billing_country if hasattr(self, "billing_country") else None)!s}, '
+                f'billing_address_2={(self.billing_address_2 if hasattr(self, "billing_address_2") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

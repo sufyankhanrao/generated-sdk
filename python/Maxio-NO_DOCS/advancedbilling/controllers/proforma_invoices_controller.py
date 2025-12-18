@@ -1,58 +1,39 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.error_array_map_response_exception import (
-    ErrorArrayMapResponseException,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.exceptions.proforma_bad_request_error_response_exception import (
-    ProformaBadRequestErrorResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.list_proforma_invoices_response import (
-    ListProformaInvoicesResponse,
-)
-from advancedbilling.models.proforma_invoice import (
-    ProformaInvoice,
-)
-from advancedbilling.models.signup_proforma_preview_response import (
-    SignupProformaPreviewResponse,
-)
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.list_proforma_invoices_response import ListProformaInvoicesResponse
+from advancedbilling.models.proforma_invoice import ProformaInvoice
+from advancedbilling.models.signup_proforma_preview_response import SignupProformaPreviewResponse
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
+from advancedbilling.exceptions.api_exception import APIException
+from advancedbilling.exceptions.proforma_bad_request_error_response_exception import ProformaBadRequestErrorResponseException
+from advancedbilling.exceptions.error_array_map_response_exception import ErrorArrayMapResponseException
 
 
 class ProformaInvoicesController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize ProformaInvoicesController object."""
         super(ProformaInvoicesController, self).__init__(config)
 
     def create_consolidated_proforma_invoice(self,
                                              uid):
-        """Perform a POST request to
-        /subscription_groups/{uid}/proforma_invoices.json.
+        """Does a POST request to /subscription_groups/{uid}/proforma_invoices.json.
 
         This endpoint will trigger the creation of a consolidated proforma
         invoice asynchronously. It will return a 201 with no message, or a 422
@@ -81,28 +62,26 @@ class ProformaInvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}/proforma_invoices.json")
+            .path('/subscription_groups/{uid}/proforma_invoices.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def list_subscription_group_proforma_invoices(self,
                                                   options=dict()):
-        """Perform a GET request to /subscription_groups/{uid}/proforma_invoices.json.
+        """Does a GET request to /subscription_groups/{uid}/proforma_invoices.json.
 
         Only proforma invoices with a `consolidation_level` of parent are
         returned.
@@ -118,6 +97,7 @@ class ProformaInvoicesController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     uid -- str -- The uid of the subscription group
                     line_items -- bool -- Include line items data
                     discounts -- bool -- Include discounts data
@@ -137,48 +117,49 @@ class ProformaInvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}/proforma_invoices.json")
+            .path('/subscription_groups/{uid}/proforma_invoices.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("uid")
-                            .value(options.get("uid", None))
+                            .key('uid')
+                            .value(options.get('uid', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("line_items")
-                         .value(options.get("line_items", None)))
+                         .key('line_items')
+                         .value(options.get('line_items', None)))
             .query_param(Parameter()
-                         .key("discounts")
-                         .value(options.get("discounts", None)))
+                         .key('discounts')
+                         .value(options.get('discounts', None)))
             .query_param(Parameter()
-                         .key("taxes")
-                         .value(options.get("taxes", None)))
+                         .key('taxes')
+                         .value(options.get('taxes', None)))
             .query_param(Parameter()
-                         .key("credits")
-                         .value(options.get("credits", None)))
+                         .key('credits')
+                         .value(options.get('credits', None)))
             .query_param(Parameter()
-                         .key("payments")
-                         .value(options.get("payments", None)))
+                         .key('payments')
+                         .value(options.get('payments', None)))
             .query_param(Parameter()
-                         .key("custom_fields")
-                         .value(options.get("custom_fields", None)))
+                         .key('custom_fields')
+                         .value(options.get('custom_fields', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListProformaInvoicesResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
         ).execute()
 
     def read_proforma_invoice(self,
                               proforma_invoice_uid):
-        """Perform a GET request to /proforma_invoices/{proforma_invoice_uid}.json.
+        """Does a GET request to /proforma_invoices/{proforma_invoice_uid}.json.
 
         Use this endpoint to read the details of an existing proforma invoice.
         ## Restrictions
@@ -198,31 +179,31 @@ class ProformaInvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/proforma_invoices/{proforma_invoice_uid}.json")
+            .path('/proforma_invoices/{proforma_invoice_uid}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("proforma_invoice_uid")
+                            .key('proforma_invoice_uid')
                             .value(proforma_invoice_uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProformaInvoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
         ).execute()
 
     def create_proforma_invoice(self,
                                 subscription_id):
-        """Perform a POST request to
-        /subscriptions/{subscription_id}/proforma_invoices.json.
+        """Does a POST request to /subscriptions/{subscription_id}/proforma_invoices.json.
 
         This endpoint will create a proforma invoice and return it as a
         response. If the information becomes outdated, simply void the old
@@ -249,34 +230,31 @@ class ProformaInvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/proforma_invoices.json")
+            .path('/subscriptions/{subscription_id}/proforma_invoices.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProformaInvoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def list_proforma_invoices(self,
                                options=dict()):
-        """Perform a GET request to
-        /subscriptions/{subscription_id}/proforma_invoices.json.
+        """Does a GET request to /subscriptions/{subscription_id}/proforma_invoices.json.
 
         By default, proforma invoices returned on the index will only include
         totals, not detailed breakdowns for `line_items`, `discounts`,
@@ -290,6 +268,7 @@ class ProformaInvoicesController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     subscription_id -- int -- The Chargify id of the
                         subscription
                     start_date -- str -- The beginning date range for the
@@ -333,67 +312,67 @@ class ProformaInvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/proforma_invoices.json")
+            .path('/subscriptions/{subscription_id}/proforma_invoices.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("subscription_id")
-                            .value(options.get("subscription_id", None))
+                            .key('subscription_id')
+                            .value(options.get('subscription_id', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("start_date")
-                         .value(options.get("start_date", None)))
+                         .key('start_date')
+                         .value(options.get('start_date', None)))
             .query_param(Parameter()
-                         .key("end_date")
-                         .value(options.get("end_date", None)))
+                         .key('end_date')
+                         .value(options.get('end_date', None)))
             .query_param(Parameter()
-                         .key("status")
-                         .value(options.get("status", None)))
+                         .key('status')
+                         .value(options.get('status', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .query_param(Parameter()
-                         .key("line_items")
-                         .value(options.get("line_items", None)))
+                         .key('line_items')
+                         .value(options.get('line_items', None)))
             .query_param(Parameter()
-                         .key("discounts")
-                         .value(options.get("discounts", None)))
+                         .key('discounts')
+                         .value(options.get('discounts', None)))
             .query_param(Parameter()
-                         .key("taxes")
-                         .value(options.get("taxes", None)))
+                         .key('taxes')
+                         .value(options.get('taxes', None)))
             .query_param(Parameter()
-                         .key("credits")
-                         .value(options.get("credits", None)))
+                         .key('credits')
+                         .value(options.get('credits', None)))
             .query_param(Parameter()
-                         .key("payments")
-                         .value(options.get("payments", None)))
+                         .key('payments')
+                         .value(options.get('payments', None)))
             .query_param(Parameter()
-                         .key("custom_fields")
-                         .value(options.get("custom_fields", None)))
+                         .key('custom_fields')
+                         .value(options.get('custom_fields', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListProformaInvoicesResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def void_proforma_invoice(self,
                               proforma_invoice_uid,
                               body=None):
-        """Perform a POST request to
-        /proforma_invoices/{proforma_invoice_uid}/void.json.
+        """Does a POST request to /proforma_invoices/{proforma_invoice_uid}/void.json.
 
         This endpoint will void a proforma invoice that has the status "draft".
         ## Restrictions
@@ -421,41 +400,38 @@ class ProformaInvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/proforma_invoices/{proforma_invoice_uid}/void.json")
+            .path('/proforma_invoices/{proforma_invoice_uid}/void.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("proforma_invoice_uid")
+                            .key('proforma_invoice_uid')
                             .value(proforma_invoice_uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProformaInvoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def preview_proforma_invoice(self,
                                  subscription_id):
-        """Perform a POST request to
-        /subscriptions/{subscription_id}/proforma_invoices/preview.json.
+        """Does a POST request to /subscriptions/{subscription_id}/proforma_invoices/preview.json.
 
         Return a preview of the data that will be included on a given
         subscription's proforma invoice if one were to be generated. It will
@@ -489,34 +465,32 @@ class ProformaInvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/proforma_invoices/preview.json")
+            .path('/subscriptions/{subscription_id}/proforma_invoices/preview.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProformaInvoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def create_signup_proforma_invoice(self,
                                        body=None):
-        """Perform a POST request to /subscriptions/proforma_invoices.json.
+        """Does a POST request to /subscriptions/proforma_invoices.json.
 
         This endpoint is only available for Relationship Invoicing sites. It
         cannot be used to create consolidated proforma invoices or preview
@@ -548,39 +522,34 @@ class ProformaInvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/proforma_invoices.json")
+            .path('/subscriptions/proforma_invoices.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProformaInvoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("400",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ProformaBadRequestErrorResponseException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorArrayMapResponseException),
+            .local_error_template('400', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ProformaBadRequestErrorResponseException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorArrayMapResponseException)
         ).execute()
 
     def preview_signup_proforma_invoice(self,
                                         include=None,
                                         body=None):
-        """Perform a POST request to /subscriptions/proforma_invoices/preview.json.
+        """Does a POST request to /subscriptions/proforma_invoices/preview.json.
 
         This endpoint is only available for Relationship Invoicing sites. It
         cannot be used to create consolidated proforma invoice previews or
@@ -614,34 +583,29 @@ class ProformaInvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/proforma_invoices/preview.json")
+            .path('/subscriptions/proforma_invoices/preview.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .query_param(Parameter()
-                         .key("include")
+                         .key('include')
                          .value(include))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SignupProformaPreviewResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("400",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ProformaBadRequestErrorResponseException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorArrayMapResponseException),
+            .local_error_template('400', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ProformaBadRequestErrorResponseException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorArrayMapResponseException)
         ).execute()

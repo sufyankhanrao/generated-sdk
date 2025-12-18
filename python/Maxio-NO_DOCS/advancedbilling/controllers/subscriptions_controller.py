@@ -1,63 +1,41 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
-from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
-from apimatic_core.types.array_serialization_format import (
-    SerializationFormats,
-)
-from apimatic_core.types.parameter import Parameter
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.error_array_map_response_exception import (
-    ErrorArrayMapResponseException,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.exceptions.single_error_response_exception import (
-    SingleErrorResponseException,
-)
-from advancedbilling.exceptions.subscription_add_coupon_error_exception import (
-    SubscriptionAddCouponErrorException,
-)
-from advancedbilling.exceptions.subscription_remove_coupon_errors_exception import (
-    SubscriptionRemoveCouponErrorsException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.prepaid_configuration_response import (
-    PrepaidConfigurationResponse,
-)
-from advancedbilling.models.subscription_preview_response import (
-    SubscriptionPreviewResponse,
-)
-from advancedbilling.models.subscription_response import (
-    SubscriptionResponse,
-)
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.types.array_serialization_format import SerializationFormats
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.subscription_response import SubscriptionResponse
+from advancedbilling.models.prepaid_configuration_response import PrepaidConfigurationResponse
+from advancedbilling.models.subscription_preview_response import SubscriptionPreviewResponse
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
+from advancedbilling.exceptions.single_error_response_exception import SingleErrorResponseException
+from advancedbilling.exceptions.subscription_add_coupon_error_exception import SubscriptionAddCouponErrorException
+from advancedbilling.exceptions.subscription_remove_coupon_errors_exception import SubscriptionRemoveCouponErrorsException
+from advancedbilling.exceptions.error_array_map_response_exception import ErrorArrayMapResponseException
 
 
 class SubscriptionsController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize SubscriptionsController object."""
         super(SubscriptionsController, self).__init__(config)
 
     def create_subscription(self,
                             body=None):
-        """Perform a POST request to /subscriptions.json.
+        """Does a POST request to /subscriptions.json.
 
         Full documentation on how subscriptions operate within Chargify can be
         located under the following topics:
@@ -210,7 +188,7 @@ class SubscriptionsController(BaseController):
         ```
         ## Subscription with vault token
         If you already have a customer and card stored in your payment
-        gateway, you may create a subscription with a `vault_token`.
+        gateway, you may create a subscription with a `vault_token`. 
         Providing the last_four, card type and expiration date will allow the
         card to be displayed properly in the Chargify UI.
         ```json
@@ -884,34 +862,32 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions.json")
+            .path('/subscriptions.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def list_subscriptions(self,
                            options=dict()):
-        """Perform a GET request to /subscriptions.json.
+        """Does a GET request to /subscriptions.json.
 
         This method will return an array of subscriptions from a Site. Pay
         close attention to query string filters and pagination in order to
@@ -931,6 +907,7 @@ class SubscriptionsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
                         page parameter specifies a page number of results to
@@ -1009,73 +986,72 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions.json")
+            .path('/subscriptions.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("state")
-                         .value(options.get("state", None)))
+                         .key('state')
+                         .value(options.get('state', None)))
             .query_param(Parameter()
-                         .key("product")
-                         .value(options.get("product", None)))
+                         .key('product')
+                         .value(options.get('product', None)))
             .query_param(Parameter()
-                         .key("product_price_point_id")
-                         .value(options.get("product_price_point_id", None)))
+                         .key('product_price_point_id')
+                         .value(options.get('product_price_point_id', None)))
             .query_param(Parameter()
-                         .key("coupon")
-                         .value(options.get("coupon", None)))
+                         .key('coupon')
+                         .value(options.get('coupon', None)))
             .query_param(Parameter()
-                         .key("date_field")
-                         .value(options.get("date_field", None)))
+                         .key('date_field')
+                         .value(options.get('date_field', None)))
             .query_param(Parameter()
-                         .key("start_date")
-                         .value(options.get("start_date", None)))
+                         .key('start_date')
+                         .value(options.get('start_date', None)))
             .query_param(Parameter()
-                         .key("end_date")
-                         .value(options.get("end_date", None)))
+                         .key('end_date')
+                         .value(options.get('end_date', None)))
             .query_param(Parameter()
-                         .key("start_datetime")
-                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                             options.get("start_datetime", None))))
+                         .key('start_datetime')
+                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime, options.get('start_datetime', None))))
             .query_param(Parameter()
-                         .key("end_datetime")
-                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                             options.get("end_datetime", None))))
+                         .key('end_datetime')
+                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime, options.get('end_datetime', None))))
             .query_param(Parameter()
-                         .key("metadata")
-                         .value(options.get("metadata", None)))
+                         .key('metadata')
+                         .value(options.get('metadata', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .query_param(Parameter()
-                         .key("sort")
-                         .value(options.get("sort", None)))
+                         .key('sort')
+                         .value(options.get('sort', None)))
             .query_param(Parameter()
-                         .key("include")
-                         .value(options.get("include", None)))
+                         .key('include')
+                         .value(options.get('include', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.UN_INDEXED)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_subscription(self,
                             subscription_id,
                             body=None):
-        """Perform a PUT request to /subscriptions/{subscription_id}.json.
+        """Does a PUT request to /subscriptions/{subscription_id}.json.
 
         The subscription endpoint allows you to instantly update one or many
         attributes about a subscription in a single call.
@@ -1159,40 +1135,38 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}.json")
+            .path('/subscriptions/{subscription_id}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def read_subscription(self,
                           subscription_id,
                           include=None):
-        """Perform a GET request to /subscriptions/{subscription_id}.json.
+        """Does a GET request to /subscriptions/{subscription_id}.json.
 
         Use this endpoint to find subscription details.
         ## Self-Service Page token
@@ -1218,34 +1192,35 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}.json")
+            .path('/subscriptions/{subscription_id}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("include")
+                         .key('include')
                          .value(include))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.UN_INDEXED)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def override_subscription(self,
                               subscription_id,
                               body=None):
-        """Perform a PUT request to /subscriptions/{subscription_id}/override.json.
+        """Does a PUT request to /subscriptions/{subscription_id}/override.json.
 
         This API endpoint allows you to set certain subscription fields that
         are usually managed for you automatically. Some of the fields can be
@@ -1297,34 +1272,32 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/override.json")
+            .path('/subscriptions/{subscription_id}/override.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SingleErrorResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SingleErrorResponseException)
         ).execute()
 
     def find_subscription(self,
                           reference=None):
-        """Perform a GET request to /subscriptions/lookup.json.
+        """Does a GET request to /subscriptions/lookup.json.
 
         Use this endpoint to find a subscription by its reference.
 
@@ -1342,29 +1315,30 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/lookup.json")
+            .path('/subscriptions/lookup.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("reference")
+                         .key('reference')
                          .value(reference))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def purge_subscription(self,
                            subscription_id,
                            ack,
                            cascade=None):
-        """Perform a POST request to /subscriptions/{subscription_id}/purge.json.
+        """Does a POST request to /subscriptions/{subscription_id}/purge.json.
 
         For sites in test mode, you may purge individual subscriptions.
         Provide the subscription ID in the url.  To confirm, supply the
@@ -1396,34 +1370,34 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/purge.json")
+            .path('/subscriptions/{subscription_id}/purge.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("ack")
+                         .key('ack')
                          .value(ack)
                          .is_required(True))
             .query_param(Parameter()
-                         .key("cascade")
+                         .key('cascade')
                          .value(cascade))
             .array_serialization_format(SerializationFormats.UN_INDEXED)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_prepaid_subscription_configuration(self,
                                                   subscription_id,
                                                   body=None):
-        """Perform a POST request to
-        /subscriptions/{subscription_id}/prepaid_configurations.json.
+        """Does a POST request to /subscriptions/{subscription_id}/prepaid_configurations.json.
 
         Use this endpoint to update a subscription's prepaid configuration.
 
@@ -1443,35 +1417,36 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/prepaid_configurations.json")
+            .path('/subscriptions/{subscription_id}/prepaid_configurations.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PrepaidConfigurationResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def preview_subscription(self,
                              body=None):
-        """Perform a POST request to /subscriptions/preview.json.
+        """Does a POST request to /subscriptions/preview.json.
 
         The Chargify API allows you to preview a subscription by POSTing the
         same JSON or XML as for a subscription creation.
@@ -1525,32 +1500,33 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/preview.json")
+            .path('/subscriptions/preview.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionPreviewResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def apply_coupons_to_subscription(self,
                                       subscription_id,
                                       code=None,
                                       body=None):
-        """Perform a POST request to /subscriptions/{subscription_id}/add_coupon.json.
+        """Does a POST request to /subscriptions/{subscription_id}/add_coupon.json.
 
         An existing subscription can accommodate multiple discounts/coupon
         codes. This is only applicable if each coupon is stackable. For more
@@ -1584,44 +1560,41 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/add_coupon.json")
+            .path('/subscriptions/{subscription_id}/add_coupon.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .query_param(Parameter()
-                         .key("code")
+                         .key('code')
                          .value(code))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SubscriptionAddCouponErrorException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SubscriptionAddCouponErrorException)
         ).execute()
 
     def remove_coupon_from_subscription(self,
                                         subscription_id,
                                         coupon_code=None):
-        """Perform a DELETE request to
-        /subscriptions/{subscription_id}/remove_coupon.json.
+        """Does a DELETE request to /subscriptions/{subscription_id}/remove_coupon.json.
 
         Use this endpoint to remove a coupon from an existing subscription.
         For more information on the expected behaviour of removing a coupon
@@ -1644,33 +1617,31 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/remove_coupon.json")
+            .path('/subscriptions/{subscription_id}/remove_coupon.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("coupon_code")
+                         .key('coupon_code')
                          .value(coupon_code))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SubscriptionRemoveCouponErrorsException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SubscriptionRemoveCouponErrorsException)
         ).execute()
 
     def activate_subscription(self,
                               subscription_id,
                               body=None):
-        """Perform a PUT request to /subscriptions/{subscription_id}/activate.json.
+        """Does a PUT request to /subscriptions/{subscription_id}/activate.json.
 
         Chargify offers the ability to activate awaiting signup and trialing
         subscriptions. This feature is only available on the Relationship
@@ -1740,32 +1711,30 @@ class SubscriptionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/activate.json")
+            .path('/subscriptions/{subscription_id}/activate.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("400",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorArrayMapResponseException),
+            .local_error_template('400', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorArrayMapResponseException)
         ).execute()

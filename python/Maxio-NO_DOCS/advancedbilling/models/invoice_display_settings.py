@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class InvoiceDisplaySettings(object):
+
     """Implementation of the 'Invoice Display Settings' model.
 
     Attributes:
@@ -20,25 +23,26 @@ class InvoiceDisplaySettings(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "hide_zero_subtotal_lines": "hide_zero_subtotal_lines",
-        "include_discounts_on_lines": "include_discounts_on_lines",
+        "hide_zero_subtotal_lines": 'hide_zero_subtotal_lines',
+        "include_discounts_on_lines": 'include_discounts_on_lines'
     }
 
     _optionals = [
-        "hide_zero_subtotal_lines",
-        "include_discounts_on_lines",
+        'hide_zero_subtotal_lines',
+        'include_discounts_on_lines',
     ]
 
     def __init__(self,
                  hide_zero_subtotal_lines=APIHelper.SKIP,
                  include_discounts_on_lines=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a InvoiceDisplaySettings instance."""
+        """Constructor for the InvoiceDisplaySettings class"""
+
         # Initialize members of the class
         if hide_zero_subtotal_lines is not APIHelper.SKIP:
-            self.hide_zero_subtotal_lines = hide_zero_subtotal_lines
+            self.hide_zero_subtotal_lines = hide_zero_subtotal_lines 
         if include_discounts_on_lines is not APIHelper.SKIP:
-            self.include_discounts_on_lines = include_discounts_on_lines
+            self.include_discounts_on_lines = include_discounts_on_lines 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -48,7 +52,7 @@ class InvoiceDisplaySettings(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -59,19 +63,15 @@ class InvoiceDisplaySettings(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        hide_zero_subtotal_lines =\
-            dictionary.get("hide_zero_subtotal_lines")\
-            if "hide_zero_subtotal_lines" in dictionary.keys() else APIHelper.SKIP
-        include_discounts_on_lines =\
-            dictionary.get("include_discounts_on_lines")\
-            if "include_discounts_on_lines" in dictionary.keys() else APIHelper.SKIP
+        hide_zero_subtotal_lines = dictionary.get("hide_zero_subtotal_lines") if "hide_zero_subtotal_lines" in dictionary.keys() else APIHelper.SKIP
+        include_discounts_on_lines = dictionary.get("include_discounts_on_lines") if "include_discounts_on_lines" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(hide_zero_subtotal_lines,
                    include_discounts_on_lines,
@@ -79,7 +79,7 @@ class InvoiceDisplaySettings(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -90,6 +90,7 @@ class InvoiceDisplaySettings(object):
             boolean : if dictionary is valid contains required properties.
 
         """
+
         if isinstance(dictionary, cls):
             return True
 
@@ -99,19 +100,13 @@ class InvoiceDisplaySettings(object):
         return True
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"hide_zero_subtotal_lines={(self.hide_zero_subtotal_lines
-                     if hasattr(self, 'hide_zero_subtotal_lines') else None)!r}, "
-                f"include_discounts_on_lines={(self.include_discounts_on_lines
-                     if hasattr(self, 'include_discounts_on_lines') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'hide_zero_subtotal_lines={(self.hide_zero_subtotal_lines if hasattr(self, "hide_zero_subtotal_lines") else None)!r}, '
+                f'include_discounts_on_lines={(self.include_discounts_on_lines if hasattr(self, "include_discounts_on_lines") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"hide_zero_subtotal_lines={(self.hide_zero_subtotal_lines
-                     if hasattr(self, 'hide_zero_subtotal_lines') else None)!s}, "
-                f"include_discounts_on_lines={(self.include_discounts_on_lines
-                     if hasattr(self, 'include_discounts_on_lines') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'hide_zero_subtotal_lines={(self.hide_zero_subtotal_lines if hasattr(self, "hide_zero_subtotal_lines") else None)!s}, '
+                f'include_discounts_on_lines={(self.include_discounts_on_lines if hasattr(self, "include_discounts_on_lines") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

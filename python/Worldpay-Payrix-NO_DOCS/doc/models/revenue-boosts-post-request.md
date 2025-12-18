@@ -12,7 +12,7 @@ A request body for creating new networkPaymentManager
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `entity` | `str` | Required | The identifier of the Entity that networkPaymentManager is associated with. |
-| `platform` | `str` | Required, Constant | The platform used to process this transaction.<br>Valid Values : - `VCORE` - **VCORE**<br><br>**Value**: `"VCORE"` |
+| `platform` | `str` | Required, Constant | The platform used to process this transaction.<br>Valid Values : - `VCORE` - **VCORE**<br><br>**Value**: `'VCORE'` |
 | `org` | `str` | Optional | The identifier of the Org (group) that networkPaymentManager is associated with. |
 | `division` | `str` | Optional | The identifier of the Division that networkPaymentManager is associated with. |
 | `partition` | `str` | Optional | The identifier of the Partition that networkPaymentManager is associated with. |

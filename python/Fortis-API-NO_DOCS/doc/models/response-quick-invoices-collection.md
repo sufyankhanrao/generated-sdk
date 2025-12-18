@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type54Enum`](../../doc/models/type-54-enum.md) | Optional | Resource Type<br><br>**Default**: `"QuickInvoicesCollection"` |
+| `mtype` | [`Type54Enum`](../../doc/models/type-54-enum.md) | Optional | Resource Type<br><br>**Default**: `'QuickInvoicesCollection'` |
 | `list` | [`List[List9]`](../../doc/models/list-9.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

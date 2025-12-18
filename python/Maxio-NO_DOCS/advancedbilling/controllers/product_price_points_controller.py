@@ -1,70 +1,44 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
-from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
-from apimatic_core.types.array_serialization_format import (
-    SerializationFormats,
-)
-from apimatic_core.types.parameter import Parameter
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.error_array_map_response_exception import (
-    ErrorArrayMapResponseException,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.exceptions.product_price_point_error_response_exception import (
-    ProductPricePointErrorResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.bulk_create_product_price_points_response import (
-    BulkCreateProductPricePointsResponse,
-)
-from advancedbilling.models.currency_prices_response import (
-    CurrencyPricesResponse,
-)
-from advancedbilling.models.list_product_price_points_response import (
-    ListProductPricePointsResponse,
-)
-from advancedbilling.models.product_price_point_response import (
-    ProductPricePointResponse,
-)
-from advancedbilling.models.product_response import (
-    ProductResponse,
-)
-from advancedbilling.utilities.union_type_lookup import (
-    UnionTypeLookUp,
-)
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
+from advancedbilling.utilities.union_type_lookup import UnionTypeLookUp
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.types.array_serialization_format import SerializationFormats
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.product_price_point_response import ProductPricePointResponse
+from advancedbilling.models.list_product_price_points_response import ListProductPricePointsResponse
+from advancedbilling.models.product_response import ProductResponse
+from advancedbilling.models.bulk_create_product_price_points_response import BulkCreateProductPricePointsResponse
+from advancedbilling.models.currency_prices_response import CurrencyPricesResponse
+from advancedbilling.exceptions.product_price_point_error_response_exception import ProductPricePointErrorResponseException
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
+from advancedbilling.exceptions.api_exception import APIException
+from advancedbilling.exceptions.error_array_map_response_exception import ErrorArrayMapResponseException
 
 
 class ProductPricePointsController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize ProductPricePointsController object."""
         super(ProductPricePointsController, self).__init__(config)
 
     def create_product_price_point(self,
                                    product_id,
                                    body=None):
-        """Perform a POST request to /products/{product_id}/price_points.json.
+        """Does a POST request to /products/{product_id}/price_points.json.
 
         [Product Price Point
         Documentation](https://chargify.zendesk.com/hc/en-us/articles/440775582
@@ -87,41 +61,38 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}/price_points.json")
+            .path('/products/{product_id}/price_points.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("product_id")
+                            .key('product_id')
                             .value(product_id)
                             .is_required(True)
                             .should_encode(True)
-                            .validator(lambda value: UnionTypeLookUp
-                                .get("CreateProductPricePointProductId").validate(value)))
+                            .validator(lambda value: UnionTypeLookUp.get('CreateProductPricePointProductId').validate(value)))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductPricePointResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ProductPricePointErrorResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ProductPricePointErrorResponseException)
         ).execute()
 
     def list_product_price_points(self,
                                   options=dict()):
-        """Perform a GET request to /products/{product_id}/price_points.json.
+        """Does a GET request to /products/{product_id}/price_points.json.
 
         Use this endpoint to retrieve a list of product price points.
 
@@ -131,6 +102,7 @@ class ProductPricePointsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     product_id -- int | str -- The id or handle of the
                         product. When using the handle, it must be prefixed
                         with `handle:`
@@ -170,47 +142,46 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}/price_points.json")
+            .path('/products/{product_id}/price_points.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("product_id")
-                            .value(options.get("product_id", None))
+                            .key('product_id')
+                            .value(options.get('product_id', None))
                             .is_required(True)
                             .should_encode(True)
-                            .validator(lambda value: UnionTypeLookUp
-                                .get("ListProductPricePointsInputProductId").validate(value)))
+                            .validator(lambda value: UnionTypeLookUp.get('ListProductPricePointsInputProductId').validate(value)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("currency_prices")
-                         .value(options.get("currency_prices", None)))
+                         .key('currency_prices')
+                         .value(options.get('currency_prices', None)))
             .query_param(Parameter()
-                         .key("filter[type]")
-                         .value(options.get("filter_type", None)))
+                         .key('filter[type]')
+                         .value(options.get('filter_type', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListProductPricePointsResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_product_price_point(self,
                                    product_id,
                                    price_point_id,
                                    body=None):
-        """Perform a PUT request to
-        /products/{product_id}/price_points/{price_point_id}.json.
+        """Does a PUT request to /products/{product_id}/price_points/{price_point_id}.json.
 
         Use this endpoint to update a product price point.
         Note: Custom product price points are not able to be updated.
@@ -234,47 +205,45 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}/price_points/{price_point_id}.json")
+            .path('/products/{product_id}/price_points/{price_point_id}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("product_id")
+                            .key('product_id')
                             .value(product_id)
                             .is_required(True)
                             .should_encode(True)
-                            .validator(lambda value: UnionTypeLookUp
-                                .get("UpdateProductPricePointProductId").validate(value)))
+                            .validator(lambda value: UnionTypeLookUp.get('UpdateProductPricePointProductId').validate(value)))
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True)
-                            .validator(lambda value: UnionTypeLookUp
-                                .get("UpdateProductPricePointPricePointId").validate(value)))
+                            .validator(lambda value: UnionTypeLookUp.get('UpdateProductPricePointPricePointId').validate(value)))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductPricePointResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_product_price_point(self,
                                  product_id,
                                  price_point_id,
                                  currency_prices=None):
-        """Perform a GET request to
-        /products/{product_id}/price_points/{price_point_id}.json.
+        """Does a GET request to /products/{product_id}/price_points/{price_point_id}.json.
 
         Use this endpoint to retrieve details for a specific product price
         point.
@@ -304,43 +273,41 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}/price_points/{price_point_id}.json")
+            .path('/products/{product_id}/price_points/{price_point_id}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("product_id")
+                            .key('product_id')
                             .value(product_id)
                             .is_required(True)
                             .should_encode(True)
-                            .validator(lambda value: UnionTypeLookUp
-                                .get("ReadProductPricePointProductId").validate(value)))
+                            .validator(lambda value: UnionTypeLookUp.get('ReadProductPricePointProductId').validate(value)))
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True)
-                            .validator(lambda value: UnionTypeLookUp
-                                .get("ReadProductPricePointPricePointId").validate(value)))
+                            .validator(lambda value: UnionTypeLookUp.get('ReadProductPricePointPricePointId').validate(value)))
             .query_param(Parameter()
-                         .key("currency_prices")
+                         .key('currency_prices')
                          .value(currency_prices))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductPricePointResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def archive_product_price_point(self,
                                     product_id,
                                     price_point_id):
-        """Perform a DELETE request to
-        /products/{product_id}/price_points/{price_point_id}.json.
+        """Does a DELETE request to /products/{product_id}/price_points/{price_point_id}.json.
 
         Use this endpoint to archive a product price point.
 
@@ -361,44 +328,39 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}/price_points/{price_point_id}.json")
+            .path('/products/{product_id}/price_points/{price_point_id}.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("product_id")
+                            .key('product_id')
                             .value(product_id)
                             .is_required(True)
                             .should_encode(True)
-                            .validator(lambda value: UnionTypeLookUp
-                                .get("ArchiveProductPricePointProductId").validate(value)))
+                            .validator(lambda value: UnionTypeLookUp.get('ArchiveProductPricePointProductId').validate(value)))
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True)
-                            .validator(lambda value: UnionTypeLookUp
-                                .get("ArchiveProductPricePointPricePointId").validate(value)))
+                            .validator(lambda value: UnionTypeLookUp.get('ArchiveProductPricePointPricePointId').validate(value)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductPricePointResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def unarchive_product_price_point(self,
                                       product_id,
                                       price_point_id):
-        """Perform a PATCH request to
-        /products/{product_id}/price_points/{price_point_id}/unarchive.json.
+        """Does a PATCH request to /products/{product_id}/price_points/{price_point_id}/unarchive.json.
 
         Use this endpoint to unarchive an archived product price point.
 
@@ -418,36 +380,36 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}/price_points/{price_point_id}/unarchive.json")
+            .path('/products/{product_id}/price_points/{price_point_id}/unarchive.json')
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
-                            .key("product_id")
+                            .key('product_id')
                             .value(product_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductPricePointResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def promote_product_price_point_to_default(self,
                                                product_id,
                                                price_point_id):
-        """Perform a PATCH request to
-        /products/{product_id}/price_points/{price_point_id}/default.json.
+        """Does a PATCH request to /products/{product_id}/price_points/{price_point_id}/default.json.
 
         Use this endpoint to make a product price point the default for the
         product.
@@ -470,35 +432,36 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}/price_points/{price_point_id}/default.json")
+            .path('/products/{product_id}/price_points/{price_point_id}/default.json')
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
-                            .key("product_id")
+                            .key('product_id')
                             .value(product_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def bulk_create_product_price_points(self,
                                          product_id,
                                          body=None):
-        """Perform a POST request to /products/{product_id}/price_points/bulk.json.
+        """Does a POST request to /products/{product_id}/price_points/bulk.json.
 
         Use this endpoint to create multiple product price points in one
         request.
@@ -520,41 +483,38 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}/price_points/bulk.json")
+            .path('/products/{product_id}/price_points/bulk.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("product_id")
+                            .key('product_id')
                             .value(product_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BulkCreateProductPricePointsResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                APIException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', APIException)
         ).execute()
 
     def create_product_currency_prices(self,
                                        product_price_point_id,
                                        body=None):
-        """Perform a POST request to
-        /product_price_points/{product_price_point_id}/currency_prices.json.
+        """Does a POST request to /product_price_points/{product_price_point_id}/currency_prices.json.
 
         This endpoint allows you to create currency prices for a given
         currency that has been defined on the site level in your settings.
@@ -582,41 +542,38 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_price_points/{product_price_point_id}/currency_prices.json")
+            .path('/product_price_points/{product_price_point_id}/currency_prices.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("product_price_point_id")
+                            .key('product_price_point_id')
                             .value(product_price_point_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CurrencyPricesResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorArrayMapResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorArrayMapResponseException)
         ).execute()
 
     def update_product_currency_prices(self,
                                        product_price_point_id,
                                        body=None):
-        """Perform a PUT request to
-        /product_price_points/{product_price_point_id}/currency_prices.json.
+        """Does a PUT request to /product_price_points/{product_price_point_id}/currency_prices.json.
 
         This endpoint allows you to update the `price`s of currency prices for
         a given currency that exists on the product price point.
@@ -643,39 +600,37 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_price_points/{product_price_point_id}/currency_prices.json")
+            .path('/product_price_points/{product_price_point_id}/currency_prices.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("product_price_point_id")
+                            .key('product_price_point_id')
                             .value(product_price_point_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CurrencyPricesResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorArrayMapResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorArrayMapResponseException)
         ).execute()
 
     def list_all_product_price_points(self,
                                       options=dict()):
-        """Perform a GET request to /products_price_points.json.
+        """Does a GET request to /products_price_points.json.
 
         This method allows retrieval of a list of Products Price Points
         belonging to a Site.
@@ -686,6 +641,7 @@ class ProductPricePointsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     direction -- SortingDirection -- Controls the order in
                         which results are returned. Use in query
                         `direction=asc`.
@@ -720,37 +676,35 @@ class ProductPricePointsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products_price_points.json")
+            .path('/products_price_points.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .query_param(Parameter()
-                         .key("filter")
-                         .value(options.get("filter", None)))
+                         .key('filter')
+                         .value(options.get('filter', None)))
             .query_param(Parameter()
-                         .key("include")
-                         .value(options.get("include", None)))
+                         .key('include')
+                         .value(options.get('include', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListProductPricePointsResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()

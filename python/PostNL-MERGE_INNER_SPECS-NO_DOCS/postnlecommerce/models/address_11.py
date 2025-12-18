@@ -1,13 +1,16 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
 
 
 class Address11(object):
+
     """Implementation of the 'Address11' model.
 
     Attributes:
@@ -54,45 +57,45 @@ class Address11(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "address_type": "AddressType",
-        "countrycode": "Countrycode",
-        "area": "Area",
-        "buildingname": "Buildingname",
-        "city": "City",
-        "company_name": "CompanyName",
-        "department": "Department",
-        "doorcode": "Doorcode",
-        "first_name": "FirstName",
-        "floor": "Floor",
-        "house_nr": "HouseNr",
-        "house_nr_ext": "HouseNrExt",
-        "name": "Name",
-        "region": "Region",
-        "street": "Street",
-        "street_house_nr_ext": "StreetHouseNrExt",
-        "zipcode": "Zipcode",
+        "address_type": 'AddressType',
+        "countrycode": 'Countrycode',
+        "area": 'Area',
+        "buildingname": 'Buildingname',
+        "city": 'City',
+        "company_name": 'CompanyName',
+        "department": 'Department',
+        "doorcode": 'Doorcode',
+        "first_name": 'FirstName',
+        "floor": 'Floor',
+        "house_nr": 'HouseNr',
+        "house_nr_ext": 'HouseNrExt',
+        "name": 'Name',
+        "region": 'Region',
+        "street": 'Street',
+        "street_house_nr_ext": 'StreetHouseNrExt',
+        "zipcode": 'Zipcode'
     }
 
     _optionals = [
-        "area",
-        "buildingname",
-        "city",
-        "company_name",
-        "department",
-        "doorcode",
-        "first_name",
-        "floor",
-        "house_nr",
-        "house_nr_ext",
-        "name",
-        "region",
-        "street",
-        "street_house_nr_ext",
-        "zipcode",
+        'area',
+        'buildingname',
+        'city',
+        'company_name',
+        'department',
+        'doorcode',
+        'first_name',
+        'floor',
+        'house_nr',
+        'house_nr_ext',
+        'name',
+        'region',
+        'street',
+        'street_house_nr_ext',
+        'zipcode',
     ]
 
     def __init__(self,
-                 address_type="01",
+                 address_type='01',
                  countrycode=None,
                  area=APIHelper.SKIP,
                  buildingname=APIHelper.SKIP,
@@ -109,45 +112,46 @@ class Address11(object):
                  street=APIHelper.SKIP,
                  street_house_nr_ext=APIHelper.SKIP,
                  zipcode=APIHelper.SKIP):
-        """Initialize a Address11 instance."""
+        """Constructor for the Address11 class"""
+
         # Initialize members of the class
-        self.address_type = address_type
+        self.address_type = address_type 
         if area is not APIHelper.SKIP:
-            self.area = area
+            self.area = area 
         if buildingname is not APIHelper.SKIP:
-            self.buildingname = buildingname
+            self.buildingname = buildingname 
         if city is not APIHelper.SKIP:
-            self.city = city
+            self.city = city 
         if company_name is not APIHelper.SKIP:
-            self.company_name = company_name
-        self.countrycode = countrycode
+            self.company_name = company_name 
+        self.countrycode = countrycode 
         if department is not APIHelper.SKIP:
-            self.department = department
+            self.department = department 
         if doorcode is not APIHelper.SKIP:
-            self.doorcode = doorcode
+            self.doorcode = doorcode 
         if first_name is not APIHelper.SKIP:
-            self.first_name = first_name
+            self.first_name = first_name 
         if floor is not APIHelper.SKIP:
-            self.floor = floor
+            self.floor = floor 
         if house_nr is not APIHelper.SKIP:
-            self.house_nr = house_nr
+            self.house_nr = house_nr 
         if house_nr_ext is not APIHelper.SKIP:
-            self.house_nr_ext = house_nr_ext
+            self.house_nr_ext = house_nr_ext 
         if name is not APIHelper.SKIP:
-            self.name = name
+            self.name = name 
         if region is not APIHelper.SKIP:
-            self.region = region
+            self.region = region 
         if street is not APIHelper.SKIP:
-            self.street = street
+            self.street = street 
         if street_house_nr_ext is not APIHelper.SKIP:
-            self.street_house_nr_ext = street_house_nr_ext
+            self.street_house_nr_ext = street_house_nr_ext 
         if zipcode is not APIHelper.SKIP:
-            self.zipcode = zipcode
+            self.zipcode = zipcode 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -158,61 +162,28 @@ class Address11(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        address_type =\
-            dictionary.get("AddressType")\
-            if dictionary.get("AddressType") else "01"
-        countrycode =\
-            dictionary.get("Countrycode")\
-            if dictionary.get("Countrycode") else None
-        area =\
-            dictionary.get("Area")\
-            if dictionary.get("Area") else APIHelper.SKIP
-        buildingname =\
-            dictionary.get("Buildingname")\
-            if dictionary.get("Buildingname") else APIHelper.SKIP
-        city =\
-            dictionary.get("City")\
-            if dictionary.get("City") else APIHelper.SKIP
-        company_name =\
-            dictionary.get("CompanyName")\
-            if dictionary.get("CompanyName") else APIHelper.SKIP
-        department =\
-            dictionary.get("Department")\
-            if dictionary.get("Department") else APIHelper.SKIP
-        doorcode =\
-            dictionary.get("Doorcode")\
-            if dictionary.get("Doorcode") else APIHelper.SKIP
-        first_name =\
-            dictionary.get("FirstName")\
-            if dictionary.get("FirstName") else APIHelper.SKIP
-        floor =\
-            dictionary.get("Floor")\
-            if dictionary.get("Floor") else APIHelper.SKIP
-        house_nr =\
-            dictionary.get("HouseNr")\
-            if dictionary.get("HouseNr") else APIHelper.SKIP
-        house_nr_ext =\
-            dictionary.get("HouseNrExt")\
-            if dictionary.get("HouseNrExt") else APIHelper.SKIP
-        name =\
-            dictionary.get("Name")\
-            if dictionary.get("Name") else APIHelper.SKIP
-        region =\
-            dictionary.get("Region")\
-            if dictionary.get("Region") else APIHelper.SKIP
-        street =\
-            dictionary.get("Street")\
-            if dictionary.get("Street") else APIHelper.SKIP
-        street_house_nr_ext =\
-            dictionary.get("StreetHouseNrExt")\
-            if dictionary.get("StreetHouseNrExt") else APIHelper.SKIP
-        zipcode =\
-            dictionary.get("Zipcode")\
-            if dictionary.get("Zipcode") else APIHelper.SKIP
+        address_type = dictionary.get("AddressType") if dictionary.get("AddressType") else '01'
+        countrycode = dictionary.get("Countrycode") if dictionary.get("Countrycode") else None
+        area = dictionary.get("Area") if dictionary.get("Area") else APIHelper.SKIP
+        buildingname = dictionary.get("Buildingname") if dictionary.get("Buildingname") else APIHelper.SKIP
+        city = dictionary.get("City") if dictionary.get("City") else APIHelper.SKIP
+        company_name = dictionary.get("CompanyName") if dictionary.get("CompanyName") else APIHelper.SKIP
+        department = dictionary.get("Department") if dictionary.get("Department") else APIHelper.SKIP
+        doorcode = dictionary.get("Doorcode") if dictionary.get("Doorcode") else APIHelper.SKIP
+        first_name = dictionary.get("FirstName") if dictionary.get("FirstName") else APIHelper.SKIP
+        floor = dictionary.get("Floor") if dictionary.get("Floor") else APIHelper.SKIP
+        house_nr = dictionary.get("HouseNr") if dictionary.get("HouseNr") else APIHelper.SKIP
+        house_nr_ext = dictionary.get("HouseNrExt") if dictionary.get("HouseNrExt") else APIHelper.SKIP
+        name = dictionary.get("Name") if dictionary.get("Name") else APIHelper.SKIP
+        region = dictionary.get("Region") if dictionary.get("Region") else APIHelper.SKIP
+        street = dictionary.get("Street") if dictionary.get("Street") else APIHelper.SKIP
+        street_house_nr_ext = dictionary.get("StreetHouseNrExt") if dictionary.get("StreetHouseNrExt") else APIHelper.SKIP
+        zipcode = dictionary.get("Zipcode") if dictionary.get("Zipcode") else APIHelper.SKIP
         # Return an object of this model
         return cls(address_type,
                    countrycode,
@@ -233,61 +204,41 @@ class Address11(object):
                    zipcode)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"address_type={self.address_type!r}, "
-                f"area={(self.area if hasattr(self, 'area') else None)!r}, "
-                f"buildingname={(self.buildingname
-                     if hasattr(self, 'buildingname') else None)!r}, "
-                f"city={(self.city if hasattr(self, 'city') else None)!r}, "
-                f"company_name={(self.company_name
-                     if hasattr(self, 'company_name') else None)!r}, "
-                f"countrycode={self.countrycode!r}, "
-                f"department={(self.department
-                     if hasattr(self, 'department') else None)!r}, "
-                f"doorcode={(self.doorcode
-                     if hasattr(self, 'doorcode') else None)!r}, "
-                f"first_name={(self.first_name
-                     if hasattr(self, 'first_name') else None)!r}, "
-                f"floor={(self.floor if hasattr(self, 'floor') else None)!r}, "
-                f"house_nr={(self.house_nr
-                     if hasattr(self, 'house_nr') else None)!r}, "
-                f"house_nr_ext={(self.house_nr_ext
-                     if hasattr(self, 'house_nr_ext') else None)!r}, "
-                f"name={(self.name if hasattr(self, 'name') else None)!r}, "
-                f"region={(self.region if hasattr(self, 'region') else None)!r}, "
-                f"street={(self.street if hasattr(self, 'street') else None)!r}, "
-                f"street_house_nr_ext={(self.street_house_nr_ext
-                     if hasattr(self, 'street_house_nr_ext') else None)!r}, "
-                f"zipcode={(self.zipcode
-                     if hasattr(self, 'zipcode') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'address_type={self.address_type!r}, '
+                f'area={(self.area if hasattr(self, "area") else None)!r}, '
+                f'buildingname={(self.buildingname if hasattr(self, "buildingname") else None)!r}, '
+                f'city={(self.city if hasattr(self, "city") else None)!r}, '
+                f'company_name={(self.company_name if hasattr(self, "company_name") else None)!r}, '
+                f'countrycode={self.countrycode!r}, '
+                f'department={(self.department if hasattr(self, "department") else None)!r}, '
+                f'doorcode={(self.doorcode if hasattr(self, "doorcode") else None)!r}, '
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!r}, '
+                f'floor={(self.floor if hasattr(self, "floor") else None)!r}, '
+                f'house_nr={(self.house_nr if hasattr(self, "house_nr") else None)!r}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'region={(self.region if hasattr(self, "region") else None)!r}, '
+                f'street={(self.street if hasattr(self, "street") else None)!r}, '
+                f'street_house_nr_ext={(self.street_house_nr_ext if hasattr(self, "street_house_nr_ext") else None)!r}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"address_type={self.address_type!s}, "
-                f"area={(self.area if hasattr(self, 'area') else None)!s}, "
-                f"buildingname={(self.buildingname
-                     if hasattr(self, 'buildingname') else None)!s}, "
-                f"city={(self.city if hasattr(self, 'city') else None)!s}, "
-                f"company_name={(self.company_name
-                     if hasattr(self, 'company_name') else None)!s}, "
-                f"countrycode={self.countrycode!s}, "
-                f"department={(self.department
-                     if hasattr(self, 'department') else None)!s}, "
-                f"doorcode={(self.doorcode
-                     if hasattr(self, 'doorcode') else None)!s}, "
-                f"first_name={(self.first_name
-                     if hasattr(self, 'first_name') else None)!s}, "
-                f"floor={(self.floor if hasattr(self, 'floor') else None)!s}, "
-                f"house_nr={(self.house_nr
-                     if hasattr(self, 'house_nr') else None)!s}, "
-                f"house_nr_ext={(self.house_nr_ext
-                     if hasattr(self, 'house_nr_ext') else None)!s}, "
-                f"name={(self.name if hasattr(self, 'name') else None)!s}, "
-                f"region={(self.region if hasattr(self, 'region') else None)!s}, "
-                f"street={(self.street if hasattr(self, 'street') else None)!s}, "
-                f"street_house_nr_ext={(self.street_house_nr_ext
-                     if hasattr(self, 'street_house_nr_ext') else None)!s}, "
-                f"zipcode={(self.zipcode
-                     if hasattr(self, 'zipcode') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'address_type={self.address_type!s}, '
+                f'area={(self.area if hasattr(self, "area") else None)!s}, '
+                f'buildingname={(self.buildingname if hasattr(self, "buildingname") else None)!s}, '
+                f'city={(self.city if hasattr(self, "city") else None)!s}, '
+                f'company_name={(self.company_name if hasattr(self, "company_name") else None)!s}, '
+                f'countrycode={self.countrycode!s}, '
+                f'department={(self.department if hasattr(self, "department") else None)!s}, '
+                f'doorcode={(self.doorcode if hasattr(self, "doorcode") else None)!s}, '
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!s}, '
+                f'floor={(self.floor if hasattr(self, "floor") else None)!s}, '
+                f'house_nr={(self.house_nr if hasattr(self, "house_nr") else None)!s}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'region={(self.region if hasattr(self, "region") else None)!s}, '
+                f'street={(self.street if hasattr(self, "street") else None)!s}, '
+                f'street_house_nr_ext={(self.street_house_nr_ext if hasattr(self, "street_house_nr_ext") else None)!s}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!s})')

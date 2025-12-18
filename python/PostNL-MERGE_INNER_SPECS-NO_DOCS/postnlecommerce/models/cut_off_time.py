@@ -1,13 +1,16 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
 
 
 class CutOffTime(object):
+
     """Implementation of the 'CutOffTime' model.
 
     Attributes:
@@ -24,16 +27,16 @@ class CutOffTime(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "day": "Day",
-        "available": "Available",
-        "mtype": "Type",
-        "time": "Time",
+        "day": 'Day',
+        "available": 'Available',
+        "mtype": 'Type',
+        "time": 'Time'
     }
 
     _optionals = [
-        "available",
-        "mtype",
-        "time",
+        'available',
+        'mtype',
+        'time',
     ]
 
     def __init__(self,
@@ -41,20 +44,21 @@ class CutOffTime(object):
                  available=APIHelper.SKIP,
                  mtype=APIHelper.SKIP,
                  time=APIHelper.SKIP):
-        """Initialize a CutOffTime instance."""
+        """Constructor for the CutOffTime class"""
+
         # Initialize members of the class
-        self.day = day
+        self.day = day 
         if available is not APIHelper.SKIP:
-            self.available = available
+            self.available = available 
         if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
+            self.mtype = mtype 
         if time is not APIHelper.SKIP:
-            self.time = time
+            self.time = time 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -65,20 +69,15 @@ class CutOffTime(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         day = dictionary.get("Day") if dictionary.get("Day") else None
-        available =\
-            dictionary.get("Available")\
-            if "Available" in dictionary.keys() else APIHelper.SKIP
-        mtype =\
-            dictionary.get("Type")\
-            if dictionary.get("Type") else APIHelper.SKIP
-        time =\
-            dictionary.get("Time")\
-            if dictionary.get("Time") else APIHelper.SKIP
+        available = dictionary.get("Available") if "Available" in dictionary.keys() else APIHelper.SKIP
+        mtype = dictionary.get("Type") if dictionary.get("Type") else APIHelper.SKIP
+        time = dictionary.get("Time") if dictionary.get("Time") else APIHelper.SKIP
         # Return an object of this model
         return cls(day,
                    available,
@@ -86,19 +85,15 @@ class CutOffTime(object):
                    time)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"day={self.day!r}, "
-                f"available={(self.available
-                     if hasattr(self, 'available') else None)!r}, "
-                f"mtype={(self.mtype if hasattr(self, 'mtype') else None)!r}, "
-                f"time={(self.time if hasattr(self, 'time') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'day={self.day!r}, '
+                f'available={(self.available if hasattr(self, "available") else None)!r}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r}, '
+                f'time={(self.time if hasattr(self, "time") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"day={self.day!s}, "
-                f"available={(self.available
-                     if hasattr(self, 'available') else None)!s}, "
-                f"mtype={(self.mtype if hasattr(self, 'mtype') else None)!s}, "
-                f"time={(self.time if hasattr(self, 'time') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'day={self.day!s}, '
+                f'available={(self.available if hasattr(self, "available") else None)!s}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s}, '
+                f'time={(self.time if hasattr(self, "time") else None)!s})')

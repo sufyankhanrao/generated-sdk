@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type105Enum`](../../doc/models/type-105-enum.md) | Optional | Resource Type<br><br>**Default**: `"UserVerificationsCollection"` |
+| `mtype` | [`Type105Enum`](../../doc/models/type-105-enum.md) | Optional | Resource Type<br><br>**Default**: `'UserVerificationsCollection'` |
 | `list` | [`List[List17]`](../../doc/models/list-17.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

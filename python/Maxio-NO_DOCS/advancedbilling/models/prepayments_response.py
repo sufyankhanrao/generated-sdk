@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.prepayment import (
-    Prepayment,
-)
+from advancedbilling.models.prepayment import Prepayment
 
 
 class PrepaymentsResponse(object):
+
     """Implementation of the 'Prepayments Response' model.
 
     Attributes:
@@ -23,20 +24,21 @@ class PrepaymentsResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "prepayments": "prepayments",
+        "prepayments": 'prepayments'
     }
 
     _optionals = [
-        "prepayments",
+        'prepayments',
     ]
 
     def __init__(self,
                  prepayments=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a PrepaymentsResponse instance."""
+        """Constructor for the PrepaymentsResponse class"""
+
         # Initialize members of the class
         if prepayments is not APIHelper.SKIP:
-            self.prepayments = prepayments
+            self.prepayments = prepayments 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -46,7 +48,7 @@ class PrepaymentsResponse(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -57,35 +59,28 @@ class PrepaymentsResponse(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         prepayments = None
-        if dictionary.get("prepayments") is not None:
-            prepayments = [
-                Prepayment.from_dictionary(x)
-                    for x in dictionary.get("prepayments")
-            ]
+        if dictionary.get('prepayments') is not None:
+            prepayments = [Prepayment.from_dictionary(x) for x in dictionary.get('prepayments')]
         else:
             prepayments = APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(prepayments,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"prepayments={(self.prepayments
-                     if hasattr(self, 'prepayments') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'prepayments={(self.prepayments if hasattr(self, "prepayments") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"prepayments={(self.prepayments
-                     if hasattr(self, 'prepayments') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'prepayments={(self.prepayments if hasattr(self, "prepayments") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

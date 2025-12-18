@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class PricingScheme(object):
+
     """Implementation of the 'Pricing Scheme' enum.
 
     The identifier for the pricing scheme. See [Product
@@ -21,19 +25,18 @@ class PricingScheme(object):
             for the model.
 
     """
+    _all_values = ['stairstep', 'volume', 'per_unit', 'tiered']
+    STAIRSTEP = 'stairstep'
 
-    _all_values = ["stairstep", "volume", "per_unit", "tiered"]
-    STAIRSTEP = "stairstep"
+    VOLUME = 'volume'
 
-    VOLUME = "volume"
+    PER_UNIT = 'per_unit'
 
-    PER_UNIT = "per_unit"
-
-    TIERED = "tiered"
+    TIERED = 'tiered'
 
     @classmethod
     def validate(cls, value):
-        """Validate value contains in enum
+        """Validates value contains in enum
 
         Args:
             value: the value to be validated
@@ -43,10 +46,9 @@ class PricingScheme(object):
 
         """
         return value in cls._all_values
-
+   
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

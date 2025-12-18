@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class CurrencyPrice(object):
+
     """Implementation of the 'Currency Price' model.
 
     Attributes:
@@ -24,21 +27,21 @@ class CurrencyPrice(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "id": "id",
-        "currency": "currency",
-        "price": "price",
-        "formatted_price": "formatted_price",
-        "product_price_point_id": "product_price_point_id",
-        "role": "role",
+        "id": 'id',
+        "currency": 'currency',
+        "price": 'price',
+        "formatted_price": 'formatted_price',
+        "product_price_point_id": 'product_price_point_id',
+        "role": 'role'
     }
 
     _optionals = [
-        "id",
-        "currency",
-        "price",
-        "formatted_price",
-        "product_price_point_id",
-        "role",
+        'id',
+        'currency',
+        'price',
+        'formatted_price',
+        'product_price_point_id',
+        'role',
     ]
 
     def __init__(self,
@@ -49,20 +52,21 @@ class CurrencyPrice(object):
                  product_price_point_id=APIHelper.SKIP,
                  role=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a CurrencyPrice instance."""
+        """Constructor for the CurrencyPrice class"""
+
         # Initialize members of the class
         if id is not APIHelper.SKIP:
-            self.id = id
+            self.id = id 
         if currency is not APIHelper.SKIP:
-            self.currency = currency
+            self.currency = currency 
         if price is not APIHelper.SKIP:
-            self.price = price
+            self.price = price 
         if formatted_price is not APIHelper.SKIP:
-            self.formatted_price = formatted_price
+            self.formatted_price = formatted_price 
         if product_price_point_id is not APIHelper.SKIP:
-            self.product_price_point_id = product_price_point_id
+            self.product_price_point_id = product_price_point_id 
         if role is not APIHelper.SKIP:
-            self.role = role
+            self.role = role 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -72,7 +76,7 @@ class CurrencyPrice(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -83,29 +87,19 @@ class CurrencyPrice(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
-        currency =\
-            dictionary.get("currency")\
-            if dictionary.get("currency") else APIHelper.SKIP
-        price =\
-            dictionary.get("price")\
-            if dictionary.get("price") else APIHelper.SKIP
-        formatted_price =\
-            dictionary.get("formatted_price")\
-            if dictionary.get("formatted_price") else APIHelper.SKIP
-        product_price_point_id =\
-            dictionary.get("product_price_point_id")\
-            if dictionary.get("product_price_point_id") else APIHelper.SKIP
-        role =\
-            dictionary.get("role")\
-            if dictionary.get("role") else APIHelper.SKIP
+        currency = dictionary.get("currency") if dictionary.get("currency") else APIHelper.SKIP
+        price = dictionary.get("price") if dictionary.get("price") else APIHelper.SKIP
+        formatted_price = dictionary.get("formatted_price") if dictionary.get("formatted_price") else APIHelper.SKIP
+        product_price_point_id = dictionary.get("product_price_point_id") if dictionary.get("product_price_point_id") else APIHelper.SKIP
+        role = dictionary.get("role") if dictionary.get("role") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(id,
                    currency,
@@ -116,29 +110,21 @@ class CurrencyPrice(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"currency={(self.currency
-                     if hasattr(self, 'currency') else None)!r}, "
-                f"price={(self.price if hasattr(self, 'price') else None)!r}, "
-                f"formatted_price={(self.formatted_price
-                     if hasattr(self, 'formatted_price') else None)!r}, "
-                f"product_price_point_id={(self.product_price_point_id
-                     if hasattr(self, 'product_price_point_id') else None)!r}, "
-                f"role={(self.role if hasattr(self, 'role') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'currency={(self.currency if hasattr(self, "currency") else None)!r}, '
+                f'price={(self.price if hasattr(self, "price") else None)!r}, '
+                f'formatted_price={(self.formatted_price if hasattr(self, "formatted_price") else None)!r}, '
+                f'product_price_point_id={(self.product_price_point_id if hasattr(self, "product_price_point_id") else None)!r}, '
+                f'role={(self.role if hasattr(self, "role") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"currency={(self.currency
-                     if hasattr(self, 'currency') else None)!s}, "
-                f"price={(self.price if hasattr(self, 'price') else None)!s}, "
-                f"formatted_price={(self.formatted_price
-                     if hasattr(self, 'formatted_price') else None)!s}, "
-                f"product_price_point_id={(self.product_price_point_id
-                     if hasattr(self, 'product_price_point_id') else None)!s}, "
-                f"role={(self.role if hasattr(self, 'role') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'currency={(self.currency if hasattr(self, "currency") else None)!s}, '
+                f'price={(self.price if hasattr(self, "price") else None)!s}, '
+                f'formatted_price={(self.formatted_price if hasattr(self, "formatted_price") else None)!s}, '
+                f'product_price_point_id={(self.product_price_point_id if hasattr(self, "product_price_point_id") else None)!s}, '
+                f'role={(self.role if hasattr(self, "role") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

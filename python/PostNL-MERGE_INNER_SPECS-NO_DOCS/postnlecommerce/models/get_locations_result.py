@@ -1,16 +1,17 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.location_1 import (
-    Location1,
-)
+from postnlecommerce.models.location_1 import Location1
 
 
 class GetLocationsResult(object):
+
     """Implementation of the 'GetLocationsResult' model.
 
     Attributes:
@@ -21,24 +22,25 @@ class GetLocationsResult(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "response_location": "ResponseLocation",
+        "response_location": 'ResponseLocation'
     }
 
     _optionals = [
-        "response_location",
+        'response_location',
     ]
 
     def __init__(self,
                  response_location=APIHelper.SKIP):
-        """Initialize a GetLocationsResult instance."""
+        """Constructor for the GetLocationsResult class"""
+
         # Initialize members of the class
         if response_location is not APIHelper.SKIP:
-            self.response_location = response_location
+            self.response_location = response_location 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -49,29 +51,23 @@ class GetLocationsResult(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         response_location = None
-        if dictionary.get("ResponseLocation") is not None:
-            response_location = [
-                Location1.from_dictionary(x)
-                    for x in dictionary.get("ResponseLocation")
-            ]
+        if dictionary.get('ResponseLocation') is not None:
+            response_location = [Location1.from_dictionary(x) for x in dictionary.get('ResponseLocation')]
         else:
             response_location = APIHelper.SKIP
         # Return an object of this model
         return cls(response_location)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"response_location={(self.response_location
-                     if hasattr(self, 'response_location') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'response_location={(self.response_location if hasattr(self, "response_location") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"response_location={(self.response_location
-                     if hasattr(self, 'response_location') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'response_location={(self.response_location if hasattr(self, "response_location") else None)!s})')

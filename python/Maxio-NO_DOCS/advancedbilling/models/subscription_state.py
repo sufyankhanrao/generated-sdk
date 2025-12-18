@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class SubscriptionState(object):
+
     """Implementation of the 'Subscription State' enum.
 
     The state of a subscription.
@@ -98,41 +102,40 @@ class SubscriptionState(object):
             for the model.
 
     """
+    _all_values = ['pending', 'failed_to_create', 'trialing', 'assessing', 'active', 'soft_failure', 'past_due', 'suspended', 'canceled', 'expired', 'paused', 'unpaid', 'trial_ended', 'on_hold', 'awaiting_signup']
+    PENDING = 'pending'
 
-    _all_values = ["pending", "failed_to_create", "trialing", "assessing", "active", "soft_failure", "past_due", "suspended", "canceled", "expired", "paused", "unpaid", "trial_ended", "on_hold", "awaiting_signup"]
-    PENDING = "pending"
+    FAILED_TO_CREATE = 'failed_to_create'
 
-    FAILED_TO_CREATE = "failed_to_create"
+    TRIALING = 'trialing'
 
-    TRIALING = "trialing"
+    ASSESSING = 'assessing'
 
-    ASSESSING = "assessing"
+    ACTIVE = 'active'
 
-    ACTIVE = "active"
+    SOFT_FAILURE = 'soft_failure'
 
-    SOFT_FAILURE = "soft_failure"
+    PAST_DUE = 'past_due'
 
-    PAST_DUE = "past_due"
+    SUSPENDED = 'suspended'
 
-    SUSPENDED = "suspended"
+    CANCELED = 'canceled'
 
-    CANCELED = "canceled"
+    EXPIRED = 'expired'
 
-    EXPIRED = "expired"
+    PAUSED = 'paused'
 
-    PAUSED = "paused"
+    UNPAID = 'unpaid'
 
-    UNPAID = "unpaid"
+    TRIAL_ENDED = 'trial_ended'
 
-    TRIAL_ENDED = "trial_ended"
+    ON_HOLD = 'on_hold'
 
-    ON_HOLD = "on_hold"
-
-    AWAITING_SIGNUP = "awaiting_signup"
+    AWAITING_SIGNUP = 'awaiting_signup'
 
     @classmethod
     def validate(cls, value):
-        """Validate value contains in enum
+        """Validates value contains in enum
 
         Args:
             value: the value to be validated
@@ -142,10 +145,9 @@ class SubscriptionState(object):
 
         """
         return value in cls._all_values
-
+   
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

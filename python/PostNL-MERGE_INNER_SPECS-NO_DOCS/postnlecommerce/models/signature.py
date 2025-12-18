@@ -1,13 +1,16 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
 
 
 class Signature(object):
+
     """Implementation of the 'Signature' model.
 
     Attributes:
@@ -21,34 +24,35 @@ class Signature(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "barcode": "Barcode",
-        "signature_date": "SignatureDate",
-        "signature_image": "SignatureImage",
+        "barcode": 'Barcode',
+        "signature_date": 'SignatureDate',
+        "signature_image": 'SignatureImage'
     }
 
     _optionals = [
-        "barcode",
-        "signature_date",
-        "signature_image",
+        'barcode',
+        'signature_date',
+        'signature_image',
     ]
 
     def __init__(self,
                  barcode=APIHelper.SKIP,
                  signature_date=APIHelper.SKIP,
                  signature_image=APIHelper.SKIP):
-        """Initialize a Signature instance."""
+        """Constructor for the Signature class"""
+
         # Initialize members of the class
         if barcode is not APIHelper.SKIP:
-            self.barcode = barcode
+            self.barcode = barcode 
         if signature_date is not APIHelper.SKIP:
-            self.signature_date = signature_date
+            self.signature_date = signature_date 
         if signature_image is not APIHelper.SKIP:
-            self.signature_image = signature_image
+            self.signature_image = signature_image 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -59,40 +63,27 @@ class Signature(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        barcode =\
-            dictionary.get("Barcode")\
-            if dictionary.get("Barcode") else APIHelper.SKIP
-        signature_date =\
-            dictionary.get("SignatureDate")\
-            if dictionary.get("SignatureDate") else APIHelper.SKIP
-        signature_image =\
-            dictionary.get("SignatureImage")\
-            if dictionary.get("SignatureImage") else APIHelper.SKIP
+        barcode = dictionary.get("Barcode") if dictionary.get("Barcode") else APIHelper.SKIP
+        signature_date = dictionary.get("SignatureDate") if dictionary.get("SignatureDate") else APIHelper.SKIP
+        signature_image = dictionary.get("SignatureImage") if dictionary.get("SignatureImage") else APIHelper.SKIP
         # Return an object of this model
         return cls(barcode,
                    signature_date,
                    signature_image)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"barcode={(self.barcode
-                     if hasattr(self, 'barcode') else None)!r}, "
-                f"signature_date={(self.signature_date
-                     if hasattr(self, 'signature_date') else None)!r}, "
-                f"signature_image={(self.signature_image
-                     if hasattr(self, 'signature_image') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!r}, '
+                f'signature_date={(self.signature_date if hasattr(self, "signature_date") else None)!r}, '
+                f'signature_image={(self.signature_image if hasattr(self, "signature_image") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"barcode={(self.barcode
-                     if hasattr(self, 'barcode') else None)!s}, "
-                f"signature_date={(self.signature_date
-                     if hasattr(self, 'signature_date') else None)!s}, "
-                f"signature_image={(self.signature_image
-                     if hasattr(self, 'signature_image') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'barcode={(self.barcode if hasattr(self, "barcode") else None)!s}, '
+                f'signature_date={(self.signature_date if hasattr(self, "signature_date") else None)!s}, '
+                f'signature_image={(self.signature_image if hasattr(self, "signature_image") else None)!s})')

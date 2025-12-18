@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type10Enum`](../../doc/models/type-10-enum.md) | Optional | Resource Type<br><br>**Default**: `"Contact"` |
+| `mtype` | [`Type10Enum`](../../doc/models/type-10-enum.md) | Optional | Resource Type<br><br>**Default**: `'Contact'` |
 | `data` | [`Data2`](../../doc/models/data-2.md) | Optional | - |
 
 ## Example (as JSON)

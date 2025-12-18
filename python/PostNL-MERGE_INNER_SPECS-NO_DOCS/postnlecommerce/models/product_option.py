@@ -1,10 +1,15 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+
 class ProductOption(object):
+
     """Implementation of the 'ProductOption' model.
 
     Attributes:
@@ -21,22 +26,23 @@ class ProductOption(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "characteristic": "Characteristic",
-        "option": "Option",
+        "characteristic": 'Characteristic',
+        "option": 'Option'
     }
 
     def __init__(self,
-                 characteristic="118",
-                 option="006"):
-        """Initialize a ProductOption instance."""
+                 characteristic='118',
+                 option='006'):
+        """Constructor for the ProductOption class"""
+
         # Initialize members of the class
-        self.characteristic = characteristic
-        self.option = option
+        self.characteristic = characteristic 
+        self.option = option 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -47,26 +53,23 @@ class ProductOption(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        characteristic =\
-            dictionary.get("Characteristic")\
-            if dictionary.get("Characteristic") else "118"
-        option = dictionary.get("Option") if dictionary.get("Option") else "006"
+        characteristic = dictionary.get("Characteristic") if dictionary.get("Characteristic") else '118'
+        option = dictionary.get("Option") if dictionary.get("Option") else '006'
         # Return an object of this model
         return cls(characteristic,
                    option)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"characteristic={self.characteristic!r}, "
-                f"option={self.option!r})")
+        return (f'{self.__class__.__name__}('
+                f'characteristic={self.characteristic!r}, '
+                f'option={self.option!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"characteristic={self.characteristic!s}, "
-                f"option={self.option!s})")
+        return (f'{self.__class__.__name__}('
+                f'characteristic={self.characteristic!s}, '
+                f'option={self.option!s})')

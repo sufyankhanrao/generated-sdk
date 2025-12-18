@@ -31,7 +31,7 @@ URI to obtain a list of all supported terminals and their related information fo
 def get_supported_terminals(self,
                            v_correlation_id,
                            id,
-                           content_type="application/json",
+                           content_type='application/json',
                            template_mid=None)
 ```
 
@@ -41,7 +41,7 @@ def get_supported_terminals(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 | `template_mid` | `str` | Query, Optional | Template Mid associated with the chain code - used for building terminals |
 
 ## Response Type
@@ -91,7 +91,7 @@ URI to obtain a list of all terminals and their related information for a submer
 def get_terminals(self,
                  v_correlation_id,
                  id,
-                 content_type="application/json")
+                 content_type='application/json')
 ```
 
 ## Parameters
@@ -100,7 +100,7 @@ def get_terminals(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 
@@ -264,7 +264,7 @@ URI to obtain batch close time for all the terminals.
 def get_terminalsbatchclosetime(self,
                                v_correlation_id,
                                id,
-                               content_type="application/json",
+                               content_type='application/json',
                                page_number=None,
                                page_size=None)
 ```
@@ -275,7 +275,7 @@ def get_terminalsbatchclosetime(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 | `page_number` | `int` | Query, Optional | This is the page number that needs to be retrieved <br> Default is page number 1 |
 | `page_size` | `int` | Query, Optional | Number of records that needs to be retrieved per page <br> Default is 25 records per page and the max limit is 2000. |
 
@@ -330,7 +330,7 @@ def get_one_terminal(self,
                     v_correlation_id,
                     id,
                     tid,
-                    content_type="application/json")
+                    content_type='application/json')
 ```
 
 ## Parameters
@@ -340,7 +340,7 @@ def get_one_terminal(self,
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
 | `tid` | `str` | Template, Required | The terminal number (1-3 digits) |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 
@@ -450,7 +450,7 @@ def delete_terminal(self,
                    v_correlation_id,
                    id,
                    tid,
-                   content_type="application/json")
+                   content_type='application/json')
 ```
 
 ## Parameters
@@ -460,7 +460,7 @@ def delete_terminal(self,
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
 | `tid` | `str` | Template, Required | The terminal number (1-3 digits) |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 
@@ -509,7 +509,7 @@ def get_var_sheets(self,
                   v_correlation_id,
                   id,
                   tid,
-                  content_type="application/pdf or application/json")
+                  content_type='application/pdf or application/json')
 ```
 
 ## Parameters
@@ -519,7 +519,7 @@ def get_var_sheets(self,
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `uuid\|str` | Template, Required | The resource ID of the submerchant |
 | `tid` | `str` | Template, Required | The terminal number (1-3 digits) |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/pdf or application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/pdf or application/json'` |
 
 ## Response Type
 

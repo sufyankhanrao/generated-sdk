@@ -26,7 +26,7 @@ URI to get the supported fraudsight rule groups for a submerchant.
 def get_fraud_sight_supported_rules(self,
                                    v_correlation_id,
                                    id,
-                                   content_type="application/json")
+                                   content_type='application/json')
 ```
 
 ## Parameters
@@ -35,7 +35,7 @@ def get_fraud_sight_supported_rules(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 
@@ -82,7 +82,7 @@ def get_fraud_sight_rules_for_group(self,
                                    v_correlation_id,
                                    id,
                                    groupname,
-                                   content_type="application/json")
+                                   content_type='application/json')
 ```
 
 ## Parameters
@@ -92,7 +92,7 @@ def get_fraud_sight_rules_for_group(self,
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
 | `groupname` | `str` | Template, Required | The rule group resource id |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 
@@ -141,7 +141,7 @@ URI to get the current rule groups for a submerchant.
 def get_fraud_sight_rule_groups(self,
                                v_correlation_id,
                                id,
-                               content_type="application/json")
+                               content_type='application/json')
 ```
 
 ## Parameters
@@ -150,7 +150,7 @@ def get_fraud_sight_rule_groups(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 
@@ -312,7 +312,7 @@ URI to disable fraudsight for a Submerchant.
 def delete_fraud_sight(self,
                       v_correlation_id,
                       id,
-                      content_type="application/json")
+                      content_type='application/json')
 ```
 
 ## Parameters
@@ -321,7 +321,7 @@ def delete_fraud_sight(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 

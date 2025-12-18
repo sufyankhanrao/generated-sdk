@@ -1,13 +1,16 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
 
 
 class Group(object):
+
     """Implementation of the 'Group' model.
 
     Attributes:
@@ -26,15 +29,15 @@ class Group(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "group_type": "GroupType",
-        "main_barcode": "MainBarcode",
-        "group_sequence": "GroupSequence",
-        "group_count": "GroupCount",
+        "group_type": 'GroupType',
+        "main_barcode": 'MainBarcode',
+        "group_sequence": 'GroupSequence',
+        "group_count": 'GroupCount'
     }
 
     _optionals = [
-        "group_sequence",
-        "group_count",
+        'group_sequence',
+        'group_count',
     ]
 
     def __init__(self,
@@ -42,19 +45,20 @@ class Group(object):
                  main_barcode=None,
                  group_sequence=APIHelper.SKIP,
                  group_count=APIHelper.SKIP):
-        """Initialize a Group instance."""
+        """Constructor for the Group class"""
+
         # Initialize members of the class
-        self.group_type = group_type
+        self.group_type = group_type 
         if group_sequence is not APIHelper.SKIP:
-            self.group_sequence = group_sequence
+            self.group_sequence = group_sequence 
         if group_count is not APIHelper.SKIP:
-            self.group_count = group_count
-        self.main_barcode = main_barcode
+            self.group_count = group_count 
+        self.main_barcode = main_barcode 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -65,22 +69,15 @@ class Group(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        group_type =\
-            dictionary.get("GroupType")\
-            if dictionary.get("GroupType") else None
-        main_barcode =\
-            dictionary.get("MainBarcode")\
-            if dictionary.get("MainBarcode") else None
-        group_sequence =\
-            dictionary.get("GroupSequence")\
-            if dictionary.get("GroupSequence") else APIHelper.SKIP
-        group_count =\
-            dictionary.get("GroupCount")\
-            if dictionary.get("GroupCount") else APIHelper.SKIP
+        group_type = dictionary.get("GroupType") if dictionary.get("GroupType") else None
+        main_barcode = dictionary.get("MainBarcode") if dictionary.get("MainBarcode") else None
+        group_sequence = dictionary.get("GroupSequence") if dictionary.get("GroupSequence") else APIHelper.SKIP
+        group_count = dictionary.get("GroupCount") if dictionary.get("GroupCount") else APIHelper.SKIP
         # Return an object of this model
         return cls(group_type,
                    main_barcode,
@@ -88,21 +85,15 @@ class Group(object):
                    group_count)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"group_type={self.group_type!r}, "
-                f"group_sequence={(self.group_sequence
-                     if hasattr(self, 'group_sequence') else None)!r}, "
-                f"group_count={(self.group_count
-                     if hasattr(self, 'group_count') else None)!r}, "
-                f"main_barcode={self.main_barcode!r})")
+        return (f'{self.__class__.__name__}('
+                f'group_type={self.group_type!r}, '
+                f'group_sequence={(self.group_sequence if hasattr(self, "group_sequence") else None)!r}, '
+                f'group_count={(self.group_count if hasattr(self, "group_count") else None)!r}, '
+                f'main_barcode={self.main_barcode!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"group_type={self.group_type!s}, "
-                f"group_sequence={(self.group_sequence
-                     if hasattr(self, 'group_sequence') else None)!s}, "
-                f"group_count={(self.group_count
-                     if hasattr(self, 'group_count') else None)!s}, "
-                f"main_barcode={self.main_barcode!s})")
+        return (f'{self.__class__.__name__}('
+                f'group_type={self.group_type!s}, '
+                f'group_sequence={(self.group_sequence if hasattr(self, "group_sequence") else None)!s}, '
+                f'group_count={(self.group_count if hasattr(self, "group_count") else None)!s}, '
+                f'main_barcode={self.main_barcode!s})')

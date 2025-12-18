@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type70Enum`](../../doc/models/type-70-enum.md) | Optional | Resource Type<br><br>**Default**: `"TagsCollection"` |
+| `mtype` | [`Type70Enum`](../../doc/models/type-70-enum.md) | Optional | Resource Type<br><br>**Default**: `'TagsCollection'` |
 | `list` | [`List[List12]`](../../doc/models/list-12.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

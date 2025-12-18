@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class ItemCategory(object):
+
     """Implementation of the 'Item Category' enum.
 
     One of the following: Business Software, Consumer Software, Digital
@@ -21,20 +25,18 @@ class ItemCategory(object):
             for the model.
 
     """
+    ENUM_BUSINESS_SOFTWARE = 'Business Software'
 
-    ENUM_BUSINESS_SOFTWARE = "Business Software"
+    ENUM_CONSUMER_SOFTWARE = 'Consumer Software'
 
-    ENUM_CONSUMER_SOFTWARE = "Consumer Software"
+    ENUM_DIGITAL_SERVICES = 'Digital Services'
 
-    ENUM_DIGITAL_SERVICES = "Digital Services"
+    ENUM_PHYSICAL_GOODS = 'Physical Goods'
 
-    ENUM_PHYSICAL_GOODS = "Physical Goods"
-
-    OTHER = "Other"
+    OTHER = 'Other'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

@@ -1,54 +1,38 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
-from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
-from apimatic_core.types.array_serialization_format import (
-    SerializationFormats,
-)
-from apimatic_core.types.parameter import Parameter
 from deprecation import deprecated
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.subscriptions_mrr_error_response_exception import (
-    SubscriptionsMrrErrorResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.list_mrr_response import (
-    ListMRRResponse,
-)
-from advancedbilling.models.mrr_response import (
-    MRRResponse,
-)
-from advancedbilling.models.site_summary import (
-    SiteSummary,
-)
-from advancedbilling.models.subscription_mrr_response import (
-    SubscriptionMRRResponse,
-)
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.types.array_serialization_format import SerializationFormats
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.site_summary import SiteSummary
+from advancedbilling.models.mrr_response import MRRResponse
+from advancedbilling.models.list_mrr_response import ListMRRResponse
+from advancedbilling.models.subscription_mrr_response import SubscriptionMRRResponse
+from advancedbilling.exceptions.subscriptions_mrr_error_response_exception import SubscriptionsMrrErrorResponseException
 
 
 class InsightsController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize InsightsController object."""
         super(InsightsController, self).__init__(config)
 
     def read_site_stats(self):
-        """Perform a GET request to /stats.json.
+        """Does a GET request to /stats.json.
 
         The Stats API is a very basic view of some Site-level stats. This API
         call only answers with JSON responses. An XML version is not provided.
@@ -71,26 +55,27 @@ class InsightsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/stats.json")
+            .path('/stats.json')
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SiteSummary.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     @deprecated()
     def read_mrr(self,
                  at_time=None,
                  subscription_id=None):
-        """Perform a GET request to /mrr.json.
+        """Does a GET request to /mrr.json.
 
         This endpoint returns your site's current MRR, including plan and
         usage breakouts.
@@ -112,32 +97,32 @@ class InsightsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/mrr.json")
+            .path('/mrr.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("at_time")
-                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                             at_time)))
+                         .key('at_time')
+                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime, at_time)))
             .query_param(Parameter()
-                         .key("subscription_id")
+                         .key('subscription_id')
                          .value(subscription_id))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(MRRResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     @deprecated()
     def list_mrr_movements(self,
                            options=dict()):
-        """Perform a GET request to /mrr_movements.json.
+        """Does a GET request to /mrr_movements.json.
 
         This endpoint returns your site's MRR movements.
         ## Understanding MRR movements
@@ -169,6 +154,7 @@ class InsightsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     subscription_id -- int -- optionally filter results by
                         subscription
                     page -- int -- Result records are organized in pages. By
@@ -200,37 +186,38 @@ class InsightsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/mrr_movements.json")
+            .path('/mrr_movements.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("subscription_id")
-                         .value(options.get("subscription_id", None)))
+                         .key('subscription_id')
+                         .value(options.get('subscription_id', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListMRRResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     @deprecated()
     def list_mrr_per_subscription(self,
                                   options=dict()):
-        """Perform a GET request to /subscriptions_mrr.json.
+        """Does a GET request to /subscriptions_mrr.json.
 
         This endpoint returns your site's current MRR, including plan and
         usage breakouts split per subscription.
@@ -241,6 +228,7 @@ class InsightsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     filter -- ListMrrFilter -- Filter to use for List MRR per
                         subscription operation
                     at_time -- str -- Submit a timestamp in ISO8601 format to
@@ -276,37 +264,35 @@ class InsightsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions_mrr.json")
+            .path('/subscriptions_mrr.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("filter")
-                         .value(options.get("filter", None)))
+                         .key('filter')
+                         .value(options.get('filter', None)))
             .query_param(Parameter()
-                         .key("at_time")
-                         .value(options.get("at_time", None)))
+                         .key('at_time')
+                         .value(options.get('at_time', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionMRRResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("400",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SubscriptionsMrrErrorResponseException),
+            .local_error_template('400', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SubscriptionsMrrErrorResponseException)
         ).execute()

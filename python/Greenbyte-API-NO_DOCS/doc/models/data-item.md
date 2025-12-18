@@ -11,7 +11,7 @@ An object containing time-series data for a specific aggregate, data signal and 
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `aggregate` | [`AggregateModeEnum`](../../doc/models/aggregate-mode-enum.md) | Required | How data is aggregated in the asset structure.<br><br>**Default**: `"device"` |
+| `aggregate` | [`AggregateModeEnum`](../../doc/models/aggregate-mode-enum.md) | Required | How data is aggregated in the asset structure.<br><br>**Default**: `'device'` |
 | `aggregate_id` | `int` | Required | The id of this aggregate group: device id, site id, or the constant -1 for portfolio. For `siteLevel` aggregation a generated unique id is used. |
 | `aggregate_path_names` | `List[str]` | Optional | For `siteLevel` aggregation this contains the title for each level in the hierarchy. For other types of aggregation it will be empty. |
 | `device_ids` | `List[int]` | Required | The ids of the devices in this aggregate group.<br><br>**Constraints**: `>= 1` |

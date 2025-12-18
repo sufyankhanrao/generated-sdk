@@ -1,46 +1,32 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from postnlecommerce.api_helper import APIHelper
+from postnlecommerce.configuration import Server
+from postnlecommerce.http.api_response import ApiResponse
+from postnlecommerce.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.configuration import Server
-from postnlecommerce.controllers.base_controller import (
-    BaseController,
-)
-from postnlecommerce.exceptions.barcode_response_error_exception import (
-    BarcodeResponseErrorException,
-)
-from postnlecommerce.exceptions.locations_response_invalid_exception import (
-    LocationsResponseInvalidException,
-)
-from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import (
-    MethodNotAllowedOnlyGetPostException,
-)
-from postnlecommerce.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from postnlecommerce.models.location_response import (
-    LocationResponse,
-)
-from postnlecommerce.models.locations_response import (
-    LocationsResponse,
-)
+from postnlecommerce.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from postnlecommerce.models.locations_response import LocationsResponse
+from postnlecommerce.models.location_response import LocationResponse
+from postnlecommerce.exceptions.locations_response_invalid_exception import LocationsResponseInvalidException
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import MethodNotAllowedOnlyGetPostException
+from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
 
 
 class LocationsController(BaseController):
-    """A Controller to access Endpoints in the postnlecommerce API."""
 
+    """A Controller to access Endpoints in the postnlecommerce API."""
     def __init__(self, config):
-        """Initialize LocationsController object."""
         super(LocationsController, self).__init__(config)
 
     def get_pickup_locations_by_address(self,
@@ -53,7 +39,7 @@ class LocationsController(BaseController):
                                         delivery_date=None,
                                         opening_time=None,
                                         delivery_options=None):
-        """Perform a GET request to /shipment/v2_1/locations/nearest.
+        """Does a GET request to /shipment/v2_1/locations/nearest.
 
         Request example:
         ```
@@ -104,55 +90,52 @@ class LocationsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path("/shipment/v2_1/locations/nearest")
+            .path('/shipment/v2_1/locations/nearest')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("CountryCode")
+                         .key('CountryCode')
                          .value(country_code))
             .query_param(Parameter()
-                         .key("PostalCode")
+                         .key('PostalCode')
                          .value(postal_code))
             .query_param(Parameter()
-                         .key("City")
+                         .key('City')
                          .value(city))
             .query_param(Parameter()
-                         .key("Street")
+                         .key('Street')
                          .value(street))
             .query_param(Parameter()
-                         .key("HouseNumber")
+                         .key('HouseNumber')
                          .value(house_number))
             .query_param(Parameter()
-                         .key("HouseNumberExtension")
+                         .key('HouseNumberExtension')
                          .value(house_number_extension))
             .query_param(Parameter()
-                         .key("DeliveryDate")
+                         .key('DeliveryDate')
                          .value(delivery_date))
             .query_param(Parameter()
-                         .key("OpeningTime")
+                         .key('OpeningTime')
                          .value(opening_time))
             .query_param(Parameter()
-                         .key("DeliveryOptions")
+                         .key('DeliveryOptions')
                          .value(delivery_options))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("APIKeyHeader")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('APIKeyHeader'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(LocationsResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("400", "Invalid request", LocationsResponseInvalidException)
-            .local_error("401", "Unauthorized", MethodNotAllowedOnlyGetPostException)
-            .local_error("405",
-                "Method not allowed",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("429",
-                "Too many requests",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("500", "Internal server error", BarcodeResponseErrorException),
+            .local_error('400', 'Invalid request', LocationsResponseInvalidException)
+            .local_error('401', 'Unauthorized', MethodNotAllowedOnlyGetPostException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
+            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
         ).execute()
 
     def get_pickup_locations_by_coordinates(self,
@@ -162,7 +145,7 @@ class LocationsController(BaseController):
                                             delivery_date=None,
                                             opening_time=None,
                                             delivery_options=None):
-        """Perform a GET request to /shipment/v2_1/locations/nearest/geocode.
+        """Does a GET request to /shipment/v2_1/locations/nearest/geocode.
 
         Request example:
         ```
@@ -204,46 +187,43 @@ class LocationsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path("/shipment/v2_1/locations/nearest/geocode")
+            .path('/shipment/v2_1/locations/nearest/geocode')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("Latitude")
+                         .key('Latitude')
                          .value(latitude))
             .query_param(Parameter()
-                         .key("Longitude")
+                         .key('Longitude')
                          .value(longitude))
             .query_param(Parameter()
-                         .key("CountryCode")
+                         .key('CountryCode')
                          .value(country_code))
             .query_param(Parameter()
-                         .key("DeliveryDate")
+                         .key('DeliveryDate')
                          .value(delivery_date))
             .query_param(Parameter()
-                         .key("OpeningTime")
+                         .key('OpeningTime')
                          .value(opening_time))
             .query_param(Parameter()
-                         .key("DeliveryOptions")
+                         .key('DeliveryOptions')
                          .value(delivery_options))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("APIKeyHeader")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('APIKeyHeader'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(LocationsResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("400", "Invalid request", LocationsResponseInvalidException)
-            .local_error("401", "Unauthorized", MethodNotAllowedOnlyGetPostException)
-            .local_error("405",
-                "Method not allowed",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("429",
-                "Too many requests",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("500", "Internal server error", BarcodeResponseErrorException),
+            .local_error('400', 'Invalid request', LocationsResponseInvalidException)
+            .local_error('401', 'Unauthorized', MethodNotAllowedOnlyGetPostException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
+            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
         ).execute()
 
     def get_pickup_locations_within_area(self,
@@ -255,7 +235,7 @@ class LocationsController(BaseController):
                                          delivery_date=None,
                                          opening_time=None,
                                          delivery_options=None):
-        """Perform a GET request to /shipment/v2_1/locations/area.
+        """Does a GET request to /shipment/v2_1/locations/area.
 
         Request example:
         ```
@@ -299,57 +279,54 @@ class LocationsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path("/shipment/v2_1/locations/area")
+            .path('/shipment/v2_1/locations/area')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("LatitudeNorth")
+                         .key('LatitudeNorth')
                          .value(latitude_north))
             .query_param(Parameter()
-                         .key("LongitudeWest")
+                         .key('LongitudeWest')
                          .value(longitude_west))
             .query_param(Parameter()
-                         .key("LatitudeSouth")
+                         .key('LatitudeSouth')
                          .value(latitude_south))
             .query_param(Parameter()
-                         .key("LongitudeEast")
+                         .key('LongitudeEast')
                          .value(longitude_east))
             .query_param(Parameter()
-                         .key("CountryCode")
+                         .key('CountryCode')
                          .value(country_code))
             .query_param(Parameter()
-                         .key("DeliveryDate")
+                         .key('DeliveryDate')
                          .value(delivery_date))
             .query_param(Parameter()
-                         .key("OpeningTime")
+                         .key('OpeningTime')
                          .value(opening_time))
             .query_param(Parameter()
-                         .key("DeliveryOptions")
+                         .key('DeliveryOptions')
                          .value(delivery_options))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("APIKeyHeader")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('APIKeyHeader'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(LocationsResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("400", "Invalid request", LocationsResponseInvalidException)
-            .local_error("401", "Unauthorized", MethodNotAllowedOnlyGetPostException)
-            .local_error("405",
-                "Method not allowed",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("429",
-                "Too many requests",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("500", "Internal server error", BarcodeResponseErrorException),
+            .local_error('400', 'Invalid request', LocationsResponseInvalidException)
+            .local_error('401', 'Unauthorized', MethodNotAllowedOnlyGetPostException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
+            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
         ).execute()
 
     def get_pickup_location(self,
                             location_code):
-        """Perform a GET request to /shipment/v2_1/locations/lookup.
+        """Does a GET request to /shipment/v2_1/locations/lookup.
 
         Request example:
         ```
@@ -357,7 +334,7 @@ class LocationsController(BaseController):
         "https://api-sandbox.postnl.nl/shipment/v2_1/locations/lookup?LocationC
         ode=216877" \
          -H "Accept: application/json" \
-         -H "apikey: APIKEY-HERE"
+         -H "apikey: APIKEY-HERE" 
         ```
 
         Args:
@@ -375,29 +352,26 @@ class LocationsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path("/shipment/v2_1/locations/lookup")
+            .path('/shipment/v2_1/locations/lookup')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("LocationCode")
+                         .key('LocationCode')
                          .value(location_code))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("APIKeyHeader")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('APIKeyHeader'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(LocationResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("400", "Invalid request", LocationsResponseInvalidException)
-            .local_error("401", "Unauthorized", MethodNotAllowedOnlyGetPostException)
-            .local_error("405",
-                "Method not allowed",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("429",
-                "Too many requests",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("500", "Invalid request", BarcodeResponseErrorException),
+            .local_error('400', 'Invalid request', LocationsResponseInvalidException)
+            .local_error('401', 'Unauthorized', MethodNotAllowedOnlyGetPostException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
+            .local_error('500', 'Invalid request', BarcodeResponseErrorException)
         ).execute()

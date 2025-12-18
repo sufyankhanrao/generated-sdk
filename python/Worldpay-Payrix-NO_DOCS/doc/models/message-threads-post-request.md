@@ -14,7 +14,7 @@
 | `hold` | `str` | Optional | The identifier of the Hold that is related to this messageThread. |
 | `entity_return` | `str` | Optional | This field has the ID from the EntityReturns table that hold ACH returns for disbursements or eCheck txns. |
 | `opposing_message_thread` | `str` | Optional | Specifies whether this is the opposing MessageThread. |
-| `folder` | `str` | Required | Free-form text. By default, a messageThread resource is set as 'default'.<br><br>**Default**: `"default"` |
+| `folder` | `str` | Required | Free-form text. By default, a messageThread resource is set as 'default'.<br><br>**Default**: `'default'` |
 | `sender` | `str` | Required | Free-form text that represents the name of the sender of a messageThread resource. |
 | `recipient` | `str` | Required | Free-form text that represents the name of the recipient of a messageThread resource. |
 | `subject` | `str` | Required | Free-form text for adding a subject to a messageThread resource. |

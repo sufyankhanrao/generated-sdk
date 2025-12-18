@@ -23,7 +23,7 @@ URI to get details on the Submerchant echeck status.
 def get_echeck(self,
               v_correlation_id,
               id,
-              content_type="application/json")
+              content_type='application/json')
 ```
 
 ## Parameters
@@ -32,7 +32,7 @@ def get_echeck(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 
@@ -148,7 +148,7 @@ URI to disable eCheck for a Submerchant.
 def delete_echeck(self,
                  v_correlation_id,
                  id,
-                 content_type="application/json")
+                 content_type='application/json')
 ```
 
 ## Parameters
@@ -157,7 +157,7 @@ def delete_echeck(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 

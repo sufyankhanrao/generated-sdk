@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class PayerError(object):
+
     """Implementation of the 'Payer Error' model.
 
     Attributes:
@@ -21,15 +24,15 @@ class PayerError(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "last_name": "last_name",
-        "first_name": "first_name",
-        "email": "email",
+        "last_name": 'last_name',
+        "first_name": 'first_name',
+        "email": 'email'
     }
 
     _optionals = [
-        "last_name",
-        "first_name",
-        "email",
+        'last_name',
+        'first_name',
+        'email',
     ]
 
     def __init__(self,
@@ -37,14 +40,15 @@ class PayerError(object):
                  first_name=APIHelper.SKIP,
                  email=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a PayerError instance."""
+        """Constructor for the PayerError class"""
+
         # Initialize members of the class
         if last_name is not APIHelper.SKIP:
-            self.last_name = last_name
+            self.last_name = last_name 
         if first_name is not APIHelper.SKIP:
-            self.first_name = first_name
+            self.first_name = first_name 
         if email is not APIHelper.SKIP:
-            self.email = email
+            self.email = email 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -54,7 +58,7 @@ class PayerError(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -65,22 +69,16 @@ class PayerError(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        last_name =\
-            dictionary.get("last_name")\
-            if dictionary.get("last_name") else APIHelper.SKIP
-        first_name =\
-            dictionary.get("first_name")\
-            if dictionary.get("first_name") else APIHelper.SKIP
-        email =\
-            dictionary.get("email")\
-            if dictionary.get("email") else APIHelper.SKIP
+        last_name = dictionary.get("last_name") if dictionary.get("last_name") else APIHelper.SKIP
+        first_name = dictionary.get("first_name") if dictionary.get("first_name") else APIHelper.SKIP
+        email = dictionary.get("email") if dictionary.get("email") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(last_name,
                    first_name,
@@ -88,21 +86,15 @@ class PayerError(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"last_name={(self.last_name
-                     if hasattr(self, 'last_name') else None)!r}, "
-                f"first_name={(self.first_name
-                     if hasattr(self, 'first_name') else None)!r}, "
-                f"email={(self.email if hasattr(self, 'email') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!r}, '
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!r}, '
+                f'email={(self.email if hasattr(self, "email") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"last_name={(self.last_name
-                     if hasattr(self, 'last_name') else None)!s}, "
-                f"first_name={(self.first_name
-                     if hasattr(self, 'first_name') else None)!s}, "
-                f"email={(self.email if hasattr(self, 'email') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!s}, '
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!s}, '
+                f'email={(self.email if hasattr(self, "email") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

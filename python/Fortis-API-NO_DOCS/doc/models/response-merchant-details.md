@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type117Enum`](../../doc/models/type-117-enum.md) | Optional | Resource Type<br><br>**Default**: `"MerchantDetails"` |
+| `mtype` | [`Type117Enum`](../../doc/models/type-117-enum.md) | Optional | Resource Type<br><br>**Default**: `'MerchantDetails'` |
 | `data` | [`Data32`](../../doc/models/data-32.md) | Optional | - |
 
 ## Example (as JSON)

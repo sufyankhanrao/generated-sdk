@@ -1,15 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
-from advancedbilling.models.create_customer import (
-    CreateCustomer,
-)
+from advancedbilling.models.create_customer import CreateCustomer
 
 
 class CreateCustomerRequest(object):
+
     """Implementation of the 'Create Customer Request' model.
 
     Attributes:
@@ -21,15 +22,16 @@ class CreateCustomerRequest(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "customer": "customer",
+        "customer": 'customer'
     }
 
     def __init__(self,
                  customer=None,
                  additional_properties=None):
-        """Initialize a CreateCustomerRequest instance."""
+        """Constructor for the CreateCustomerRequest class"""
+
         # Initialize members of the class
-        self.customer = customer
+        self.customer = customer 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -39,7 +41,7 @@ class CreateCustomerRequest(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -50,28 +52,24 @@ class CreateCustomerRequest(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        customer = CreateCustomer.from_dictionary(
-            dictionary.get("customer"))\
-            if dictionary.get("customer") else None
+        customer = CreateCustomer.from_dictionary(dictionary.get('customer')) if dictionary.get('customer') else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(customer,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"customer={self.customer!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'customer={self.customer!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"customer={self.customer!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'customer={self.customer!s}, '
+                f'additional_properties={self.additional_properties!s})')

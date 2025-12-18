@@ -1,4 +1,7 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class AddressTypeEnum(object):
+
     """Implementation of the 'AddressType' enum.
 
     Address type. 01 is for the receiver address, 02 is for the sender address.
@@ -15,14 +19,12 @@ class AddressTypeEnum(object):
         ENUM_02: The enum member of type str.
 
     """
+    ENUM_01 = '01'
 
-    ENUM_01 = "01"
-
-    ENUM_02 = "02"
+    ENUM_02 = '02'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

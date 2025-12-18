@@ -1,17 +1,18 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
 from postnlecommerce.models.options import Options
-from postnlecommerce.models.warning_1 import (
-    Warning1,
-)
+from postnlecommerce.models.warning_1 import Warning1
 
 
 class ShipmentV22CalculateDateDeliveryResponse(object):
+
     """Implementation of the 'Shipment V2 2 Calculate Date Delivery Response' model.
 
     Attributes:
@@ -28,34 +29,35 @@ class ShipmentV22CalculateDateDeliveryResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "delivery_date": "DeliveryDate",
-        "options": "Options",
-        "sustainability": "Sustainability",
+        "delivery_date": 'DeliveryDate',
+        "options": 'Options',
+        "sustainability": 'Sustainability'
     }
 
     _optionals = [
-        "delivery_date",
-        "options",
-        "sustainability",
+        'delivery_date',
+        'options',
+        'sustainability',
     ]
 
     def __init__(self,
                  delivery_date=APIHelper.SKIP,
                  options=APIHelper.SKIP,
                  sustainability=APIHelper.SKIP):
-        """Initialize a ShipmentV22CalculateDateDeliveryResponse instance."""
+        """Constructor for the ShipmentV22CalculateDateDeliveryResponse class"""
+
         # Initialize members of the class
         if delivery_date is not APIHelper.SKIP:
-            self.delivery_date = delivery_date
+            self.delivery_date = delivery_date 
         if options is not APIHelper.SKIP:
-            self.options = options
+            self.options = options 
         if sustainability is not APIHelper.SKIP:
-            self.sustainability = sustainability
+            self.sustainability = sustainability 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -66,40 +68,27 @@ class ShipmentV22CalculateDateDeliveryResponse(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        delivery_date =\
-            dictionary.get("DeliveryDate")\
-            if dictionary.get("DeliveryDate") else APIHelper.SKIP
-        options = Options.from_dictionary(
-            dictionary.get("Options"))\
-            if "Options" in dictionary.keys() else APIHelper.SKIP
-        sustainability = Warning1.from_dictionary(
-            dictionary.get("Sustainability"))\
-            if "Sustainability" in dictionary.keys() else APIHelper.SKIP
+        delivery_date = dictionary.get("DeliveryDate") if dictionary.get("DeliveryDate") else APIHelper.SKIP
+        options = Options.from_dictionary(dictionary.get('Options')) if 'Options' in dictionary.keys() else APIHelper.SKIP
+        sustainability = Warning1.from_dictionary(dictionary.get('Sustainability')) if 'Sustainability' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(delivery_date,
                    options,
                    sustainability)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"delivery_date={(self.delivery_date
-                     if hasattr(self, 'delivery_date') else None)!r}, "
-                f"options={(self.options
-                     if hasattr(self, 'options') else None)!r}, "
-                f"sustainability={(self.sustainability
-                     if hasattr(self, 'sustainability') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!r}, '
+                f'options={(self.options if hasattr(self, "options") else None)!r}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"delivery_date={(self.delivery_date
-                     if hasattr(self, 'delivery_date') else None)!s}, "
-                f"options={(self.options
-                     if hasattr(self, 'options') else None)!s}, "
-                f"sustainability={(self.sustainability
-                     if hasattr(self, 'sustainability') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'delivery_date={(self.delivery_date if hasattr(self, "delivery_date") else None)!s}, '
+                f'options={(self.options if hasattr(self, "options") else None)!s}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s})')

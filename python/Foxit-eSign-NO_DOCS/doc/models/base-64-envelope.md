@@ -18,7 +18,7 @@ An Envelope meant to be used when sending documents via Base64 format..
 | `send_now` | `bool` | Optional | Use this field to send the folder to the recipient parties. Each party will then receive a unique link in their email to sign the document. The invitation mail and subject in this case will be the same as the default invitation mail setup in your account.<br><br>**Default**: `True` |
 | `create_embedded_signing_session` | `bool` | Required | Signing session token will be generated without sending out emails to the recipients.<br><br>**Default**: `True` |
 | `create_embedded_signing_session_for_all_parties` | `bool` | Optional | **Default**: `True` |
-| `input_type` | `str` | Required | Value can be either url or base64<br><br>**Default**: `"base64FileString"` |
+| `input_type` | `str` | Required | Value can be either url or base64<br><br>**Default**: `'base64FileString'` |
 | `base_64_file_string` | `List[str]` | Required | - |
 | `process_text_tags` | `bool` | Required | Value can be either true or false. This field is used to determine whether Foxit eSign should parse the documents for Text Tags to convert them into Foxit eSign fields.<br><br>**Default**: `True` |
 | `process_acro_fields` | `bool` | Required | This field is used to determine whether Foxit eSign should parse the documents for AcroFields to convert them into Foxit eSign fields.<br><br>**Default**: `True` |
@@ -65,7 +65,7 @@ An Envelope meant to be used when sending documents via Base64 format..
 | `folder_password` | `str` | Optional | This password will be required by the signer/author in order to open the digitally signed document. If the parameter is kept blank then no password will be required to open the digitally signed document. |
 | `enable_step_by_step` | `bool` | Optional | To enable step by step action in the embedded sending session.<br><br>**Default**: `False` |
 | `hide_add_parties_option` | `bool` | Optional | If true, it will hide the option to add parties option in Draft and Template Creation mode.<br><br>**Default**: `False` |
-| `self_sign` | `str` | Optional | It enables embedded Self Sign via APIs. This parameter is only applicable when the createEmbeddedSendingSession parameter is true.<br><br>**Default**: `"false"` |
+| `self_sign` | `str` | Optional | It enables embedded Self Sign via APIs. This parameter is only applicable when the createEmbeddedSendingSession parameter is true.<br><br>**Default**: `'false'` |
 | `self_signer_success_url` | `str` | Optional | Enter the absolute URL for the landing page on your website/application, which the user will be redirected to after successfully Self Sign sending the folder in the embedded sending view. |
 
 ## Example (as JSON)

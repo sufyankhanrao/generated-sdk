@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `account_name` | `str` | Required | Managed account identifier |
 | `paccount_name` | `str` | Required | Primary Account identifier |
-| `service_name` | [`ServiceNameEnum`](../../doc/models/service-name-enum.md) | Required | Service name<br><br>**Default**: `"Location"` |
+| `service_name` | [`ServiceNameEnum`](../../doc/models/service-name-enum.md) | Required | Service name<br><br>**Default**: `'Location'` |
 | `mtype` | `str` | Required | SKU name |
 | `txid` | `str` | Required | Transaction identifier returned by provision request |
 

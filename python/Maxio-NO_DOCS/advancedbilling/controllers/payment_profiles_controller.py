@@ -1,54 +1,38 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.exceptions.error_string_map_response_exception import (
-    ErrorStringMapResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.bank_account_response import (
-    BankAccountResponse,
-)
-from advancedbilling.models.get_one_time_token_request import (
-    GetOneTimeTokenRequest,
-)
-from advancedbilling.models.payment_profile_response import (
-    PaymentProfileResponse,
-)
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.payment_profile_response import PaymentProfileResponse
+from advancedbilling.models.bank_account_response import BankAccountResponse
+from advancedbilling.models.get_one_time_token_request import GetOneTimeTokenRequest
+from advancedbilling.exceptions.api_exception import APIException
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
+from advancedbilling.exceptions.error_string_map_response_exception import ErrorStringMapResponseException
 
 
 class PaymentProfilesController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize PaymentProfilesController object."""
         super(PaymentProfilesController, self).__init__(config)
 
     def create_payment_profile(self,
                                body=None):
-        """Perform a POST request to /payment_profiles.json.
+        """Does a POST request to /payment_profiles.json.
 
         Use this endpoint to create a payment profile for a customer.
         Payment Profiles house the credit card, ACH (Authorize.Net or Stripe
@@ -390,35 +374,33 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/payment_profiles.json")
+            .path('/payment_profiles.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentProfileResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def list_payment_profiles(self,
                               options=dict()):
-        """Perform a GET request to /payment_profiles.json.
+        """Does a GET request to /payment_profiles.json.
 
         This method will return all of the active `payment_profiles` for a
         Site, or for one Customer within a site.  If no payment profiles are
@@ -430,6 +412,7 @@ class PaymentProfilesController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
                         page parameter specifies a page number of results to
@@ -458,33 +441,34 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/payment_profiles.json")
+            .path('/payment_profiles.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("customer_id")
-                         .value(options.get("customer_id", None)))
+                         .key('customer_id')
+                         .value(options.get('customer_id', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentProfileResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_payment_profile(self,
                              payment_profile_id):
-        """Perform a GET request to /payment_profiles/{payment_profile_id}.json.
+        """Does a GET request to /payment_profiles/{payment_profile_id}.json.
 
         Using the GET method you can retrieve a Payment Profile identified by
         its unique ID.
@@ -534,31 +518,32 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/payment_profiles/{payment_profile_id}.json")
+            .path('/payment_profiles/{payment_profile_id}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("payment_profile_id")
+                            .key('payment_profile_id')
                             .value(payment_profile_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentProfileResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("404", "Not Found", APIException),
+            .local_error('404', 'Not Found', APIException)
         ).execute()
 
     def update_payment_profile(self,
                                payment_profile_id,
                                body=None):
-        """Perform a PUT request to /payment_profiles/{payment_profile_id}.json.
+        """Does a PUT request to /payment_profiles/{payment_profile_id}.json.
 
         ## Partial Card Updates
         In the event that you are using the Authorize.net, Stripe,
@@ -619,40 +604,38 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/payment_profiles/{payment_profile_id}.json")
+            .path('/payment_profiles/{payment_profile_id}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("payment_profile_id")
+                            .key('payment_profile_id')
                             .value(payment_profile_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentProfileResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("404", "Not Found", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorStringMapResponseException),
+            .local_error('404', 'Not Found', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorStringMapResponseException)
         ).execute()
 
     def delete_unused_payment_profile(self,
                                       payment_profile_id):
-        """Perform a DELETE request to /payment_profiles/{payment_profile_id}.json.
+        """Does a DELETE request to /payment_profiles/{payment_profile_id}.json.
 
         Deletes an unused payment profile.
         If the payment profile is in use by one or more subscriptions or
@@ -672,31 +655,28 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/payment_profiles/{payment_profile_id}.json")
+            .path('/payment_profiles/{payment_profile_id}.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("payment_profile_id")
+                            .key('payment_profile_id')
                             .value(payment_profile_id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error("404", "Not Found", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error('404', 'Not Found', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def delete_subscriptions_payment_profile(self,
                                              subscription_id,
                                              payment_profile_id):
-        """Perform a DELETE request to
-        /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json.
+        """Does a DELETE request to /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json.
 
         This will delete a payment profile belonging to the customer on the
         subscription.
@@ -725,31 +705,31 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json")
+            .path('/subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("payment_profile_id")
+                            .key('payment_profile_id')
                             .value(payment_profile_id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def verify_bank_account(self,
                             bank_account_id,
                             body=None):
-        """Perform a PUT request to
-        /bank_accounts/{bank_account_id}/verification.json.
+        """Does a PUT request to /bank_accounts/{bank_account_id}/verification.json.
 
         Submit the two small deposit amounts the customer received in their
         bank account in order to verify the bank account. (Stripe only)
@@ -771,42 +751,39 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/bank_accounts/{bank_account_id}/verification.json")
+            .path('/bank_accounts/{bank_account_id}/verification.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("bank_account_id")
+                            .key('bank_account_id')
                             .value(bank_account_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BankAccountResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def delete_subscription_group_payment_profile(self,
                                                   uid,
                                                   payment_profile_id):
-        """Perform a DELETE request to
-        /subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json.
+        """Does a DELETE request to /subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json.
 
         This will delete a Payment Profile belonging to a Subscription Group.
         **Note**: If the Payment Profile belongs to multiple Subscription
@@ -827,31 +804,31 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json")
+            .path('/subscription_groups/{uid}/payment_profiles/{payment_profile_id}.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("payment_profile_id")
+                            .key('payment_profile_id')
                             .value(payment_profile_id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def change_subscription_default_payment_profile(self,
                                                     subscription_id,
                                                     payment_profile_id):
-        """Perform a POST request to
-        /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}/change_payment_profile.json.
+        """Does a POST request to /subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}/change_payment_profile.json.
 
         This will change the default payment profile on the subscription to
         the existing payment profile with the id specified.
@@ -874,41 +851,38 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}/change_payment_profile.json")
+            .path('/subscriptions/{subscription_id}/payment_profiles/{payment_profile_id}/change_payment_profile.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("payment_profile_id")
+                            .key('payment_profile_id')
                             .value(payment_profile_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentProfileResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("404", "Not Found", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error('404', 'Not Found', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def change_subscription_group_default_payment_profile(self,
                                                           uid,
                                                           payment_profile_id):
-        """Perform a POST request to
-        /subscription_groups/{uid}/payment_profiles/{payment_profile_id}/change_payment_profile.json.
+        """Does a POST request to /subscription_groups/{uid}/payment_profiles/{payment_profile_id}/change_payment_profile.json.
 
         This will change the default payment profile on the subscription group
         to the existing payment profile with the id specified.
@@ -933,38 +907,36 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}/payment_profiles/{payment_profile_id}/change_payment_profile.json")
+            .path('/subscription_groups/{uid}/payment_profiles/{payment_profile_id}/change_payment_profile.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("payment_profile_id")
+                            .key('payment_profile_id')
                             .value(payment_profile_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentProfileResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def read_one_time_token(self,
                             chargify_token):
-        """Perform a GET request to /one_time_tokens/{chargify_token}.json.
+        """Does a GET request to /one_time_tokens/{chargify_token}.json.
 
         One Time Tokens aka Chargify Tokens house the credit card or ACH
         (Authorize.Net or Stripe only) data for a customer.
@@ -989,33 +961,31 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/one_time_tokens/{chargify_token}.json")
+            .path('/one_time_tokens/{chargify_token}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("chargify_token")
+                            .key('chargify_token')
                             .value(chargify_token)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetOneTimeTokenRequest.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404",
-                "Not Found:'{$response.body}'",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', ErrorListResponseException)
         ).execute()
 
     def send_request_update_payment_email(self,
                                           subscription_id):
-        """Perform a POST request to
-        /subscriptions/{subscription_id}/request_payment_profiles_update.json.
+        """Does a POST request to /subscriptions/{subscription_id}/request_payment_profiles_update.json.
 
         You can send a "request payment update" email to the customer
         associated with the subscription.
@@ -1047,22 +1017,20 @@ class PaymentProfilesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/request_payment_profiles_update.json")
+            .path('/subscriptions/{subscription_id}/request_payment_profiles_update.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()

@@ -18,7 +18,7 @@ This URI will retrieve the health status of the PayFac submerchant provisioning 
 ```python
 def healthcheck(self,
                v_correlation_id,
-               content_type="application/json")
+               content_type='application/json')
 ```
 
 ## Parameters
@@ -26,7 +26,7 @@ def healthcheck(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 

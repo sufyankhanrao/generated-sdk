@@ -1,19 +1,18 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.group_billing import (
-    GroupBilling,
-)
-from advancedbilling.models.group_target import (
-    GroupTarget,
-)
+from advancedbilling.models.group_billing import GroupBilling
+from advancedbilling.models.group_target import GroupTarget
 
 
 class GroupSettings(object):
+
     """Implementation of the 'Group Settings' model.
 
     Attributes:
@@ -28,23 +27,24 @@ class GroupSettings(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "target": "target",
-        "billing": "billing",
+        "target": 'target',
+        "billing": 'billing'
     }
 
     _optionals = [
-        "billing",
+        'billing',
     ]
 
     def __init__(self,
                  target=None,
                  billing=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a GroupSettings instance."""
+        """Constructor for the GroupSettings class"""
+
         # Initialize members of the class
-        self.target = target
+        self.target = target 
         if billing is not APIHelper.SKIP:
-            self.billing = billing
+            self.billing = billing 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -54,7 +54,7 @@ class GroupSettings(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -65,19 +65,15 @@ class GroupSettings(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        target = GroupTarget.from_dictionary(
-            dictionary.get("target"))\
-            if dictionary.get("target") else None
-        billing = GroupBilling.from_dictionary(
-            dictionary.get("billing"))\
-            if "billing" in dictionary.keys() else APIHelper.SKIP
+        target = GroupTarget.from_dictionary(dictionary.get('target')) if dictionary.get('target') else None
+        billing = GroupBilling.from_dictionary(dictionary.get('billing')) if 'billing' in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(target,
                    billing,
@@ -85,7 +81,7 @@ class GroupSettings(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -96,32 +92,27 @@ class GroupSettings(object):
             boolean : if dictionary is valid contains required properties.
 
         """
+
         if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(
-                value=dictionary.target,
-                type_callable=lambda value: GroupTarget.validate(value),
-                is_model_dict=True)
+            return APIHelper.is_valid_type(value=dictionary.target,
+                                           type_callable=lambda value: GroupTarget.validate(value),
+                                           is_model_dict=True)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return APIHelper.is_valid_type(
-            value=dictionary.get("target"),
-            type_callable=lambda value: GroupTarget.validate(value),
-            is_model_dict=True)
+        return APIHelper.is_valid_type(value=dictionary.get('target'),
+                                       type_callable=lambda value: GroupTarget.validate(value),
+                                       is_model_dict=True)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"target={self.target!r}, "
-                f"billing={(self.billing
-                     if hasattr(self, 'billing') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'target={self.target!r}, '
+                f'billing={(self.billing if hasattr(self, "billing") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"target={self.target!s}, "
-                f"billing={(self.billing
-                     if hasattr(self, 'billing') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'target={self.target!s}, '
+                f'billing={(self.billing if hasattr(self, "billing") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

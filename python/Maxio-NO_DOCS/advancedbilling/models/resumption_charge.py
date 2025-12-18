@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class ResumptionCharge(object):
+
     """Implementation of the 'Resumption Charge' enum.
 
     (For calendar billing subscriptions only) The way that the resumed
@@ -19,17 +23,16 @@ class ResumptionCharge(object):
             for the model.
 
     """
+    _all_values = ['prorated', 'immediate', 'delayed']
+    PRORATED = 'prorated'
 
-    _all_values = ["prorated", "immediate", "delayed"]
-    PRORATED = "prorated"
+    IMMEDIATE = 'immediate'
 
-    IMMEDIATE = "immediate"
-
-    DELAYED = "delayed"
+    DELAYED = 'delayed'
 
     @classmethod
     def validate(cls, value):
-        """Validate value contains in enum
+        """Validates value contains in enum
 
         Args:
             value: the value to be validated
@@ -39,10 +42,9 @@ class ResumptionCharge(object):
 
         """
         return value in cls._all_values
-
+   
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

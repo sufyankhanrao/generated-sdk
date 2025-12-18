@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.metafield_scope import (
-    MetafieldScope,
-)
+from advancedbilling.models.metafield_scope import MetafieldScope
 
 
 class CreateMetafield(object):
+
     """Implementation of the 'Create Metafield' model.
 
     Attributes:
@@ -32,17 +33,17 @@ class CreateMetafield(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "name": "name",
-        "scope": "scope",
-        "input_type": "input_type",
-        "enum": "enum",
+        "name": 'name',
+        "scope": 'scope',
+        "input_type": 'input_type',
+        "enum": 'enum'
     }
 
     _optionals = [
-        "name",
-        "scope",
-        "input_type",
-        "enum",
+        'name',
+        'scope',
+        'input_type',
+        'enum',
     ]
 
     def __init__(self,
@@ -51,16 +52,17 @@ class CreateMetafield(object):
                  input_type=APIHelper.SKIP,
                  enum=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a CreateMetafield instance."""
+        """Constructor for the CreateMetafield class"""
+
         # Initialize members of the class
         if name is not APIHelper.SKIP:
-            self.name = name
+            self.name = name 
         if scope is not APIHelper.SKIP:
-            self.scope = scope
+            self.scope = scope 
         if input_type is not APIHelper.SKIP:
-            self.input_type = input_type
+            self.input_type = input_type 
         if enum is not APIHelper.SKIP:
-            self.enum = enum
+            self.enum = enum 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -70,7 +72,7 @@ class CreateMetafield(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -81,25 +83,17 @@ class CreateMetafield(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        name =\
-            dictionary.get("name")\
-            if dictionary.get("name") else APIHelper.SKIP
-        scope = MetafieldScope.from_dictionary(
-            dictionary.get("scope"))\
-            if "scope" in dictionary.keys() else APIHelper.SKIP
-        input_type =\
-            dictionary.get("input_type")\
-            if dictionary.get("input_type") else APIHelper.SKIP
-        enum =\
-            dictionary.get("enum")\
-            if dictionary.get("enum") else APIHelper.SKIP
+        name = dictionary.get("name") if dictionary.get("name") else APIHelper.SKIP
+        scope = MetafieldScope.from_dictionary(dictionary.get('scope')) if 'scope' in dictionary.keys() else APIHelper.SKIP
+        input_type = dictionary.get("input_type") if dictionary.get("input_type") else APIHelper.SKIP
+        enum = dictionary.get("enum") if dictionary.get("enum") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(name,
                    scope,
@@ -109,7 +103,7 @@ class CreateMetafield(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -120,6 +114,7 @@ class CreateMetafield(object):
             boolean : if dictionary is valid contains required properties.
 
         """
+
         if isinstance(dictionary, cls):
             return True
 
@@ -129,21 +124,17 @@ class CreateMetafield(object):
         return True
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={(self.name if hasattr(self, 'name') else None)!r}, "
-                f"scope={(self.scope if hasattr(self, 'scope') else None)!r}, "
-                f"input_type={(self.input_type
-                     if hasattr(self, 'input_type') else None)!r}, "
-                f"enum={(self.enum if hasattr(self, 'enum') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'scope={(self.scope if hasattr(self, "scope") else None)!r}, '
+                f'input_type={(self.input_type if hasattr(self, "input_type") else None)!r}, '
+                f'enum={(self.enum if hasattr(self, "enum") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={(self.name if hasattr(self, 'name') else None)!s}, "
-                f"scope={(self.scope if hasattr(self, 'scope') else None)!s}, "
-                f"input_type={(self.input_type
-                     if hasattr(self, 'input_type') else None)!s}, "
-                f"enum={(self.enum if hasattr(self, 'enum') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'scope={(self.scope if hasattr(self, "scope") else None)!s}, '
+                f'input_type={(self.input_type if hasattr(self, "input_type") else None)!s}, '
+                f'enum={(self.enum if hasattr(self, "enum") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

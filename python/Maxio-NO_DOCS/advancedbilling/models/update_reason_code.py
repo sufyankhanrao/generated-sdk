@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class UpdateReasonCode(object):
+
     """Implementation of the 'Update Reason Code' model.
 
     Attributes:
@@ -21,15 +24,15 @@ class UpdateReasonCode(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "code": "code",
-        "description": "description",
-        "position": "position",
+        "code": 'code',
+        "description": 'description',
+        "position": 'position'
     }
 
     _optionals = [
-        "code",
-        "description",
-        "position",
+        'code',
+        'description',
+        'position',
     ]
 
     def __init__(self,
@@ -37,14 +40,15 @@ class UpdateReasonCode(object):
                  description=APIHelper.SKIP,
                  position=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a UpdateReasonCode instance."""
+        """Constructor for the UpdateReasonCode class"""
+
         # Initialize members of the class
         if code is not APIHelper.SKIP:
-            self.code = code
+            self.code = code 
         if description is not APIHelper.SKIP:
-            self.description = description
+            self.description = description 
         if position is not APIHelper.SKIP:
-            self.position = position
+            self.position = position 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -54,7 +58,7 @@ class UpdateReasonCode(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -65,22 +69,16 @@ class UpdateReasonCode(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        code =\
-            dictionary.get("code")\
-            if dictionary.get("code") else APIHelper.SKIP
-        description =\
-            dictionary.get("description")\
-            if dictionary.get("description") else APIHelper.SKIP
-        position =\
-            dictionary.get("position")\
-            if dictionary.get("position") else APIHelper.SKIP
+        code = dictionary.get("code") if dictionary.get("code") else APIHelper.SKIP
+        description = dictionary.get("description") if dictionary.get("description") else APIHelper.SKIP
+        position = dictionary.get("position") if dictionary.get("position") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(code,
                    description,
@@ -88,21 +86,15 @@ class UpdateReasonCode(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"code={(self.code if hasattr(self, 'code') else None)!r}, "
-                f"description={(self.description
-                     if hasattr(self, 'description') else None)!r}, "
-                f"position={(self.position
-                     if hasattr(self, 'position') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'code={(self.code if hasattr(self, "code") else None)!r}, '
+                f'description={(self.description if hasattr(self, "description") else None)!r}, '
+                f'position={(self.position if hasattr(self, "position") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"code={(self.code if hasattr(self, 'code') else None)!s}, "
-                f"description={(self.description
-                     if hasattr(self, 'description') else None)!s}, "
-                f"position={(self.position
-                     if hasattr(self, 'position') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'code={(self.code if hasattr(self, "code") else None)!s}, '
+                f'description={(self.description if hasattr(self, "description") else None)!s}, '
+                f'position={(self.position if hasattr(self, "position") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

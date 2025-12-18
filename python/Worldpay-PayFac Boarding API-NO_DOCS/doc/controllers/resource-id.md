@@ -17,7 +17,7 @@ URI to get the identifier for a PayFac submerchant resource <br/> <br/> For an e
 def get_submerchant_resourse_id_by_mid(self,
                                       v_correlation_id,
                                       mid,
-                                      content_type="application/json")
+                                      content_type='application/json')
 ```
 
 ## Parameters
@@ -26,7 +26,7 @@ def get_submerchant_resourse_id_by_mid(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `mid` | `str` | Template, Required | The merchant identifier of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 

@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class Customer(object):
+
     """Implementation of the 'Customer' model.
 
     Attributes:
@@ -62,86 +65,86 @@ class Customer(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "first_name": "first_name",
-        "last_name": "last_name",
-        "email": "email",
-        "cc_emails": "cc_emails",
-        "organization": "organization",
-        "reference": "reference",
-        "id": "id",
-        "created_at": "created_at",
-        "updated_at": "updated_at",
-        "address": "address",
-        "address_2": "address_2",
-        "city": "city",
-        "state": "state",
-        "state_name": "state_name",
-        "zip": "zip",
-        "country": "country",
-        "country_name": "country_name",
-        "phone": "phone",
-        "verified": "verified",
-        "portal_customer_created_at": "portal_customer_created_at",
-        "portal_invite_last_sent_at": "portal_invite_last_sent_at",
-        "portal_invite_last_accepted_at": "portal_invite_last_accepted_at",
-        "tax_exempt": "tax_exempt",
-        "vat_number": "vat_number",
-        "parent_id": "parent_id",
-        "locale": "locale",
-        "default_subscription_group_uid": "default_subscription_group_uid",
+        "first_name": 'first_name',
+        "last_name": 'last_name',
+        "email": 'email',
+        "cc_emails": 'cc_emails',
+        "organization": 'organization',
+        "reference": 'reference',
+        "id": 'id',
+        "created_at": 'created_at',
+        "updated_at": 'updated_at',
+        "address": 'address',
+        "address_2": 'address_2',
+        "city": 'city',
+        "state": 'state',
+        "state_name": 'state_name',
+        "zip": 'zip',
+        "country": 'country',
+        "country_name": 'country_name',
+        "phone": 'phone',
+        "verified": 'verified',
+        "portal_customer_created_at": 'portal_customer_created_at',
+        "portal_invite_last_sent_at": 'portal_invite_last_sent_at',
+        "portal_invite_last_accepted_at": 'portal_invite_last_accepted_at',
+        "tax_exempt": 'tax_exempt',
+        "vat_number": 'vat_number',
+        "parent_id": 'parent_id',
+        "locale": 'locale',
+        "default_subscription_group_uid": 'default_subscription_group_uid'
     }
 
     _optionals = [
-        "first_name",
-        "last_name",
-        "email",
-        "cc_emails",
-        "organization",
-        "reference",
-        "id",
-        "created_at",
-        "updated_at",
-        "address",
-        "address_2",
-        "city",
-        "state",
-        "state_name",
-        "zip",
-        "country",
-        "country_name",
-        "phone",
-        "verified",
-        "portal_customer_created_at",
-        "portal_invite_last_sent_at",
-        "portal_invite_last_accepted_at",
-        "tax_exempt",
-        "vat_number",
-        "parent_id",
-        "locale",
-        "default_subscription_group_uid",
+        'first_name',
+        'last_name',
+        'email',
+        'cc_emails',
+        'organization',
+        'reference',
+        'id',
+        'created_at',
+        'updated_at',
+        'address',
+        'address_2',
+        'city',
+        'state',
+        'state_name',
+        'zip',
+        'country',
+        'country_name',
+        'phone',
+        'verified',
+        'portal_customer_created_at',
+        'portal_invite_last_sent_at',
+        'portal_invite_last_accepted_at',
+        'tax_exempt',
+        'vat_number',
+        'parent_id',
+        'locale',
+        'default_subscription_group_uid',
     ]
 
     _nullables = [
-        "cc_emails",
-        "organization",
-        "reference",
-        "address",
-        "address_2",
-        "city",
-        "state",
-        "state_name",
-        "zip",
-        "country",
-        "country_name",
-        "phone",
-        "verified",
-        "portal_customer_created_at",
-        "portal_invite_last_sent_at",
-        "portal_invite_last_accepted_at",
-        "vat_number",
-        "parent_id",
-        "locale",
-        "default_subscription_group_uid",
+        'cc_emails',
+        'organization',
+        'reference',
+        'address',
+        'address_2',
+        'city',
+        'state',
+        'state_name',
+        'zip',
+        'country',
+        'country_name',
+        'phone',
+        'verified',
+        'portal_customer_created_at',
+        'portal_invite_last_sent_at',
+        'portal_invite_last_accepted_at',
+        'vat_number',
+        'parent_id',
+        'locale',
+        'default_subscription_group_uid',
     ]
 
     def __init__(self,
@@ -173,72 +176,63 @@ class Customer(object):
                  locale=APIHelper.SKIP,
                  default_subscription_group_uid=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a Customer instance."""
+        """Constructor for the Customer class"""
+
         # Initialize members of the class
         if first_name is not APIHelper.SKIP:
-            self.first_name = first_name
+            self.first_name = first_name 
         if last_name is not APIHelper.SKIP:
-            self.last_name = last_name
+            self.last_name = last_name 
         if email is not APIHelper.SKIP:
-            self.email = email
+            self.email = email 
         if cc_emails is not APIHelper.SKIP:
-            self.cc_emails = cc_emails
+            self.cc_emails = cc_emails 
         if organization is not APIHelper.SKIP:
-            self.organization = organization
+            self.organization = organization 
         if reference is not APIHelper.SKIP:
-            self.reference = reference
+            self.reference = reference 
         if id is not APIHelper.SKIP:
-            self.id = id
+            self.id = id 
         if created_at is not APIHelper.SKIP:
-            self.created_at =\
-                 APIHelper.apply_datetime_converter(
-                created_at, APIHelper.RFC3339DateTime) if created_at else None
+            self.created_at = APIHelper.apply_datetime_converter(created_at, APIHelper.RFC3339DateTime) if created_at else None 
         if updated_at is not APIHelper.SKIP:
-            self.updated_at =\
-                 APIHelper.apply_datetime_converter(
-                updated_at, APIHelper.RFC3339DateTime) if updated_at else None
+            self.updated_at = APIHelper.apply_datetime_converter(updated_at, APIHelper.RFC3339DateTime) if updated_at else None 
         if address is not APIHelper.SKIP:
-            self.address = address
+            self.address = address 
         if address_2 is not APIHelper.SKIP:
-            self.address_2 = address_2
+            self.address_2 = address_2 
         if city is not APIHelper.SKIP:
-            self.city = city
+            self.city = city 
         if state is not APIHelper.SKIP:
-            self.state = state
+            self.state = state 
         if state_name is not APIHelper.SKIP:
-            self.state_name = state_name
+            self.state_name = state_name 
         if zip is not APIHelper.SKIP:
-            self.zip = zip
+            self.zip = zip 
         if country is not APIHelper.SKIP:
-            self.country = country
+            self.country = country 
         if country_name is not APIHelper.SKIP:
-            self.country_name = country_name
+            self.country_name = country_name 
         if phone is not APIHelper.SKIP:
-            self.phone = phone
+            self.phone = phone 
         if verified is not APIHelper.SKIP:
-            self.verified = verified
+            self.verified = verified 
         if portal_customer_created_at is not APIHelper.SKIP:
-            self.portal_customer_created_at =\
-                 APIHelper.apply_datetime_converter(
-                portal_customer_created_at, APIHelper.RFC3339DateTime) if portal_customer_created_at else None
+            self.portal_customer_created_at = APIHelper.apply_datetime_converter(portal_customer_created_at, APIHelper.RFC3339DateTime) if portal_customer_created_at else None 
         if portal_invite_last_sent_at is not APIHelper.SKIP:
-            self.portal_invite_last_sent_at =\
-                 APIHelper.apply_datetime_converter(
-                portal_invite_last_sent_at, APIHelper.RFC3339DateTime) if portal_invite_last_sent_at else None
+            self.portal_invite_last_sent_at = APIHelper.apply_datetime_converter(portal_invite_last_sent_at, APIHelper.RFC3339DateTime) if portal_invite_last_sent_at else None 
         if portal_invite_last_accepted_at is not APIHelper.SKIP:
-            self.portal_invite_last_accepted_at =\
-                 APIHelper.apply_datetime_converter(
-                portal_invite_last_accepted_at, APIHelper.RFC3339DateTime) if portal_invite_last_accepted_at else None
+            self.portal_invite_last_accepted_at = APIHelper.apply_datetime_converter(portal_invite_last_accepted_at, APIHelper.RFC3339DateTime) if portal_invite_last_accepted_at else None 
         if tax_exempt is not APIHelper.SKIP:
-            self.tax_exempt = tax_exempt
+            self.tax_exempt = tax_exempt 
         if vat_number is not APIHelper.SKIP:
-            self.vat_number = vat_number
+            self.vat_number = vat_number 
         if parent_id is not APIHelper.SKIP:
-            self.parent_id = parent_id
+            self.parent_id = parent_id 
         if locale is not APIHelper.SKIP:
-            self.locale = locale
+            self.locale = locale 
         if default_subscription_group_uid is not APIHelper.SKIP:
-            self.default_subscription_group_uid = default_subscription_group_uid
+            self.default_subscription_group_uid = default_subscription_group_uid 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -248,7 +242,7 @@ class Customer(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -259,104 +253,49 @@ class Customer(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        first_name =\
-            dictionary.get("first_name")\
-            if dictionary.get("first_name") else APIHelper.SKIP
-        last_name =\
-            dictionary.get("last_name")\
-            if dictionary.get("last_name") else APIHelper.SKIP
-        email =\
-            dictionary.get("email")\
-            if dictionary.get("email") else APIHelper.SKIP
-        cc_emails =\
-            dictionary.get("cc_emails")\
-            if "cc_emails" in dictionary.keys() else APIHelper.SKIP
-        organization =\
-            dictionary.get("organization")\
-            if "organization" in dictionary.keys() else APIHelper.SKIP
-        reference =\
-            dictionary.get("reference")\
-            if "reference" in dictionary.keys() else APIHelper.SKIP
+        first_name = dictionary.get("first_name") if dictionary.get("first_name") else APIHelper.SKIP
+        last_name = dictionary.get("last_name") if dictionary.get("last_name") else APIHelper.SKIP
+        email = dictionary.get("email") if dictionary.get("email") else APIHelper.SKIP
+        cc_emails = dictionary.get("cc_emails") if "cc_emails" in dictionary.keys() else APIHelper.SKIP
+        organization = dictionary.get("organization") if "organization" in dictionary.keys() else APIHelper.SKIP
+        reference = dictionary.get("reference") if "reference" in dictionary.keys() else APIHelper.SKIP
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
-        created_at = APIHelper.RFC3339DateTime.from_value(
-            dictionary.get("created_at")).datetime\
-            if dictionary.get("created_at") else APIHelper.SKIP
-        updated_at = APIHelper.RFC3339DateTime.from_value(
-            dictionary.get("updated_at")).datetime\
-            if dictionary.get("updated_at") else APIHelper.SKIP
-        address =\
-            dictionary.get("address")\
-            if "address" in dictionary.keys() else APIHelper.SKIP
-        address_2 =\
-            dictionary.get("address_2")\
-            if "address_2" in dictionary.keys() else APIHelper.SKIP
-        city =\
-            dictionary.get("city")\
-            if "city" in dictionary.keys() else APIHelper.SKIP
-        state =\
-            dictionary.get("state")\
-            if "state" in dictionary.keys() else APIHelper.SKIP
-        state_name =\
-            dictionary.get("state_name")\
-            if "state_name" in dictionary.keys() else APIHelper.SKIP
-        zip =\
-            dictionary.get("zip")\
-            if "zip" in dictionary.keys() else APIHelper.SKIP
-        country =\
-            dictionary.get("country")\
-            if "country" in dictionary.keys() else APIHelper.SKIP
-        country_name =\
-            dictionary.get("country_name")\
-            if "country_name" in dictionary.keys() else APIHelper.SKIP
-        phone =\
-            dictionary.get("phone")\
-            if "phone" in dictionary.keys() else APIHelper.SKIP
-        verified =\
-            dictionary.get("verified")\
-            if "verified" in dictionary.keys() else APIHelper.SKIP
-        if "portal_customer_created_at" in dictionary.keys():
-            portal_customer_created_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("portal_customer_created_at")).datetime\
-                if dictionary.get("portal_customer_created_at") else None
-
+        created_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("created_at")).datetime if dictionary.get("created_at") else APIHelper.SKIP
+        updated_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("updated_at")).datetime if dictionary.get("updated_at") else APIHelper.SKIP
+        address = dictionary.get("address") if "address" in dictionary.keys() else APIHelper.SKIP
+        address_2 = dictionary.get("address_2") if "address_2" in dictionary.keys() else APIHelper.SKIP
+        city = dictionary.get("city") if "city" in dictionary.keys() else APIHelper.SKIP
+        state = dictionary.get("state") if "state" in dictionary.keys() else APIHelper.SKIP
+        state_name = dictionary.get("state_name") if "state_name" in dictionary.keys() else APIHelper.SKIP
+        zip = dictionary.get("zip") if "zip" in dictionary.keys() else APIHelper.SKIP
+        country = dictionary.get("country") if "country" in dictionary.keys() else APIHelper.SKIP
+        country_name = dictionary.get("country_name") if "country_name" in dictionary.keys() else APIHelper.SKIP
+        phone = dictionary.get("phone") if "phone" in dictionary.keys() else APIHelper.SKIP
+        verified = dictionary.get("verified") if "verified" in dictionary.keys() else APIHelper.SKIP
+        if 'portal_customer_created_at' in dictionary.keys():
+            portal_customer_created_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("portal_customer_created_at")).datetime if dictionary.get("portal_customer_created_at") else None
         else:
             portal_customer_created_at = APIHelper.SKIP
-        if "portal_invite_last_sent_at" in dictionary.keys():
-            portal_invite_last_sent_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("portal_invite_last_sent_at")).datetime\
-                if dictionary.get("portal_invite_last_sent_at") else None
-
+        if 'portal_invite_last_sent_at' in dictionary.keys():
+            portal_invite_last_sent_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("portal_invite_last_sent_at")).datetime if dictionary.get("portal_invite_last_sent_at") else None
         else:
             portal_invite_last_sent_at = APIHelper.SKIP
-        if "portal_invite_last_accepted_at" in dictionary.keys():
-            portal_invite_last_accepted_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("portal_invite_last_accepted_at")).datetime\
-                if dictionary.get("portal_invite_last_accepted_at") else None
-
+        if 'portal_invite_last_accepted_at' in dictionary.keys():
+            portal_invite_last_accepted_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("portal_invite_last_accepted_at")).datetime if dictionary.get("portal_invite_last_accepted_at") else None
         else:
             portal_invite_last_accepted_at = APIHelper.SKIP
-        tax_exempt =\
-            dictionary.get("tax_exempt")\
-            if "tax_exempt" in dictionary.keys() else APIHelper.SKIP
-        vat_number =\
-            dictionary.get("vat_number")\
-            if "vat_number" in dictionary.keys() else APIHelper.SKIP
-        parent_id =\
-            dictionary.get("parent_id")\
-            if "parent_id" in dictionary.keys() else APIHelper.SKIP
-        locale =\
-            dictionary.get("locale")\
-            if "locale" in dictionary.keys() else APIHelper.SKIP
-        default_subscription_group_uid =\
-            dictionary.get("default_subscription_group_uid")\
-            if "default_subscription_group_uid" in dictionary.keys() else APIHelper.SKIP
+        tax_exempt = dictionary.get("tax_exempt") if "tax_exempt" in dictionary.keys() else APIHelper.SKIP
+        vat_number = dictionary.get("vat_number") if "vat_number" in dictionary.keys() else APIHelper.SKIP
+        parent_id = dictionary.get("parent_id") if "parent_id" in dictionary.keys() else APIHelper.SKIP
+        locale = dictionary.get("locale") if "locale" in dictionary.keys() else APIHelper.SKIP
+        default_subscription_group_uid = dictionary.get("default_subscription_group_uid") if "default_subscription_group_uid" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(first_name,
                    last_name,
@@ -389,7 +328,7 @@ class Customer(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -400,6 +339,7 @@ class Customer(object):
             boolean : if dictionary is valid contains required properties.
 
         """
+
         if isinstance(dictionary, cls):
             return True
 
@@ -409,105 +349,63 @@ class Customer(object):
         return True
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"first_name={(self.first_name
-                     if hasattr(self, 'first_name') else None)!r}, "
-                f"last_name={(self.last_name
-                     if hasattr(self, 'last_name') else None)!r}, "
-                f"email={(self.email if hasattr(self, 'email') else None)!r}, "
-                f"cc_emails={(self.cc_emails
-                     if hasattr(self, 'cc_emails') else None)!r}, "
-                f"organization={(self.organization
-                     if hasattr(self, 'organization') else None)!r}, "
-                f"reference={(self.reference
-                     if hasattr(self, 'reference') else None)!r}, "
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!r}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!r}, "
-                f"address={(self.address
-                     if hasattr(self, 'address') else None)!r}, "
-                f"address_2={(self.address_2
-                     if hasattr(self, 'address_2') else None)!r}, "
-                f"city={(self.city if hasattr(self, 'city') else None)!r}, "
-                f"state={(self.state if hasattr(self, 'state') else None)!r}, "
-                f"state_name={(self.state_name
-                     if hasattr(self, 'state_name') else None)!r}, "
-                f"zip={(self.zip if hasattr(self, 'zip') else None)!r}, "
-                f"country={(self.country
-                     if hasattr(self, 'country') else None)!r}, "
-                f"country_name={(self.country_name
-                     if hasattr(self, 'country_name') else None)!r}, "
-                f"phone={(self.phone if hasattr(self, 'phone') else None)!r}, "
-                f"verified={(self.verified
-                     if hasattr(self, 'verified') else None)!r}, "
-                f"portal_customer_created_at={(self.portal_customer_created_at
-                     if hasattr(self, 'portal_customer_created_at') else None)!r}, "
-                f"portal_invite_last_sent_at={(self.portal_invite_last_sent_at
-                     if hasattr(self, 'portal_invite_last_sent_at') else None)!r}, "
-                f"portal_invite_last_accepted_at={(self.portal_invite_last_accepted_at
-                     if hasattr(self, 'portal_invite_last_accepted_at') else None)!r}, "
-                f"tax_exempt={(self.tax_exempt
-                     if hasattr(self, 'tax_exempt') else None)!r}, "
-                f"vat_number={(self.vat_number
-                     if hasattr(self, 'vat_number') else None)!r}, "
-                f"parent_id={(self.parent_id
-                     if hasattr(self, 'parent_id') else None)!r}, "
-                f"locale={(self.locale if hasattr(self, 'locale') else None)!r}, "
-                f"default_subscription_group_uid={(self.default_subscription_group_uid
-                     if hasattr(self, 'default_subscription_group_uid') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!r}, '
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!r}, '
+                f'email={(self.email if hasattr(self, "email") else None)!r}, '
+                f'cc_emails={(self.cc_emails if hasattr(self, "cc_emails") else None)!r}, '
+                f'organization={(self.organization if hasattr(self, "organization") else None)!r}, '
+                f'reference={(self.reference if hasattr(self, "reference") else None)!r}, '
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!r}, '
+                f'updated_at={(self.updated_at if hasattr(self, "updated_at") else None)!r}, '
+                f'address={(self.address if hasattr(self, "address") else None)!r}, '
+                f'address_2={(self.address_2 if hasattr(self, "address_2") else None)!r}, '
+                f'city={(self.city if hasattr(self, "city") else None)!r}, '
+                f'state={(self.state if hasattr(self, "state") else None)!r}, '
+                f'state_name={(self.state_name if hasattr(self, "state_name") else None)!r}, '
+                f'zip={(self.zip if hasattr(self, "zip") else None)!r}, '
+                f'country={(self.country if hasattr(self, "country") else None)!r}, '
+                f'country_name={(self.country_name if hasattr(self, "country_name") else None)!r}, '
+                f'phone={(self.phone if hasattr(self, "phone") else None)!r}, '
+                f'verified={(self.verified if hasattr(self, "verified") else None)!r}, '
+                f'portal_customer_created_at={(self.portal_customer_created_at if hasattr(self, "portal_customer_created_at") else None)!r}, '
+                f'portal_invite_last_sent_at={(self.portal_invite_last_sent_at if hasattr(self, "portal_invite_last_sent_at") else None)!r}, '
+                f'portal_invite_last_accepted_at={(self.portal_invite_last_accepted_at if hasattr(self, "portal_invite_last_accepted_at") else None)!r}, '
+                f'tax_exempt={(self.tax_exempt if hasattr(self, "tax_exempt") else None)!r}, '
+                f'vat_number={(self.vat_number if hasattr(self, "vat_number") else None)!r}, '
+                f'parent_id={(self.parent_id if hasattr(self, "parent_id") else None)!r}, '
+                f'locale={(self.locale if hasattr(self, "locale") else None)!r}, '
+                f'default_subscription_group_uid={(self.default_subscription_group_uid if hasattr(self, "default_subscription_group_uid") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"first_name={(self.first_name
-                     if hasattr(self, 'first_name') else None)!s}, "
-                f"last_name={(self.last_name
-                     if hasattr(self, 'last_name') else None)!s}, "
-                f"email={(self.email if hasattr(self, 'email') else None)!s}, "
-                f"cc_emails={(self.cc_emails
-                     if hasattr(self, 'cc_emails') else None)!s}, "
-                f"organization={(self.organization
-                     if hasattr(self, 'organization') else None)!s}, "
-                f"reference={(self.reference
-                     if hasattr(self, 'reference') else None)!s}, "
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!s}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!s}, "
-                f"address={(self.address
-                     if hasattr(self, 'address') else None)!s}, "
-                f"address_2={(self.address_2
-                     if hasattr(self, 'address_2') else None)!s}, "
-                f"city={(self.city if hasattr(self, 'city') else None)!s}, "
-                f"state={(self.state if hasattr(self, 'state') else None)!s}, "
-                f"state_name={(self.state_name
-                     if hasattr(self, 'state_name') else None)!s}, "
-                f"zip={(self.zip if hasattr(self, 'zip') else None)!s}, "
-                f"country={(self.country
-                     if hasattr(self, 'country') else None)!s}, "
-                f"country_name={(self.country_name
-                     if hasattr(self, 'country_name') else None)!s}, "
-                f"phone={(self.phone if hasattr(self, 'phone') else None)!s}, "
-                f"verified={(self.verified
-                     if hasattr(self, 'verified') else None)!s}, "
-                f"portal_customer_created_at={(self.portal_customer_created_at
-                     if hasattr(self, 'portal_customer_created_at') else None)!s}, "
-                f"portal_invite_last_sent_at={(self.portal_invite_last_sent_at
-                     if hasattr(self, 'portal_invite_last_sent_at') else None)!s}, "
-                f"portal_invite_last_accepted_at={(self.portal_invite_last_accepted_at
-                     if hasattr(self, 'portal_invite_last_accepted_at') else None)!s}, "
-                f"tax_exempt={(self.tax_exempt
-                     if hasattr(self, 'tax_exempt') else None)!s}, "
-                f"vat_number={(self.vat_number
-                     if hasattr(self, 'vat_number') else None)!s}, "
-                f"parent_id={(self.parent_id
-                     if hasattr(self, 'parent_id') else None)!s}, "
-                f"locale={(self.locale if hasattr(self, 'locale') else None)!s}, "
-                f"default_subscription_group_uid={(self.default_subscription_group_uid
-                     if hasattr(self, 'default_subscription_group_uid') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!s}, '
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!s}, '
+                f'email={(self.email if hasattr(self, "email") else None)!s}, '
+                f'cc_emails={(self.cc_emails if hasattr(self, "cc_emails") else None)!s}, '
+                f'organization={(self.organization if hasattr(self, "organization") else None)!s}, '
+                f'reference={(self.reference if hasattr(self, "reference") else None)!s}, '
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!s}, '
+                f'updated_at={(self.updated_at if hasattr(self, "updated_at") else None)!s}, '
+                f'address={(self.address if hasattr(self, "address") else None)!s}, '
+                f'address_2={(self.address_2 if hasattr(self, "address_2") else None)!s}, '
+                f'city={(self.city if hasattr(self, "city") else None)!s}, '
+                f'state={(self.state if hasattr(self, "state") else None)!s}, '
+                f'state_name={(self.state_name if hasattr(self, "state_name") else None)!s}, '
+                f'zip={(self.zip if hasattr(self, "zip") else None)!s}, '
+                f'country={(self.country if hasattr(self, "country") else None)!s}, '
+                f'country_name={(self.country_name if hasattr(self, "country_name") else None)!s}, '
+                f'phone={(self.phone if hasattr(self, "phone") else None)!s}, '
+                f'verified={(self.verified if hasattr(self, "verified") else None)!s}, '
+                f'portal_customer_created_at={(self.portal_customer_created_at if hasattr(self, "portal_customer_created_at") else None)!s}, '
+                f'portal_invite_last_sent_at={(self.portal_invite_last_sent_at if hasattr(self, "portal_invite_last_sent_at") else None)!s}, '
+                f'portal_invite_last_accepted_at={(self.portal_invite_last_accepted_at if hasattr(self, "portal_invite_last_accepted_at") else None)!s}, '
+                f'tax_exempt={(self.tax_exempt if hasattr(self, "tax_exempt") else None)!s}, '
+                f'vat_number={(self.vat_number if hasattr(self, "vat_number") else None)!s}, '
+                f'parent_id={(self.parent_id if hasattr(self, "parent_id") else None)!s}, '
+                f'locale={(self.locale if hasattr(self, "locale") else None)!s}, '
+                f'default_subscription_group_uid={(self.default_subscription_group_uid if hasattr(self, "default_subscription_group_uid") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

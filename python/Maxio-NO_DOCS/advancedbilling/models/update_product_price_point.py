@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class UpdateProductPricePoint(object):
+
     """Implementation of the 'Update Product Price Point' model.
 
     Attributes:
@@ -20,25 +23,26 @@ class UpdateProductPricePoint(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "handle": "handle",
-        "price_in_cents": "price_in_cents",
+        "handle": 'handle',
+        "price_in_cents": 'price_in_cents'
     }
 
     _optionals = [
-        "handle",
-        "price_in_cents",
+        'handle',
+        'price_in_cents',
     ]
 
     def __init__(self,
                  handle=APIHelper.SKIP,
                  price_in_cents=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a UpdateProductPricePoint instance."""
+        """Constructor for the UpdateProductPricePoint class"""
+
         # Initialize members of the class
         if handle is not APIHelper.SKIP:
-            self.handle = handle
+            self.handle = handle 
         if price_in_cents is not APIHelper.SKIP:
-            self.price_in_cents = price_in_cents
+            self.price_in_cents = price_in_cents 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -48,7 +52,7 @@ class UpdateProductPricePoint(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -59,36 +63,28 @@ class UpdateProductPricePoint(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        handle =\
-            dictionary.get("handle")\
-            if dictionary.get("handle") else APIHelper.SKIP
-        price_in_cents =\
-            dictionary.get("price_in_cents")\
-            if dictionary.get("price_in_cents") else APIHelper.SKIP
+        handle = dictionary.get("handle") if dictionary.get("handle") else APIHelper.SKIP
+        price_in_cents = dictionary.get("price_in_cents") if dictionary.get("price_in_cents") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(handle,
                    price_in_cents,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"handle={(self.handle if hasattr(self, 'handle') else None)!r}, "
-                f"price_in_cents={(self.price_in_cents
-                     if hasattr(self, 'price_in_cents') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'handle={(self.handle if hasattr(self, "handle") else None)!r}, '
+                f'price_in_cents={(self.price_in_cents if hasattr(self, "price_in_cents") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"handle={(self.handle if hasattr(self, 'handle') else None)!s}, "
-                f"price_in_cents={(self.price_in_cents
-                     if hasattr(self, 'price_in_cents') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'handle={(self.handle if hasattr(self, "handle") else None)!s}, '
+                f'price_in_cents={(self.price_in_cents if hasattr(self, "price_in_cents") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

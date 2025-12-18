@@ -1,16 +1,17 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.sustainability import (
-    Sustainability,
-)
+from postnlecommerce.models.sustainability import Sustainability
 
 
 class Timeframe(object):
+
     """Implementation of the 'Timeframe' model.
 
     Attributes:
@@ -32,19 +33,19 @@ class Timeframe(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "mfrom": "From",
-        "to": "To",
-        "options": "Options",
-        "shipping_date": "ShippingDate",
-        "sustainability": "Sustainability",
+        "mfrom": 'From',
+        "to": 'To',
+        "options": 'Options',
+        "shipping_date": 'ShippingDate',
+        "sustainability": 'Sustainability'
     }
 
     _optionals = [
-        "mfrom",
-        "to",
-        "options",
-        "shipping_date",
-        "sustainability",
+        'mfrom',
+        'to',
+        'options',
+        'shipping_date',
+        'sustainability',
     ]
 
     def __init__(self,
@@ -53,23 +54,24 @@ class Timeframe(object):
                  options=APIHelper.SKIP,
                  shipping_date=APIHelper.SKIP,
                  sustainability=APIHelper.SKIP):
-        """Initialize a Timeframe instance."""
+        """Constructor for the Timeframe class"""
+
         # Initialize members of the class
         if mfrom is not APIHelper.SKIP:
-            self.mfrom = mfrom
+            self.mfrom = mfrom 
         if to is not APIHelper.SKIP:
-            self.to = to
+            self.to = to 
         if options is not APIHelper.SKIP:
-            self.options = options
+            self.options = options 
         if shipping_date is not APIHelper.SKIP:
-            self.shipping_date = shipping_date
+            self.shipping_date = shipping_date 
         if sustainability is not APIHelper.SKIP:
-            self.sustainability = sustainability
+            self.sustainability = sustainability 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -80,23 +82,16 @@ class Timeframe(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        mfrom =\
-            dictionary.get("From")\
-            if dictionary.get("From") else APIHelper.SKIP
+        mfrom = dictionary.get("From") if dictionary.get("From") else APIHelper.SKIP
         to = dictionary.get("To") if dictionary.get("To") else APIHelper.SKIP
-        options =\
-            dictionary.get("Options")\
-            if dictionary.get("Options") else APIHelper.SKIP
-        shipping_date =\
-            dictionary.get("ShippingDate")\
-            if dictionary.get("ShippingDate") else APIHelper.SKIP
-        sustainability = Sustainability.from_dictionary(
-            dictionary.get("Sustainability"))\
-            if "Sustainability" in dictionary.keys() else APIHelper.SKIP
+        options = dictionary.get("Options") if dictionary.get("Options") else APIHelper.SKIP
+        shipping_date = dictionary.get("ShippingDate") if dictionary.get("ShippingDate") else APIHelper.SKIP
+        sustainability = Sustainability.from_dictionary(dictionary.get('Sustainability')) if 'Sustainability' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(mfrom,
                    to,
@@ -105,25 +100,17 @@ class Timeframe(object):
                    sustainability)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"mfrom={(self.mfrom if hasattr(self, 'mfrom') else None)!r}, "
-                f"to={(self.to if hasattr(self, 'to') else None)!r}, "
-                f"options={(self.options
-                     if hasattr(self, 'options') else None)!r}, "
-                f"shipping_date={(self.shipping_date
-                     if hasattr(self, 'shipping_date') else None)!r}, "
-                f"sustainability={(self.sustainability
-                     if hasattr(self, 'sustainability') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'mfrom={(self.mfrom if hasattr(self, "mfrom") else None)!r}, '
+                f'to={(self.to if hasattr(self, "to") else None)!r}, '
+                f'options={(self.options if hasattr(self, "options") else None)!r}, '
+                f'shipping_date={(self.shipping_date if hasattr(self, "shipping_date") else None)!r}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"mfrom={(self.mfrom if hasattr(self, 'mfrom') else None)!s}, "
-                f"to={(self.to if hasattr(self, 'to') else None)!s}, "
-                f"options={(self.options
-                     if hasattr(self, 'options') else None)!s}, "
-                f"shipping_date={(self.shipping_date
-                     if hasattr(self, 'shipping_date') else None)!s}, "
-                f"sustainability={(self.sustainability
-                     if hasattr(self, 'sustainability') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'mfrom={(self.mfrom if hasattr(self, "mfrom") else None)!s}, '
+                f'to={(self.to if hasattr(self, "to") else None)!s}, '
+                f'options={(self.options if hasattr(self, "options") else None)!s}, '
+                f'shipping_date={(self.shipping_date if hasattr(self, "shipping_date") else None)!s}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s})')

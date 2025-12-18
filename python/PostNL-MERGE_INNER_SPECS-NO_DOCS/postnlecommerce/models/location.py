@@ -1,22 +1,19 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.address_1 import (
-    Address1,
-)
-from postnlecommerce.models.opening_hours import (
-    OpeningHours,
-)
-from postnlecommerce.models.sustainability import (
-    Sustainability,
-)
+from postnlecommerce.models.address_1 import Address1
+from postnlecommerce.models.opening_hours import OpeningHours
+from postnlecommerce.models.sustainability import Sustainability
 
 
 class Location(object):
+
     """Implementation of the 'Location' model.
 
     Attributes:
@@ -38,23 +35,23 @@ class Location(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "address": "Address",
-        "pickup_time": "PickupTime",
-        "opening_hours": "OpeningHours",
-        "distance": "Distance",
-        "location_code": "LocationCode",
-        "partner_id": "PartnerID",
-        "sustainability": "Sustainability",
+        "address": 'Address',
+        "pickup_time": 'PickupTime',
+        "opening_hours": 'OpeningHours',
+        "distance": 'Distance',
+        "location_code": 'LocationCode',
+        "partner_id": 'PartnerID',
+        "sustainability": 'Sustainability'
     }
 
     _optionals = [
-        "address",
-        "pickup_time",
-        "opening_hours",
-        "distance",
-        "location_code",
-        "partner_id",
-        "sustainability",
+        'address',
+        'pickup_time',
+        'opening_hours',
+        'distance',
+        'location_code',
+        'partner_id',
+        'sustainability',
     ]
 
     def __init__(self,
@@ -65,27 +62,28 @@ class Location(object):
                  location_code=APIHelper.SKIP,
                  partner_id=APIHelper.SKIP,
                  sustainability=APIHelper.SKIP):
-        """Initialize a Location instance."""
+        """Constructor for the Location class"""
+
         # Initialize members of the class
         if address is not APIHelper.SKIP:
-            self.address = address
+            self.address = address 
         if pickup_time is not APIHelper.SKIP:
-            self.pickup_time = pickup_time
+            self.pickup_time = pickup_time 
         if opening_hours is not APIHelper.SKIP:
-            self.opening_hours = opening_hours
+            self.opening_hours = opening_hours 
         if distance is not APIHelper.SKIP:
-            self.distance = distance
+            self.distance = distance 
         if location_code is not APIHelper.SKIP:
-            self.location_code = location_code
+            self.location_code = location_code 
         if partner_id is not APIHelper.SKIP:
-            self.partner_id = partner_id
+            self.partner_id = partner_id 
         if sustainability is not APIHelper.SKIP:
-            self.sustainability = sustainability
+            self.sustainability = sustainability 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -96,31 +94,18 @@ class Location(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        address = Address1.from_dictionary(
-            dictionary.get("Address"))\
-            if "Address" in dictionary.keys() else APIHelper.SKIP
-        pickup_time =\
-            dictionary.get("PickupTime")\
-            if dictionary.get("PickupTime") else APIHelper.SKIP
-        opening_hours = OpeningHours.from_dictionary(
-            dictionary.get("OpeningHours"))\
-            if "OpeningHours" in dictionary.keys() else APIHelper.SKIP
-        distance =\
-            dictionary.get("Distance")\
-            if dictionary.get("Distance") else APIHelper.SKIP
-        location_code =\
-            dictionary.get("LocationCode")\
-            if dictionary.get("LocationCode") else APIHelper.SKIP
-        partner_id =\
-            dictionary.get("PartnerID")\
-            if dictionary.get("PartnerID") else APIHelper.SKIP
-        sustainability = Sustainability.from_dictionary(
-            dictionary.get("Sustainability"))\
-            if "Sustainability" in dictionary.keys() else APIHelper.SKIP
+        address = Address1.from_dictionary(dictionary.get('Address')) if 'Address' in dictionary.keys() else APIHelper.SKIP
+        pickup_time = dictionary.get("PickupTime") if dictionary.get("PickupTime") else APIHelper.SKIP
+        opening_hours = OpeningHours.from_dictionary(dictionary.get('OpeningHours')) if 'OpeningHours' in dictionary.keys() else APIHelper.SKIP
+        distance = dictionary.get("Distance") if dictionary.get("Distance") else APIHelper.SKIP
+        location_code = dictionary.get("LocationCode") if dictionary.get("LocationCode") else APIHelper.SKIP
+        partner_id = dictionary.get("PartnerID") if dictionary.get("PartnerID") else APIHelper.SKIP
+        sustainability = Sustainability.from_dictionary(dictionary.get('Sustainability')) if 'Sustainability' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(address,
                    pickup_time,
@@ -131,37 +116,21 @@ class Location(object):
                    sustainability)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"address={(self.address
-                     if hasattr(self, 'address') else None)!r}, "
-                f"pickup_time={(self.pickup_time
-                     if hasattr(self, 'pickup_time') else None)!r}, "
-                f"opening_hours={(self.opening_hours
-                     if hasattr(self, 'opening_hours') else None)!r}, "
-                f"distance={(self.distance
-                     if hasattr(self, 'distance') else None)!r}, "
-                f"location_code={(self.location_code
-                     if hasattr(self, 'location_code') else None)!r}, "
-                f"partner_id={(self.partner_id
-                     if hasattr(self, 'partner_id') else None)!r}, "
-                f"sustainability={(self.sustainability
-                     if hasattr(self, 'sustainability') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!r}, '
+                f'pickup_time={(self.pickup_time if hasattr(self, "pickup_time") else None)!r}, '
+                f'opening_hours={(self.opening_hours if hasattr(self, "opening_hours") else None)!r}, '
+                f'distance={(self.distance if hasattr(self, "distance") else None)!r}, '
+                f'location_code={(self.location_code if hasattr(self, "location_code") else None)!r}, '
+                f'partner_id={(self.partner_id if hasattr(self, "partner_id") else None)!r}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"address={(self.address
-                     if hasattr(self, 'address') else None)!s}, "
-                f"pickup_time={(self.pickup_time
-                     if hasattr(self, 'pickup_time') else None)!s}, "
-                f"opening_hours={(self.opening_hours
-                     if hasattr(self, 'opening_hours') else None)!s}, "
-                f"distance={(self.distance
-                     if hasattr(self, 'distance') else None)!s}, "
-                f"location_code={(self.location_code
-                     if hasattr(self, 'location_code') else None)!s}, "
-                f"partner_id={(self.partner_id
-                     if hasattr(self, 'partner_id') else None)!s}, "
-                f"sustainability={(self.sustainability
-                     if hasattr(self, 'sustainability') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'address={(self.address if hasattr(self, "address") else None)!s}, '
+                f'pickup_time={(self.pickup_time if hasattr(self, "pickup_time") else None)!s}, '
+                f'opening_hours={(self.opening_hours if hasattr(self, "opening_hours") else None)!s}, '
+                f'distance={(self.distance if hasattr(self, "distance") else None)!s}, '
+                f'location_code={(self.location_code if hasattr(self, "location_code") else None)!s}, '
+                f'partner_id={(self.partner_id if hasattr(self, "partner_id") else None)!s}, '
+                f'sustainability={(self.sustainability if hasattr(self, "sustainability") else None)!s})')

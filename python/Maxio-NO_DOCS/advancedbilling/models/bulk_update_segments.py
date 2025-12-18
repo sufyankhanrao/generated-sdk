@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.bulk_update_segments_item import (
-    BulkUpdateSegmentsItem,
-)
+from advancedbilling.models.bulk_update_segments_item import BulkUpdateSegmentsItem
 
 
 class BulkUpdateSegments(object):
+
     """Implementation of the 'Bulk Update Segments' model.
 
     Attributes:
@@ -23,20 +24,21 @@ class BulkUpdateSegments(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "segments": "segments",
+        "segments": 'segments'
     }
 
     _optionals = [
-        "segments",
+        'segments',
     ]
 
     def __init__(self,
                  segments=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a BulkUpdateSegments instance."""
+        """Constructor for the BulkUpdateSegments class"""
+
         # Initialize members of the class
         if segments is not APIHelper.SKIP:
-            self.segments = segments
+            self.segments = segments 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -46,7 +48,7 @@ class BulkUpdateSegments(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -57,35 +59,28 @@ class BulkUpdateSegments(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         segments = None
-        if dictionary.get("segments") is not None:
-            segments = [
-                BulkUpdateSegmentsItem.from_dictionary(x)
-                    for x in dictionary.get("segments")
-            ]
+        if dictionary.get('segments') is not None:
+            segments = [BulkUpdateSegmentsItem.from_dictionary(x) for x in dictionary.get('segments')]
         else:
             segments = APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(segments,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"segments={(self.segments
-                     if hasattr(self, 'segments') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'segments={(self.segments if hasattr(self, "segments") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"segments={(self.segments
-                     if hasattr(self, 'segments') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'segments={(self.segments if hasattr(self, "segments") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

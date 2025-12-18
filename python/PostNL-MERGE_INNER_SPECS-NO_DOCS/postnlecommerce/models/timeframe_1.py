@@ -1,16 +1,17 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.timeframes_1 import (
-    Timeframes1,
-)
+from postnlecommerce.models.timeframes_1 import Timeframes1
 
 
 class Timeframe1(object):
+
     """Implementation of the 'Timeframe1' model.
 
     Attributes:
@@ -21,29 +22,30 @@ class Timeframe1(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "date": "Date",
-        "timeframes": "Timeframes",
+        "date": 'Date',
+        "timeframes": 'Timeframes'
     }
 
     _optionals = [
-        "date",
-        "timeframes",
+        'date',
+        'timeframes',
     ]
 
     def __init__(self,
                  date=APIHelper.SKIP,
                  timeframes=APIHelper.SKIP):
-        """Initialize a Timeframe1 instance."""
+        """Constructor for the Timeframe1 class"""
+
         # Initialize members of the class
         if date is not APIHelper.SKIP:
-            self.date = date
+            self.date = date 
         if timeframes is not APIHelper.SKIP:
-            self.timeframes = timeframes
+            self.timeframes = timeframes 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -54,30 +56,23 @@ class Timeframe1(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        date =\
-            dictionary.get("Date")\
-            if dictionary.get("Date") else APIHelper.SKIP
-        timeframes = Timeframes1.from_dictionary(
-            dictionary.get("Timeframes"))\
-            if "Timeframes" in dictionary.keys() else APIHelper.SKIP
+        date = dictionary.get("Date") if dictionary.get("Date") else APIHelper.SKIP
+        timeframes = Timeframes1.from_dictionary(dictionary.get('Timeframes')) if 'Timeframes' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(date,
                    timeframes)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date={(self.date if hasattr(self, 'date') else None)!r}, "
-                f"timeframes={(self.timeframes
-                     if hasattr(self, 'timeframes') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'date={(self.date if hasattr(self, "date") else None)!r}, '
+                f'timeframes={(self.timeframes if hasattr(self, "timeframes") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date={(self.date if hasattr(self, 'date') else None)!s}, "
-                f"timeframes={(self.timeframes
-                     if hasattr(self, 'timeframes') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'date={(self.date if hasattr(self, "date") else None)!s}, '
+                f'timeframes={(self.timeframes if hasattr(self, "timeframes") else None)!s})')

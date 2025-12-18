@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class SubscriptionGroupSingleError(object):
+
     """Implementation of the 'Subscription Group Single Error' model.
 
     Attributes:
@@ -19,15 +22,16 @@ class SubscriptionGroupSingleError(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "subscription_group": "subscription_group",
+        "subscription_group": 'subscription_group'
     }
 
     def __init__(self,
                  subscription_group=None,
                  additional_properties=None):
-        """Initialize a SubscriptionGroupSingleError instance."""
+        """Constructor for the SubscriptionGroupSingleError class"""
+
         # Initialize members of the class
-        self.subscription_group = subscription_group
+        self.subscription_group = subscription_group 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -37,7 +41,7 @@ class SubscriptionGroupSingleError(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -48,23 +52,21 @@ class SubscriptionGroupSingleError(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        subscription_group =\
-            dictionary.get("subscription_group")\
-            if dictionary.get("subscription_group") else None
+        subscription_group = dictionary.get("subscription_group") if dictionary.get("subscription_group") else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(subscription_group,
                    additional_properties)
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -75,26 +77,23 @@ class SubscriptionGroupSingleError(object):
             boolean : if dictionary is valid contains required properties.
 
         """
+
         if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(
-                value=dictionary.subscription_group,
-                type_callable=lambda value: isinstance(value, str))
+            return APIHelper.is_valid_type(value=dictionary.subscription_group,
+                                           type_callable=lambda value: isinstance(value, str))
 
         if not isinstance(dictionary, dict):
             return False
 
-        return APIHelper.is_valid_type(
-            value=dictionary.get("subscription_group"),
-            type_callable=lambda value: isinstance(value, str))
+        return APIHelper.is_valid_type(value=dictionary.get('subscription_group'),
+                                       type_callable=lambda value: isinstance(value, str))
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"subscription_group={self.subscription_group!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'subscription_group={self.subscription_group!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"subscription_group={self.subscription_group!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'subscription_group={self.subscription_group!s}, '
+                f'additional_properties={self.additional_properties!s})')

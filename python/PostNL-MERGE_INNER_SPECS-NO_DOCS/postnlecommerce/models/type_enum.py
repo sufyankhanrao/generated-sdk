@@ -1,4 +1,7 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class TypeEnum(object):
+
     """Implementation of the 'Type' enum.
 
     Attributes:
@@ -20,28 +24,26 @@ class TypeEnum(object):
         UE: The enum member of type str.
 
     """
+    ENUM_2S = '2S'
 
-    ENUM_2S = "2S"
+    ENUM_3S = '3S'
 
-    ENUM_3S = "3S"
+    CC = 'CC'
 
-    CC = "CC"
+    CP = 'CP'
 
-    CP = "CP"
+    CD = 'CD'
 
-    CD = "CD"
+    CF = 'CF'
 
-    CF = "CF"
+    LA = 'LA'
 
-    LA = "LA"
+    RI = 'RI'
 
-    RI = "RI"
-
-    UE = "UE"
+    UE = 'UE'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

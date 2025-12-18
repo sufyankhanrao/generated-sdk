@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.subscription_filter import (
-    SubscriptionFilter,
-)
+from advancedbilling.models.subscription_filter import SubscriptionFilter
 
 
 class ListSubscriptionComponentsForSiteFilter(object):
+
     """Implementation of the 'List Subscription Components For Site Filter' model.
 
     Attributes:
@@ -29,15 +30,15 @@ class ListSubscriptionComponentsForSiteFilter(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "currencies": "currencies",
-        "use_site_exchange_rate": "use_site_exchange_rate",
-        "subscription": "subscription",
+        "currencies": 'currencies',
+        "use_site_exchange_rate": 'use_site_exchange_rate',
+        "subscription": 'subscription'
     }
 
     _optionals = [
-        "currencies",
-        "use_site_exchange_rate",
-        "subscription",
+        'currencies',
+        'use_site_exchange_rate',
+        'subscription',
     ]
 
     def __init__(self,
@@ -45,14 +46,15 @@ class ListSubscriptionComponentsForSiteFilter(object):
                  use_site_exchange_rate=APIHelper.SKIP,
                  subscription=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a ListSubscriptionComponentsForSiteFilter instance."""
+        """Constructor for the ListSubscriptionComponentsForSiteFilter class"""
+
         # Initialize members of the class
         if currencies is not APIHelper.SKIP:
-            self.currencies = currencies
+            self.currencies = currencies 
         if use_site_exchange_rate is not APIHelper.SKIP:
-            self.use_site_exchange_rate = use_site_exchange_rate
+            self.use_site_exchange_rate = use_site_exchange_rate 
         if subscription is not APIHelper.SKIP:
-            self.subscription = subscription
+            self.subscription = subscription 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -62,7 +64,7 @@ class ListSubscriptionComponentsForSiteFilter(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -73,22 +75,16 @@ class ListSubscriptionComponentsForSiteFilter(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        currencies =\
-            dictionary.get("currencies")\
-            if dictionary.get("currencies") else APIHelper.SKIP
-        use_site_exchange_rate =\
-            dictionary.get("use_site_exchange_rate")\
-            if "use_site_exchange_rate" in dictionary.keys() else APIHelper.SKIP
-        subscription = SubscriptionFilter.from_dictionary(
-            dictionary.get("subscription"))\
-            if "subscription" in dictionary.keys() else APIHelper.SKIP
+        currencies = dictionary.get("currencies") if dictionary.get("currencies") else APIHelper.SKIP
+        use_site_exchange_rate = dictionary.get("use_site_exchange_rate") if "use_site_exchange_rate" in dictionary.keys() else APIHelper.SKIP
+        subscription = SubscriptionFilter.from_dictionary(dictionary.get('subscription')) if 'subscription' in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(currencies,
                    use_site_exchange_rate,
@@ -96,23 +92,15 @@ class ListSubscriptionComponentsForSiteFilter(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"currencies={(self.currencies
-                     if hasattr(self, 'currencies') else None)!r}, "
-                f"use_site_exchange_rate={(self.use_site_exchange_rate
-                     if hasattr(self, 'use_site_exchange_rate') else None)!r}, "
-                f"subscription={(self.subscription
-                     if hasattr(self, 'subscription') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'currencies={(self.currencies if hasattr(self, "currencies") else None)!r}, '
+                f'use_site_exchange_rate={(self.use_site_exchange_rate if hasattr(self, "use_site_exchange_rate") else None)!r}, '
+                f'subscription={(self.subscription if hasattr(self, "subscription") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"currencies={(self.currencies
-                     if hasattr(self, 'currencies') else None)!s}, "
-                f"use_site_exchange_rate={(self.use_site_exchange_rate
-                     if hasattr(self, 'use_site_exchange_rate') else None)!s}, "
-                f"subscription={(self.subscription
-                     if hasattr(self, 'subscription') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'currencies={(self.currencies if hasattr(self, "currencies") else None)!s}, '
+                f'use_site_exchange_rate={(self.use_site_exchange_rate if hasattr(self, "use_site_exchange_rate") else None)!s}, '
+                f'subscription={(self.subscription if hasattr(self, "subscription") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

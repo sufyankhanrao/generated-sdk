@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class WebhookOrder(object):
+
     """Implementation of the 'Webhook Order' enum.
 
     Attributes:
@@ -15,14 +19,12 @@ class WebhookOrder(object):
             for the model.
 
     """
+    NEWEST_FIRST = 'newest_first'
 
-    NEWEST_FIRST = "newest_first"
-
-    OLDEST_FIRST = "oldest_first"
+    OLDEST_FIRST = 'oldest_first'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

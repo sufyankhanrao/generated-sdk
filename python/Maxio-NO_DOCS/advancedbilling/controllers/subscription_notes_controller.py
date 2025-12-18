@@ -1,40 +1,34 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.subscription_note_response import (
-    SubscriptionNoteResponse,
-)
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.subscription_note_response import SubscriptionNoteResponse
 
 
 class SubscriptionNotesController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize SubscriptionNotesController object."""
         super(SubscriptionNotesController, self).__init__(config)
 
     def create_subscription_note(self,
                                  subscription_id,
                                  body=None):
-        """Perform a POST request to /subscriptions/{subscription_id}/notes.json.
+        """Does a POST request to /subscriptions/{subscription_id}/notes.json.
 
         Use the following method to create a note for a subscription.
         ## How to Use Subscription Notes
@@ -63,35 +57,36 @@ class SubscriptionNotesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/notes.json")
+            .path('/subscriptions/{subscription_id}/notes.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionNoteResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def list_subscription_notes(self,
                                 options=dict()):
-        """Perform a GET request to /subscriptions/{subscription_id}/notes.json.
+        """Does a GET request to /subscriptions/{subscription_id}/notes.json.
 
         Use this method to retrieve a list of Notes associated with a
         Subscription. The response will be an array of Notes.
@@ -102,6 +97,7 @@ class SubscriptionNotesController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     subscription_id -- int -- The Chargify id of the
                         subscription
                     page -- int -- Result records are organized in pages. By
@@ -130,37 +126,37 @@ class SubscriptionNotesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/notes.json")
+            .path('/subscriptions/{subscription_id}/notes.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("subscription_id")
-                            .value(options.get("subscription_id", None))
+                            .key('subscription_id')
+                            .value(options.get('subscription_id', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionNoteResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_subscription_note(self,
                                subscription_id,
                                note_id):
-        """Perform a GET request to
-        /subscriptions/{subscription_id}/notes/{note_id}.json.
+        """Does a GET request to /subscriptions/{subscription_id}/notes/{note_id}.json.
 
         Once you have obtained the ID of the note you wish to read, use this
         method to show a particular note attached to a subscription.
@@ -180,37 +176,37 @@ class SubscriptionNotesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/notes/{note_id}.json")
+            .path('/subscriptions/{subscription_id}/notes/{note_id}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("note_id")
+                            .key('note_id')
                             .value(note_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionNoteResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_subscription_note(self,
                                  subscription_id,
                                  note_id,
                                  body=None):
-        """Perform a PUT request to
-        /subscriptions/{subscription_id}/notes/{note_id}.json.
+        """Does a PUT request to /subscriptions/{subscription_id}/notes/{note_id}.json.
 
         Use the following method to update a note for a Subscription.
 
@@ -231,42 +227,42 @@ class SubscriptionNotesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/notes/{note_id}.json")
+            .path('/subscriptions/{subscription_id}/notes/{note_id}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("note_id")
+                            .key('note_id')
                             .value(note_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionNoteResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def delete_subscription_note(self,
                                  subscription_id,
                                  note_id):
-        """Perform a DELETE request to
-        /subscriptions/{subscription_id}/notes/{note_id}.json.
+        """Does a DELETE request to /subscriptions/{subscription_id}/notes/{note_id}.json.
 
         Use the following method to delete a note for a Subscription.
 
@@ -285,22 +281,23 @@ class SubscriptionNotesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/notes/{note_id}.json")
+            .path('/subscriptions/{subscription_id}/notes/{note_id}.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("note_id")
+                            .key('note_id')
                             .value(note_id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()

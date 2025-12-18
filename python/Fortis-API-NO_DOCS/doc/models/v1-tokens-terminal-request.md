@@ -34,7 +34,7 @@
 | `terms_agree_ip` | `str` | Optional | The ip address of the client that agreed to terms. |
 | `title` | `str` | Optional | Used to describe the Token for easier identification within our UI.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `16` |
 | `joi` | [`Joi4`](../../doc/models/joi-4.md) | Optional | - |
-| `action` | `str` | Required, Constant | Used for the Create Terminal endpoint. Valid value 'store'<br><br>**Value**: `"store"` |
+| `action` | `str` | Required, Constant | Used for the Create Terminal endpoint. Valid value 'store'<br><br>**Value**: `'store'` |
 | `terminal_id` | `str` | Required | Terminal ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 
 ## Example (as JSON)

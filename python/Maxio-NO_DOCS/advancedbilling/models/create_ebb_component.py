@@ -1,15 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
-from advancedbilling.models.ebb_component import (
-    EBBComponent,
-)
+from advancedbilling.models.ebb_component import EBBComponent
 
 
 class CreateEBBComponent(object):
+
     """Implementation of the 'Create EBB Component' model.
 
     Attributes:
@@ -22,15 +23,16 @@ class CreateEBBComponent(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "event_based_component": "event_based_component",
+        "event_based_component": 'event_based_component'
     }
 
     def __init__(self,
                  event_based_component=None,
                  additional_properties=None):
-        """Initialize a CreateEBBComponent instance."""
+        """Constructor for the CreateEBBComponent class"""
+
         # Initialize members of the class
-        self.event_based_component = event_based_component
+        self.event_based_component = event_based_component 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -40,7 +42,7 @@ class CreateEBBComponent(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -51,28 +53,24 @@ class CreateEBBComponent(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        event_based_component = EBBComponent.from_dictionary(
-            dictionary.get("event_based_component"))\
-            if dictionary.get("event_based_component") else None
+        event_based_component = EBBComponent.from_dictionary(dictionary.get('event_based_component')) if dictionary.get('event_based_component') else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(event_based_component,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event_based_component={self.event_based_component!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'event_based_component={self.event_based_component!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event_based_component={self.event_based_component!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'event_based_component={self.event_based_component!s}, '
+                f'additional_properties={self.additional_properties!s})')

@@ -1,46 +1,35 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.list_sale_rep_item import (
-    ListSaleRepItem,
-)
-from advancedbilling.models.sale_rep import (
-    SaleRep,
-)
-from advancedbilling.models.sale_rep_settings import (
-    SaleRepSettings,
-)
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.sale_rep_settings import SaleRepSettings
+from advancedbilling.models.list_sale_rep_item import ListSaleRepItem
+from advancedbilling.models.sale_rep import SaleRep
 
 
 class SalesCommissionsController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize SalesCommissionsController object."""
         super(SalesCommissionsController, self).__init__(config)
 
     def list_sales_commission_settings(self,
                                        options=dict()):
-        """Perform a GET request to
-        /sellers/{seller_id}/sales_commission_settings.json.
+        """Does a GET request to /sellers/{seller_id}/sales_commission_settings.json.
 
         Endpoint returns subscriptions with associated sales reps
         ## Modified Authentication Process
@@ -66,6 +55,7 @@ class SalesCommissionsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     seller_id -- str -- The Chargify id of your seller account
                     authorization -- str -- For authorization use user API
                         key. See details
@@ -98,41 +88,42 @@ class SalesCommissionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/sellers/{seller_id}/sales_commission_settings.json")
+            .path('/sellers/{seller_id}/sales_commission_settings.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("seller_id")
-                            .value(options.get("seller_id", None))
+                            .key('seller_id')
+                            .value(options.get('seller_id', None))
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Authorization")
-                          .value(options.get("authorization", None)))
+                          .key('Authorization')
+                          .value(options.get('authorization', None)))
             .query_param(Parameter()
-                         .key("live_mode")
-                         .value(options.get("live_mode", None)))
+                         .key('live_mode')
+                         .value(options.get('live_mode', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SaleRepSettings.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def list_sales_reps(self,
                         options=dict()):
-        """Perform a GET request to /sellers/{seller_id}/sales_reps.json.
+        """Does a GET request to /sellers/{seller_id}/sales_reps.json.
 
         Endpoint returns sales rep list with details
         ## Modified Authentication Process
@@ -158,6 +149,7 @@ class SalesCommissionsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     seller_id -- str -- The Chargify id of your seller account
                     authorization -- str -- For authorization use user API
                         key. See details
@@ -190,47 +182,47 @@ class SalesCommissionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/sellers/{seller_id}/sales_reps.json")
+            .path('/sellers/{seller_id}/sales_reps.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("seller_id")
-                            .value(options.get("seller_id", None))
+                            .key('seller_id')
+                            .value(options.get('seller_id', None))
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Authorization")
-                          .value(options.get("authorization", None)))
+                          .key('Authorization')
+                          .value(options.get('authorization', None)))
             .query_param(Parameter()
-                         .key("live_mode")
-                         .value(options.get("live_mode", None)))
+                         .key('live_mode')
+                         .value(options.get('live_mode', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListSaleRepItem.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_sales_rep(self,
                        seller_id,
                        sales_rep_id,
-                       authorization="Bearer <<apiKey>>",
+                       authorization='Bearer <<apiKey>>',
                        live_mode=None,
                        page=1,
                        per_page=100):
-        """Perform a GET request to
-        /sellers/{seller_id}/sales_reps/{sales_rep_id}.json.
+        """Does a GET request to /sellers/{seller_id}/sales_reps/{sales_rep_id}.json.
 
         Endpoint returns sales rep and attached subscriptions details.
         ## Modified Authentication Process
@@ -281,39 +273,40 @@ class SalesCommissionsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/sellers/{seller_id}/sales_reps/{sales_rep_id}.json")
+            .path('/sellers/{seller_id}/sales_reps/{sales_rep_id}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("seller_id")
+                            .key('seller_id')
                             .value(seller_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("sales_rep_id")
+                            .key('sales_rep_id')
                             .value(sales_rep_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Authorization")
+                          .key('Authorization')
                           .value(authorization))
             .query_param(Parameter()
-                         .key("live_mode")
+                         .key('live_mode')
                          .value(live_mode))
             .query_param(Parameter()
-                         .key("page")
+                         .key('page')
                          .value(page))
             .query_param(Parameter()
-                         .key("per_page")
+                         .key('per_page')
                          .value(per_page))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SaleRep.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()

@@ -1,41 +1,33 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.list_public_keys_response import (
-    ListPublicKeysResponse,
-)
-from advancedbilling.models.site_response import (
-    SiteResponse,
-)
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.site_response import SiteResponse
+from advancedbilling.models.list_public_keys_response import ListPublicKeysResponse
 
 
 class SitesController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize SitesController object."""
         super(SitesController, self).__init__(config)
 
     def read_site(self):
-        """Perform a GET request to /site.json.
+        """Does a GET request to /site.json.
 
         This endpoint allows you to fetch some site data.
         Full documentation on Sites in the Chargify UI can be located
@@ -64,24 +56,25 @@ class SitesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/site.json")
+            .path('/site.json')
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SiteResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def clear_site(self,
-                   cleanup_scope="all"):
-        """Perform a POST request to /sites/clear_data.json.
+                   cleanup_scope='all'):
+        """Does a POST request to /sites/clear_data.json.
 
         This call is asynchronous and there may be a delay before the site
         data is fully deleted. If you are clearing site data for an automated
@@ -93,9 +86,9 @@ class SitesController(BaseController):
 
         Args:
             cleanup_scope (CleanupScope, optional): `all`: Will clear all
-                products, customers, and related subscriptions from the site.
+                products, customers, and related subscriptions from the site. 
                 `customers`: Will clear only customers and related
-                subscriptions (leaving the products untouched) for the site.
+                subscriptions (leaving the products untouched) for the site. 
                 Revenue will also be reset to 0. Use in query
                 `cleanup_scope=all`.
 
@@ -110,22 +103,23 @@ class SitesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/sites/clear_data.json")
+            .path('/sites/clear_data.json')
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("cleanup_scope")
+                         .key('cleanup_scope')
                          .value(cleanup_scope))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def list_chargify_js_public_keys(self,
                                      options=dict()):
-        """Perform a GET request to /chargify_js_keys.json.
+        """Does a GET request to /chargify_js_keys.json.
 
         This endpoint returns public keys used for Chargify.js.
 
@@ -135,6 +129,7 @@ class SitesController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
                         page parameter specifies a page number of results to
@@ -161,23 +156,24 @@ class SitesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/chargify_js_keys.json")
+            .path('/chargify_js_keys.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListPublicKeysResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()

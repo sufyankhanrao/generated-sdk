@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class RenewalPreviewComponent(object):
+
     """Implementation of the 'Renewal Preview Component' model.
 
     Attributes:
@@ -30,15 +33,15 @@ class RenewalPreviewComponent(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "component_id": "component_id",
-        "quantity": "quantity",
-        "price_point_id": "price_point_id",
+        "component_id": 'component_id',
+        "quantity": 'quantity',
+        "price_point_id": 'price_point_id'
     }
 
     _optionals = [
-        "component_id",
-        "quantity",
-        "price_point_id",
+        'component_id',
+        'quantity',
+        'price_point_id',
     ]
 
     def __init__(self,
@@ -46,14 +49,15 @@ class RenewalPreviewComponent(object):
                  quantity=APIHelper.SKIP,
                  price_point_id=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a RenewalPreviewComponent instance."""
+        """Constructor for the RenewalPreviewComponent class"""
+
         # Initialize members of the class
         if component_id is not APIHelper.SKIP:
-            self.component_id = component_id
+            self.component_id = component_id 
         if quantity is not APIHelper.SKIP:
-            self.quantity = quantity
+            self.quantity = quantity 
         if price_point_id is not APIHelper.SKIP:
-            self.price_point_id = price_point_id
+            self.price_point_id = price_point_id 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -63,7 +67,7 @@ class RenewalPreviewComponent(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -74,22 +78,17 @@ class RenewalPreviewComponent(object):
             object: An instance of this structure class.
 
         """
-        from advancedbilling.utilities.union_type_lookup import (
-            UnionTypeLookUp,
-        )
+        from advancedbilling.utilities.union_type_lookup import UnionTypeLookUp
 
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        component_id = APIHelper.deserialize_union_type(UnionTypeLookUp.get("RenewalPreviewComponentComponentId"), dictionary.get("component_id"), False) if dictionary.get("component_id") is not None else APIHelper.SKIP
-        quantity =\
-            dictionary.get("quantity")\
-            if dictionary.get("quantity") else APIHelper.SKIP
-        price_point_id = APIHelper.deserialize_union_type(UnionTypeLookUp.get("RenewalPreviewComponentPricePointId"), dictionary.get("price_point_id"), False) if dictionary.get("price_point_id") is not None else APIHelper.SKIP
+        component_id = APIHelper.deserialize_union_type(UnionTypeLookUp.get('RenewalPreviewComponentComponentId'), dictionary.get('component_id'), False) if dictionary.get('component_id') is not None else APIHelper.SKIP
+        quantity = dictionary.get("quantity") if dictionary.get("quantity") else APIHelper.SKIP
+        price_point_id = APIHelper.deserialize_union_type(UnionTypeLookUp.get('RenewalPreviewComponentPricePointId'), dictionary.get('price_point_id'), False) if dictionary.get('price_point_id') is not None else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(component_id,
                    quantity,
@@ -97,23 +96,15 @@ class RenewalPreviewComponent(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"component_id={(self.component_id
-                     if hasattr(self, 'component_id') else None)!r}, "
-                f"quantity={(self.quantity
-                     if hasattr(self, 'quantity') else None)!r}, "
-                f"price_point_id={(self.price_point_id
-                     if hasattr(self, 'price_point_id') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'component_id={(self.component_id if hasattr(self, "component_id") else None)!r}, '
+                f'quantity={(self.quantity if hasattr(self, "quantity") else None)!r}, '
+                f'price_point_id={(self.price_point_id if hasattr(self, "price_point_id") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"component_id={(self.component_id
-                     if hasattr(self, 'component_id') else None)!s}, "
-                f"quantity={(self.quantity
-                     if hasattr(self, 'quantity') else None)!s}, "
-                f"price_point_id={(self.price_point_id
-                     if hasattr(self, 'price_point_id') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'component_id={(self.component_id if hasattr(self, "component_id") else None)!s}, '
+                f'quantity={(self.quantity if hasattr(self, "quantity") else None)!s}, '
+                f'price_point_id={(self.price_point_id if hasattr(self, "price_point_id") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

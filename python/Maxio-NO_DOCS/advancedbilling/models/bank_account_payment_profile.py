@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class BankAccountPaymentProfile(object):
+
     """Implementation of the 'Bank Account Payment Profile' model.
 
     Attributes:
@@ -59,63 +62,63 @@ class BankAccountPaymentProfile(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "masked_bank_routing_number": "masked_bank_routing_number",
-        "masked_bank_account_number": "masked_bank_account_number",
-        "id": "id",
-        "first_name": "first_name",
-        "last_name": "last_name",
-        "customer_id": "customer_id",
-        "current_vault": "current_vault",
-        "vault_token": "vault_token",
-        "billing_address": "billing_address",
-        "billing_city": "billing_city",
-        "billing_state": "billing_state",
-        "billing_zip": "billing_zip",
-        "billing_country": "billing_country",
-        "customer_vault_token": "customer_vault_token",
-        "billing_address_2": "billing_address_2",
-        "bank_name": "bank_name",
-        "bank_account_type": "bank_account_type",
-        "bank_account_holder_type": "bank_account_holder_type",
-        "payment_type": "payment_type",
-        "verified": "verified",
-        "site_gateway_setting_id": "site_gateway_setting_id",
-        "gateway_handle": "gateway_handle",
+        "masked_bank_routing_number": 'masked_bank_routing_number',
+        "masked_bank_account_number": 'masked_bank_account_number',
+        "id": 'id',
+        "first_name": 'first_name',
+        "last_name": 'last_name',
+        "customer_id": 'customer_id',
+        "current_vault": 'current_vault',
+        "vault_token": 'vault_token',
+        "billing_address": 'billing_address',
+        "billing_city": 'billing_city',
+        "billing_state": 'billing_state',
+        "billing_zip": 'billing_zip',
+        "billing_country": 'billing_country',
+        "customer_vault_token": 'customer_vault_token',
+        "billing_address_2": 'billing_address_2',
+        "bank_name": 'bank_name',
+        "bank_account_type": 'bank_account_type',
+        "bank_account_holder_type": 'bank_account_holder_type',
+        "payment_type": 'payment_type',
+        "verified": 'verified',
+        "site_gateway_setting_id": 'site_gateway_setting_id',
+        "gateway_handle": 'gateway_handle'
     }
 
     _optionals = [
-        "id",
-        "first_name",
-        "last_name",
-        "customer_id",
-        "current_vault",
-        "vault_token",
-        "billing_address",
-        "billing_city",
-        "billing_state",
-        "billing_zip",
-        "billing_country",
-        "customer_vault_token",
-        "billing_address_2",
-        "bank_name",
-        "bank_account_type",
-        "bank_account_holder_type",
-        "payment_type",
-        "verified",
-        "site_gateway_setting_id",
-        "gateway_handle",
+        'id',
+        'first_name',
+        'last_name',
+        'customer_id',
+        'current_vault',
+        'vault_token',
+        'billing_address',
+        'billing_city',
+        'billing_state',
+        'billing_zip',
+        'billing_country',
+        'customer_vault_token',
+        'billing_address_2',
+        'bank_name',
+        'bank_account_type',
+        'bank_account_holder_type',
+        'payment_type',
+        'verified',
+        'site_gateway_setting_id',
+        'gateway_handle',
     ]
 
     _nullables = [
-        "billing_address",
-        "billing_city",
-        "billing_state",
-        "billing_zip",
-        "billing_country",
-        "customer_vault_token",
-        "billing_address_2",
-        "site_gateway_setting_id",
-        "gateway_handle",
+        'billing_address',
+        'billing_city',
+        'billing_state',
+        'billing_zip',
+        'billing_country',
+        'customer_vault_token',
+        'billing_address_2',
+        'site_gateway_setting_id',
+        'gateway_handle',
     ]
 
     def __init__(self,
@@ -142,49 +145,50 @@ class BankAccountPaymentProfile(object):
                  site_gateway_setting_id=APIHelper.SKIP,
                  gateway_handle=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a BankAccountPaymentProfile instance."""
+        """Constructor for the BankAccountPaymentProfile class"""
+
         # Initialize members of the class
         if id is not APIHelper.SKIP:
-            self.id = id
+            self.id = id 
         if first_name is not APIHelper.SKIP:
-            self.first_name = first_name
+            self.first_name = first_name 
         if last_name is not APIHelper.SKIP:
-            self.last_name = last_name
+            self.last_name = last_name 
         if customer_id is not APIHelper.SKIP:
-            self.customer_id = customer_id
+            self.customer_id = customer_id 
         if current_vault is not APIHelper.SKIP:
-            self.current_vault = current_vault
+            self.current_vault = current_vault 
         if vault_token is not APIHelper.SKIP:
-            self.vault_token = vault_token
+            self.vault_token = vault_token 
         if billing_address is not APIHelper.SKIP:
-            self.billing_address = billing_address
+            self.billing_address = billing_address 
         if billing_city is not APIHelper.SKIP:
-            self.billing_city = billing_city
+            self.billing_city = billing_city 
         if billing_state is not APIHelper.SKIP:
-            self.billing_state = billing_state
+            self.billing_state = billing_state 
         if billing_zip is not APIHelper.SKIP:
-            self.billing_zip = billing_zip
+            self.billing_zip = billing_zip 
         if billing_country is not APIHelper.SKIP:
-            self.billing_country = billing_country
+            self.billing_country = billing_country 
         if customer_vault_token is not APIHelper.SKIP:
-            self.customer_vault_token = customer_vault_token
+            self.customer_vault_token = customer_vault_token 
         if billing_address_2 is not APIHelper.SKIP:
-            self.billing_address_2 = billing_address_2
+            self.billing_address_2 = billing_address_2 
         if bank_name is not APIHelper.SKIP:
-            self.bank_name = bank_name
-        self.masked_bank_routing_number = masked_bank_routing_number
-        self.masked_bank_account_number = masked_bank_account_number
+            self.bank_name = bank_name 
+        self.masked_bank_routing_number = masked_bank_routing_number 
+        self.masked_bank_account_number = masked_bank_account_number 
         if bank_account_type is not APIHelper.SKIP:
-            self.bank_account_type = bank_account_type
+            self.bank_account_type = bank_account_type 
         if bank_account_holder_type is not APIHelper.SKIP:
-            self.bank_account_holder_type = bank_account_holder_type
+            self.bank_account_holder_type = bank_account_holder_type 
         if payment_type is not APIHelper.SKIP:
-            self.payment_type = payment_type
-        self.verified = verified
+            self.payment_type = payment_type 
+        self.verified = verified 
         if site_gateway_setting_id is not APIHelper.SKIP:
-            self.site_gateway_setting_id = site_gateway_setting_id
+            self.site_gateway_setting_id = site_gateway_setting_id 
         if gateway_handle is not APIHelper.SKIP:
-            self.gateway_handle = gateway_handle
+            self.gateway_handle = gateway_handle 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -194,7 +198,7 @@ class BankAccountPaymentProfile(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -205,77 +209,35 @@ class BankAccountPaymentProfile(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        masked_bank_routing_number =\
-            dictionary.get("masked_bank_routing_number")\
-            if dictionary.get("masked_bank_routing_number") else None
-        masked_bank_account_number =\
-            dictionary.get("masked_bank_account_number")\
-            if dictionary.get("masked_bank_account_number") else None
+        masked_bank_routing_number = dictionary.get("masked_bank_routing_number") if dictionary.get("masked_bank_routing_number") else None
+        masked_bank_account_number = dictionary.get("masked_bank_account_number") if dictionary.get("masked_bank_account_number") else None
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
-        first_name =\
-            dictionary.get("first_name")\
-            if dictionary.get("first_name") else APIHelper.SKIP
-        last_name =\
-            dictionary.get("last_name")\
-            if dictionary.get("last_name") else APIHelper.SKIP
-        customer_id =\
-            dictionary.get("customer_id")\
-            if dictionary.get("customer_id") else APIHelper.SKIP
-        current_vault =\
-            dictionary.get("current_vault")\
-            if dictionary.get("current_vault") else APIHelper.SKIP
-        vault_token =\
-            dictionary.get("vault_token")\
-            if dictionary.get("vault_token") else APIHelper.SKIP
-        billing_address =\
-            dictionary.get("billing_address")\
-            if "billing_address" in dictionary.keys() else APIHelper.SKIP
-        billing_city =\
-            dictionary.get("billing_city")\
-            if "billing_city" in dictionary.keys() else APIHelper.SKIP
-        billing_state =\
-            dictionary.get("billing_state")\
-            if "billing_state" in dictionary.keys() else APIHelper.SKIP
-        billing_zip =\
-            dictionary.get("billing_zip")\
-            if "billing_zip" in dictionary.keys() else APIHelper.SKIP
-        billing_country =\
-            dictionary.get("billing_country")\
-            if "billing_country" in dictionary.keys() else APIHelper.SKIP
-        customer_vault_token =\
-            dictionary.get("customer_vault_token")\
-            if "customer_vault_token" in dictionary.keys() else APIHelper.SKIP
-        billing_address_2 =\
-            dictionary.get("billing_address_2")\
-            if "billing_address_2" in dictionary.keys() else APIHelper.SKIP
-        bank_name =\
-            dictionary.get("bank_name")\
-            if dictionary.get("bank_name") else APIHelper.SKIP
-        bank_account_type =\
-            dictionary.get("bank_account_type")\
-            if dictionary.get("bank_account_type") else APIHelper.SKIP
-        bank_account_holder_type =\
-            dictionary.get("bank_account_holder_type")\
-            if dictionary.get("bank_account_holder_type") else APIHelper.SKIP
-        payment_type =\
-            dictionary.get("payment_type")\
-            if dictionary.get("payment_type") else APIHelper.SKIP
-        verified =\
-            dictionary.get("verified")\
-            if dictionary.get("verified") else False
-        site_gateway_setting_id =\
-            dictionary.get("site_gateway_setting_id")\
-            if "site_gateway_setting_id" in dictionary.keys() else APIHelper.SKIP
-        gateway_handle =\
-            dictionary.get("gateway_handle")\
-            if "gateway_handle" in dictionary.keys() else APIHelper.SKIP
+        first_name = dictionary.get("first_name") if dictionary.get("first_name") else APIHelper.SKIP
+        last_name = dictionary.get("last_name") if dictionary.get("last_name") else APIHelper.SKIP
+        customer_id = dictionary.get("customer_id") if dictionary.get("customer_id") else APIHelper.SKIP
+        current_vault = dictionary.get("current_vault") if dictionary.get("current_vault") else APIHelper.SKIP
+        vault_token = dictionary.get("vault_token") if dictionary.get("vault_token") else APIHelper.SKIP
+        billing_address = dictionary.get("billing_address") if "billing_address" in dictionary.keys() else APIHelper.SKIP
+        billing_city = dictionary.get("billing_city") if "billing_city" in dictionary.keys() else APIHelper.SKIP
+        billing_state = dictionary.get("billing_state") if "billing_state" in dictionary.keys() else APIHelper.SKIP
+        billing_zip = dictionary.get("billing_zip") if "billing_zip" in dictionary.keys() else APIHelper.SKIP
+        billing_country = dictionary.get("billing_country") if "billing_country" in dictionary.keys() else APIHelper.SKIP
+        customer_vault_token = dictionary.get("customer_vault_token") if "customer_vault_token" in dictionary.keys() else APIHelper.SKIP
+        billing_address_2 = dictionary.get("billing_address_2") if "billing_address_2" in dictionary.keys() else APIHelper.SKIP
+        bank_name = dictionary.get("bank_name") if dictionary.get("bank_name") else APIHelper.SKIP
+        bank_account_type = dictionary.get("bank_account_type") if dictionary.get("bank_account_type") else APIHelper.SKIP
+        bank_account_holder_type = dictionary.get("bank_account_holder_type") if dictionary.get("bank_account_holder_type") else APIHelper.SKIP
+        payment_type = dictionary.get("payment_type") if dictionary.get("payment_type") else APIHelper.SKIP
+        verified = dictionary.get("verified") if dictionary.get("verified") else False
+        site_gateway_setting_id = dictionary.get("site_gateway_setting_id") if "site_gateway_setting_id" in dictionary.keys() else APIHelper.SKIP
+        gateway_handle = dictionary.get("gateway_handle") if "gateway_handle" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(masked_bank_routing_number,
                    masked_bank_account_number,
@@ -303,7 +265,7 @@ class BankAccountPaymentProfile(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -314,112 +276,69 @@ class BankAccountPaymentProfile(object):
             boolean : if dictionary is valid contains required properties.
 
         """
+
         if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(
-                value=dictionary.masked_bank_routing_number,
-                type_callable=lambda value: isinstance(value, str)) \
-                and APIHelper.is_valid_type(
-                value=dictionary.masked_bank_account_number,
-                type_callable=lambda value: isinstance(value, str))
+            return APIHelper.is_valid_type(value=dictionary.masked_bank_routing_number,
+                                           type_callable=lambda value: isinstance(value, str)) \
+                and APIHelper.is_valid_type(value=dictionary.masked_bank_account_number,
+                                            type_callable=lambda value: isinstance(value, str))
 
         if not isinstance(dictionary, dict):
             return False
 
-        return APIHelper.is_valid_type(
-            value=dictionary.get("masked_bank_routing_number"),
-            type_callable=lambda value: isinstance(value, str)) \
-            and APIHelper.is_valid_type(
-            value=dictionary.get("masked_bank_account_number"),
-            type_callable=lambda value: isinstance(value, str))
+        return APIHelper.is_valid_type(value=dictionary.get('masked_bank_routing_number'),
+                                       type_callable=lambda value: isinstance(value, str)) \
+            and APIHelper.is_valid_type(value=dictionary.get('masked_bank_account_number'),
+                                        type_callable=lambda value: isinstance(value, str))
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"first_name={(self.first_name
-                     if hasattr(self, 'first_name') else None)!r}, "
-                f"last_name={(self.last_name
-                     if hasattr(self, 'last_name') else None)!r}, "
-                f"customer_id={(self.customer_id
-                     if hasattr(self, 'customer_id') else None)!r}, "
-                f"current_vault={(self.current_vault
-                     if hasattr(self, 'current_vault') else None)!r}, "
-                f"vault_token={(self.vault_token
-                     if hasattr(self, 'vault_token') else None)!r}, "
-                f"billing_address={(self.billing_address
-                     if hasattr(self, 'billing_address') else None)!r}, "
-                f"billing_city={(self.billing_city
-                     if hasattr(self, 'billing_city') else None)!r}, "
-                f"billing_state={(self.billing_state
-                     if hasattr(self, 'billing_state') else None)!r}, "
-                f"billing_zip={(self.billing_zip
-                     if hasattr(self, 'billing_zip') else None)!r}, "
-                f"billing_country={(self.billing_country
-                     if hasattr(self, 'billing_country') else None)!r}, "
-                f"customer_vault_token={(self.customer_vault_token
-                     if hasattr(self, 'customer_vault_token') else None)!r}, "
-                f"billing_address_2={(self.billing_address_2
-                     if hasattr(self, 'billing_address_2') else None)!r}, "
-                f"bank_name={(self.bank_name
-                     if hasattr(self, 'bank_name') else None)!r}, "
-                f"masked_bank_routing_number={self.masked_bank_routing_number!r}, "
-                f"masked_bank_account_number={self.masked_bank_account_number!r}, "
-                f"bank_account_type={(self.bank_account_type
-                     if hasattr(self, 'bank_account_type') else None)!r}, "
-                f"bank_account_holder_type={(self.bank_account_holder_type
-                     if hasattr(self, 'bank_account_holder_type') else None)!r}, "
-                f"payment_type={(self.payment_type
-                     if hasattr(self, 'payment_type') else None)!r}, "
-                f"verified={(self.verified
-                     if hasattr(self, 'verified') else None)!r}, "
-                f"site_gateway_setting_id={(self.site_gateway_setting_id
-                     if hasattr(self, 'site_gateway_setting_id') else None)!r}, "
-                f"gateway_handle={(self.gateway_handle
-                     if hasattr(self, 'gateway_handle') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!r}, '
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!r}, '
+                f'customer_id={(self.customer_id if hasattr(self, "customer_id") else None)!r}, '
+                f'current_vault={(self.current_vault if hasattr(self, "current_vault") else None)!r}, '
+                f'vault_token={(self.vault_token if hasattr(self, "vault_token") else None)!r}, '
+                f'billing_address={(self.billing_address if hasattr(self, "billing_address") else None)!r}, '
+                f'billing_city={(self.billing_city if hasattr(self, "billing_city") else None)!r}, '
+                f'billing_state={(self.billing_state if hasattr(self, "billing_state") else None)!r}, '
+                f'billing_zip={(self.billing_zip if hasattr(self, "billing_zip") else None)!r}, '
+                f'billing_country={(self.billing_country if hasattr(self, "billing_country") else None)!r}, '
+                f'customer_vault_token={(self.customer_vault_token if hasattr(self, "customer_vault_token") else None)!r}, '
+                f'billing_address_2={(self.billing_address_2 if hasattr(self, "billing_address_2") else None)!r}, '
+                f'bank_name={(self.bank_name if hasattr(self, "bank_name") else None)!r}, '
+                f'masked_bank_routing_number={self.masked_bank_routing_number!r}, '
+                f'masked_bank_account_number={self.masked_bank_account_number!r}, '
+                f'bank_account_type={(self.bank_account_type if hasattr(self, "bank_account_type") else None)!r}, '
+                f'bank_account_holder_type={(self.bank_account_holder_type if hasattr(self, "bank_account_holder_type") else None)!r}, '
+                f'payment_type={(self.payment_type if hasattr(self, "payment_type") else None)!r}, '
+                f'verified={(self.verified if hasattr(self, "verified") else None)!r}, '
+                f'site_gateway_setting_id={(self.site_gateway_setting_id if hasattr(self, "site_gateway_setting_id") else None)!r}, '
+                f'gateway_handle={(self.gateway_handle if hasattr(self, "gateway_handle") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"first_name={(self.first_name
-                     if hasattr(self, 'first_name') else None)!s}, "
-                f"last_name={(self.last_name
-                     if hasattr(self, 'last_name') else None)!s}, "
-                f"customer_id={(self.customer_id
-                     if hasattr(self, 'customer_id') else None)!s}, "
-                f"current_vault={(self.current_vault
-                     if hasattr(self, 'current_vault') else None)!s}, "
-                f"vault_token={(self.vault_token
-                     if hasattr(self, 'vault_token') else None)!s}, "
-                f"billing_address={(self.billing_address
-                     if hasattr(self, 'billing_address') else None)!s}, "
-                f"billing_city={(self.billing_city
-                     if hasattr(self, 'billing_city') else None)!s}, "
-                f"billing_state={(self.billing_state
-                     if hasattr(self, 'billing_state') else None)!s}, "
-                f"billing_zip={(self.billing_zip
-                     if hasattr(self, 'billing_zip') else None)!s}, "
-                f"billing_country={(self.billing_country
-                     if hasattr(self, 'billing_country') else None)!s}, "
-                f"customer_vault_token={(self.customer_vault_token
-                     if hasattr(self, 'customer_vault_token') else None)!s}, "
-                f"billing_address_2={(self.billing_address_2
-                     if hasattr(self, 'billing_address_2') else None)!s}, "
-                f"bank_name={(self.bank_name
-                     if hasattr(self, 'bank_name') else None)!s}, "
-                f"masked_bank_routing_number={self.masked_bank_routing_number!s}, "
-                f"masked_bank_account_number={self.masked_bank_account_number!s}, "
-                f"bank_account_type={(self.bank_account_type
-                     if hasattr(self, 'bank_account_type') else None)!s}, "
-                f"bank_account_holder_type={(self.bank_account_holder_type
-                     if hasattr(self, 'bank_account_holder_type') else None)!s}, "
-                f"payment_type={(self.payment_type
-                     if hasattr(self, 'payment_type') else None)!s}, "
-                f"verified={(self.verified
-                     if hasattr(self, 'verified') else None)!s}, "
-                f"site_gateway_setting_id={(self.site_gateway_setting_id
-                     if hasattr(self, 'site_gateway_setting_id') else None)!s}, "
-                f"gateway_handle={(self.gateway_handle
-                     if hasattr(self, 'gateway_handle') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'first_name={(self.first_name if hasattr(self, "first_name") else None)!s}, '
+                f'last_name={(self.last_name if hasattr(self, "last_name") else None)!s}, '
+                f'customer_id={(self.customer_id if hasattr(self, "customer_id") else None)!s}, '
+                f'current_vault={(self.current_vault if hasattr(self, "current_vault") else None)!s}, '
+                f'vault_token={(self.vault_token if hasattr(self, "vault_token") else None)!s}, '
+                f'billing_address={(self.billing_address if hasattr(self, "billing_address") else None)!s}, '
+                f'billing_city={(self.billing_city if hasattr(self, "billing_city") else None)!s}, '
+                f'billing_state={(self.billing_state if hasattr(self, "billing_state") else None)!s}, '
+                f'billing_zip={(self.billing_zip if hasattr(self, "billing_zip") else None)!s}, '
+                f'billing_country={(self.billing_country if hasattr(self, "billing_country") else None)!s}, '
+                f'customer_vault_token={(self.customer_vault_token if hasattr(self, "customer_vault_token") else None)!s}, '
+                f'billing_address_2={(self.billing_address_2 if hasattr(self, "billing_address_2") else None)!s}, '
+                f'bank_name={(self.bank_name if hasattr(self, "bank_name") else None)!s}, '
+                f'masked_bank_routing_number={self.masked_bank_routing_number!s}, '
+                f'masked_bank_account_number={self.masked_bank_account_number!s}, '
+                f'bank_account_type={(self.bank_account_type if hasattr(self, "bank_account_type") else None)!s}, '
+                f'bank_account_holder_type={(self.bank_account_holder_type if hasattr(self, "bank_account_holder_type") else None)!s}, '
+                f'payment_type={(self.payment_type if hasattr(self, "payment_type") else None)!s}, '
+                f'verified={(self.verified if hasattr(self, "verified") else None)!s}, '
+                f'site_gateway_setting_id={(self.site_gateway_setting_id if hasattr(self, "site_gateway_setting_id") else None)!s}, '
+                f'gateway_handle={(self.gateway_handle if hasattr(self, "gateway_handle") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

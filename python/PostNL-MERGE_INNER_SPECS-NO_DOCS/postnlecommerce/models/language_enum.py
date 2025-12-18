@@ -1,4 +1,7 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class LanguageEnum(object):
+
     """Implementation of the 'language' enum.
 
     Attributes:
@@ -16,20 +20,18 @@ class LanguageEnum(object):
         FR: The enum member of type str.
 
     """
+    NL = 'NL'
 
-    NL = "NL"
+    EN = 'EN'
 
-    EN = "EN"
+    CN = 'CN'
 
-    CN = "CN"
+    DE = 'DE'
 
-    DE = "DE"
-
-    FR = "FR"
+    FR = 'FR'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

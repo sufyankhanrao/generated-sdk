@@ -1,15 +1,18 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 import dateutil.parser
 
 from advancedbilling.api_helper import APIHelper
 
 
 class ListPrepaymentsFilter(object):
+
     """Implementation of the 'List Prepayments Filter' model.
 
     Attributes:
@@ -32,15 +35,15 @@ class ListPrepaymentsFilter(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "date_field": "date_field",
-        "start_date": "start_date",
-        "end_date": "end_date",
+        "date_field": 'date_field',
+        "start_date": 'start_date',
+        "end_date": 'end_date'
     }
 
     _optionals = [
-        "date_field",
-        "start_date",
-        "end_date",
+        'date_field',
+        'start_date',
+        'end_date',
     ]
 
     def __init__(self,
@@ -48,14 +51,15 @@ class ListPrepaymentsFilter(object):
                  start_date=APIHelper.SKIP,
                  end_date=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a ListPrepaymentsFilter instance."""
+        """Constructor for the ListPrepaymentsFilter class"""
+
         # Initialize members of the class
         if date_field is not APIHelper.SKIP:
-            self.date_field = date_field
+            self.date_field = date_field 
         if start_date is not APIHelper.SKIP:
-            self.start_date = start_date
+            self.start_date = start_date 
         if end_date is not APIHelper.SKIP:
-            self.end_date = end_date
+            self.end_date = end_date 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -65,7 +69,7 @@ class ListPrepaymentsFilter(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -76,20 +80,16 @@ class ListPrepaymentsFilter(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        date_field =\
-            dictionary.get("date_field")\
-            if dictionary.get("date_field") else APIHelper.SKIP
-        start_date = dateutil.parser.parse(dictionary.get("start_date")).date()\
-            if dictionary.get("start_date") else APIHelper.SKIP
-        end_date = dateutil.parser.parse(dictionary.get("end_date")).date()\
-            if dictionary.get("end_date") else APIHelper.SKIP
+        date_field = dictionary.get("date_field") if dictionary.get("date_field") else APIHelper.SKIP
+        start_date = dateutil.parser.parse(dictionary.get('start_date')).date() if dictionary.get('start_date') else APIHelper.SKIP
+        end_date = dateutil.parser.parse(dictionary.get('end_date')).date() if dictionary.get('end_date') else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(date_field,
                    start_date,
@@ -97,23 +97,15 @@ class ListPrepaymentsFilter(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date_field={(self.date_field
-                     if hasattr(self, 'date_field') else None)!r}, "
-                f"start_date={(self.start_date
-                     if hasattr(self, 'start_date') else None)!r}, "
-                f"end_date={(self.end_date
-                     if hasattr(self, 'end_date') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'date_field={(self.date_field if hasattr(self, "date_field") else None)!r}, '
+                f'start_date={(self.start_date if hasattr(self, "start_date") else None)!r}, '
+                f'end_date={(self.end_date if hasattr(self, "end_date") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date_field={(self.date_field
-                     if hasattr(self, 'date_field') else None)!s}, "
-                f"start_date={(self.start_date
-                     if hasattr(self, 'start_date') else None)!s}, "
-                f"end_date={(self.end_date
-                     if hasattr(self, 'end_date') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'date_field={(self.date_field if hasattr(self, "date_field") else None)!s}, '
+                f'start_date={(self.start_date if hasattr(self, "start_date") else None)!s}, '
+                f'end_date={(self.end_date if hasattr(self, "end_date") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

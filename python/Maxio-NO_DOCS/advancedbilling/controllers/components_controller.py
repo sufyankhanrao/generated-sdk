@@ -1,68 +1,43 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
-from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
-from apimatic_core.types.array_serialization_format import (
-    SerializationFormats,
-)
-from apimatic_core.types.parameter import Parameter
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.error_array_map_response_exception import (
-    ErrorArrayMapResponseException,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.component import (
-    Component,
-)
-from advancedbilling.models.component_currency_prices_response import (
-    ComponentCurrencyPricesResponse,
-)
-from advancedbilling.models.component_price_point_response import (
-    ComponentPricePointResponse,
-)
-from advancedbilling.models.component_price_points_response import (
-    ComponentPricePointsResponse,
-)
-from advancedbilling.models.component_response import (
-    ComponentResponse,
-)
-from advancedbilling.models.list_components_price_points_response import (
-    ListComponentsPricePointsResponse,
-)
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.types.array_serialization_format import SerializationFormats
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.component_response import ComponentResponse
+from advancedbilling.models.component import Component
+from advancedbilling.models.component_price_point_response import ComponentPricePointResponse
+from advancedbilling.models.component_price_points_response import ComponentPricePointsResponse
+from advancedbilling.models.component_currency_prices_response import ComponentCurrencyPricesResponse
+from advancedbilling.models.list_components_price_points_response import ListComponentsPricePointsResponse
+from advancedbilling.exceptions.api_exception import APIException
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
+from advancedbilling.exceptions.error_array_map_response_exception import ErrorArrayMapResponseException
 
 
 class ComponentsController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize ComponentsController object."""
         super(ComponentsController, self).__init__(config)
 
     def create_metered_component(self,
                                  product_family_id,
                                  body=None):
-        """Perform a POST request to
-        /product_families/{product_family_id}/metered_components.json.
+        """Does a POST request to /product_families/{product_family_id}/metered_components.json.
 
         This request will create a component definition of kind
         **metered_component** under the specified product family. Metered
@@ -96,42 +71,39 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_families/{product_family_id}/metered_components.json")
+            .path('/product_families/{product_family_id}/metered_components.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("product_family_id")
+                            .key('product_family_id')
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def create_quantity_based_component(self,
                                         product_family_id,
                                         body=None):
-        """Perform a POST request to
-        /product_families/{product_family_id}/quantity_based_components.json.
+        """Does a POST request to /product_families/{product_family_id}/quantity_based_components.json.
 
         This request will create a component definition of kind
         **quantity_based_component** under the specified product family.
@@ -171,42 +143,39 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_families/{product_family_id}/quantity_based_components.json")
+            .path('/product_families/{product_family_id}/quantity_based_components.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("product_family_id")
+                            .key('product_family_id')
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def create_on_off_component(self,
                                 product_family_id,
                                 body=None):
-        """Perform a POST request to
-        /product_families/{product_family_id}/on_off_components.json.
+        """Does a POST request to /product_families/{product_family_id}/on_off_components.json.
 
         This request will create a component definition of kind
         **on_off_component** under the specified product family. On/Off
@@ -233,42 +202,39 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_families/{product_family_id}/on_off_components.json")
+            .path('/product_families/{product_family_id}/on_off_components.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("product_family_id")
+                            .key('product_family_id')
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def create_prepaid_usage_component(self,
                                        product_family_id,
                                        body=None):
-        """Perform a POST request to
-        /product_families/{product_family_id}/prepaid_usage_components.json.
+        """Does a POST request to /product_families/{product_family_id}/prepaid_usage_components.json.
 
         This request will create a component definition of kind
         **prepaid_usage_component** under the specified product family.
@@ -300,42 +266,39 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_families/{product_family_id}/prepaid_usage_components.json")
+            .path('/product_families/{product_family_id}/prepaid_usage_components.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("product_family_id")
+                            .key('product_family_id')
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def create_event_based_component(self,
                                      product_family_id,
                                      body=None):
-        """Perform a POST request to
-        /product_families/{product_family_id}/event_based_components.json.
+        """Does a POST request to /product_families/{product_family_id}/event_based_components.json.
 
         This request will create a component definition of kind
         **event_based_component** under the specified product family.
@@ -349,7 +312,7 @@ class ComponentsController(BaseController):
         will be billed each period for each subscription.
         So, instead of reporting usage directly for each component (as you
         would with metered components), the usage is derived from analysis of
-        your events.
+        your events. 
         For more information on components, please see our documentation
         [here](https://maxio-chargify.zendesk.com/hc/en-us/articles/54050206256
         77).
@@ -370,40 +333,38 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_families/{product_family_id}/event_based_components.json")
+            .path('/product_families/{product_family_id}/event_based_components.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("product_family_id")
+                            .key('product_family_id')
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def find_component(self,
                        handle):
-        """Perform a GET request to /components/lookup.json.
+        """Does a GET request to /components/lookup.json.
 
         This request will return information regarding a component having the
         handle you provide. You can identify your components with a handle so
@@ -423,30 +384,30 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components/lookup.json")
+            .path('/components/lookup.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("handle")
+                         .key('handle')
                          .value(handle)
                          .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_component(self,
                        product_family_id,
                        component_id):
-        """Perform a GET request to
-        /product_families/{product_family_id}/components/{component_id}.json.
+        """Does a GET request to /product_families/{product_family_id}/components/{component_id}.json.
 
         This request will return information regarding a component from a
         specific product family.
@@ -470,37 +431,37 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_families/{product_family_id}/components/{component_id}.json")
+            .path('/product_families/{product_family_id}/components/{component_id}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("product_family_id")
+                            .key('product_family_id')
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("component_id")
+                            .key('component_id')
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_product_family_component(self,
                                         product_family_id,
                                         component_id,
                                         body=None):
-        """Perform a PUT request to
-        /product_families/{product_family_id}/components/{component_id}.json.
+        """Does a PUT request to /product_families/{product_family_id}/components/{component_id}.json.
 
         This request will update a component from a specific product family.
         You may read the component by either the component's id or handle.
@@ -525,46 +486,43 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_families/{product_family_id}/components/{component_id}.json")
+            .path('/product_families/{product_family_id}/components/{component_id}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("product_family_id")
+                            .key('product_family_id')
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("component_id")
+                            .key('component_id')
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def archive_component(self,
                           product_family_id,
                           component_id):
-        """Perform a DELETE request to
-        /product_families/{product_family_id}/components/{component_id}.json.
+        """Does a DELETE request to /product_families/{product_family_id}/components/{component_id}.json.
 
         Sending a DELETE request to this endpoint will archive the component.
         All current subscribers will be unffected; their subscription/purchase
@@ -587,38 +545,36 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_families/{product_family_id}/components/{component_id}.json")
+            .path('/product_families/{product_family_id}/components/{component_id}.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("product_family_id")
+                            .key('product_family_id')
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("component_id")
+                            .key('component_id')
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Component.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def list_components(self,
                         options=dict()):
-        """Perform a GET request to /components.json.
+        """Does a GET request to /components.json.
 
         This request will return a list of components for a site.
 
@@ -628,6 +584,7 @@ class ComponentsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     date_field -- BasicDateField -- The type of filter you
                         would like to apply to your search.
                     start_date -- str -- The start date (format YYYY-MM-DD)
@@ -682,53 +639,54 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components.json")
+            .path('/components.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("date_field")
-                         .value(options.get("date_field", None)))
+                         .key('date_field')
+                         .value(options.get('date_field', None)))
             .query_param(Parameter()
-                         .key("start_date")
-                         .value(options.get("start_date", None)))
+                         .key('start_date')
+                         .value(options.get('start_date', None)))
             .query_param(Parameter()
-                         .key("end_date")
-                         .value(options.get("end_date", None)))
+                         .key('end_date')
+                         .value(options.get('end_date', None)))
             .query_param(Parameter()
-                         .key("start_datetime")
-                         .value(options.get("start_datetime", None)))
+                         .key('start_datetime')
+                         .value(options.get('start_datetime', None)))
             .query_param(Parameter()
-                         .key("end_datetime")
-                         .value(options.get("end_datetime", None)))
+                         .key('end_datetime')
+                         .value(options.get('end_datetime', None)))
             .query_param(Parameter()
-                         .key("include_archived")
-                         .value(options.get("include_archived", None)))
+                         .key('include_archived')
+                         .value(options.get('include_archived', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("filter")
-                         .value(options.get("filter", None)))
+                         .key('filter')
+                         .value(options.get('filter', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_component(self,
                          component_id,
                          body=None):
-        """Perform a PUT request to /components/{component_id}.json.
+        """Does a PUT request to /components/{component_id}.json.
 
         This request will update a component.
         You may read the component by either the component's id or handle.
@@ -750,41 +708,38 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components/{component_id}.json")
+            .path('/components/{component_id}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("component_id")
+                            .key('component_id')
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def promote_component_price_point_to_default(self,
                                                  component_id,
                                                  price_point_id):
-        """Perform a PUT request to
-        /components/{component_id}/price_points/{price_point_id}/default.json.
+        """Does a PUT request to /components/{component_id}/price_points/{price_point_id}/default.json.
 
         Sets a new default price point for the component. This new default
         will apply to all new subscriptions going forward - existing
@@ -812,35 +767,35 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components/{component_id}/price_points/{price_point_id}/default.json")
+            .path('/components/{component_id}/price_points/{price_point_id}/default.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("component_id")
+                            .key('component_id')
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def list_components_for_product_family(self,
                                            options=dict()):
-        """Perform a GET request to
-        /product_families/{product_family_id}/components.json.
+        """Does a GET request to /product_families/{product_family_id}/components.json.
 
         This request will return a list of components for a particular product
         family.
@@ -851,6 +806,7 @@ class ComponentsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     product_family_id -- int -- The Chargify id of the product
                         family
                     include_archived -- bool -- Include archived items.
@@ -908,58 +864,59 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_families/{product_family_id}/components.json")
+            .path('/product_families/{product_family_id}/components.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("product_family_id")
-                            .value(options.get("product_family_id", None))
+                            .key('product_family_id')
+                            .value(options.get('product_family_id', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("include_archived")
-                         .value(options.get("include_archived", None)))
+                         .key('include_archived')
+                         .value(options.get('include_archived', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("filter")
-                         .value(options.get("filter", None)))
+                         .key('filter')
+                         .value(options.get('filter', None)))
             .query_param(Parameter()
-                         .key("date_field")
-                         .value(options.get("date_field", None)))
+                         .key('date_field')
+                         .value(options.get('date_field', None)))
             .query_param(Parameter()
-                         .key("end_date")
-                         .value(options.get("end_date", None)))
+                         .key('end_date')
+                         .value(options.get('end_date', None)))
             .query_param(Parameter()
-                         .key("end_datetime")
-                         .value(options.get("end_datetime", None)))
+                         .key('end_datetime')
+                         .value(options.get('end_datetime', None)))
             .query_param(Parameter()
-                         .key("start_date")
-                         .value(options.get("start_date", None)))
+                         .key('start_date')
+                         .value(options.get('start_date', None)))
             .query_param(Parameter()
-                         .key("start_datetime")
-                         .value(options.get("start_datetime", None)))
+                         .key('start_datetime')
+                         .value(options.get('start_datetime', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def create_component_price_point(self,
                                      component_id,
                                      body=None):
-        """Perform a POST request to /components/{component_id}/price_points.json.
+        """Does a POST request to /components/{component_id}/price_points.json.
 
         This endpoint can be used to create a new price point for an existing
         component.
@@ -980,35 +937,36 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components/{component_id}/price_points.json")
+            .path('/components/{component_id}/price_points.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("component_id")
+                            .key('component_id')
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentPricePointResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def list_component_price_points(self,
                                     options=dict()):
-        """Perform a GET request to /components/{component_id}/price_points.json.
+        """Does a GET request to /components/{component_id}/price_points.json.
 
         Use this endpoint to read current price points that are associated
         with a component.
@@ -1028,6 +986,7 @@ class ComponentsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     component_id -- int -- The Chargify id of the component
                     currency_prices -- bool -- Include an array of currency
                         price data
@@ -1059,44 +1018,44 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components/{component_id}/price_points.json")
+            .path('/components/{component_id}/price_points.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("component_id")
-                            .value(options.get("component_id", None))
+                            .key('component_id')
+                            .value(options.get('component_id', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("currency_prices")
-                         .value(options.get("currency_prices", None)))
+                         .key('currency_prices')
+                         .value(options.get('currency_prices', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("filter[type]")
-                         .value(options.get("filter_type", None)))
+                         .key('filter[type]')
+                         .value(options.get('filter_type', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentPricePointsResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def bulk_create_component_price_points(self,
                                            component_id,
                                            body=None):
-        """Perform a POST request to
-        /components/{component_id}/price_points/bulk.json.
+        """Does a POST request to /components/{component_id}/price_points/bulk.json.
 
         Use this endpoint to create multiple component price points in one
         request.
@@ -1118,38 +1077,38 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components/{component_id}/price_points/bulk.json")
+            .path('/components/{component_id}/price_points/bulk.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("component_id")
+                            .key('component_id')
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentPricePointsResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_component_price_point(self,
                                      component_id,
                                      price_point_id,
                                      body=None):
-        """Perform a PUT request to
-        /components/{component_id}/price_points/{price_point_id}.json.
+        """Does a PUT request to /components/{component_id}/price_points/{price_point_id}.json.
 
         When updating a price point, it's prices can be updated as well by
         creating new prices or editing / removing existing ones.
@@ -1179,46 +1138,43 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components/{component_id}/price_points/{price_point_id}.json")
+            .path('/components/{component_id}/price_points/{price_point_id}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("component_id")
+                            .key('component_id')
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentPricePointResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorArrayMapResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorArrayMapResponseException)
         ).execute()
 
     def archive_component_price_point(self,
                                       component_id,
                                       price_point_id):
-        """Perform a DELETE request to
-        /components/{component_id}/price_points/{price_point_id}.json.
+        """Does a DELETE request to /components/{component_id}/price_points/{price_point_id}.json.
 
         A price point can be archived at any time. Subscriptions using a price
         point that has been archived will continue using it until they're
@@ -1240,40 +1196,37 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components/{component_id}/price_points/{price_point_id}.json")
+            .path('/components/{component_id}/price_points/{price_point_id}.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("component_id")
+                            .key('component_id')
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentPricePointResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def unarchive_component_price_point(self,
                                         component_id,
                                         price_point_id):
-        """Perform a PUT request to
-        /components/{component_id}/price_points/{price_point_id}/unarchive.json.
+        """Does a PUT request to /components/{component_id}/price_points/{price_point_id}/unarchive.json.
 
         Use this endpoint to unarchive a component price point.
 
@@ -1293,36 +1246,36 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components/{component_id}/price_points/{price_point_id}/unarchive.json")
+            .path('/components/{component_id}/price_points/{price_point_id}/unarchive.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("component_id")
+                            .key('component_id')
                             .value(component_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentPricePointResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def create_currency_prices(self,
                                price_point_id,
                                body=None):
-        """Perform a POST request to
-        /price_points/{price_point_id}/currency_prices.json.
+        """Does a POST request to /price_points/{price_point_id}/currency_prices.json.
 
         This endpoint allows you to create currency prices for a given
         currency that has been defined on the site level in your settings.
@@ -1349,40 +1302,38 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/price_points/{price_point_id}/currency_prices.json")
+            .path('/price_points/{price_point_id}/currency_prices.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentCurrencyPricesResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("422",
-                "Unprocessable Entity (WebDAV)",
-                ErrorArrayMapResponseException),
+            .local_error('422', 'Unprocessable Entity (WebDAV)', ErrorArrayMapResponseException)
         ).execute()
 
     def update_currency_prices(self,
                                price_point_id,
                                body=None):
-        """Perform a PUT request to
-        /price_points/{price_point_id}/currency_prices.json.
+        """Does a PUT request to /price_points/{price_point_id}/currency_prices.json.
 
         This endpoint allows you to update currency prices for a given
         currency that has been defined on the site level in your settings.
@@ -1405,38 +1356,37 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/price_points/{price_point_id}/currency_prices.json")
+            .path('/price_points/{price_point_id}/currency_prices.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("price_point_id")
+                            .key('price_point_id')
                             .value(price_point_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ComponentCurrencyPricesResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("422",
-                "Unprocessable Entity (WebDAV)",
-                ErrorArrayMapResponseException),
+            .local_error('422', 'Unprocessable Entity (WebDAV)', ErrorArrayMapResponseException)
         ).execute()
 
     def list_all_component_price_points(self,
                                         options=dict()):
-        """Perform a GET request to /components_price_points.json.
+        """Does a GET request to /components_price_points.json.
 
         This method allows to retrieve a list of Components Price Points
         belonging to a Site.
@@ -1447,6 +1397,7 @@ class ComponentsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     include -- ListComponentsPricePointsInclude -- Allows
                         including additional data in the response. Use in
                         query: `include=currency_prices`.
@@ -1481,37 +1432,35 @@ class ComponentsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/components_price_points.json")
+            .path('/components_price_points.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("include")
-                         .value(options.get("include", None)))
+                         .key('include')
+                         .value(options.get('include', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .query_param(Parameter()
-                         .key("filter")
-                         .value(options.get("filter", None)))
+                         .key('filter')
+                         .value(options.get('filter', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListComponentsPricePointsResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()

@@ -1,43 +1,31 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from postnlecommerce.api_helper import APIHelper
+from postnlecommerce.configuration import Server
+from postnlecommerce.http.api_response import ApiResponse
+from postnlecommerce.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.configuration import Server
-from postnlecommerce.controllers.base_controller import (
-    BaseController,
-)
-from postnlecommerce.exceptions.barcode_response_error_exception import (
-    BarcodeResponseErrorException,
-)
-from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import (
-    MethodNotAllowedOnlyGetPostException,
-)
-from postnlecommerce.exceptions.timeframe_response_invalid_exception import (
-    TimeframeResponseInvalidException,
-)
-from postnlecommerce.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from postnlecommerce.models.timeframe_response import (
-    TimeframeResponse,
-)
+from postnlecommerce.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from postnlecommerce.models.timeframe_response import TimeframeResponse
+from postnlecommerce.exceptions.timeframe_response_invalid_exception import TimeframeResponseInvalidException
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import MethodNotAllowedOnlyGetPostException
+from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
 
 
 class TimeframesController(BaseController):
-    """A Controller to access Endpoints in the postnlecommerce API."""
 
+    """A Controller to access Endpoints in the postnlecommerce API."""
     def __init__(self, config):
-        """Initialize TimeframesController object."""
         super(TimeframesController, self).__init__(config)
 
     def retrieve_delivery_timeframes(self,
@@ -51,7 +39,7 @@ class TimeframesController(BaseController):
                                      house_nr_ext=None,
                                      city=None,
                                      street=None):
-        """Perform a GET request to /shipment/v2_1/calculate/timeframes.
+        """Does a GET request to /shipment/v2_1/calculate/timeframes.
 
         Request example:
         ```
@@ -96,56 +84,53 @@ class TimeframesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path("/shipment/v2_1/calculate/timeframes")
+            .path('/shipment/v2_1/calculate/timeframes')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("AllowSundaySorting")
+                         .key('AllowSundaySorting')
                          .value(allow_sunday_sorting))
             .query_param(Parameter()
-                         .key("StartDate")
+                         .key('StartDate')
                          .value(start_date))
             .query_param(Parameter()
-                         .key("EndDate")
+                         .key('EndDate')
                          .value(end_date))
             .query_param(Parameter()
-                         .key("CountryCode")
+                         .key('CountryCode')
                          .value(country_code))
             .query_param(Parameter()
-                         .key("PostalCode")
+                         .key('PostalCode')
                          .value(postal_code))
             .query_param(Parameter()
-                         .key("HouseNumber")
+                         .key('HouseNumber')
                          .value(house_number))
             .query_param(Parameter()
-                         .key("Options")
+                         .key('Options')
                          .value(options))
             .query_param(Parameter()
-                         .key("HouseNrExt")
+                         .key('HouseNrExt')
                          .value(house_nr_ext))
             .query_param(Parameter()
-                         .key("City")
+                         .key('City')
                          .value(city))
             .query_param(Parameter()
-                         .key("Street")
+                         .key('Street')
                          .value(street))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("APIKeyHeader")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('APIKeyHeader'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TimeframeResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("400", "Invalid request", TimeframeResponseInvalidException)
-            .local_error("401", "Unauthorized", MethodNotAllowedOnlyGetPostException)
-            .local_error("405",
-                "Method not allowed",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("429",
-                "Too many requests",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("500", "Invalid request", BarcodeResponseErrorException),
+            .local_error('400', 'Invalid request', TimeframeResponseInvalidException)
+            .local_error('401', 'Unauthorized', MethodNotAllowedOnlyGetPostException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
+            .local_error('500', 'Invalid request', BarcodeResponseErrorException)
         ).execute()

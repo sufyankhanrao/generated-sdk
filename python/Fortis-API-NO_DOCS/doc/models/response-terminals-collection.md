@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type75Enum`](../../doc/models/type-75-enum.md) | Optional | Resource Type<br><br>**Default**: `"TerminalsCollection"` |
+| `mtype` | [`Type75Enum`](../../doc/models/type-75-enum.md) | Optional | Resource Type<br><br>**Default**: `'TerminalsCollection'` |
 | `list` | [`List[List13]`](../../doc/models/list-13.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

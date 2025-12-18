@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`TypeEnum`](../../doc/models/type-enum.md) | Optional | Resource Type<br><br>**Default**: `"AsyncStatus"` |
+| `mtype` | [`TypeEnum`](../../doc/models/type-enum.md) | Optional | Resource Type<br><br>**Default**: `'AsyncStatus'` |
 | `data` | [`Data`](../../doc/models/data.md) | Optional | - |
 
 ## Example (as JSON)

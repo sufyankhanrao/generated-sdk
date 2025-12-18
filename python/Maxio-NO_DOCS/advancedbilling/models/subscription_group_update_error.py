@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.subscription_group_member_error import (
-    SubscriptionGroupMemberError,
-)
+from advancedbilling.models.subscription_group_member_error import SubscriptionGroupMemberError
 
 
 class SubscriptionGroupUpdateError(object):
+
     """Implementation of the 'Subscription Group Update Error' model.
 
     Attributes:
@@ -23,20 +24,21 @@ class SubscriptionGroupUpdateError(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "members": "members",
+        "members": 'members'
     }
 
     _optionals = [
-        "members",
+        'members',
     ]
 
     def __init__(self,
                  members=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a SubscriptionGroupUpdateError instance."""
+        """Constructor for the SubscriptionGroupUpdateError class"""
+
         # Initialize members of the class
         if members is not APIHelper.SKIP:
-            self.members = members
+            self.members = members 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -46,7 +48,7 @@ class SubscriptionGroupUpdateError(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -57,35 +59,28 @@ class SubscriptionGroupUpdateError(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         members = None
-        if dictionary.get("members") is not None:
-            members = [
-                SubscriptionGroupMemberError.from_dictionary(x)
-                    for x in dictionary.get("members")
-            ]
+        if dictionary.get('members') is not None:
+            members = [SubscriptionGroupMemberError.from_dictionary(x) for x in dictionary.get('members')]
         else:
             members = APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(members,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"members={(self.members
-                     if hasattr(self, 'members') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'members={(self.members if hasattr(self, "members") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"members={(self.members
-                     if hasattr(self, 'members') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'members={(self.members if hasattr(self, "members") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

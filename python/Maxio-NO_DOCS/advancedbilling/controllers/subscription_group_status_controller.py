@@ -1,43 +1,35 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.reactivate_subscription_group_response import (
-    ReactivateSubscriptionGroupResponse,
-)
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.reactivate_subscription_group_response import ReactivateSubscriptionGroupResponse
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
 
 
 class SubscriptionGroupStatusController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize SubscriptionGroupStatusController object."""
         super(SubscriptionGroupStatusController, self).__init__(config)
 
     def cancel_subscriptions_in_group(self,
                                       uid,
                                       body=None):
-        """Perform a POST request to /subscription_groups/{uid}/cancel.json.
+        """Does a POST request to /subscription_groups/{uid}/cancel.json.
 
         This endpoint will immediately cancel all subscriptions within the
         specified group. The group is identified by it's `uid` passed in the
@@ -64,34 +56,32 @@ class SubscriptionGroupStatusController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}/cancel.json")
+            .path('/subscription_groups/{uid}/cancel.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def initiate_delayed_cancellation_for_group(self,
                                                 uid):
-        """Perform a POST request to /subscription_groups/{uid}/delayed_cancel.json.
+        """Does a POST request to /subscription_groups/{uid}/delayed_cancel.json.
 
         This endpoint will schedule all subscriptions within the specified
         group to be canceled at the end of their billing period. The group is
@@ -114,28 +104,26 @@ class SubscriptionGroupStatusController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}/delayed_cancel.json")
+            .path('/subscription_groups/{uid}/delayed_cancel.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def cancel_delayed_cancellation_for_group(self,
                                               uid):
-        """Perform a DELETE request to /subscription_groups/{uid}/delayed_cancel.json.
+        """Does a DELETE request to /subscription_groups/{uid}/delayed_cancel.json.
 
         Removing the delayed cancellation on a subscription group will ensure
         that the subscriptions do not get canceled at the end of the period.
@@ -156,29 +144,27 @@ class SubscriptionGroupStatusController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}/delayed_cancel.json")
+            .path('/subscription_groups/{uid}/delayed_cancel.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def reactivate_subscription_group(self,
                                       uid,
                                       body=None):
-        """Perform a POST request to /subscription_groups/{uid}/reactivate.json.
+        """Does a POST request to /subscription_groups/{uid}/reactivate.json.
 
         This endpoint will attempt to reactivate or resume a cancelled
         subscription group. Upon reactivation, any canceled invoices created
@@ -233,32 +219,30 @@ class SubscriptionGroupStatusController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}/reactivate.json")
+            .path('/subscription_groups/{uid}/reactivate.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ReactivateSubscriptionGroupResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()

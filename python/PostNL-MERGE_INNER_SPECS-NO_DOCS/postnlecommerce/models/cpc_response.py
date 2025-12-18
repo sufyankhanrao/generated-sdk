@@ -1,13 +1,16 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
 
 
 class CpcResponse(object):
+
     """Implementation of the 'cpcResponse' model.
 
     Attributes:
@@ -22,19 +25,19 @@ class CpcResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "city": "city",
-        "postal_code": "postalCode",
-        "street_name": "streetName",
-        "house_number": "houseNumber",
-        "formatted_address": "formattedAddress",
+        "city": 'city',
+        "postal_code": 'postalCode',
+        "street_name": 'streetName',
+        "house_number": 'houseNumber',
+        "formatted_address": 'formattedAddress'
     }
 
     _optionals = [
-        "city",
-        "postal_code",
-        "street_name",
-        "house_number",
-        "formatted_address",
+        'city',
+        'postal_code',
+        'street_name',
+        'house_number',
+        'formatted_address',
     ]
 
     def __init__(self,
@@ -43,23 +46,24 @@ class CpcResponse(object):
                  street_name=APIHelper.SKIP,
                  house_number=APIHelper.SKIP,
                  formatted_address=APIHelper.SKIP):
-        """Initialize a CpcResponse instance."""
+        """Constructor for the CpcResponse class"""
+
         # Initialize members of the class
         if city is not APIHelper.SKIP:
-            self.city = city
+            self.city = city 
         if postal_code is not APIHelper.SKIP:
-            self.postal_code = postal_code
+            self.postal_code = postal_code 
         if street_name is not APIHelper.SKIP:
-            self.street_name = street_name
+            self.street_name = street_name 
         if house_number is not APIHelper.SKIP:
-            self.house_number = house_number
+            self.house_number = house_number 
         if formatted_address is not APIHelper.SKIP:
-            self.formatted_address = formatted_address
+            self.formatted_address = formatted_address 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -70,25 +74,16 @@ class CpcResponse(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        city =\
-            dictionary.get("city")\
-            if dictionary.get("city") else APIHelper.SKIP
-        postal_code =\
-            dictionary.get("postalCode")\
-            if dictionary.get("postalCode") else APIHelper.SKIP
-        street_name =\
-            dictionary.get("streetName")\
-            if dictionary.get("streetName") else APIHelper.SKIP
-        house_number =\
-            dictionary.get("houseNumber")\
-            if dictionary.get("houseNumber") else APIHelper.SKIP
-        formatted_address =\
-            dictionary.get("formattedAddress")\
-            if dictionary.get("formattedAddress") else APIHelper.SKIP
+        city = dictionary.get("city") if dictionary.get("city") else APIHelper.SKIP
+        postal_code = dictionary.get("postalCode") if dictionary.get("postalCode") else APIHelper.SKIP
+        street_name = dictionary.get("streetName") if dictionary.get("streetName") else APIHelper.SKIP
+        house_number = dictionary.get("houseNumber") if dictionary.get("houseNumber") else APIHelper.SKIP
+        formatted_address = dictionary.get("formattedAddress") if dictionary.get("formattedAddress") else APIHelper.SKIP
         # Return an object of this model
         return cls(city,
                    postal_code,
@@ -97,27 +92,17 @@ class CpcResponse(object):
                    formatted_address)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"city={(self.city if hasattr(self, 'city') else None)!r}, "
-                f"postal_code={(self.postal_code
-                     if hasattr(self, 'postal_code') else None)!r}, "
-                f"street_name={(self.street_name
-                     if hasattr(self, 'street_name') else None)!r}, "
-                f"house_number={(self.house_number
-                     if hasattr(self, 'house_number') else None)!r}, "
-                f"formatted_address={(self.formatted_address
-                     if hasattr(self, 'formatted_address') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'city={(self.city if hasattr(self, "city") else None)!r}, '
+                f'postal_code={(self.postal_code if hasattr(self, "postal_code") else None)!r}, '
+                f'street_name={(self.street_name if hasattr(self, "street_name") else None)!r}, '
+                f'house_number={(self.house_number if hasattr(self, "house_number") else None)!r}, '
+                f'formatted_address={(self.formatted_address if hasattr(self, "formatted_address") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"city={(self.city if hasattr(self, 'city') else None)!s}, "
-                f"postal_code={(self.postal_code
-                     if hasattr(self, 'postal_code') else None)!s}, "
-                f"street_name={(self.street_name
-                     if hasattr(self, 'street_name') else None)!s}, "
-                f"house_number={(self.house_number
-                     if hasattr(self, 'house_number') else None)!s}, "
-                f"formatted_address={(self.formatted_address
-                     if hasattr(self, 'formatted_address') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'city={(self.city if hasattr(self, "city") else None)!s}, '
+                f'postal_code={(self.postal_code if hasattr(self, "postal_code") else None)!s}, '
+                f'street_name={(self.street_name if hasattr(self, "street_name") else None)!s}, '
+                f'house_number={(self.house_number if hasattr(self, "house_number") else None)!s}, '
+                f'formatted_address={(self.formatted_address if hasattr(self, "formatted_address") else None)!s})')

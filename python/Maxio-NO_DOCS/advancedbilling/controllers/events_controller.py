@@ -1,51 +1,41 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
-from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
-from apimatic_core.types.array_serialization_format import (
-    SerializationFormats,
-)
-from apimatic_core.types.parameter import Parameter
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.count_response import (
-    CountResponse,
-)
-from advancedbilling.models.event_response import (
-    EventResponse,
-)
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.types.array_serialization_format import SerializationFormats
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.event_response import EventResponse
+from advancedbilling.models.count_response import CountResponse
 
 
 class EventsController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize EventsController object."""
         super(EventsController, self).__init__(config)
 
     def list_events(self,
                     options=dict()):
-        """Perform a GET request to /events.json.
+        """Does a GET request to /events.json.
 
         ## Events Intro
         Chargify Events include various activity that happens around a Site.
         This information is **especially** useful to track down issues that
         arise when subscriptions are not created due to errors.
-        Within the Chargify UI, "Events" are referred to as "Site Activity".
+        Within the Chargify UI, "Events" are referred to as "Site Activity". 
         Full documentation on how to record view Events / Site Activty in the
         Chargify UI can be located
         [here](https://chargify.zendesk.com/hc/en-us/articles/4407864698139).
@@ -107,6 +97,7 @@ class EventsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
                         page parameter specifies a page number of results to
@@ -167,58 +158,59 @@ class EventsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/events.json")
+            .path('/events.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("since_id")
-                         .value(options.get("since_id", None)))
+                         .key('since_id')
+                         .value(options.get('since_id', None)))
             .query_param(Parameter()
-                         .key("max_id")
-                         .value(options.get("max_id", None)))
+                         .key('max_id')
+                         .value(options.get('max_id', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .query_param(Parameter()
-                         .key("filter")
-                         .value(options.get("filter", None)))
+                         .key('filter')
+                         .value(options.get('filter', None)))
             .query_param(Parameter()
-                         .key("date_field")
-                         .value(options.get("date_field", None)))
+                         .key('date_field')
+                         .value(options.get('date_field', None)))
             .query_param(Parameter()
-                         .key("start_date")
-                         .value(options.get("start_date", None)))
+                         .key('start_date')
+                         .value(options.get('start_date', None)))
             .query_param(Parameter()
-                         .key("end_date")
-                         .value(options.get("end_date", None)))
+                         .key('end_date')
+                         .value(options.get('end_date', None)))
             .query_param(Parameter()
-                         .key("start_datetime")
-                         .value(options.get("start_datetime", None)))
+                         .key('start_datetime')
+                         .value(options.get('start_datetime', None)))
             .query_param(Parameter()
-                         .key("end_datetime")
-                         .value(options.get("end_datetime", None)))
+                         .key('end_datetime')
+                         .value(options.get('end_datetime', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(EventResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def list_subscription_events(self,
                                  options=dict()):
-        """Perform a GET request to /subscriptions/{subscription_id}/events.json.
+        """Does a GET request to /subscriptions/{subscription_id}/events.json.
 
         The following request will return a list of events for a subscription.
         Each event type has its own `event_specific_data` specified.
@@ -229,6 +221,7 @@ class EventsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     subscription_id -- int -- The Chargify id of the
                         subscription
                     page -- int -- Result records are organized in pages. By
@@ -266,48 +259,49 @@ class EventsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/events.json")
+            .path('/subscriptions/{subscription_id}/events.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("subscription_id")
-                            .value(options.get("subscription_id", None))
+                            .key('subscription_id')
+                            .value(options.get('subscription_id', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("since_id")
-                         .value(options.get("since_id", None)))
+                         .key('since_id')
+                         .value(options.get('since_id', None)))
             .query_param(Parameter()
-                         .key("max_id")
-                         .value(options.get("max_id", None)))
+                         .key('max_id')
+                         .value(options.get('max_id', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .query_param(Parameter()
-                         .key("filter")
-                         .value(options.get("filter", None)))
+                         .key('filter')
+                         .value(options.get('filter', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(EventResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_events_count(self,
                           options=dict()):
-        """Perform a GET request to /events/count.json.
+        """Does a GET request to /events/count.json.
 
         Get a count of all the events for a given site by using this method.
 
@@ -317,6 +311,7 @@ class EventsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
                         page parameter specifies a page number of results to
@@ -352,36 +347,37 @@ class EventsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/events/count.json")
+            .path('/events/count.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("since_id")
-                         .value(options.get("since_id", None)))
+                         .key('since_id')
+                         .value(options.get('since_id', None)))
             .query_param(Parameter()
-                         .key("max_id")
-                         .value(options.get("max_id", None)))
+                         .key('max_id')
+                         .value(options.get('max_id', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .query_param(Parameter()
-                         .key("filter")
-                         .value(options.get("filter", None)))
+                         .key('filter')
+                         .value(options.get('filter', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CountResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()

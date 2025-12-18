@@ -1,46 +1,32 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from postnlecommerce.api_helper import APIHelper
+from postnlecommerce.configuration import Server
+from postnlecommerce.http.api_response import ApiResponse
+from postnlecommerce.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.configuration import Server
-from postnlecommerce.controllers.base_controller import (
-    BaseController,
-)
-from postnlecommerce.exceptions.barcode_response_error_exception import (
-    BarcodeResponseErrorException,
-)
-from postnlecommerce.exceptions.deliverydate_response_invalid_exception import (
-    DeliverydateResponseInvalidException,
-)
-from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import (
-    MethodNotAllowedOnlyGetPostException,
-)
-from postnlecommerce.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from postnlecommerce.models.shipment_v_22_calculate_date_delivery_response import (
-    ShipmentV22CalculateDateDeliveryResponse,
-)
-from postnlecommerce.models.shipment_v_22_calculate_date_shipping_response import (
-    ShipmentV22CalculateDateShippingResponse,
-)
+from postnlecommerce.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from postnlecommerce.models.shipment_v_22_calculate_date_delivery_response import ShipmentV22CalculateDateDeliveryResponse
+from postnlecommerce.models.shipment_v_22_calculate_date_shipping_response import ShipmentV22CalculateDateShippingResponse
+from postnlecommerce.exceptions.deliverydate_response_invalid_exception import DeliverydateResponseInvalidException
+from postnlecommerce.exceptions.method_not_allowed_only_get_post_exception import MethodNotAllowedOnlyGetPostException
+from postnlecommerce.exceptions.barcode_response_error_exception import BarcodeResponseErrorException
 
 
 class DeliverydateController(BaseController):
-    """A Controller to access Endpoints in the postnlecommerce API."""
 
+    """A Controller to access Endpoints in the postnlecommerce API."""
     def __init__(self, config):
-        """Initialize DeliverydateController object."""
         super(DeliverydateController, self).__init__(config)
 
     def calculate_delivery_date(self,
@@ -50,7 +36,7 @@ class DeliverydateController(BaseController):
                                 postal_code,
                                 country_code,
                                 options,
-                                origin_country_code="NL",
+                                origin_country_code='NL',
                                 city=None,
                                 street=None,
                                 house_number=None,
@@ -69,7 +55,7 @@ class DeliverydateController(BaseController):
                                 available_saturday=None,
                                 cut_off_time_sunday=None,
                                 available_sunday=None):
-        """Perform a GET request to /shipment/v2_2/calculate/date/delivery.
+        """Does a GET request to /shipment/v2_2/calculate/date/delivery.
 
         Request example:
         ```
@@ -79,7 +65,7 @@ class DeliverydateController(BaseController):
         e=17%3A00%3A00&amp;PostalCode=2132WT&amp;CountryCode=NL&amp;City=Hoofdd
         orp&amp;Street=Siriusdreef&amp;HouseNumber=42&amp;HouseNrExt=A" \
          -H "Accept: application/json" \
-         -H "apikey: APIKEY-HERE"
+         -H "apikey: APIKEY-HERE" 
         ```
 
         Args:
@@ -148,103 +134,100 @@ class DeliverydateController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path("/shipment/v2_2/calculate/date/delivery")
+            .path('/shipment/v2_2/calculate/date/delivery')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("ShippingDate")
+                         .key('ShippingDate')
                          .value(shipping_date))
             .query_param(Parameter()
-                         .key("ShippingDuration")
+                         .key('ShippingDuration')
                          .value(shipping_duration))
             .query_param(Parameter()
-                         .key("CutOffTime")
+                         .key('CutOffTime')
                          .value(cut_off_time))
             .query_param(Parameter()
-                         .key("PostalCode")
+                         .key('PostalCode')
                          .value(postal_code))
             .query_param(Parameter()
-                         .key("CountryCode")
+                         .key('CountryCode')
                          .value(country_code))
             .query_param(Parameter()
-                         .key("Options")
+                         .key('Options')
                          .value(options))
             .query_param(Parameter()
-                         .key("OriginCountryCode")
+                         .key('OriginCountryCode')
                          .value(origin_country_code))
             .query_param(Parameter()
-                         .key("City")
+                         .key('City')
                          .value(city))
             .query_param(Parameter()
-                         .key("Street")
+                         .key('Street')
                          .value(street))
             .query_param(Parameter()
-                         .key("HouseNumber")
+                         .key('HouseNumber')
                          .value(house_number))
             .query_param(Parameter()
-                         .key("HouseNrExt")
+                         .key('HouseNrExt')
                          .value(house_nr_ext))
             .query_param(Parameter()
-                         .key("CutOffTimeMonday")
+                         .key('CutOffTimeMonday')
                          .value(cut_off_time_monday))
             .query_param(Parameter()
-                         .key("AvailableMonday")
+                         .key('AvailableMonday')
                          .value(available_monday))
             .query_param(Parameter()
-                         .key("CutOffTimeTuesday")
+                         .key('CutOffTimeTuesday')
                          .value(cut_off_time_tuesday))
             .query_param(Parameter()
-                         .key("AvailableTuesday")
+                         .key('AvailableTuesday')
                          .value(available_tuesday))
             .query_param(Parameter()
-                         .key("CutOffTimeWednesday")
+                         .key('CutOffTimeWednesday')
                          .value(cut_off_time_wednesday))
             .query_param(Parameter()
-                         .key("AvailableWednesday")
+                         .key('AvailableWednesday')
                          .value(available_wednesday))
             .query_param(Parameter()
-                         .key("CutOffTimeThursday")
+                         .key('CutOffTimeThursday')
                          .value(cut_off_time_thursday))
             .query_param(Parameter()
-                         .key("AvailableThursday")
+                         .key('AvailableThursday')
                          .value(available_thursday))
             .query_param(Parameter()
-                         .key("CutOffTimeFriday")
+                         .key('CutOffTimeFriday')
                          .value(cut_off_time_friday))
             .query_param(Parameter()
-                         .key("AvailableFriday")
+                         .key('AvailableFriday')
                          .value(available_friday))
             .query_param(Parameter()
-                         .key("CutOffTimeSaturday")
+                         .key('CutOffTimeSaturday')
                          .value(cut_off_time_saturday))
             .query_param(Parameter()
-                         .key("AvailableSaturday")
+                         .key('AvailableSaturday')
                          .value(available_saturday))
             .query_param(Parameter()
-                         .key("CutOffTimeSunday")
+                         .key('CutOffTimeSunday')
                          .value(cut_off_time_sunday))
             .query_param(Parameter()
-                         .key("AvailableSunday")
+                         .key('AvailableSunday')
                          .value(available_sunday))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("APIKeyHeader")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('APIKeyHeader'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ShipmentV22CalculateDateDeliveryResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("400", "Bad request", DeliverydateResponseInvalidException)
-            .local_error("401", "Invalid apikey", MethodNotAllowedOnlyGetPostException)
-            .local_error("405",
-                "Method not allowed",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("429",
-                "Too many requests",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("500", "Internal server error", BarcodeResponseErrorException),
+            .local_error('400', 'Bad request', DeliverydateResponseInvalidException)
+            .local_error('401', 'Invalid apikey', MethodNotAllowedOnlyGetPostException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
+            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
         ).execute()
 
     def calculate_shipping_date(self,
@@ -252,12 +235,12 @@ class DeliverydateController(BaseController):
                                 shipping_duration,
                                 postal_code,
                                 country_code,
-                                origin_country_code="NL",
+                                origin_country_code='NL',
                                 city=None,
                                 street=None,
                                 house_number=None,
                                 house_nr_ext=None):
-        """Perform a GET request to /shipment/v2_2/calculate/date/shipping.
+        """Does a GET request to /shipment/v2_2/calculate/date/shipping.
 
         Request example:
         ```
@@ -301,53 +284,50 @@ class DeliverydateController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.POSTNL)
-            .path("/shipment/v2_2/calculate/date/shipping")
+            .path('/shipment/v2_2/calculate/date/shipping')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("DeliveryDate")
+                         .key('DeliveryDate')
                          .value(delivery_date))
             .query_param(Parameter()
-                         .key("ShippingDuration")
+                         .key('ShippingDuration')
                          .value(shipping_duration))
             .query_param(Parameter()
-                         .key("PostalCode")
+                         .key('PostalCode')
                          .value(postal_code))
             .query_param(Parameter()
-                         .key("CountryCode")
+                         .key('CountryCode')
                          .value(country_code))
             .query_param(Parameter()
-                         .key("OriginCountryCode")
+                         .key('OriginCountryCode')
                          .value(origin_country_code))
             .query_param(Parameter()
-                         .key("City")
+                         .key('City')
                          .value(city))
             .query_param(Parameter()
-                         .key("Street")
+                         .key('Street')
                          .value(street))
             .query_param(Parameter()
-                         .key("HouseNumber")
+                         .key('HouseNumber')
                          .value(house_number))
             .query_param(Parameter()
-                         .key("HouseNrExt")
+                         .key('HouseNrExt')
                          .value(house_nr_ext))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("APIKeyHeader")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('APIKeyHeader'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ShipmentV22CalculateDateShippingResponse.from_dictionary)
             .is_api_response(True)
-            .local_error("400", "Bad request", DeliverydateResponseInvalidException)
-            .local_error("401", "Invalid apikey", MethodNotAllowedOnlyGetPostException)
-            .local_error("405",
-                "Method not allowed",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("429",
-                "Too many requests",
-                MethodNotAllowedOnlyGetPostException)
-            .local_error("500", "Internal server error", BarcodeResponseErrorException),
+            .local_error('400', 'Bad request', DeliverydateResponseInvalidException)
+            .local_error('401', 'Invalid apikey', MethodNotAllowedOnlyGetPostException)
+            .local_error('405', 'Method not allowed', MethodNotAllowedOnlyGetPostException)
+            .local_error('429', 'Too many requests', MethodNotAllowedOnlyGetPostException)
+            .local_error('500', 'Internal server error', BarcodeResponseErrorException)
         ).execute()

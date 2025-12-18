@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class EventType(object):
+
     """Implementation of the 'Event Type' enum.
 
     Attributes:
@@ -49,78 +53,76 @@ class EventType(object):
             for the model.
 
     """
+    ACCOUNT_TRANSACTION_CHANGED = 'account_transaction_changed'
 
-    ACCOUNT_TRANSACTION_CHANGED = "account_transaction_changed"
+    BILLING_DATE_CHANGE = 'billing_date_change'
 
-    BILLING_DATE_CHANGE = "billing_date_change"
+    COMPONENT_ALLOCATION_CHANGE = 'component_allocation_change'
 
-    COMPONENT_ALLOCATION_CHANGE = "component_allocation_change"
+    CUSTOMER_UPDATE = 'customer_update'
 
-    CUSTOMER_UPDATE = "customer_update"
+    CUSTOMER_CREATE = 'customer_create'
 
-    CUSTOMER_CREATE = "customer_create"
+    DUNNING_STEP_REACHED = 'dunning_step_reached'
 
-    DUNNING_STEP_REACHED = "dunning_step_reached"
+    EXPIRATION_DATE_CHANGE = 'expiration_date_change'
 
-    EXPIRATION_DATE_CHANGE = "expiration_date_change"
+    EXPIRING_CARD = 'expiring_card'
 
-    EXPIRING_CARD = "expiring_card"
+    METERED_USAGE = 'metered_usage'
 
-    METERED_USAGE = "metered_usage"
+    PAYMENT_SUCCESS = 'payment_success'
 
-    PAYMENT_SUCCESS = "payment_success"
+    PAYMENT_SUCCESS_RECREATED = 'payment_success_recreated'
 
-    PAYMENT_SUCCESS_RECREATED = "payment_success_recreated"
+    PAYMENT_FAILURE = 'payment_failure'
 
-    PAYMENT_FAILURE = "payment_failure"
+    PAYMENT_FAILURE_RECREATED = 'payment_failure_recreated'
 
-    PAYMENT_FAILURE_RECREATED = "payment_failure_recreated"
+    REFUND_FAILURE = 'refund_failure'
 
-    REFUND_FAILURE = "refund_failure"
+    REFUND_SUCCESS = 'refund_success'
 
-    REFUND_SUCCESS = "refund_success"
+    RENEWAL_SUCCESS = 'renewal_success'
 
-    RENEWAL_SUCCESS = "renewal_success"
+    RENEWAL_SUCCESS_RECREATED = 'renewal_success_recreated'
 
-    RENEWAL_SUCCESS_RECREATED = "renewal_success_recreated"
+    RENEWAL_FAILURE = 'renewal_failure'
 
-    RENEWAL_FAILURE = "renewal_failure"
+    SIGNUP_SUCCESS = 'signup_success'
 
-    SIGNUP_SUCCESS = "signup_success"
+    SIGNUP_FAILURE = 'signup_failure'
 
-    SIGNUP_FAILURE = "signup_failure"
+    STATEMENT_CLOSED = 'statement_closed'
 
-    STATEMENT_CLOSED = "statement_closed"
+    STATEMENT_SETTLED = 'statement_settled'
 
-    STATEMENT_SETTLED = "statement_settled"
+    SUBSCRIPTION_BANK_ACCOUNT_UPDATE = 'subscription_bank_account_update'
 
-    SUBSCRIPTION_BANK_ACCOUNT_UPDATE = "subscription_bank_account_update"
+    SUBSCRIPTION_DELETION = 'subscription_deletion'
 
-    SUBSCRIPTION_DELETION = "subscription_deletion"
+    SUBSCRIPTION_PAYPAL_ACCOUNT_UPDATE = 'subscription_paypal_account_update'
 
-    SUBSCRIPTION_PAYPAL_ACCOUNT_UPDATE = "subscription_paypal_account_update"
+    SUBSCRIPTION_PRODUCT_CHANGE = 'subscription_product_change'
 
-    SUBSCRIPTION_PRODUCT_CHANGE = "subscription_product_change"
+    SUBSCRIPTION_STATE_CHANGE = 'subscription_state_change'
 
-    SUBSCRIPTION_STATE_CHANGE = "subscription_state_change"
+    TRIAL_END_NOTICE = 'trial_end_notice'
 
-    TRIAL_END_NOTICE = "trial_end_notice"
+    UPGRADE_DOWNGRADE_SUCCESS = 'upgrade_downgrade_success'
 
-    UPGRADE_DOWNGRADE_SUCCESS = "upgrade_downgrade_success"
+    UPGRADE_DOWNGRADE_FAILURE = 'upgrade_downgrade_failure'
 
-    UPGRADE_DOWNGRADE_FAILURE = "upgrade_downgrade_failure"
+    UPCOMING_RENEWAL_NOTICE = 'upcoming_renewal_notice'
 
-    UPCOMING_RENEWAL_NOTICE = "upcoming_renewal_notice"
+    CUSTOM_FIELD_VALUE_CHANGE = 'custom_field_value_change'
 
-    CUSTOM_FIELD_VALUE_CHANGE = "custom_field_value_change"
+    SUBSCRIPTION_PREPAYMENT_ACCOUNT_BALANCE_CHANGED = 'subscription_prepayment_account_balance_changed'
 
-    SUBSCRIPTION_PREPAYMENT_ACCOUNT_BALANCE_CHANGED = "subscription_prepayment_account_balance_changed"
-
-    SUBSCRIPTION_SERVICE_CREDIT_ACCOUNT_BALANCE_CHANGED = "subscription_service_credit_account_balance_changed"
+    SUBSCRIPTION_SERVICE_CREDIT_ACCOUNT_BALANCE_CHANGED = 'subscription_service_credit_account_balance_changed'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

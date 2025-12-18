@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class ComponentKind(object):
+
     """Implementation of the 'Component Kind' enum.
 
     A handle for the component type
@@ -20,21 +24,20 @@ class ComponentKind(object):
             for the model.
 
     """
+    _all_values = ['metered_component', 'quantity_based_component', 'on_off_component', 'prepaid_usage_component', 'event_based_component']
+    METERED_COMPONENT = 'metered_component'
 
-    _all_values = ["metered_component", "quantity_based_component", "on_off_component", "prepaid_usage_component", "event_based_component"]
-    METERED_COMPONENT = "metered_component"
+    QUANTITY_BASED_COMPONENT = 'quantity_based_component'
 
-    QUANTITY_BASED_COMPONENT = "quantity_based_component"
+    ON_OFF_COMPONENT = 'on_off_component'
 
-    ON_OFF_COMPONENT = "on_off_component"
+    PREPAID_USAGE_COMPONENT = 'prepaid_usage_component'
 
-    PREPAID_USAGE_COMPONENT = "prepaid_usage_component"
-
-    EVENT_BASED_COMPONENT = "event_based_component"
+    EVENT_BASED_COMPONENT = 'event_based_component'
 
     @classmethod
     def validate(cls, value):
-        """Validate value contains in enum
+        """Validates value contains in enum
 
         Args:
             value: the value to be validated
@@ -44,10 +47,9 @@ class ComponentKind(object):
 
         """
         return value in cls._all_values
-
+   
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

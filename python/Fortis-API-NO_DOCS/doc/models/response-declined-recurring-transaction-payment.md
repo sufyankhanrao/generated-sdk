@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type20Enum`](../../doc/models/type-20-enum.md) | Optional | Resource Type<br><br>**Default**: `"DeclinedRecurringTransactionPayment"` |
+| `mtype` | [`Type20Enum`](../../doc/models/type-20-enum.md) | Optional | Resource Type<br><br>**Default**: `'DeclinedRecurringTransactionPayment'` |
 | `data` | [`Data4`](../../doc/models/data-4.md) | Optional | - |
 
 ## Example (as JSON)

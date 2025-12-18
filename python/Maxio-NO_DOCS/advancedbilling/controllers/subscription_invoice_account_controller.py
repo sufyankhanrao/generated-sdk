@@ -1,61 +1,40 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
-from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
-from apimatic_core.types.array_serialization_format import (
-    SerializationFormats,
-)
-from apimatic_core.types.parameter import Parameter
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.refund_prepayment_base_errors_response_exception import (  # noqa: E501
-    RefundPrepaymentBaseErrorsResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.account_balances import (
-    AccountBalances,
-)
-from advancedbilling.models.create_prepayment_response import (
-    CreatePrepaymentResponse,
-)
-from advancedbilling.models.prepayment_response import (
-    PrepaymentResponse,
-)
-from advancedbilling.models.prepayments_response import (
-    PrepaymentsResponse,
-)
-from advancedbilling.models.service_credit import (
-    ServiceCredit,
-)
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.types.array_serialization_format import SerializationFormats
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.account_balances import AccountBalances
+from advancedbilling.models.create_prepayment_response import CreatePrepaymentResponse
+from advancedbilling.models.prepayments_response import PrepaymentsResponse
+from advancedbilling.models.service_credit import ServiceCredit
+from advancedbilling.models.prepayment_response import PrepaymentResponse
+from advancedbilling.exceptions.api_exception import APIException
+from advancedbilling.exceptions.refund_prepayment_base_errors_response_exception import RefundPrepaymentBaseErrorsResponseException
 
 
 class SubscriptionInvoiceAccountController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize SubscriptionInvoiceAccountController object."""
         super(SubscriptionInvoiceAccountController, self).__init__(config)
 
     def read_account_balances(self,
                               subscription_id):
-        """Perform a GET request to
-        /subscriptions/{subscription_id}/account_balances.json.
+        """Does a GET request to /subscriptions/{subscription_id}/account_balances.json.
 
         Returns the `balance_in_cents` of the Subscription's Pending Discount,
         Service Credit, and Prepayment accounts, as well as the sum of the
@@ -75,31 +54,31 @@ class SubscriptionInvoiceAccountController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/account_balances.json")
+            .path('/subscriptions/{subscription_id}/account_balances.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AccountBalances.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def create_prepayment(self,
                           subscription_id,
                           body=None):
-        """Perform a POST request to
-        /subscriptions/{subscription_id}/prepayments.json.
+        """Does a POST request to /subscriptions/{subscription_id}/prepayments.json.
 
         ## Create Prepayment
         In order to specify a prepayment made against a subscription, specify
@@ -126,39 +105,37 @@ class SubscriptionInvoiceAccountController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/prepayments.json")
+            .path('/subscriptions/{subscription_id}/prepayments.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CreatePrepaymentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                APIException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', APIException)
         ).execute()
 
     def list_prepayments(self,
                          options=dict()):
-        """Perform a GET request to /subscriptions/{subscription_id}/prepayments.json.
+        """Does a GET request to /subscriptions/{subscription_id}/prepayments.json.
 
         This request will list a subscription's prepayments.
 
@@ -168,6 +145,7 @@ class SubscriptionInvoiceAccountController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     subscription_id -- int -- The Chargify id of the
                         subscription
                     page -- int -- Result records are organized in pages. By
@@ -198,42 +176,42 @@ class SubscriptionInvoiceAccountController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/prepayments.json")
+            .path('/subscriptions/{subscription_id}/prepayments.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("subscription_id")
-                            .value(options.get("subscription_id", None))
+                            .key('subscription_id')
+                            .value(options.get('subscription_id', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("filter")
-                         .value(options.get("filter", None)))
+                         .key('filter')
+                         .value(options.get('filter', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PrepaymentsResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
         ).execute()
 
     def issue_service_credit(self,
                              subscription_id,
                              body=None):
-        """Perform a POST request to
-        /subscriptions/{subscription_id}/service_credits.json.
+        """Does a POST request to /subscriptions/{subscription_id}/service_credits.json.
 
         Credit will be added to the subscription in the amount specified in
         the request body. The credit is subsequently applied to the next
@@ -255,41 +233,38 @@ class SubscriptionInvoiceAccountController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/service_credits.json")
+            .path('/subscriptions/{subscription_id}/service_credits.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServiceCredit.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                APIException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', APIException)
         ).execute()
 
     def deduct_service_credit(self,
                               subscription_id,
                               body=None):
-        """Perform a POST request to
-        /subscriptions/{subscription_id}/service_credit_deductions.json.
+        """Does a POST request to /subscriptions/{subscription_id}/service_credit_deductions.json.
 
         Credit will be removed from the subscription in the amount specified
         in the request body. The credit amount being deducted must be equal to
@@ -311,37 +286,34 @@ class SubscriptionInvoiceAccountController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/service_credit_deductions.json")
+            .path('/subscriptions/{subscription_id}/service_credit_deductions.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                APIException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', APIException)
         ).execute()
 
     def refund_prepayment(self,
                           subscription_id,
                           prepayment_id,
                           body=None):
-        """Perform a POST request to
-        /subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.json.
+        """Does a POST request to /subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.json.
 
         This endpoint will refund, completely or partially, a particular
         prepayment applied to a subscription. The `prepayment_id` will be the
@@ -367,42 +339,37 @@ class SubscriptionInvoiceAccountController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.json")
+            .path('/subscriptions/{subscription_id}/prepayments/{prepayment_id}/refunds.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("prepayment_id")
+                            .key('prepayment_id')
                             .value(prepayment_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PrepaymentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("400",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                RefundPrepaymentBaseErrorsResponseException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                APIException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('400', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', RefundPrepaymentBaseErrorsResponseException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', APIException)
         ).execute()

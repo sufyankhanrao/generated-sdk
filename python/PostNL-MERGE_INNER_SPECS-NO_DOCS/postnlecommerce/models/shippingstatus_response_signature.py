@@ -1,19 +1,18 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.signature import (
-    Signature,
-)
-from postnlecommerce.models.warnings import (
-    Warnings,
-)
+from postnlecommerce.models.signature import Signature
+from postnlecommerce.models.warnings import Warnings
 
 
 class ShippingstatusResponseSignature(object):
+
     """Implementation of the 'shippingstatusResponseSignature' model.
 
     Attributes:
@@ -24,29 +23,30 @@ class ShippingstatusResponseSignature(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "signature": "Signature",
-        "warnings": "Warnings",
+        "signature": 'Signature',
+        "warnings": 'Warnings'
     }
 
     _optionals = [
-        "signature",
-        "warnings",
+        'signature',
+        'warnings',
     ]
 
     def __init__(self,
                  signature=APIHelper.SKIP,
                  warnings=APIHelper.SKIP):
-        """Initialize a ShippingstatusResponseSignature instance."""
+        """Constructor for the ShippingstatusResponseSignature class"""
+
         # Initialize members of the class
         if signature is not APIHelper.SKIP:
-            self.signature = signature
+            self.signature = signature 
         if warnings is not APIHelper.SKIP:
-            self.warnings = warnings
+            self.warnings = warnings 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -57,32 +57,23 @@ class ShippingstatusResponseSignature(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        signature = Signature.from_dictionary(
-            dictionary.get("Signature"))\
-            if "Signature" in dictionary.keys() else APIHelper.SKIP
-        warnings = Warnings.from_dictionary(
-            dictionary.get("Warnings"))\
-            if "Warnings" in dictionary.keys() else APIHelper.SKIP
+        signature = Signature.from_dictionary(dictionary.get('Signature')) if 'Signature' in dictionary.keys() else APIHelper.SKIP
+        warnings = Warnings.from_dictionary(dictionary.get('Warnings')) if 'Warnings' in dictionary.keys() else APIHelper.SKIP
         # Return an object of this model
         return cls(signature,
                    warnings)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"signature={(self.signature
-                     if hasattr(self, 'signature') else None)!r}, "
-                f"warnings={(self.warnings
-                     if hasattr(self, 'warnings') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'signature={(self.signature if hasattr(self, "signature") else None)!r}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"signature={(self.signature
-                     if hasattr(self, 'signature') else None)!s}, "
-                f"warnings={(self.warnings
-                     if hasattr(self, 'warnings') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'signature={(self.signature if hasattr(self, "signature") else None)!s}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!s})')

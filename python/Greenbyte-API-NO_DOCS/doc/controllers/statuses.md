@@ -42,7 +42,7 @@ def get_statuses(self,
                 page_size=50,
                 page=1,
                 use_utc=False,
-                contract_type="service")
+                contract_type='service')
 ```
 
 ## Parameters
@@ -60,7 +60,7 @@ def get_statuses(self,
 | `page_size` | `int` | Query, Optional | The number of items to return per page.<br><br>**Default**: `50` |
 | `page` | `int` | Query, Optional | Which page to return when the number of items exceed the page size.<br><br>**Default**: `1` |
 | `use_utc` | `bool` | Query, Optional | Set to true to get timestamps in UTC.<br><br>**Default**: `False` |
-| `contract_type` | [`ContractTypeEnum`](../../doc/models/contract-type-enum.md) | Query, Optional | Which contract type to use if using multiple availability contracts.<br><br>**Default**: `"service"` |
+| `contract_type` | [`ContractTypeEnum`](../../doc/models/contract-type-enum.md) | Query, Optional | Which contract type to use if using multiple availability contracts.<br><br>**Default**: `'service'` |
 
 ## Response Type
 
@@ -185,7 +185,7 @@ def get_active_statuses(self,
                        page_size=50,
                        page=1,
                        use_utc=False,
-                       contract_type="service")
+                       contract_type='service')
 ```
 
 ## Parameters
@@ -201,7 +201,7 @@ def get_active_statuses(self,
 | `page_size` | `int` | Query, Optional | The number of items to return per page.<br><br>**Default**: `50` |
 | `page` | `int` | Query, Optional | Which page to return when the number of items exceed the page size.<br><br>**Default**: `1` |
 | `use_utc` | `bool` | Query, Optional | Set to true to get timestamps in UTC.<br><br>**Default**: `False` |
-| `contract_type` | [`ContractTypeEnum`](../../doc/models/contract-type-enum.md) | Query, Optional | Which contract type to use if using multiple availability contracts.<br><br>**Default**: `"service"` |
+| `contract_type` | [`ContractTypeEnum`](../../doc/models/contract-type-enum.md) | Query, Optional | Which contract type to use if using multiple availability contracts.<br><br>**Default**: `'service'` |
 
 ## Response Type
 

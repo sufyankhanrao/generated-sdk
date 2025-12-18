@@ -1,4 +1,7 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class CountrycodeEnum(object):
+
     """Implementation of the 'Countrycode' enum.
 
     ISO2 country code. Limited to NL and BE.
@@ -15,14 +19,12 @@ class CountrycodeEnum(object):
         BE: The enum member of type str.
 
     """
+    NL = 'NL'
 
-    NL = "NL"
-
-    BE = "BE"
+    BE = 'BE'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

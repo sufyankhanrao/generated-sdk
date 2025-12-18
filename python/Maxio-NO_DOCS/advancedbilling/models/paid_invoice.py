@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class PaidInvoice(object):
+
     """Implementation of the 'Paid Invoice' model.
 
     Attributes:
@@ -26,17 +29,17 @@ class PaidInvoice(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "invoice_id": "invoice_id",
-        "status": "status",
-        "due_amount": "due_amount",
-        "paid_amount": "paid_amount",
+        "invoice_id": 'invoice_id',
+        "status": 'status',
+        "due_amount": 'due_amount',
+        "paid_amount": 'paid_amount'
     }
 
     _optionals = [
-        "invoice_id",
-        "status",
-        "due_amount",
-        "paid_amount",
+        'invoice_id',
+        'status',
+        'due_amount',
+        'paid_amount',
     ]
 
     def __init__(self,
@@ -45,16 +48,17 @@ class PaidInvoice(object):
                  due_amount=APIHelper.SKIP,
                  paid_amount=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a PaidInvoice instance."""
+        """Constructor for the PaidInvoice class"""
+
         # Initialize members of the class
         if invoice_id is not APIHelper.SKIP:
-            self.invoice_id = invoice_id
+            self.invoice_id = invoice_id 
         if status is not APIHelper.SKIP:
-            self.status = status
+            self.status = status 
         if due_amount is not APIHelper.SKIP:
-            self.due_amount = due_amount
+            self.due_amount = due_amount 
         if paid_amount is not APIHelper.SKIP:
-            self.paid_amount = paid_amount
+            self.paid_amount = paid_amount 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -64,7 +68,7 @@ class PaidInvoice(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -75,25 +79,17 @@ class PaidInvoice(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        invoice_id =\
-            dictionary.get("invoice_id")\
-            if dictionary.get("invoice_id") else APIHelper.SKIP
-        status =\
-            dictionary.get("status")\
-            if dictionary.get("status") else APIHelper.SKIP
-        due_amount =\
-            dictionary.get("due_amount")\
-            if dictionary.get("due_amount") else APIHelper.SKIP
-        paid_amount =\
-            dictionary.get("paid_amount")\
-            if dictionary.get("paid_amount") else APIHelper.SKIP
+        invoice_id = dictionary.get("invoice_id") if dictionary.get("invoice_id") else APIHelper.SKIP
+        status = dictionary.get("status") if dictionary.get("status") else APIHelper.SKIP
+        due_amount = dictionary.get("due_amount") if dictionary.get("due_amount") else APIHelper.SKIP
+        paid_amount = dictionary.get("paid_amount") if dictionary.get("paid_amount") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(invoice_id,
                    status,
@@ -102,25 +98,17 @@ class PaidInvoice(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"invoice_id={(self.invoice_id
-                     if hasattr(self, 'invoice_id') else None)!r}, "
-                f"status={(self.status if hasattr(self, 'status') else None)!r}, "
-                f"due_amount={(self.due_amount
-                     if hasattr(self, 'due_amount') else None)!r}, "
-                f"paid_amount={(self.paid_amount
-                     if hasattr(self, 'paid_amount') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'invoice_id={(self.invoice_id if hasattr(self, "invoice_id") else None)!r}, '
+                f'status={(self.status if hasattr(self, "status") else None)!r}, '
+                f'due_amount={(self.due_amount if hasattr(self, "due_amount") else None)!r}, '
+                f'paid_amount={(self.paid_amount if hasattr(self, "paid_amount") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"invoice_id={(self.invoice_id
-                     if hasattr(self, 'invoice_id') else None)!s}, "
-                f"status={(self.status if hasattr(self, 'status') else None)!s}, "
-                f"due_amount={(self.due_amount
-                     if hasattr(self, 'due_amount') else None)!s}, "
-                f"paid_amount={(self.paid_amount
-                     if hasattr(self, 'paid_amount') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'invoice_id={(self.invoice_id if hasattr(self, "invoice_id") else None)!s}, '
+                f'status={(self.status if hasattr(self, "status") else None)!s}, '
+                f'due_amount={(self.due_amount if hasattr(self, "due_amount") else None)!s}, '
+                f'paid_amount={(self.paid_amount if hasattr(self, "paid_amount") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

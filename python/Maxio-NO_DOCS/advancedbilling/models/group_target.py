@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.group_target_type import (
-    GroupTargetType,
-)
+from advancedbilling.models.group_target_type import GroupTargetType
 
 
 class GroupTarget(object):
+
     """Implementation of the 'Group Target' model.
 
     Attributes of the target customer who will be the responsible payer of the
@@ -29,23 +30,24 @@ class GroupTarget(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "mtype": "type",
-        "id": "id",
+        "mtype": 'type',
+        "id": 'id'
     }
 
     _optionals = [
-        "id",
+        'id',
     ]
 
     def __init__(self,
                  mtype=None,
                  id=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a GroupTarget instance."""
+        """Constructor for the GroupTarget class"""
+
         # Initialize members of the class
-        self.mtype = mtype
+        self.mtype = mtype 
         if id is not APIHelper.SKIP:
-            self.id = id
+            self.id = id 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -55,7 +57,7 @@ class GroupTarget(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -66,6 +68,7 @@ class GroupTarget(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
@@ -73,8 +76,7 @@ class GroupTarget(object):
         mtype = dictionary.get("type") if dictionary.get("type") else None
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(mtype,
                    id,
@@ -82,7 +84,7 @@ class GroupTarget(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -93,28 +95,25 @@ class GroupTarget(object):
             boolean : if dictionary is valid contains required properties.
 
         """
+
         if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(
-                value=dictionary.mtype,
-                type_callable=lambda value: GroupTargetType.validate(value))
+            return APIHelper.is_valid_type(value=dictionary.mtype,
+                                           type_callable=lambda value: GroupTargetType.validate(value))
 
         if not isinstance(dictionary, dict):
             return False
 
-        return APIHelper.is_valid_type(
-            value=dictionary.get("type"),
-            type_callable=lambda value: GroupTargetType.validate(value))
+        return APIHelper.is_valid_type(value=dictionary.get('type'),
+                                       type_callable=lambda value: GroupTargetType.validate(value))
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"mtype={self.mtype!r}, "
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'mtype={self.mtype!r}, '
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"mtype={self.mtype!s}, "
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'mtype={self.mtype!s}, '
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

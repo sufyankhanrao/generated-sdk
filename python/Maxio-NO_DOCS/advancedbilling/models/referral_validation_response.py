@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.referral_code import (
-    ReferralCode,
-)
+from advancedbilling.models.referral_code import ReferralCode
 
 
 class ReferralValidationResponse(object):
+
     """Implementation of the 'Referral Validation Response' model.
 
     Attributes:
@@ -22,20 +23,21 @@ class ReferralValidationResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "referral_code": "referral_code",
+        "referral_code": 'referral_code'
     }
 
     _optionals = [
-        "referral_code",
+        'referral_code',
     ]
 
     def __init__(self,
                  referral_code=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a ReferralValidationResponse instance."""
+        """Constructor for the ReferralValidationResponse class"""
+
         # Initialize members of the class
         if referral_code is not APIHelper.SKIP:
-            self.referral_code = referral_code
+            self.referral_code = referral_code 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -45,7 +47,7 @@ class ReferralValidationResponse(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -56,30 +58,24 @@ class ReferralValidationResponse(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        referral_code = ReferralCode.from_dictionary(
-            dictionary.get("referral_code"))\
-            if "referral_code" in dictionary.keys() else APIHelper.SKIP
+        referral_code = ReferralCode.from_dictionary(dictionary.get('referral_code')) if 'referral_code' in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(referral_code,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"referral_code={(self.referral_code
-                     if hasattr(self, 'referral_code') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'referral_code={(self.referral_code if hasattr(self, "referral_code") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"referral_code={(self.referral_code
-                     if hasattr(self, 'referral_code') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'referral_code={(self.referral_code if hasattr(self, "referral_code") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

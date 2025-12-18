@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type60Enum`](../../doc/models/type-60-enum.md) | Optional | Resource Type<br><br>**Default**: `"RecurringsCollection"` |
+| `mtype` | [`Type60Enum`](../../doc/models/type-60-enum.md) | Optional | Resource Type<br><br>**Default**: `'RecurringsCollection'` |
 | `list` | [`List[List10]`](../../doc/models/list-10.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

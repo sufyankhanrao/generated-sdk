@@ -1,4 +1,7 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class DeliveryOptions1Enum(object):
+
     """Implementation of the 'DeliveryOptions1' enum.
 
     Attributes:
@@ -14,16 +18,14 @@ class DeliveryOptions1Enum(object):
         PG_EX: The enum member of type str.
 
     """
+    PG = 'PG'
 
-    PG = "PG"
+    PA = 'PA'
 
-    PA = "PA"
-
-    PG_EX = "PG_EX"
+    PG_EX = 'PG_EX'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

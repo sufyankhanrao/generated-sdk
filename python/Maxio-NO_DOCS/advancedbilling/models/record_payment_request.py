@@ -1,15 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
-from advancedbilling.models.create_payment import (
-    CreatePayment,
-)
+from advancedbilling.models.create_payment import CreatePayment
 
 
 class RecordPaymentRequest(object):
+
     """Implementation of the 'Record Payment Request' model.
 
     Attributes:
@@ -21,15 +22,16 @@ class RecordPaymentRequest(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "payment": "payment",
+        "payment": 'payment'
     }
 
     def __init__(self,
                  payment=None,
                  additional_properties=None):
-        """Initialize a RecordPaymentRequest instance."""
+        """Constructor for the RecordPaymentRequest class"""
+
         # Initialize members of the class
-        self.payment = payment
+        self.payment = payment 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -39,7 +41,7 @@ class RecordPaymentRequest(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -50,28 +52,24 @@ class RecordPaymentRequest(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        payment = CreatePayment.from_dictionary(
-            dictionary.get("payment"))\
-            if dictionary.get("payment") else None
+        payment = CreatePayment.from_dictionary(dictionary.get('payment')) if dictionary.get('payment') else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(payment,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"payment={self.payment!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'payment={self.payment!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"payment={self.payment!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'payment={self.payment!s}, '
+                f'additional_properties={self.additional_properties!s})')

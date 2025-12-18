@@ -1,47 +1,36 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
-from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
-from apimatic_core.types.array_serialization_format import (
-    SerializationFormats,
-)
-from apimatic_core.types.parameter import Parameter
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.product_response import (
-    ProductResponse,
-)
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.types.array_serialization_format import SerializationFormats
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.product_response import ProductResponse
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
 
 
 class ProductsController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize ProductsController object."""
         super(ProductsController, self).__init__(config)
 
     def create_product(self,
                        product_family_id,
                        body=None):
-        """Perform a POST request to
-        /product_families/{product_family_id}/products.json.
+        """Does a POST request to /product_families/{product_family_id}/products.json.
 
         Use this method to create a product within your Chargify site.
         + [Products
@@ -68,39 +57,37 @@ class ProductsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/product_families/{product_family_id}/products.json")
+            .path('/product_families/{product_family_id}/products.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("product_family_id")
+                            .key('product_family_id')
                             .value(product_family_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def read_product(self,
                      product_id):
-        """Perform a GET request to /products/{product_id}.json.
+        """Does a GET request to /products/{product_id}.json.
 
         This endpoint allows you to read the current details of a product that
         you've created in Chargify.
@@ -119,30 +106,31 @@ class ProductsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}.json")
+            .path('/products/{product_id}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("product_id")
+                            .key('product_id')
                             .value(product_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_product(self,
                        product_id,
                        body=None):
-        """Perform a PUT request to /products/{product_id}.json.
+        """Does a PUT request to /products/{product_id}.json.
 
         Use this method to change aspects of an existing product.
         ### Input Attributes Update Notes
@@ -170,39 +158,37 @@ class ProductsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}.json")
+            .path('/products/{product_id}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("product_id")
+                            .key('product_id')
                             .value(product_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def archive_product(self,
                         product_id):
-        """Perform a DELETE request to /products/{product_id}.json.
+        """Does a DELETE request to /products/{product_id}.json.
 
         Sending a DELETE request to this endpoint will archive the product.
         All current subscribers will be unffected; their subscription/purchase
@@ -225,33 +211,31 @@ class ProductsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/{product_id}.json")
+            .path('/products/{product_id}.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("product_id")
+                            .key('product_id')
                             .value(product_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def read_product_by_handle(self,
                                api_handle):
-        """Perform a GET request to /products/handle/{api_handle}.json.
+        """Does a GET request to /products/handle/{api_handle}.json.
 
         This method allows to retrieve a Product object by its `api_handle`.
 
@@ -269,29 +253,30 @@ class ProductsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products/handle/{api_handle}.json")
+            .path('/products/handle/{api_handle}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("api_handle")
+                            .key('api_handle')
                             .value(api_handle)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def list_products(self,
                       options=dict()):
-        """Perform a GET request to /products.json.
+        """Does a GET request to /products.json.
 
         This method allows to retrieve a list of Products belonging to a Site.
 
@@ -301,6 +286,7 @@ class ProductsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     date_field -- BasicDateField -- The type of filter you
                         would like to apply to your search. Use in query:
                         `date_field=created_at`.
@@ -359,50 +345,49 @@ class ProductsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/products.json")
+            .path('/products.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("date_field")
-                         .value(options.get("date_field", None)))
+                         .key('date_field')
+                         .value(options.get('date_field', None)))
             .query_param(Parameter()
-                         .key("filter")
-                         .value(options.get("filter", None)))
+                         .key('filter')
+                         .value(options.get('filter', None)))
             .query_param(Parameter()
-                         .key("end_date")
-                         .value(options.get("end_date", None)))
+                         .key('end_date')
+                         .value(options.get('end_date', None)))
             .query_param(Parameter()
-                         .key("end_datetime")
-                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                             options.get("end_datetime", None))))
+                         .key('end_datetime')
+                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime, options.get('end_datetime', None))))
             .query_param(Parameter()
-                         .key("start_date")
-                         .value(options.get("start_date", None)))
+                         .key('start_date')
+                         .value(options.get('start_date', None)))
             .query_param(Parameter()
-                         .key("start_datetime")
-                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                             options.get("start_datetime", None))))
+                         .key('start_datetime')
+                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime, options.get('start_datetime', None))))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("include_archived")
-                         .value(options.get("include_archived", None)))
+                         .key('include_archived')
+                         .value(options.get('include_archived', None)))
             .query_param(Parameter()
-                         .key("include")
-                         .value(options.get("include", None)))
+                         .key('include')
+                         .value(options.get('include', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ProductResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()

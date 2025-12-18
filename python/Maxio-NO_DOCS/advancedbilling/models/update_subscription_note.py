@@ -1,10 +1,15 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+
 class UpdateSubscriptionNote(object):
+
     """Implementation of the 'Update Subscription Note' model.
 
     Updatable fields for Subscription Note
@@ -19,18 +24,19 @@ class UpdateSubscriptionNote(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "body": "body",
-        "sticky": "sticky",
+        "body": 'body',
+        "sticky": 'sticky'
     }
 
     def __init__(self,
                  body=None,
                  sticky=None,
                  additional_properties=None):
-        """Initialize a UpdateSubscriptionNote instance."""
+        """Constructor for the UpdateSubscriptionNote class"""
+
         # Initialize members of the class
-        self.body = body
-        self.sticky = sticky
+        self.body = body 
+        self.sticky = sticky 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -40,7 +46,7 @@ class UpdateSubscriptionNote(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -51,32 +57,28 @@ class UpdateSubscriptionNote(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         body = dictionary.get("body") if dictionary.get("body") else None
-        sticky =\
-            dictionary.get("sticky")\
-            if "sticky" in dictionary.keys() else None
+        sticky = dictionary.get("sticky") if "sticky" in dictionary.keys() else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(body,
                    sticky,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"body={self.body!r}, "
-                f"sticky={self.sticky!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'body={self.body!r}, '
+                f'sticky={self.sticky!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"body={self.body!s}, "
-                f"sticky={self.sticky!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'body={self.body!s}, '
+                f'sticky={self.sticky!s}, '
+                f'additional_properties={self.additional_properties!s})')

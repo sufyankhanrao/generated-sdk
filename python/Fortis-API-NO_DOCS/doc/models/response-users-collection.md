@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type111Enum`](../../doc/models/type-111-enum.md) | Optional | Resource Type<br><br>**Default**: `"UsersCollection"` |
+| `mtype` | [`Type111Enum`](../../doc/models/type-111-enum.md) | Optional | Resource Type<br><br>**Default**: `'UsersCollection'` |
 | `list` | [`List[List18]`](../../doc/models/list-18.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

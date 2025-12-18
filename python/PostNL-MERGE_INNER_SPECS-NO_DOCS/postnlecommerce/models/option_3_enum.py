@@ -1,4 +1,7 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class Option3Enum(object):
+
     """Implementation of the 'Option3' enum.
 
     Attributes:
@@ -18,24 +22,22 @@ class Option3Enum(object):
         AFTERNOON: The enum member of type str.
 
     """
+    DAYTIME = 'Daytime'
 
-    DAYTIME = "Daytime"
+    EVENING = 'Evening'
 
-    EVENING = "Evening"
+    MORNING = 'Morning'
 
-    MORNING = "Morning"
+    NOON = 'Noon'
 
-    NOON = "Noon"
+    SUNDAY = 'Sunday'
 
-    SUNDAY = "Sunday"
+    TODAY = 'Today'
 
-    TODAY = "Today"
-
-    AFTERNOON = "Afternoon"
+    AFTERNOON = 'Afternoon'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

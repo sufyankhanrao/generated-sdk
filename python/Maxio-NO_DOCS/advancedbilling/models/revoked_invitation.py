@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class RevokedInvitation(object):
+
     """Implementation of the 'Revoked Invitation' model.
 
     Attributes:
@@ -21,15 +24,15 @@ class RevokedInvitation(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "last_sent_at": "last_sent_at",
-        "last_accepted_at": "last_accepted_at",
-        "uninvited_count": "uninvited_count",
+        "last_sent_at": 'last_sent_at',
+        "last_accepted_at": 'last_accepted_at',
+        "uninvited_count": 'uninvited_count'
     }
 
     _optionals = [
-        "last_sent_at",
-        "last_accepted_at",
-        "uninvited_count",
+        'last_sent_at',
+        'last_accepted_at',
+        'uninvited_count',
     ]
 
     def __init__(self,
@@ -37,14 +40,15 @@ class RevokedInvitation(object):
                  last_accepted_at=APIHelper.SKIP,
                  uninvited_count=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a RevokedInvitation instance."""
+        """Constructor for the RevokedInvitation class"""
+
         # Initialize members of the class
         if last_sent_at is not APIHelper.SKIP:
-            self.last_sent_at = last_sent_at
+            self.last_sent_at = last_sent_at 
         if last_accepted_at is not APIHelper.SKIP:
-            self.last_accepted_at = last_accepted_at
+            self.last_accepted_at = last_accepted_at 
         if uninvited_count is not APIHelper.SKIP:
-            self.uninvited_count = uninvited_count
+            self.uninvited_count = uninvited_count 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -54,7 +58,7 @@ class RevokedInvitation(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -65,22 +69,16 @@ class RevokedInvitation(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        last_sent_at =\
-            dictionary.get("last_sent_at")\
-            if dictionary.get("last_sent_at") else APIHelper.SKIP
-        last_accepted_at =\
-            dictionary.get("last_accepted_at")\
-            if dictionary.get("last_accepted_at") else APIHelper.SKIP
-        uninvited_count =\
-            dictionary.get("uninvited_count")\
-            if dictionary.get("uninvited_count") else APIHelper.SKIP
+        last_sent_at = dictionary.get("last_sent_at") if dictionary.get("last_sent_at") else APIHelper.SKIP
+        last_accepted_at = dictionary.get("last_accepted_at") if dictionary.get("last_accepted_at") else APIHelper.SKIP
+        uninvited_count = dictionary.get("uninvited_count") if dictionary.get("uninvited_count") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(last_sent_at,
                    last_accepted_at,
@@ -88,23 +86,15 @@ class RevokedInvitation(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"last_sent_at={(self.last_sent_at
-                     if hasattr(self, 'last_sent_at') else None)!r}, "
-                f"last_accepted_at={(self.last_accepted_at
-                     if hasattr(self, 'last_accepted_at') else None)!r}, "
-                f"uninvited_count={(self.uninvited_count
-                     if hasattr(self, 'uninvited_count') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'last_sent_at={(self.last_sent_at if hasattr(self, "last_sent_at") else None)!r}, '
+                f'last_accepted_at={(self.last_accepted_at if hasattr(self, "last_accepted_at") else None)!r}, '
+                f'uninvited_count={(self.uninvited_count if hasattr(self, "uninvited_count") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"last_sent_at={(self.last_sent_at
-                     if hasattr(self, 'last_sent_at') else None)!s}, "
-                f"last_accepted_at={(self.last_accepted_at
-                     if hasattr(self, 'last_accepted_at') else None)!s}, "
-                f"uninvited_count={(self.uninvited_count
-                     if hasattr(self, 'uninvited_count') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'last_sent_at={(self.last_sent_at if hasattr(self, "last_sent_at") else None)!s}, '
+                f'last_accepted_at={(self.last_accepted_at if hasattr(self, "last_accepted_at") else None)!s}, '
+                f'uninvited_count={(self.uninvited_count if hasattr(self, "uninvited_count") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

@@ -1,15 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
-from advancedbilling.models.list_subscription_group_prepayment import (
-    ListSubscriptionGroupPrepayment,
-)
+from advancedbilling.models.list_subscription_group_prepayment import ListSubscriptionGroupPrepayment
 
 
 class ListSubscriptionGroupPrepaymentResponse(object):
+
     """Implementation of the 'List Subscription Group Prepayment Response' model.
 
     Attributes:
@@ -22,15 +23,16 @@ class ListSubscriptionGroupPrepaymentResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "prepayments": "prepayments",
+        "prepayments": 'prepayments'
     }
 
     def __init__(self,
                  prepayments=None,
                  additional_properties=None):
-        """Initialize a ListSubscriptionGroupPrepaymentResponse instance."""
+        """Constructor for the ListSubscriptionGroupPrepaymentResponse class"""
+
         # Initialize members of the class
-        self.prepayments = prepayments
+        self.prepayments = prepayments 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -40,7 +42,7 @@ class ListSubscriptionGroupPrepaymentResponse(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -51,31 +53,26 @@ class ListSubscriptionGroupPrepaymentResponse(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         prepayments = None
-        if dictionary.get("prepayments") is not None:
-            prepayments = [
-                ListSubscriptionGroupPrepayment.from_dictionary(x)
-                    for x in dictionary.get("prepayments")
-            ]
+        if dictionary.get('prepayments') is not None:
+            prepayments = [ListSubscriptionGroupPrepayment.from_dictionary(x) for x in dictionary.get('prepayments')]
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(prepayments,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"prepayments={self.prepayments!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'prepayments={self.prepayments!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"prepayments={self.prepayments!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'prepayments={self.prepayments!s}, '
+                f'additional_properties={self.additional_properties!s})')

@@ -1,10 +1,15 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+
 class SubscriptionGroupPrepayment(object):
+
     """Implementation of the 'Subscription Group Prepayment' model.
 
     Attributes:
@@ -20,10 +25,10 @@ class SubscriptionGroupPrepayment(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "amount": "amount",
-        "details": "details",
-        "memo": "memo",
-        "method": "method",
+        "amount": 'amount',
+        "details": 'details',
+        "memo": 'memo',
+        "method": 'method'
     }
 
     def __init__(self,
@@ -32,12 +37,13 @@ class SubscriptionGroupPrepayment(object):
                  memo=None,
                  method=None,
                  additional_properties=None):
-        """Initialize a SubscriptionGroupPrepayment instance."""
+        """Constructor for the SubscriptionGroupPrepayment class"""
+
         # Initialize members of the class
-        self.amount = amount
-        self.details = details
-        self.memo = memo
-        self.method = method
+        self.amount = amount 
+        self.details = details 
+        self.memo = memo 
+        self.method = method 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -47,7 +53,7 @@ class SubscriptionGroupPrepayment(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -58,6 +64,7 @@ class SubscriptionGroupPrepayment(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
@@ -67,8 +74,7 @@ class SubscriptionGroupPrepayment(object):
         memo = dictionary.get("memo") if dictionary.get("memo") else None
         method = dictionary.get("method") if dictionary.get("method") else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(amount,
                    details,
@@ -77,19 +83,17 @@ class SubscriptionGroupPrepayment(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"amount={self.amount!r}, "
-                f"details={self.details!r}, "
-                f"memo={self.memo!r}, "
-                f"method={self.method!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'amount={self.amount!r}, '
+                f'details={self.details!r}, '
+                f'memo={self.memo!r}, '
+                f'method={self.method!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"amount={self.amount!s}, "
-                f"details={self.details!s}, "
-                f"memo={self.memo!s}, "
-                f"method={self.method!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'amount={self.amount!s}, '
+                f'details={self.details!s}, '
+                f'memo={self.memo!s}, '
+                f'method={self.method!s}, '
+                f'additional_properties={self.additional_properties!s})')

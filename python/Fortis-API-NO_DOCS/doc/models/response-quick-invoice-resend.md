@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type53Enum`](../../doc/models/type-53-enum.md) | Optional | Resource Type<br><br>**Default**: `"QuickInvoiceResend"` |
+| `mtype` | [`Type53Enum`](../../doc/models/type-53-enum.md) | Optional | Resource Type<br><br>**Default**: `'QuickInvoiceResend'` |
 | `data` | [`Data15`](../../doc/models/data-15.md) | Optional | - |
 
 ## Example (as JSON)

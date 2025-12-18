@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.prepaid_product_price_point_filter import (
-    PrepaidProductPricePointFilter,
-)
+from advancedbilling.models.prepaid_product_price_point_filter import PrepaidProductPricePointFilter
 
 
 class ListProductsFilter(object):
+
     """Implementation of the 'List Products Filter' model.
 
     Attributes:
@@ -31,25 +32,26 @@ class ListProductsFilter(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "prepaid_product_price_point": "prepaid_product_price_point",
-        "use_site_exchange_rate": "use_site_exchange_rate",
+        "prepaid_product_price_point": 'prepaid_product_price_point',
+        "use_site_exchange_rate": 'use_site_exchange_rate'
     }
 
     _optionals = [
-        "prepaid_product_price_point",
-        "use_site_exchange_rate",
+        'prepaid_product_price_point',
+        'use_site_exchange_rate',
     ]
 
     def __init__(self,
                  prepaid_product_price_point=APIHelper.SKIP,
                  use_site_exchange_rate=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a ListProductsFilter instance."""
+        """Constructor for the ListProductsFilter class"""
+
         # Initialize members of the class
         if prepaid_product_price_point is not APIHelper.SKIP:
-            self.prepaid_product_price_point = prepaid_product_price_point
+            self.prepaid_product_price_point = prepaid_product_price_point 
         if use_site_exchange_rate is not APIHelper.SKIP:
-            self.use_site_exchange_rate = use_site_exchange_rate
+            self.use_site_exchange_rate = use_site_exchange_rate 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -59,7 +61,7 @@ class ListProductsFilter(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -70,38 +72,28 @@ class ListProductsFilter(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        prepaid_product_price_point = PrepaidProductPricePointFilter.from_dictionary(
-            dictionary.get("prepaid_product_price_point"))\
-            if "prepaid_product_price_point" in dictionary.keys() else APIHelper.SKIP
-        use_site_exchange_rate =\
-            dictionary.get("use_site_exchange_rate")\
-            if "use_site_exchange_rate" in dictionary.keys() else APIHelper.SKIP
+        prepaid_product_price_point = PrepaidProductPricePointFilter.from_dictionary(dictionary.get('prepaid_product_price_point')) if 'prepaid_product_price_point' in dictionary.keys() else APIHelper.SKIP
+        use_site_exchange_rate = dictionary.get("use_site_exchange_rate") if "use_site_exchange_rate" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(prepaid_product_price_point,
                    use_site_exchange_rate,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"prepaid_product_price_point={(self.prepaid_product_price_point
-                     if hasattr(self, 'prepaid_product_price_point') else None)!r}, "
-                f"use_site_exchange_rate={(self.use_site_exchange_rate
-                     if hasattr(self, 'use_site_exchange_rate') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'prepaid_product_price_point={(self.prepaid_product_price_point if hasattr(self, "prepaid_product_price_point") else None)!r}, '
+                f'use_site_exchange_rate={(self.use_site_exchange_rate if hasattr(self, "use_site_exchange_rate") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"prepaid_product_price_point={(self.prepaid_product_price_point
-                     if hasattr(self, 'prepaid_product_price_point') else None)!s}, "
-                f"use_site_exchange_rate={(self.use_site_exchange_rate
-                     if hasattr(self, 'use_site_exchange_rate') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'prepaid_product_price_point={(self.prepaid_product_price_point if hasattr(self, "prepaid_product_price_point") else None)!s}, '
+                f'use_site_exchange_rate={(self.use_site_exchange_rate if hasattr(self, "use_site_exchange_rate") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

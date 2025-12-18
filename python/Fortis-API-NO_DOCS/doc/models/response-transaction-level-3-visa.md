@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type96Enum`](../../doc/models/type-96-enum.md) | Optional | Resource Type<br><br>**Default**: `"TransactionLevel3Visa"` |
+| `mtype` | [`Type96Enum`](../../doc/models/type-96-enum.md) | Optional | Resource Type<br><br>**Default**: `'TransactionLevel3Visa'` |
 | `data` | [`Data24`](../../doc/models/data-24.md) | Optional | - |
 
 ## Example (as JSON)

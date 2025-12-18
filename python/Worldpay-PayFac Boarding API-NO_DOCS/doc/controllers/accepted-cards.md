@@ -25,7 +25,7 @@ URI to get all acceptedcards of a PayFac submerchant. <br/> <br/> ***For America
 def get_accepted_cards(self,
                       v_correlation_id,
                       id,
-                      content_type="application/json")
+                      content_type='application/json')
 ```
 
 ## Parameters
@@ -34,7 +34,7 @@ def get_accepted_cards(self,
 |  --- | --- | --- | --- |
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 
@@ -139,7 +139,7 @@ def get_accepted_card(self,
                      v_correlation_id,
                      id,
                      mtype,
-                     content_type="application/json")
+                     content_type='application/json')
 ```
 
 ## Parameters
@@ -149,7 +149,7 @@ def get_accepted_card(self,
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
 | `mtype` | [`Type16Enum`](../../doc/models/type-16-enum.md) | Template, Required | Card Type |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 
@@ -259,7 +259,7 @@ def delete_accepted_card(self,
                         v_correlation_id,
                         id,
                         mtype,
-                        content_type="application/json")
+                        content_type='application/json')
 ```
 
 ## Parameters
@@ -269,7 +269,7 @@ def delete_accepted_card(self,
 | `v_correlation_id` | `uuid\|str` | Header, Required | The unique UUID that is sent in each request |
 | `id` | `str` | Template, Required | The resource ID of the submerchant |
 | `mtype` | [`Type18Enum`](../../doc/models/type-18-enum.md) | Template, Required | Card Type |
-| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `"application/json"` |
+| `content_type` | `str` | Header, Optional | The original media type of the resource<br><br>**Default**: `'application/json'` |
 
 ## Response Type
 

@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class InvoicePaymentMethodType(object):
+
     """Implementation of the 'Invoice Payment Method Type' enum.
 
     The type of payment method used. Defaults to other.
@@ -21,23 +25,22 @@ class InvoicePaymentMethodType(object):
             for the model.
 
     """
+    _all_values = ['credit_card', 'check', 'cash', 'money_order', 'ach', 'other']
+    CREDIT_CARD = 'credit_card'
 
-    _all_values = ["credit_card", "check", "cash", "money_order", "ach", "other"]
-    CREDIT_CARD = "credit_card"
+    CHECK = 'check'
 
-    CHECK = "check"
+    CASH = 'cash'
 
-    CASH = "cash"
+    MONEY_ORDER = 'money_order'
 
-    MONEY_ORDER = "money_order"
+    ACH = 'ach'
 
-    ACH = "ach"
-
-    OTHER = "other"
+    OTHER = 'other'
 
     @classmethod
     def validate(cls, value):
-        """Validate value contains in enum
+        """Validates value contains in enum
 
         Args:
             value: the value to be validated
@@ -47,10 +50,9 @@ class InvoicePaymentMethodType(object):
 
         """
         return value in cls._all_values
-
+   
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

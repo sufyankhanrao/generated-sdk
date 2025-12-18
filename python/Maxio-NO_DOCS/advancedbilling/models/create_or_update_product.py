@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class CreateOrUpdateProduct(object):
+
     """Implementation of the 'Create or Update Product' model.
 
     Attributes:
@@ -49,36 +52,36 @@ class CreateOrUpdateProduct(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "name": "name",
-        "description": "description",
-        "price_in_cents": "price_in_cents",
-        "interval": "interval",
-        "interval_unit": "interval_unit",
-        "handle": "handle",
-        "accounting_code": "accounting_code",
-        "require_credit_card": "require_credit_card",
-        "trial_price_in_cents": "trial_price_in_cents",
-        "trial_interval": "trial_interval",
-        "trial_interval_unit": "trial_interval_unit",
-        "trial_type": "trial_type",
-        "expiration_interval": "expiration_interval",
-        "expiration_interval_unit": "expiration_interval_unit",
-        "auto_create_signup_page": "auto_create_signup_page",
-        "tax_code": "tax_code",
+        "name": 'name',
+        "description": 'description',
+        "price_in_cents": 'price_in_cents',
+        "interval": 'interval',
+        "interval_unit": 'interval_unit',
+        "handle": 'handle',
+        "accounting_code": 'accounting_code',
+        "require_credit_card": 'require_credit_card',
+        "trial_price_in_cents": 'trial_price_in_cents',
+        "trial_interval": 'trial_interval',
+        "trial_interval_unit": 'trial_interval_unit',
+        "trial_type": 'trial_type',
+        "expiration_interval": 'expiration_interval',
+        "expiration_interval_unit": 'expiration_interval_unit',
+        "auto_create_signup_page": 'auto_create_signup_page',
+        "tax_code": 'tax_code'
     }
 
     _optionals = [
-        "handle",
-        "accounting_code",
-        "require_credit_card",
-        "trial_price_in_cents",
-        "trial_interval",
-        "trial_interval_unit",
-        "trial_type",
-        "expiration_interval",
-        "expiration_interval_unit",
-        "auto_create_signup_page",
-        "tax_code",
+        'handle',
+        'accounting_code',
+        'require_credit_card',
+        'trial_price_in_cents',
+        'trial_interval',
+        'trial_interval_unit',
+        'trial_type',
+        'expiration_interval',
+        'expiration_interval_unit',
+        'auto_create_signup_page',
+        'tax_code',
     ]
 
     def __init__(self,
@@ -99,35 +102,36 @@ class CreateOrUpdateProduct(object):
                  auto_create_signup_page=APIHelper.SKIP,
                  tax_code=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a CreateOrUpdateProduct instance."""
+        """Constructor for the CreateOrUpdateProduct class"""
+
         # Initialize members of the class
-        self.name = name
+        self.name = name 
         if handle is not APIHelper.SKIP:
-            self.handle = handle
-        self.description = description
+            self.handle = handle 
+        self.description = description 
         if accounting_code is not APIHelper.SKIP:
-            self.accounting_code = accounting_code
+            self.accounting_code = accounting_code 
         if require_credit_card is not APIHelper.SKIP:
-            self.require_credit_card = require_credit_card
-        self.price_in_cents = price_in_cents
-        self.interval = interval
-        self.interval_unit = interval_unit
+            self.require_credit_card = require_credit_card 
+        self.price_in_cents = price_in_cents 
+        self.interval = interval 
+        self.interval_unit = interval_unit 
         if trial_price_in_cents is not APIHelper.SKIP:
-            self.trial_price_in_cents = trial_price_in_cents
+            self.trial_price_in_cents = trial_price_in_cents 
         if trial_interval is not APIHelper.SKIP:
-            self.trial_interval = trial_interval
+            self.trial_interval = trial_interval 
         if trial_interval_unit is not APIHelper.SKIP:
-            self.trial_interval_unit = trial_interval_unit
+            self.trial_interval_unit = trial_interval_unit 
         if trial_type is not APIHelper.SKIP:
-            self.trial_type = trial_type
+            self.trial_type = trial_type 
         if expiration_interval is not APIHelper.SKIP:
-            self.expiration_interval = expiration_interval
+            self.expiration_interval = expiration_interval 
         if expiration_interval_unit is not APIHelper.SKIP:
-            self.expiration_interval_unit = expiration_interval_unit
+            self.expiration_interval_unit = expiration_interval_unit 
         if auto_create_signup_page is not APIHelper.SKIP:
-            self.auto_create_signup_page = auto_create_signup_page
+            self.auto_create_signup_page = auto_create_signup_page 
         if tax_code is not APIHelper.SKIP:
-            self.tax_code = tax_code
+            self.tax_code = tax_code 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -137,7 +141,7 @@ class CreateOrUpdateProduct(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -148,59 +152,29 @@ class CreateOrUpdateProduct(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         name = dictionary.get("name") if dictionary.get("name") else None
-        description =\
-            dictionary.get("description")\
-            if dictionary.get("description") else None
-        price_in_cents =\
-            dictionary.get("price_in_cents")\
-            if dictionary.get("price_in_cents") else None
-        interval =\
-            dictionary.get("interval")\
-            if dictionary.get("interval") else None
-        interval_unit =\
-            dictionary.get("interval_unit")\
-            if dictionary.get("interval_unit") else None
-        handle =\
-            dictionary.get("handle")\
-            if dictionary.get("handle") else APIHelper.SKIP
-        accounting_code =\
-            dictionary.get("accounting_code")\
-            if dictionary.get("accounting_code") else APIHelper.SKIP
-        require_credit_card =\
-            dictionary.get("require_credit_card")\
-            if "require_credit_card" in dictionary.keys() else APIHelper.SKIP
-        trial_price_in_cents =\
-            dictionary.get("trial_price_in_cents")\
-            if dictionary.get("trial_price_in_cents") else APIHelper.SKIP
-        trial_interval =\
-            dictionary.get("trial_interval")\
-            if dictionary.get("trial_interval") else APIHelper.SKIP
-        trial_interval_unit =\
-            dictionary.get("trial_interval_unit")\
-            if dictionary.get("trial_interval_unit") else APIHelper.SKIP
-        trial_type =\
-            dictionary.get("trial_type")\
-            if dictionary.get("trial_type") else APIHelper.SKIP
-        expiration_interval =\
-            dictionary.get("expiration_interval")\
-            if dictionary.get("expiration_interval") else APIHelper.SKIP
-        expiration_interval_unit =\
-            dictionary.get("expiration_interval_unit")\
-            if dictionary.get("expiration_interval_unit") else APIHelper.SKIP
-        auto_create_signup_page =\
-            dictionary.get("auto_create_signup_page")\
-            if "auto_create_signup_page" in dictionary.keys() else APIHelper.SKIP
-        tax_code =\
-            dictionary.get("tax_code")\
-            if dictionary.get("tax_code") else APIHelper.SKIP
+        description = dictionary.get("description") if dictionary.get("description") else None
+        price_in_cents = dictionary.get("price_in_cents") if dictionary.get("price_in_cents") else None
+        interval = dictionary.get("interval") if dictionary.get("interval") else None
+        interval_unit = dictionary.get("interval_unit") if dictionary.get("interval_unit") else None
+        handle = dictionary.get("handle") if dictionary.get("handle") else APIHelper.SKIP
+        accounting_code = dictionary.get("accounting_code") if dictionary.get("accounting_code") else APIHelper.SKIP
+        require_credit_card = dictionary.get("require_credit_card") if "require_credit_card" in dictionary.keys() else APIHelper.SKIP
+        trial_price_in_cents = dictionary.get("trial_price_in_cents") if dictionary.get("trial_price_in_cents") else APIHelper.SKIP
+        trial_interval = dictionary.get("trial_interval") if dictionary.get("trial_interval") else APIHelper.SKIP
+        trial_interval_unit = dictionary.get("trial_interval_unit") if dictionary.get("trial_interval_unit") else APIHelper.SKIP
+        trial_type = dictionary.get("trial_type") if dictionary.get("trial_type") else APIHelper.SKIP
+        expiration_interval = dictionary.get("expiration_interval") if dictionary.get("expiration_interval") else APIHelper.SKIP
+        expiration_interval_unit = dictionary.get("expiration_interval_unit") if dictionary.get("expiration_interval_unit") else APIHelper.SKIP
+        auto_create_signup_page = dictionary.get("auto_create_signup_page") if "auto_create_signup_page" in dictionary.keys() else APIHelper.SKIP
+        tax_code = dictionary.get("tax_code") if dictionary.get("tax_code") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(name,
                    description,
@@ -221,63 +195,41 @@ class CreateOrUpdateProduct(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!r}, "
-                f"handle={(self.handle if hasattr(self, 'handle') else None)!r}, "
-                f"description={self.description!r}, "
-                f"accounting_code={(self.accounting_code
-                     if hasattr(self, 'accounting_code') else None)!r}, "
-                f"require_credit_card={(self.require_credit_card
-                     if hasattr(self, 'require_credit_card') else None)!r}, "
-                f"price_in_cents={self.price_in_cents!r}, "
-                f"interval={self.interval!r}, "
-                f"interval_unit={self.interval_unit!r}, "
-                f"trial_price_in_cents={(self.trial_price_in_cents
-                     if hasattr(self, 'trial_price_in_cents') else None)!r}, "
-                f"trial_interval={(self.trial_interval
-                     if hasattr(self, 'trial_interval') else None)!r}, "
-                f"trial_interval_unit={(self.trial_interval_unit
-                     if hasattr(self, 'trial_interval_unit') else None)!r}, "
-                f"trial_type={(self.trial_type
-                     if hasattr(self, 'trial_type') else None)!r}, "
-                f"expiration_interval={(self.expiration_interval
-                     if hasattr(self, 'expiration_interval') else None)!r}, "
-                f"expiration_interval_unit={(self.expiration_interval_unit
-                     if hasattr(self, 'expiration_interval_unit') else None)!r}, "
-                f"auto_create_signup_page={(self.auto_create_signup_page
-                     if hasattr(self, 'auto_create_signup_page') else None)!r}, "
-                f"tax_code={(self.tax_code
-                     if hasattr(self, 'tax_code') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'name={self.name!r}, '
+                f'handle={(self.handle if hasattr(self, "handle") else None)!r}, '
+                f'description={self.description!r}, '
+                f'accounting_code={(self.accounting_code if hasattr(self, "accounting_code") else None)!r}, '
+                f'require_credit_card={(self.require_credit_card if hasattr(self, "require_credit_card") else None)!r}, '
+                f'price_in_cents={self.price_in_cents!r}, '
+                f'interval={self.interval!r}, '
+                f'interval_unit={self.interval_unit!r}, '
+                f'trial_price_in_cents={(self.trial_price_in_cents if hasattr(self, "trial_price_in_cents") else None)!r}, '
+                f'trial_interval={(self.trial_interval if hasattr(self, "trial_interval") else None)!r}, '
+                f'trial_interval_unit={(self.trial_interval_unit if hasattr(self, "trial_interval_unit") else None)!r}, '
+                f'trial_type={(self.trial_type if hasattr(self, "trial_type") else None)!r}, '
+                f'expiration_interval={(self.expiration_interval if hasattr(self, "expiration_interval") else None)!r}, '
+                f'expiration_interval_unit={(self.expiration_interval_unit if hasattr(self, "expiration_interval_unit") else None)!r}, '
+                f'auto_create_signup_page={(self.auto_create_signup_page if hasattr(self, "auto_create_signup_page") else None)!r}, '
+                f'tax_code={(self.tax_code if hasattr(self, "tax_code") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!s}, "
-                f"handle={(self.handle if hasattr(self, 'handle') else None)!s}, "
-                f"description={self.description!s}, "
-                f"accounting_code={(self.accounting_code
-                     if hasattr(self, 'accounting_code') else None)!s}, "
-                f"require_credit_card={(self.require_credit_card
-                     if hasattr(self, 'require_credit_card') else None)!s}, "
-                f"price_in_cents={self.price_in_cents!s}, "
-                f"interval={self.interval!s}, "
-                f"interval_unit={self.interval_unit!s}, "
-                f"trial_price_in_cents={(self.trial_price_in_cents
-                     if hasattr(self, 'trial_price_in_cents') else None)!s}, "
-                f"trial_interval={(self.trial_interval
-                     if hasattr(self, 'trial_interval') else None)!s}, "
-                f"trial_interval_unit={(self.trial_interval_unit
-                     if hasattr(self, 'trial_interval_unit') else None)!s}, "
-                f"trial_type={(self.trial_type
-                     if hasattr(self, 'trial_type') else None)!s}, "
-                f"expiration_interval={(self.expiration_interval
-                     if hasattr(self, 'expiration_interval') else None)!s}, "
-                f"expiration_interval_unit={(self.expiration_interval_unit
-                     if hasattr(self, 'expiration_interval_unit') else None)!s}, "
-                f"auto_create_signup_page={(self.auto_create_signup_page
-                     if hasattr(self, 'auto_create_signup_page') else None)!s}, "
-                f"tax_code={(self.tax_code
-                     if hasattr(self, 'tax_code') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'name={self.name!s}, '
+                f'handle={(self.handle if hasattr(self, "handle") else None)!s}, '
+                f'description={self.description!s}, '
+                f'accounting_code={(self.accounting_code if hasattr(self, "accounting_code") else None)!s}, '
+                f'require_credit_card={(self.require_credit_card if hasattr(self, "require_credit_card") else None)!s}, '
+                f'price_in_cents={self.price_in_cents!s}, '
+                f'interval={self.interval!s}, '
+                f'interval_unit={self.interval_unit!s}, '
+                f'trial_price_in_cents={(self.trial_price_in_cents if hasattr(self, "trial_price_in_cents") else None)!s}, '
+                f'trial_interval={(self.trial_interval if hasattr(self, "trial_interval") else None)!s}, '
+                f'trial_interval_unit={(self.trial_interval_unit if hasattr(self, "trial_interval_unit") else None)!s}, '
+                f'trial_type={(self.trial_type if hasattr(self, "trial_type") else None)!s}, '
+                f'expiration_interval={(self.expiration_interval if hasattr(self, "expiration_interval") else None)!s}, '
+                f'expiration_interval_unit={(self.expiration_interval_unit if hasattr(self, "expiration_interval_unit") else None)!s}, '
+                f'auto_create_signup_page={(self.auto_create_signup_page if hasattr(self, "auto_create_signup_page") else None)!s}, '
+                f'tax_code={(self.tax_code if hasattr(self, "tax_code") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

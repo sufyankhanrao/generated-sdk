@@ -1,19 +1,18 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.payer_error import (
-    PayerError,
-)
-from advancedbilling.models.subscription_group_subscription_error import (
-    SubscriptionGroupSubscriptionError,
-)
+from advancedbilling.models.payer_error import PayerError
+from advancedbilling.models.subscription_group_subscription_error import SubscriptionGroupSubscriptionError
 
 
 class SubscriptionGroupSignupError(object):
+
     """Implementation of the 'Subscription Group Signup Error' model.
 
     Attributes:
@@ -32,21 +31,21 @@ class SubscriptionGroupSignupError(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "subscriptions": "subscriptions",
-        "payer_reference": "payer_reference",
-        "payer": "payer",
-        "subscription_group": "subscription_group",
-        "payment_profile_id": "payment_profile_id",
-        "payer_id": "payer_id",
+        "subscriptions": 'subscriptions',
+        "payer_reference": 'payer_reference',
+        "payer": 'payer',
+        "subscription_group": 'subscription_group',
+        "payment_profile_id": 'payment_profile_id',
+        "payer_id": 'payer_id'
     }
 
     _optionals = [
-        "subscriptions",
-        "payer_reference",
-        "payer",
-        "subscription_group",
-        "payment_profile_id",
-        "payer_id",
+        'subscriptions',
+        'payer_reference',
+        'payer',
+        'subscription_group',
+        'payment_profile_id',
+        'payer_id',
     ]
 
     def __init__(self,
@@ -57,20 +56,21 @@ class SubscriptionGroupSignupError(object):
                  payment_profile_id=APIHelper.SKIP,
                  payer_id=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a SubscriptionGroupSignupError instance."""
+        """Constructor for the SubscriptionGroupSignupError class"""
+
         # Initialize members of the class
         if subscriptions is not APIHelper.SKIP:
-            self.subscriptions = subscriptions
+            self.subscriptions = subscriptions 
         if payer_reference is not APIHelper.SKIP:
-            self.payer_reference = payer_reference
+            self.payer_reference = payer_reference 
         if payer is not APIHelper.SKIP:
-            self.payer = payer
+            self.payer = payer 
         if subscription_group is not APIHelper.SKIP:
-            self.subscription_group = subscription_group
+            self.subscription_group = subscription_group 
         if payment_profile_id is not APIHelper.SKIP:
-            self.payment_profile_id = payment_profile_id
+            self.payment_profile_id = payment_profile_id 
         if payer_id is not APIHelper.SKIP:
-            self.payer_id = payer_id
+            self.payer_id = payer_id 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -80,7 +80,7 @@ class SubscriptionGroupSignupError(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -91,31 +91,19 @@ class SubscriptionGroupSignupError(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        subscriptions = SubscriptionGroupSubscriptionError.from_dictionary(
-            dictionary.get("subscriptions"))\
-            if "subscriptions" in dictionary.keys() else APIHelper.SKIP
-        payer_reference =\
-            dictionary.get("payer_reference")\
-            if dictionary.get("payer_reference") else APIHelper.SKIP
-        payer = PayerError.from_dictionary(
-            dictionary.get("payer"))\
-            if "payer" in dictionary.keys() else APIHelper.SKIP
-        subscription_group =\
-            dictionary.get("subscription_group")\
-            if dictionary.get("subscription_group") else APIHelper.SKIP
-        payment_profile_id =\
-            dictionary.get("payment_profile_id")\
-            if dictionary.get("payment_profile_id") else APIHelper.SKIP
-        payer_id =\
-            dictionary.get("payer_id")\
-            if dictionary.get("payer_id") else APIHelper.SKIP
+        subscriptions = SubscriptionGroupSubscriptionError.from_dictionary(dictionary.get('subscriptions')) if 'subscriptions' in dictionary.keys() else APIHelper.SKIP
+        payer_reference = dictionary.get("payer_reference") if dictionary.get("payer_reference") else APIHelper.SKIP
+        payer = PayerError.from_dictionary(dictionary.get('payer')) if 'payer' in dictionary.keys() else APIHelper.SKIP
+        subscription_group = dictionary.get("subscription_group") if dictionary.get("subscription_group") else APIHelper.SKIP
+        payment_profile_id = dictionary.get("payment_profile_id") if dictionary.get("payment_profile_id") else APIHelper.SKIP
+        payer_id = dictionary.get("payer_id") if dictionary.get("payer_id") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(subscriptions,
                    payer_reference,
@@ -126,33 +114,21 @@ class SubscriptionGroupSignupError(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"subscriptions={(self.subscriptions
-                     if hasattr(self, 'subscriptions') else None)!r}, "
-                f"payer_reference={(self.payer_reference
-                     if hasattr(self, 'payer_reference') else None)!r}, "
-                f"payer={(self.payer if hasattr(self, 'payer') else None)!r}, "
-                f"subscription_group={(self.subscription_group
-                     if hasattr(self, 'subscription_group') else None)!r}, "
-                f"payment_profile_id={(self.payment_profile_id
-                     if hasattr(self, 'payment_profile_id') else None)!r}, "
-                f"payer_id={(self.payer_id
-                     if hasattr(self, 'payer_id') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'subscriptions={(self.subscriptions if hasattr(self, "subscriptions") else None)!r}, '
+                f'payer_reference={(self.payer_reference if hasattr(self, "payer_reference") else None)!r}, '
+                f'payer={(self.payer if hasattr(self, "payer") else None)!r}, '
+                f'subscription_group={(self.subscription_group if hasattr(self, "subscription_group") else None)!r}, '
+                f'payment_profile_id={(self.payment_profile_id if hasattr(self, "payment_profile_id") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"subscriptions={(self.subscriptions
-                     if hasattr(self, 'subscriptions') else None)!s}, "
-                f"payer_reference={(self.payer_reference
-                     if hasattr(self, 'payer_reference') else None)!s}, "
-                f"payer={(self.payer if hasattr(self, 'payer') else None)!s}, "
-                f"subscription_group={(self.subscription_group
-                     if hasattr(self, 'subscription_group') else None)!s}, "
-                f"payment_profile_id={(self.payment_profile_id
-                     if hasattr(self, 'payment_profile_id') else None)!s}, "
-                f"payer_id={(self.payer_id
-                     if hasattr(self, 'payer_id') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'subscriptions={(self.subscriptions if hasattr(self, "subscriptions") else None)!s}, '
+                f'payer_reference={(self.payer_reference if hasattr(self, "payer_reference") else None)!s}, '
+                f'payer={(self.payer if hasattr(self, "payer") else None)!s}, '
+                f'subscription_group={(self.subscription_group if hasattr(self, "subscription_group") else None)!s}, '
+                f'payment_profile_id={(self.payment_profile_id if hasattr(self, "payment_profile_id") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

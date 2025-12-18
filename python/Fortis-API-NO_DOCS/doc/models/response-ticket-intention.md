@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type27Enum`](../../doc/models/type-27-enum.md) | Optional | Resource Type<br><br>**Default**: `"TicketIntention"` |
+| `mtype` | [`Type27Enum`](../../doc/models/type-27-enum.md) | Optional | Resource Type<br><br>**Default**: `'TicketIntention'` |
 | `data` | [`Data7`](../../doc/models/data-7.md) | Optional | - |
 
 ## Example (as JSON)

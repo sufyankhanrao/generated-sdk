@@ -1,14 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.models.invoice import Invoice
 
 
 class ConsolidatedInvoice(object):
+
     """Implementation of the 'Consolidated Invoice' model.
 
     Attributes:
@@ -20,20 +23,21 @@ class ConsolidatedInvoice(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "invoices": "invoices",
+        "invoices": 'invoices'
     }
 
     _optionals = [
-        "invoices",
+        'invoices',
     ]
 
     def __init__(self,
                  invoices=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a ConsolidatedInvoice instance."""
+        """Constructor for the ConsolidatedInvoice class"""
+
         # Initialize members of the class
         if invoices is not APIHelper.SKIP:
-            self.invoices = invoices
+            self.invoices = invoices 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -43,7 +47,7 @@ class ConsolidatedInvoice(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -54,35 +58,28 @@ class ConsolidatedInvoice(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         invoices = None
-        if dictionary.get("invoices") is not None:
-            invoices = [
-                Invoice.from_dictionary(x)
-                    for x in dictionary.get("invoices")
-            ]
+        if dictionary.get('invoices') is not None:
+            invoices = [Invoice.from_dictionary(x) for x in dictionary.get('invoices')]
         else:
             invoices = APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(invoices,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"invoices={(self.invoices
-                     if hasattr(self, 'invoices') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'invoices={(self.invoices if hasattr(self, "invoices") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"invoices={(self.invoices
-                     if hasattr(self, 'invoices') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'invoices={(self.invoices if hasattr(self, "invoices") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

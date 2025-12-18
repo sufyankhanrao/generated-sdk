@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class BillingManifestLineItemKind(object):
+
     """Implementation of the 'Billing Manifest Line Item Kind' enum.
 
     A handle for the billing manifest line item kind
@@ -21,22 +25,20 @@ class BillingManifestLineItemKind(object):
             for the model.
 
     """
+    BASELINE = 'baseline'
 
-    BASELINE = "baseline"
+    INITIAL = 'initial'
 
-    INITIAL = "initial"
+    TRIAL = 'trial'
 
-    TRIAL = "trial"
+    COUPON = 'coupon'
 
-    COUPON = "coupon"
+    COMPONENT = 'component'
 
-    COMPONENT = "component"
-
-    TAX = "tax"
+    TAX = 'tax'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

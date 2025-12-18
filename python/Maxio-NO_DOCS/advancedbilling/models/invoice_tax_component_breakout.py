@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class InvoiceTaxComponentBreakout(object):
+
     """Implementation of the 'Invoice Tax Component Breakout' model.
 
     Attributes:
@@ -22,17 +25,17 @@ class InvoiceTaxComponentBreakout(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "tax_rule_id": "tax_rule_id",
-        "percentage": "percentage",
-        "country_code": "country_code",
-        "subdivision_code": "subdivision_code",
+        "tax_rule_id": 'tax_rule_id',
+        "percentage": 'percentage',
+        "country_code": 'country_code',
+        "subdivision_code": 'subdivision_code'
     }
 
     _optionals = [
-        "tax_rule_id",
-        "percentage",
-        "country_code",
-        "subdivision_code",
+        'tax_rule_id',
+        'percentage',
+        'country_code',
+        'subdivision_code',
     ]
 
     def __init__(self,
@@ -41,16 +44,17 @@ class InvoiceTaxComponentBreakout(object):
                  country_code=APIHelper.SKIP,
                  subdivision_code=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a InvoiceTaxComponentBreakout instance."""
+        """Constructor for the InvoiceTaxComponentBreakout class"""
+
         # Initialize members of the class
         if tax_rule_id is not APIHelper.SKIP:
-            self.tax_rule_id = tax_rule_id
+            self.tax_rule_id = tax_rule_id 
         if percentage is not APIHelper.SKIP:
-            self.percentage = percentage
+            self.percentage = percentage 
         if country_code is not APIHelper.SKIP:
-            self.country_code = country_code
+            self.country_code = country_code 
         if subdivision_code is not APIHelper.SKIP:
-            self.subdivision_code = subdivision_code
+            self.subdivision_code = subdivision_code 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -60,7 +64,7 @@ class InvoiceTaxComponentBreakout(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -71,25 +75,17 @@ class InvoiceTaxComponentBreakout(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        tax_rule_id =\
-            dictionary.get("tax_rule_id")\
-            if dictionary.get("tax_rule_id") else APIHelper.SKIP
-        percentage =\
-            dictionary.get("percentage")\
-            if dictionary.get("percentage") else APIHelper.SKIP
-        country_code =\
-            dictionary.get("country_code")\
-            if dictionary.get("country_code") else APIHelper.SKIP
-        subdivision_code =\
-            dictionary.get("subdivision_code")\
-            if dictionary.get("subdivision_code") else APIHelper.SKIP
+        tax_rule_id = dictionary.get("tax_rule_id") if dictionary.get("tax_rule_id") else APIHelper.SKIP
+        percentage = dictionary.get("percentage") if dictionary.get("percentage") else APIHelper.SKIP
+        country_code = dictionary.get("country_code") if dictionary.get("country_code") else APIHelper.SKIP
+        subdivision_code = dictionary.get("subdivision_code") if dictionary.get("subdivision_code") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(tax_rule_id,
                    percentage,
@@ -99,7 +95,7 @@ class InvoiceTaxComponentBreakout(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -110,6 +106,7 @@ class InvoiceTaxComponentBreakout(object):
             boolean : if dictionary is valid contains required properties.
 
         """
+
         if isinstance(dictionary, cls):
             return True
 
@@ -119,27 +116,17 @@ class InvoiceTaxComponentBreakout(object):
         return True
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"tax_rule_id={(self.tax_rule_id
-                     if hasattr(self, 'tax_rule_id') else None)!r}, "
-                f"percentage={(self.percentage
-                     if hasattr(self, 'percentage') else None)!r}, "
-                f"country_code={(self.country_code
-                     if hasattr(self, 'country_code') else None)!r}, "
-                f"subdivision_code={(self.subdivision_code
-                     if hasattr(self, 'subdivision_code') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'tax_rule_id={(self.tax_rule_id if hasattr(self, "tax_rule_id") else None)!r}, '
+                f'percentage={(self.percentage if hasattr(self, "percentage") else None)!r}, '
+                f'country_code={(self.country_code if hasattr(self, "country_code") else None)!r}, '
+                f'subdivision_code={(self.subdivision_code if hasattr(self, "subdivision_code") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"tax_rule_id={(self.tax_rule_id
-                     if hasattr(self, 'tax_rule_id') else None)!s}, "
-                f"percentage={(self.percentage
-                     if hasattr(self, 'percentage') else None)!s}, "
-                f"country_code={(self.country_code
-                     if hasattr(self, 'country_code') else None)!s}, "
-                f"subdivision_code={(self.subdivision_code
-                     if hasattr(self, 'subdivision_code') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'tax_rule_id={(self.tax_rule_id if hasattr(self, "tax_rule_id") else None)!s}, '
+                f'percentage={(self.percentage if hasattr(self, "percentage") else None)!s}, '
+                f'country_code={(self.country_code if hasattr(self, "country_code") else None)!s}, '
+                f'subdivision_code={(self.subdivision_code if hasattr(self, "subdivision_code") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

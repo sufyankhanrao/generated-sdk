@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `action` | [`ActionEnum`](../../doc/models/action-enum.md) | Optional | The action to be performed<br><br>**Default**: `"sale"` |
+| `action` | [`ActionEnum`](../../doc/models/action-enum.md) | Optional | The action to be performed<br><br>**Default**: `'sale'` |
 | `digital_wallets_only` | `bool` | Optional | **Default**: `False` |
 | `methods` | [`List[Method3]`](../../doc/models/method-3.md) | Optional | By default the system will try to offer all the availables payment methods from your account. But if you like, you can specify exactly what services you want to use.<br><br>**Constraints**: *Minimum Items*: `1`, *Unique Items Required* |
 | `amount` | `int` | Optional | The total amount to be charged. Allowed on the actions: `sale`, `auth-only`, `refund`<br><br>**Constraints**: `>= 1`, `<= 999999999` |
@@ -20,7 +20,7 @@
 | `save_account` | bool \| None | Optional | This is a container for any-of cases. |
 | `save_account_title` | str \| None | Optional | This is a container for any-of cases.<br><br>**Constraints**: *Maximum Length*: `16` |
 | `title` | str \| None | Optional | This is a container for any-of cases.<br><br>**Constraints**: *Maximum Length*: `16` |
-| `ach_sec_code` | [`AchSecCodeEnum`](../../doc/models/ach-sec-code-enum.md) | Optional | SEC code for the transaction if it's an ACH transaction<br><br>**Default**: `"WEB"` |
+| `ach_sec_code` | [`AchSecCodeEnum`](../../doc/models/ach-sec-code-enum.md) | Optional | SEC code for the transaction if it's an ACH transaction<br><br>**Default**: `'WEB'` |
 | `bank_funded_only_override` | bool \| None | Optional | This is a container for any-of cases. |
 | `allow_partial_authorization_override` | bool \| None | Optional | This is a container for any-of cases. |
 | `auto_decline_cvv_override` | bool \| None | Optional | This is a container for any-of cases. |

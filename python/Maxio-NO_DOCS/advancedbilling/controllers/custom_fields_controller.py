@@ -1,58 +1,40 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
-from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
-from apimatic_core.types.array_serialization_format import (
-    SerializationFormats,
-)
-from apimatic_core.types.parameter import Parameter
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.single_error_response_exception import (
-    SingleErrorResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.list_metafields_response import (
-    ListMetafieldsResponse,
-)
-from advancedbilling.models.metadata import (
-    Metadata,
-)
-from advancedbilling.models.metafield import (
-    Metafield,
-)
-from advancedbilling.models.paginated_metadata import (
-    PaginatedMetadata,
-)
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.types.array_serialization_format import SerializationFormats
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.metafield import Metafield
+from advancedbilling.models.list_metafields_response import ListMetafieldsResponse
+from advancedbilling.models.metadata import Metadata
+from advancedbilling.models.paginated_metadata import PaginatedMetadata
+from advancedbilling.exceptions.single_error_response_exception import SingleErrorResponseException
+from advancedbilling.exceptions.api_exception import APIException
 
 
 class CustomFieldsController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize CustomFieldsController object."""
         super(CustomFieldsController, self).__init__(config)
 
     def create_metafields(self,
                           resource_type,
                           body=None):
-        """Perform a POST request to /{resource_type}/metafields.json.
+        """Does a POST request to /{resource_type}/metafields.json.
 
         ## Custom Fields: Metafield Intro
         **Chargify refers to Custom Fields in the API documentation as
@@ -108,39 +90,37 @@ class CustomFieldsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/{resource_type}/metafields.json")
+            .path('/{resource_type}/metafields.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("resource_type")
+                            .key('resource_type')
                             .value(resource_type)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Metafield.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SingleErrorResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SingleErrorResponseException)
         ).execute()
 
     def list_metafields(self,
                         options=dict()):
-        """Perform a GET request to /{resource_type}/metafields.json.
+        """Does a GET request to /{resource_type}/metafields.json.
 
         This endpoint lists metafields associated with a site. The metafield
         description and usage is contained in the response.
@@ -151,6 +131,7 @@ class CustomFieldsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     resource_type -- ResourceType -- the resource type to
                         which the metafields belong
                     name -- str -- filter by the name of the metafield
@@ -183,42 +164,43 @@ class CustomFieldsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/{resource_type}/metafields.json")
+            .path('/{resource_type}/metafields.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("resource_type")
-                            .value(options.get("resource_type", None))
+                            .key('resource_type')
+                            .value(options.get('resource_type', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("name")
-                         .value(options.get("name", None)))
+                         .key('name')
+                         .value(options.get('name', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListMetafieldsResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_metafield(self,
                          resource_type,
                          body=None):
-        """Perform a PUT request to /{resource_type}/metafields.json.
+        """Does a PUT request to /{resource_type}/metafields.json.
 
         Use the following method to update metafields for your Site.
         Metafields can be populated with metadata after the fact.
@@ -240,40 +222,38 @@ class CustomFieldsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/{resource_type}/metafields.json")
+            .path('/{resource_type}/metafields.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("resource_type")
+                            .key('resource_type')
                             .value(resource_type)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Metafield.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SingleErrorResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SingleErrorResponseException)
         ).execute()
 
     def delete_metafield(self,
                          resource_type,
                          name=None):
-        """Perform a DELETE request to /{resource_type}/metafields.json.
+        """Does a DELETE request to /{resource_type}/metafields.json.
 
         Use the following method to delete a metafield. This will remove the
         metafield from the Site.
@@ -296,30 +276,31 @@ class CustomFieldsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/{resource_type}/metafields.json")
+            .path('/{resource_type}/metafields.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("resource_type")
+                            .key('resource_type')
                             .value(resource_type)
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("name")
+                         .key('name')
                          .value(name))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
         ).execute()
 
     def create_metadata(self,
                         resource_type,
                         resource_id,
                         body=None):
-        """Perform a POST request to /{resource_type}/{resource_id}/metadata.json.
+        """Does a POST request to /{resource_type}/{resource_id}/metadata.json.
 
         ## Custom Fields: Metadata Intro
         **Chargify refers to Custom Fields in the API documentation as
@@ -368,44 +349,42 @@ class CustomFieldsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/{resource_type}/{resource_id}/metadata.json")
+            .path('/{resource_type}/{resource_id}/metadata.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("resource_type")
+                            .key('resource_type')
                             .value(resource_type)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("resource_id")
+                            .key('resource_id')
                             .value(resource_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Metadata.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SingleErrorResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SingleErrorResponseException)
         ).execute()
 
     def list_metadata(self,
                       options=dict()):
-        """Perform a GET request to /{resource_type}/{resource_id}/metadata.json.
+        """Does a GET request to /{resource_type}/{resource_id}/metadata.json.
 
         This request will list all of the metadata belonging to a particular
         resource (ie. subscription, customer) that is specified.
@@ -419,6 +398,7 @@ class CustomFieldsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     resource_type -- ResourceType -- the resource type to
                         which the metafields belong
                     resource_id -- int -- The Chargify id of the customer or
@@ -449,42 +429,43 @@ class CustomFieldsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/{resource_type}/{resource_id}/metadata.json")
+            .path('/{resource_type}/{resource_id}/metadata.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("resource_type")
-                            .value(options.get("resource_type", None))
+                            .key('resource_type')
+                            .value(options.get('resource_type', None))
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("resource_id")
-                            .value(options.get("resource_id", None))
+                            .key('resource_id')
+                            .value(options.get('resource_id', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaginatedMetadata.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_metadata(self,
                         resource_type,
                         resource_id,
                         body=None):
-        """Perform a PUT request to /{resource_type}/{resource_id}/metadata.json.
+        """Does a PUT request to /{resource_type}/{resource_id}/metadata.json.
 
         This method allows you to update the existing metadata associated with
         a subscription or customer.
@@ -507,39 +488,37 @@ class CustomFieldsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/{resource_type}/{resource_id}/metadata.json")
+            .path('/{resource_type}/{resource_id}/metadata.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("resource_type")
+                            .key('resource_type')
                             .value(resource_type)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("resource_id")
+                            .key('resource_id')
                             .value(resource_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Metadata.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SingleErrorResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SingleErrorResponseException)
         ).execute()
 
     def delete_metadata(self,
@@ -547,7 +526,7 @@ class CustomFieldsController(BaseController):
                         resource_id,
                         name=None,
                         names=None):
-        """Perform a DELETE request to /{resource_type}/{resource_id}/metadata.json.
+        """Does a DELETE request to /{resource_type}/{resource_id}/metadata.json.
 
         This method removes the metadata from the subscriber/customer cited.
         ## Query String Usage
@@ -589,37 +568,38 @@ class CustomFieldsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/{resource_type}/{resource_id}/metadata.json")
+            .path('/{resource_type}/{resource_id}/metadata.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("resource_type")
+                            .key('resource_type')
                             .value(resource_type)
                             .is_required(True)
                             .should_encode(True))
             .template_param(Parameter()
-                            .key("resource_id")
+                            .key('resource_id')
                             .value(resource_id)
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("name")
+                         .key('name')
                          .value(name))
             .query_param(Parameter()
-                         .key("names")
+                         .key('names')
                          .value(names))
             .array_serialization_format(SerializationFormats.UN_INDEXED)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
         ).execute()
 
     def list_metadata_for_resource_type(self,
                                         options=dict()):
-        """Perform a GET request to /{resource_type}/metadata.json.
+        """Does a GET request to /{resource_type}/metadata.json.
 
         This method will provide you information on usage of metadata across
         your selected resource (ie. subscriptions, customers)
@@ -639,6 +619,7 @@ class CustomFieldsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     resource_type -- ResourceType -- the resource type to
                         which the metafields belong
                     page -- int -- Result records are organized in pages. By
@@ -699,55 +680,54 @@ class CustomFieldsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/{resource_type}/metadata.json")
+            .path('/{resource_type}/metadata.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("resource_type")
-                            .value(options.get("resource_type", None))
+                            .key('resource_type')
+                            .value(options.get('resource_type', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("date_field")
-                         .value(options.get("date_field", None)))
+                         .key('date_field')
+                         .value(options.get('date_field', None)))
             .query_param(Parameter()
-                         .key("start_date")
-                         .value(options.get("start_date", None)))
+                         .key('start_date')
+                         .value(options.get('start_date', None)))
             .query_param(Parameter()
-                         .key("end_date")
-                         .value(options.get("end_date", None)))
+                         .key('end_date')
+                         .value(options.get('end_date', None)))
             .query_param(Parameter()
-                         .key("start_datetime")
-                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                             options.get("start_datetime", None))))
+                         .key('start_datetime')
+                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime, options.get('start_datetime', None))))
             .query_param(Parameter()
-                         .key("end_datetime")
-                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                             options.get("end_datetime", None))))
+                         .key('end_datetime')
+                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime, options.get('end_datetime', None))))
             .query_param(Parameter()
-                         .key("with_deleted")
-                         .value(options.get("with_deleted", None)))
+                         .key('with_deleted')
+                         .value(options.get('with_deleted', None)))
             .query_param(Parameter()
-                         .key("resource_ids")
-                         .value(options.get("resource_ids", None)))
+                         .key('resource_ids')
+                         .value(options.get('resource_ids', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.UN_INDEXED)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaginatedMetadata.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()

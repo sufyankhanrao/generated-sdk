@@ -1,13 +1,16 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
 
 
 class Address1(object):
+
     """Implementation of the 'Address1' model.
 
     The pickup location address
@@ -24,21 +27,21 @@ class Address1(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "street": "Street",
-        "zipcode": "Zipcode",
-        "house_nr": "HouseNr",
-        "house_nr_ext": "HouseNrExt",
-        "countrycode": "Countrycode",
-        "company_name": "CompanyName",
+        "street": 'Street',
+        "zipcode": 'Zipcode',
+        "house_nr": 'HouseNr',
+        "house_nr_ext": 'HouseNrExt',
+        "countrycode": 'Countrycode',
+        "company_name": 'CompanyName'
     }
 
     _optionals = [
-        "street",
-        "zipcode",
-        "house_nr",
-        "house_nr_ext",
-        "countrycode",
-        "company_name",
+        'street',
+        'zipcode',
+        'house_nr',
+        'house_nr_ext',
+        'countrycode',
+        'company_name',
     ]
 
     def __init__(self,
@@ -48,25 +51,26 @@ class Address1(object):
                  house_nr_ext=APIHelper.SKIP,
                  countrycode=APIHelper.SKIP,
                  company_name=APIHelper.SKIP):
-        """Initialize a Address1 instance."""
+        """Constructor for the Address1 class"""
+
         # Initialize members of the class
         if street is not APIHelper.SKIP:
-            self.street = street
+            self.street = street 
         if zipcode is not APIHelper.SKIP:
-            self.zipcode = zipcode
+            self.zipcode = zipcode 
         if house_nr is not APIHelper.SKIP:
-            self.house_nr = house_nr
+            self.house_nr = house_nr 
         if house_nr_ext is not APIHelper.SKIP:
-            self.house_nr_ext = house_nr_ext
+            self.house_nr_ext = house_nr_ext 
         if countrycode is not APIHelper.SKIP:
-            self.countrycode = countrycode
+            self.countrycode = countrycode 
         if company_name is not APIHelper.SKIP:
-            self.company_name = company_name
+            self.company_name = company_name 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -77,28 +81,17 @@ class Address1(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        street =\
-            dictionary.get("Street")\
-            if dictionary.get("Street") else APIHelper.SKIP
-        zipcode =\
-            dictionary.get("Zipcode")\
-            if dictionary.get("Zipcode") else APIHelper.SKIP
-        house_nr =\
-            dictionary.get("HouseNr")\
-            if dictionary.get("HouseNr") else APIHelper.SKIP
-        house_nr_ext =\
-            dictionary.get("HouseNrExt")\
-            if dictionary.get("HouseNrExt") else APIHelper.SKIP
-        countrycode =\
-            dictionary.get("Countrycode")\
-            if dictionary.get("Countrycode") else APIHelper.SKIP
-        company_name =\
-            dictionary.get("CompanyName")\
-            if dictionary.get("CompanyName") else APIHelper.SKIP
+        street = dictionary.get("Street") if dictionary.get("Street") else APIHelper.SKIP
+        zipcode = dictionary.get("Zipcode") if dictionary.get("Zipcode") else APIHelper.SKIP
+        house_nr = dictionary.get("HouseNr") if dictionary.get("HouseNr") else APIHelper.SKIP
+        house_nr_ext = dictionary.get("HouseNrExt") if dictionary.get("HouseNrExt") else APIHelper.SKIP
+        countrycode = dictionary.get("Countrycode") if dictionary.get("Countrycode") else APIHelper.SKIP
+        company_name = dictionary.get("CompanyName") if dictionary.get("CompanyName") else APIHelper.SKIP
         # Return an object of this model
         return cls(street,
                    zipcode,
@@ -108,31 +101,19 @@ class Address1(object):
                    company_name)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"street={(self.street if hasattr(self, 'street') else None)!r}, "
-                f"zipcode={(self.zipcode
-                     if hasattr(self, 'zipcode') else None)!r}, "
-                f"house_nr={(self.house_nr
-                     if hasattr(self, 'house_nr') else None)!r}, "
-                f"house_nr_ext={(self.house_nr_ext
-                     if hasattr(self, 'house_nr_ext') else None)!r}, "
-                f"countrycode={(self.countrycode
-                     if hasattr(self, 'countrycode') else None)!r}, "
-                f"company_name={(self.company_name
-                     if hasattr(self, 'company_name') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'street={(self.street if hasattr(self, "street") else None)!r}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!r}, '
+                f'house_nr={(self.house_nr if hasattr(self, "house_nr") else None)!r}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!r}, '
+                f'countrycode={(self.countrycode if hasattr(self, "countrycode") else None)!r}, '
+                f'company_name={(self.company_name if hasattr(self, "company_name") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"street={(self.street if hasattr(self, 'street') else None)!s}, "
-                f"zipcode={(self.zipcode
-                     if hasattr(self, 'zipcode') else None)!s}, "
-                f"house_nr={(self.house_nr
-                     if hasattr(self, 'house_nr') else None)!s}, "
-                f"house_nr_ext={(self.house_nr_ext
-                     if hasattr(self, 'house_nr_ext') else None)!s}, "
-                f"countrycode={(self.countrycode
-                     if hasattr(self, 'countrycode') else None)!s}, "
-                f"company_name={(self.company_name
-                     if hasattr(self, 'company_name') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'street={(self.street if hasattr(self, "street") else None)!s}, '
+                f'zipcode={(self.zipcode if hasattr(self, "zipcode") else None)!s}, '
+                f'house_nr={(self.house_nr if hasattr(self, "house_nr") else None)!s}, '
+                f'house_nr_ext={(self.house_nr_ext if hasattr(self, "house_nr_ext") else None)!s}, '
+                f'countrycode={(self.countrycode if hasattr(self, "countrycode") else None)!s}, '
+                f'company_name={(self.company_name if hasattr(self, "company_name") else None)!s})')

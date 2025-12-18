@@ -556,7 +556,7 @@ You can poll our API to get the Id(s) of multiple envelopes by providing a date 
 def get_envelope_ids(self,
                     date_from,
                     date_to,
-                    status="EXECUTED")
+                    status='EXECUTED')
 ```
 
 ## Parameters
@@ -565,7 +565,7 @@ def get_envelope_ids(self,
 |  --- | --- | --- | --- |
 | `date_from` | `str` | Query, Required | Start of the Envelope Creation Date range. Accepted format: YYYY-MM-DD<br><br>**Constraints**: *Pattern*: `^\d{4}\-(0[1-9]\|1[012])\-(0[1-9]\|[12][0-9]\|3[01])$` |
 | `date_to` | `str` | Query, Required | Start of the Envelope Creation Date range. Accepted format: YYYY-MM-DD. <br/> <br/>Note: dateTo value should be under the 6 months from dateFrom value.<br><br>**Constraints**: *Pattern*: `^\d{4}\-(0[1-9]\|1[012])\-(0[1-9]\|[12][0-9]\|3[01])$` |
-| `status` | [`EnvelopeStatusEnum`](../../doc/models/envelope-status-enum.md) | Query, Optional | Get FolderIds by the folder status. Status parameter can have any of the following values: EXECUTED,SHARED,DRAFT, PARTIALLY SIGNED, CANCELLED, EXPIRED and DELETED. <br/>  <br/> Note: If you don't pass this parameter, then by default you will receive envelopes with any status.<br><br>**Default**: `"EXECUTED"` |
+| `status` | [`EnvelopeStatusEnum`](../../doc/models/envelope-status-enum.md) | Query, Optional | Get FolderIds by the folder status. Status parameter can have any of the following values: EXECUTED,SHARED,DRAFT, PARTIALLY SIGNED, CANCELLED, EXPIRED and DELETED. <br/>  <br/> Note: If you don't pass this parameter, then by default you will receive envelopes with any status.<br><br>**Default**: `'EXECUTED'` |
 
 ## Response Type
 

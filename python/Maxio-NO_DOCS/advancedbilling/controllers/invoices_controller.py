@@ -1,77 +1,47 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
-from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
-from apimatic_core.types.array_serialization_format import (
-    SerializationFormats,
-)
-from apimatic_core.types.parameter import Parameter
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.error_array_map_response_exception import (
-    ErrorArrayMapResponseException,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.consolidated_invoice import (
-    ConsolidatedInvoice,
-)
-from advancedbilling.models.credit_note import (
-    CreditNote,
-)
-from advancedbilling.models.customer_changes_preview_response import (
-    CustomerChangesPreviewResponse,
-)
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.types.array_serialization_format import SerializationFormats
+from apimatic_core.authentication.multiple.single_auth import Single
 from advancedbilling.models.invoice import Invoice
-from advancedbilling.models.invoice_response import (
-    InvoiceResponse,
-)
-from advancedbilling.models.list_credit_notes_response import (
-    ListCreditNotesResponse,
-)
-from advancedbilling.models.list_invoice_events_response import (
-    ListInvoiceEventsResponse,
-)
-from advancedbilling.models.list_invoices_response import (
-    ListInvoicesResponse,
-)
-from advancedbilling.models.multi_invoice_payment_response import (
-    MultiInvoicePaymentResponse,
-)
-from advancedbilling.models.record_payment_response import (
-    RecordPaymentResponse,
-)
+from advancedbilling.models.list_invoices_response import ListInvoicesResponse
+from advancedbilling.models.list_invoice_events_response import ListInvoiceEventsResponse
+from advancedbilling.models.multi_invoice_payment_response import MultiInvoicePaymentResponse
+from advancedbilling.models.list_credit_notes_response import ListCreditNotesResponse
+from advancedbilling.models.credit_note import CreditNote
+from advancedbilling.models.record_payment_response import RecordPaymentResponse
+from advancedbilling.models.consolidated_invoice import ConsolidatedInvoice
+from advancedbilling.models.invoice_response import InvoiceResponse
+from advancedbilling.models.customer_changes_preview_response import CustomerChangesPreviewResponse
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
+from advancedbilling.exceptions.api_exception import APIException
+from advancedbilling.exceptions.error_array_map_response_exception import ErrorArrayMapResponseException
 
 
 class InvoicesController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize InvoicesController object."""
         super(InvoicesController, self).__init__(config)
 
     def refund_invoice(self,
                        uid,
                        body=None):
-        """Perform a POST request to /invoices/{uid}/refunds.json.
+        """Does a POST request to /invoices/{uid}/refunds.json.
 
         Refund an invoice, segment, or consolidated invoice.
         ## Partial Refund for Consolidated Invoice
@@ -97,39 +67,37 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/{uid}/refunds.json")
+            .path('/invoices/{uid}/refunds.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Invoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def list_invoices(self,
                       options=dict()):
-        """Perform a GET request to /invoices.json.
+        """Does a GET request to /invoices.json.
 
         By default, invoices returned on the index will only include totals,
         not detailed breakdowns for `line_items`, `discounts`, `taxes`,
@@ -143,6 +111,7 @@ class InvoicesController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     start_date -- str -- The start date (format YYYY-MM-DD)
                         with which to filter the date_field. Returns invoices
                         with a timestamp at or after midnight (12:00:00 AM) in
@@ -225,91 +194,92 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices.json")
+            .path('/invoices.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("start_date")
-                         .value(options.get("start_date", None)))
+                         .key('start_date')
+                         .value(options.get('start_date', None)))
             .query_param(Parameter()
-                         .key("end_date")
-                         .value(options.get("end_date", None)))
+                         .key('end_date')
+                         .value(options.get('end_date', None)))
             .query_param(Parameter()
-                         .key("status")
-                         .value(options.get("status", None)))
+                         .key('status')
+                         .value(options.get('status', None)))
             .query_param(Parameter()
-                         .key("subscription_id")
-                         .value(options.get("subscription_id", None)))
+                         .key('subscription_id')
+                         .value(options.get('subscription_id', None)))
             .query_param(Parameter()
-                         .key("subscription_group_uid")
-                         .value(options.get("subscription_group_uid", None)))
+                         .key('subscription_group_uid')
+                         .value(options.get('subscription_group_uid', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .query_param(Parameter()
-                         .key("line_items")
-                         .value(options.get("line_items", None)))
+                         .key('line_items')
+                         .value(options.get('line_items', None)))
             .query_param(Parameter()
-                         .key("discounts")
-                         .value(options.get("discounts", None)))
+                         .key('discounts')
+                         .value(options.get('discounts', None)))
             .query_param(Parameter()
-                         .key("taxes")
-                         .value(options.get("taxes", None)))
+                         .key('taxes')
+                         .value(options.get('taxes', None)))
             .query_param(Parameter()
-                         .key("credits")
-                         .value(options.get("credits", None)))
+                         .key('credits')
+                         .value(options.get('credits', None)))
             .query_param(Parameter()
-                         .key("payments")
-                         .value(options.get("payments", None)))
+                         .key('payments')
+                         .value(options.get('payments', None)))
             .query_param(Parameter()
-                         .key("custom_fields")
-                         .value(options.get("custom_fields", None)))
+                         .key('custom_fields')
+                         .value(options.get('custom_fields', None)))
             .query_param(Parameter()
-                         .key("refunds")
-                         .value(options.get("refunds", None)))
+                         .key('refunds')
+                         .value(options.get('refunds', None)))
             .query_param(Parameter()
-                         .key("date_field")
-                         .value(options.get("date_field", None)))
+                         .key('date_field')
+                         .value(options.get('date_field', None)))
             .query_param(Parameter()
-                         .key("start_datetime")
-                         .value(options.get("start_datetime", None)))
+                         .key('start_datetime')
+                         .value(options.get('start_datetime', None)))
             .query_param(Parameter()
-                         .key("end_datetime")
-                         .value(options.get("end_datetime", None)))
+                         .key('end_datetime')
+                         .value(options.get('end_datetime', None)))
             .query_param(Parameter()
-                         .key("customer_ids")
-                         .value(options.get("customer_ids", None)))
+                         .key('customer_ids')
+                         .value(options.get('customer_ids', None)))
             .query_param(Parameter()
-                         .key("number")
-                         .value(options.get("number", None)))
+                         .key('number')
+                         .value(options.get('number', None)))
             .query_param(Parameter()
-                         .key("product_ids")
-                         .value(options.get("product_ids", None)))
+                         .key('product_ids')
+                         .value(options.get('product_ids', None)))
             .query_param(Parameter()
-                         .key("sort")
-                         .value(options.get("sort", None)))
+                         .key('sort')
+                         .value(options.get('sort', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListInvoicesResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_invoice(self,
                      uid):
-        """Perform a GET request to /invoices/{uid}.json.
+        """Does a GET request to /invoices/{uid}.json.
 
         Use this endpoint to retrieve the details for an invoice.
         ## PDF Invoice retrieval
@@ -340,29 +310,30 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/{uid}.json")
+            .path('/invoices/{uid}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Invoice.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def list_invoice_events(self,
                             options=dict()):
-        """Perform a GET request to /invoices/events.json.
+        """Does a GET request to /invoices/events.json.
 
         This endpoint returns a list of invoice events. Each event contains
         event "data" (such as an applied payment) as well as a snapshot of the
@@ -394,6 +365,7 @@ class InvoicesController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     since_date -- str -- The timestamp in a format `YYYY-MM-DD
                         T HH:MM:SS Z`, or `YYYY-MM-DD`(in this case, it
                         returns data from the beginning of the day). of the
@@ -440,47 +412,48 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/events.json")
+            .path('/invoices/events.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("since_date")
-                         .value(options.get("since_date", None)))
+                         .key('since_date')
+                         .value(options.get('since_date', None)))
             .query_param(Parameter()
-                         .key("since_id")
-                         .value(options.get("since_id", None)))
+                         .key('since_id')
+                         .value(options.get('since_id', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("invoice_uid")
-                         .value(options.get("invoice_uid", None)))
+                         .key('invoice_uid')
+                         .value(options.get('invoice_uid', None)))
             .query_param(Parameter()
-                         .key("with_change_invoice_status")
-                         .value(options.get("with_change_invoice_status", None)))
+                         .key('with_change_invoice_status')
+                         .value(options.get('with_change_invoice_status', None)))
             .query_param(Parameter()
-                         .key("event_types")
-                         .value(options.get("event_types", None)))
+                         .key('event_types')
+                         .value(options.get('event_types', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.CSV)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListInvoiceEventsResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def record_payment_for_invoice(self,
                                    uid,
                                    body=None):
-        """Perform a POST request to /invoices/{uid}/payments.json.
+        """Does a POST request to /invoices/{uid}/payments.json.
 
         This API call should be used when you want to record a payment of a
         given type against a specific invoice. If you would like to apply a
@@ -548,39 +521,37 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/{uid}/payments.json")
+            .path('/invoices/{uid}/payments.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Invoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def record_payment_for_multiple_invoices(self,
                                              body=None):
-        """Perform a POST request to /invoices/payments.json.
+        """Does a POST request to /invoices/payments.json.
 
         This API call should be used when you want to record an external
         payment against multiple invoices.
@@ -625,34 +596,32 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/payments.json")
+            .path('/invoices/payments.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(MultiInvoicePaymentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def list_credit_notes(self,
                           options=dict()):
-        """Perform a GET request to /credit_notes.json.
+        """Does a GET request to /credit_notes.json.
 
         Credit Notes are like inverse invoices. They reduce the amount a
         customer owes.
@@ -667,6 +636,7 @@ class InvoicesController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     subscription_id -- int -- The subscription's Chargify id
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
@@ -699,48 +669,49 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/credit_notes.json")
+            .path('/credit_notes.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("subscription_id")
-                         .value(options.get("subscription_id", None)))
+                         .key('subscription_id')
+                         .value(options.get('subscription_id', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("line_items")
-                         .value(options.get("line_items", None)))
+                         .key('line_items')
+                         .value(options.get('line_items', None)))
             .query_param(Parameter()
-                         .key("discounts")
-                         .value(options.get("discounts", None)))
+                         .key('discounts')
+                         .value(options.get('discounts', None)))
             .query_param(Parameter()
-                         .key("taxes")
-                         .value(options.get("taxes", None)))
+                         .key('taxes')
+                         .value(options.get('taxes', None)))
             .query_param(Parameter()
-                         .key("refunds")
-                         .value(options.get("refunds", None)))
+                         .key('refunds')
+                         .value(options.get('refunds', None)))
             .query_param(Parameter()
-                         .key("applications")
-                         .value(options.get("applications", None)))
+                         .key('applications')
+                         .value(options.get('applications', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListCreditNotesResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_credit_note(self,
                          uid):
-        """Perform a GET request to /credit_notes/{uid}.json.
+        """Does a GET request to /credit_notes/{uid}.json.
 
         Use this endpoint to retrieve the details for a credit note.
 
@@ -758,30 +729,31 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/credit_notes/{uid}.json")
+            .path('/credit_notes/{uid}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CreditNote.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def record_payment_for_subscription(self,
                                         subscription_id,
                                         body=None):
-        """Perform a POST request to /subscriptions/{subscription_id}/payments.json.
+        """Does a POST request to /subscriptions/{subscription_id}/payments.json.
 
         Record an external payment made against a subscription that will pay
         partially or in full one or more invoices.
@@ -808,39 +780,37 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/payments.json")
+            .path('/subscriptions/{subscription_id}/payments.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(RecordPaymentResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def reopen_invoice(self,
                        uid):
-        """Perform a POST request to /invoices/{uid}/reopen.json.
+        """Does a POST request to /invoices/{uid}/reopen.json.
 
         This endpoint allows you to reopen any invoice with the "canceled"
         status. Invoices enter "canceled" status if they were open at the time
@@ -876,35 +846,33 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/{uid}/reopen.json")
+            .path('/invoices/{uid}/reopen.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Invoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def void_invoice(self,
                      uid,
                      body=None):
-        """Perform a POST request to /invoices/{uid}/void.json.
+        """Does a POST request to /invoices/{uid}/void.json.
 
         This endpoint allows you to void any invoice with the "open" or
         "canceled" status.  It will also allow voiding of an invoice with the
@@ -926,40 +894,38 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/{uid}/void.json")
+            .path('/invoices/{uid}/void.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Invoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def list_consolidated_invoice_segments(self,
                                            options=dict()):
-        """Perform a GET request to /invoices/{invoice_uid}/segments.json.
+        """Does a GET request to /invoices/{invoice_uid}/segments.json.
 
         Invoice segments returned on the index will only include totals, not
         detailed breakdowns for `line_items`, `discounts`, `taxes`, `credits`,
@@ -971,6 +937,7 @@ class InvoicesController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     invoice_uid -- str -- The unique identifier of the
                         consolidated invoice
                     page -- int -- Result records are organized in pages. By
@@ -1001,39 +968,40 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/{invoice_uid}/segments.json")
+            .path('/invoices/{invoice_uid}/segments.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("invoice_uid")
-                            .value(options.get("invoice_uid", None))
+                            .key('invoice_uid')
+                            .value(options.get('invoice_uid', None))
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ConsolidatedInvoice.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def create_invoice(self,
                        subscription_id,
                        body=None):
-        """Perform a POST request to /subscriptions/{subscription_id}/invoices.json.
+        """Does a POST request to /subscriptions/{subscription_id}/invoices.json.
 
         This endpoint will allow you to create an ad hoc invoice.
         ### Basic Behavior
@@ -1220,40 +1188,38 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/invoices.json")
+            .path('/subscriptions/{subscription_id}/invoices.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(InvoiceResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorArrayMapResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorArrayMapResponseException)
         ).execute()
 
     def send_invoice(self,
                      uid,
                      body=None):
-        """Perform a POST request to /invoices/{uid}/deliveries.json.
+        """Does a POST request to /invoices/{uid}/deliveries.json.
 
         This endpoint allows for invoices to be programmatically delivered via
         email. This endpoint supports the delivery of both ad-hoc and
@@ -1287,35 +1253,32 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/{uid}/deliveries.json")
+            .path('/invoices/{uid}/deliveries.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def preview_customer_information_changes(self,
                                              uid):
-        """Perform a POST request to
-        /invoices/{uid}/customer_information/preview.json.
+        """Does a POST request to /invoices/{uid}/customer_information/preview.json.
 
         Customer information may change after an invoice is issued which may
         lead to a mismatch between customer information that are present on an
@@ -1339,36 +1302,32 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/{uid}/customer_information/preview.json")
+            .path('/invoices/{uid}/customer_information/preview.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CustomerChangesPreviewResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404",
-                "Not Found:'{$response.body}'",
-                ErrorListResponseException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', ErrorListResponseException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def update_customer_information(self,
                                     uid):
-        """Perform a PUT request to /invoices/{uid}/customer_information.json.
+        """Does a PUT request to /invoices/{uid}/customer_information.json.
 
         This endpoint updates customer information on an open invoice and
         returns the updated invoice. If you would like to preview changes that
@@ -1392,37 +1351,33 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/{uid}/customer_information.json")
+            .path('/invoices/{uid}/customer_information.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Invoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404",
-                "Not Found:'{$response.body}'",
-                ErrorListResponseException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', ErrorListResponseException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def issue_invoice(self,
                       uid,
                       body=None):
-        """Perform a POST request to /invoices/{uid}/issue.json.
+        """Does a POST request to /invoices/{uid}/issue.json.
 
         This endpoint allows you to issue an invoice that is in "pending"
         status. For example, you can issue an invoice that was created when
@@ -1469,33 +1424,31 @@ class InvoicesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/invoices/{uid}/issue.json")
+            .path('/invoices/{uid}/issue.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Invoice.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()

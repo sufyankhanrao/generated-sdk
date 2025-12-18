@@ -1,32 +1,23 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.bank_account_payment_profile import (
-    BankAccountPaymentProfile,
-)
-from advancedbilling.models.credit_card_payment_profile import (
-    CreditCardPaymentProfile,
-)
-from advancedbilling.models.customer import (
-    Customer,
-)
-from advancedbilling.models.nested_subscription_group import (
-    NestedSubscriptionGroup,
-)
-from advancedbilling.models.prepaid_configuration import (
-    PrepaidConfiguration,
-)
+from advancedbilling.models.bank_account_payment_profile import BankAccountPaymentProfile
+from advancedbilling.models.credit_card_payment_profile import CreditCardPaymentProfile
+from advancedbilling.models.customer import Customer
+from advancedbilling.models.nested_subscription_group import NestedSubscriptionGroup
+from advancedbilling.models.prepaid_configuration import PrepaidConfiguration
 from advancedbilling.models.product import Product
-from advancedbilling.models.subscription_included_coupon import (
-    SubscriptionIncludedCoupon,
-)
+from advancedbilling.models.subscription_included_coupon import SubscriptionIncludedCoupon
 
 
 class Subscription(object):
+
     """Implementation of the 'Subscription' model.
 
     Attributes:
@@ -73,7 +64,7 @@ class Subscription(object):
             /5404559291021) documentation for info on how to restart a
             canceled subscription.     While a subscription is canceled, its
             period will not advance, it will not accrue any new charges, and
-            Advanced Billing will not attempt to collect the overdue balance.
+            Advanced Billing will not attempt to collect the overdue balance. 
             * `expired` - Indicates a subscription that has expired due to
             running its normal life cycle. Some products may be configured to
             have an expiration period. An expired subscription then is one
@@ -249,172 +240,171 @@ class Subscription(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "id": "id",
-        "state": "state",
-        "balance_in_cents": "balance_in_cents",
-        "total_revenue_in_cents": "total_revenue_in_cents",
-        "product_price_in_cents": "product_price_in_cents",
-        "product_version_number": "product_version_number",
-        "current_period_ends_at": "current_period_ends_at",
-        "next_assessment_at": "next_assessment_at",
-        "trial_started_at": "trial_started_at",
-        "trial_ended_at": "trial_ended_at",
-        "activated_at": "activated_at",
-        "expires_at": "expires_at",
-        "created_at": "created_at",
-        "updated_at": "updated_at",
-        "cancellation_message": "cancellation_message",
-        "cancellation_method": "cancellation_method",
-        "cancel_at_end_of_period": "cancel_at_end_of_period",
-        "canceled_at": "canceled_at",
-        "current_period_started_at": "current_period_started_at",
-        "previous_state": "previous_state",
-        "signup_payment_id": "signup_payment_id",
-        "signup_revenue": "signup_revenue",
-        "delayed_cancel_at": "delayed_cancel_at",
-        "coupon_code": "coupon_code",
-        "snap_day": "snap_day",
-        "payment_collection_method": "payment_collection_method",
-        "customer": "customer",
-        "product": "product",
-        "credit_card": "credit_card",
-        "group": "group",
-        "bank_account": "bank_account",
-        "payment_type": "payment_type",
-        "referral_code": "referral_code",
-        "next_product_id": "next_product_id",
-        "next_product_handle": "next_product_handle",
-        "coupon_use_count": "coupon_use_count",
-        "coupon_uses_allowed": "coupon_uses_allowed",
-        "reason_code": "reason_code",
-        "automatically_resume_at": "automatically_resume_at",
-        "coupon_codes": "coupon_codes",
-        "offer_id": "offer_id",
-        "payer_id": "payer_id",
-        "current_billing_amount_in_cents": "current_billing_amount_in_cents",
-        "product_price_point_id": "product_price_point_id",
-        "product_price_point_type": "product_price_point_type",
-        "next_product_price_point_id": "next_product_price_point_id",
-        "net_terms": "net_terms",
-        "stored_credential_transaction_id": "stored_credential_transaction_id",
-        "reference": "reference",
-        "on_hold_at": "on_hold_at",
-        "prepaid_dunning": "prepaid_dunning",
-        "coupons": "coupons",
-        "dunning_communication_delay_enabled": "dunning_communication_delay_enabled",
-        "dunning_communication_delay_time_zone":
-            "dunning_communication_delay_time_zone",
-        "receives_invoice_emails": "receives_invoice_emails",
-        "locale": "locale",
-        "currency": "currency",
-        "scheduled_cancellation_at": "scheduled_cancellation_at",
-        "credit_balance_in_cents": "credit_balance_in_cents",
-        "prepayment_balance_in_cents": "prepayment_balance_in_cents",
-        "prepaid_configuration": "prepaid_configuration",
-        "self_service_page_token": "self_service_page_token",
+        "id": 'id',
+        "state": 'state',
+        "balance_in_cents": 'balance_in_cents',
+        "total_revenue_in_cents": 'total_revenue_in_cents',
+        "product_price_in_cents": 'product_price_in_cents',
+        "product_version_number": 'product_version_number',
+        "current_period_ends_at": 'current_period_ends_at',
+        "next_assessment_at": 'next_assessment_at',
+        "trial_started_at": 'trial_started_at',
+        "trial_ended_at": 'trial_ended_at',
+        "activated_at": 'activated_at',
+        "expires_at": 'expires_at',
+        "created_at": 'created_at',
+        "updated_at": 'updated_at',
+        "cancellation_message": 'cancellation_message',
+        "cancellation_method": 'cancellation_method',
+        "cancel_at_end_of_period": 'cancel_at_end_of_period',
+        "canceled_at": 'canceled_at',
+        "current_period_started_at": 'current_period_started_at',
+        "previous_state": 'previous_state',
+        "signup_payment_id": 'signup_payment_id',
+        "signup_revenue": 'signup_revenue',
+        "delayed_cancel_at": 'delayed_cancel_at',
+        "coupon_code": 'coupon_code',
+        "snap_day": 'snap_day',
+        "payment_collection_method": 'payment_collection_method',
+        "customer": 'customer',
+        "product": 'product',
+        "credit_card": 'credit_card',
+        "group": 'group',
+        "bank_account": 'bank_account',
+        "payment_type": 'payment_type',
+        "referral_code": 'referral_code',
+        "next_product_id": 'next_product_id',
+        "next_product_handle": 'next_product_handle',
+        "coupon_use_count": 'coupon_use_count',
+        "coupon_uses_allowed": 'coupon_uses_allowed',
+        "reason_code": 'reason_code',
+        "automatically_resume_at": 'automatically_resume_at',
+        "coupon_codes": 'coupon_codes',
+        "offer_id": 'offer_id',
+        "payer_id": 'payer_id',
+        "current_billing_amount_in_cents": 'current_billing_amount_in_cents',
+        "product_price_point_id": 'product_price_point_id',
+        "product_price_point_type": 'product_price_point_type',
+        "next_product_price_point_id": 'next_product_price_point_id',
+        "net_terms": 'net_terms',
+        "stored_credential_transaction_id": 'stored_credential_transaction_id',
+        "reference": 'reference',
+        "on_hold_at": 'on_hold_at',
+        "prepaid_dunning": 'prepaid_dunning',
+        "coupons": 'coupons',
+        "dunning_communication_delay_enabled": 'dunning_communication_delay_enabled',
+        "dunning_communication_delay_time_zone": 'dunning_communication_delay_time_zone',
+        "receives_invoice_emails": 'receives_invoice_emails',
+        "locale": 'locale',
+        "currency": 'currency',
+        "scheduled_cancellation_at": 'scheduled_cancellation_at',
+        "credit_balance_in_cents": 'credit_balance_in_cents',
+        "prepayment_balance_in_cents": 'prepayment_balance_in_cents',
+        "prepaid_configuration": 'prepaid_configuration',
+        "self_service_page_token": 'self_service_page_token'
     }
 
     _optionals = [
-        "id",
-        "state",
-        "balance_in_cents",
-        "total_revenue_in_cents",
-        "product_price_in_cents",
-        "product_version_number",
-        "current_period_ends_at",
-        "next_assessment_at",
-        "trial_started_at",
-        "trial_ended_at",
-        "activated_at",
-        "expires_at",
-        "created_at",
-        "updated_at",
-        "cancellation_message",
-        "cancellation_method",
-        "cancel_at_end_of_period",
-        "canceled_at",
-        "current_period_started_at",
-        "previous_state",
-        "signup_payment_id",
-        "signup_revenue",
-        "delayed_cancel_at",
-        "coupon_code",
-        "snap_day",
-        "payment_collection_method",
-        "customer",
-        "product",
-        "credit_card",
-        "group",
-        "bank_account",
-        "payment_type",
-        "referral_code",
-        "next_product_id",
-        "next_product_handle",
-        "coupon_use_count",
-        "coupon_uses_allowed",
-        "reason_code",
-        "automatically_resume_at",
-        "coupon_codes",
-        "offer_id",
-        "payer_id",
-        "current_billing_amount_in_cents",
-        "product_price_point_id",
-        "product_price_point_type",
-        "next_product_price_point_id",
-        "net_terms",
-        "stored_credential_transaction_id",
-        "reference",
-        "on_hold_at",
-        "prepaid_dunning",
-        "coupons",
-        "dunning_communication_delay_enabled",
-        "dunning_communication_delay_time_zone",
-        "receives_invoice_emails",
-        "locale",
-        "currency",
-        "scheduled_cancellation_at",
-        "credit_balance_in_cents",
-        "prepayment_balance_in_cents",
-        "prepaid_configuration",
-        "self_service_page_token",
+        'id',
+        'state',
+        'balance_in_cents',
+        'total_revenue_in_cents',
+        'product_price_in_cents',
+        'product_version_number',
+        'current_period_ends_at',
+        'next_assessment_at',
+        'trial_started_at',
+        'trial_ended_at',
+        'activated_at',
+        'expires_at',
+        'created_at',
+        'updated_at',
+        'cancellation_message',
+        'cancellation_method',
+        'cancel_at_end_of_period',
+        'canceled_at',
+        'current_period_started_at',
+        'previous_state',
+        'signup_payment_id',
+        'signup_revenue',
+        'delayed_cancel_at',
+        'coupon_code',
+        'snap_day',
+        'payment_collection_method',
+        'customer',
+        'product',
+        'credit_card',
+        'group',
+        'bank_account',
+        'payment_type',
+        'referral_code',
+        'next_product_id',
+        'next_product_handle',
+        'coupon_use_count',
+        'coupon_uses_allowed',
+        'reason_code',
+        'automatically_resume_at',
+        'coupon_codes',
+        'offer_id',
+        'payer_id',
+        'current_billing_amount_in_cents',
+        'product_price_point_id',
+        'product_price_point_type',
+        'next_product_price_point_id',
+        'net_terms',
+        'stored_credential_transaction_id',
+        'reference',
+        'on_hold_at',
+        'prepaid_dunning',
+        'coupons',
+        'dunning_communication_delay_enabled',
+        'dunning_communication_delay_time_zone',
+        'receives_invoice_emails',
+        'locale',
+        'currency',
+        'scheduled_cancellation_at',
+        'credit_balance_in_cents',
+        'prepayment_balance_in_cents',
+        'prepaid_configuration',
+        'self_service_page_token',
     ]
 
     _nullables = [
-        "current_period_ends_at",
-        "next_assessment_at",
-        "trial_started_at",
-        "trial_ended_at",
-        "activated_at",
-        "expires_at",
-        "cancellation_message",
-        "cancellation_method",
-        "cancel_at_end_of_period",
-        "canceled_at",
-        "current_period_started_at",
-        "delayed_cancel_at",
-        "coupon_code",
-        "snap_day",
-        "group",
-        "payment_type",
-        "referral_code",
-        "next_product_id",
-        "next_product_handle",
-        "coupon_use_count",
-        "coupon_uses_allowed",
-        "reason_code",
-        "automatically_resume_at",
-        "offer_id",
-        "payer_id",
-        "next_product_price_point_id",
-        "net_terms",
-        "stored_credential_transaction_id",
-        "reference",
-        "on_hold_at",
-        "dunning_communication_delay_time_zone",
-        "receives_invoice_emails",
-        "locale",
-        "scheduled_cancellation_at",
-        "prepaid_configuration",
+        'current_period_ends_at',
+        'next_assessment_at',
+        'trial_started_at',
+        'trial_ended_at',
+        'activated_at',
+        'expires_at',
+        'cancellation_message',
+        'cancellation_method',
+        'cancel_at_end_of_period',
+        'canceled_at',
+        'current_period_started_at',
+        'delayed_cancel_at',
+        'coupon_code',
+        'snap_day',
+        'group',
+        'payment_type',
+        'referral_code',
+        'next_product_id',
+        'next_product_handle',
+        'coupon_use_count',
+        'coupon_uses_allowed',
+        'reason_code',
+        'automatically_resume_at',
+        'offer_id',
+        'payer_id',
+        'next_product_price_point_id',
+        'net_terms',
+        'stored_credential_transaction_id',
+        'reference',
+        'on_hold_at',
+        'dunning_communication_delay_time_zone',
+        'receives_invoice_emails',
+        'locale',
+        'scheduled_cancellation_at',
+        'prepaid_configuration',
     ]
 
     def __init__(self,
@@ -481,162 +471,133 @@ class Subscription(object):
                  prepaid_configuration=APIHelper.SKIP,
                  self_service_page_token=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a Subscription instance."""
+        """Constructor for the Subscription class"""
+
         # Initialize members of the class
         if id is not APIHelper.SKIP:
-            self.id = id
+            self.id = id 
         if state is not APIHelper.SKIP:
-            self.state = state
+            self.state = state 
         if balance_in_cents is not APIHelper.SKIP:
-            self.balance_in_cents = balance_in_cents
+            self.balance_in_cents = balance_in_cents 
         if total_revenue_in_cents is not APIHelper.SKIP:
-            self.total_revenue_in_cents = total_revenue_in_cents
+            self.total_revenue_in_cents = total_revenue_in_cents 
         if product_price_in_cents is not APIHelper.SKIP:
-            self.product_price_in_cents = product_price_in_cents
+            self.product_price_in_cents = product_price_in_cents 
         if product_version_number is not APIHelper.SKIP:
-            self.product_version_number = product_version_number
+            self.product_version_number = product_version_number 
         if current_period_ends_at is not APIHelper.SKIP:
-            self.current_period_ends_at =\
-                 APIHelper.apply_datetime_converter(
-                current_period_ends_at, APIHelper.RFC3339DateTime) if current_period_ends_at else None
+            self.current_period_ends_at = APIHelper.apply_datetime_converter(current_period_ends_at, APIHelper.RFC3339DateTime) if current_period_ends_at else None 
         if next_assessment_at is not APIHelper.SKIP:
-            self.next_assessment_at =\
-                 APIHelper.apply_datetime_converter(
-                next_assessment_at, APIHelper.RFC3339DateTime) if next_assessment_at else None
+            self.next_assessment_at = APIHelper.apply_datetime_converter(next_assessment_at, APIHelper.RFC3339DateTime) if next_assessment_at else None 
         if trial_started_at is not APIHelper.SKIP:
-            self.trial_started_at =\
-                 APIHelper.apply_datetime_converter(
-                trial_started_at, APIHelper.RFC3339DateTime) if trial_started_at else None
+            self.trial_started_at = APIHelper.apply_datetime_converter(trial_started_at, APIHelper.RFC3339DateTime) if trial_started_at else None 
         if trial_ended_at is not APIHelper.SKIP:
-            self.trial_ended_at =\
-                 APIHelper.apply_datetime_converter(
-                trial_ended_at, APIHelper.RFC3339DateTime) if trial_ended_at else None
+            self.trial_ended_at = APIHelper.apply_datetime_converter(trial_ended_at, APIHelper.RFC3339DateTime) if trial_ended_at else None 
         if activated_at is not APIHelper.SKIP:
-            self.activated_at =\
-                 APIHelper.apply_datetime_converter(
-                activated_at, APIHelper.RFC3339DateTime) if activated_at else None
+            self.activated_at = APIHelper.apply_datetime_converter(activated_at, APIHelper.RFC3339DateTime) if activated_at else None 
         if expires_at is not APIHelper.SKIP:
-            self.expires_at =\
-                 APIHelper.apply_datetime_converter(
-                expires_at, APIHelper.RFC3339DateTime) if expires_at else None
+            self.expires_at = APIHelper.apply_datetime_converter(expires_at, APIHelper.RFC3339DateTime) if expires_at else None 
         if created_at is not APIHelper.SKIP:
-            self.created_at =\
-                 APIHelper.apply_datetime_converter(
-                created_at, APIHelper.RFC3339DateTime) if created_at else None
+            self.created_at = APIHelper.apply_datetime_converter(created_at, APIHelper.RFC3339DateTime) if created_at else None 
         if updated_at is not APIHelper.SKIP:
-            self.updated_at =\
-                 APIHelper.apply_datetime_converter(
-                updated_at, APIHelper.RFC3339DateTime) if updated_at else None
+            self.updated_at = APIHelper.apply_datetime_converter(updated_at, APIHelper.RFC3339DateTime) if updated_at else None 
         if cancellation_message is not APIHelper.SKIP:
-            self.cancellation_message = cancellation_message
+            self.cancellation_message = cancellation_message 
         if cancellation_method is not APIHelper.SKIP:
-            self.cancellation_method = cancellation_method
+            self.cancellation_method = cancellation_method 
         if cancel_at_end_of_period is not APIHelper.SKIP:
-            self.cancel_at_end_of_period = cancel_at_end_of_period
+            self.cancel_at_end_of_period = cancel_at_end_of_period 
         if canceled_at is not APIHelper.SKIP:
-            self.canceled_at =\
-                 APIHelper.apply_datetime_converter(
-                canceled_at, APIHelper.RFC3339DateTime) if canceled_at else None
+            self.canceled_at = APIHelper.apply_datetime_converter(canceled_at, APIHelper.RFC3339DateTime) if canceled_at else None 
         if current_period_started_at is not APIHelper.SKIP:
-            self.current_period_started_at =\
-                 APIHelper.apply_datetime_converter(
-                current_period_started_at, APIHelper.RFC3339DateTime) if current_period_started_at else None
+            self.current_period_started_at = APIHelper.apply_datetime_converter(current_period_started_at, APIHelper.RFC3339DateTime) if current_period_started_at else None 
         if previous_state is not APIHelper.SKIP:
-            self.previous_state = previous_state
+            self.previous_state = previous_state 
         if signup_payment_id is not APIHelper.SKIP:
-            self.signup_payment_id = signup_payment_id
+            self.signup_payment_id = signup_payment_id 
         if signup_revenue is not APIHelper.SKIP:
-            self.signup_revenue = signup_revenue
+            self.signup_revenue = signup_revenue 
         if delayed_cancel_at is not APIHelper.SKIP:
-            self.delayed_cancel_at =\
-                 APIHelper.apply_datetime_converter(
-                delayed_cancel_at, APIHelper.RFC3339DateTime) if delayed_cancel_at else None
+            self.delayed_cancel_at = APIHelper.apply_datetime_converter(delayed_cancel_at, APIHelper.RFC3339DateTime) if delayed_cancel_at else None 
         if coupon_code is not APIHelper.SKIP:
-            self.coupon_code = coupon_code
+            self.coupon_code = coupon_code 
         if snap_day is not APIHelper.SKIP:
-            self.snap_day = snap_day
+            self.snap_day = snap_day 
         if payment_collection_method is not APIHelper.SKIP:
-            self.payment_collection_method = payment_collection_method
+            self.payment_collection_method = payment_collection_method 
         if customer is not APIHelper.SKIP:
-            self.customer = customer
+            self.customer = customer 
         if product is not APIHelper.SKIP:
-            self.product = product
+            self.product = product 
         if credit_card is not APIHelper.SKIP:
-            self.credit_card = credit_card
+            self.credit_card = credit_card 
         if group is not APIHelper.SKIP:
-            self.group = group
+            self.group = group 
         if bank_account is not APIHelper.SKIP:
-            self.bank_account = bank_account
+            self.bank_account = bank_account 
         if payment_type is not APIHelper.SKIP:
-            self.payment_type = payment_type
+            self.payment_type = payment_type 
         if referral_code is not APIHelper.SKIP:
-            self.referral_code = referral_code
+            self.referral_code = referral_code 
         if next_product_id is not APIHelper.SKIP:
-            self.next_product_id = next_product_id
+            self.next_product_id = next_product_id 
         if next_product_handle is not APIHelper.SKIP:
-            self.next_product_handle = next_product_handle
+            self.next_product_handle = next_product_handle 
         if coupon_use_count is not APIHelper.SKIP:
-            self.coupon_use_count = coupon_use_count
+            self.coupon_use_count = coupon_use_count 
         if coupon_uses_allowed is not APIHelper.SKIP:
-            self.coupon_uses_allowed = coupon_uses_allowed
+            self.coupon_uses_allowed = coupon_uses_allowed 
         if reason_code is not APIHelper.SKIP:
-            self.reason_code = reason_code
+            self.reason_code = reason_code 
         if automatically_resume_at is not APIHelper.SKIP:
-            self.automatically_resume_at =\
-                 APIHelper.apply_datetime_converter(
-                automatically_resume_at, APIHelper.RFC3339DateTime) if automatically_resume_at else None
+            self.automatically_resume_at = APIHelper.apply_datetime_converter(automatically_resume_at, APIHelper.RFC3339DateTime) if automatically_resume_at else None 
         if coupon_codes is not APIHelper.SKIP:
-            self.coupon_codes = coupon_codes
+            self.coupon_codes = coupon_codes 
         if offer_id is not APIHelper.SKIP:
-            self.offer_id = offer_id
+            self.offer_id = offer_id 
         if payer_id is not APIHelper.SKIP:
-            self.payer_id = payer_id
+            self.payer_id = payer_id 
         if current_billing_amount_in_cents is not APIHelper.SKIP:
-            self.current_billing_amount_in_cents = current_billing_amount_in_cents
+            self.current_billing_amount_in_cents = current_billing_amount_in_cents 
         if product_price_point_id is not APIHelper.SKIP:
-            self.product_price_point_id = product_price_point_id
+            self.product_price_point_id = product_price_point_id 
         if product_price_point_type is not APIHelper.SKIP:
-            self.product_price_point_type = product_price_point_type
+            self.product_price_point_type = product_price_point_type 
         if next_product_price_point_id is not APIHelper.SKIP:
-            self.next_product_price_point_id = next_product_price_point_id
+            self.next_product_price_point_id = next_product_price_point_id 
         if net_terms is not APIHelper.SKIP:
-            self.net_terms = net_terms
+            self.net_terms = net_terms 
         if stored_credential_transaction_id is not APIHelper.SKIP:
-            self.stored_credential_transaction_id = stored_credential_transaction_id
+            self.stored_credential_transaction_id = stored_credential_transaction_id 
         if reference is not APIHelper.SKIP:
-            self.reference = reference
+            self.reference = reference 
         if on_hold_at is not APIHelper.SKIP:
-            self.on_hold_at =\
-                 APIHelper.apply_datetime_converter(
-                on_hold_at, APIHelper.RFC3339DateTime) if on_hold_at else None
+            self.on_hold_at = APIHelper.apply_datetime_converter(on_hold_at, APIHelper.RFC3339DateTime) if on_hold_at else None 
         if prepaid_dunning is not APIHelper.SKIP:
-            self.prepaid_dunning = prepaid_dunning
+            self.prepaid_dunning = prepaid_dunning 
         if coupons is not APIHelper.SKIP:
-            self.coupons = coupons
+            self.coupons = coupons 
         if dunning_communication_delay_enabled is not APIHelper.SKIP:
-            self.dunning_communication_delay_enabled =\
-                 dunning_communication_delay_enabled
+            self.dunning_communication_delay_enabled = dunning_communication_delay_enabled 
         if dunning_communication_delay_time_zone is not APIHelper.SKIP:
-            self.dunning_communication_delay_time_zone =\
-                 dunning_communication_delay_time_zone
+            self.dunning_communication_delay_time_zone = dunning_communication_delay_time_zone 
         if receives_invoice_emails is not APIHelper.SKIP:
-            self.receives_invoice_emails = receives_invoice_emails
+            self.receives_invoice_emails = receives_invoice_emails 
         if locale is not APIHelper.SKIP:
-            self.locale = locale
+            self.locale = locale 
         if currency is not APIHelper.SKIP:
-            self.currency = currency
+            self.currency = currency 
         if scheduled_cancellation_at is not APIHelper.SKIP:
-            self.scheduled_cancellation_at =\
-                 APIHelper.apply_datetime_converter(
-                scheduled_cancellation_at, APIHelper.RFC3339DateTime) if scheduled_cancellation_at else None
+            self.scheduled_cancellation_at = APIHelper.apply_datetime_converter(scheduled_cancellation_at, APIHelper.RFC3339DateTime) if scheduled_cancellation_at else None 
         if credit_balance_in_cents is not APIHelper.SKIP:
-            self.credit_balance_in_cents = credit_balance_in_cents
+            self.credit_balance_in_cents = credit_balance_in_cents 
         if prepayment_balance_in_cents is not APIHelper.SKIP:
-            self.prepayment_balance_in_cents = prepayment_balance_in_cents
+            self.prepayment_balance_in_cents = prepayment_balance_in_cents 
         if prepaid_configuration is not APIHelper.SKIP:
-            self.prepaid_configuration = prepaid_configuration
+            self.prepaid_configuration = prepaid_configuration 
         if self_service_page_token is not APIHelper.SKIP:
-            self.self_service_page_token = self_service_page_token
+            self.self_service_page_token = self_service_page_token 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -646,7 +607,7 @@ class Subscription(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -657,252 +618,121 @@ class Subscription(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
-        state =\
-            dictionary.get("state")\
-            if dictionary.get("state") else APIHelper.SKIP
-        balance_in_cents =\
-            dictionary.get("balance_in_cents")\
-            if dictionary.get("balance_in_cents") else APIHelper.SKIP
-        total_revenue_in_cents =\
-            dictionary.get("total_revenue_in_cents")\
-            if dictionary.get("total_revenue_in_cents") else APIHelper.SKIP
-        product_price_in_cents =\
-            dictionary.get("product_price_in_cents")\
-            if dictionary.get("product_price_in_cents") else APIHelper.SKIP
-        product_version_number =\
-            dictionary.get("product_version_number")\
-            if dictionary.get("product_version_number") else APIHelper.SKIP
-        if "current_period_ends_at" in dictionary.keys():
-            current_period_ends_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("current_period_ends_at")).datetime\
-                if dictionary.get("current_period_ends_at") else None
-
+        state = dictionary.get("state") if dictionary.get("state") else APIHelper.SKIP
+        balance_in_cents = dictionary.get("balance_in_cents") if dictionary.get("balance_in_cents") else APIHelper.SKIP
+        total_revenue_in_cents = dictionary.get("total_revenue_in_cents") if dictionary.get("total_revenue_in_cents") else APIHelper.SKIP
+        product_price_in_cents = dictionary.get("product_price_in_cents") if dictionary.get("product_price_in_cents") else APIHelper.SKIP
+        product_version_number = dictionary.get("product_version_number") if dictionary.get("product_version_number") else APIHelper.SKIP
+        if 'current_period_ends_at' in dictionary.keys():
+            current_period_ends_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("current_period_ends_at")).datetime if dictionary.get("current_period_ends_at") else None
         else:
             current_period_ends_at = APIHelper.SKIP
-        if "next_assessment_at" in dictionary.keys():
-            next_assessment_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("next_assessment_at")).datetime\
-                if dictionary.get("next_assessment_at") else None
-
+        if 'next_assessment_at' in dictionary.keys():
+            next_assessment_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("next_assessment_at")).datetime if dictionary.get("next_assessment_at") else None
         else:
             next_assessment_at = APIHelper.SKIP
-        if "trial_started_at" in dictionary.keys():
-            trial_started_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("trial_started_at")).datetime\
-                if dictionary.get("trial_started_at") else None
-
+        if 'trial_started_at' in dictionary.keys():
+            trial_started_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("trial_started_at")).datetime if dictionary.get("trial_started_at") else None
         else:
             trial_started_at = APIHelper.SKIP
-        if "trial_ended_at" in dictionary.keys():
-            trial_ended_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("trial_ended_at")).datetime\
-                if dictionary.get("trial_ended_at") else None
-
+        if 'trial_ended_at' in dictionary.keys():
+            trial_ended_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("trial_ended_at")).datetime if dictionary.get("trial_ended_at") else None
         else:
             trial_ended_at = APIHelper.SKIP
-        if "activated_at" in dictionary.keys():
-            activated_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("activated_at")).datetime\
-                if dictionary.get("activated_at") else None
-
+        if 'activated_at' in dictionary.keys():
+            activated_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("activated_at")).datetime if dictionary.get("activated_at") else None
         else:
             activated_at = APIHelper.SKIP
-        if "expires_at" in dictionary.keys():
-            expires_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("expires_at")).datetime\
-                if dictionary.get("expires_at") else None
-
+        if 'expires_at' in dictionary.keys():
+            expires_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("expires_at")).datetime if dictionary.get("expires_at") else None
         else:
             expires_at = APIHelper.SKIP
-        created_at = APIHelper.RFC3339DateTime.from_value(
-            dictionary.get("created_at")).datetime\
-            if dictionary.get("created_at") else APIHelper.SKIP
-        updated_at = APIHelper.RFC3339DateTime.from_value(
-            dictionary.get("updated_at")).datetime\
-            if dictionary.get("updated_at") else APIHelper.SKIP
-        cancellation_message =\
-            dictionary.get("cancellation_message")\
-            if "cancellation_message" in dictionary.keys() else APIHelper.SKIP
-        cancellation_method =\
-            dictionary.get("cancellation_method")\
-            if "cancellation_method" in dictionary.keys() else APIHelper.SKIP
-        cancel_at_end_of_period =\
-            dictionary.get("cancel_at_end_of_period")\
-            if "cancel_at_end_of_period" in dictionary.keys() else APIHelper.SKIP
-        if "canceled_at" in dictionary.keys():
-            canceled_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("canceled_at")).datetime\
-                if dictionary.get("canceled_at") else None
-
+        created_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("created_at")).datetime if dictionary.get("created_at") else APIHelper.SKIP
+        updated_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("updated_at")).datetime if dictionary.get("updated_at") else APIHelper.SKIP
+        cancellation_message = dictionary.get("cancellation_message") if "cancellation_message" in dictionary.keys() else APIHelper.SKIP
+        cancellation_method = dictionary.get("cancellation_method") if "cancellation_method" in dictionary.keys() else APIHelper.SKIP
+        cancel_at_end_of_period = dictionary.get("cancel_at_end_of_period") if "cancel_at_end_of_period" in dictionary.keys() else APIHelper.SKIP
+        if 'canceled_at' in dictionary.keys():
+            canceled_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("canceled_at")).datetime if dictionary.get("canceled_at") else None
         else:
             canceled_at = APIHelper.SKIP
-        if "current_period_started_at" in dictionary.keys():
-            current_period_started_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("current_period_started_at")).datetime\
-                if dictionary.get("current_period_started_at") else None
-
+        if 'current_period_started_at' in dictionary.keys():
+            current_period_started_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("current_period_started_at")).datetime if dictionary.get("current_period_started_at") else None
         else:
             current_period_started_at = APIHelper.SKIP
-        previous_state =\
-            dictionary.get("previous_state")\
-            if dictionary.get("previous_state") else APIHelper.SKIP
-        signup_payment_id =\
-            dictionary.get("signup_payment_id")\
-            if dictionary.get("signup_payment_id") else APIHelper.SKIP
-        signup_revenue =\
-            dictionary.get("signup_revenue")\
-            if dictionary.get("signup_revenue") else APIHelper.SKIP
-        if "delayed_cancel_at" in dictionary.keys():
-            delayed_cancel_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("delayed_cancel_at")).datetime\
-                if dictionary.get("delayed_cancel_at") else None
-
+        previous_state = dictionary.get("previous_state") if dictionary.get("previous_state") else APIHelper.SKIP
+        signup_payment_id = dictionary.get("signup_payment_id") if dictionary.get("signup_payment_id") else APIHelper.SKIP
+        signup_revenue = dictionary.get("signup_revenue") if dictionary.get("signup_revenue") else APIHelper.SKIP
+        if 'delayed_cancel_at' in dictionary.keys():
+            delayed_cancel_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("delayed_cancel_at")).datetime if dictionary.get("delayed_cancel_at") else None
         else:
             delayed_cancel_at = APIHelper.SKIP
-        coupon_code =\
-            dictionary.get("coupon_code")\
-            if "coupon_code" in dictionary.keys() else APIHelper.SKIP
-        snap_day =\
-            dictionary.get("snap_day")\
-            if "snap_day" in dictionary.keys() else APIHelper.SKIP
-        payment_collection_method =\
-            dictionary.get("payment_collection_method")\
-            if dictionary.get("payment_collection_method") else APIHelper.SKIP
-        customer = Customer.from_dictionary(
-            dictionary.get("customer"))\
-            if "customer" in dictionary.keys() else APIHelper.SKIP
-        product = Product.from_dictionary(
-            dictionary.get("product"))\
-            if "product" in dictionary.keys() else APIHelper.SKIP
-        credit_card = CreditCardPaymentProfile.from_dictionary(
-            dictionary.get("credit_card"))\
-            if "credit_card" in dictionary.keys() else APIHelper.SKIP
-        if "group" in dictionary.keys():
-            group = NestedSubscriptionGroup.from_dictionary(dictionary.get("group")) if dictionary.get("group") else None
+        coupon_code = dictionary.get("coupon_code") if "coupon_code" in dictionary.keys() else APIHelper.SKIP
+        snap_day = dictionary.get("snap_day") if "snap_day" in dictionary.keys() else APIHelper.SKIP
+        payment_collection_method = dictionary.get("payment_collection_method") if dictionary.get("payment_collection_method") else APIHelper.SKIP
+        customer = Customer.from_dictionary(dictionary.get('customer')) if 'customer' in dictionary.keys() else APIHelper.SKIP
+        product = Product.from_dictionary(dictionary.get('product')) if 'product' in dictionary.keys() else APIHelper.SKIP
+        credit_card = CreditCardPaymentProfile.from_dictionary(dictionary.get('credit_card')) if 'credit_card' in dictionary.keys() else APIHelper.SKIP
+        if 'group' in dictionary.keys():
+            group = NestedSubscriptionGroup.from_dictionary(dictionary.get('group')) if dictionary.get('group') else None
         else:
             group = APIHelper.SKIP
-        bank_account = BankAccountPaymentProfile.from_dictionary(
-            dictionary.get("bank_account"))\
-            if "bank_account" in dictionary.keys() else APIHelper.SKIP
-        payment_type =\
-            dictionary.get("payment_type")\
-            if "payment_type" in dictionary.keys() else APIHelper.SKIP
-        referral_code =\
-            dictionary.get("referral_code")\
-            if "referral_code" in dictionary.keys() else APIHelper.SKIP
-        next_product_id =\
-            dictionary.get("next_product_id")\
-            if "next_product_id" in dictionary.keys() else APIHelper.SKIP
-        next_product_handle =\
-            dictionary.get("next_product_handle")\
-            if "next_product_handle" in dictionary.keys() else APIHelper.SKIP
-        coupon_use_count =\
-            dictionary.get("coupon_use_count")\
-            if "coupon_use_count" in dictionary.keys() else APIHelper.SKIP
-        coupon_uses_allowed =\
-            dictionary.get("coupon_uses_allowed")\
-            if "coupon_uses_allowed" in dictionary.keys() else APIHelper.SKIP
-        reason_code =\
-            dictionary.get("reason_code")\
-            if "reason_code" in dictionary.keys() else APIHelper.SKIP
-        if "automatically_resume_at" in dictionary.keys():
-            automatically_resume_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("automatically_resume_at")).datetime\
-                if dictionary.get("automatically_resume_at") else None
-
+        bank_account = BankAccountPaymentProfile.from_dictionary(dictionary.get('bank_account')) if 'bank_account' in dictionary.keys() else APIHelper.SKIP
+        payment_type = dictionary.get("payment_type") if "payment_type" in dictionary.keys() else APIHelper.SKIP
+        referral_code = dictionary.get("referral_code") if "referral_code" in dictionary.keys() else APIHelper.SKIP
+        next_product_id = dictionary.get("next_product_id") if "next_product_id" in dictionary.keys() else APIHelper.SKIP
+        next_product_handle = dictionary.get("next_product_handle") if "next_product_handle" in dictionary.keys() else APIHelper.SKIP
+        coupon_use_count = dictionary.get("coupon_use_count") if "coupon_use_count" in dictionary.keys() else APIHelper.SKIP
+        coupon_uses_allowed = dictionary.get("coupon_uses_allowed") if "coupon_uses_allowed" in dictionary.keys() else APIHelper.SKIP
+        reason_code = dictionary.get("reason_code") if "reason_code" in dictionary.keys() else APIHelper.SKIP
+        if 'automatically_resume_at' in dictionary.keys():
+            automatically_resume_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("automatically_resume_at")).datetime if dictionary.get("automatically_resume_at") else None
         else:
             automatically_resume_at = APIHelper.SKIP
-        coupon_codes =\
-            dictionary.get("coupon_codes")\
-            if dictionary.get("coupon_codes") else APIHelper.SKIP
-        offer_id =\
-            dictionary.get("offer_id")\
-            if "offer_id" in dictionary.keys() else APIHelper.SKIP
-        payer_id =\
-            dictionary.get("payer_id")\
-            if "payer_id" in dictionary.keys() else APIHelper.SKIP
-        current_billing_amount_in_cents =\
-            dictionary.get("current_billing_amount_in_cents")\
-            if dictionary.get("current_billing_amount_in_cents") else APIHelper.SKIP
-        product_price_point_id =\
-            dictionary.get("product_price_point_id")\
-            if dictionary.get("product_price_point_id") else APIHelper.SKIP
-        product_price_point_type =\
-            dictionary.get("product_price_point_type")\
-            if dictionary.get("product_price_point_type") else APIHelper.SKIP
-        next_product_price_point_id =\
-            dictionary.get("next_product_price_point_id")\
-            if "next_product_price_point_id" in dictionary.keys() else APIHelper.SKIP
-        net_terms =\
-            dictionary.get("net_terms")\
-            if "net_terms" in dictionary.keys() else APIHelper.SKIP
-        stored_credential_transaction_id =\
-            dictionary.get("stored_credential_transaction_id")\
-            if "stored_credential_transaction_id" in dictionary.keys() else APIHelper.SKIP
-        reference =\
-            dictionary.get("reference")\
-            if "reference" in dictionary.keys() else APIHelper.SKIP
-        if "on_hold_at" in dictionary.keys():
-            on_hold_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("on_hold_at")).datetime\
-                if dictionary.get("on_hold_at") else None
-
+        coupon_codes = dictionary.get("coupon_codes") if dictionary.get("coupon_codes") else APIHelper.SKIP
+        offer_id = dictionary.get("offer_id") if "offer_id" in dictionary.keys() else APIHelper.SKIP
+        payer_id = dictionary.get("payer_id") if "payer_id" in dictionary.keys() else APIHelper.SKIP
+        current_billing_amount_in_cents = dictionary.get("current_billing_amount_in_cents") if dictionary.get("current_billing_amount_in_cents") else APIHelper.SKIP
+        product_price_point_id = dictionary.get("product_price_point_id") if dictionary.get("product_price_point_id") else APIHelper.SKIP
+        product_price_point_type = dictionary.get("product_price_point_type") if dictionary.get("product_price_point_type") else APIHelper.SKIP
+        next_product_price_point_id = dictionary.get("next_product_price_point_id") if "next_product_price_point_id" in dictionary.keys() else APIHelper.SKIP
+        net_terms = dictionary.get("net_terms") if "net_terms" in dictionary.keys() else APIHelper.SKIP
+        stored_credential_transaction_id = dictionary.get("stored_credential_transaction_id") if "stored_credential_transaction_id" in dictionary.keys() else APIHelper.SKIP
+        reference = dictionary.get("reference") if "reference" in dictionary.keys() else APIHelper.SKIP
+        if 'on_hold_at' in dictionary.keys():
+            on_hold_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("on_hold_at")).datetime if dictionary.get("on_hold_at") else None
         else:
             on_hold_at = APIHelper.SKIP
-        prepaid_dunning =\
-            dictionary.get("prepaid_dunning")\
-            if "prepaid_dunning" in dictionary.keys() else APIHelper.SKIP
+        prepaid_dunning = dictionary.get("prepaid_dunning") if "prepaid_dunning" in dictionary.keys() else APIHelper.SKIP
         coupons = None
-        if dictionary.get("coupons") is not None:
-            coupons = [
-                SubscriptionIncludedCoupon.from_dictionary(x)
-                    for x in dictionary.get("coupons")
-            ]
+        if dictionary.get('coupons') is not None:
+            coupons = [SubscriptionIncludedCoupon.from_dictionary(x) for x in dictionary.get('coupons')]
         else:
             coupons = APIHelper.SKIP
-        dunning_communication_delay_enabled =\
-            dictionary.get("dunning_communication_delay_enabled")\
-            if "dunning_communication_delay_enabled" in dictionary.keys() else APIHelper.SKIP
-        dunning_communication_delay_time_zone =\
-            dictionary.get("dunning_communication_delay_time_zone")\
-            if "dunning_communication_delay_time_zone" in dictionary.keys() else APIHelper.SKIP
-        receives_invoice_emails =\
-            dictionary.get("receives_invoice_emails")\
-            if "receives_invoice_emails" in dictionary.keys() else APIHelper.SKIP
-        locale =\
-            dictionary.get("locale")\
-            if "locale" in dictionary.keys() else APIHelper.SKIP
-        currency =\
-            dictionary.get("currency")\
-            if dictionary.get("currency") else APIHelper.SKIP
-        if "scheduled_cancellation_at" in dictionary.keys():
-            scheduled_cancellation_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("scheduled_cancellation_at")).datetime\
-                if dictionary.get("scheduled_cancellation_at") else None
-
+        dunning_communication_delay_enabled = dictionary.get("dunning_communication_delay_enabled") if "dunning_communication_delay_enabled" in dictionary.keys() else APIHelper.SKIP
+        dunning_communication_delay_time_zone = dictionary.get("dunning_communication_delay_time_zone") if "dunning_communication_delay_time_zone" in dictionary.keys() else APIHelper.SKIP
+        receives_invoice_emails = dictionary.get("receives_invoice_emails") if "receives_invoice_emails" in dictionary.keys() else APIHelper.SKIP
+        locale = dictionary.get("locale") if "locale" in dictionary.keys() else APIHelper.SKIP
+        currency = dictionary.get("currency") if dictionary.get("currency") else APIHelper.SKIP
+        if 'scheduled_cancellation_at' in dictionary.keys():
+            scheduled_cancellation_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("scheduled_cancellation_at")).datetime if dictionary.get("scheduled_cancellation_at") else None
         else:
             scheduled_cancellation_at = APIHelper.SKIP
-        credit_balance_in_cents =\
-            dictionary.get("credit_balance_in_cents")\
-            if dictionary.get("credit_balance_in_cents") else APIHelper.SKIP
-        prepayment_balance_in_cents =\
-            dictionary.get("prepayment_balance_in_cents")\
-            if dictionary.get("prepayment_balance_in_cents") else APIHelper.SKIP
-        if "prepaid_configuration" in dictionary.keys():
-            prepaid_configuration = PrepaidConfiguration.from_dictionary(dictionary.get("prepaid_configuration")) if dictionary.get("prepaid_configuration") else None
+        credit_balance_in_cents = dictionary.get("credit_balance_in_cents") if dictionary.get("credit_balance_in_cents") else APIHelper.SKIP
+        prepayment_balance_in_cents = dictionary.get("prepayment_balance_in_cents") if dictionary.get("prepayment_balance_in_cents") else APIHelper.SKIP
+        if 'prepaid_configuration' in dictionary.keys():
+            prepaid_configuration = PrepaidConfiguration.from_dictionary(dictionary.get('prepaid_configuration')) if dictionary.get('prepaid_configuration') else None
         else:
             prepaid_configuration = APIHelper.SKIP
-        self_service_page_token =\
-            dictionary.get("self_service_page_token")\
-            if dictionary.get("self_service_page_token") else APIHelper.SKIP
+        self_service_page_token = dictionary.get("self_service_page_token") if dictionary.get("self_service_page_token") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(id,
                    state,
@@ -969,251 +799,133 @@ class Subscription(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"state={(self.state if hasattr(self, 'state') else None)!r}, "
-                f"balance_in_cents={(self.balance_in_cents
-                     if hasattr(self, 'balance_in_cents') else None)!r}, "
-                f"total_revenue_in_cents={(self.total_revenue_in_cents
-                     if hasattr(self, 'total_revenue_in_cents') else None)!r}, "
-                f"product_price_in_cents={(self.product_price_in_cents
-                     if hasattr(self, 'product_price_in_cents') else None)!r}, "
-                f"product_version_number={(self.product_version_number
-                     if hasattr(self, 'product_version_number') else None)!r}, "
-                f"current_period_ends_at={(self.current_period_ends_at
-                     if hasattr(self, 'current_period_ends_at') else None)!r}, "
-                f"next_assessment_at={(self.next_assessment_at
-                     if hasattr(self, 'next_assessment_at') else None)!r}, "
-                f"trial_started_at={(self.trial_started_at
-                     if hasattr(self, 'trial_started_at') else None)!r}, "
-                f"trial_ended_at={(self.trial_ended_at
-                     if hasattr(self, 'trial_ended_at') else None)!r}, "
-                f"activated_at={(self.activated_at
-                     if hasattr(self, 'activated_at') else None)!r}, "
-                f"expires_at={(self.expires_at
-                     if hasattr(self, 'expires_at') else None)!r}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!r}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!r}, "
-                f"cancellation_message={(self.cancellation_message
-                     if hasattr(self, 'cancellation_message') else None)!r}, "
-                f"cancellation_method={(self.cancellation_method
-                     if hasattr(self, 'cancellation_method') else None)!r}, "
-                f"cancel_at_end_of_period={(self.cancel_at_end_of_period
-                     if hasattr(self, 'cancel_at_end_of_period') else None)!r}, "
-                f"canceled_at={(self.canceled_at
-                     if hasattr(self, 'canceled_at') else None)!r}, "
-                f"current_period_started_at={(self.current_period_started_at
-                     if hasattr(self, 'current_period_started_at') else None)!r}, "
-                f"previous_state={(self.previous_state
-                     if hasattr(self, 'previous_state') else None)!r}, "
-                f"signup_payment_id={(self.signup_payment_id
-                     if hasattr(self, 'signup_payment_id') else None)!r}, "
-                f"signup_revenue={(self.signup_revenue
-                     if hasattr(self, 'signup_revenue') else None)!r}, "
-                f"delayed_cancel_at={(self.delayed_cancel_at
-                     if hasattr(self, 'delayed_cancel_at') else None)!r}, "
-                f"coupon_code={(self.coupon_code
-                     if hasattr(self, 'coupon_code') else None)!r}, "
-                f"snap_day={(self.snap_day
-                     if hasattr(self, 'snap_day') else None)!r}, "
-                f"payment_collection_method={(self.payment_collection_method
-                     if hasattr(self, 'payment_collection_method') else None)!r}, "
-                f"customer={(self.customer
-                     if hasattr(self, 'customer') else None)!r}, "
-                f"product={(self.product
-                     if hasattr(self, 'product') else None)!r}, "
-                f"credit_card={(self.credit_card
-                     if hasattr(self, 'credit_card') else None)!r}, "
-                f"group={(self.group if hasattr(self, 'group') else None)!r}, "
-                f"bank_account={(self.bank_account
-                     if hasattr(self, 'bank_account') else None)!r}, "
-                f"payment_type={(self.payment_type
-                     if hasattr(self, 'payment_type') else None)!r}, "
-                f"referral_code={(self.referral_code
-                     if hasattr(self, 'referral_code') else None)!r}, "
-                f"next_product_id={(self.next_product_id
-                     if hasattr(self, 'next_product_id') else None)!r}, "
-                f"next_product_handle={(self.next_product_handle
-                     if hasattr(self, 'next_product_handle') else None)!r}, "
-                f"coupon_use_count={(self.coupon_use_count
-                     if hasattr(self, 'coupon_use_count') else None)!r}, "
-                f"coupon_uses_allowed={(self.coupon_uses_allowed
-                     if hasattr(self, 'coupon_uses_allowed') else None)!r}, "
-                f"reason_code={(self.reason_code
-                     if hasattr(self, 'reason_code') else None)!r}, "
-                f"automatically_resume_at={(self.automatically_resume_at
-                     if hasattr(self, 'automatically_resume_at') else None)!r}, "
-                f"coupon_codes={(self.coupon_codes
-                     if hasattr(self, 'coupon_codes') else None)!r}, "
-                f"offer_id={(self.offer_id
-                     if hasattr(self, 'offer_id') else None)!r}, "
-                f"payer_id={(self.payer_id
-                     if hasattr(self, 'payer_id') else None)!r}, "
-                f"current_billing_amount_in_cents={(self.current_billing_amount_in_cents
-                     if hasattr(self, 'current_billing_amount_in_cents') else None)!r}, "
-                f"product_price_point_id={(self.product_price_point_id
-                     if hasattr(self, 'product_price_point_id') else None)!r}, "
-                f"product_price_point_type={(self.product_price_point_type
-                     if hasattr(self, 'product_price_point_type') else None)!r}, "
-                f"next_product_price_point_id={(self.next_product_price_point_id
-                     if hasattr(self, 'next_product_price_point_id') else None)!r}, "
-                f"net_terms={(self.net_terms
-                     if hasattr(self, 'net_terms') else None)!r}, "
-                f"stored_credential_transaction_id={(self.stored_credential_transaction_id
-                     if hasattr(self, 'stored_credential_transaction_id') else None)!r}, "
-                f"reference={(self.reference
-                     if hasattr(self, 'reference') else None)!r}, "
-                f"on_hold_at={(self.on_hold_at
-                     if hasattr(self, 'on_hold_at') else None)!r}, "
-                f"prepaid_dunning={(self.prepaid_dunning
-                     if hasattr(self, 'prepaid_dunning') else None)!r}, "
-                f"coupons={(self.coupons
-                     if hasattr(self, 'coupons') else None)!r}, "
-                f"dunning_communication_delay_enabled={(self.dunning_communication_delay_enabled
-                     if hasattr(self, 'dunning_communication_delay_enabled') else None)!r}, "
-                f"dunning_communication_delay_time_zone={(self.dunning_communication_delay_time_zone
-                     if hasattr(self, 'dunning_communication_delay_time_zone') else None)!r}, "
-                f"receives_invoice_emails={(self.receives_invoice_emails
-                     if hasattr(self, 'receives_invoice_emails') else None)!r}, "
-                f"locale={(self.locale if hasattr(self, 'locale') else None)!r}, "
-                f"currency={(self.currency
-                     if hasattr(self, 'currency') else None)!r}, "
-                f"scheduled_cancellation_at={(self.scheduled_cancellation_at
-                     if hasattr(self, 'scheduled_cancellation_at') else None)!r}, "
-                f"credit_balance_in_cents={(self.credit_balance_in_cents
-                     if hasattr(self, 'credit_balance_in_cents') else None)!r}, "
-                f"prepayment_balance_in_cents={(self.prepayment_balance_in_cents
-                     if hasattr(self, 'prepayment_balance_in_cents') else None)!r}, "
-                f"prepaid_configuration={(self.prepaid_configuration
-                     if hasattr(self, 'prepaid_configuration') else None)!r}, "
-                f"self_service_page_token={(self.self_service_page_token
-                     if hasattr(self, 'self_service_page_token') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'state={(self.state if hasattr(self, "state") else None)!r}, '
+                f'balance_in_cents={(self.balance_in_cents if hasattr(self, "balance_in_cents") else None)!r}, '
+                f'total_revenue_in_cents={(self.total_revenue_in_cents if hasattr(self, "total_revenue_in_cents") else None)!r}, '
+                f'product_price_in_cents={(self.product_price_in_cents if hasattr(self, "product_price_in_cents") else None)!r}, '
+                f'product_version_number={(self.product_version_number if hasattr(self, "product_version_number") else None)!r}, '
+                f'current_period_ends_at={(self.current_period_ends_at if hasattr(self, "current_period_ends_at") else None)!r}, '
+                f'next_assessment_at={(self.next_assessment_at if hasattr(self, "next_assessment_at") else None)!r}, '
+                f'trial_started_at={(self.trial_started_at if hasattr(self, "trial_started_at") else None)!r}, '
+                f'trial_ended_at={(self.trial_ended_at if hasattr(self, "trial_ended_at") else None)!r}, '
+                f'activated_at={(self.activated_at if hasattr(self, "activated_at") else None)!r}, '
+                f'expires_at={(self.expires_at if hasattr(self, "expires_at") else None)!r}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!r}, '
+                f'updated_at={(self.updated_at if hasattr(self, "updated_at") else None)!r}, '
+                f'cancellation_message={(self.cancellation_message if hasattr(self, "cancellation_message") else None)!r}, '
+                f'cancellation_method={(self.cancellation_method if hasattr(self, "cancellation_method") else None)!r}, '
+                f'cancel_at_end_of_period={(self.cancel_at_end_of_period if hasattr(self, "cancel_at_end_of_period") else None)!r}, '
+                f'canceled_at={(self.canceled_at if hasattr(self, "canceled_at") else None)!r}, '
+                f'current_period_started_at={(self.current_period_started_at if hasattr(self, "current_period_started_at") else None)!r}, '
+                f'previous_state={(self.previous_state if hasattr(self, "previous_state") else None)!r}, '
+                f'signup_payment_id={(self.signup_payment_id if hasattr(self, "signup_payment_id") else None)!r}, '
+                f'signup_revenue={(self.signup_revenue if hasattr(self, "signup_revenue") else None)!r}, '
+                f'delayed_cancel_at={(self.delayed_cancel_at if hasattr(self, "delayed_cancel_at") else None)!r}, '
+                f'coupon_code={(self.coupon_code if hasattr(self, "coupon_code") else None)!r}, '
+                f'snap_day={(self.snap_day if hasattr(self, "snap_day") else None)!r}, '
+                f'payment_collection_method={(self.payment_collection_method if hasattr(self, "payment_collection_method") else None)!r}, '
+                f'customer={(self.customer if hasattr(self, "customer") else None)!r}, '
+                f'product={(self.product if hasattr(self, "product") else None)!r}, '
+                f'credit_card={(self.credit_card if hasattr(self, "credit_card") else None)!r}, '
+                f'group={(self.group if hasattr(self, "group") else None)!r}, '
+                f'bank_account={(self.bank_account if hasattr(self, "bank_account") else None)!r}, '
+                f'payment_type={(self.payment_type if hasattr(self, "payment_type") else None)!r}, '
+                f'referral_code={(self.referral_code if hasattr(self, "referral_code") else None)!r}, '
+                f'next_product_id={(self.next_product_id if hasattr(self, "next_product_id") else None)!r}, '
+                f'next_product_handle={(self.next_product_handle if hasattr(self, "next_product_handle") else None)!r}, '
+                f'coupon_use_count={(self.coupon_use_count if hasattr(self, "coupon_use_count") else None)!r}, '
+                f'coupon_uses_allowed={(self.coupon_uses_allowed if hasattr(self, "coupon_uses_allowed") else None)!r}, '
+                f'reason_code={(self.reason_code if hasattr(self, "reason_code") else None)!r}, '
+                f'automatically_resume_at={(self.automatically_resume_at if hasattr(self, "automatically_resume_at") else None)!r}, '
+                f'coupon_codes={(self.coupon_codes if hasattr(self, "coupon_codes") else None)!r}, '
+                f'offer_id={(self.offer_id if hasattr(self, "offer_id") else None)!r}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!r}, '
+                f'current_billing_amount_in_cents={(self.current_billing_amount_in_cents if hasattr(self, "current_billing_amount_in_cents") else None)!r}, '
+                f'product_price_point_id={(self.product_price_point_id if hasattr(self, "product_price_point_id") else None)!r}, '
+                f'product_price_point_type={(self.product_price_point_type if hasattr(self, "product_price_point_type") else None)!r}, '
+                f'next_product_price_point_id={(self.next_product_price_point_id if hasattr(self, "next_product_price_point_id") else None)!r}, '
+                f'net_terms={(self.net_terms if hasattr(self, "net_terms") else None)!r}, '
+                f'stored_credential_transaction_id={(self.stored_credential_transaction_id if hasattr(self, "stored_credential_transaction_id") else None)!r}, '
+                f'reference={(self.reference if hasattr(self, "reference") else None)!r}, '
+                f'on_hold_at={(self.on_hold_at if hasattr(self, "on_hold_at") else None)!r}, '
+                f'prepaid_dunning={(self.prepaid_dunning if hasattr(self, "prepaid_dunning") else None)!r}, '
+                f'coupons={(self.coupons if hasattr(self, "coupons") else None)!r}, '
+                f'dunning_communication_delay_enabled={(self.dunning_communication_delay_enabled if hasattr(self, "dunning_communication_delay_enabled") else None)!r}, '
+                f'dunning_communication_delay_time_zone={(self.dunning_communication_delay_time_zone if hasattr(self, "dunning_communication_delay_time_zone") else None)!r}, '
+                f'receives_invoice_emails={(self.receives_invoice_emails if hasattr(self, "receives_invoice_emails") else None)!r}, '
+                f'locale={(self.locale if hasattr(self, "locale") else None)!r}, '
+                f'currency={(self.currency if hasattr(self, "currency") else None)!r}, '
+                f'scheduled_cancellation_at={(self.scheduled_cancellation_at if hasattr(self, "scheduled_cancellation_at") else None)!r}, '
+                f'credit_balance_in_cents={(self.credit_balance_in_cents if hasattr(self, "credit_balance_in_cents") else None)!r}, '
+                f'prepayment_balance_in_cents={(self.prepayment_balance_in_cents if hasattr(self, "prepayment_balance_in_cents") else None)!r}, '
+                f'prepaid_configuration={(self.prepaid_configuration if hasattr(self, "prepaid_configuration") else None)!r}, '
+                f'self_service_page_token={(self.self_service_page_token if hasattr(self, "self_service_page_token") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"state={(self.state if hasattr(self, 'state') else None)!s}, "
-                f"balance_in_cents={(self.balance_in_cents
-                     if hasattr(self, 'balance_in_cents') else None)!s}, "
-                f"total_revenue_in_cents={(self.total_revenue_in_cents
-                     if hasattr(self, 'total_revenue_in_cents') else None)!s}, "
-                f"product_price_in_cents={(self.product_price_in_cents
-                     if hasattr(self, 'product_price_in_cents') else None)!s}, "
-                f"product_version_number={(self.product_version_number
-                     if hasattr(self, 'product_version_number') else None)!s}, "
-                f"current_period_ends_at={(self.current_period_ends_at
-                     if hasattr(self, 'current_period_ends_at') else None)!s}, "
-                f"next_assessment_at={(self.next_assessment_at
-                     if hasattr(self, 'next_assessment_at') else None)!s}, "
-                f"trial_started_at={(self.trial_started_at
-                     if hasattr(self, 'trial_started_at') else None)!s}, "
-                f"trial_ended_at={(self.trial_ended_at
-                     if hasattr(self, 'trial_ended_at') else None)!s}, "
-                f"activated_at={(self.activated_at
-                     if hasattr(self, 'activated_at') else None)!s}, "
-                f"expires_at={(self.expires_at
-                     if hasattr(self, 'expires_at') else None)!s}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!s}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!s}, "
-                f"cancellation_message={(self.cancellation_message
-                     if hasattr(self, 'cancellation_message') else None)!s}, "
-                f"cancellation_method={(self.cancellation_method
-                     if hasattr(self, 'cancellation_method') else None)!s}, "
-                f"cancel_at_end_of_period={(self.cancel_at_end_of_period
-                     if hasattr(self, 'cancel_at_end_of_period') else None)!s}, "
-                f"canceled_at={(self.canceled_at
-                     if hasattr(self, 'canceled_at') else None)!s}, "
-                f"current_period_started_at={(self.current_period_started_at
-                     if hasattr(self, 'current_period_started_at') else None)!s}, "
-                f"previous_state={(self.previous_state
-                     if hasattr(self, 'previous_state') else None)!s}, "
-                f"signup_payment_id={(self.signup_payment_id
-                     if hasattr(self, 'signup_payment_id') else None)!s}, "
-                f"signup_revenue={(self.signup_revenue
-                     if hasattr(self, 'signup_revenue') else None)!s}, "
-                f"delayed_cancel_at={(self.delayed_cancel_at
-                     if hasattr(self, 'delayed_cancel_at') else None)!s}, "
-                f"coupon_code={(self.coupon_code
-                     if hasattr(self, 'coupon_code') else None)!s}, "
-                f"snap_day={(self.snap_day
-                     if hasattr(self, 'snap_day') else None)!s}, "
-                f"payment_collection_method={(self.payment_collection_method
-                     if hasattr(self, 'payment_collection_method') else None)!s}, "
-                f"customer={(self.customer
-                     if hasattr(self, 'customer') else None)!s}, "
-                f"product={(self.product
-                     if hasattr(self, 'product') else None)!s}, "
-                f"credit_card={(self.credit_card
-                     if hasattr(self, 'credit_card') else None)!s}, "
-                f"group={(self.group if hasattr(self, 'group') else None)!s}, "
-                f"bank_account={(self.bank_account
-                     if hasattr(self, 'bank_account') else None)!s}, "
-                f"payment_type={(self.payment_type
-                     if hasattr(self, 'payment_type') else None)!s}, "
-                f"referral_code={(self.referral_code
-                     if hasattr(self, 'referral_code') else None)!s}, "
-                f"next_product_id={(self.next_product_id
-                     if hasattr(self, 'next_product_id') else None)!s}, "
-                f"next_product_handle={(self.next_product_handle
-                     if hasattr(self, 'next_product_handle') else None)!s}, "
-                f"coupon_use_count={(self.coupon_use_count
-                     if hasattr(self, 'coupon_use_count') else None)!s}, "
-                f"coupon_uses_allowed={(self.coupon_uses_allowed
-                     if hasattr(self, 'coupon_uses_allowed') else None)!s}, "
-                f"reason_code={(self.reason_code
-                     if hasattr(self, 'reason_code') else None)!s}, "
-                f"automatically_resume_at={(self.automatically_resume_at
-                     if hasattr(self, 'automatically_resume_at') else None)!s}, "
-                f"coupon_codes={(self.coupon_codes
-                     if hasattr(self, 'coupon_codes') else None)!s}, "
-                f"offer_id={(self.offer_id
-                     if hasattr(self, 'offer_id') else None)!s}, "
-                f"payer_id={(self.payer_id
-                     if hasattr(self, 'payer_id') else None)!s}, "
-                f"current_billing_amount_in_cents={(self.current_billing_amount_in_cents
-                     if hasattr(self, 'current_billing_amount_in_cents') else None)!s}, "
-                f"product_price_point_id={(self.product_price_point_id
-                     if hasattr(self, 'product_price_point_id') else None)!s}, "
-                f"product_price_point_type={(self.product_price_point_type
-                     if hasattr(self, 'product_price_point_type') else None)!s}, "
-                f"next_product_price_point_id={(self.next_product_price_point_id
-                     if hasattr(self, 'next_product_price_point_id') else None)!s}, "
-                f"net_terms={(self.net_terms
-                     if hasattr(self, 'net_terms') else None)!s}, "
-                f"stored_credential_transaction_id={(self.stored_credential_transaction_id
-                     if hasattr(self, 'stored_credential_transaction_id') else None)!s}, "
-                f"reference={(self.reference
-                     if hasattr(self, 'reference') else None)!s}, "
-                f"on_hold_at={(self.on_hold_at
-                     if hasattr(self, 'on_hold_at') else None)!s}, "
-                f"prepaid_dunning={(self.prepaid_dunning
-                     if hasattr(self, 'prepaid_dunning') else None)!s}, "
-                f"coupons={(self.coupons
-                     if hasattr(self, 'coupons') else None)!s}, "
-                f"dunning_communication_delay_enabled={(self.dunning_communication_delay_enabled
-                     if hasattr(self, 'dunning_communication_delay_enabled') else None)!s}, "
-                f"dunning_communication_delay_time_zone={(self.dunning_communication_delay_time_zone
-                     if hasattr(self, 'dunning_communication_delay_time_zone') else None)!s}, "
-                f"receives_invoice_emails={(self.receives_invoice_emails
-                     if hasattr(self, 'receives_invoice_emails') else None)!s}, "
-                f"locale={(self.locale if hasattr(self, 'locale') else None)!s}, "
-                f"currency={(self.currency
-                     if hasattr(self, 'currency') else None)!s}, "
-                f"scheduled_cancellation_at={(self.scheduled_cancellation_at
-                     if hasattr(self, 'scheduled_cancellation_at') else None)!s}, "
-                f"credit_balance_in_cents={(self.credit_balance_in_cents
-                     if hasattr(self, 'credit_balance_in_cents') else None)!s}, "
-                f"prepayment_balance_in_cents={(self.prepayment_balance_in_cents
-                     if hasattr(self, 'prepayment_balance_in_cents') else None)!s}, "
-                f"prepaid_configuration={(self.prepaid_configuration
-                     if hasattr(self, 'prepaid_configuration') else None)!s}, "
-                f"self_service_page_token={(self.self_service_page_token
-                     if hasattr(self, 'self_service_page_token') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'state={(self.state if hasattr(self, "state") else None)!s}, '
+                f'balance_in_cents={(self.balance_in_cents if hasattr(self, "balance_in_cents") else None)!s}, '
+                f'total_revenue_in_cents={(self.total_revenue_in_cents if hasattr(self, "total_revenue_in_cents") else None)!s}, '
+                f'product_price_in_cents={(self.product_price_in_cents if hasattr(self, "product_price_in_cents") else None)!s}, '
+                f'product_version_number={(self.product_version_number if hasattr(self, "product_version_number") else None)!s}, '
+                f'current_period_ends_at={(self.current_period_ends_at if hasattr(self, "current_period_ends_at") else None)!s}, '
+                f'next_assessment_at={(self.next_assessment_at if hasattr(self, "next_assessment_at") else None)!s}, '
+                f'trial_started_at={(self.trial_started_at if hasattr(self, "trial_started_at") else None)!s}, '
+                f'trial_ended_at={(self.trial_ended_at if hasattr(self, "trial_ended_at") else None)!s}, '
+                f'activated_at={(self.activated_at if hasattr(self, "activated_at") else None)!s}, '
+                f'expires_at={(self.expires_at if hasattr(self, "expires_at") else None)!s}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!s}, '
+                f'updated_at={(self.updated_at if hasattr(self, "updated_at") else None)!s}, '
+                f'cancellation_message={(self.cancellation_message if hasattr(self, "cancellation_message") else None)!s}, '
+                f'cancellation_method={(self.cancellation_method if hasattr(self, "cancellation_method") else None)!s}, '
+                f'cancel_at_end_of_period={(self.cancel_at_end_of_period if hasattr(self, "cancel_at_end_of_period") else None)!s}, '
+                f'canceled_at={(self.canceled_at if hasattr(self, "canceled_at") else None)!s}, '
+                f'current_period_started_at={(self.current_period_started_at if hasattr(self, "current_period_started_at") else None)!s}, '
+                f'previous_state={(self.previous_state if hasattr(self, "previous_state") else None)!s}, '
+                f'signup_payment_id={(self.signup_payment_id if hasattr(self, "signup_payment_id") else None)!s}, '
+                f'signup_revenue={(self.signup_revenue if hasattr(self, "signup_revenue") else None)!s}, '
+                f'delayed_cancel_at={(self.delayed_cancel_at if hasattr(self, "delayed_cancel_at") else None)!s}, '
+                f'coupon_code={(self.coupon_code if hasattr(self, "coupon_code") else None)!s}, '
+                f'snap_day={(self.snap_day if hasattr(self, "snap_day") else None)!s}, '
+                f'payment_collection_method={(self.payment_collection_method if hasattr(self, "payment_collection_method") else None)!s}, '
+                f'customer={(self.customer if hasattr(self, "customer") else None)!s}, '
+                f'product={(self.product if hasattr(self, "product") else None)!s}, '
+                f'credit_card={(self.credit_card if hasattr(self, "credit_card") else None)!s}, '
+                f'group={(self.group if hasattr(self, "group") else None)!s}, '
+                f'bank_account={(self.bank_account if hasattr(self, "bank_account") else None)!s}, '
+                f'payment_type={(self.payment_type if hasattr(self, "payment_type") else None)!s}, '
+                f'referral_code={(self.referral_code if hasattr(self, "referral_code") else None)!s}, '
+                f'next_product_id={(self.next_product_id if hasattr(self, "next_product_id") else None)!s}, '
+                f'next_product_handle={(self.next_product_handle if hasattr(self, "next_product_handle") else None)!s}, '
+                f'coupon_use_count={(self.coupon_use_count if hasattr(self, "coupon_use_count") else None)!s}, '
+                f'coupon_uses_allowed={(self.coupon_uses_allowed if hasattr(self, "coupon_uses_allowed") else None)!s}, '
+                f'reason_code={(self.reason_code if hasattr(self, "reason_code") else None)!s}, '
+                f'automatically_resume_at={(self.automatically_resume_at if hasattr(self, "automatically_resume_at") else None)!s}, '
+                f'coupon_codes={(self.coupon_codes if hasattr(self, "coupon_codes") else None)!s}, '
+                f'offer_id={(self.offer_id if hasattr(self, "offer_id") else None)!s}, '
+                f'payer_id={(self.payer_id if hasattr(self, "payer_id") else None)!s}, '
+                f'current_billing_amount_in_cents={(self.current_billing_amount_in_cents if hasattr(self, "current_billing_amount_in_cents") else None)!s}, '
+                f'product_price_point_id={(self.product_price_point_id if hasattr(self, "product_price_point_id") else None)!s}, '
+                f'product_price_point_type={(self.product_price_point_type if hasattr(self, "product_price_point_type") else None)!s}, '
+                f'next_product_price_point_id={(self.next_product_price_point_id if hasattr(self, "next_product_price_point_id") else None)!s}, '
+                f'net_terms={(self.net_terms if hasattr(self, "net_terms") else None)!s}, '
+                f'stored_credential_transaction_id={(self.stored_credential_transaction_id if hasattr(self, "stored_credential_transaction_id") else None)!s}, '
+                f'reference={(self.reference if hasattr(self, "reference") else None)!s}, '
+                f'on_hold_at={(self.on_hold_at if hasattr(self, "on_hold_at") else None)!s}, '
+                f'prepaid_dunning={(self.prepaid_dunning if hasattr(self, "prepaid_dunning") else None)!s}, '
+                f'coupons={(self.coupons if hasattr(self, "coupons") else None)!s}, '
+                f'dunning_communication_delay_enabled={(self.dunning_communication_delay_enabled if hasattr(self, "dunning_communication_delay_enabled") else None)!s}, '
+                f'dunning_communication_delay_time_zone={(self.dunning_communication_delay_time_zone if hasattr(self, "dunning_communication_delay_time_zone") else None)!s}, '
+                f'receives_invoice_emails={(self.receives_invoice_emails if hasattr(self, "receives_invoice_emails") else None)!s}, '
+                f'locale={(self.locale if hasattr(self, "locale") else None)!s}, '
+                f'currency={(self.currency if hasattr(self, "currency") else None)!s}, '
+                f'scheduled_cancellation_at={(self.scheduled_cancellation_at if hasattr(self, "scheduled_cancellation_at") else None)!s}, '
+                f'credit_balance_in_cents={(self.credit_balance_in_cents if hasattr(self, "credit_balance_in_cents") else None)!s}, '
+                f'prepayment_balance_in_cents={(self.prepayment_balance_in_cents if hasattr(self, "prepayment_balance_in_cents") else None)!s}, '
+                f'prepaid_configuration={(self.prepaid_configuration if hasattr(self, "prepaid_configuration") else None)!s}, '
+                f'self_service_page_token={(self.self_service_page_token if hasattr(self, "self_service_page_token") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

@@ -1,4 +1,7 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class ShipmentTypeEnum(object):
+
     """Implementation of the 'ShipmentType' enum.
 
     Type of shipment, possible values: Gift, Documents, Commercial Goods,
@@ -20,20 +24,18 @@ class ShipmentTypeEnum(object):
         ENUM_RETURNED GOODS: The enum member of type str.
 
     """
+    GIFT = 'Gift'
 
-    GIFT = "Gift"
+    DOCUMENTS = 'Documents'
 
-    DOCUMENTS = "Documents"
+    ENUM_COMMERCIAL_GOODS = 'Commercial Goods'
 
-    ENUM_COMMERCIAL_GOODS = "Commercial Goods"
+    ENUM_COMMERCIAL_SAMPLE = 'Commercial Sample'
 
-    ENUM_COMMERCIAL_SAMPLE = "Commercial Sample"
-
-    ENUM_RETURNED_GOODS = "Returned Goods"
+    ENUM_RETURNED_GOODS = 'Returned Goods'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

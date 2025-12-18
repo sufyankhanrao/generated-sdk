@@ -1,15 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
-from advancedbilling.models.create_or_update_segment_price import (
-    CreateOrUpdateSegmentPrice,
-)
+from advancedbilling.models.create_or_update_segment_price import CreateOrUpdateSegmentPrice
 
 
 class BulkUpdateSegmentsItem(object):
+
     """Implementation of the 'Bulk Update Segments Item' model.
 
     Attributes:
@@ -27,9 +28,9 @@ class BulkUpdateSegmentsItem(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "id": "id",
-        "pricing_scheme": "pricing_scheme",
-        "prices": "prices",
+        "id": 'id',
+        "pricing_scheme": 'pricing_scheme',
+        "prices": 'prices'
     }
 
     def __init__(self,
@@ -37,11 +38,12 @@ class BulkUpdateSegmentsItem(object):
                  pricing_scheme=None,
                  prices=None,
                  additional_properties=None):
-        """Initialize a BulkUpdateSegmentsItem instance."""
+        """Constructor for the BulkUpdateSegmentsItem class"""
+
         # Initialize members of the class
-        self.id = id
-        self.pricing_scheme = pricing_scheme
-        self.prices = prices
+        self.id = id 
+        self.pricing_scheme = pricing_scheme 
+        self.prices = prices 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -51,7 +53,7 @@ class BulkUpdateSegmentsItem(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -62,23 +64,18 @@ class BulkUpdateSegmentsItem(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         id = dictionary.get("id") if dictionary.get("id") else None
-        pricing_scheme =\
-            dictionary.get("pricing_scheme")\
-            if dictionary.get("pricing_scheme") else None
+        pricing_scheme = dictionary.get("pricing_scheme") if dictionary.get("pricing_scheme") else None
         prices = None
-        if dictionary.get("prices") is not None:
-            prices = [
-                CreateOrUpdateSegmentPrice.from_dictionary(x)
-                    for x in dictionary.get("prices")
-            ]
+        if dictionary.get('prices') is not None:
+            prices = [CreateOrUpdateSegmentPrice.from_dictionary(x) for x in dictionary.get('prices')]
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(id,
                    pricing_scheme,
@@ -86,17 +83,15 @@ class BulkUpdateSegmentsItem(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!r}, "
-                f"pricing_scheme={self.pricing_scheme!r}, "
-                f"prices={self.prices!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!r}, '
+                f'pricing_scheme={self.pricing_scheme!r}, '
+                f'prices={self.prices!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!s}, "
-                f"pricing_scheme={self.pricing_scheme!s}, "
-                f"prices={self.prices!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!s}, '
+                f'pricing_scheme={self.pricing_scheme!s}, '
+                f'prices={self.prices!s}, '
+                f'additional_properties={self.additional_properties!s})')

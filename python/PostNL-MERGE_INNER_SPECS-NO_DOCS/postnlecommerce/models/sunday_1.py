@@ -1,13 +1,16 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
 
 
 class Sunday1(object):
+
     """Implementation of the 'Sunday1' model.
 
     Attributes:
@@ -17,24 +20,25 @@ class Sunday1(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "string": "string",
+        "string": 'string'
     }
 
     _optionals = [
-        "string",
+        'string',
     ]
 
     def __init__(self,
                  string=APIHelper.SKIP):
-        """Initialize a Sunday1 instance."""
+        """Constructor for the Sunday1 class"""
+
         # Initialize members of the class
         if string is not APIHelper.SKIP:
-            self.string = string
+            self.string = string 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -45,22 +49,19 @@ class Sunday1(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        string =\
-            dictionary.get("string")\
-            if dictionary.get("string") else APIHelper.SKIP
+        string = dictionary.get("string") if dictionary.get("string") else APIHelper.SKIP
         # Return an object of this model
         return cls(string)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string={(self.string if hasattr(self, 'string') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'string={(self.string if hasattr(self, "string") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string={(self.string if hasattr(self, 'string') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'string={(self.string if hasattr(self, "string") else None)!s})')

@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class SubscriptionMigrationPreview(object):
+
     """Implementation of the 'Subscription Migration Preview' model.
 
     Attributes:
@@ -28,17 +31,17 @@ class SubscriptionMigrationPreview(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "prorated_adjustment_in_cents": "prorated_adjustment_in_cents",
-        "charge_in_cents": "charge_in_cents",
-        "payment_due_in_cents": "payment_due_in_cents",
-        "credit_applied_in_cents": "credit_applied_in_cents",
+        "prorated_adjustment_in_cents": 'prorated_adjustment_in_cents',
+        "charge_in_cents": 'charge_in_cents',
+        "payment_due_in_cents": 'payment_due_in_cents',
+        "credit_applied_in_cents": 'credit_applied_in_cents'
     }
 
     _optionals = [
-        "prorated_adjustment_in_cents",
-        "charge_in_cents",
-        "payment_due_in_cents",
-        "credit_applied_in_cents",
+        'prorated_adjustment_in_cents',
+        'charge_in_cents',
+        'payment_due_in_cents',
+        'credit_applied_in_cents',
     ]
 
     def __init__(self,
@@ -47,16 +50,17 @@ class SubscriptionMigrationPreview(object):
                  payment_due_in_cents=APIHelper.SKIP,
                  credit_applied_in_cents=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a SubscriptionMigrationPreview instance."""
+        """Constructor for the SubscriptionMigrationPreview class"""
+
         # Initialize members of the class
         if prorated_adjustment_in_cents is not APIHelper.SKIP:
-            self.prorated_adjustment_in_cents = prorated_adjustment_in_cents
+            self.prorated_adjustment_in_cents = prorated_adjustment_in_cents 
         if charge_in_cents is not APIHelper.SKIP:
-            self.charge_in_cents = charge_in_cents
+            self.charge_in_cents = charge_in_cents 
         if payment_due_in_cents is not APIHelper.SKIP:
-            self.payment_due_in_cents = payment_due_in_cents
+            self.payment_due_in_cents = payment_due_in_cents 
         if credit_applied_in_cents is not APIHelper.SKIP:
-            self.credit_applied_in_cents = credit_applied_in_cents
+            self.credit_applied_in_cents = credit_applied_in_cents 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -66,7 +70,7 @@ class SubscriptionMigrationPreview(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -77,25 +81,17 @@ class SubscriptionMigrationPreview(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        prorated_adjustment_in_cents =\
-            dictionary.get("prorated_adjustment_in_cents")\
-            if dictionary.get("prorated_adjustment_in_cents") else APIHelper.SKIP
-        charge_in_cents =\
-            dictionary.get("charge_in_cents")\
-            if dictionary.get("charge_in_cents") else APIHelper.SKIP
-        payment_due_in_cents =\
-            dictionary.get("payment_due_in_cents")\
-            if dictionary.get("payment_due_in_cents") else APIHelper.SKIP
-        credit_applied_in_cents =\
-            dictionary.get("credit_applied_in_cents")\
-            if dictionary.get("credit_applied_in_cents") else APIHelper.SKIP
+        prorated_adjustment_in_cents = dictionary.get("prorated_adjustment_in_cents") if dictionary.get("prorated_adjustment_in_cents") else APIHelper.SKIP
+        charge_in_cents = dictionary.get("charge_in_cents") if dictionary.get("charge_in_cents") else APIHelper.SKIP
+        payment_due_in_cents = dictionary.get("payment_due_in_cents") if dictionary.get("payment_due_in_cents") else APIHelper.SKIP
+        credit_applied_in_cents = dictionary.get("credit_applied_in_cents") if dictionary.get("credit_applied_in_cents") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(prorated_adjustment_in_cents,
                    charge_in_cents,
@@ -104,27 +100,17 @@ class SubscriptionMigrationPreview(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"prorated_adjustment_in_cents={(self.prorated_adjustment_in_cents
-                     if hasattr(self, 'prorated_adjustment_in_cents') else None)!r}, "
-                f"charge_in_cents={(self.charge_in_cents
-                     if hasattr(self, 'charge_in_cents') else None)!r}, "
-                f"payment_due_in_cents={(self.payment_due_in_cents
-                     if hasattr(self, 'payment_due_in_cents') else None)!r}, "
-                f"credit_applied_in_cents={(self.credit_applied_in_cents
-                     if hasattr(self, 'credit_applied_in_cents') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'prorated_adjustment_in_cents={(self.prorated_adjustment_in_cents if hasattr(self, "prorated_adjustment_in_cents") else None)!r}, '
+                f'charge_in_cents={(self.charge_in_cents if hasattr(self, "charge_in_cents") else None)!r}, '
+                f'payment_due_in_cents={(self.payment_due_in_cents if hasattr(self, "payment_due_in_cents") else None)!r}, '
+                f'credit_applied_in_cents={(self.credit_applied_in_cents if hasattr(self, "credit_applied_in_cents") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"prorated_adjustment_in_cents={(self.prorated_adjustment_in_cents
-                     if hasattr(self, 'prorated_adjustment_in_cents') else None)!s}, "
-                f"charge_in_cents={(self.charge_in_cents
-                     if hasattr(self, 'charge_in_cents') else None)!s}, "
-                f"payment_due_in_cents={(self.payment_due_in_cents
-                     if hasattr(self, 'payment_due_in_cents') else None)!s}, "
-                f"credit_applied_in_cents={(self.credit_applied_in_cents
-                     if hasattr(self, 'credit_applied_in_cents') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'prorated_adjustment_in_cents={(self.prorated_adjustment_in_cents if hasattr(self, "prorated_adjustment_in_cents") else None)!s}, '
+                f'charge_in_cents={(self.charge_in_cents if hasattr(self, "charge_in_cents") else None)!s}, '
+                f'payment_due_in_cents={(self.payment_due_in_cents if hasattr(self, "payment_due_in_cents") else None)!s}, '
+                f'credit_applied_in_cents={(self.credit_applied_in_cents if hasattr(self, "credit_applied_in_cents") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

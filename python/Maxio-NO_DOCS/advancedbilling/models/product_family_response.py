@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.product_family import (
-    ProductFamily,
-)
+from advancedbilling.models.product_family import ProductFamily
 
 
 class ProductFamilyResponse(object):
+
     """Implementation of the 'Product Family Response' model.
 
     Attributes:
@@ -23,20 +24,21 @@ class ProductFamilyResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "product_family": "product_family",
+        "product_family": 'product_family'
     }
 
     _optionals = [
-        "product_family",
+        'product_family',
     ]
 
     def __init__(self,
                  product_family=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a ProductFamilyResponse instance."""
+        """Constructor for the ProductFamilyResponse class"""
+
         # Initialize members of the class
         if product_family is not APIHelper.SKIP:
-            self.product_family = product_family
+            self.product_family = product_family 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -46,7 +48,7 @@ class ProductFamilyResponse(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -57,30 +59,24 @@ class ProductFamilyResponse(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        product_family = ProductFamily.from_dictionary(
-            dictionary.get("product_family"))\
-            if "product_family" in dictionary.keys() else APIHelper.SKIP
+        product_family = ProductFamily.from_dictionary(dictionary.get('product_family')) if 'product_family' in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(product_family,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"product_family={(self.product_family
-                     if hasattr(self, 'product_family') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'product_family={(self.product_family if hasattr(self, "product_family") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"product_family={(self.product_family
-                     if hasattr(self, 'product_family') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'product_family={(self.product_family if hasattr(self, "product_family") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

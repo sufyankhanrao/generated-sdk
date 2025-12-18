@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class PrepaymentMethod(object):
+
     """Implementation of the 'Prepayment Method' enum.
 
     Attributes:
@@ -20,24 +24,22 @@ class PrepaymentMethod(object):
             for the model.
 
     """
+    CHECK = 'check'
 
-    CHECK = "check"
+    CASH = 'cash'
 
-    CASH = "cash"
+    MONEY_ORDER = 'money_order'
 
-    MONEY_ORDER = "money_order"
+    ACH = 'ach'
 
-    ACH = "ach"
+    PAYPAL_ACCOUNT = 'paypal_account'
 
-    PAYPAL_ACCOUNT = "paypal_account"
+    CREDIT_CARD = 'credit_card'
 
-    CREDIT_CARD = "credit_card"
-
-    OTHER = "other"
+    OTHER = 'other'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

@@ -1,15 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
-from advancedbilling.models.deduct_service_credit import (
-    DeductServiceCredit,
-)
+from advancedbilling.models.deduct_service_credit import DeductServiceCredit
 
 
 class DeductServiceCreditRequest(object):
+
     """Implementation of the 'Deduct Service Credit Request' model.
 
     Attributes:
@@ -22,15 +23,16 @@ class DeductServiceCreditRequest(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "deduction": "deduction",
+        "deduction": 'deduction'
     }
 
     def __init__(self,
                  deduction=None,
                  additional_properties=None):
-        """Initialize a DeductServiceCreditRequest instance."""
+        """Constructor for the DeductServiceCreditRequest class"""
+
         # Initialize members of the class
-        self.deduction = deduction
+        self.deduction = deduction 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -40,7 +42,7 @@ class DeductServiceCreditRequest(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -51,28 +53,24 @@ class DeductServiceCreditRequest(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        deduction = DeductServiceCredit.from_dictionary(
-            dictionary.get("deduction"))\
-            if dictionary.get("deduction") else None
+        deduction = DeductServiceCredit.from_dictionary(dictionary.get('deduction')) if dictionary.get('deduction') else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(deduction,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"deduction={self.deduction!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'deduction={self.deduction!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"deduction={self.deduction!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'deduction={self.deduction!s}, '
+                f'additional_properties={self.additional_properties!s})')

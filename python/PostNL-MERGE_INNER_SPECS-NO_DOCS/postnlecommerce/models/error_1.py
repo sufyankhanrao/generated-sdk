@@ -1,13 +1,16 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
 
 
 class Error1(object):
+
     """Implementation of the 'Error1' model.
 
     Attributes:
@@ -18,29 +21,30 @@ class Error1(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "error_code": "ErrorCode",
-        "error_description": "ErrorDescription",
+        "error_code": 'ErrorCode',
+        "error_description": 'ErrorDescription'
     }
 
     _optionals = [
-        "error_code",
-        "error_description",
+        'error_code',
+        'error_description',
     ]
 
     def __init__(self,
                  error_code=APIHelper.SKIP,
                  error_description=APIHelper.SKIP):
-        """Initialize a Error1 instance."""
+        """Constructor for the Error1 class"""
+
         # Initialize members of the class
         if error_code is not APIHelper.SKIP:
-            self.error_code = error_code
+            self.error_code = error_code 
         if error_description is not APIHelper.SKIP:
-            self.error_description = error_description
+            self.error_description = error_description 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -51,32 +55,23 @@ class Error1(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        error_code =\
-            dictionary.get("ErrorCode")\
-            if dictionary.get("ErrorCode") else APIHelper.SKIP
-        error_description =\
-            dictionary.get("ErrorDescription")\
-            if dictionary.get("ErrorDescription") else APIHelper.SKIP
+        error_code = dictionary.get("ErrorCode") if dictionary.get("ErrorCode") else APIHelper.SKIP
+        error_description = dictionary.get("ErrorDescription") if dictionary.get("ErrorDescription") else APIHelper.SKIP
         # Return an object of this model
         return cls(error_code,
                    error_description)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"error_code={(self.error_code
-                     if hasattr(self, 'error_code') else None)!r}, "
-                f"error_description={(self.error_description
-                     if hasattr(self, 'error_description') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'error_code={(self.error_code if hasattr(self, "error_code") else None)!r}, '
+                f'error_description={(self.error_description if hasattr(self, "error_description") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"error_code={(self.error_code
-                     if hasattr(self, 'error_code') else None)!s}, "
-                f"error_description={(self.error_description
-                     if hasattr(self, 'error_description') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'error_code={(self.error_code if hasattr(self, "error_code") else None)!s}, '
+                f'error_description={(self.error_description if hasattr(self, "error_description") else None)!s})')

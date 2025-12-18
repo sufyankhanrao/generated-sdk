@@ -1,29 +1,23 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
 import os
-from enum import Enum
-
-from apimatic_core.http.configurations.http_client_configuration import (
-    HttpClientConfiguration,
-)
-from apimatic_requests_client_adapter.requests_client import (
-    RequestsClient,
-)
 from dotenv import load_dotenv
-
+from advancedbilling.http.proxy_settings import ProxySettings
+from enum import Enum
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.http.proxy_settings import (
-    ProxySettings,
-)
+from apimatic_core.http.configurations.http_client_configuration import HttpClientConfiguration
+from apimatic_requests_client_adapter.requests_client import RequestsClient
 
 
 class Environment(Enum):
-    """An enum for SDK environments."""
-
+    """An enum for SDK environments"""
     # Production server
     PRODUCTION = 0
     # Production server
@@ -31,7 +25,8 @@ class Environment(Enum):
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Convert a value (string or int) to an Environment enum member.
+        """
+        Convert a value (string or int) to an Environment enum member.
 
         Args:
             value (Union[str, int]): The value to convert.
@@ -39,7 +34,6 @@ class Environment(Enum):
 
         Returns:
             Environment: Matching enum member or fallback if invalid.
-
         """
         if value is None:
             return default
@@ -50,8 +44,7 @@ class Environment(Enum):
 
         # Handle integer or string conversion
         for member in cls:
-            if (str(member.value).lower() == str(value).lower()
-                or member.name.lower() == str(value).lower()):
+            if str(member.value).lower() == str(value).lower() or member.name.lower() == str(value).lower():
                 return member
 
         # Fallback to provided default
@@ -59,13 +52,13 @@ class Environment(Enum):
 
 
 class Server(Enum):
-    """An enum for API servers."""
-
+    """An enum for API servers"""
     DEFAULT = 0
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Convert a value (string or int) to a Server enum member.
+        """
+        Convert a value (string or int) to an Server enum member.
 
         Args:
             value (Union[str, int]): The value to convert.
@@ -73,7 +66,6 @@ class Server(Enum):
 
         Returns:
             Server: Matching enum member or fallback if invalid.
-
         """
         if value is None:
             return default
@@ -84,8 +76,7 @@ class Server(Enum):
 
         # Handle integer or string conversion
         for member in cls:
-            if (str(member.value).lower() == str(value).lower()
-                or member.name.lower() == str(value).lower()):
+            if str(member.value).lower() == str(value).lower() or member.name.lower() == str(value).lower():
                 return member
 
         # Fallback to provided default
@@ -93,41 +84,36 @@ class Server(Enum):
 
 
 class Configuration(HttpClientConfiguration):
-    """A class used for configuring the SDK by a user."""
+    """A class used for configuring the SDK by a user.
+    """
 
     @property
     def environment(self):
-        """Return current environment."""
         return self._environment
 
     @property
     def subdomain(self):
-        """Return current subdomain."""
         return self._subdomain
 
     @property
     def domain(self):
-        """Return current domain."""
         return self._domain
 
     @property
     def basic_auth_credentials(self):
-        """Return BasicAuthCredentials."""
         return self._basic_auth_credentials
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=30, max_retries=0, backoff_factor=2,
                  retry_statuses=None, retry_methods=None, proxy_settings=None,
-                 environment=Environment.PRODUCTION, subdomain="subdomain",
-                 domain="chargify.com", basic_auth_credentials=None):
-        """Initialize Configuration object."""
+                 environment=Environment.PRODUCTION, subdomain='subdomain',
+                 domain='chargify.com', basic_auth_credentials=None):
         if retry_methods is None:
-            retry_methods = ["GET", "PUT"]
+            retry_methods = ['GET', 'PUT']
 
         if retry_statuses is None:
-            retry_statuses = [408, 413, 429, 500, 502, 503, 504, 521,
-                522, 524]
+            retry_statuses = [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]
 
         super().__init__(
             http_client_instance=http_client_instance,
@@ -135,7 +121,7 @@ class Configuration(HttpClientConfiguration):
             http_call_back=http_call_back, timeout=timeout,
             max_retries=max_retries, backoff_factor=backoff_factor,
             retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings,
+            proxy_settings=proxy_settings
         )
 
         # Current API environment
@@ -158,11 +144,8 @@ class Configuration(HttpClientConfiguration):
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
                    environment=None, subdomain=None, domain=None,
                    basic_auth_credentials=None):
-        """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
-        override_http_client_configuration =\
-            (override_http_client_configuration
-            or self.override_http_client_configuration)
+        override_http_client_configuration = override_http_client_configuration or self.override_http_client_configuration
         http_call_back = http_call_back or self.http_callback
         timeout = timeout or self.timeout
         max_retries = max_retries or self.max_retries
@@ -182,11 +165,10 @@ class Configuration(HttpClientConfiguration):
             retry_statuses=retry_statuses, retry_methods=retry_methods,
             proxy_settings=proxy_settings, environment=environment,
             subdomain=subdomain, domain=domain,
-            basic_auth_credentials=basic_auth_credentials,
+            basic_auth_credentials=basic_auth_credentials
         )
 
     def create_http_client(self):
-        """Create the HTTP client instance."""
         return RequestsClient(
             timeout=self.timeout, max_retries=self.max_retries,
             backoff_factor=self.backoff_factor, retry_statuses=self.retry_statuses,
@@ -194,21 +176,22 @@ class Configuration(HttpClientConfiguration):
             http_client_instance=self.http_client_instance,
             override_http_client_configuration=self.override_http_client_configuration,
             response_factory=self.http_response_factory,
-            proxies=self.proxy_settings.to_proxies() if self.proxy_settings else None,
+            proxies=self.proxy_settings.to_proxies() if self.proxy_settings else None
         )
 
     # All the environments the SDK can run in
     environments = {
         Environment.PRODUCTION: {
-            Server.DEFAULT: "https://{subdomain}.{domain}",
+            Server.DEFAULT: 'https://{subdomain}.{domain}'
         },
         Environment.ENVIRONMENT2: {
-            Server.DEFAULT: "https://events.chargify.com",
-        },
+            Server.DEFAULT: 'https://events.chargify.com'
+        }
     }
 
     def get_base_uri(self, server=Server.DEFAULT):
-        """Generate the appropriate base URI for the environment and the server.
+        """Generates the appropriate base URI for the environment and the
+        server.
 
         Args:
             server (Configuration.Server): The server enum for which the base
@@ -219,49 +202,43 @@ class Configuration(HttpClientConfiguration):
 
         """
         parameters = {
-            "subdomain": {"value": self.subdomain, "encode": False},
-            "domain": {"value": self.domain, "encode": False},
+            "subdomain": {'value': self.subdomain, 'encode': False},
+            "domain": {'value': self.domain, 'encode': False},
         }
 
         return APIHelper.append_url_with_template_parameters(
-            self.environments[self.environment][server], parameters,
+            self.environments[self.environment][server], parameters
         )
 
     @classmethod
     def from_environment(cls, dotenv_path=None, **overrides):
-        """Create Configuration object from .env and environment variables.
+        """
+        Creates a Configuration object using values from a .env file, environment variables, and optional overrides.
 
         Args:
-            dotenv_path (str, optional): Path to the .env file to load.
-             If None, the default .env file is used.
-            **overrides: Optional values overriding setting from environment variables.
+            dotenv_path (str, optional): Path to the .env file to load. If None, the default .env file is used.
+            **overrides: Additional configuration values to override those loaded from the .env file and environment variables.
 
         Returns:
             Configuration: A configuration object populated with the resolved values.
-
         """
+
         # load .env automatically
         load_dotenv(dotenv_path or None, override=True)
 
-        override_http_client_configuration = os.getenv(
-            "OVERRIDE_HTTP_CLIENT_CONFIGURATION", "false").lower() == "true"
-        timeout = int(os.getenv("TIMEOUT", "30"))
-        max_retries = int(os.getenv("MAX_RETRIES", "0"))
-        backoff_factor = float(os.getenv("BACKOFF_FACTOR", "2"))
-        statuses = os.getenv("RETRY_STATUSES", None)
-        retry_statuses = [int(v.strip()) for v in statuses.split(",")
-                          if v.strip().isdigit()] if statuses else None
-        methods = os.getenv("RETRY_METHODS", None)
-        retry_methods = [v.strip() for v in methods.split(",") if v.strip()]\
-            if methods else None
-        environment = Environment.from_value(
-            os.getenv("ENVIRONMENT"), Environment.PRODUCTION)
-        subdomain = os.getenv("SUBDOMAIN", "subdomain")
-        domain = os.getenv("DOMAIN", "chargify.com")
+        override_http_client_configuration = os.getenv('OVERRIDE_HTTP_CLIENT_CONFIGURATION', 'false').lower() == 'true'
+        timeout = int(os.getenv('TIMEOUT', '30'))
+        max_retries = int(os.getenv('MAX_RETRIES', '0'))
+        backoff_factor = float(os.getenv('BACKOFF_FACTOR', '2'))
+        statuses = os.getenv('RETRY_STATUSES', None)
+        retry_statuses = [int(v.strip()) for v in statuses.split(',') if v.strip().isdigit()] if statuses else None
+        methods = os.getenv('RETRY_METHODS', None)
+        retry_methods = [v.strip() for v in methods.split(',') if v.strip()] if methods else None
+        environment = Environment.from_value(os.getenv('ENVIRONMENT'), Environment.PRODUCTION)
+        subdomain = os.getenv('SUBDOMAIN', 'subdomain')
+        domain = os.getenv('DOMAIN', 'chargify.com')
 
-        from advancedbilling.http.auth.basic_auth import (
-            BasicAuthCredentials,
-        )
+        from advancedbilling.http.auth.basic_auth import BasicAuthCredentials
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,
@@ -274,7 +251,7 @@ class Configuration(HttpClientConfiguration):
             subdomain=subdomain,
             domain=domain,
             proxy_settings=ProxySettings.from_environment(),
-            basic_auth_credentials=BasicAuthCredentials.from_environment(),
+            basic_auth_credentials=BasicAuthCredentials.from_environment()
         )
 
         return default_config.clone_with(**overrides)

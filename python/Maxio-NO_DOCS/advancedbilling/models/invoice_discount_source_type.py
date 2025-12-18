@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class InvoiceDiscountSourceType(object):
+
     """Implementation of the 'Invoice Discount Source Type' enum.
 
     Attributes:
@@ -16,17 +20,16 @@ class InvoiceDiscountSourceType(object):
             for the model.
 
     """
+    _all_values = ['Coupon', 'Referral', 'Ad Hoc Coupon']
+    COUPON = 'Coupon'
 
-    _all_values = ["Coupon", "Referral", "Ad Hoc Coupon"]
-    COUPON = "Coupon"
+    REFERRAL = 'Referral'
 
-    REFERRAL = "Referral"
-
-    ENUM_AD_HOC_COUPON = "Ad Hoc Coupon"
+    ENUM_AD_HOC_COUPON = 'Ad Hoc Coupon'
 
     @classmethod
     def validate(cls, value):
-        """Validate value contains in enum
+        """Validates value contains in enum
 
         Args:
             value: the value to be validated
@@ -36,10 +39,9 @@ class InvoiceDiscountSourceType(object):
 
         """
         return value in cls._all_values
-
+   
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

@@ -1,69 +1,43 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
-from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
-from apimatic_core.types.array_serialization_format import (
-    SerializationFormats,
-)
-from apimatic_core.types.parameter import Parameter
-
 from advancedbilling.api_helper import APIHelper
 from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.exceptions.subscription_group_create_error_response_exception import (  # noqa: E501
-    SubscriptionGroupCreateErrorResponseException,
-)
-from advancedbilling.exceptions.subscription_group_signup_error_response_exception import (  # noqa: E501
-    SubscriptionGroupSignupErrorResponseException,
-)
-from advancedbilling.exceptions.subscription_group_update_error_response_exception import (  # noqa: E501
-    SubscriptionGroupUpdateErrorResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.delete_subscription_group_response import (
-    DeleteSubscriptionGroupResponse,
-)
-from advancedbilling.models.full_subscription_group_response import (
-    FullSubscriptionGroupResponse,
-)
-from advancedbilling.models.list_subscription_groups_response import (
-    ListSubscriptionGroupsResponse,
-)
-from advancedbilling.models.subscription_group_response import (
-    SubscriptionGroupResponse,
-)
-from advancedbilling.models.subscription_group_signup_response import (
-    SubscriptionGroupSignupResponse,
-)
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
+from apimatic_core.request_builder import RequestBuilder
+from apimatic_core.response_handler import ResponseHandler
+from apimatic_core.types.parameter import Parameter
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.types.array_serialization_format import SerializationFormats
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.subscription_group_signup_response import SubscriptionGroupSignupResponse
+from advancedbilling.models.subscription_group_response import SubscriptionGroupResponse
+from advancedbilling.models.list_subscription_groups_response import ListSubscriptionGroupsResponse
+from advancedbilling.models.full_subscription_group_response import FullSubscriptionGroupResponse
+from advancedbilling.models.delete_subscription_group_response import DeleteSubscriptionGroupResponse
+from advancedbilling.exceptions.subscription_group_signup_error_response_exception import SubscriptionGroupSignupErrorResponseException
+from advancedbilling.exceptions.subscription_group_create_error_response_exception import SubscriptionGroupCreateErrorResponseException
+from advancedbilling.exceptions.subscription_group_update_error_response_exception import SubscriptionGroupUpdateErrorResponseException
+from advancedbilling.exceptions.api_exception import APIException
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
 
 
 class SubscriptionGroupsController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize SubscriptionGroupsController object."""
         super(SubscriptionGroupsController, self).__init__(config)
 
     def signup_with_subscription_group(self,
                                        body=None):
-        """Perform a POST request to /subscription_groups/signup.json.
+        """Does a POST request to /subscription_groups/signup.json.
 
         Create multiple subscriptions at once under the same customer and
         consolidate them into a subscription group.
@@ -94,34 +68,32 @@ class SubscriptionGroupsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/signup.json")
+            .path('/subscription_groups/signup.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionGroupSignupResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SubscriptionGroupSignupErrorResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SubscriptionGroupSignupErrorResponseException)
         ).execute()
 
     def create_subscription_group(self,
                                   body=None):
-        """Perform a POST request to /subscription_groups.json.
+        """Does a POST request to /subscription_groups.json.
 
         Creates a subscription group with given members.
 
@@ -140,34 +112,32 @@ class SubscriptionGroupsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups.json")
+            .path('/subscription_groups.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionGroupResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SubscriptionGroupCreateErrorResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SubscriptionGroupCreateErrorResponseException)
         ).execute()
 
     def list_subscription_groups(self,
                                  options=dict()):
-        """Perform a GET request to /subscription_groups.json.
+        """Does a GET request to /subscription_groups.json.
 
         Returns an array of subscription groups for the site. The response is
         paginated and will return a `meta` key with pagination information.
@@ -183,6 +153,7 @@ class SubscriptionGroupsController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     page -- int -- Result records are organized in pages. By
                         default, the first page of results is displayed. The
                         page parameter specifies a page number of results to
@@ -215,35 +186,36 @@ class SubscriptionGroupsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups.json")
+            .path('/subscription_groups.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("include")
-                         .value(options.get("include", None)))
+                         .key('include')
+                         .value(options.get('include', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.UN_INDEXED)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListSubscriptionGroupsResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_subscription_group(self,
                                 uid,
                                 include=None):
-        """Perform a GET request to /subscription_groups/{uid}.json.
+        """Does a GET request to /subscription_groups/{uid}.json.
 
         Use this endpoint to find subscription group details.
         #### Current Billing Amount in Cents
@@ -269,34 +241,35 @@ class SubscriptionGroupsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}.json")
+            .path('/subscription_groups/{uid}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("include")
+                         .key('include')
                          .value(include))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .array_serialization_format(SerializationFormats.UN_INDEXED)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(FullSubscriptionGroupResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_subscription_group_members(self,
                                           uid,
                                           body=None):
-        """Perform a PUT request to /subscription_groups/{uid}.json.
+        """Does a PUT request to /subscription_groups/{uid}.json.
 
         Use this endpoint to update subscription group members.
         `"member_ids"` should contain an array of both subscription IDs to set
@@ -320,39 +293,37 @@ class SubscriptionGroupsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}.json")
+            .path('/subscription_groups/{uid}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionGroupResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                SubscriptionGroupUpdateErrorResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', SubscriptionGroupUpdateErrorResponseException)
         ).execute()
 
     def delete_subscription_group(self,
                                   uid):
-        """Perform a DELETE request to /subscription_groups/{uid}.json.
+        """Does a DELETE request to /subscription_groups/{uid}.json.
 
         Use this endpoint to delete subscription group.
         Only groups without members can be deleted
@@ -371,30 +342,31 @@ class SubscriptionGroupsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/{uid}.json")
+            .path('/subscription_groups/{uid}.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("uid")
+                            .key('uid')
                             .value(uid)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DeleteSubscriptionGroupResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
         ).execute()
 
     def find_subscription_group(self,
                                 subscription_id):
-        """Perform a GET request to /subscription_groups/lookup.json.
+        """Does a GET request to /subscription_groups/lookup.json.
 
         Use this endpoint to find subscription group associated with
         subscription.
@@ -415,30 +387,31 @@ class SubscriptionGroupsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscription_groups/lookup.json")
+            .path('/subscription_groups/lookup.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("subscription_id")
+                         .key('subscription_id')
                          .value(subscription_id)
                          .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(FullSubscriptionGroupResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
         ).execute()
 
     def add_subscription_to_group(self,
                                   subscription_id,
                                   body=None):
-        """Perform a POST request to /subscriptions/{subscription_id}/group.json.
+        """Does a POST request to /subscriptions/{subscription_id}/group.json.
 
         For sites making use of the [Relationship
         Billing](https://chargify.zendesk.com/hc/en-us/articles/4407737494171)
@@ -487,35 +460,36 @@ class SubscriptionGroupsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/group.json")
+            .path('/subscriptions/{subscription_id}/group.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionGroupResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def remove_subscription_from_group(self,
                                        subscription_id):
-        """Perform a DELETE request to /subscriptions/{subscription_id}/group.json.
+        """Does a DELETE request to /subscriptions/{subscription_id}/group.json.
 
         For sites making use of the [Relationship
         Billing](https://chargify.zendesk.com/hc/en-us/articles/4407737494171)
@@ -538,22 +512,20 @@ class SubscriptionGroupsController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/subscriptions/{subscription_id}/group.json")
+            .path('/subscriptions/{subscription_id}/group.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("subscription_id")
+                            .key('subscription_id')
                             .value(subscription_id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()

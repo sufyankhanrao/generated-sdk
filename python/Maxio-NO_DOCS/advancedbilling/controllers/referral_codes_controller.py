@@ -1,42 +1,34 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.single_string_error_response_exception import (
-    SingleStringErrorResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.referral_validation_response import (
-    ReferralValidationResponse,
-)
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.referral_validation_response import ReferralValidationResponse
+from advancedbilling.exceptions.single_string_error_response_exception import SingleStringErrorResponseException
 
 
 class ReferralCodesController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize ReferralCodesController object."""
         super(ReferralCodesController, self).__init__(config)
 
     def validate_referral_code(self,
                                code):
-        """Perform a GET request to /referral_codes/validate.json.
+        """Does a GET request to /referral_codes/validate.json.
 
         Use this method to determine if the referral code is valid and
         applicable within your Site. This method is useful for validating
@@ -64,24 +56,23 @@ class ReferralCodesController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/referral_codes/validate.json")
+            .path('/referral_codes/validate.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("code")
+                         .key('code')
                          .value(code)
                          .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ReferralValidationResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404",
-                "Invalid referral code.",
-                SingleStringErrorResponseException),
+            .local_error_template('404', 'Invalid referral code.', SingleStringErrorResponseException)
         ).execute()

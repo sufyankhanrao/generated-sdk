@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class CardType(object):
+
     """Implementation of the 'Card Type' enum.
 
     The type of card used.
@@ -51,83 +55,82 @@ class CardType(object):
             for the model.
 
     """
+    _all_values = ['visa', 'master', 'elo', 'cabal', 'alelo', 'discover', 'american_express', 'naranja', 'diners_club', 'jcb', 'dankort', 'maestro', 'maestro_no_luhn', 'forbrugsforeningen', 'sodexo', 'alia', 'vr', 'unionpay', 'carnet', 'cartes_bancaires', 'olimpica', 'creditel', 'confiable', 'synchrony', 'routex', 'mada', 'bp_plus', 'passcard', 'edenred', 'anda', 'tarjeta-d', 'hipercard', 'bogus', 'switch', 'solo', 'laser']
+    VISA = 'visa'
 
-    _all_values = ["visa", "master", "elo", "cabal", "alelo", "discover", "american_express", "naranja", "diners_club", "jcb", "dankort", "maestro", "maestro_no_luhn", "forbrugsforeningen", "sodexo", "alia", "vr", "unionpay", "carnet", "cartes_bancaires", "olimpica", "creditel", "confiable", "synchrony", "routex", "mada", "bp_plus", "passcard", "edenred", "anda", "tarjeta-d", "hipercard", "bogus", "switch", "solo", "laser"]
-    VISA = "visa"
+    MASTER = 'master'
 
-    MASTER = "master"
+    ELO = 'elo'
 
-    ELO = "elo"
+    CABAL = 'cabal'
 
-    CABAL = "cabal"
+    ALELO = 'alelo'
 
-    ALELO = "alelo"
+    DISCOVER = 'discover'
 
-    DISCOVER = "discover"
+    AMERICAN_EXPRESS = 'american_express'
 
-    AMERICAN_EXPRESS = "american_express"
+    NARANJA = 'naranja'
 
-    NARANJA = "naranja"
+    DINERS_CLUB = 'diners_club'
 
-    DINERS_CLUB = "diners_club"
+    JCB = 'jcb'
 
-    JCB = "jcb"
+    DANKORT = 'dankort'
 
-    DANKORT = "dankort"
+    MAESTRO = 'maestro'
 
-    MAESTRO = "maestro"
+    MAESTRO_NO_LUHN = 'maestro_no_luhn'
 
-    MAESTRO_NO_LUHN = "maestro_no_luhn"
+    FORBRUGSFORENINGEN = 'forbrugsforeningen'
 
-    FORBRUGSFORENINGEN = "forbrugsforeningen"
+    SODEXO = 'sodexo'
 
-    SODEXO = "sodexo"
+    ALIA = 'alia'
 
-    ALIA = "alia"
+    VR = 'vr'
 
-    VR = "vr"
+    UNIONPAY = 'unionpay'
 
-    UNIONPAY = "unionpay"
+    CARNET = 'carnet'
 
-    CARNET = "carnet"
+    CARTES_BANCAIRES = 'cartes_bancaires'
 
-    CARTES_BANCAIRES = "cartes_bancaires"
+    OLIMPICA = 'olimpica'
 
-    OLIMPICA = "olimpica"
+    CREDITEL = 'creditel'
 
-    CREDITEL = "creditel"
+    CONFIABLE = 'confiable'
 
-    CONFIABLE = "confiable"
+    SYNCHRONY = 'synchrony'
 
-    SYNCHRONY = "synchrony"
+    ROUTEX = 'routex'
 
-    ROUTEX = "routex"
+    MADA = 'mada'
 
-    MADA = "mada"
+    BP_PLUS = 'bp_plus'
 
-    BP_PLUS = "bp_plus"
+    PASSCARD = 'passcard'
 
-    PASSCARD = "passcard"
+    EDENRED = 'edenred'
 
-    EDENRED = "edenred"
+    ANDA = 'anda'
 
-    ANDA = "anda"
+    TARJETAD = 'tarjeta-d'
 
-    TARJETAD = "tarjeta-d"
+    HIPERCARD = 'hipercard'
 
-    HIPERCARD = "hipercard"
+    BOGUS = 'bogus'
 
-    BOGUS = "bogus"
+    SWITCH = 'switch'
 
-    SWITCH = "switch"
+    SOLO = 'solo'
 
-    SOLO = "solo"
-
-    LASER = "laser"
+    LASER = 'laser'
 
     @classmethod
     def validate(cls, value):
-        """Validate value contains in enum
+        """Validates value contains in enum
 
         Args:
             value: the value to be validated
@@ -137,10 +140,9 @@ class CardType(object):
 
         """
         return value in cls._all_values
-
+   
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

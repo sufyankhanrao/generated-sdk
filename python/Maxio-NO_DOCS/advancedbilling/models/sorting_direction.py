@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class SortingDirection(object):
+
     """Implementation of the 'Sorting direction' enum.
 
     Used for sorting results.
@@ -17,14 +21,12 @@ class SortingDirection(object):
             for the model.
 
     """
+    ASC = 'asc'
 
-    ASC = "asc"
-
-    DESC = "desc"
+    DESC = 'desc'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

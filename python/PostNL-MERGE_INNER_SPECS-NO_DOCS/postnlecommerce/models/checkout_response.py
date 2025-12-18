@@ -1,20 +1,19 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from postnlecommerce.api_helper import APIHelper
-from postnlecommerce.models.delivery_option import (
-    DeliveryOption,
-)
-from postnlecommerce.models.pickup_option import (
-    PickupOption,
-)
+from postnlecommerce.models.delivery_option import DeliveryOption
+from postnlecommerce.models.pickup_option import PickupOption
 from postnlecommerce.models.warning import Warning
 
 
 class CheckoutResponse(object):
+
     """Implementation of the 'checkoutResponse' model.
 
     Attributes:
@@ -26,34 +25,35 @@ class CheckoutResponse(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "delivery_options": "DeliveryOptions",
-        "pickup_options": "PickupOptions",
-        "warnings": "Warnings",
+        "delivery_options": 'DeliveryOptions',
+        "pickup_options": 'PickupOptions',
+        "warnings": 'Warnings'
     }
 
     _optionals = [
-        "delivery_options",
-        "pickup_options",
-        "warnings",
+        'delivery_options',
+        'pickup_options',
+        'warnings',
     ]
 
     def __init__(self,
                  delivery_options=APIHelper.SKIP,
                  pickup_options=APIHelper.SKIP,
                  warnings=APIHelper.SKIP):
-        """Initialize a CheckoutResponse instance."""
+        """Constructor for the CheckoutResponse class"""
+
         # Initialize members of the class
         if delivery_options is not APIHelper.SKIP:
-            self.delivery_options = delivery_options
+            self.delivery_options = delivery_options 
         if pickup_options is not APIHelper.SKIP:
-            self.pickup_options = pickup_options
+            self.pickup_options = pickup_options 
         if warnings is not APIHelper.SKIP:
-            self.warnings = warnings
+            self.warnings = warnings 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -64,32 +64,24 @@ class CheckoutResponse(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         delivery_options = None
-        if dictionary.get("DeliveryOptions") is not None:
-            delivery_options = [
-                DeliveryOption.from_dictionary(x)
-                    for x in dictionary.get("DeliveryOptions")
-            ]
+        if dictionary.get('DeliveryOptions') is not None:
+            delivery_options = [DeliveryOption.from_dictionary(x) for x in dictionary.get('DeliveryOptions')]
         else:
             delivery_options = APIHelper.SKIP
         pickup_options = None
-        if dictionary.get("PickupOptions") is not None:
-            pickup_options = [
-                PickupOption.from_dictionary(x)
-                    for x in dictionary.get("PickupOptions")
-            ]
+        if dictionary.get('PickupOptions') is not None:
+            pickup_options = [PickupOption.from_dictionary(x) for x in dictionary.get('PickupOptions')]
         else:
             pickup_options = APIHelper.SKIP
         warnings = None
-        if dictionary.get("Warnings") is not None:
-            warnings = [
-                Warning.from_dictionary(x)
-                    for x in dictionary.get("Warnings")
-            ]
+        if dictionary.get('Warnings') is not None:
+            warnings = [Warning.from_dictionary(x) for x in dictionary.get('Warnings')]
         else:
             warnings = APIHelper.SKIP
         # Return an object of this model
@@ -98,21 +90,13 @@ class CheckoutResponse(object):
                    warnings)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"delivery_options={(self.delivery_options
-                     if hasattr(self, 'delivery_options') else None)!r}, "
-                f"pickup_options={(self.pickup_options
-                     if hasattr(self, 'pickup_options') else None)!r}, "
-                f"warnings={(self.warnings
-                     if hasattr(self, 'warnings') else None)!r})")
+        return (f'{self.__class__.__name__}('
+                f'delivery_options={(self.delivery_options if hasattr(self, "delivery_options") else None)!r}, '
+                f'pickup_options={(self.pickup_options if hasattr(self, "pickup_options") else None)!r}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"delivery_options={(self.delivery_options
-                     if hasattr(self, 'delivery_options') else None)!s}, "
-                f"pickup_options={(self.pickup_options
-                     if hasattr(self, 'pickup_options') else None)!s}, "
-                f"warnings={(self.warnings
-                     if hasattr(self, 'warnings') else None)!s})")
+        return (f'{self.__class__.__name__}('
+                f'delivery_options={(self.delivery_options if hasattr(self, "delivery_options") else None)!s}, '
+                f'pickup_options={(self.pickup_options if hasattr(self, "pickup_options") else None)!s}, '
+                f'warnings={(self.warnings if hasattr(self, "warnings") else None)!s})')

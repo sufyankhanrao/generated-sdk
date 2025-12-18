@@ -36,7 +36,7 @@ def get_transactions(self,
                     account_id,
                     start_time=None,
                     end_time=None,
-                    offset="0",
+                    offset='0',
                     limit=50,
                     x_akoya_interaction_type=None,
                     mode=None)
@@ -51,7 +51,7 @@ def get_transactions(self,
 | `account_id` | `str` | Template, Required | Account Identifier |
 | `start_time` | `datetime` | Query, Optional | ISO 8601 date format in UTC time zone. If blank, the default value (current date - 15 calendar days) is used. If a value is specified, endTime is required. |
 | `end_time` | `datetime` | Query, Optional | ISO 8601 date format in UTC time zone. If blank, the default value (current date) is used. If a value is specified, startTime is required. |
-| `offset` | `str` | Query, Optional | The number of items to skip before the first in the response. The default is 0.<br><br>**Default**: `"0"` |
+| `offset` | `str` | Query, Optional | The number of items to skip before the first in the response. The default is 0.<br><br>**Default**: `'0'` |
 | `limit` | `int` | Query, Optional | The maximum number of items to be returned in the response. The default is 50.<br><br>**Default**: `50` |
 | `x_akoya_interaction_type` | [`InteractionType`](../../doc/models/interaction-type.md) | Header, Optional | Optional but recommended header to include with each data request.<br>Allowed values are `user` or `batch`.<br>`user` indicates a request is prompted by an end-user action.<br>`batch` indicates the request is part of a batch process. |
 | `mode` | [`Mode`](../../doc/models/mode.md) | Query, Optional | BETA. Default is raw. Use standard for FDX-aligned, standardized data values. |

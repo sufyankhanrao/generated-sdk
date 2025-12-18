@@ -1,4 +1,7 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class String1Enum(object):
+
     """Implementation of the 'String1' enum.
 
     Attributes:
@@ -19,26 +23,24 @@ class String1Enum(object):
         AFTERNOON: The enum member of type str.
 
     """
+    DAYTIME = 'Daytime'
 
-    DAYTIME = "Daytime"
+    TODAY = 'Today'
 
-    TODAY = "Today"
+    SAMEDAY = 'Sameday'
 
-    SAMEDAY = "Sameday"
+    EVENING = 'Evening'
 
-    EVENING = "Evening"
+    MORNING = 'Morning'
 
-    MORNING = "Morning"
+    NOON = 'Noon'
 
-    NOON = "Noon"
+    SUNDAY = 'Sunday'
 
-    SUNDAY = "Sunday"
-
-    AFTERNOON = "Afternoon"
+    AFTERNOON = 'Afternoon'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

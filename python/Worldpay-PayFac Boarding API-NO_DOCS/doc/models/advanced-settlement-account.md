@@ -13,8 +13,8 @@ Provides information about the various advanced settlement options and associate
 |  --- | --- | --- | --- |
 | `bank_account` | [`BankAccount`](../../doc/models/bank-account.md) | Required | - |
 | `settlement_categories` | [`List[SettlementCategoryEnum]`](../../doc/models/settlement-category-enum.md) | Required | Advanced Settlement Category |
-| `one_ach_for_all_categories` | [`OneACHForAllCategoriesEnum`](../../doc/models/one-ach-for-all-categories-enum.md) | Optional | Denotes one ACH (Automated Clearing House) item for all categories - Deposits, Chargebacks,ProcessingFees, ConvenienceFees with in a method of payment - Credit and Debit for this adavanced settlement account<br><br>**Default**: `"No"` |
-| `one_ach_for_credit_and_debit` | [`OneACHForCreditAndDebitEnum`](../../doc/models/one-ach-for-credit-and-debit-enum.md) | Optional | Denotes one ACH item for credit and debit methods of payment with in a category for this adavanced settlement account<br><br>**Default**: `"No"` |
+| `one_ach_for_all_categories` | [`OneACHForAllCategoriesEnum`](../../doc/models/one-ach-for-all-categories-enum.md) | Optional | Denotes one ACH (Automated Clearing House) item for all categories - Deposits, Chargebacks,ProcessingFees, ConvenienceFees with in a method of payment - Credit and Debit for this adavanced settlement account<br><br>**Default**: `'No'` |
+| `one_ach_for_credit_and_debit` | [`OneACHForCreditAndDebitEnum`](../../doc/models/one-ach-for-credit-and-debit-enum.md) | Optional | Denotes one ACH item for credit and debit methods of payment with in a category for this adavanced settlement account<br><br>**Default**: `'No'` |
 
 ## Example (as JSON)
 

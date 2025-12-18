@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class LineItemKind(object):
+
     """Implementation of the 'Line Item Kind' enum.
 
     A handle for the line item kind
@@ -25,30 +29,28 @@ class LineItemKind(object):
             for the model.
 
     """
+    BASELINE = 'baseline'
 
-    BASELINE = "baseline"
+    INITIAL = 'initial'
 
-    INITIAL = "initial"
+    TRIAL = 'trial'
 
-    TRIAL = "trial"
+    QUANTITY_BASED_COMPONENT = 'quantity_based_component'
 
-    QUANTITY_BASED_COMPONENT = "quantity_based_component"
+    PREPAID_USAGE_COMPONENT = 'prepaid_usage_component'
 
-    PREPAID_USAGE_COMPONENT = "prepaid_usage_component"
+    ON_OFF_COMPONENT = 'on_off_component'
 
-    ON_OFF_COMPONENT = "on_off_component"
+    METERED_COMPONENT = 'metered_component'
 
-    METERED_COMPONENT = "metered_component"
+    EVENT_BASED_COMPONENT = 'event_based_component'
 
-    EVENT_BASED_COMPONENT = "event_based_component"
+    COUPON = 'coupon'
 
-    COUPON = "coupon"
-
-    TAX = "tax"
+    TAX = 'tax'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

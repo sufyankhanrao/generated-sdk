@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class IncludeNullOrNotNull(object):
+
     """Implementation of the 'Include Null Or Not Null' enum.
 
     Allows to filter by `not_null` or `null`.
@@ -17,14 +21,12 @@ class IncludeNullOrNotNull(object):
             for the model.
 
     """
+    NOT_NULL = 'not_null'
 
-    NOT_NULL = "not_null"
-
-    NULL = "null"
+    NULL = 'null'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

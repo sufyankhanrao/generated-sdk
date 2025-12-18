@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class Event(object):
+
     """Implementation of the 'Event' model.
 
     Attributes:
@@ -41,19 +44,19 @@ class Event(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "id": "id",
-        "key": "key",
-        "message": "message",
-        "subscription_id": "subscription_id",
-        "customer_id": "customer_id",
-        "created_at": "created_at",
-        "event_specific_data": "event_specific_data",
+        "id": 'id',
+        "key": 'key',
+        "message": 'message',
+        "subscription_id": 'subscription_id',
+        "customer_id": 'customer_id',
+        "created_at": 'created_at',
+        "event_specific_data": 'event_specific_data'
     }
 
     _nullables = [
-        "subscription_id",
-        "customer_id",
-        "event_specific_data",
+        'subscription_id',
+        'customer_id',
+        'event_specific_data',
     ]
 
     def __init__(self,
@@ -65,17 +68,16 @@ class Event(object):
                  created_at=None,
                  event_specific_data=None,
                  additional_properties=None):
-        """Initialize a Event instance."""
+        """Constructor for the Event class"""
+
         # Initialize members of the class
-        self.id = id
-        self.key = key
-        self.message = message
-        self.subscription_id = subscription_id
-        self.customer_id = customer_id
-        self.created_at =\
-             APIHelper.apply_datetime_converter(
-            created_at, APIHelper.RFC3339DateTime) if created_at else None
-        self.event_specific_data = event_specific_data
+        self.id = id 
+        self.key = key 
+        self.message = message 
+        self.subscription_id = subscription_id 
+        self.customer_id = customer_id 
+        self.created_at = APIHelper.apply_datetime_converter(created_at, APIHelper.RFC3339DateTime) if created_at else None 
+        self.event_specific_data = event_specific_data 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -85,7 +87,7 @@ class Event(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -96,9 +98,7 @@ class Event(object):
             object: An instance of this structure class.
 
         """
-        from advancedbilling.utilities.union_type_lookup import (
-            UnionTypeLookUp,
-        )
+        from advancedbilling.utilities.union_type_lookup import UnionTypeLookUp
 
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
@@ -107,19 +107,12 @@ class Event(object):
         id = dictionary.get("id") if dictionary.get("id") else None
         key = dictionary.get("key") if dictionary.get("key") else None
         message = dictionary.get("message") if dictionary.get("message") else None
-        subscription_id =\
-            dictionary.get("subscription_id")\
-            if dictionary.get("subscription_id") else None
-        customer_id =\
-            dictionary.get("customer_id")\
-            if dictionary.get("customer_id") else None
-        created_at = APIHelper.RFC3339DateTime.from_value(
-            dictionary.get("created_at")).datetime\
-            if dictionary.get("created_at") else None
-        event_specific_data = APIHelper.deserialize_union_type(UnionTypeLookUp.get("EventEventSpecificData"), dictionary.get("event_specific_data"), False) if dictionary.get("event_specific_data") is not None else None
+        subscription_id = dictionary.get("subscription_id") if dictionary.get("subscription_id") else None
+        customer_id = dictionary.get("customer_id") if dictionary.get("customer_id") else None
+        created_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("created_at")).datetime if dictionary.get("created_at") else None
+        event_specific_data = APIHelper.deserialize_union_type(UnionTypeLookUp.get('EventEventSpecificData'), dictionary.get('event_specific_data'), False) if dictionary.get('event_specific_data') is not None else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(id,
                    key,
@@ -132,7 +125,7 @@ class Event(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -143,78 +136,62 @@ class Event(object):
             boolean : if dictionary is valid contains required properties.
 
         """
-        from advancedbilling.utilities.union_type_lookup import (
-            UnionTypeLookUp,
-        )
+        from advancedbilling.utilities.union_type_lookup import UnionTypeLookUp
 
         if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(
-                value=dictionary.id,
-                type_callable=lambda value: isinstance(value, int)) \
-                and APIHelper.is_valid_type(
-                value=dictionary.key,
-                type_callable=lambda value: isinstance(value, str)) \
-                and APIHelper.is_valid_type(
-                value=dictionary.message,
-                type_callable=lambda value: isinstance(value, str)) \
-                and APIHelper.is_valid_type(
-                value=dictionary.subscription_id,
-                type_callable=lambda value: isinstance(value, int),
-                is_value_nullable=True) \
-                and APIHelper.is_valid_type(
-                value=dictionary.customer_id,
-                type_callable=lambda value: isinstance(value, int),
-                is_value_nullable=True) \
-                and APIHelper.is_valid_type(
-                value=dictionary.created_at,
-                type_callable=lambda value: isinstance(value, APIHelper.RFC3339DateTime)) \
-                and UnionTypeLookUp.get("EventEventSpecificData").validate(dictionary.event_specific_data).is_valid
+            return APIHelper.is_valid_type(value=dictionary.id,
+                                           type_callable=lambda value: isinstance(value, int)) \
+                and APIHelper.is_valid_type(value=dictionary.key,
+                                            type_callable=lambda value: isinstance(value, str)) \
+                and APIHelper.is_valid_type(value=dictionary.message,
+                                            type_callable=lambda value: isinstance(value, str)) \
+                and APIHelper.is_valid_type(value=dictionary.subscription_id,
+                                            type_callable=lambda value: isinstance(value, int),
+                                            is_value_nullable=True) \
+                and APIHelper.is_valid_type(value=dictionary.customer_id,
+                                            type_callable=lambda value: isinstance(value, int),
+                                            is_value_nullable=True) \
+                and APIHelper.is_valid_type(value=dictionary.created_at,
+                                            type_callable=lambda value: isinstance(value, APIHelper.RFC3339DateTime)) \
+                and UnionTypeLookUp.get('EventEventSpecificData').validate(dictionary.event_specific_data).is_valid
 
         if not isinstance(dictionary, dict):
             return False
 
-        return APIHelper.is_valid_type(
-            value=dictionary.get("id"),
-            type_callable=lambda value: isinstance(value, int)) \
-            and APIHelper.is_valid_type(
-            value=dictionary.get("key"),
-            type_callable=lambda value: isinstance(value, str)) \
-            and APIHelper.is_valid_type(
-            value=dictionary.get("message"),
-            type_callable=lambda value: isinstance(value, str)) \
-            and APIHelper.is_valid_type(
-            value=dictionary.get("subscription_id"),
-            type_callable=lambda value: isinstance(value, int),
-            is_value_nullable=True) \
-            and APIHelper.is_valid_type(
-            value=dictionary.get("customer_id"),
-            type_callable=lambda value: isinstance(value, int),
-            is_value_nullable=True) \
-            and APIHelper.is_valid_type(
-            value=dictionary.get("created_at"),
-            type_callable=lambda value: isinstance(value, str)) \
-            and UnionTypeLookUp.get("EventEventSpecificData").validate(dictionary.get("event_specific_data")).is_valid
+        return APIHelper.is_valid_type(value=dictionary.get('id'),
+                                       type_callable=lambda value: isinstance(value, int)) \
+            and APIHelper.is_valid_type(value=dictionary.get('key'),
+                                        type_callable=lambda value: isinstance(value, str)) \
+            and APIHelper.is_valid_type(value=dictionary.get('message'),
+                                        type_callable=lambda value: isinstance(value, str)) \
+            and APIHelper.is_valid_type(value=dictionary.get('subscription_id'),
+                                        type_callable=lambda value: isinstance(value, int),
+                                        is_value_nullable=True) \
+            and APIHelper.is_valid_type(value=dictionary.get('customer_id'),
+                                        type_callable=lambda value: isinstance(value, int),
+                                        is_value_nullable=True) \
+            and APIHelper.is_valid_type(value=dictionary.get('created_at'),
+                                        type_callable=lambda value: isinstance(value, str)) \
+            and UnionTypeLookUp.get('EventEventSpecificData').validate(dictionary.get('event_specific_data')).is_valid
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!r}, "
-                f"key={self.key!r}, "
-                f"message={self.message!r}, "
-                f"subscription_id={self.subscription_id!r}, "
-                f"customer_id={self.customer_id!r}, "
-                f"created_at={self.created_at!r}, "
-                f"event_specific_data={self.event_specific_data!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!r}, '
+                f'key={self.key!r}, '
+                f'message={self.message!r}, '
+                f'subscription_id={self.subscription_id!r}, '
+                f'customer_id={self.customer_id!r}, '
+                f'created_at={self.created_at!r}, '
+                f'event_specific_data={self.event_specific_data!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!s}, "
-                f"key={self.key!s}, "
-                f"message={self.message!s}, "
-                f"subscription_id={self.subscription_id!s}, "
-                f"customer_id={self.customer_id!s}, "
-                f"created_at={self.created_at!s}, "
-                f"event_specific_data={self.event_specific_data!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'id={self.id!s}, '
+                f'key={self.key!s}, '
+                f'message={self.message!s}, '
+                f'subscription_id={self.subscription_id!s}, '
+                f'customer_id={self.customer_id!s}, '
+                f'created_at={self.created_at!s}, '
+                f'event_specific_data={self.event_specific_data!s}, '
+                f'additional_properties={self.additional_properties!s})')

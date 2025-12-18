@@ -1,57 +1,39 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.enable_webhooks_response import (
-    EnableWebhooksResponse,
-)
-from advancedbilling.models.endpoint import (
-    Endpoint,
-)
-from advancedbilling.models.endpoint_response import (
-    EndpointResponse,
-)
-from advancedbilling.models.replay_webhooks_response import (
-    ReplayWebhooksResponse,
-)
-from advancedbilling.models.webhook_response import (
-    WebhookResponse,
-)
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.webhook_response import WebhookResponse
+from advancedbilling.models.enable_webhooks_response import EnableWebhooksResponse
+from advancedbilling.models.replay_webhooks_response import ReplayWebhooksResponse
+from advancedbilling.models.endpoint_response import EndpointResponse
+from advancedbilling.models.endpoint import Endpoint
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
+from advancedbilling.exceptions.api_exception import APIException
 
 
 class WebhooksController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize WebhooksController object."""
         super(WebhooksController, self).__init__(config)
 
     def list_webhooks(self,
                       options=dict()):
-        """Perform a GET request to /webhooks.json.
+        """Does a GET request to /webhooks.json.
 
         ## Webhooks Intro
         The Webhooks API allows you to view a list of all webhooks and to
@@ -84,6 +66,7 @@ class WebhooksController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     status -- WebhookStatus -- Webhooks with matching status
                         would be returned.
                     since_date -- str -- Format YYYY-MM-DD. Returns Webhooks
@@ -122,45 +105,46 @@ class WebhooksController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/webhooks.json")
+            .path('/webhooks.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("status")
-                         .value(options.get("status", None)))
+                         .key('status')
+                         .value(options.get('status', None)))
             .query_param(Parameter()
-                         .key("since_date")
-                         .value(options.get("since_date", None)))
+                         .key('since_date')
+                         .value(options.get('since_date', None)))
             .query_param(Parameter()
-                         .key("until_date")
-                         .value(options.get("until_date", None)))
+                         .key('until_date')
+                         .value(options.get('until_date', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("order")
-                         .value(options.get("order", None)))
+                         .key('order')
+                         .value(options.get('order', None)))
             .query_param(Parameter()
-                         .key("subscription")
-                         .value(options.get("subscription", None)))
+                         .key('subscription')
+                         .value(options.get('subscription', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(WebhookResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def enable_webhooks(self,
                         body=None):
-        """Perform a PUT request to /webhooks/settings.json.
+        """Does a PUT request to /webhooks/settings.json.
 
         This method allows you to enable webhooks via API for your site
 
@@ -178,30 +162,31 @@ class WebhooksController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/webhooks/settings.json")
+            .path('/webhooks/settings.json')
             .http_method(HttpMethodEnum.PUT)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(EnableWebhooksResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def replay_webhooks(self,
                         body=None):
-        """Perform a POST request to /webhooks/replay.json.
+        """Does a POST request to /webhooks/replay.json.
 
         Posting to the replay endpoint does not immediately resend the
         webhooks. They are added to a queue and will be sent as soon as
@@ -223,30 +208,31 @@ class WebhooksController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/webhooks/replay.json")
+            .path('/webhooks/replay.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ReplayWebhooksResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def create_endpoint(self,
                         body=None):
-        """Perform a POST request to /endpoints.json.
+        """Does a POST request to /endpoints.json.
 
         The Chargify API allows you to create an endpoint and assign a list of
         webhooks subscriptions (events) to it.
@@ -270,33 +256,31 @@ class WebhooksController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/endpoints.json")
+            .path('/endpoints.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(EndpointResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def list_endpoints(self):
-        """Perform a GET request to /endpoints.json.
+        """Does a GET request to /endpoints.json.
 
         This method returns created endpoints for site.
 
@@ -311,25 +295,26 @@ class WebhooksController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/endpoints.json")
+            .path('/endpoints.json')
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Endpoint.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_endpoint(self,
                         endpoint_id,
                         body=None):
-        """Perform a PUT request to /endpoints/{endpoint_id}.json.
+        """Does a PUT request to /endpoints/{endpoint_id}.json.
 
         You can update an Endpoint via the API with a PUT request to the
         resource endpoint.
@@ -361,33 +346,31 @@ class WebhooksController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/endpoints/{endpoint_id}.json")
+            .path('/endpoints/{endpoint_id}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("endpoint_id")
+                            .key('endpoint_id')
                             .value(endpoint_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(EndpointResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()

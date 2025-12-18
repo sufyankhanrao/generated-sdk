@@ -1,18 +1,19 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
+from advancedbilling.exceptions.api_exception import APIException
 
 
 class SingleErrorResponseException(APIException):
     def __init__(self, reason, response):
-        """Initialize SingleErrorResponseException object.
+        """Constructor for the SingleErrorResponseException class
 
         Args:
             reason (string): The reason (or error message) for the Exception
@@ -26,7 +27,7 @@ class SingleErrorResponseException(APIException):
             self.unbox(dictionary)
 
     def unbox(self, dictionary):
-        """Populate the properties of this object by extracting them from a dictionary.
+        """Populates the properties of this object by extracting them from a dictionary.
 
         Args:
             dictionary (dictionary): A dictionary representation of the object as
@@ -37,8 +38,7 @@ class SingleErrorResponseException(APIException):
         self.error = dictionary.get("error") if dictionary.get("error") else None
 
     def __str__(self):
-        """Return a human-readable string representation."""
         base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"error={self.error!s})")
+        return (f'{self.__class__.__name__}('
+                f'{base_str[base_str.find("(") + 1:-1]}, '
+                f'error={self.error!s})')

@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class SubscriptionStateFilter(object):
+
     """Implementation of the 'Subscription State Filter' enum.
 
     Allowed values for filtering by the current state of the subscription.
@@ -27,34 +31,32 @@ class SubscriptionStateFilter(object):
             for the model.
 
     """
+    ACTIVE = 'active'
 
-    ACTIVE = "active"
+    CANCELED = 'canceled'
 
-    CANCELED = "canceled"
+    EXPIRED = 'expired'
 
-    EXPIRED = "expired"
+    EXPIRED_CARDS = 'expired_cards'
 
-    EXPIRED_CARDS = "expired_cards"
+    ON_HOLD = 'on_hold'
 
-    ON_HOLD = "on_hold"
+    PAST_DUE = 'past_due'
 
-    PAST_DUE = "past_due"
+    PENDING_CANCELLATION = 'pending_cancellation'
 
-    PENDING_CANCELLATION = "pending_cancellation"
+    PENDING_RENEWAL = 'pending_renewal'
 
-    PENDING_RENEWAL = "pending_renewal"
+    SUSPENDED = 'suspended'
 
-    SUSPENDED = "suspended"
+    TRIAL_ENDED = 'trial_ended'
 
-    TRIAL_ENDED = "trial_ended"
+    TRIALING = 'trialing'
 
-    TRIALING = "trialing"
-
-    UNPAID = "unpaid"
+    UNPAID = 'unpaid'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

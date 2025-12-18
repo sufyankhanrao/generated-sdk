@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class InvoiceSortField(object):
+
     """Implementation of the 'Invoice Sort Field' enum.
 
     Attributes:
@@ -21,26 +25,24 @@ class InvoiceSortField(object):
             for the model.
 
     """
+    STATUS = 'status'
 
-    STATUS = "status"
+    TOTAL_AMOUNT = 'total_amount'
 
-    TOTAL_AMOUNT = "total_amount"
+    DUE_AMOUNT = 'due_amount'
 
-    DUE_AMOUNT = "due_amount"
+    CREATED_AT = 'created_at'
 
-    CREATED_AT = "created_at"
+    UPDATED_AT = 'updated_at'
 
-    UPDATED_AT = "updated_at"
+    ISSUE_DATE = 'issue_date'
 
-    ISSUE_DATE = "issue_date"
+    DUE_DATE = 'due_date'
 
-    DUE_DATE = "due_date"
-
-    NUMBER = "number"
+    NUMBER = 'number'
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

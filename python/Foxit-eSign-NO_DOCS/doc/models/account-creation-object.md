@@ -16,7 +16,7 @@ The parameters used to create an account as a partner
 | `company` | [`AccountCreationCompanyObject`](../../doc/models/account-creation-company-object.md) | Required | - |
 | `user` | [`AccountCreationUserObject`](../../doc/models/account-creation-user-object.md) | Required | - |
 | `plan_name` | [`PlanNamesEnum`](../../doc/models/plan-names-enum.md) | Required | - |
-| `account_type` | `str` | Required | Use partner-pay for partner managed type of accounts<br><br>**Default**: `"partner-pay"` |
+| `account_type` | `str` | Required | Use partner-pay for partner managed type of accounts<br><br>**Default**: `'partner-pay'` |
 | `partner_code` | `str` | Required | Enter the unique partner code assigned to the partner to link this account with the specified partner |
 
 ## Example (as JSON)

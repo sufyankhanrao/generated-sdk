@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class CreateOrUpdateCoupon(object):
+
     """Implementation of the 'Create or Update Coupon' model.
 
     Attributes:
@@ -28,15 +31,15 @@ class CreateOrUpdateCoupon(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "coupon": "coupon",
-        "restricted_products": "restricted_products",
-        "restricted_components": "restricted_components",
+        "coupon": 'coupon',
+        "restricted_products": 'restricted_products',
+        "restricted_components": 'restricted_components'
     }
 
     _optionals = [
-        "coupon",
-        "restricted_products",
-        "restricted_components",
+        'coupon',
+        'restricted_products',
+        'restricted_components',
     ]
 
     def __init__(self,
@@ -44,14 +47,15 @@ class CreateOrUpdateCoupon(object):
                  restricted_products=APIHelper.SKIP,
                  restricted_components=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a CreateOrUpdateCoupon instance."""
+        """Constructor for the CreateOrUpdateCoupon class"""
+
         # Initialize members of the class
         if coupon is not APIHelper.SKIP:
-            self.coupon = coupon
+            self.coupon = coupon 
         if restricted_products is not APIHelper.SKIP:
-            self.restricted_products = restricted_products
+            self.restricted_products = restricted_products 
         if restricted_components is not APIHelper.SKIP:
-            self.restricted_components = restricted_components
+            self.restricted_components = restricted_components 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -61,7 +65,7 @@ class CreateOrUpdateCoupon(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -72,24 +76,17 @@ class CreateOrUpdateCoupon(object):
             object: An instance of this structure class.
 
         """
-        from advancedbilling.utilities.union_type_lookup import (
-            UnionTypeLookUp,
-        )
+        from advancedbilling.utilities.union_type_lookup import UnionTypeLookUp
 
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        coupon = APIHelper.deserialize_union_type(UnionTypeLookUp.get("CreateOrUpdateCouponCoupon"), dictionary.get("coupon"), False) if dictionary.get("coupon") is not None else APIHelper.SKIP
-        restricted_products =\
-            dictionary.get("restricted_products")\
-            if "restricted_products" in dictionary.keys() else APIHelper.SKIP
-        restricted_components =\
-            dictionary.get("restricted_components")\
-            if "restricted_components" in dictionary.keys() else APIHelper.SKIP
+        coupon = APIHelper.deserialize_union_type(UnionTypeLookUp.get('CreateOrUpdateCouponCoupon'), dictionary.get('coupon'), False) if dictionary.get('coupon') is not None else APIHelper.SKIP
+        restricted_products = dictionary.get("restricted_products") if "restricted_products" in dictionary.keys() else APIHelper.SKIP
+        restricted_components = dictionary.get("restricted_components") if "restricted_components" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(coupon,
                    restricted_products,
@@ -97,21 +94,15 @@ class CreateOrUpdateCoupon(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"coupon={(self.coupon if hasattr(self, 'coupon') else None)!r}, "
-                f"restricted_products={(self.restricted_products
-                     if hasattr(self, 'restricted_products') else None)!r}, "
-                f"restricted_components={(self.restricted_components
-                     if hasattr(self, 'restricted_components') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'coupon={(self.coupon if hasattr(self, "coupon") else None)!r}, '
+                f'restricted_products={(self.restricted_products if hasattr(self, "restricted_products") else None)!r}, '
+                f'restricted_components={(self.restricted_components if hasattr(self, "restricted_components") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"coupon={(self.coupon if hasattr(self, 'coupon') else None)!s}, "
-                f"restricted_products={(self.restricted_products
-                     if hasattr(self, 'restricted_products') else None)!s}, "
-                f"restricted_components={(self.restricted_components
-                     if hasattr(self, 'restricted_components') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'coupon={(self.coupon if hasattr(self, "coupon") else None)!s}, '
+                f'restricted_products={(self.restricted_products if hasattr(self, "restricted_products") else None)!s}, '
+                f'restricted_components={(self.restricted_components if hasattr(self, "restricted_components") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.invoice_event_payment_method import (
-    InvoiceEventPaymentMethod,
-)
+from advancedbilling.models.invoice_event_payment_method import InvoiceEventPaymentMethod
 
 
 class PaymentMethodExternal(object):
+
     """Implementation of the 'Payment Method External' model.
 
     Attributes:
@@ -26,15 +27,15 @@ class PaymentMethodExternal(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "details": "details",
-        "kind": "kind",
-        "memo": "memo",
-        "mtype": "type",
+        "details": 'details',
+        "kind": 'kind',
+        "memo": 'memo',
+        "mtype": 'type'
     }
 
     _nullables = [
-        "details",
-        "memo",
+        'details',
+        'memo',
     ]
 
     def __init__(self,
@@ -43,12 +44,13 @@ class PaymentMethodExternal(object):
                  memo=None,
                  mtype=None,
                  additional_properties=None):
-        """Initialize a PaymentMethodExternal instance."""
+        """Constructor for the PaymentMethodExternal class"""
+
         # Initialize members of the class
-        self.details = details
-        self.kind = kind
-        self.memo = memo
-        self.mtype = mtype
+        self.details = details 
+        self.kind = kind 
+        self.memo = memo 
+        self.mtype = mtype 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -58,7 +60,7 @@ class PaymentMethodExternal(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -69,6 +71,7 @@ class PaymentMethodExternal(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
@@ -78,8 +81,7 @@ class PaymentMethodExternal(object):
         memo = dictionary.get("memo") if dictionary.get("memo") else None
         mtype = dictionary.get("type") if dictionary.get("type") else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(details,
                    kind,
@@ -89,7 +91,7 @@ class PaymentMethodExternal(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -100,54 +102,45 @@ class PaymentMethodExternal(object):
             boolean : if dictionary is valid contains required properties.
 
         """
+
         if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(
-                value=dictionary.details,
-                type_callable=lambda value: isinstance(value, str),
-                is_value_nullable=True) \
-                and APIHelper.is_valid_type(
-                value=dictionary.kind,
-                type_callable=lambda value: isinstance(value, str)) \
-                and APIHelper.is_valid_type(
-                value=dictionary.memo,
-                type_callable=lambda value: isinstance(value, str),
-                is_value_nullable=True) \
-                and APIHelper.is_valid_type(
-                value=dictionary.mtype,
-                type_callable=lambda value: InvoiceEventPaymentMethod.validate(value))
+            return APIHelper.is_valid_type(value=dictionary.details,
+                                           type_callable=lambda value: isinstance(value, str),
+                                           is_value_nullable=True) \
+                and APIHelper.is_valid_type(value=dictionary.kind,
+                                            type_callable=lambda value: isinstance(value, str)) \
+                and APIHelper.is_valid_type(value=dictionary.memo,
+                                            type_callable=lambda value: isinstance(value, str),
+                                            is_value_nullable=True) \
+                and APIHelper.is_valid_type(value=dictionary.mtype,
+                                            type_callable=lambda value: InvoiceEventPaymentMethod.validate(value))
 
         if not isinstance(dictionary, dict):
             return False
 
-        return APIHelper.is_valid_type(
-            value=dictionary.get("details"),
-            type_callable=lambda value: isinstance(value, str),
-            is_value_nullable=True) \
-            and APIHelper.is_valid_type(
-            value=dictionary.get("kind"),
-            type_callable=lambda value: isinstance(value, str)) \
-            and APIHelper.is_valid_type(
-            value=dictionary.get("memo"),
-            type_callable=lambda value: isinstance(value, str),
-            is_value_nullable=True) \
-            and APIHelper.is_valid_type(
-            value=dictionary.get("type"),
-            type_callable=lambda value: InvoiceEventPaymentMethod.validate(value))
+        return APIHelper.is_valid_type(value=dictionary.get('details'),
+                                       type_callable=lambda value: isinstance(value, str),
+                                       is_value_nullable=True) \
+            and APIHelper.is_valid_type(value=dictionary.get('kind'),
+                                        type_callable=lambda value: isinstance(value, str)) \
+            and APIHelper.is_valid_type(value=dictionary.get('memo'),
+                                        type_callable=lambda value: isinstance(value, str),
+                                        is_value_nullable=True) \
+            and APIHelper.is_valid_type(value=dictionary.get('type'),
+                                        type_callable=lambda value: InvoiceEventPaymentMethod.validate(value))
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"details={self.details!r}, "
-                f"kind={self.kind!r}, "
-                f"memo={self.memo!r}, "
-                f"mtype={self.mtype!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'details={self.details!r}, '
+                f'kind={self.kind!r}, '
+                f'memo={self.memo!r}, '
+                f'mtype={self.mtype!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"details={self.details!s}, "
-                f"kind={self.kind!s}, "
-                f"memo={self.memo!s}, "
-                f"mtype={self.mtype!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'details={self.details!s}, '
+                f'kind={self.kind!s}, '
+                f'memo={self.memo!s}, '
+                f'mtype={self.mtype!s}, '
+                f'additional_properties={self.additional_properties!s})')

@@ -1,4 +1,7 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for Maxio by APIMATIC v3.0 (
 
 
 class InvoiceRole(object):
+
     """Implementation of the 'Invoice Role' enum.
 
     Attributes:
@@ -23,31 +27,30 @@ class InvoiceRole(object):
             for the model.
 
     """
+    _all_values = ['unset', 'signup', 'renewal', 'usage', 'reactivation', 'proration', 'migration', 'adhoc', 'backport', 'backport-balance-reconciliation']
+    UNSET = 'unset'
 
-    _all_values = ["unset", "signup", "renewal", "usage", "reactivation", "proration", "migration", "adhoc", "backport", "backport-balance-reconciliation"]
-    UNSET = "unset"
+    SIGNUP = 'signup'
 
-    SIGNUP = "signup"
+    RENEWAL = 'renewal'
 
-    RENEWAL = "renewal"
+    USAGE = 'usage'
 
-    USAGE = "usage"
+    REACTIVATION = 'reactivation'
 
-    REACTIVATION = "reactivation"
+    PRORATION = 'proration'
 
-    PRORATION = "proration"
+    MIGRATION = 'migration'
 
-    MIGRATION = "migration"
+    ADHOC = 'adhoc'
 
-    ADHOC = "adhoc"
+    BACKPORT = 'backport'
 
-    BACKPORT = "backport"
-
-    BACKPORTBALANCERECONCILIATION = "backport-balance-reconciliation"
+    BACKPORTBALANCERECONCILIATION = 'backport-balance-reconciliation'
 
     @classmethod
     def validate(cls, value):
-        """Validate value contains in enum
+        """Validates value contains in enum
 
         Args:
             value: the value to be validated
@@ -57,10 +60,9 @@ class InvoiceRole(object):
 
         """
         return value in cls._all_values
-
+   
     @classmethod
     def from_value(cls, value, default=None):
-        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

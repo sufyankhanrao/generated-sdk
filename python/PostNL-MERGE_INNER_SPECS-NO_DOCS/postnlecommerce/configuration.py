@@ -1,29 +1,23 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
 import os
+from dotenv import load_dotenv
+from postnlecommerce.http.proxy_settings import ProxySettings
 import warnings
 from enum import Enum
-
-from apimatic_core.http.configurations.http_client_configuration import (
-    HttpClientConfiguration,
-)
-from apimatic_requests_client_adapter.requests_client import (
-    RequestsClient,
-)
-from dotenv import load_dotenv
-
-from postnlecommerce.http.proxy_settings import (
-    ProxySettings,
-)
+from apimatic_core.http.configurations.http_client_configuration import HttpClientConfiguration
+from apimatic_requests_client_adapter.requests_client import RequestsClient
 
 
 class Environment(Enum):
-    """An enum for SDK environments."""
-
+    """An enum for SDK environments"""
     # Production server
     PRODUCTION_SERVER = 0
     # Sandbox environment for testing
@@ -31,7 +25,8 @@ class Environment(Enum):
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Convert a value (string or int) to an Environment enum member.
+        """
+        Convert a value (string or int) to an Environment enum member.
 
         Args:
             value (Union[str, int]): The value to convert.
@@ -39,7 +34,6 @@ class Environment(Enum):
 
         Returns:
             Environment: Matching enum member or fallback if invalid.
-
         """
         if value is None:
             return default
@@ -50,8 +44,7 @@ class Environment(Enum):
 
         # Handle integer or string conversion
         for member in cls:
-            if (str(member.value).lower() == str(value).lower()
-                or member.name.lower() == str(value).lower()):
+            if str(member.value).lower() == str(value).lower() or member.name.lower() == str(value).lower():
                 return member
 
         # Fallback to provided default
@@ -59,13 +52,13 @@ class Environment(Enum):
 
 
 class Server(Enum):
-    """An enum for API servers."""
-
+    """An enum for API servers"""
     POSTNL = 0
 
     @classmethod
     def from_value(cls, value, default=None):
-        """Convert a value (string or int) to a Server enum member.
+        """
+        Convert a value (string or int) to an Server enum member.
 
         Args:
             value (Union[str, int]): The value to convert.
@@ -73,7 +66,6 @@ class Server(Enum):
 
         Returns:
             Server: Matching enum member or fallback if invalid.
-
         """
         if value is None:
             return default
@@ -84,8 +76,7 @@ class Server(Enum):
 
         # Handle integer or string conversion
         for member in cls:
-            if (str(member.value).lower() == str(value).lower()
-                or member.name.lower() == str(value).lower()):
+            if str(member.value).lower() == str(value).lower() or member.name.lower() == str(value).lower():
                 return member
 
         # Fallback to provided default
@@ -93,21 +84,19 @@ class Server(Enum):
 
 
 class Configuration(HttpClientConfiguration):
-    """A class used for configuring the SDK by a user."""
+    """A class used for configuring the SDK by a user.
+    """
 
     @property
     def environment(self):
-        """Return current environment."""
         return self._environment
 
     @property
     def apikey(self):
-        """Return Apikey from CustomHeaderAuthenticationCredentials."""
         return self._custom_header_authentication_credentials.apikey
 
     @property
     def custom_header_authentication_credentials(self):
-        """Return CustomHeaderAuthenticationCredentials."""
         return self._custom_header_authentication_credentials
 
     def __init__(self, http_client_instance=None,
@@ -116,13 +105,11 @@ class Configuration(HttpClientConfiguration):
                  retry_statuses=None, retry_methods=None, proxy_settings=None,
                  environment=Environment.PRODUCTION_SERVER, apikey=None,
                  custom_header_authentication_credentials=None):
-        """Initialize Configuration object."""
         if retry_methods is None:
-            retry_methods = ["GET", "PUT"]
+            retry_methods = ['GET', 'PUT']
 
         if retry_statuses is None:
-            retry_statuses = [408, 413, 429, 500, 502, 503, 504, 521,
-                522, 524]
+            retry_statuses = [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]
 
         super().__init__(
             http_client_instance=http_client_instance,
@@ -130,15 +117,14 @@ class Configuration(HttpClientConfiguration):
             http_call_back=http_call_back, timeout=timeout,
             max_retries=max_retries, backoff_factor=backoff_factor,
             retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings,
+            proxy_settings=proxy_settings
         )
 
         # Current API environment
         self._environment = environment
 
-        self._custom_header_authentication_credentials =\
-            self.create_auth_credentials_object(
-                apikey, custom_header_authentication_credentials)
+        self._custom_header_authentication_credentials = self.create_auth_credentials_object(
+            apikey, custom_header_authentication_credentials)
 
         # The Http Client to use for making requests.
         self.set_http_client(self.create_http_client())
@@ -149,11 +135,8 @@ class Configuration(HttpClientConfiguration):
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
                    environment=None, apikey=None,
                    custom_header_authentication_credentials=None):
-        """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
-        override_http_client_configuration =\
-            (override_http_client_configuration
-            or self.override_http_client_configuration)
+        override_http_client_configuration = override_http_client_configuration or self.override_http_client_configuration
         http_call_back = http_call_back or self.http_callback
         timeout = timeout or self.timeout
         max_retries = max_retries or self.max_retries
@@ -164,8 +147,7 @@ class Configuration(HttpClientConfiguration):
         environment = environment or self.environment
         custom_header_authentication_credentials = self.create_auth_credentials_object(
             apikey,
-            custom_header_authentication_credentials
-            or self.custom_header_authentication_credentials,
+            custom_header_authentication_credentials or self.custom_header_authentication_credentials,
             stack_level=3)
         return Configuration(
             http_client_instance=http_client_instance,
@@ -174,11 +156,10 @@ class Configuration(HttpClientConfiguration):
             backoff_factor=backoff_factor, retry_statuses=retry_statuses,
             retry_methods=retry_methods, proxy_settings=proxy_settings,
             environment=environment,
-            custom_header_authentication_credentials=custom_header_authentication_credentials,
+            custom_header_authentication_credentials=custom_header_authentication_credentials
         )
 
     def create_http_client(self):
-        """Create the HTTP client instance."""
         return RequestsClient(
             timeout=self.timeout, max_retries=self.max_retries,
             backoff_factor=self.backoff_factor, retry_statuses=self.retry_statuses,
@@ -186,21 +167,22 @@ class Configuration(HttpClientConfiguration):
             http_client_instance=self.http_client_instance,
             override_http_client_configuration=self.override_http_client_configuration,
             response_factory=self.http_response_factory,
-            proxies=self.proxy_settings.to_proxies() if self.proxy_settings else None,
+            proxies=self.proxy_settings.to_proxies() if self.proxy_settings else None
         )
 
     # All the environments the SDK can run in
     environments = {
         Environment.PRODUCTION_SERVER: {
-            Server.POSTNL: "https://api.postnl.nl",
+            Server.POSTNL: 'https://api.postnl.nl'
         },
         Environment.NON_PRODUCTION_SERVER: {
-            Server.POSTNL: "https://api-sandbox.postnl.nl",
-        },
+            Server.POSTNL: 'https://api-sandbox.postnl.nl'
+        }
     }
 
     def get_base_uri(self, server=Server.POSTNL):
-        """Generate the appropriate base URI for the environment and the server.
+        """Generates the appropriate base URI for the environment and the
+        server.
 
         Args:
             server (Configuration.Server): The server enum for which the base
@@ -216,57 +198,48 @@ class Configuration(HttpClientConfiguration):
     def create_auth_credentials_object(apikey,
                                        custom_header_authentication_credentials,
                                        stack_level=4):
-        """Create auth credentials object."""
         if apikey is None:
             return custom_header_authentication_credentials
 
-        warnings.warn(message=("The 'apikey' params are deprecated. Use 'custom"
-                               "_header_authentication_credentials' param inste"
-                               "ad."),
+        warnings.warn(message=('The \'apikey\' params are deprecated. Use \'cus'
+                               'tom_header_authentication_credentials\' param i'
+                               'nstead.'),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
         if custom_header_authentication_credentials is not None:
             return custom_header_authentication_credentials.clone_with(apikey)
 
-        from postnlecommerce.http.auth.custom_header_authentication import (
-            CustomHeaderAuthenticationCredentials,
-        )
+        from postnlecommerce.http.auth.custom_header_authentication import CustomHeaderAuthenticationCredentials
         return CustomHeaderAuthenticationCredentials(apikey)
 
     @classmethod
     def from_environment(cls, dotenv_path=None, **overrides):
-        """Create Configuration object from .env and environment variables.
+        """
+        Creates a Configuration object using values from a .env file, environment variables, and optional overrides.
 
         Args:
-            dotenv_path (str, optional): Path to the .env file to load.
-             If None, the default .env file is used.
-            **overrides: Optional values overriding setting from environment variables.
+            dotenv_path (str, optional): Path to the .env file to load. If None, the default .env file is used.
+            **overrides: Additional configuration values to override those loaded from the .env file and environment variables.
 
         Returns:
             Configuration: A configuration object populated with the resolved values.
-
         """
+
         # load .env automatically
         load_dotenv(dotenv_path or None, override=True)
 
-        override_http_client_configuration = os.getenv(
-            "OVERRIDE_HTTP_CLIENT_CONFIGURATION", "false").lower() == "true"
-        timeout = int(os.getenv("TIMEOUT", "60"))
-        max_retries = int(os.getenv("MAX_RETRIES", "3"))
-        backoff_factor = float(os.getenv("BACKOFF_FACTOR", "2"))
-        statuses = os.getenv("RETRY_STATUSES", None)
-        retry_statuses = [int(v.strip()) for v in statuses.split(",")
-                          if v.strip().isdigit()] if statuses else None
-        methods = os.getenv("RETRY_METHODS", None)
-        retry_methods = [v.strip() for v in methods.split(",") if v.strip()]\
-            if methods else None
-        environment = Environment.from_value(
-            os.getenv("ENVIRONMENT"), Environment.PRODUCTION_SERVER)
+        override_http_client_configuration = os.getenv('OVERRIDE_HTTP_CLIENT_CONFIGURATION', 'false').lower() == 'true'
+        timeout = int(os.getenv('TIMEOUT', '60'))
+        max_retries = int(os.getenv('MAX_RETRIES', '3'))
+        backoff_factor = float(os.getenv('BACKOFF_FACTOR', '2'))
+        statuses = os.getenv('RETRY_STATUSES', None)
+        retry_statuses = [int(v.strip()) for v in statuses.split(',') if v.strip().isdigit()] if statuses else None
+        methods = os.getenv('RETRY_METHODS', None)
+        retry_methods = [v.strip() for v in methods.split(',') if v.strip()] if methods else None
+        environment = Environment.from_value(os.getenv('ENVIRONMENT'), Environment.PRODUCTION_SERVER)
 
-        from postnlecommerce.http.auth.custom_header_authentication import (
-            CustomHeaderAuthenticationCredentials,
-        )
+        from postnlecommerce.http.auth.custom_header_authentication import CustomHeaderAuthenticationCredentials
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,
@@ -277,7 +250,7 @@ class Configuration(HttpClientConfiguration):
             retry_methods=retry_methods,
             environment=environment,
             proxy_settings=ProxySettings.from_environment(),
-            custom_header_authentication_credentials=CustomHeaderAuthenticationCredentials.from_environment(),
+            custom_header_authentication_credentials=CustomHeaderAuthenticationCredentials.from_environment()
         )
 
         return default_config.clone_with(**overrides)

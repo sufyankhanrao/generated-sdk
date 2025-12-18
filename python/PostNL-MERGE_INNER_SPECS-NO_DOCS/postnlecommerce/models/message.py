@@ -1,10 +1,15 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+
 class Message(object):
+
     """Implementation of the 'Message' model.
 
     Attributes:
@@ -16,22 +21,23 @@ class Message(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "message_id": "MessageID",
-        "message_time_stamp": "MessageTimeStamp",
+        "message_id": 'MessageID',
+        "message_time_stamp": 'MessageTimeStamp'
     }
 
     def __init__(self,
                  message_id=None,
                  message_time_stamp=None):
-        """Initialize a Message instance."""
+        """Constructor for the Message class"""
+
         # Initialize members of the class
-        self.message_id = message_id
-        self.message_time_stamp = message_time_stamp
+        self.message_id = message_id 
+        self.message_time_stamp = message_time_stamp 
 
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -42,28 +48,23 @@ class Message(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        message_id =\
-            dictionary.get("MessageID")\
-            if dictionary.get("MessageID") else None
-        message_time_stamp =\
-            dictionary.get("MessageTimeStamp")\
-            if dictionary.get("MessageTimeStamp") else None
+        message_id = dictionary.get("MessageID") if dictionary.get("MessageID") else None
+        message_time_stamp = dictionary.get("MessageTimeStamp") if dictionary.get("MessageTimeStamp") else None
         # Return an object of this model
         return cls(message_id,
                    message_time_stamp)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"message_id={self.message_id!r}, "
-                f"message_time_stamp={self.message_time_stamp!r})")
+        return (f'{self.__class__.__name__}('
+                f'message_id={self.message_id!r}, '
+                f'message_time_stamp={self.message_time_stamp!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"message_id={self.message_id!s}, "
-                f"message_time_stamp={self.message_time_stamp!s})")
+        return (f'{self.__class__.__name__}('
+                f'message_id={self.message_id!s}, '
+                f'message_time_stamp={self.message_time_stamp!s})')

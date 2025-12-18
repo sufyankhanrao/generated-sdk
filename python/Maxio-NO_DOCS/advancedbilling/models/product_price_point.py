@@ -1,16 +1,17 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.currency_price import (
-    CurrencyPrice,
-)
+from advancedbilling.models.currency_price import CurrencyPrice
 
 
 class ProductPricePoint(object):
+
     """Implementation of the 'Product Price Point' model.
 
     Attributes:
@@ -67,71 +68,71 @@ class ProductPricePoint(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "id": "id",
-        "name": "name",
-        "handle": "handle",
-        "price_in_cents": "price_in_cents",
-        "interval": "interval",
-        "interval_unit": "interval_unit",
-        "trial_price_in_cents": "trial_price_in_cents",
-        "trial_interval": "trial_interval",
-        "trial_interval_unit": "trial_interval_unit",
-        "trial_type": "trial_type",
-        "introductory_offer": "introductory_offer",
-        "initial_charge_in_cents": "initial_charge_in_cents",
-        "initial_charge_after_trial": "initial_charge_after_trial",
-        "expiration_interval": "expiration_interval",
-        "expiration_interval_unit": "expiration_interval_unit",
-        "product_id": "product_id",
-        "archived_at": "archived_at",
-        "created_at": "created_at",
-        "updated_at": "updated_at",
-        "use_site_exchange_rate": "use_site_exchange_rate",
-        "mtype": "type",
-        "tax_included": "tax_included",
-        "subscription_id": "subscription_id",
-        "currency_prices": "currency_prices",
+        "id": 'id',
+        "name": 'name',
+        "handle": 'handle',
+        "price_in_cents": 'price_in_cents',
+        "interval": 'interval',
+        "interval_unit": 'interval_unit',
+        "trial_price_in_cents": 'trial_price_in_cents',
+        "trial_interval": 'trial_interval',
+        "trial_interval_unit": 'trial_interval_unit',
+        "trial_type": 'trial_type',
+        "introductory_offer": 'introductory_offer',
+        "initial_charge_in_cents": 'initial_charge_in_cents',
+        "initial_charge_after_trial": 'initial_charge_after_trial',
+        "expiration_interval": 'expiration_interval',
+        "expiration_interval_unit": 'expiration_interval_unit',
+        "product_id": 'product_id',
+        "archived_at": 'archived_at',
+        "created_at": 'created_at',
+        "updated_at": 'updated_at',
+        "use_site_exchange_rate": 'use_site_exchange_rate',
+        "mtype": 'type',
+        "tax_included": 'tax_included',
+        "subscription_id": 'subscription_id',
+        "currency_prices": 'currency_prices'
     }
 
     _optionals = [
-        "id",
-        "name",
-        "handle",
-        "price_in_cents",
-        "interval",
-        "interval_unit",
-        "trial_price_in_cents",
-        "trial_interval",
-        "trial_interval_unit",
-        "trial_type",
-        "introductory_offer",
-        "initial_charge_in_cents",
-        "initial_charge_after_trial",
-        "expiration_interval",
-        "expiration_interval_unit",
-        "product_id",
-        "archived_at",
-        "created_at",
-        "updated_at",
-        "use_site_exchange_rate",
-        "mtype",
-        "tax_included",
-        "subscription_id",
-        "currency_prices",
+        'id',
+        'name',
+        'handle',
+        'price_in_cents',
+        'interval',
+        'interval_unit',
+        'trial_price_in_cents',
+        'trial_interval',
+        'trial_interval_unit',
+        'trial_type',
+        'introductory_offer',
+        'initial_charge_in_cents',
+        'initial_charge_after_trial',
+        'expiration_interval',
+        'expiration_interval_unit',
+        'product_id',
+        'archived_at',
+        'created_at',
+        'updated_at',
+        'use_site_exchange_rate',
+        'mtype',
+        'tax_included',
+        'subscription_id',
+        'currency_prices',
     ]
 
     _nullables = [
-        "handle",
-        "trial_price_in_cents",
-        "trial_interval",
-        "trial_interval_unit",
-        "introductory_offer",
-        "initial_charge_in_cents",
-        "initial_charge_after_trial",
-        "expiration_interval",
-        "expiration_interval_unit",
-        "archived_at",
-        "subscription_id",
+        'handle',
+        'trial_price_in_cents',
+        'trial_interval',
+        'trial_interval_unit',
+        'introductory_offer',
+        'initial_charge_in_cents',
+        'initial_charge_after_trial',
+        'expiration_interval',
+        'expiration_interval_unit',
+        'archived_at',
+        'subscription_id',
     ]
 
     def __init__(self,
@@ -160,62 +161,57 @@ class ProductPricePoint(object):
                  subscription_id=APIHelper.SKIP,
                  currency_prices=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a ProductPricePoint instance."""
+        """Constructor for the ProductPricePoint class"""
+
         # Initialize members of the class
         if id is not APIHelper.SKIP:
-            self.id = id
+            self.id = id 
         if name is not APIHelper.SKIP:
-            self.name = name
+            self.name = name 
         if handle is not APIHelper.SKIP:
-            self.handle = handle
+            self.handle = handle 
         if price_in_cents is not APIHelper.SKIP:
-            self.price_in_cents = price_in_cents
+            self.price_in_cents = price_in_cents 
         if interval is not APIHelper.SKIP:
-            self.interval = interval
+            self.interval = interval 
         if interval_unit is not APIHelper.SKIP:
-            self.interval_unit = interval_unit
+            self.interval_unit = interval_unit 
         if trial_price_in_cents is not APIHelper.SKIP:
-            self.trial_price_in_cents = trial_price_in_cents
+            self.trial_price_in_cents = trial_price_in_cents 
         if trial_interval is not APIHelper.SKIP:
-            self.trial_interval = trial_interval
+            self.trial_interval = trial_interval 
         if trial_interval_unit is not APIHelper.SKIP:
-            self.trial_interval_unit = trial_interval_unit
+            self.trial_interval_unit = trial_interval_unit 
         if trial_type is not APIHelper.SKIP:
-            self.trial_type = trial_type
+            self.trial_type = trial_type 
         if introductory_offer is not APIHelper.SKIP:
-            self.introductory_offer = introductory_offer
+            self.introductory_offer = introductory_offer 
         if initial_charge_in_cents is not APIHelper.SKIP:
-            self.initial_charge_in_cents = initial_charge_in_cents
+            self.initial_charge_in_cents = initial_charge_in_cents 
         if initial_charge_after_trial is not APIHelper.SKIP:
-            self.initial_charge_after_trial = initial_charge_after_trial
+            self.initial_charge_after_trial = initial_charge_after_trial 
         if expiration_interval is not APIHelper.SKIP:
-            self.expiration_interval = expiration_interval
+            self.expiration_interval = expiration_interval 
         if expiration_interval_unit is not APIHelper.SKIP:
-            self.expiration_interval_unit = expiration_interval_unit
+            self.expiration_interval_unit = expiration_interval_unit 
         if product_id is not APIHelper.SKIP:
-            self.product_id = product_id
+            self.product_id = product_id 
         if archived_at is not APIHelper.SKIP:
-            self.archived_at =\
-                 APIHelper.apply_datetime_converter(
-                archived_at, APIHelper.RFC3339DateTime) if archived_at else None
+            self.archived_at = APIHelper.apply_datetime_converter(archived_at, APIHelper.RFC3339DateTime) if archived_at else None 
         if created_at is not APIHelper.SKIP:
-            self.created_at =\
-                 APIHelper.apply_datetime_converter(
-                created_at, APIHelper.RFC3339DateTime) if created_at else None
+            self.created_at = APIHelper.apply_datetime_converter(created_at, APIHelper.RFC3339DateTime) if created_at else None 
         if updated_at is not APIHelper.SKIP:
-            self.updated_at =\
-                 APIHelper.apply_datetime_converter(
-                updated_at, APIHelper.RFC3339DateTime) if updated_at else None
+            self.updated_at = APIHelper.apply_datetime_converter(updated_at, APIHelper.RFC3339DateTime) if updated_at else None 
         if use_site_exchange_rate is not APIHelper.SKIP:
-            self.use_site_exchange_rate = use_site_exchange_rate
+            self.use_site_exchange_rate = use_site_exchange_rate 
         if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
+            self.mtype = mtype 
         if tax_included is not APIHelper.SKIP:
-            self.tax_included = tax_included
+            self.tax_included = tax_included 
         if subscription_id is not APIHelper.SKIP:
-            self.subscription_id = subscription_id
+            self.subscription_id = subscription_id 
         if currency_prices is not APIHelper.SKIP:
-            self.currency_prices = currency_prices
+            self.currency_prices = currency_prices 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -225,7 +221,7 @@ class ProductPricePoint(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -236,92 +232,44 @@ class ProductPricePoint(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
-        name =\
-            dictionary.get("name")\
-            if dictionary.get("name") else APIHelper.SKIP
-        handle =\
-            dictionary.get("handle")\
-            if "handle" in dictionary.keys() else APIHelper.SKIP
-        price_in_cents =\
-            dictionary.get("price_in_cents")\
-            if dictionary.get("price_in_cents") else APIHelper.SKIP
-        interval =\
-            dictionary.get("interval")\
-            if dictionary.get("interval") else APIHelper.SKIP
-        interval_unit =\
-            dictionary.get("interval_unit")\
-            if dictionary.get("interval_unit") else APIHelper.SKIP
-        trial_price_in_cents =\
-            dictionary.get("trial_price_in_cents")\
-            if "trial_price_in_cents" in dictionary.keys() else APIHelper.SKIP
-        trial_interval =\
-            dictionary.get("trial_interval")\
-            if "trial_interval" in dictionary.keys() else APIHelper.SKIP
-        trial_interval_unit =\
-            dictionary.get("trial_interval_unit")\
-            if "trial_interval_unit" in dictionary.keys() else APIHelper.SKIP
-        trial_type =\
-            dictionary.get("trial_type")\
-            if dictionary.get("trial_type") else APIHelper.SKIP
-        introductory_offer =\
-            dictionary.get("introductory_offer")\
-            if "introductory_offer" in dictionary.keys() else APIHelper.SKIP
-        initial_charge_in_cents =\
-            dictionary.get("initial_charge_in_cents")\
-            if "initial_charge_in_cents" in dictionary.keys() else APIHelper.SKIP
-        initial_charge_after_trial =\
-            dictionary.get("initial_charge_after_trial")\
-            if "initial_charge_after_trial" in dictionary.keys() else APIHelper.SKIP
-        expiration_interval =\
-            dictionary.get("expiration_interval")\
-            if "expiration_interval" in dictionary.keys() else APIHelper.SKIP
-        expiration_interval_unit =\
-            dictionary.get("expiration_interval_unit")\
-            if "expiration_interval_unit" in dictionary.keys() else APIHelper.SKIP
-        product_id =\
-            dictionary.get("product_id")\
-            if dictionary.get("product_id") else APIHelper.SKIP
-        if "archived_at" in dictionary.keys():
-            archived_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("archived_at")).datetime\
-                if dictionary.get("archived_at") else None
-
+        name = dictionary.get("name") if dictionary.get("name") else APIHelper.SKIP
+        handle = dictionary.get("handle") if "handle" in dictionary.keys() else APIHelper.SKIP
+        price_in_cents = dictionary.get("price_in_cents") if dictionary.get("price_in_cents") else APIHelper.SKIP
+        interval = dictionary.get("interval") if dictionary.get("interval") else APIHelper.SKIP
+        interval_unit = dictionary.get("interval_unit") if dictionary.get("interval_unit") else APIHelper.SKIP
+        trial_price_in_cents = dictionary.get("trial_price_in_cents") if "trial_price_in_cents" in dictionary.keys() else APIHelper.SKIP
+        trial_interval = dictionary.get("trial_interval") if "trial_interval" in dictionary.keys() else APIHelper.SKIP
+        trial_interval_unit = dictionary.get("trial_interval_unit") if "trial_interval_unit" in dictionary.keys() else APIHelper.SKIP
+        trial_type = dictionary.get("trial_type") if dictionary.get("trial_type") else APIHelper.SKIP
+        introductory_offer = dictionary.get("introductory_offer") if "introductory_offer" in dictionary.keys() else APIHelper.SKIP
+        initial_charge_in_cents = dictionary.get("initial_charge_in_cents") if "initial_charge_in_cents" in dictionary.keys() else APIHelper.SKIP
+        initial_charge_after_trial = dictionary.get("initial_charge_after_trial") if "initial_charge_after_trial" in dictionary.keys() else APIHelper.SKIP
+        expiration_interval = dictionary.get("expiration_interval") if "expiration_interval" in dictionary.keys() else APIHelper.SKIP
+        expiration_interval_unit = dictionary.get("expiration_interval_unit") if "expiration_interval_unit" in dictionary.keys() else APIHelper.SKIP
+        product_id = dictionary.get("product_id") if dictionary.get("product_id") else APIHelper.SKIP
+        if 'archived_at' in dictionary.keys():
+            archived_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("archived_at")).datetime if dictionary.get("archived_at") else None
         else:
             archived_at = APIHelper.SKIP
-        created_at = APIHelper.RFC3339DateTime.from_value(
-            dictionary.get("created_at")).datetime\
-            if dictionary.get("created_at") else APIHelper.SKIP
-        updated_at = APIHelper.RFC3339DateTime.from_value(
-            dictionary.get("updated_at")).datetime\
-            if dictionary.get("updated_at") else APIHelper.SKIP
-        use_site_exchange_rate =\
-            dictionary.get("use_site_exchange_rate")\
-            if "use_site_exchange_rate" in dictionary.keys() else APIHelper.SKIP
-        mtype =\
-            dictionary.get("type")\
-            if dictionary.get("type") else APIHelper.SKIP
-        tax_included =\
-            dictionary.get("tax_included")\
-            if "tax_included" in dictionary.keys() else APIHelper.SKIP
-        subscription_id =\
-            dictionary.get("subscription_id")\
-            if "subscription_id" in dictionary.keys() else APIHelper.SKIP
+        created_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("created_at")).datetime if dictionary.get("created_at") else APIHelper.SKIP
+        updated_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("updated_at")).datetime if dictionary.get("updated_at") else APIHelper.SKIP
+        use_site_exchange_rate = dictionary.get("use_site_exchange_rate") if "use_site_exchange_rate" in dictionary.keys() else APIHelper.SKIP
+        mtype = dictionary.get("type") if dictionary.get("type") else APIHelper.SKIP
+        tax_included = dictionary.get("tax_included") if "tax_included" in dictionary.keys() else APIHelper.SKIP
+        subscription_id = dictionary.get("subscription_id") if "subscription_id" in dictionary.keys() else APIHelper.SKIP
         currency_prices = None
-        if dictionary.get("currency_prices") is not None:
-            currency_prices = [
-                CurrencyPrice.from_dictionary(x)
-                    for x in dictionary.get("currency_prices")
-            ]
+        if dictionary.get('currency_prices') is not None:
+            currency_prices = [CurrencyPrice.from_dictionary(x) for x in dictionary.get('currency_prices')]
         else:
             currency_prices = APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(id,
                    name,
@@ -350,99 +298,57 @@ class ProductPricePoint(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"name={(self.name if hasattr(self, 'name') else None)!r}, "
-                f"handle={(self.handle if hasattr(self, 'handle') else None)!r}, "
-                f"price_in_cents={(self.price_in_cents
-                     if hasattr(self, 'price_in_cents') else None)!r}, "
-                f"interval={(self.interval
-                     if hasattr(self, 'interval') else None)!r}, "
-                f"interval_unit={(self.interval_unit
-                     if hasattr(self, 'interval_unit') else None)!r}, "
-                f"trial_price_in_cents={(self.trial_price_in_cents
-                     if hasattr(self, 'trial_price_in_cents') else None)!r}, "
-                f"trial_interval={(self.trial_interval
-                     if hasattr(self, 'trial_interval') else None)!r}, "
-                f"trial_interval_unit={(self.trial_interval_unit
-                     if hasattr(self, 'trial_interval_unit') else None)!r}, "
-                f"trial_type={(self.trial_type
-                     if hasattr(self, 'trial_type') else None)!r}, "
-                f"introductory_offer={(self.introductory_offer
-                     if hasattr(self, 'introductory_offer') else None)!r}, "
-                f"initial_charge_in_cents={(self.initial_charge_in_cents
-                     if hasattr(self, 'initial_charge_in_cents') else None)!r}, "
-                f"initial_charge_after_trial={(self.initial_charge_after_trial
-                     if hasattr(self, 'initial_charge_after_trial') else None)!r}, "
-                f"expiration_interval={(self.expiration_interval
-                     if hasattr(self, 'expiration_interval') else None)!r}, "
-                f"expiration_interval_unit={(self.expiration_interval_unit
-                     if hasattr(self, 'expiration_interval_unit') else None)!r}, "
-                f"product_id={(self.product_id
-                     if hasattr(self, 'product_id') else None)!r}, "
-                f"archived_at={(self.archived_at
-                     if hasattr(self, 'archived_at') else None)!r}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!r}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!r}, "
-                f"use_site_exchange_rate={(self.use_site_exchange_rate
-                     if hasattr(self, 'use_site_exchange_rate') else None)!r}, "
-                f"mtype={(self.mtype if hasattr(self, 'mtype') else None)!r}, "
-                f"tax_included={(self.tax_included
-                     if hasattr(self, 'tax_included') else None)!r}, "
-                f"subscription_id={(self.subscription_id
-                     if hasattr(self, 'subscription_id') else None)!r}, "
-                f"currency_prices={(self.currency_prices
-                     if hasattr(self, 'currency_prices') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'name={(self.name if hasattr(self, "name") else None)!r}, '
+                f'handle={(self.handle if hasattr(self, "handle") else None)!r}, '
+                f'price_in_cents={(self.price_in_cents if hasattr(self, "price_in_cents") else None)!r}, '
+                f'interval={(self.interval if hasattr(self, "interval") else None)!r}, '
+                f'interval_unit={(self.interval_unit if hasattr(self, "interval_unit") else None)!r}, '
+                f'trial_price_in_cents={(self.trial_price_in_cents if hasattr(self, "trial_price_in_cents") else None)!r}, '
+                f'trial_interval={(self.trial_interval if hasattr(self, "trial_interval") else None)!r}, '
+                f'trial_interval_unit={(self.trial_interval_unit if hasattr(self, "trial_interval_unit") else None)!r}, '
+                f'trial_type={(self.trial_type if hasattr(self, "trial_type") else None)!r}, '
+                f'introductory_offer={(self.introductory_offer if hasattr(self, "introductory_offer") else None)!r}, '
+                f'initial_charge_in_cents={(self.initial_charge_in_cents if hasattr(self, "initial_charge_in_cents") else None)!r}, '
+                f'initial_charge_after_trial={(self.initial_charge_after_trial if hasattr(self, "initial_charge_after_trial") else None)!r}, '
+                f'expiration_interval={(self.expiration_interval if hasattr(self, "expiration_interval") else None)!r}, '
+                f'expiration_interval_unit={(self.expiration_interval_unit if hasattr(self, "expiration_interval_unit") else None)!r}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!r}, '
+                f'archived_at={(self.archived_at if hasattr(self, "archived_at") else None)!r}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!r}, '
+                f'updated_at={(self.updated_at if hasattr(self, "updated_at") else None)!r}, '
+                f'use_site_exchange_rate={(self.use_site_exchange_rate if hasattr(self, "use_site_exchange_rate") else None)!r}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!r}, '
+                f'tax_included={(self.tax_included if hasattr(self, "tax_included") else None)!r}, '
+                f'subscription_id={(self.subscription_id if hasattr(self, "subscription_id") else None)!r}, '
+                f'currency_prices={(self.currency_prices if hasattr(self, "currency_prices") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"name={(self.name if hasattr(self, 'name') else None)!s}, "
-                f"handle={(self.handle if hasattr(self, 'handle') else None)!s}, "
-                f"price_in_cents={(self.price_in_cents
-                     if hasattr(self, 'price_in_cents') else None)!s}, "
-                f"interval={(self.interval
-                     if hasattr(self, 'interval') else None)!s}, "
-                f"interval_unit={(self.interval_unit
-                     if hasattr(self, 'interval_unit') else None)!s}, "
-                f"trial_price_in_cents={(self.trial_price_in_cents
-                     if hasattr(self, 'trial_price_in_cents') else None)!s}, "
-                f"trial_interval={(self.trial_interval
-                     if hasattr(self, 'trial_interval') else None)!s}, "
-                f"trial_interval_unit={(self.trial_interval_unit
-                     if hasattr(self, 'trial_interval_unit') else None)!s}, "
-                f"trial_type={(self.trial_type
-                     if hasattr(self, 'trial_type') else None)!s}, "
-                f"introductory_offer={(self.introductory_offer
-                     if hasattr(self, 'introductory_offer') else None)!s}, "
-                f"initial_charge_in_cents={(self.initial_charge_in_cents
-                     if hasattr(self, 'initial_charge_in_cents') else None)!s}, "
-                f"initial_charge_after_trial={(self.initial_charge_after_trial
-                     if hasattr(self, 'initial_charge_after_trial') else None)!s}, "
-                f"expiration_interval={(self.expiration_interval
-                     if hasattr(self, 'expiration_interval') else None)!s}, "
-                f"expiration_interval_unit={(self.expiration_interval_unit
-                     if hasattr(self, 'expiration_interval_unit') else None)!s}, "
-                f"product_id={(self.product_id
-                     if hasattr(self, 'product_id') else None)!s}, "
-                f"archived_at={(self.archived_at
-                     if hasattr(self, 'archived_at') else None)!s}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!s}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!s}, "
-                f"use_site_exchange_rate={(self.use_site_exchange_rate
-                     if hasattr(self, 'use_site_exchange_rate') else None)!s}, "
-                f"mtype={(self.mtype if hasattr(self, 'mtype') else None)!s}, "
-                f"tax_included={(self.tax_included
-                     if hasattr(self, 'tax_included') else None)!s}, "
-                f"subscription_id={(self.subscription_id
-                     if hasattr(self, 'subscription_id') else None)!s}, "
-                f"currency_prices={(self.currency_prices
-                     if hasattr(self, 'currency_prices') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'name={(self.name if hasattr(self, "name") else None)!s}, '
+                f'handle={(self.handle if hasattr(self, "handle") else None)!s}, '
+                f'price_in_cents={(self.price_in_cents if hasattr(self, "price_in_cents") else None)!s}, '
+                f'interval={(self.interval if hasattr(self, "interval") else None)!s}, '
+                f'interval_unit={(self.interval_unit if hasattr(self, "interval_unit") else None)!s}, '
+                f'trial_price_in_cents={(self.trial_price_in_cents if hasattr(self, "trial_price_in_cents") else None)!s}, '
+                f'trial_interval={(self.trial_interval if hasattr(self, "trial_interval") else None)!s}, '
+                f'trial_interval_unit={(self.trial_interval_unit if hasattr(self, "trial_interval_unit") else None)!s}, '
+                f'trial_type={(self.trial_type if hasattr(self, "trial_type") else None)!s}, '
+                f'introductory_offer={(self.introductory_offer if hasattr(self, "introductory_offer") else None)!s}, '
+                f'initial_charge_in_cents={(self.initial_charge_in_cents if hasattr(self, "initial_charge_in_cents") else None)!s}, '
+                f'initial_charge_after_trial={(self.initial_charge_after_trial if hasattr(self, "initial_charge_after_trial") else None)!s}, '
+                f'expiration_interval={(self.expiration_interval if hasattr(self, "expiration_interval") else None)!s}, '
+                f'expiration_interval_unit={(self.expiration_interval_unit if hasattr(self, "expiration_interval_unit") else None)!s}, '
+                f'product_id={(self.product_id if hasattr(self, "product_id") else None)!s}, '
+                f'archived_at={(self.archived_at if hasattr(self, "archived_at") else None)!s}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!s}, '
+                f'updated_at={(self.updated_at if hasattr(self, "updated_at") else None)!s}, '
+                f'use_site_exchange_rate={(self.use_site_exchange_rate if hasattr(self, "use_site_exchange_rate") else None)!s}, '
+                f'mtype={(self.mtype if hasattr(self, "mtype") else None)!s}, '
+                f'tax_included={(self.tax_included if hasattr(self, "tax_included") else None)!s}, '
+                f'subscription_id={(self.subscription_id if hasattr(self, "subscription_id") else None)!s}, '
+                f'currency_prices={(self.currency_prices if hasattr(self, "currency_prices") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

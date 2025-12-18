@@ -1,10 +1,15 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+
 class CreateProductCurrencyPrice(object):
+
     """Implementation of the 'Create Product Currency Price' model.
 
     Attributes:
@@ -18,9 +23,9 @@ class CreateProductCurrencyPrice(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "currency": "currency",
-        "price": "price",
-        "role": "role",
+        "currency": 'currency',
+        "price": 'price',
+        "role": 'role'
     }
 
     def __init__(self,
@@ -28,11 +33,12 @@ class CreateProductCurrencyPrice(object):
                  price=None,
                  role=None,
                  additional_properties=None):
-        """Initialize a CreateProductCurrencyPrice instance."""
+        """Constructor for the CreateProductCurrencyPrice class"""
+
         # Initialize members of the class
-        self.currency = currency
-        self.price = price
-        self.role = role
+        self.currency = currency 
+        self.price = price 
+        self.role = role 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -42,7 +48,7 @@ class CreateProductCurrencyPrice(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -53,18 +59,16 @@ class CreateProductCurrencyPrice(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        currency =\
-            dictionary.get("currency")\
-            if dictionary.get("currency") else None
+        currency = dictionary.get("currency") if dictionary.get("currency") else None
         price = dictionary.get("price") if dictionary.get("price") else None
         role = dictionary.get("role") if dictionary.get("role") else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(currency,
                    price,
@@ -72,17 +76,15 @@ class CreateProductCurrencyPrice(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"currency={self.currency!r}, "
-                f"price={self.price!r}, "
-                f"role={self.role!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'currency={self.currency!r}, '
+                f'price={self.price!r}, '
+                f'role={self.role!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"currency={self.currency!s}, "
-                f"price={self.price!s}, "
-                f"role={self.role!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'currency={self.currency!s}, '
+                f'price={self.price!s}, '
+                f'role={self.role!s}, '
+                f'additional_properties={self.additional_properties!s})')

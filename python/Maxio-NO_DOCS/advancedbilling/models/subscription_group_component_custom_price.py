@@ -1,17 +1,18 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.component_custom_price import (
-    ComponentCustomPrice,
-)
+from advancedbilling.models.component_custom_price import ComponentCustomPrice
 from advancedbilling.models.price import Price
 
 
 class SubscriptionGroupComponentCustomPrice(object):
+
     """Implementation of the 'Subscription Group Component Custom Price' model.
 
     Used in place of `price_point_id` to define a custom price point unique to
@@ -32,15 +33,15 @@ class SubscriptionGroupComponentCustomPrice(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "pricing_scheme": "pricing_scheme",
-        "prices": "prices",
-        "overage_pricing": "overage_pricing",
+        "pricing_scheme": 'pricing_scheme',
+        "prices": 'prices',
+        "overage_pricing": 'overage_pricing'
     }
 
     _optionals = [
-        "pricing_scheme",
-        "prices",
-        "overage_pricing",
+        'pricing_scheme',
+        'prices',
+        'overage_pricing',
     ]
 
     def __init__(self,
@@ -48,14 +49,15 @@ class SubscriptionGroupComponentCustomPrice(object):
                  prices=APIHelper.SKIP,
                  overage_pricing=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a SubscriptionGroupComponentCustomPrice instance."""
+        """Constructor for the SubscriptionGroupComponentCustomPrice class"""
+
         # Initialize members of the class
         if pricing_scheme is not APIHelper.SKIP:
-            self.pricing_scheme = pricing_scheme
+            self.pricing_scheme = pricing_scheme 
         if prices is not APIHelper.SKIP:
-            self.prices = prices
+            self.prices = prices 
         if overage_pricing is not APIHelper.SKIP:
-            self.overage_pricing = overage_pricing
+            self.overage_pricing = overage_pricing 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -65,7 +67,7 @@ class SubscriptionGroupComponentCustomPrice(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -76,32 +78,24 @@ class SubscriptionGroupComponentCustomPrice(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        pricing_scheme =\
-            dictionary.get("pricing_scheme")\
-            if dictionary.get("pricing_scheme") else APIHelper.SKIP
+        pricing_scheme = dictionary.get("pricing_scheme") if dictionary.get("pricing_scheme") else APIHelper.SKIP
         prices = None
-        if dictionary.get("prices") is not None:
-            prices = [
-                Price.from_dictionary(x)
-                    for x in dictionary.get("prices")
-            ]
+        if dictionary.get('prices') is not None:
+            prices = [Price.from_dictionary(x) for x in dictionary.get('prices')]
         else:
             prices = APIHelper.SKIP
         overage_pricing = None
-        if dictionary.get("overage_pricing") is not None:
-            overage_pricing = [
-                ComponentCustomPrice.from_dictionary(x)
-                    for x in dictionary.get("overage_pricing")
-            ]
+        if dictionary.get('overage_pricing') is not None:
+            overage_pricing = [ComponentCustomPrice.from_dictionary(x) for x in dictionary.get('overage_pricing')]
         else:
             overage_pricing = APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(pricing_scheme,
                    prices,
@@ -110,7 +104,7 @@ class SubscriptionGroupComponentCustomPrice(object):
 
     @classmethod
     def validate(cls, dictionary):
-        """Validate dictionary against class required properties
+        """Validates dictionary against class required properties
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -121,6 +115,7 @@ class SubscriptionGroupComponentCustomPrice(object):
             boolean : if dictionary is valid contains required properties.
 
         """
+
         if isinstance(dictionary, cls):
             return True
 
@@ -130,21 +125,15 @@ class SubscriptionGroupComponentCustomPrice(object):
         return True
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"pricing_scheme={(self.pricing_scheme
-                     if hasattr(self, 'pricing_scheme') else None)!r}, "
-                f"prices={(self.prices if hasattr(self, 'prices') else None)!r}, "
-                f"overage_pricing={(self.overage_pricing
-                     if hasattr(self, 'overage_pricing') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'pricing_scheme={(self.pricing_scheme if hasattr(self, "pricing_scheme") else None)!r}, '
+                f'prices={(self.prices if hasattr(self, "prices") else None)!r}, '
+                f'overage_pricing={(self.overage_pricing if hasattr(self, "overage_pricing") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"pricing_scheme={(self.pricing_scheme
-                     if hasattr(self, 'pricing_scheme') else None)!s}, "
-                f"prices={(self.prices if hasattr(self, 'prices') else None)!s}, "
-                f"overage_pricing={(self.overage_pricing
-                     if hasattr(self, 'overage_pricing') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'pricing_scheme={(self.pricing_scheme if hasattr(self, "pricing_scheme") else None)!s}, '
+                f'prices={(self.prices if hasattr(self, "prices") else None)!s}, '
+                f'overage_pricing={(self.overage_pricing if hasattr(self, "overage_pricing") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

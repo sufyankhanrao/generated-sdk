@@ -1,4 +1,7 @@
-"""postnlecommerce.
+# -*- coding: utf-8 -*-
+
+"""
+postnlecommerce
 
 This file was automatically generated for PostNL by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -6,6 +9,7 @@ This file was automatically generated for PostNL by APIMATIC v3.0 (
 
 
 class APIException(Exception):
+
     """Class that handles HTTP Exceptions when fetching API Endpoints.
 
     Attributes:
@@ -17,7 +21,7 @@ class APIException(Exception):
     def __init__(self,
                  reason,
                  response):
-        """Initialize APIException object.
+        """Constructor for the APIException class
 
         Args:
             reason (string): The reason (or error message) for the Exception
@@ -31,7 +35,6 @@ class APIException(Exception):
         self.response_code = response.status_code
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"status_code={self.response_code!s}, "
-                f"message={self.reason!s})")
+        return (f'{self.__class__.__name__}('
+                f'status_code={self.response_code!s}, '
+                f'message={self.reason!s})')

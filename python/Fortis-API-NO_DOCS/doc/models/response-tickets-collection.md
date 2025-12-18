@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type80Enum`](../../doc/models/type-80-enum.md) | Optional | Resource Type<br><br>**Default**: `"TicketsCollection"` |
+| `mtype` | [`Type80Enum`](../../doc/models/type-80-enum.md) | Optional | Resource Type<br><br>**Default**: `'TicketsCollection'` |
 | `list` | [`List[List14]`](../../doc/models/list-14.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |

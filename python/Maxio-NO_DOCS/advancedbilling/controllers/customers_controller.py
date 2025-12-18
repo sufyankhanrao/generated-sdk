@@ -1,48 +1,36 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.customer_error_response_exception import (
-    CustomerErrorResponseException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.customer_response import (
-    CustomerResponse,
-)
-from advancedbilling.models.subscription_response import (
-    SubscriptionResponse,
-)
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.customer_response import CustomerResponse
+from advancedbilling.models.subscription_response import SubscriptionResponse
+from advancedbilling.exceptions.customer_error_response_exception import CustomerErrorResponseException
+from advancedbilling.exceptions.api_exception import APIException
 
 
 class CustomersController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize CustomersController object."""
         super(CustomersController, self).__init__(config)
 
     def create_customer(self,
                         body=None):
-        """Perform a POST request to /customers.json.
+        """Does a POST request to /customers.json.
 
         You may create a new Customer at any time, or you may create a
         Customer at the same time you create a Subscription. The only
@@ -94,34 +82,32 @@ class CustomersController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/customers.json")
+            .path('/customers.json')
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CustomerResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                CustomerErrorResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', CustomerErrorResponseException)
         ).execute()
 
     def list_customers(self,
                        options=dict()):
-        """Perform a GET request to /customers.json.
+        """Does a GET request to /customers.json.
 
         This request will by default list all customers associated with your
         Site.
@@ -144,6 +130,7 @@ class CustomersController(BaseController):
                 endpoint are supplied through the dictionary with their names
                 being the key and their desired values being the value. A list
                 of parameters that can be used are::
+
                     direction -- SortingDirection -- Direction to sort
                         customers by time of creation
                     page -- int -- Result records are organized in pages. By
@@ -200,51 +187,52 @@ class CustomersController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/customers.json")
+            .path('/customers.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("direction")
-                         .value(options.get("direction", None)))
+                         .key('direction')
+                         .value(options.get('direction', None)))
             .query_param(Parameter()
-                         .key("page")
-                         .value(options.get("page", None)))
+                         .key('page')
+                         .value(options.get('page', None)))
             .query_param(Parameter()
-                         .key("per_page")
-                         .value(options.get("per_page", None)))
+                         .key('per_page')
+                         .value(options.get('per_page', None)))
             .query_param(Parameter()
-                         .key("date_field")
-                         .value(options.get("date_field", None)))
+                         .key('date_field')
+                         .value(options.get('date_field', None)))
             .query_param(Parameter()
-                         .key("start_date")
-                         .value(options.get("start_date", None)))
+                         .key('start_date')
+                         .value(options.get('start_date', None)))
             .query_param(Parameter()
-                         .key("end_date")
-                         .value(options.get("end_date", None)))
+                         .key('end_date')
+                         .value(options.get('end_date', None)))
             .query_param(Parameter()
-                         .key("start_datetime")
-                         .value(options.get("start_datetime", None)))
+                         .key('start_datetime')
+                         .value(options.get('start_datetime', None)))
             .query_param(Parameter()
-                         .key("end_datetime")
-                         .value(options.get("end_datetime", None)))
+                         .key('end_datetime')
+                         .value(options.get('end_datetime', None)))
             .query_param(Parameter()
-                         .key("q")
-                         .value(options.get("q", None)))
+                         .key('q')
+                         .value(options.get('q', None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CustomerResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_customer(self,
                       id):
-        """Perform a GET request to /customers/{id}.json.
+        """Does a GET request to /customers/{id}.json.
 
         This method allows to retrieve the Customer properties by
         Chargify-generated Customer ID.
@@ -263,30 +251,31 @@ class CustomersController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/customers/{id}.json")
+            .path('/customers/{id}.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("id")
+                            .key('id')
                             .value(id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CustomerResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def update_customer(self,
                         id,
                         body=None):
-        """Perform a PUT request to /customers/{id}.json.
+        """Does a PUT request to /customers/{id}.json.
 
         This method allows to update the Customer.
 
@@ -305,40 +294,38 @@ class CustomersController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/customers/{id}.json")
+            .path('/customers/{id}.json')
             .http_method(HttpMethodEnum.PUT)
             .template_param(Parameter()
-                            .key("id")
+                            .key('id')
                             .value(id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                          .key('Content-Type')
+                          .value('application/json'))
             .body_param(Parameter()
                         .value(body))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                          .key('accept')
+                          .value('application/json'))
             .body_serializer(APIHelper.json_serialize)
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CustomerResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                CustomerErrorResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', CustomerErrorResponseException)
         ).execute()
 
     def delete_customer(self,
                         id):
-        """Perform a DELETE request to /customers/{id}.json.
+        """Does a DELETE request to /customers/{id}.json.
 
         This method allows you to delete the Customer.
 
@@ -356,24 +343,25 @@ class CustomersController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/customers/{id}.json")
+            .path('/customers/{id}.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("id")
+                            .key('id')
                             .value(id)
                             .is_required(True)
                             .should_encode(True))
-            .auth(Single("BasicAuth")),
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def read_customer_by_reference(self,
                                    reference):
-        """Perform a GET request to /customers/lookup.json.
+        """Does a GET request to /customers/lookup.json.
 
         Use this method to return the customer object if you have the unique
         **Reference ID (Your App)** value handy. It will return a single match.
@@ -392,28 +380,29 @@ class CustomersController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/customers/lookup.json")
+            .path('/customers/lookup.json')
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("reference")
+                         .key('reference')
                          .value(reference)
                          .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CustomerResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()
 
     def list_customer_subscriptions(self,
                                     customer_id):
-        """Perform a GET request to /customers/{customer_id}/subscriptions.json.
+        """Does a GET request to /customers/{customer_id}/subscriptions.json.
 
         This method lists all subscriptions that belong to a customer.
 
@@ -431,22 +420,23 @@ class CustomersController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/customers/{customer_id}/subscriptions.json")
+            .path('/customers/{customer_id}/subscriptions.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("customer_id")
+                            .key('customer_id')
                             .value(customer_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubscriptionResponse.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()

@@ -1,15 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
-from advancedbilling.models.create_reason_code import (
-    CreateReasonCode,
-)
+from advancedbilling.models.create_reason_code import CreateReasonCode
 
 
 class CreateReasonCodeRequest(object):
+
     """Implementation of the 'Create Reason Code Request' model.
 
     Attributes:
@@ -22,15 +23,16 @@ class CreateReasonCodeRequest(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "reason_code": "reason_code",
+        "reason_code": 'reason_code'
     }
 
     def __init__(self,
                  reason_code=None,
                  additional_properties=None):
-        """Initialize a CreateReasonCodeRequest instance."""
+        """Constructor for the CreateReasonCodeRequest class"""
+
         # Initialize members of the class
-        self.reason_code = reason_code
+        self.reason_code = reason_code 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -40,7 +42,7 @@ class CreateReasonCodeRequest(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -51,28 +53,24 @@ class CreateReasonCodeRequest(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        reason_code = CreateReasonCode.from_dictionary(
-            dictionary.get("reason_code"))\
-            if dictionary.get("reason_code") else None
+        reason_code = CreateReasonCode.from_dictionary(dictionary.get('reason_code')) if dictionary.get('reason_code') else None
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(reason_code,
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"reason_code={self.reason_code!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'reason_code={self.reason_code!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"reason_code={self.reason_code!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'reason_code={self.reason_code!s}, '
+                f'additional_properties={self.additional_properties!s})')

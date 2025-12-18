@@ -1,18 +1,19 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 import dateutil.parser
 
 from advancedbilling.api_helper import APIHelper
-from advancedbilling.models.create_allocation import (
-    CreateAllocation,
-)
+from advancedbilling.models.create_allocation import CreateAllocation
 
 
 class PreviewAllocationsRequest(object):
+
     """Implementation of the 'Preview Allocations Request' model.
 
     Attributes:
@@ -36,21 +37,21 @@ class PreviewAllocationsRequest(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "allocations": "allocations",
-        "effective_proration_date": "effective_proration_date",
-        "upgrade_charge": "upgrade_charge",
-        "downgrade_credit": "downgrade_credit",
+        "allocations": 'allocations',
+        "effective_proration_date": 'effective_proration_date',
+        "upgrade_charge": 'upgrade_charge',
+        "downgrade_credit": 'downgrade_credit'
     }
 
     _optionals = [
-        "effective_proration_date",
-        "upgrade_charge",
-        "downgrade_credit",
+        'effective_proration_date',
+        'upgrade_charge',
+        'downgrade_credit',
     ]
 
     _nullables = [
-        "upgrade_charge",
-        "downgrade_credit",
+        'upgrade_charge',
+        'downgrade_credit',
     ]
 
     def __init__(self,
@@ -59,15 +60,16 @@ class PreviewAllocationsRequest(object):
                  upgrade_charge=APIHelper.SKIP,
                  downgrade_credit=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a PreviewAllocationsRequest instance."""
+        """Constructor for the PreviewAllocationsRequest class"""
+
         # Initialize members of the class
-        self.allocations = allocations
+        self.allocations = allocations 
         if effective_proration_date is not APIHelper.SKIP:
-            self.effective_proration_date = effective_proration_date
+            self.effective_proration_date = effective_proration_date 
         if upgrade_charge is not APIHelper.SKIP:
-            self.upgrade_charge = upgrade_charge
+            self.upgrade_charge = upgrade_charge 
         if downgrade_credit is not APIHelper.SKIP:
-            self.downgrade_credit = downgrade_credit
+            self.downgrade_credit = downgrade_credit 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -77,7 +79,7 @@ class PreviewAllocationsRequest(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -88,27 +90,19 @@ class PreviewAllocationsRequest(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
         allocations = None
-        if dictionary.get("allocations") is not None:
-            allocations = [
-                CreateAllocation.from_dictionary(x)
-                    for x in dictionary.get("allocations")
-            ]
-        effective_proration_date = dateutil.parser.parse(dictionary.get("effective_proration_date")).date()\
-            if dictionary.get("effective_proration_date") else APIHelper.SKIP
-        upgrade_charge =\
-            dictionary.get("upgrade_charge")\
-            if "upgrade_charge" in dictionary.keys() else APIHelper.SKIP
-        downgrade_credit =\
-            dictionary.get("downgrade_credit")\
-            if "downgrade_credit" in dictionary.keys() else APIHelper.SKIP
+        if dictionary.get('allocations') is not None:
+            allocations = [CreateAllocation.from_dictionary(x) for x in dictionary.get('allocations')]
+        effective_proration_date = dateutil.parser.parse(dictionary.get('effective_proration_date')).date() if dictionary.get('effective_proration_date') else APIHelper.SKIP
+        upgrade_charge = dictionary.get("upgrade_charge") if "upgrade_charge" in dictionary.keys() else APIHelper.SKIP
+        downgrade_credit = dictionary.get("downgrade_credit") if "downgrade_credit" in dictionary.keys() else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(allocations,
                    effective_proration_date,
@@ -117,25 +111,17 @@ class PreviewAllocationsRequest(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"allocations={self.allocations!r}, "
-                f"effective_proration_date={(self.effective_proration_date
-                     if hasattr(self, 'effective_proration_date') else None)!r}, "
-                f"upgrade_charge={(self.upgrade_charge
-                     if hasattr(self, 'upgrade_charge') else None)!r}, "
-                f"downgrade_credit={(self.downgrade_credit
-                     if hasattr(self, 'downgrade_credit') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'allocations={self.allocations!r}, '
+                f'effective_proration_date={(self.effective_proration_date if hasattr(self, "effective_proration_date") else None)!r}, '
+                f'upgrade_charge={(self.upgrade_charge if hasattr(self, "upgrade_charge") else None)!r}, '
+                f'downgrade_credit={(self.downgrade_credit if hasattr(self, "downgrade_credit") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"allocations={self.allocations!s}, "
-                f"effective_proration_date={(self.effective_proration_date
-                     if hasattr(self, 'effective_proration_date') else None)!s}, "
-                f"upgrade_charge={(self.upgrade_charge
-                     if hasattr(self, 'upgrade_charge') else None)!s}, "
-                f"downgrade_credit={(self.downgrade_credit
-                     if hasattr(self, 'downgrade_credit') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'allocations={self.allocations!s}, '
+                f'effective_proration_date={(self.effective_proration_date if hasattr(self, "effective_proration_date") else None)!s}, '
+                f'upgrade_charge={(self.upgrade_charge if hasattr(self, "upgrade_charge") else None)!s}, '
+                f'downgrade_credit={(self.downgrade_credit if hasattr(self, "downgrade_credit") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

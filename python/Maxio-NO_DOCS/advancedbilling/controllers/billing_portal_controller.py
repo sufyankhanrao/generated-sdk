@@ -1,58 +1,40 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.authentication.multiple.single_auth import (
-    Single,
-)
+from advancedbilling.api_helper import APIHelper
+from advancedbilling.configuration import Server
+from advancedbilling.http.api_response import ApiResponse
+from advancedbilling.controllers.base_controller import BaseController
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
-
-from advancedbilling.api_helper import APIHelper
-from advancedbilling.configuration import Server
-from advancedbilling.controllers.base_controller import (
-    BaseController,
-)
-from advancedbilling.exceptions.api_exception import (
-    APIException,
-)
-from advancedbilling.exceptions.error_list_response_exception import (
-    ErrorListResponseException,
-)
-from advancedbilling.exceptions.too_many_management_link_requests_error_exception import (  # noqa: E501
-    TooManyManagementLinkRequestsErrorException,
-)
-from advancedbilling.http.http_method_enum import (
-    HttpMethodEnum,
-)
-from advancedbilling.models.customer_response import (
-    CustomerResponse,
-)
-from advancedbilling.models.portal_management_link import (
-    PortalManagementLink,
-)
-from advancedbilling.models.resent_invitation import (
-    ResentInvitation,
-)
-from advancedbilling.models.revoked_invitation import (
-    RevokedInvitation,
-)
+from advancedbilling.http.http_method_enum import HttpMethodEnum
+from apimatic_core.authentication.multiple.single_auth import Single
+from advancedbilling.models.customer_response import CustomerResponse
+from advancedbilling.models.portal_management_link import PortalManagementLink
+from advancedbilling.models.resent_invitation import ResentInvitation
+from advancedbilling.models.revoked_invitation import RevokedInvitation
+from advancedbilling.exceptions.error_list_response_exception import ErrorListResponseException
+from advancedbilling.exceptions.too_many_management_link_requests_error_exception import TooManyManagementLinkRequestsErrorException
+from advancedbilling.exceptions.api_exception import APIException
 
 
 class BillingPortalController(BaseController):
-    """A Controller to access Endpoints in the advancedbilling API."""
 
+    """A Controller to access Endpoints in the advancedbilling API."""
     def __init__(self, config):
-        """Initialize BillingPortalController object."""
         super(BillingPortalController, self).__init__(config)
 
     def enable_billing_portal_for_customer(self,
                                            customer_id,
                                            auto_invite=None):
-        """Perform a POST request to /portal/customers/{customer_id}/enable.json.
+        """Does a POST request to /portal/customers/{customer_id}/enable.json.
 
         ## Billing Portal Documentation
         Full documentation on how the Billing Portal operates within the
@@ -97,37 +79,34 @@ class BillingPortalController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/portal/customers/{customer_id}/enable.json")
+            .path('/portal/customers/{customer_id}/enable.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("customer_id")
+                            .key('customer_id')
                             .value(customer_id)
                             .is_required(True)
                             .should_encode(True))
             .query_param(Parameter()
-                         .key("auto_invite")
+                         .key('auto_invite')
                          .value(auto_invite))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CustomerResponse.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def read_billing_portal_link(self,
                                  customer_id):
-        """Perform a GET request to
-        /portal/customers/{customer_id}/management_link.json.
+        """Does a GET request to /portal/customers/{customer_id}/management_link.json.
 
         This method will provide to the API user the exact URL required for a
         subscriber to access the Billing Portal.
@@ -156,38 +135,32 @@ class BillingPortalController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/portal/customers/{customer_id}/management_link.json")
+            .path('/portal/customers/{customer_id}/management_link.json')
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("customer_id")
+                            .key('customer_id')
                             .value(customer_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PortalManagementLink.from_dictionary)
             .is_api_response(True)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException)
-            .local_error_template("429",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                TooManyManagementLinkRequestsErrorException),
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
+            .local_error_template('429', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', TooManyManagementLinkRequestsErrorException)
         ).execute()
 
     def resend_billing_portal_invitation(self,
                                          customer_id):
-        """Perform a POST request to
-        /portal/customers/{customer_id}/invitations/invite.json.
+        """Does a POST request to /portal/customers/{customer_id}/invitations/invite.json.
 
         You can resend a customer's Billing Portal invitation.
         If you attempt to resend an invitation 5 times within 30 minutes, you
@@ -217,35 +190,32 @@ class BillingPortalController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/portal/customers/{customer_id}/invitations/invite.json")
+            .path('/portal/customers/{customer_id}/invitations/invite.json')
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
-                            .key("customer_id")
+                            .key('customer_id')
                             .value(customer_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResentInvitation.from_dictionary)
             .is_api_response(True)
-            .local_error_template("404", "Not Found:'{$response.body}'", APIException)
-            .local_error_template("422",
-                "HTTP Response Not OK. Status code: {$statusCode}. Response: '{"
-                "$response.body}'.",
-                ErrorListResponseException),
+            .local_error_template('404', 'Not Found:\'{$response.body}\'', APIException)
+            .local_error_template('422', 'HTTP Response Not OK. Status code: {$statusCode}. Response: \'{$response.body}\'.', ErrorListResponseException)
         ).execute()
 
     def revoke_billing_portal_access(self,
                                      customer_id):
-        """Perform a DELETE request to
-        /portal/customers/{customer_id}/invitations/revoke.json.
+        """Does a DELETE request to /portal/customers/{customer_id}/invitations/revoke.json.
 
         You can revoke a customer's Billing Portal invitation.
         If you attempt to revoke an invitation when the Billing Portal is
@@ -267,22 +237,23 @@ class BillingPortalController(BaseController):
                 the request.
 
         """
+
         return super().new_api_call_builder.request(
             RequestBuilder().server(Server.DEFAULT)
-            .path("/portal/customers/{customer_id}/invitations/revoke.json")
+            .path('/portal/customers/{customer_id}/invitations/revoke.json')
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
-                            .key("customer_id")
+                            .key('customer_id')
                             .value(customer_id)
                             .is_required(True)
                             .should_encode(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
-            .auth(Single("BasicAuth")),
+                          .key('accept')
+                          .value('application/json'))
+            .auth(Single('BasicAuth'))
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(RevokedInvitation.from_dictionary)
-            .is_api_response(True),
+            .is_api_response(True)
         ).execute()

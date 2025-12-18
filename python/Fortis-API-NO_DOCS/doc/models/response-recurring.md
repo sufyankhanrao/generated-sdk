@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type59Enum`](../../doc/models/type-59-enum.md) | Optional | Resource Type<br><br>**Default**: `"Recurring"` |
+| `mtype` | [`Type59Enum`](../../doc/models/type-59-enum.md) | Optional | Resource Type<br><br>**Default**: `'Recurring'` |
 | `data` | [`Data16`](../../doc/models/data-16.md) | Optional | - |
 
 ## Example (as JSON)

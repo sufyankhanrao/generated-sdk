@@ -1,13 +1,16 @@
-"""advanced_billing.
+# -*- coding: utf-8 -*-
+
+"""
+advanced_billing
 
 This file was automatically generated for Maxio by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
-
 from advancedbilling.api_helper import APIHelper
 
 
 class Webhook(object):
+
     """Implementation of the 'Webhook' model.
 
     Attributes:
@@ -47,37 +50,37 @@ class Webhook(object):
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "event": "event",
-        "id": "id",
-        "created_at": "created_at",
-        "last_error": "last_error",
-        "last_error_at": "last_error_at",
-        "accepted_at": "accepted_at",
-        "last_sent_at": "last_sent_at",
-        "last_sent_url": "last_sent_url",
-        "successful": "successful",
-        "body": "body",
-        "signature": "signature",
-        "signature_hmac_sha_256": "signature_hmac_sha_256",
+        "event": 'event',
+        "id": 'id',
+        "created_at": 'created_at',
+        "last_error": 'last_error',
+        "last_error_at": 'last_error_at',
+        "accepted_at": 'accepted_at',
+        "last_sent_at": 'last_sent_at',
+        "last_sent_url": 'last_sent_url',
+        "successful": 'successful',
+        "body": 'body',
+        "signature": 'signature',
+        "signature_hmac_sha_256": 'signature_hmac_sha_256'
     }
 
     _optionals = [
-        "event",
-        "id",
-        "created_at",
-        "last_error",
-        "last_error_at",
-        "accepted_at",
-        "last_sent_at",
-        "last_sent_url",
-        "successful",
-        "body",
-        "signature",
-        "signature_hmac_sha_256",
+        'event',
+        'id',
+        'created_at',
+        'last_error',
+        'last_error_at',
+        'accepted_at',
+        'last_sent_at',
+        'last_sent_url',
+        'successful',
+        'body',
+        'signature',
+        'signature_hmac_sha_256',
     ]
 
     _nullables = [
-        "accepted_at",
+        'accepted_at',
     ]
 
     def __init__(self,
@@ -94,40 +97,33 @@ class Webhook(object):
                  signature=APIHelper.SKIP,
                  signature_hmac_sha_256=APIHelper.SKIP,
                  additional_properties=None):
-        """Initialize a Webhook instance."""
+        """Constructor for the Webhook class"""
+
         # Initialize members of the class
         if event is not APIHelper.SKIP:
-            self.event = event
+            self.event = event 
         if id is not APIHelper.SKIP:
-            self.id = id
+            self.id = id 
         if created_at is not APIHelper.SKIP:
-            self.created_at =\
-                 APIHelper.apply_datetime_converter(
-                created_at, APIHelper.RFC3339DateTime) if created_at else None
+            self.created_at = APIHelper.apply_datetime_converter(created_at, APIHelper.RFC3339DateTime) if created_at else None 
         if last_error is not APIHelper.SKIP:
-            self.last_error = last_error
+            self.last_error = last_error 
         if last_error_at is not APIHelper.SKIP:
-            self.last_error_at =\
-                 APIHelper.apply_datetime_converter(
-                last_error_at, APIHelper.RFC3339DateTime) if last_error_at else None
+            self.last_error_at = APIHelper.apply_datetime_converter(last_error_at, APIHelper.RFC3339DateTime) if last_error_at else None 
         if accepted_at is not APIHelper.SKIP:
-            self.accepted_at =\
-                 APIHelper.apply_datetime_converter(
-                accepted_at, APIHelper.RFC3339DateTime) if accepted_at else None
+            self.accepted_at = APIHelper.apply_datetime_converter(accepted_at, APIHelper.RFC3339DateTime) if accepted_at else None 
         if last_sent_at is not APIHelper.SKIP:
-            self.last_sent_at =\
-                 APIHelper.apply_datetime_converter(
-                last_sent_at, APIHelper.RFC3339DateTime) if last_sent_at else None
+            self.last_sent_at = APIHelper.apply_datetime_converter(last_sent_at, APIHelper.RFC3339DateTime) if last_sent_at else None 
         if last_sent_url is not APIHelper.SKIP:
-            self.last_sent_url = last_sent_url
+            self.last_sent_url = last_sent_url 
         if successful is not APIHelper.SKIP:
-            self.successful = successful
+            self.successful = successful 
         if body is not APIHelper.SKIP:
-            self.body = body
+            self.body = body 
         if signature is not APIHelper.SKIP:
-            self.signature = signature
+            self.signature = signature 
         if signature_hmac_sha_256 is not APIHelper.SKIP:
-            self.signature_hmac_sha_256 = signature_hmac_sha_256
+            self.signature_hmac_sha_256 = signature_hmac_sha_256 
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -137,7 +133,7 @@ class Webhook(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Create an instance of this model from a dictionary
+        """Creates an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -148,51 +144,28 @@ class Webhook(object):
             object: An instance of this structure class.
 
         """
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        event =\
-            dictionary.get("event")\
-            if dictionary.get("event") else APIHelper.SKIP
+        event = dictionary.get("event") if dictionary.get("event") else APIHelper.SKIP
         id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
-        created_at = APIHelper.RFC3339DateTime.from_value(
-            dictionary.get("created_at")).datetime\
-            if dictionary.get("created_at") else APIHelper.SKIP
-        last_error =\
-            dictionary.get("last_error")\
-            if dictionary.get("last_error") else APIHelper.SKIP
-        last_error_at = APIHelper.RFC3339DateTime.from_value(
-            dictionary.get("last_error_at")).datetime\
-            if dictionary.get("last_error_at") else APIHelper.SKIP
-        if "accepted_at" in dictionary.keys():
-            accepted_at = APIHelper.RFC3339DateTime.from_value(
-                dictionary.get("accepted_at")).datetime\
-                if dictionary.get("accepted_at") else None
-
+        created_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("created_at")).datetime if dictionary.get("created_at") else APIHelper.SKIP
+        last_error = dictionary.get("last_error") if dictionary.get("last_error") else APIHelper.SKIP
+        last_error_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("last_error_at")).datetime if dictionary.get("last_error_at") else APIHelper.SKIP
+        if 'accepted_at' in dictionary.keys():
+            accepted_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("accepted_at")).datetime if dictionary.get("accepted_at") else None
         else:
             accepted_at = APIHelper.SKIP
-        last_sent_at = APIHelper.RFC3339DateTime.from_value(
-            dictionary.get("last_sent_at")).datetime\
-            if dictionary.get("last_sent_at") else APIHelper.SKIP
-        last_sent_url =\
-            dictionary.get("last_sent_url")\
-            if dictionary.get("last_sent_url") else APIHelper.SKIP
-        successful =\
-            dictionary.get("successful")\
-            if "successful" in dictionary.keys() else APIHelper.SKIP
-        body =\
-            dictionary.get("body")\
-            if dictionary.get("body") else APIHelper.SKIP
-        signature =\
-            dictionary.get("signature")\
-            if dictionary.get("signature") else APIHelper.SKIP
-        signature_hmac_sha_256 =\
-            dictionary.get("signature_hmac_sha_256")\
-            if dictionary.get("signature_hmac_sha_256") else APIHelper.SKIP
+        last_sent_at = APIHelper.RFC3339DateTime.from_value(dictionary.get("last_sent_at")).datetime if dictionary.get("last_sent_at") else APIHelper.SKIP
+        last_sent_url = dictionary.get("last_sent_url") if dictionary.get("last_sent_url") else APIHelper.SKIP
+        successful = dictionary.get("successful") if "successful" in dictionary.keys() else APIHelper.SKIP
+        body = dictionary.get("body") if dictionary.get("body") else APIHelper.SKIP
+        signature = dictionary.get("signature") if dictionary.get("signature") else APIHelper.SKIP
+        signature_hmac_sha_256 = dictionary.get("signature_hmac_sha_256") if dictionary.get("signature_hmac_sha_256") else APIHelper.SKIP
         # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(event,
                    id,
@@ -209,53 +182,33 @@ class Webhook(object):
                    additional_properties)
 
     def __repr__(self):
-        """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event={(self.event if hasattr(self, 'event') else None)!r}, "
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!r}, "
-                f"last_error={(self.last_error
-                     if hasattr(self, 'last_error') else None)!r}, "
-                f"last_error_at={(self.last_error_at
-                     if hasattr(self, 'last_error_at') else None)!r}, "
-                f"accepted_at={(self.accepted_at
-                     if hasattr(self, 'accepted_at') else None)!r}, "
-                f"last_sent_at={(self.last_sent_at
-                     if hasattr(self, 'last_sent_at') else None)!r}, "
-                f"last_sent_url={(self.last_sent_url
-                     if hasattr(self, 'last_sent_url') else None)!r}, "
-                f"successful={(self.successful
-                     if hasattr(self, 'successful') else None)!r}, "
-                f"body={(self.body if hasattr(self, 'body') else None)!r}, "
-                f"signature={(self.signature
-                     if hasattr(self, 'signature') else None)!r}, "
-                f"signature_hmac_sha_256={(self.signature_hmac_sha_256
-                     if hasattr(self, 'signature_hmac_sha_256') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        return (f'{self.__class__.__name__}('
+                f'event={(self.event if hasattr(self, "event") else None)!r}, '
+                f'id={(self.id if hasattr(self, "id") else None)!r}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!r}, '
+                f'last_error={(self.last_error if hasattr(self, "last_error") else None)!r}, '
+                f'last_error_at={(self.last_error_at if hasattr(self, "last_error_at") else None)!r}, '
+                f'accepted_at={(self.accepted_at if hasattr(self, "accepted_at") else None)!r}, '
+                f'last_sent_at={(self.last_sent_at if hasattr(self, "last_sent_at") else None)!r}, '
+                f'last_sent_url={(self.last_sent_url if hasattr(self, "last_sent_url") else None)!r}, '
+                f'successful={(self.successful if hasattr(self, "successful") else None)!r}, '
+                f'body={(self.body if hasattr(self, "body") else None)!r}, '
+                f'signature={(self.signature if hasattr(self, "signature") else None)!r}, '
+                f'signature_hmac_sha_256={(self.signature_hmac_sha_256 if hasattr(self, "signature_hmac_sha_256") else None)!r}, '
+                f'additional_properties={self.additional_properties!r})')
 
     def __str__(self):
-        """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event={(self.event if hasattr(self, 'event') else None)!s}, "
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!s}, "
-                f"last_error={(self.last_error
-                     if hasattr(self, 'last_error') else None)!s}, "
-                f"last_error_at={(self.last_error_at
-                     if hasattr(self, 'last_error_at') else None)!s}, "
-                f"accepted_at={(self.accepted_at
-                     if hasattr(self, 'accepted_at') else None)!s}, "
-                f"last_sent_at={(self.last_sent_at
-                     if hasattr(self, 'last_sent_at') else None)!s}, "
-                f"last_sent_url={(self.last_sent_url
-                     if hasattr(self, 'last_sent_url') else None)!s}, "
-                f"successful={(self.successful
-                     if hasattr(self, 'successful') else None)!s}, "
-                f"body={(self.body if hasattr(self, 'body') else None)!s}, "
-                f"signature={(self.signature
-                     if hasattr(self, 'signature') else None)!s}, "
-                f"signature_hmac_sha_256={(self.signature_hmac_sha_256
-                     if hasattr(self, 'signature_hmac_sha_256') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        return (f'{self.__class__.__name__}('
+                f'event={(self.event if hasattr(self, "event") else None)!s}, '
+                f'id={(self.id if hasattr(self, "id") else None)!s}, '
+                f'created_at={(self.created_at if hasattr(self, "created_at") else None)!s}, '
+                f'last_error={(self.last_error if hasattr(self, "last_error") else None)!s}, '
+                f'last_error_at={(self.last_error_at if hasattr(self, "last_error_at") else None)!s}, '
+                f'accepted_at={(self.accepted_at if hasattr(self, "accepted_at") else None)!s}, '
+                f'last_sent_at={(self.last_sent_at if hasattr(self, "last_sent_at") else None)!s}, '
+                f'last_sent_url={(self.last_sent_url if hasattr(self, "last_sent_url") else None)!s}, '
+                f'successful={(self.successful if hasattr(self, "successful") else None)!s}, '
+                f'body={(self.body if hasattr(self, "body") else None)!s}, '
+                f'signature={(self.signature if hasattr(self, "signature") else None)!s}, '
+                f'signature_hmac_sha_256={(self.signature_hmac_sha_256 if hasattr(self, "signature_hmac_sha_256") else None)!s}, '
+                f'additional_properties={self.additional_properties!s})')

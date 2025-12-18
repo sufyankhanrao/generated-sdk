@@ -9,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type65Enum`](../../doc/models/type-65-enum.md) | Optional | Resource Type<br><br>**Default**: `"SignaturesCollection"` |
+| `mtype` | [`Type65Enum`](../../doc/models/type-65-enum.md) | Optional | Resource Type<br><br>**Default**: `'SignaturesCollection'` |
 | `list` | [`List[List11]`](../../doc/models/list-11.md) | Optional | Resource Members |
 | `links` | [`Links`](../../doc/models/links.md) | Optional | Pagination page links |
 | `pagination` | [`Pagination`](../../doc/models/pagination.md) | Optional | Pagination info |
