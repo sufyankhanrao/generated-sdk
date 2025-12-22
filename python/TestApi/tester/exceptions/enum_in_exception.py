@@ -1,19 +1,18 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
 from tester.api_helper import APIHelper
-from tester.exceptions.api_exception import APIException
+from tester.exceptions.api_exception import (
+    APIException,
+)
 
 
 class EnumInException(APIException):
     def __init__(self, reason, response):
-        """Constructor for the EnumInException class
+        """Initialize EnumInException object.
 
         Args:
             reason (string): The reason (or error message) for the Exception
@@ -27,7 +26,7 @@ class EnumInException(APIException):
             self.unbox(dictionary)
 
     def unbox(self, dictionary):
-        """Populates the properties of this object by extracting them from a dictionary.
+        """Populate the properties of this object by extracting them from a dictionary.
 
         Args:
             dictionary (dictionary): A dictionary representation of the object as
@@ -35,12 +34,26 @@ class EnumInException(APIException):
             MUST match property names in the API description.
 
         """
-        self.param = dictionary.get("param") if dictionary.get("param") else None
-        self.mtype = dictionary.get("type") if dictionary.get("type") else None
+        self.param =\
+            dictionary.get("param")\
+            if dictionary.get("param")\
+                else None
+        self.mtype =\
+            dictionary.get("type")\
+            if dictionary.get("type")\
+                else None
+
 
     def __str__(self):
-        base_str = super().__str__()
-        return (f'{self.__class__.__name__}('
-                f'{base_str[base_str.find("(") + 1:-1]}, '
-                f'param={self.param!s}, '
-                f'mtype={self.mtype!s})')
+        """Return a human-readable string representation."""
+        _param=self.param
+        _mtype=self.mtype
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"param={_param!s}"
+            f"mtype={_mtype!s}"
+            f")"
+        )

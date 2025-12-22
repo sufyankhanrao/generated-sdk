@@ -37,25 +37,27 @@ This event's request payload is of type [PaymentCallback](../../../../doc/models
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.callbacks.callbacks_handler import (
-    CallbacksHandler
+    CallbacksHandler,
 )
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.models.payment_callback import (
-    PaymentCallback
+    PaymentCallback,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/callbacks", methods=["POST"])
+@app.route("/callbacks", methods=[
+    "POST",
+])
 def Callbacks() -> Response:
     # Step 1: Convert the incoming request using to_core_request (Django/Flask)
     #         or await to_core_request_async (FastAPI).

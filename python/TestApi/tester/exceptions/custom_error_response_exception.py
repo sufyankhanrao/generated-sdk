@@ -1,19 +1,18 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
 from tester.api_helper import APIHelper
-from tester.exceptions.api_exception import APIException
+from tester.exceptions.api_exception import (
+    APIException,
+)
 
 
 class CustomErrorResponseException(APIException):
     def __init__(self, reason, response):
-        """Constructor for the CustomErrorResponseException class
+        """Initialize CustomErrorResponseException object.
 
         Args:
             reason (string): The reason (or error message) for the Exception
@@ -27,7 +26,7 @@ class CustomErrorResponseException(APIException):
             self.unbox(dictionary)
 
     def unbox(self, dictionary):
-        """Populates the properties of this object by extracting them from a dictionary.
+        """Populate the properties of this object by extracting them from a dictionary.
 
         Args:
             dictionary (dictionary): A dictionary representation of the object as
@@ -35,16 +34,38 @@ class CustomErrorResponseException(APIException):
             MUST match property names in the API description.
 
         """
-        self.error_description = dictionary.get("error description") if dictionary.get("error description") else None
-        self.caught = dictionary.get("caught") if dictionary.get("caught") else None
-        self.exception = dictionary.get("Exception") if dictionary.get("Exception") else None
-        self.inner_exception = dictionary.get("Inner Exception") if dictionary.get("Inner Exception") else None
+        self.error_description =\
+            dictionary.get("error description")\
+            if dictionary.get("error description")\
+                else None
+        self.caught =\
+            dictionary.get("caught")\
+            if dictionary.get("caught")\
+                else None
+        self.exception =\
+            dictionary.get("Exception")\
+            if dictionary.get("Exception")\
+                else None
+        self.inner_exception =\
+            dictionary.get("Inner Exception")\
+            if dictionary.get("Inner Exception")\
+                else None
+
 
     def __str__(self):
-        base_str = super().__str__()
-        return (f'{self.__class__.__name__}('
-                f'{base_str[base_str.find("(") + 1:-1]}, '
-                f'error_description={self.error_description!s}, '
-                f'caught={self.caught!s}, '
-                f'exception={self.exception!s}, '
-                f'inner_exception={self.inner_exception!s})')
+        """Return a human-readable string representation."""
+        _error_description=self.error_description
+        _caught=self.caught
+        _exception=self.exception
+        _inner_exception=self.inner_exception
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"error_description={_error_description!s}"
+            f"caught={_caught!s}"
+            f"exception={_exception!s}"
+            f"inner_exception={_inner_exception!s}"
+            f")"
+        )

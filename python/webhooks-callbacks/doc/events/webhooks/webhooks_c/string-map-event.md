@@ -34,25 +34,27 @@ This event's request payload is of type [Dict[str, str]].
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.signature_verification_failure import (
-    SignatureVerificationFailure
+    SignatureVerificationFailure,
 )
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.events.webhooks.webhooks_c_handler import (
-    WebhooksCHandler
+    WebhooksCHandler,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/webhooks", methods=["POST"])
+@app.route("/webhooks", methods=[
+    "POST",
+])
 def Webhooks() -> Response:
     # Step 1: Create the handler with your shared secret key.
     handler = WebhooksCHandler(secret_key="your-shared-secret")
@@ -65,7 +67,10 @@ def Webhooks() -> Response:
     event = handler.verify_and_parse_event(core_req)
 
     # Step 4: Pattern match for stringMapEvent only.
-    if isinstance(event, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in event.items()):
+    if (
+        isinstance(event, dict) and
+        all(isinstance(k, str) and isinstance(v, str) for k, v in event.items())
+    ):
         print("stringMapEvent received")
         # TODO: add handling logic
     elif isinstance(event, SignatureVerificationFailure):

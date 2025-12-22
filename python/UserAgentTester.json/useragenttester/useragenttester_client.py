@@ -1,23 +1,34 @@
-# -*- coding: utf-8 -*-
-
-"""
-useragenttester
+"""useragenttester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.configurations.global_configuration import GlobalConfiguration
-from apimatic_core.decorators.lazy_property import LazyProperty
-from useragenttester.configuration import Configuration
-from useragenttester.controllers.base_controller import BaseController
-from useragenttester.configuration import Environment
-from useragenttester.controllers.api_controller import APIController
+from apimatic_core.configurations.global_configuration import (
+    GlobalConfiguration,
+)
+from apimatic_core.decorators.lazy_property import (
+    LazyProperty,
+)
+
+from useragenttester.configuration import (
+    Configuration,
+    Environment,
+)
+from useragenttester.controllers.api_controller import (
+    APIController,
+)
+from useragenttester.controllers.base_controller import (
+    BaseController,
+)
 
 
 class UseragenttesterClient(object):
+    """Client that provide access to the UseragenttesterClient APIs."""
+
     @LazyProperty
     def client(self):
+        """Provide access to the APIController endpoints."""
         return APIController(self.global_configuration)
 
     def __init__(self, http_client_instance=None,
@@ -25,6 +36,7 @@ class UseragenttesterClient(object):
                  timeout=60, max_retries=3, backoff_factor=2,
                  retry_statuses=None, retry_methods=None, proxy_settings=None,
                  environment=Environment.TESTING, config=None):
+        """Initialize a new instance of UseragenttesterClient."""
         self.config = config or Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
@@ -36,8 +48,16 @@ class UseragenttesterClient(object):
         self.global_configuration = GlobalConfiguration(self.config)\
             .global_errors(BaseController.global_errors())\
             .base_uri_executor(self.config.get_base_uri)\
-            .user_agent(BaseController.user_agent(), BaseController.user_agent_parameters())
+            .user_agent(BaseController.user_agent(),
+                BaseController.user_agent_parameters())
 
     @classmethod
     def from_environment(cls, dotenv_path=None, **overrides):
-        return cls(config=Configuration.from_environment(dotenv_path=dotenv_path, **overrides))
+        """Create a client instance using environment variables.
+
+        Returns:
+            UseragenttesterClient instance.
+
+        """
+        return cls(config=Configuration
+            .from_environment(dotenv_path=dotenv_path, **overrides))

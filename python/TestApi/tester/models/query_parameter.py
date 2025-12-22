@@ -1,44 +1,41 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from tester.api_helper import APIHelper
 
 
 class QueryParameter(object):
-
     """Implementation of the 'QueryParameter' model.
 
     Query parameter key value pair echoed back from the server.
 
     Attributes:
         key (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "key": 'key'
+        "key": "key",
     }
 
     _optionals = [
-        'key',
+        "key",
     ]
 
-    def __init__(self,
-                 key=APIHelper.SKIP,
-                 additional_properties=None):
-        """Constructor for the QueryParameter class"""
-
+    def __init__(
+        self,
+        key=APIHelper.SKIP,
+        additional_properties=None):
+        """Initialize a QueryParameter instance."""
         # Initialize members of the class
         if key is not APIHelper.SKIP:
-            self.key = key 
+            self.key = key
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -48,7 +45,7 @@ class QueryParameter(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -59,24 +56,48 @@ class QueryParameter(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        key = dictionary.get("key") if dictionary.get("key") else APIHelper.SKIP
+        key =\
+            dictionary.get("key")\
+            if dictionary.get("key")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(key,
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'key={(self.key if hasattr(self, "key") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        _key=(
+            self.key
+            if hasattr(self, "key")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"key={_key!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'key={(self.key if hasattr(self, "key") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        _key=(
+            self.key
+            if hasattr(self, "key")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"key={_key!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

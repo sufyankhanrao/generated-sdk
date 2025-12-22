@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- |
 | `grand_parent_optional` | `str` | Optional | - |
 | `grand_parent_required_nullable` | `str` | Required | - |
-| `grand_parent_required` | `str` | Required | **Default**: `'not nullable and required'` |
+| `grand_parent_required` | `str` | Required | **Default**: `"not nullable and required"` |
 
 ## Example (as JSON)
 

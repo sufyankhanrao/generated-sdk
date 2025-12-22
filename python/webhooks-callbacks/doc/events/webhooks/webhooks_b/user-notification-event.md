@@ -33,34 +33,36 @@ This event's request payload is of type [UserActionNotificationEvent | UserStatu
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.signature_verification_failure import (
-    SignatureVerificationFailure
+    SignatureVerificationFailure,
 )
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.events.webhooks.webhooks_b_handler import (
-    WebhooksBHandler
+    WebhooksBHandler,
 )
 from webhooksandcallbacksapi.models.user_action_notification_event import (
-    UserActionNotificationEvent
+    UserActionNotificationEvent,
 )
 from webhooksandcallbacksapi.models.user_preference_notification_event import (
-    UserPreferenceNotificationEvent
+    UserPreferenceNotificationEvent,
 )
 from webhooksandcallbacksapi.models.user_status_notification_event import (
-    UserStatusNotificationEvent
+    UserStatusNotificationEvent,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/webhooks", methods=["POST"])
+@app.route("/webhooks", methods=[
+    "POST",
+])
 def Webhooks() -> Response:
     # Step 1: Create the handler with your shared secret key.
     handler = WebhooksBHandler(secret_key="your-shared-secret")
@@ -73,7 +75,11 @@ def Webhooks() -> Response:
     event = handler.verify_and_parse_event(core_req)
 
     # Step 4: Pattern match for userNotificationEvent only.
-    if isinstance(event, UserActionNotificationEvent) or isinstance(event, UserStatusNotificationEvent) or isinstance(event, UserPreferenceNotificationEvent):
+    if (
+        isinstance(event, UserActionNotificationEvent) or
+        isinstance(event, UserStatusNotificationEvent) or
+        isinstance(event, UserPreferenceNotificationEvent)
+    ):
         print("userNotificationEvent received")
         # TODO: add handling logic
     elif isinstance(event, SignatureVerificationFailure):

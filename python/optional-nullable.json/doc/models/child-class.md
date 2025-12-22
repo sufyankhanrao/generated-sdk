@@ -14,10 +14,10 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `optional_nullable` | `str` | Optional | - |
-| `optional_nullable_with_default_value` | `str` | Optional | **Default**: `'With default value'` |
+| `optional_nullable_with_default_value` | `str` | Optional | **Default**: `"With default value"` |
 | `optional` | `str` | Optional | - |
 | `required_nullable` | `str` | Required | - |
-| `required` | `str` | Required | **Default**: `'not nullable and required'` |
+| `required` | `str` | Required | **Default**: `"not nullable and required"` |
 | `child_class_array` | [`List[ChildClass]`](../../doc/models/child-class.md) | Optional | - |
 
 ## Example (as JSON)

@@ -42,7 +42,7 @@ model = {
             )
         ],
         hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-        joining_day='Tuesday',
+        joining_day="Tuesday",
         salary=240,
         boss=Person(
             address='address8',
@@ -82,7 +82,7 @@ model = {
             )
         ],
         hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-        joining_day='Tuesday',
+        joining_day="Tuesday",
         salary=240,
         boss=Person(
             address='address8',
@@ -143,7 +143,7 @@ model_optional = {
             )
         ],
         hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-        joining_day='Sunday',
+        joining_day="Sunday",
         salary=24,
         boss=Person(
             address='address8',

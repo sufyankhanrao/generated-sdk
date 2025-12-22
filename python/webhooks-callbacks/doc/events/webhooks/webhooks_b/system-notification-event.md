@@ -33,34 +33,36 @@ This event's request payload is of type [SystemAlertNotificationEvent | SystemMa
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.signature_verification_failure import (
-    SignatureVerificationFailure
+    SignatureVerificationFailure,
 )
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.events.webhooks.webhooks_b_handler import (
-    WebhooksBHandler
+    WebhooksBHandler,
 )
 from webhooksandcallbacksapi.models.system_alert_notification_event import (
-    SystemAlertNotificationEvent
+    SystemAlertNotificationEvent,
 )
 from webhooksandcallbacksapi.models.system_maintenance_notification_event import (
-    SystemMaintenanceNotificationEvent
+    SystemMaintenanceNotificationEvent,
 )
 from webhooksandcallbacksapi.models.system_performance_notification_event import (
-    SystemPerformanceNotificationEvent
+    SystemPerformanceNotificationEvent,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/webhooks", methods=["POST"])
+@app.route("/webhooks", methods=[
+    "POST",
+])
 def Webhooks() -> Response:
     # Step 1: Create the handler with your shared secret key.
     handler = WebhooksBHandler(secret_key="your-shared-secret")
@@ -73,7 +75,11 @@ def Webhooks() -> Response:
     event = handler.verify_and_parse_event(core_req)
 
     # Step 4: Pattern match for systemNotificationEvent only.
-    if isinstance(event, SystemAlertNotificationEvent) or isinstance(event, SystemMaintenanceNotificationEvent) or isinstance(event, SystemPerformanceNotificationEvent):
+    if (
+        isinstance(event, SystemAlertNotificationEvent) or
+        isinstance(event, SystemMaintenanceNotificationEvent) or
+        isinstance(event, SystemPerformanceNotificationEvent)
+    ):
         print("systemNotificationEvent received")
         # TODO: add handling logic
     elif isinstance(event, SignatureVerificationFailure):

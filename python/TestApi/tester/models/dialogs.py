@@ -1,37 +1,34 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from tester.models.before import Before
 
 
 class Dialogs(object):
-
     """Implementation of the 'Dialogs' model.
 
     Attributes:
         before (Before): The model property of type Before.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "before": 'before'
+        "before": "before",
     }
 
-    def __init__(self,
-                 before=None,
-                 additional_properties=None):
-        """Constructor for the Dialogs class"""
-
+    def __init__(
+        self,
+        before=None,
+        additional_properties=None):
+        """Initialize a Dialogs instance."""
         # Initialize members of the class
-        self.before = before 
+        self.before = before
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -41,7 +38,7 @@ class Dialogs(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -52,24 +49,40 @@ class Dialogs(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        before = Before.from_dictionary(dictionary.get('before')) if dictionary.get('before') else None
+        before =\
+            Before.from_dictionary(
+            dictionary.get("before"))\
+                if dictionary.get("before") else None
+
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(before,
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'before={self.before!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        _before=self.before
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"before={_before!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'before={self.before!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        _before=self.before
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"before={_before!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

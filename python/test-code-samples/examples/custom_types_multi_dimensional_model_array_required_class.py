@@ -54,7 +54,7 @@ employee_array = [
                         )
                     ],
                     hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-                    joining_day='Monday',
+                    joining_day="Monday",
                     salary=82,
                     boss=Person(
                         address='address8',
@@ -112,7 +112,7 @@ employee_array_optional = [
                         )
                     ],
                     hired_at=APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime,
-                    joining_day='Monday',
+                    joining_day="Monday",
                     salary=70,
                     boss=Person(
                         address='address8',

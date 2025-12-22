@@ -1,38 +1,51 @@
-# -*- coding: utf-8 -*-
-
-"""
-testcodesamples
+"""testcodesamples.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
-from apimatic_core.configurations.global_configuration import GlobalConfiguration
-from apimatic_core.decorators.lazy_property import LazyProperty
-from testcodesamples.configuration import Configuration
-from testcodesamples.controllers.base_controller import BaseController
-from testcodesamples.configuration import Environment
-from testcodesamples.controllers.native_types_controller\
-    import NativeTypesController
-from testcodesamples.controllers.custom_types_controller\
-    import CustomTypesController
+from apimatic_core.configurations.global_configuration import (
+    GlobalConfiguration,
+)
+from apimatic_core.decorators.lazy_property import (
+    LazyProperty,
+)
+
+from testcodesamples.configuration import (
+    Configuration,
+    Environment,
+)
+from testcodesamples.controllers.base_controller import (
+    BaseController,
+)
+from testcodesamples.controllers.custom_types_controller import (
+    CustomTypesController,
+)
+from testcodesamples.controllers.native_types_controller import (
+    NativeTypesController,
+)
 
 
 class TestcodesamplesClient(object):
+    """Client that provide access to the TestcodesamplesClient APIs."""
+
     @LazyProperty
     def native_types(self):
+        """Provide access to the NativeTypesController endpoints."""
         return NativeTypesController(self.global_configuration)
 
     @LazyProperty
     def custom_types(self):
+        """Provide access to the CustomTypesController endpoints."""
         return CustomTypesController(self.global_configuration)
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=60, max_retries=0, backoff_factor=2,
                  retry_statuses=None, retry_methods=None, proxy_settings=None,
-                 environment=Environment.TESTING, port='80', suites=1,
+                 environment=Environment.TESTING, port="80", suites=1,
                  config=None):
+        """Initialize a new instance of TestcodesamplesClient."""
         self.config = config or Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
@@ -48,4 +61,11 @@ class TestcodesamplesClient(object):
 
     @classmethod
     def from_environment(cls, dotenv_path=None, **overrides):
-        return cls(config=Configuration.from_environment(dotenv_path=dotenv_path, **overrides))
+        """Create a client instance using environment variables.
+
+        Returns:
+            TestcodesamplesClient instance.
+
+        """
+        return cls(config=Configuration
+            .from_environment(dotenv_path=dotenv_path, **overrides))

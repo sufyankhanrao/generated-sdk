@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
 
 
 class OptionalsEnum(object):
-
     """Implementation of the 'Optionals' enum.
 
     An enum representing what to send in all optionals endpoint
@@ -18,18 +14,20 @@ class OptionalsEnum(object):
         EMPTYBODY: The enum member of type str.
         BODYWITHEMPTYFIELDS: The enum member of type str.
         BODYWITHFIELDS: The enum member of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
-    EMPTYBODY = 'empty'
 
-    BODYWITHEMPTYFIELDS = 'withEmptyFields'
+    EMPTYBODY = "empty"
 
-    BODYWITHFIELDS = 'withFields'
+    BODYWITHEMPTYFIELDS = "withEmptyFields"
+
+    BODYWITHFIELDS = "withFields"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

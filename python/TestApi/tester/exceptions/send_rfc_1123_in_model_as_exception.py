@@ -1,20 +1,21 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
 from tester.api_helper import APIHelper
-from tester.exceptions.api_exception import APIException
-from tester.models.add_rfc_1123_datetime_in_global_exception import AddRfc1123DatetimeInGlobalException
+from tester.exceptions.api_exception import (
+    APIException,
+)
+from tester.models.add_rfc_1123_datetime_in_global_exception import (
+    AddRfc1123DatetimeInGlobalException,
+)
 
 
 class SendRfc1123InModelAsException(APIException):
     def __init__(self, reason, response):
-        """Constructor for the SendRfc1123InModelAsException class
+        """Initialize SendRfc1123InModelAsException object.
 
         Args:
             reason (string): The reason (or error message) for the Exception
@@ -28,7 +29,7 @@ class SendRfc1123InModelAsException(APIException):
             self.unbox(dictionary)
 
     def unbox(self, dictionary):
-        """Populates the properties of this object by extracting them from a dictionary.
+        """Populate the properties of this object by extracting them from a dictionary.
 
         Args:
             dictionary (dictionary): A dictionary representation of the object as
@@ -36,10 +37,20 @@ class SendRfc1123InModelAsException(APIException):
             MUST match property names in the API description.
 
         """
-        self.body = AddRfc1123DatetimeInGlobalException.from_dictionary(dictionary.get('body')) if dictionary.get('body') else None
+        self.body =\
+            AddRfc1123DatetimeInGlobalException.from_dictionary(
+            dictionary.get("body"))\
+                if dictionary.get("body") else None
+
 
     def __str__(self):
-        base_str = super().__str__()
-        return (f'{self.__class__.__name__}('
-                f'{base_str[base_str.find("(") + 1:-1]}, '
-                f'body={self.body!s})')
+        """Return a human-readable string representation."""
+        _body=self.body
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"body={_body!s}"
+            f")"
+        )

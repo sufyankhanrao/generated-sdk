@@ -17,25 +17,27 @@ Events available in this group. Subscribe to receive webhook notifications when 
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.events.webhooks.webhooks_no_verification_handler import (
-    WebhooksNoVerificationHandler
+    WebhooksNoVerificationHandler,
 )
 from webhooksandcallbacksapi.models.audit_log_event import (
-    AuditLogEvent
+    AuditLogEvent,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/webhooks", methods=["POST"])
+@app.route("/webhooks", methods=[
+    "POST",
+])
 def Webhooks():
     # Step 1: Convert the incoming request using to_core_request (Django/Flask)
     #         or await to_core_request_async (FastAPI).
@@ -48,7 +50,12 @@ def Webhooks():
     if isinstance(event, AuditLogEvent):
         print("auditLogEvent received")
         # TODO: add handling logic
-    elif isinstance(event, str) or isinstance(event, int) or isinstance(event, list) and all(isinstance(x, str) for x in event) or isinstance(event, list) and all(isinstance(x, int) for x in event):
+    elif (
+        isinstance(event, str) or
+        isinstance(event, int) or
+        (isinstance(event, list) and all(isinstance(x, str) for x in event)) or
+        (isinstance(event, list) and all(isinstance(x, int) for x in event))
+    ):
         print("rootLevelPrimitiveOneOfEvent received")
         # TODO: add handling logic
     elif isinstance(event, UnknownEvent):

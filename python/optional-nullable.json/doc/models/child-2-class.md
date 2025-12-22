@@ -15,7 +15,7 @@
 |  --- | --- | --- | --- |
 | `optional` | `str` | Optional | - |
 | `required_nullable` | `str` | Required | - |
-| `required` | `str` | Required | **Default**: `'not nullable and required'` |
+| `required` | `str` | Required | **Default**: `"not nullable and required"` |
 
 ## Example (as JSON)
 

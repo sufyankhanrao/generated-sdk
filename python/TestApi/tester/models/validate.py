@@ -1,50 +1,47 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
+
 from tester.api_helper import APIHelper
 
 
 class Validate(object):
-
     """Implementation of the 'validate' model.
 
     Attributes:
         field (str): The model property of type str.
         name (str): The model property of type str.
         address (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "field": 'field',
-        "name": 'name',
-        "address": 'address'
+        "field": "field",
+        "name": "name",
+        "address": "address",
     }
 
     _optionals = [
-        'address',
+        "address",
     ]
 
-    def __init__(self,
-                 field=None,
-                 name=None,
-                 address=APIHelper.SKIP,
-                 additional_properties=None):
-        """Constructor for the Validate class"""
-
+    def __init__(
+        self,
+        field=None,
+        name=None,
+        address=APIHelper.SKIP,
+        additional_properties=None):
+        """Initialize a Validate instance."""
         # Initialize members of the class
-        self.field = field 
-        self.name = name 
+        self.field = field
+        self.name = name
         if address is not APIHelper.SKIP:
-            self.address = address 
+            self.address = address
 
         # Add additional model properties to the instance
         if additional_properties is None:
@@ -54,7 +51,7 @@ class Validate(object):
     @classmethod
     def from_dictionary(cls,
                         dictionary):
-        """Creates an instance of this model from a dictionary
+        """Create an instance of this model from a dictionary
 
         Args:
             dictionary (dictionary): A dictionary representation of the object
@@ -65,16 +62,26 @@ class Validate(object):
             object: An instance of this structure class.
 
         """
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        field = dictionary.get("field") if dictionary.get("field") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        address = dictionary.get("address") if dictionary.get("address") else APIHelper.SKIP
+        field =\
+            dictionary.get("field")\
+            if dictionary.get("field")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        address =\
+            dictionary.get("address")\
+            if dictionary.get("address")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
-        additional_properties = {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties =\
+            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
         # Return an object of this model
         return cls(field,
                    name,
@@ -82,15 +89,39 @@ class Validate(object):
                    additional_properties)
 
     def __repr__(self):
-        return (f'{self.__class__.__name__}('
-                f'field={self.field!r}, '
-                f'name={self.name!r}, '
-                f'address={(self.address if hasattr(self, "address") else None)!r}, '
-                f'additional_properties={self.additional_properties!r})')
+        """Return a unambiguous string representation."""
+        _field=self.field
+        _name=self.name
+        _address=(
+            self.address
+            if hasattr(self, "address")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"field={_field!r}"
+            f"name={_name!r}"
+            f"address={_address!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
-        return (f'{self.__class__.__name__}('
-                f'field={self.field!s}, '
-                f'name={self.name!s}, '
-                f'address={(self.address if hasattr(self, "address") else None)!s}, '
-                f'additional_properties={self.additional_properties!s})')
+        """Return a human-readable string representation."""
+        _field=self.field
+        _name=self.name
+        _address=(
+            self.address
+            if hasattr(self, "address")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"field={_field!s}"
+            f"name={_name!s}"
+            f"address={_address!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

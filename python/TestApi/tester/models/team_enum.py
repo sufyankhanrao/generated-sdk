@@ -1,7 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
-tester
+"""tester.
 
 This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
@@ -9,7 +6,6 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
 
 
 class TeamEnum(object):
-
     """Implementation of the 'team' enum.
 
     Attributes:
@@ -17,20 +13,22 @@ class TeamEnum(object):
         CGAAS: The enum member of type str.
         UX: The enum member of type str.
         QA: The enum member of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
-    CODEGEN = 'codegen'
 
-    CGAAS = 'cgaas'
+    CODEGEN = "codegen"
 
-    UX = 'ux'
+    CGAAS = "cgaas"
 
-    QA = 'qa'
+    UX = "ux"
+
+    QA = "qa"
 
     @classmethod
     def from_value(cls, value, default=None):
+        """Return the matching enum value for the given input."""
         if value is None:
             return default
 

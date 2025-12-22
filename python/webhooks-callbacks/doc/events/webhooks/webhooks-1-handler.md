@@ -16,25 +16,27 @@ Events available in this group. Subscribe to receive webhook notifications when 
 from flask import (
     Flask,
     Response,
-    request
+    request,
 )
 
 from webhooksandcallbacksapi.events.unknown_event import (
-    UnknownEvent
+    UnknownEvent,
 )
 from webhooksandcallbacksapi.events.webhooks.webhooks_1_handler import (
-    Webhooks1Handler
+    Webhooks1Handler,
 )
 from webhooksandcallbacksapi.models.order_created_event import (
-    OrderCreatedEvent
+    OrderCreatedEvent,
 )
 from webhooksandcallbacksapi.utilities.request_adapter import (
-    to_core_request
+    to_core_request,
 )
 
 app = Flask(__name__)
 
-@app.route("/webhooks", methods=["POST"])
+@app.route("/webhooks", methods=[
+    "POST",
+])
 def Webhooks():
     # Step 1: Convert the incoming request using to_core_request (Django/Flask)
     #         or await to_core_request_async (FastAPI).

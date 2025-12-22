@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 """
 multiauthsample
@@ -11,13 +10,15 @@ from apimatic_core.authentication.header_auth import HeaderAuth
 
 
 class CustomAuth(HeaderAuth):
+    """
+    An authentication handler that applies `CustomAuthentication` to
+    outgoing requests. It constructs the required credential values and integrates
+    with the core authentication framework.
+    """
 
     @property
     def error_message(self):
-        """Display error message on occurrence of authentication failure
-         in CustomAuth
-
-        """
+        """Return reason about the authentication failure."""
         # TODO: Add your error message here in case of failure in authentication
         #
         # Example:
@@ -25,6 +26,13 @@ class CustomAuth(HeaderAuth):
         return ""
 
     def __init__(self, config):
+        """
+        Initialize the authentication handler with credential data.
+
+        Args:
+            config: The configuration instance.
+
+        """
         auth_params = {}
 
         # TODO: Add your custom authentication here
@@ -35,7 +43,13 @@ class CustomAuth(HeaderAuth):
         self._config = config
 
     def is_valid(self):
-        """Validate arguments for authentication"""
+        """
+        Validate credentials for authentication.
+
+        Returns:
+            bool: True if the credentials are valid, False otherwise.
+
+        """
         # TODO: Add your validation checks here
         #
         # Example:

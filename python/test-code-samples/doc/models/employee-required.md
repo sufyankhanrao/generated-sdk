@@ -23,7 +23,7 @@
 | `date_var` | `date` | Required | - |
 | `dependents` | [`List[Person]`](../../doc/models/person.md) | Required | - |
 | `hired_at` | `datetime` | Required | - |
-| `joining_day` | [`Days`](../../doc/models/days.md) | Required | **Default**: `'Monday'` |
+| `joining_day` | [`Days`](../../doc/models/days.md) | Required | **Default**: `"Monday"` |
 | `salary` | `int` | Required | - |
 | `boss` | [`Person`](../../doc/models/person.md) | Required | - |
 
