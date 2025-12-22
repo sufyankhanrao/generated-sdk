@@ -35,7 +35,8 @@ class EchoController(BaseController):
             input (Any): The request body parameter.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -63,7 +64,8 @@ class EchoController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def form_echo(self,
@@ -76,7 +78,8 @@ class EchoController(BaseController):
             input (Any): The request form parameter.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -101,7 +104,8 @@ class EchoController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def query_echo(self,
@@ -113,7 +117,8 @@ class EchoController(BaseController):
                 parameters are supported by this endpoint
 
         Returns:
-            EchoResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -133,5 +138,6 @@ class EchoController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(EchoResponse.from_dictionary),
+            .deserialize_into(EchoResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()

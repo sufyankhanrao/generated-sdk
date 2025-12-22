@@ -41,7 +41,8 @@ class BinaryParamsController(BaseController):
             file (typing.BinaryIO): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -69,7 +70,8 @@ class BinaryParamsController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_image_with_constant_content_type(self,
@@ -80,7 +82,8 @@ class BinaryParamsController(BaseController):
             image (typing.BinaryIO): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -108,7 +111,8 @@ class BinaryParamsController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_image_with_configured_content_type(self,
@@ -126,7 +130,8 @@ class BinaryParamsController(BaseController):
                     is_image -- str -- The request query parameter. Example: true
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -156,5 +161,6 @@ class BinaryParamsController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()

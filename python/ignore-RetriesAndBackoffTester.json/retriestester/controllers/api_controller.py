@@ -44,7 +44,8 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -74,7 +75,8 @@ class APIController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def try_post_api_call(self,
@@ -87,7 +89,8 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -112,7 +115,8 @@ class APIController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def retry_post_api_call(self,
@@ -125,7 +129,8 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -150,7 +155,8 @@ class APIController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).endpoint_configuration(
             EndpointConfiguration()
             .to_retry(True),
@@ -168,7 +174,8 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -196,7 +203,8 @@ class APIController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def dont_retry_api_call(self,
@@ -209,7 +217,8 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -234,7 +243,8 @@ class APIController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).endpoint_configuration(
             EndpointConfiguration()
             .to_retry(False),
@@ -254,7 +264,8 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -288,5 +299,6 @@ class APIController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()

@@ -9,7 +9,12 @@ client = UseragenttesterClient(
 client_controller = client.client
 try:
     result = client_controller.send_user_agent()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

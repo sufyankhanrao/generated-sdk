@@ -43,7 +43,8 @@ class NativeTypesController(BaseController):
             dynamic_var (Any): The request form parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -81,7 +82,8 @@ class NativeTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_string_boolean_object_dynamic_optional(self,
@@ -98,7 +100,8 @@ class NativeTypesController(BaseController):
             dynamic_var (Any, optional): The request form parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -132,7 +135,8 @@ class NativeTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_date_and_time_required(self,
@@ -149,7 +153,8 @@ class NativeTypesController(BaseController):
             date_var (date): The request form parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -190,7 +195,8 @@ class NativeTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_date_and_time_optional(self,
@@ -207,7 +213,8 @@ class NativeTypesController(BaseController):
             date_var (date, optional): The request form parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -244,7 +251,8 @@ class NativeTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def multi_dimensional_native_array_required(self,
@@ -255,7 +263,8 @@ class NativeTypesController(BaseController):
             boolean_array (List[bool]): The request form parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -281,7 +290,8 @@ class NativeTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def multi_dimensional_native_array_optional(self,
@@ -292,7 +302,8 @@ class NativeTypesController(BaseController):
             boolean_array (List[bool], optional): The request form parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -317,7 +328,8 @@ class NativeTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def native_map_of_array_and_array_of_map_required(self,
@@ -330,7 +342,8 @@ class NativeTypesController(BaseController):
             boolean_map_of_array (List[bool]): The request form parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -360,7 +373,8 @@ class NativeTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def native_map_of_array_and_array_of_map_optional(self,
@@ -373,7 +387,8 @@ class NativeTypesController(BaseController):
             boolean_map_of_array (List[bool], optional): The request form parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -401,5 +416,6 @@ class NativeTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()

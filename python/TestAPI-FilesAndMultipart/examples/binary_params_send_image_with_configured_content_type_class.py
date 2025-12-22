@@ -18,7 +18,12 @@ collect = {
 }
 try:
     result = binary_params_controller.send_image_with_configured_content_type(collect)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

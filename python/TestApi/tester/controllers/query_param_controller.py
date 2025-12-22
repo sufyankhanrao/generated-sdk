@@ -33,7 +33,8 @@ class QueryParamController(BaseController):
             dates (List[date]): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -56,7 +57,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def optional_dynamic_query_param(self,
@@ -72,7 +74,8 @@ class QueryParamController(BaseController):
                 parameters are supported by this endpoint
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -96,7 +99,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def date(self,
@@ -107,7 +111,8 @@ class QueryParamController(BaseController):
             date (date): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -130,7 +135,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def unix_date_time_array(self,
@@ -141,7 +147,8 @@ class QueryParamController(BaseController):
             datetimes (List[datetime]): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -165,7 +172,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def unix_date_time(self,
@@ -176,7 +184,8 @@ class QueryParamController(BaseController):
             datetime (datetime): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -200,7 +209,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def rfc_1123_date_time(self,
@@ -211,7 +221,8 @@ class QueryParamController(BaseController):
             datetime (datetime): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -235,7 +246,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def rfc_1123_date_time_array(self,
@@ -246,7 +258,8 @@ class QueryParamController(BaseController):
             datetimes (List[datetime]): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -270,7 +283,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def rfc_3339_date_time_array(self,
@@ -281,7 +295,8 @@ class QueryParamController(BaseController):
             datetimes (List[datetime]): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -305,7 +320,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def rfc_3339_date_time(self,
@@ -316,7 +332,8 @@ class QueryParamController(BaseController):
             datetime (datetime): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -340,14 +357,16 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def no_params(self):
         """Perform a GET request to /query/noparams.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -366,7 +385,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def string_param(self,
@@ -377,7 +397,8 @@ class QueryParamController(BaseController):
             string (str): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -400,7 +421,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def url_param(self,
@@ -411,7 +433,8 @@ class QueryParamController(BaseController):
             url (str): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -434,7 +457,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def number_array(self,
@@ -445,7 +469,8 @@ class QueryParamController(BaseController):
             integers (List[int]): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -468,7 +493,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def string_array(self,
@@ -479,7 +505,8 @@ class QueryParamController(BaseController):
             strings (List[str]): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -502,7 +529,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def simple_query(self,
@@ -520,7 +548,8 @@ class QueryParamController(BaseController):
                 parameters are supported by this endpoint
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -552,7 +581,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def string_enum_array(self,
@@ -563,7 +593,8 @@ class QueryParamController(BaseController):
             days (List[Days1Enum]): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -586,7 +617,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def multiple_params(self,
@@ -603,7 +635,8 @@ class QueryParamController(BaseController):
             url (str): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -638,7 +671,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def integer_enum_array(self,
@@ -649,7 +683,8 @@ class QueryParamController(BaseController):
             suites (List[SuiteCodeEnum]): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -672,7 +707,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_indexed_complex_type_in_query(self,
@@ -683,7 +719,8 @@ class QueryParamController(BaseController):
             complex_type (ComplexType): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -709,7 +746,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_indexed_list_of_complex_type_in_query(self,
@@ -720,7 +758,8 @@ class QueryParamController(BaseController):
             complex_type (List[ComplexType]): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -746,7 +785,8 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_indexed_map_of_complex_type_in_query(self,
@@ -757,7 +797,8 @@ class QueryParamController(BaseController):
             complex_type (Dict[str, ComplexType]): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -783,5 +824,6 @@ class QueryParamController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()

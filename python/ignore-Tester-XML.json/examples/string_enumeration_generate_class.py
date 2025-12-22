@@ -9,7 +9,12 @@ client = TesterxmlClient(
 string_enumeration_controller = client.string_enumeration
 try:
     result = string_enumeration_controller.generate()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

@@ -66,7 +66,8 @@ class SenderController(BaseController):
                 request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -132,6 +133,7 @@ class SenderController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -161,7 +163,8 @@ class SenderController(BaseController):
                         request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -227,6 +230,7 @@ class SenderController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -238,7 +242,8 @@ class SenderController(BaseController):
             body (List[float] | str | None): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -265,6 +270,7 @@ class SenderController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -276,7 +282,8 @@ class SenderController(BaseController):
             body (Dict[str, Car | Morning | Atom]): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -304,6 +311,7 @@ class SenderController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -315,7 +323,8 @@ class SenderController(BaseController):
             body (Dict[str, int] | Dict[str, Atom]): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -343,6 +352,7 @@ class SenderController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -359,7 +369,8 @@ class SenderController(BaseController):
             body_mixed (Dict[str, int] | Dict[str, Atom]): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -400,6 +411,7 @@ class SenderController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -420,7 +432,8 @@ class SenderController(BaseController):
                         body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -461,6 +474,7 @@ class SenderController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -482,7 +496,8 @@ class SenderController(BaseController):
             query_scalar_model (ScalarModel, optional): The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -525,6 +540,7 @@ class SenderController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -540,7 +556,8 @@ class SenderController(BaseController):
             scalar_model (ScalarModel, optional): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -574,5 +591,6 @@ class SenderController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()

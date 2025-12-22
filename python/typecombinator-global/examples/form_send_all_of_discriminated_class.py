@@ -80,7 +80,12 @@ try:
         one_of_cat_dog_oaf_pet_type,
         one_of_cat_dog_kind
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

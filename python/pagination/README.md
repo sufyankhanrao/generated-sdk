@@ -139,6 +139,7 @@ See the [Environment-Based Client Initialization](doc/environment-based-client-i
 
 ### Utilities
 
+* [ApiResponse](doc/api-response.md)
 * [PagedIterable](doc/paged-iterable.md)
 * [LinkPagedResponse](doc/link-paged-response.md)
 * [CursorPagedResponse](doc/cursor-paged-response.md)

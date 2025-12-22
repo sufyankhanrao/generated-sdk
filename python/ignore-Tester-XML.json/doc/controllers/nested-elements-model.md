@@ -24,13 +24,17 @@ def generate(self)
 
 ## Response Type
 
-[`ModelWithNestedElementsModel`](../../doc/models/model-with-nested-elements-model.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ModelWithNestedElementsModel`](../../doc/models/model-with-nested-elements-model.md).
 
 ## Example Usage
 
 ```python
 result = nested_elements_model_controller.generate()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -51,7 +55,7 @@ def validate(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -69,6 +73,10 @@ body = ModelWithNestedElementsModel(
 )
 
 result = nested_elements_model_controller.validate(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

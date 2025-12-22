@@ -22,7 +22,12 @@ try:
         boolean_array_of_map,
         boolean_map_of_array
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

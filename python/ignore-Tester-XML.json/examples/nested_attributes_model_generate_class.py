@@ -9,7 +9,12 @@ client = TesterxmlClient(
 nested_attributes_model_controller = client.nested_attributes_model
 try:
     result = nested_attributes_model_controller.generate()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

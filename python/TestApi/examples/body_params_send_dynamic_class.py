@@ -41,7 +41,12 @@ dynamic = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 
 try:
     result = body_params_controller.send_dynamic(dynamic)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

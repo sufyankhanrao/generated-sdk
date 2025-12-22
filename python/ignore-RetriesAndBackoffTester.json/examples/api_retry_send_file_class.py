@@ -14,7 +14,12 @@ file = FileWrapper(Path('dummy_file').open('rb'), 'optional-content-type')
 
 try:
     result = client_controller.retry_send_file(file)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

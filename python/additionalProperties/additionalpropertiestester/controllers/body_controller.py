@@ -70,7 +70,8 @@ class BodyController(BaseController):
             body (SimpleModel): The request body parameter.
 
         Returns:
-            SimpleModel: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -94,7 +95,8 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(SimpleModel.from_dictionary),
+            .deserialize_into(SimpleModel.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def upload_date_additional_properties(self,
@@ -105,7 +107,8 @@ class BodyController(BaseController):
             body (DateAdditionalProperties): The request body parameter.
 
         Returns:
-            DateAdditionalProperties: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -129,7 +132,8 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(DateAdditionalProperties.from_dictionary),
+            .deserialize_into(DateAdditionalProperties.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def upload_date_time_additional_properties(self,
@@ -140,7 +144,8 @@ class BodyController(BaseController):
             body (DateTimeAdditionalProperties): The request body parameter.
 
         Returns:
-            DateTimeAdditionalProperties: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -164,7 +169,8 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(DateTimeAdditionalProperties.from_dictionary),
+            .deserialize_into(DateTimeAdditionalProperties.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def upload_uuid_additional_properties(self,
@@ -175,7 +181,8 @@ class BodyController(BaseController):
             body (UUIDAdditionalProperties): The request body parameter.
 
         Returns:
-            UUIDAdditionalProperties: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -199,7 +206,8 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(UUIDAdditionalProperties.from_dictionary),
+            .deserialize_into(UUIDAdditionalProperties.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def upload_array_of_string_additional_properties(self,
@@ -210,8 +218,8 @@ class BodyController(BaseController):
             body (ArrayOfStringAdditionalProperties): The request body parameter.
 
         Returns:
-            ArrayOfStringAdditionalProperties: Response from the API. Successful
-                response
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful response
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -235,7 +243,8 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ArrayOfStringAdditionalProperties.from_dictionary),
+            .deserialize_into(ArrayOfStringAdditionalProperties.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def upload_map_of_array_additional_properties(self,
@@ -246,7 +255,8 @@ class BodyController(BaseController):
             body (MapOfArrayAdditionalProperties): The request body parameter.
 
         Returns:
-            MapOfArrayAdditionalProperties: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -270,7 +280,8 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(MapOfArrayAdditionalProperties.from_dictionary),
+            .deserialize_into(MapOfArrayAdditionalProperties.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def upload_child_number_type(self,
@@ -281,7 +292,8 @@ class BodyController(BaseController):
             body (ChildNumberType): The request body parameter.
 
         Returns:
-            ChildNumberType: Response from the API. Successful upload
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful upload
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -305,7 +317,8 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ChildNumberType.from_dictionary),
+            .deserialize_into(ChildNumberType.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def upload_child_string_type(self,
@@ -316,7 +329,8 @@ class BodyController(BaseController):
             body (ChildStringType): The request body parameter.
 
         Returns:
-            ChildStringType: Response from the API. Successful upload
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful upload
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -340,7 +354,8 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ChildStringType.from_dictionary),
+            .deserialize_into(ChildStringType.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def upload_non_inherit_enabled_number(self,
@@ -351,7 +366,8 @@ class BodyController(BaseController):
             body (NonInheritEnabledNumber): The request body parameter.
 
         Returns:
-            NonInheritEnabledNumber: Response from the API. Successful upload
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful upload
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -375,7 +391,8 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(NonInheritEnabledNumber.from_dictionary),
+            .deserialize_into(NonInheritEnabledNumber.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def upload_non_inherit_enabled_any(self,
@@ -386,7 +403,8 @@ class BodyController(BaseController):
             body (NonInheritEnabledAny): The request body parameter.
 
         Returns:
-            NonInheritEnabledAny: Response from the API. Successful upload
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful upload
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -410,7 +428,8 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(NonInheritEnabledAny.from_dictionary),
+            .deserialize_into(NonInheritEnabledAny.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def upload_one_of_additional_properties(self,
@@ -421,7 +440,8 @@ class BodyController(BaseController):
             body (OneOfAdditionalProperties): The request body parameter.
 
         Returns:
-            OneOfAdditionalProperties: Response from the API. Successful upload
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful upload
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -445,5 +465,6 @@ class BodyController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(OneOfAdditionalProperties.from_dictionary),
+            .deserialize_into(OneOfAdditionalProperties.from_dictionary)
+            .is_api_response(True),
         ).execute()

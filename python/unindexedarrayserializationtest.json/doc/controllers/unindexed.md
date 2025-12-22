@@ -34,7 +34,7 @@ def create_unindexed_form(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -54,7 +54,11 @@ model = Employee(
 )
 
 result = un_indexed_controller.create_unindexed_form(model)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -73,7 +77,7 @@ def get_un_indexed_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -86,7 +90,11 @@ query_param = [
 ]
 
 result = un_indexed_controller.get_un_indexed_query(query_param)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -105,7 +113,7 @@ def create_send_string_array_in_model_form(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -121,7 +129,11 @@ body = Model(
 )
 
 result = un_indexed_controller.create_send_string_array_in_model_form(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -140,7 +152,7 @@ def create_unindexed_body(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -160,7 +172,11 @@ model = Employee(
 )
 
 result = un_indexed_controller.create_unindexed_body(model)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -179,7 +195,7 @@ def create_send_unindexed_complex_type_in_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -225,7 +241,11 @@ complex_type = ComplexType(
 )
 
 result = un_indexed_controller.create_send_unindexed_complex_type_in_query(complex_type)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -244,7 +264,7 @@ def create_send_unindexed_list_of_complex_type_in_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -292,7 +312,11 @@ complex_type = [
 ]
 
 result = un_indexed_controller.create_send_unindexed_list_of_complex_type_in_query(complex_type)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -311,7 +335,7 @@ def create_send_unindexed_map_of_complex_type_in_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -359,6 +383,10 @@ complex_type = {
 }
 
 result = un_indexed_controller.create_send_unindexed_map_of_complex_type_in_query(complex_type)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

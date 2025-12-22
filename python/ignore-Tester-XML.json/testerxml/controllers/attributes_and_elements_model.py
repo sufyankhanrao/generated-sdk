@@ -44,7 +44,8 @@ class AttributesAndElementsModel(BaseController):
         "AttributesAndElements" model
 
         Returns:
-            AttributesAndElements: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -63,7 +64,8 @@ class AttributesAndElementsModel(BaseController):
             ResponseHandler()
             .deserializer(XmlUtilities.deserialize_xml)
             .deserialize_into(AttributesAndElements)
-            .is_xml_response(True),
+            .is_xml_response(True)
+            .is_api_response(True),
         ).execute()
 
     def validate(self,
@@ -77,7 +79,8 @@ class AttributesAndElementsModel(BaseController):
             body (AttributesAndElements): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -102,7 +105,8 @@ class AttributesAndElementsModel(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def generate_array(self):
@@ -112,7 +116,8 @@ class AttributesAndElementsModel(BaseController):
         "AttributesAndElements" model array
 
         Returns:
-            List[AttributesAndElements]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -132,7 +137,8 @@ class AttributesAndElementsModel(BaseController):
             .deserializer(XmlUtilities.deserialize_xml_to_list)
             .deserialize_into(AttributesAndElements)
             .is_xml_response(True)
-            .xml_item_name("item"),
+            .xml_item_name("item")
+            .is_api_response(True),
         ).execute()
 
     def validate_array(self,
@@ -146,7 +152,8 @@ class AttributesAndElementsModel(BaseController):
             body (List[AttributesAndElements]): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -172,5 +179,6 @@ class AttributesAndElementsModel(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()

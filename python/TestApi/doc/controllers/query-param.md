@@ -48,7 +48,7 @@ def date_array(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -59,7 +59,11 @@ dates = [
 ]
 
 result = query_param_controller.date_array(dates)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -82,7 +86,7 @@ def optional_dynamic_query_param(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -97,7 +101,11 @@ result = query_param_controller.optional_dynamic_query_param(
     name,
     _optional_query_parameters=_optional_query_parameters
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -116,7 +124,7 @@ def date(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -124,7 +132,11 @@ def date(self,
 date = dateutil.parser.parse('2016-03-13').date()
 
 result = query_param_controller.date(date)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -143,7 +155,7 @@ def unix_date_time_array(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -155,7 +167,11 @@ datetimes = [
 ]
 
 result = query_param_controller.unix_date_time_array(datetimes)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -174,7 +190,7 @@ def unix_date_time(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -182,7 +198,11 @@ def unix_date_time(self,
 datetime = dateutil.datetime.utcfromtimestamp(1480809600)
 
 result = query_param_controller.unix_date_time(datetime)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -201,7 +221,7 @@ def rfc_1123_date_time(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -209,7 +229,11 @@ def rfc_1123_date_time(self,
 datetime = APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').datetime
 
 result = query_param_controller.rfc_1123_date_time(datetime)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -228,7 +252,7 @@ def rfc_1123_date_time_array(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -240,7 +264,11 @@ datetimes = [
 ]
 
 result = query_param_controller.rfc_1123_date_time_array(datetimes)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -259,7 +287,7 @@ def rfc_3339_date_time_array(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -271,7 +299,11 @@ datetimes = [
 ]
 
 result = query_param_controller.rfc_3339_date_time_array(datetimes)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -290,7 +322,7 @@ def rfc_3339_date_time(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -298,7 +330,11 @@ def rfc_3339_date_time(self,
 datetime = dateutil.parser.parse('2016-03-13T12:52:32.123Z')
 
 result = query_param_controller.rfc_3339_date_time(datetime)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -310,13 +346,17 @@ def no_params(self)
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
 ```python
 result = query_param_controller.no_params()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -335,7 +375,7 @@ def string_param(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -343,7 +383,11 @@ def string_param(self,
 string = 'string4'
 
 result = query_param_controller.string_param(string)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -362,7 +406,7 @@ def url_param(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -370,7 +414,11 @@ def url_param(self,
 url = 'url4'
 
 result = query_param_controller.url_param(url)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -389,7 +437,7 @@ def number_array(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -401,7 +449,11 @@ integers = [
 ]
 
 result = query_param_controller.number_array(integers)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -420,7 +472,7 @@ def string_array(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -430,7 +482,11 @@ strings = [
 ]
 
 result = query_param_controller.string_array(strings)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -455,7 +511,7 @@ def simple_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -476,7 +532,11 @@ result = query_param_controller.simple_query(
     string,
     _optional_query_parameters=_optional_query_parameters
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -495,7 +555,7 @@ def string_enum_array(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -507,7 +567,11 @@ days = [
 ]
 
 result = query_param_controller.string_enum_array(days)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -532,7 +596,7 @@ def multiple_params(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -551,7 +615,11 @@ result = query_param_controller.multiple_params(
     string,
     url
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -570,7 +638,7 @@ def integer_enum_array(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -582,7 +650,11 @@ suites = [
 ]
 
 result = query_param_controller.integer_enum_array(suites)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -601,7 +673,7 @@ def send_indexed_complex_type_in_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -647,7 +719,11 @@ complex_type = ComplexType(
 )
 
 result = query_param_controller.send_indexed_complex_type_in_query(complex_type)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -666,7 +742,7 @@ def send_indexed_list_of_complex_type_in_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -714,7 +790,11 @@ complex_type = [
 ]
 
 result = query_param_controller.send_indexed_list_of_complex_type_in_query(complex_type)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -733,7 +813,7 @@ def send_indexed_map_of_complex_type_in_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -781,6 +861,10 @@ complex_type = {
 }
 
 result = query_param_controller.send_indexed_map_of_complex_type_in_query(complex_type)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

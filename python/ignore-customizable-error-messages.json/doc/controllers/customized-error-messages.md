@@ -26,13 +26,17 @@ def endpoint_level_error_template_message(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = customized_error_messages_controller.endpoint_level_error_template_message()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -55,12 +59,16 @@ def override_global_level_error_messages(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = customized_error_messages_controller.override_global_level_error_messages()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

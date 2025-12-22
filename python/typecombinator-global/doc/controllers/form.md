@@ -39,7 +39,7 @@ def send_all_of_discriminated(self,
 
 ## Response Type
 
-[Cat](../../doc/models/cat.md) | [Dog](../../doc/models/dog.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Cat | Dog`.
 
 ## Example Usage
 
@@ -112,7 +112,11 @@ result = form_controller.send_all_of_discriminated(
     one_of_cat_dog_oaf_pet_type,
     one_of_cat_dog_kind
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response
@@ -151,7 +155,7 @@ def send_oaf_discriminated(self,
 
 ## Response Type
 
-[Lion](../../doc/models/lion.md) | [Squirrel](../../doc/models/squirrel.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Lion | Squirrel`.
 
 ## Example Usage
 
@@ -197,7 +201,11 @@ result = form_controller.send_oaf_discriminated(
     one_of_lion_and_squirrel_speed,
     one_of_lion_and_squirrel_area
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -220,7 +228,7 @@ def send_alias(self,
 
 ## Response Type
 
-[Lion](../../doc/models/lion.md) | [Deer](../../doc/models/deer.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Lion | Deer`.
 
 ## Example Usage
 
@@ -241,7 +249,11 @@ result = form_controller.send_alias(
     alias,
     alias_of_alias
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response
@@ -286,7 +298,7 @@ def send_oaf_with_all_of_discriminated_variants(self,
 
 ## Response Type
 
-[Animal](../../doc/models/animal.md) | [Lion](../../doc/models/lion.md) | [Cat](../../doc/models/cat.md) | [Squirrel](../../doc/models/squirrel.md) | [Employee](../../doc/models/employee.md) | [Entrepreneur](../../doc/models/entrepreneur.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Animal | Lion | Cat | Squirrel | Employee | Entrepreneur`.
 
 ## Example Usage
 
@@ -386,6 +398,10 @@ result = form_controller.send_oaf_with_all_of_discriminated_variants(
     one_of_employee_entrepreneur_disc,
     one_of_employee_entrepreneur
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

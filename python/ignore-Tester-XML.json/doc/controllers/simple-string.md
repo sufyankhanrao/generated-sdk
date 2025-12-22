@@ -26,13 +26,17 @@ def generate(self)
 
 ## Response Type
 
-`str`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
 
 ## Example Usage
 
 ```python
 result = simple_string_controller.generate()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -53,7 +57,7 @@ def validate(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -61,7 +65,11 @@ def validate(self,
 body = 'body6'
 
 result = simple_string_controller.validate(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -75,13 +83,17 @@ def generate_array(self)
 
 ## Response Type
 
-`List[str]`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[str]`.
 
 ## Example Usage
 
 ```python
 result = simple_string_controller.generate_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -102,7 +114,7 @@ def validate_array(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -113,6 +125,10 @@ body = [
 ]
 
 result = simple_string_controller.validate_array(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

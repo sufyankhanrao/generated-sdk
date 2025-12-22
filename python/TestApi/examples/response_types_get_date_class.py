@@ -37,7 +37,12 @@ client = TesterClient(
 response_types_controller = client.response_types
 try:
     result = response_types_controller.get_date()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

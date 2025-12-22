@@ -29,7 +29,12 @@ client = MdnotesropcgClient(
 service_controller = client.service
 try:
     result = service_controller.get_status()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

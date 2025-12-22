@@ -26,7 +26,7 @@ def upload_form_enabled_any(self,
 
 ## Response Type
 
-[`AnyOfAdditionalProperties`](../../doc/models/any-of-additional-properties.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AnyOfAdditionalProperties`](../../doc/models/any-of-additional-properties.md).
 
 ## Example Usage
 
@@ -66,6 +66,10 @@ result = form_controller.upload_form_enabled_any(
     non_inherit_enabled_any,
     any_of_additional_properties
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

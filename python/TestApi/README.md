@@ -203,6 +203,7 @@ Here is the list of errors that the API might throw.
 
 ### Utilities
 
+* [ApiResponse](doc/api-response.md)
 * [ApiHelper](doc/api-helper.md)
 * [HttpDateTime](doc/http-date-time.md)
 * [RFC3339DateTime](doc/rfc3339-date-time.md)

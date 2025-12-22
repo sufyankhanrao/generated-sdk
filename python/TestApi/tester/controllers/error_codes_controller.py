@@ -71,7 +71,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/412.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -89,14 +90,16 @@ class ErrorCodesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_501(self):
         """Perform a GET request to /error/501.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -115,6 +118,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("501", "error 501", NestedModelException),
         ).execute()
 
@@ -122,7 +126,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/400.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -140,14 +145,16 @@ class ErrorCodesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_500(self):
         """Perform a GET request to /error/500.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -165,14 +172,16 @@ class ErrorCodesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_401(self):
         """Perform a GET request to /error/401.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -191,6 +200,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("401", "401 Local", LocalTestException)
             .local_error("421", "Default", LocalTestException)
             .local_error("431", "Default", LocalTestException)
@@ -203,7 +213,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/unixTimeStampException.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -222,6 +233,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444", "unixtimestamp exception", UnixTimeStampException),
         ).execute()
 
@@ -229,7 +241,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/rfc1123Exception.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -248,6 +261,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444", "Rfc1123 Exception", Rfc1123Exception),
         ).execute()
 
@@ -255,7 +269,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/Rfc3339InException.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -274,6 +289,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444",
                 "DateTime Exception",
                 ExceptionWithRfc3339DateTimeException),
@@ -283,7 +299,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/451.
 
         Returns:
-            Complex5: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -303,6 +320,7 @@ class ErrorCodesController(BaseController):
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Complex5.from_dictionary)
+            .is_api_response(True)
             .local_error("451",
                 "caught endpoint exception",
                 CustomErrorResponseException),
@@ -312,7 +330,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/450.
 
         Returns:
-            Complex5: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -331,14 +350,16 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Complex5.from_dictionary),
+            .deserialize_into(Complex5.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def date_in_exception(self):
         """Perform a GET request to /error/dateInException.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -357,6 +378,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444", "date in exception", ExceptionWithDateException),
         ).execute()
 
@@ -364,7 +386,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/uuidInException.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -383,6 +406,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444", "uuid in exception", ExceptionWithUUIDException),
         ).execute()
 
@@ -390,7 +414,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/dynamicInException.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -409,6 +434,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444", "dynamic in Exception", ExceptionWithDynamicException),
         ).execute()
 
@@ -416,7 +442,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/precisionInException.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -435,6 +462,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444",
                 "precision in Exception",
                 ExceptionWithPrecisionException),
@@ -444,7 +472,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/booleanInException.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -463,6 +492,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444", "Boolean in Exception", ExceptionWithBooleanException),
         ).execute()
 
@@ -470,7 +500,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/longInException.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -489,6 +520,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444", "long in exception", ExceptionWithLongException),
         ).execute()
 
@@ -496,7 +528,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/numberInException.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -515,6 +548,7 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444", "number in exception", ExceptionWithNumberException),
         ).execute()
 
@@ -522,7 +556,8 @@ class ErrorCodesController(BaseController):
         """Perform a GET request to /error/stringInException.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -541,5 +576,6 @@ class ErrorCodesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True)
             .local_error("444", "exception with string", ExceptionWithStringException),
         ).execute()

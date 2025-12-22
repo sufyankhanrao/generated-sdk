@@ -35,7 +35,8 @@ class CustomQueryParamTestController(BaseController):
         """Perform a GET request to /auth/customQueryParam.
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -50,14 +51,16 @@ class CustomQueryParamTestController(BaseController):
             .auth(Single("httpQuery")),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_custom_query_param_skipped_authentication(self):
         """Perform a GET request to /auth/skipAuthentication.
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -71,5 +74,6 @@ class CustomQueryParamTestController(BaseController):
             .http_method(HttpMethodEnum.GET),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()

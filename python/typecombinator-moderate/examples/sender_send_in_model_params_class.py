@@ -436,7 +436,12 @@ try:
         form_mixed_model=form_mixed_model,
         query_scalar_model=query_scalar_model
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

@@ -26,13 +26,17 @@ def generate(self)
 
 ## Response Type
 
-[`AttributesAndElements`](../../doc/models/attributes-and-elements.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AttributesAndElements`](../../doc/models/attributes-and-elements.md).
 
 ## Example Usage
 
 ```python
 result = attributes_and_elements_model_controller.generate()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -53,7 +57,7 @@ def validate(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -66,7 +70,11 @@ body = AttributesAndElements(
 )
 
 result = attributes_and_elements_model_controller.validate(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -80,13 +88,17 @@ def generate_array(self)
 
 ## Response Type
 
-[`List[AttributesAndElements]`](../../doc/models/attributes-and-elements.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[AttributesAndElements]`](../../doc/models/attributes-and-elements.md).
 
 ## Example Usage
 
 ```python
 result = attributes_and_elements_model_controller.generate_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -107,7 +119,7 @@ def validate_array(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -122,6 +134,10 @@ body = [
 ]
 
 result = attributes_and_elements_model_controller.validate_array(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

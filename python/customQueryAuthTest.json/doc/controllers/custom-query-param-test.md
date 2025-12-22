@@ -22,13 +22,17 @@ def get_custom_query_parameter_testing(self)
 
 ## Response Type
 
-`str`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
 
 ## Example Usage
 
 ```python
 result = custom_query_param_test_controller.get_custom_query_parameter_testing()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -42,12 +46,16 @@ def get_custom_query_param_skipped_authentication(self)
 
 ## Response Type
 
-`str`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
 
 ## Example Usage
 
 ```python
 result = custom_query_param_test_controller.get_custom_query_param_skipped_authentication()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

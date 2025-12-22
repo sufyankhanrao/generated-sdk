@@ -20,7 +20,12 @@ body = ChildNumberType(
 
 try:
     result = body_controller.upload_child_number_type(body)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

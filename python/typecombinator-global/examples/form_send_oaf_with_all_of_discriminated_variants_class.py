@@ -110,7 +110,12 @@ try:
         one_of_employee_entrepreneur_disc,
         one_of_employee_entrepreneur
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

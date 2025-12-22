@@ -9,7 +9,12 @@ client = TesterxmlClient(
 discriminate_using_element_controller = client.discriminate_using_element
 try:
     result = discriminate_using_element_controller.generate()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

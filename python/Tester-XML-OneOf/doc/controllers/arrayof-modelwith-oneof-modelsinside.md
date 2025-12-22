@@ -26,13 +26,17 @@ def generate(self)
 
 ## Response Type
 
-[`ArrayOfCatOrDogObjects`](../../doc/models/array-of-cat-or-dog-objects.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ArrayOfCatOrDogObjects`](../../doc/models/array-of-cat-or-dog-objects.md).
 
 ## Example Usage
 
 ```python
 result = array_of_model_with_oneof_models_inside_controller.generate()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -53,7 +57,7 @@ def validate(self,
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
@@ -67,7 +71,11 @@ body = ArrayOfCatOrDogObjects(
 )
 
 result = array_of_model_with_oneof_models_inside_controller.validate(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -81,13 +89,17 @@ def generate_1(self)
 
 ## Response Type
 
-[`ArrayOfCatOrDogObjects`](../../doc/models/array-of-cat-or-dog-objects.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ArrayOfCatOrDogObjects`](../../doc/models/array-of-cat-or-dog-objects.md).
 
 ## Example Usage
 
 ```python
 result = array_of_model_with_oneof_models_inside_controller.generate_1()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -108,7 +120,7 @@ def validate_1(self,
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
@@ -122,6 +134,10 @@ body = ArrayOfCatOrDogObjects(
 )
 
 result = array_of_model_with_oneof_models_inside_controller.validate_1(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

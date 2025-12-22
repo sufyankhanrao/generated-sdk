@@ -43,7 +43,8 @@ class AuthenticationController(BaseController):
         """Perform a GET request to /auth/customAuthentication.
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -58,14 +59,16 @@ class AuthenticationController(BaseController):
             .auth(Single("CustomAuth")),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def o_auth_bearer_token(self):
         """Perform a GET request to /auth/oauth2.
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -80,14 +83,16 @@ class AuthenticationController(BaseController):
             .auth(Single("OAuthBearerToken")),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def o_auth_client_credentials_grant(self):
         """Perform a GET request to /oauth2/non-auth-server/status.
 
         Returns:
-            ServiceStatus: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -106,14 +111,16 @@ class AuthenticationController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServiceStatus.from_dictionary),
+            .deserialize_into(ServiceStatus.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def o_auth_authorization_grant(self):
         """Perform a GET request to /oauth2/non-auth-server/user.
 
         Returns:
-            User: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -132,14 +139,16 @@ class AuthenticationController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(User.from_dictionary),
+            .deserialize_into(User.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def custom_query_or_header_authentication(self):
         """Perform a GET request to /auth/customQueryOrHeaderParam.
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -154,14 +163,16 @@ class AuthenticationController(BaseController):
             .auth(Or(Single("apiKey"), Single("apiHeader"))),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def basic_auth_and_api_header_auth(self):
         """Perform a GET request to /auth/basicAndApiKeyAndApiHeader.
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -176,7 +187,8 @@ class AuthenticationController(BaseController):
             .auth(And(Single("basicAuth"), Single("apiKey"), Single("apiHeader"))),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def o_auth_grant_types_or_combinations(self):
@@ -185,7 +197,8 @@ class AuthenticationController(BaseController):
         This endpoint tests or combinations of OAuth types
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -200,7 +213,8 @@ class AuthenticationController(BaseController):
             .auth(Or(Single("OAuthCCG"), Single("OAuthBearerToken"))),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def multiple_auth_combination(self):
@@ -210,7 +224,8 @@ class AuthenticationController(BaseController):
         covers the worst case.
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -226,7 +241,8 @@ class AuthenticationController(BaseController):
                 And(Single("basicAuth"), Single("apiKey"), Single("apiHeader")))),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     @deprecated(
@@ -240,7 +256,8 @@ class AuthenticationController(BaseController):
         This endpoint does not use auth.
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -257,5 +274,6 @@ class AuthenticationController(BaseController):
                 .value(True)),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()

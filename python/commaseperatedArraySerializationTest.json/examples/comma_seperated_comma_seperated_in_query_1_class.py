@@ -19,7 +19,12 @@ dependent = [
 
 try:
     result = comma_seperated_controller.get_comma_seperated_in_query_1(dependent)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

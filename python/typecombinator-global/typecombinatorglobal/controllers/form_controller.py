@@ -50,7 +50,8 @@ class FormController(BaseController):
                 "kind" discriminator with mapping (small:Cat, large:Dog)
 
         Returns:
-            Cat | Dog: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -87,7 +88,8 @@ class FormController(BaseController):
             ResponseHandler()
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
-                 .get("OneOfCatDogPetType-AllOf"), value)),
+                 .get("OneOfCatDogPetType-AllOf"), value))
+            .is_api_response(True),
         ).execute()
 
     def send_oaf_discriminated(self,
@@ -115,7 +117,8 @@ class FormController(BaseController):
                 (northener:Lion, westener:Squirrel)
 
         Returns:
-            Lion | Squirrel: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -162,7 +165,8 @@ class FormController(BaseController):
             ResponseHandler()
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
-                 .get("SendOafDiscriminatedResponse"), value)),
+                 .get("SendOafDiscriminatedResponse"), value))
+            .is_api_response(True),
         ).execute()
 
     def send_alias(self,
@@ -179,7 +183,8 @@ class FormController(BaseController):
                 LionVsDeer
 
         Returns:
-            Lion | Deer: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -211,7 +216,8 @@ class FormController(BaseController):
             ResponseHandler()
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
-                 .get("OneOfLionDeerType"), value)),
+                 .get("OneOfLionDeerType"), value))
+            .is_api_response(True),
         ).execute()
 
     @deprecated(
@@ -248,8 +254,8 @@ class FormController(BaseController):
                 Entrepreneur) without discriminator mapping.
 
         Returns:
-            Animal | Lion | Cat | Squirrel | Employee | Entrepreneur: Response from
-                the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -306,5 +312,6 @@ class FormController(BaseController):
             ResponseHandler()
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
-                 .get("SendOafWithAllOfDiscriminatedVariantsResponse"), value)),
+                 .get("SendOafWithAllOfDiscriminatedVariantsResponse"), value))
+            .is_api_response(True),
         ).execute()

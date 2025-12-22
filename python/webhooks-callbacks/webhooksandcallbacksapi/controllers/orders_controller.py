@@ -51,7 +51,9 @@ class OrdersController(BaseController):
             body (CreateOrderRequest): The request body parameter.
 
         Returns:
-            Order: Response from the API. Order created successfully
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Order created
+                successfully
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -77,5 +79,6 @@ class OrdersController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Order.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "Invalid request", ErrorException),
         ).execute()

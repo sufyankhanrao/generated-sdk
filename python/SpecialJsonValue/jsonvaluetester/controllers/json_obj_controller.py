@@ -42,7 +42,8 @@ class JsonObjController(BaseController):
             body (SchemaContainer): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -68,7 +69,8 @@ class JsonObjController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_schemaas_body(self,
@@ -81,7 +83,8 @@ class JsonObjController(BaseController):
             body (dict): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -107,7 +110,8 @@ class JsonObjController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_schemaas_form(self,
@@ -129,7 +133,8 @@ class JsonObjController(BaseController):
                     model_map -- Dict[str, dict] -- The request form parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -165,7 +170,8 @@ class JsonObjController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_schemaas_query(self,
@@ -186,7 +192,8 @@ class JsonObjController(BaseController):
                     model_map -- Dict[str, dict] -- The request query parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -219,7 +226,8 @@ class JsonObjController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def get_schema(self):
@@ -228,7 +236,8 @@ class JsonObjController(BaseController):
         Get Schema
 
         Returns:
-            dict: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -246,7 +255,8 @@ class JsonObjController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_schema_array(self):
@@ -255,7 +265,8 @@ class JsonObjController(BaseController):
         Get Schema Array
 
         Returns:
-            List[dict]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -273,7 +284,8 @@ class JsonObjController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_schema_map(self):
@@ -282,7 +294,8 @@ class JsonObjController(BaseController):
         Get Schema Map
 
         Returns:
-            Dict[str, dict]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -300,7 +313,8 @@ class JsonObjController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_schemain_model(self):
@@ -309,7 +323,8 @@ class JsonObjController(BaseController):
         Get Schema in Model
 
         Returns:
-            SchemaContainer: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -328,5 +343,6 @@ class JsonObjController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(SchemaContainer.from_dictionary),
+            .deserialize_into(SchemaContainer.from_dictionary)
+            .is_api_response(True),
         ).execute()

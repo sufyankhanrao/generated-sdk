@@ -30,7 +30,7 @@ def send_file(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -38,7 +38,11 @@ def send_file(self,
 file = FileWrapper(Path('dummy_file').open('rb'), 'optional-content-type')
 
 result = binary_params_controller.send_file(file)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -57,7 +61,7 @@ def send_image_with_constant_content_type(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -65,7 +69,11 @@ def send_image_with_constant_content_type(self,
 image = FileWrapper(Path('dummy_file').open('rb'), 'optional-content-type')
 
 result = binary_params_controller.send_image_with_constant_content_type(image)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -86,7 +94,7 @@ def send_image_with_configured_content_type(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -97,6 +105,10 @@ collect = {
     'is_image': 'true'
 }
 result = binary_params_controller.send_image_with_configured_content_type(collect)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

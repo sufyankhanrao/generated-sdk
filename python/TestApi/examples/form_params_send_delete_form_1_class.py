@@ -83,7 +83,12 @@ model = Employee(
 
 try:
     result = form_params_controller.send_delete_form_1(model)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

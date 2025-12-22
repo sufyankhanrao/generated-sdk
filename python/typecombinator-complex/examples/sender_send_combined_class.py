@@ -59,7 +59,12 @@ try:
         body_non_scalar,
         body_mixed=body_mixed
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

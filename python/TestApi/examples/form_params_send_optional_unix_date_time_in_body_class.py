@@ -43,7 +43,12 @@ try:
     result = form_params_controller.send_optional_unix_date_time_in_body(
         date_time=date_time
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

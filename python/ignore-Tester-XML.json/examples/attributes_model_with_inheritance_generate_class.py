@@ -9,7 +9,12 @@ client = TesterxmlClient(
 attributes_model_with_inheritance_controller = client.attributes_model_with_inheritance
 try:
     result = attributes_model_with_inheritance_controller.generate()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

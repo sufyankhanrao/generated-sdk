@@ -17,7 +17,12 @@ client = BatesterparamscoloninpasswordClient(
 client_controller = client.client
 try:
     result = client_controller.get_basic_auth_test()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

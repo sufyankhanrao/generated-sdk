@@ -40,7 +40,8 @@ class SimpleString(BaseController):
         Generate
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -58,7 +59,8 @@ class SimpleString(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(XmlUtilities.deserialize_xml)
-            .is_xml_response(True),
+            .is_xml_response(True)
+            .is_api_response(True),
         ).execute()
 
     def validate(self,
@@ -71,7 +73,8 @@ class SimpleString(BaseController):
             body (str): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -96,7 +99,8 @@ class SimpleString(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def generate_array(self):
@@ -105,7 +109,8 @@ class SimpleString(BaseController):
         Generate
 
         Returns:
-            List[str]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -124,7 +129,8 @@ class SimpleString(BaseController):
             ResponseHandler()
             .deserializer(XmlUtilities.deserialize_xml_to_list)
             .is_xml_response(True)
-            .xml_item_name("string"),
+            .xml_item_name("string")
+            .is_api_response(True),
         ).execute()
 
     def validate_array(self,
@@ -137,7 +143,8 @@ class SimpleString(BaseController):
             body (List[str]): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -163,5 +170,6 @@ class SimpleString(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()

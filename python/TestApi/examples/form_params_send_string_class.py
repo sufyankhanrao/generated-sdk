@@ -39,7 +39,12 @@ value = 'value2'
 
 try:
     result = form_params_controller.send_string(value)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

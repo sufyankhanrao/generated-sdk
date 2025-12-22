@@ -44,7 +44,8 @@ class FormController(BaseController):
                 form parameter.
 
         Returns:
-            AnyOfAdditionalProperties: Response from the API. Successful upload
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful upload
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -71,5 +72,6 @@ class FormController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(AnyOfAdditionalProperties.from_dictionary),
+            .deserialize_into(AnyOfAdditionalProperties.from_dictionary)
+            .is_api_response(True),
         ).execute()

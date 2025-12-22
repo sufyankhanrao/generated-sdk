@@ -49,7 +49,8 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/date.
 
         Returns:
-            List[date]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -70,14 +71,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.date_deserialize),
+            .deserializer(APIHelper.date_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_date(self):
         """Perform a GET request to /response/date.
 
         Returns:
-            date: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -92,14 +95,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.date_deserialize),
+            .deserializer(APIHelper.date_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def return_company_model(self):
         """Perform a GET request to /response/company.
 
         Returns:
-            Company: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -118,14 +123,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Company.from_dictionary),
+            .deserialize_into(Company.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def return_boss_model(self):
         """Perform a GET request to /response/boss.
 
         Returns:
-            BossCompany: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -144,14 +151,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(BossCompany.from_dictionary),
+            .deserialize_into(BossCompany.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def return_employee_model(self):
         """Perform a GET request to /response/employee.
 
         Returns:
-            EmployeeComp: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -170,14 +179,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(EmployeeComp.from_dictionary),
+            .deserialize_into(EmployeeComp.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def return_developer_model(self):
         """Perform a GET request to /response/developer.
 
         Returns:
-            Developer: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -196,14 +207,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Developer.from_dictionary),
+            .deserialize_into(Developer.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def return_tester_model(self):
         """Perform a GET request to /response/tester.
 
         Returns:
-            SoftwareTester: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -222,14 +235,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(SoftwareTester.from_dictionary),
+            .deserialize_into(SoftwareTester.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def return_complex_1_object(self):
         """Perform a GET request to /response/complex1.
 
         Returns:
-            Complex1: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -248,14 +263,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Complex1.from_dictionary),
+            .deserialize_into(Complex1.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def return_response_with_enums(self):
         """Perform a GET request to /response/responseWitEnum.
 
         Returns:
-            ResponseWithEnum: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -274,14 +291,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ResponseWithEnum.from_dictionary),
+            .deserialize_into(ResponseWithEnum.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def return_complex_2_object(self):
         """Perform a GET request to /response/complex2.
 
         Returns:
-            Complex2: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -300,14 +319,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Complex2.from_dictionary),
+            .deserialize_into(Complex2.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def return_complex_3_object(self):
         """Perform a GET request to /response/complex3.
 
         Returns:
-            Complex3: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -326,14 +347,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Complex3.from_dictionary),
+            .deserialize_into(Complex3.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def get_long(self):
         """Perform a GET request to /response/long.
 
         Returns:
-            int: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -348,14 +371,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_model(self):
         """Perform a GET request to /response/model.
 
         Returns:
-            Person: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -374,14 +399,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Person.from_dictionary),
+            .deserialize_into(Person.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def get_void_model(self):
         """Perform a GET request to /response/getVoidModel.
 
         Returns:
-            Void: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -400,14 +427,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Void.from_dictionary),
+            .deserialize_into(Void.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def get_string_enum_array(self):
         """Perform a GET request to /response/enum.
 
         Returns:
-            List[Days1Enum]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -431,14 +460,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_string_enum(self):
         """Perform a GET request to /response/enum.
 
         Returns:
-            Days1Enum: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -456,14 +487,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_model_array(self):
         """Perform a GET request to /response/model.
 
         Returns:
-            List[Person]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -485,14 +518,16 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Person.from_dictionary),
+            .deserialize_into(Person.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def get_int_enum(self):
         """Perform a GET request to /response/enum.
 
         Returns:
-            SuiteCodeEnum: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -510,14 +545,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_int_enum_array(self):
         """Perform a GET request to /response/enum.
 
         Returns:
-            List[SuiteCodeEnum]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -541,14 +578,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_precision(self):
         """Perform a GET request to /response/precision.
 
         Returns:
-            float: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -563,7 +602,8 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_binary(self):
@@ -572,7 +612,8 @@ class ResponseTypesController(BaseController):
         ﻿gets a binary﻿ object
 
         Returns:
-            binary: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -587,7 +628,8 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).endpoint_configuration(
             EndpointConfiguration()
             .has_binary_response(True),
@@ -599,7 +641,8 @@ class ResponseTypesController(BaseController):
         Gets a integer response
 
         Returns:
-            int: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -614,7 +657,8 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_integer_array(self):
@@ -623,7 +667,8 @@ class ResponseTypesController(BaseController):
         Get an array of integers.
 
         Returns:
-            List[int]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -644,14 +689,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_dynamic(self):
         """Perform a GET request to /response/dynamic.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -672,14 +719,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_dynamic_array(self):
         """Perform a GET request to /response/dynamic.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -703,14 +752,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_3339_datetime(self):
         """Perform a GET request to /response/3339datetime.
 
         Returns:
-            datetime: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -726,6 +777,7 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
+            .is_api_response(True)
             .datetime_format(DateTimeFormat.RFC3339_DATE_TIME),
         ).execute()
 
@@ -733,7 +785,8 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/3339datetime.
 
         Returns:
-            List[datetime]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -755,6 +808,7 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
+            .is_api_response(True)
             .datetime_format(DateTimeFormat.RFC3339_DATE_TIME),
         ).execute()
 
@@ -762,7 +816,8 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/boolean.
 
         Returns:
-            bool: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -777,14 +832,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_boolean_array(self):
         """Perform a GET request to /response/boolean.
 
         Returns:
-            List[bool]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -805,14 +862,16 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_headers(self):
         """Perform a GET request to /response/headers.
 
         Returns:
-            void: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -829,14 +888,16 @@ class ResponseTypesController(BaseController):
                 .value("application/json")),
         ).response(
             ResponseHandler()
-            .is_nullify404(True),
+            .is_nullify404(True)
+            .is_api_response(True),
         ).execute()
 
     def get_1123_date_time(self):
         """Perform a GET request to /response/1123datetime.
 
         Returns:
-            datetime: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -852,6 +913,7 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
+            .is_api_response(True)
             .datetime_format(DateTimeFormat.HTTP_DATE_TIME),
         ).execute()
 
@@ -859,7 +921,8 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/unixdatetime.
 
         Returns:
-            datetime: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -875,6 +938,7 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
+            .is_api_response(True)
             .datetime_format(DateTimeFormat.UNIX_DATE_TIME),
         ).execute()
 
@@ -882,7 +946,8 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/1123datetime.
 
         Returns:
-            List[datetime]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -904,6 +969,7 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
+            .is_api_response(True)
             .datetime_format(DateTimeFormat.HTTP_DATE_TIME),
         ).execute()
 
@@ -911,7 +977,8 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/unixdatetime.
 
         Returns:
-            List[datetime]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -933,6 +1000,7 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
+            .is_api_response(True)
             .datetime_format(DateTimeFormat.UNIX_DATE_TIME),
         ).execute()
 
@@ -940,7 +1008,8 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/getContentType.
 
         Returns:
-            void: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -957,5 +1026,6 @@ class ResponseTypesController(BaseController):
                 .value("application/json")),
         ).response(
             ResponseHandler()
-            .is_nullify404(True),
+            .is_nullify404(True)
+            .is_api_response(True),
         ).execute()

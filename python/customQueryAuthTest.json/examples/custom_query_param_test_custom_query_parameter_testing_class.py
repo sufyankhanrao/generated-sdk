@@ -17,7 +17,12 @@ client = CustomqueryparameterClient(
 custom_query_param_test_controller = client.custom_query_param_test
 try:
     result = custom_query_param_test_controller.get_custom_query_parameter_testing()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

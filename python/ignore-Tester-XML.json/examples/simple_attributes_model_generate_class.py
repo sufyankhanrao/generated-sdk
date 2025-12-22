@@ -9,7 +9,12 @@ client = TesterxmlClient(
 simple_attributes_model_controller = client.simple_attributes_model
 try:
     result = simple_attributes_model_controller.generate()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

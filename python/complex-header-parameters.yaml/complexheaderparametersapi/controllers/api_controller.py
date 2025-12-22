@@ -49,8 +49,9 @@ class APIController(BaseController):
                 negative responses.
 
         Returns:
-            SuccessResponse: Response from the API. Successfully retrieved the
-                complex object.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successfully retrieved
+                the complex object.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -71,7 +72,8 @@ class APIController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(SuccessResponse.from_dictionary),
+            .deserialize_into(SuccessResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def submit_vehicle_information(self,
@@ -84,7 +86,9 @@ class APIController(BaseController):
             vehicle_header (Vehicle): JSON-serialized Vehicle object.
 
         Returns:
-            SuccessResponse: Response from the API. Vehicle submission successful.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Vehicle submission
+                successful.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -106,6 +110,7 @@ class APIController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SuccessResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "Invalid input.", APIException),
         ).execute()
 
@@ -119,7 +124,8 @@ class APIController(BaseController):
             one_of_vehicle (Car | Bike): JSON-serialized Car or Bike object.
 
         Returns:
-            SuccessResponse: Response from the API. OneOfVehicle submission
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OneOfVehicle submission
                 successful.
 
         Raises:
@@ -143,7 +149,8 @@ class APIController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(SuccessResponse.from_dictionary),
+            .deserialize_into(SuccessResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def submit_a_map_of_vehicles(self,
@@ -157,7 +164,9 @@ class APIController(BaseController):
                 objects.
 
         Returns:
-            SuccessResponse: Response from the API. Vehicles submitted successfully.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Vehicles submitted
+                successfully.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -179,6 +188,7 @@ class APIController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SuccessResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "Invalid input", APIException),
         ).execute()
 
@@ -192,7 +202,9 @@ class APIController(BaseController):
             array_of_vehicles (List[Vehicle]): Array parameter for Vehicle
 
         Returns:
-            SuccessResponse: Response from the API. Vehicles submitted successfully.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Vehicles submitted
+                successfully.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -214,5 +226,6 @@ class APIController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SuccessResponse.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "Invalid input", APIException),
         ).execute()

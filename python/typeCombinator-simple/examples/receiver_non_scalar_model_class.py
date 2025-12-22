@@ -13,7 +13,12 @@ case = CaseEnum.CASEA
 
 try:
     result = receiver_controller.non_scalar_model(case)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

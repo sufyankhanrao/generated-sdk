@@ -33,7 +33,7 @@ def scalar_param(self,
 
 ## Response Type
 
-List[float] | str
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[float] | str`.
 
 ## Example Usage
 
@@ -41,7 +41,11 @@ List[float] | str
 case = CaseEnum.CASEA
 
 result = receiver_controller.scalar_param(case)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -66,7 +70,7 @@ def non_scalar_param(self,
 
 ## Response Type
 
-Dict[str, [Car](../../doc/models/car.md) | [Morning](../../doc/models/morning.md)]
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Dict[str, Car | Morning]`.
 
 ## Example Usage
 
@@ -74,7 +78,11 @@ Dict[str, [Car](../../doc/models/car.md) | [Morning](../../doc/models/morning.md
 case = CaseEnum.CASEA
 
 result = receiver_controller.non_scalar_param(case)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -99,7 +107,7 @@ def mixed_param(self,
 
 ## Response Type
 
-Dict[str, int] | Dict[str, [Atom](../../doc/models/atom.md)] | None
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Dict[str, int] | Dict[str, Atom] | None`.
 
 ## Example Usage
 
@@ -107,7 +115,11 @@ Dict[str, int] | Dict[str, [Atom](../../doc/models/atom.md)] | None
 case = CaseEnum.CASEA
 
 result = receiver_controller.mixed_param(case)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -132,7 +144,7 @@ def scalar_model(self,
 
 ## Response Type
 
-[`ScalarModel`](../../doc/models/scalar-model.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ScalarModel`](../../doc/models/scalar-model.md).
 
 ## Example Usage
 
@@ -140,7 +152,11 @@ def scalar_model(self,
 case = CaseEnum.CASEA
 
 result = receiver_controller.scalar_model(case)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -165,7 +181,7 @@ def non_scalar_model(self,
 
 ## Response Type
 
-[`NonScalarModel`](../../doc/models/non-scalar-model.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`NonScalarModel`](../../doc/models/non-scalar-model.md).
 
 ## Example Usage
 
@@ -173,7 +189,11 @@ def non_scalar_model(self,
 case = CaseEnum.CASEA
 
 result = receiver_controller.non_scalar_model(case)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -198,7 +218,7 @@ def mixed_model(self,
 
 ## Response Type
 
-[`MixedModel`](../../doc/models/mixed-model.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`MixedModel`](../../doc/models/mixed-model.md).
 
 ## Example Usage
 
@@ -206,7 +226,11 @@ def mixed_model(self,
 case = CaseEnum.CASEA
 
 result = receiver_controller.mixed_model(case)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

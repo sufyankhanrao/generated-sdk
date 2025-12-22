@@ -38,13 +38,17 @@ def catch_412_global_error(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.catch_412_global_error()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -56,13 +60,17 @@ def get_501(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.get_501()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -80,13 +88,17 @@ def get_400(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.get_400()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -98,13 +110,17 @@ def get_500(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.get_500()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -116,13 +132,17 @@ def get_401(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.get_401()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -145,13 +165,17 @@ def receive_exception_with_unixtimestamp_exception(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.receive_exception_with_unixtimestamp_exception()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -169,13 +193,17 @@ def receive_exception_with_rfc_1123_datetime(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.receive_exception_with_rfc_1123_datetime()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -193,13 +221,17 @@ def receive_exception_with_rfc_3339_datetime(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.receive_exception_with_rfc_3339_datetime()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -217,13 +249,17 @@ def receive_endpoint_level_exception(self)
 
 ## Response Type
 
-[`Complex5`](../../doc/models/complex-5.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Complex5`](../../doc/models/complex-5.md).
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.receive_endpoint_level_exception()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -241,13 +277,17 @@ def receive_global_level_exception(self)
 
 ## Response Type
 
-[`Complex5`](../../doc/models/complex-5.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Complex5`](../../doc/models/complex-5.md).
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.receive_global_level_exception()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -259,13 +299,17 @@ def date_in_exception(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.date_in_exception()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -283,13 +327,17 @@ def uuid_in_exception(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.uuid_in_exception()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -307,13 +355,17 @@ def dynamic_in_exception(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.dynamic_in_exception()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -331,13 +383,17 @@ def precision_in_exception(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.precision_in_exception()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -355,13 +411,17 @@ def boolean_in_exception(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.boolean_in_exception()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -379,13 +439,17 @@ def long_in_exception(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.long_in_exception()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -403,13 +467,17 @@ def number_in_exception(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.number_in_exception()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors
@@ -427,13 +495,17 @@ def get_exception_with_string(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = error_codes_controller.get_exception_with_string()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Errors

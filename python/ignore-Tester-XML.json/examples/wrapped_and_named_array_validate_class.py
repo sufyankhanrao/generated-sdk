@@ -16,7 +16,12 @@ body = WrappedArrayWithElementAndWrappingName(
 
 try:
     result = wrapped_and_named_array_controller.validate(body)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

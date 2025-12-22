@@ -26,7 +26,12 @@ client = MdnotesccgmodelpostfixClient(
 user_controller = client.user
 try:
     result = user_controller.get_user()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

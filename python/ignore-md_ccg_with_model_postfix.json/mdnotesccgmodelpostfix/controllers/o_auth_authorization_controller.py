@@ -50,7 +50,8 @@ class OAuthAuthorizationController(BaseController):
                 parameters are supported by this endpoint
 
         Returns:
-            OAuthTokenModel: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -82,6 +83,7 @@ class OAuthAuthorizationController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(OAuthTokenModel.from_dictionary)
+            .is_api_response(True)
             .local_error("400",
                 "OAuth 2 provider returned an error.",
                 OAuthProviderException)

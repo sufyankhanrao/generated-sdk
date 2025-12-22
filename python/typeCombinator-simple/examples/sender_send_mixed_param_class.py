@@ -12,7 +12,12 @@ body = 186
 
 try:
     result = sender_controller.send_mixed_param(body)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

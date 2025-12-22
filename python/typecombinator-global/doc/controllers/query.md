@@ -32,7 +32,7 @@ def send_primitive(self,
 
 ## Response Type
 
-str | int
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str | int`.
 
 ## Example Usage
 
@@ -48,7 +48,11 @@ result = query_controller.send_primitive(
     any_of_primitive,
     one_of_and_any_of_primitive
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response

@@ -17,12 +17,16 @@ def get_status(self)
 
 ## Response Type
 
-[`ServiceStatusModel`](../../doc/models/service-status-model.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServiceStatusModel`](../../doc/models/service-status-model.md).
 
 ## Example Usage
 
 ```python
 result = service_controller.get_status()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

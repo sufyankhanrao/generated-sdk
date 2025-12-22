@@ -9,7 +9,12 @@ client = TesterxmlClient(
 simple_precision_controller = client.simple_precision
 try:
     result = simple_precision_controller.generate()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

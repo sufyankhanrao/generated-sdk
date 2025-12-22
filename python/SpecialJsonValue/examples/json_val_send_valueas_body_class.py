@@ -13,7 +13,12 @@ body = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 
 try:
     result = json_val_controller.send_valueas_body(body)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

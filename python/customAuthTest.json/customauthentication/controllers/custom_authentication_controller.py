@@ -35,7 +35,8 @@ class CustomAuthenticationController(BaseController):
         """Perform a GET request to /auth/customAuthentication.
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -50,5 +51,6 @@ class CustomAuthenticationController(BaseController):
             .auth(Single("httpCustom")),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()

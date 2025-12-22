@@ -21,7 +21,12 @@ try:
         any_of_primitive,
         one_of_and_any_of_primitive
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

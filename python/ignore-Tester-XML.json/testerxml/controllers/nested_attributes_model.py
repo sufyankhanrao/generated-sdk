@@ -43,7 +43,8 @@ class NestedAttributesModel(BaseController):
         Generate
 
         Returns:
-            ModelWithNestedAttributesModel: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -62,7 +63,8 @@ class NestedAttributesModel(BaseController):
             ResponseHandler()
             .deserializer(XmlUtilities.deserialize_xml)
             .deserialize_into(ModelWithNestedAttributesModel)
-            .is_xml_response(True),
+            .is_xml_response(True)
+            .is_api_response(True),
         ).execute()
 
     def validate(self,
@@ -76,7 +78,8 @@ class NestedAttributesModel(BaseController):
             body (ModelWithNestedAttributesModel): The request body parameter.
 
         Returns:
-            ServerResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -101,5 +104,6 @@ class NestedAttributesModel(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary),
+            .deserialize_into(ServerResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()

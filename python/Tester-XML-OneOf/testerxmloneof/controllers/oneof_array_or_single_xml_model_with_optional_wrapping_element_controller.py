@@ -43,7 +43,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
         This endpoint returns a 'CatsOrADogOrWolves' model as xml.
 
         Returns:
-            CatsOrADogOrWolves: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -62,7 +63,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
             ResponseHandler()
             .deserializer(XmlUtilities.deserialize_xml)
             .deserialize_into(CatsOrADogOrWolves)
-            .is_xml_response(True),
+            .is_xml_response(True)
+            .is_api_response(True),
         ).execute()
 
     def validate(self,
@@ -75,7 +77,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
             body (CatsOrADogOrWolves): The request body parameter.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -99,7 +102,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
             .body_serializer(XmlUtilities.serialize_to_xml),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def generate_1(self):
@@ -108,7 +112,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
         This endpoint returns a 'CatsOrADogOrWolves' model as xml.
 
         Returns:
-            CatsOrADogOrWolves: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -127,7 +132,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
             ResponseHandler()
             .deserializer(XmlUtilities.deserialize_xml)
             .deserialize_into(CatsOrADogOrWolves)
-            .is_xml_response(True),
+            .is_xml_response(True)
+            .is_api_response(True),
         ).execute()
 
     def validate_1(self,
@@ -140,7 +146,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
             body (CatsOrADogOrWolves): The request body parameter.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -164,7 +171,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
             .body_serializer(XmlUtilities.serialize_to_xml),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def generate_2(self):
@@ -173,7 +181,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
         This endpoint returns a 'CatsOrADogOrWolves' model as xml.
 
         Returns:
-            CatsOrADogOrWolves: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -192,7 +201,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
             ResponseHandler()
             .deserializer(XmlUtilities.deserialize_xml)
             .deserialize_into(CatsOrADogOrWolves)
-            .is_xml_response(True),
+            .is_xml_response(True)
+            .is_api_response(True),
         ).execute()
 
     def validate_2(self,
@@ -205,7 +215,8 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
             body (CatsOrADogOrWolves): The request body parameter.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -229,5 +240,6 @@ class OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(BaseContro
             .body_serializer(XmlUtilities.serialize_to_xml),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()

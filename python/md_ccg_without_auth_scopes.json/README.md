@@ -153,6 +153,7 @@ This API uses the following authentication schemes.
 
 ### Utilities
 
+* [ApiResponse](doc/api-response.md)
 * [ApiHelper](doc/api-helper.md)
 * [HttpDateTime](doc/http-date-time.md)
 * [RFC3339DateTime](doc/rfc3339-date-time.md)

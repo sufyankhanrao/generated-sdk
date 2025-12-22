@@ -55,7 +55,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            List[DaysEnum | MonthNameEnum | MonthNumberEnum]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -79,6 +80,7 @@ class ReceiverController(BaseController):
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
                  .get("EnumParamResponse"), value))
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -90,7 +92,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            List[date | datetime]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -114,6 +117,7 @@ class ReceiverController(BaseController):
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
                  .get("DateTimeParamResponse"), value))
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -125,7 +129,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            Cat | Dog | Rabbit: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -149,6 +154,7 @@ class ReceiverController(BaseController):
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
                  .get("ReqOptParamResponse"), value))
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -160,7 +166,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            MultipleEnums: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -183,6 +190,7 @@ class ReceiverController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(MultipleEnums.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -194,7 +202,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            DateTimeCases: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -217,6 +226,7 @@ class ReceiverController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DateTimeCases.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -228,7 +238,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            FactoringSchema: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -251,6 +262,7 @@ class ReceiverController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(FactoringSchema.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -258,7 +270,8 @@ class ReceiverController(BaseController):
         """Perform a GET request to /get/enum_in_nested_model.
 
         Returns:
-            OuterModel: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -277,5 +290,6 @@ class ReceiverController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(OuterModel.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()

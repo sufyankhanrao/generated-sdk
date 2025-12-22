@@ -22,7 +22,12 @@ vehicle_header = Vehicle(
 
 try:
     result = client_controller.submit_vehicle_information(vehicle_header)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

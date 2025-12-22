@@ -43,7 +43,12 @@ integers = [
 
 try:
     result = query_param_controller.number_array(integers)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

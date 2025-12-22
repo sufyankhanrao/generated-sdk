@@ -39,7 +39,8 @@ class UserController(BaseController):
         """Perform a GET request to /user.
 
         Returns:
-            User: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -58,5 +59,6 @@ class UserController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(User.from_dictionary),
+            .deserialize_into(User.from_dictionary)
+            .is_api_response(True),
         ).execute()

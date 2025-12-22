@@ -99,11 +99,12 @@ class TransactionController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(TransactionsOffset.from_dictionary),
+            .deserialize_into(TransactionsOffset.from_dictionary)
+            .is_api_response(True),
         ).pagination_strategies(
             OffsetPagination(
                 "$request.query#/offset",
-                lambda _response, _offset: OffsetPagedResponse(
+                lambda _response, _offset: OffsetPagedResponse.create(
                     _response, lambda _obj: _obj.data, _offset),
             ),
         ).paginate(
@@ -155,12 +156,13 @@ class TransactionController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(TransactionsCursored.from_dictionary),
+            .deserialize_into(TransactionsCursored.from_dictionary)
+            .is_api_response(True),
         ).pagination_strategies(
             CursorPagination(
                 "$response.body#/nextCursor",
                 "$request.query#/cursor",
-                lambda _response, _cursor: CursorPagedResponse(
+                lambda _response, _cursor: CursorPagedResponse.create(
                     _response, lambda _obj: _obj.data, _cursor),
             ),
         ).paginate(
@@ -211,16 +213,17 @@ class TransactionController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Transactions.from_dictionary),
+            .deserialize_into(Transactions.from_dictionary)
+            .is_api_response(True),
         ).pagination_strategies(
             LinkPagination(
                 "$response.body#/links/next",
-                lambda _response, _link: LinkPagedResponse(
+                lambda _response, _link: LinkPagedResponse.create(
                     _response, lambda _obj: _obj.data, _link),
             ),
             PagePagination(
                 "$request.query#/page",
-                lambda _response, _page_no: NumberPagedResponse(
+                lambda _response, _page_no: NumberPagedResponse.create(
                     _response, lambda _obj: _obj.data, _page_no),
             ),
         ).paginate(
@@ -271,16 +274,17 @@ class TransactionController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Transactions.from_dictionary),
+            .deserialize_into(Transactions.from_dictionary)
+            .is_api_response(True),
         ).pagination_strategies(
             LinkPagination(
                 "$response.body#/links/next",
-                lambda _response, _link: LinkPagedResponse(
+                lambda _response, _link: LinkPagedResponse.create(
                     _response, lambda _obj: _obj.data, _link),
             ),
             PagePagination(
                 "$request.query#/page",
-                lambda _response, _page_no: NumberPagedResponse(
+                lambda _response, _page_no: NumberPagedResponse.create(
                     _response, lambda _obj: _obj.data, _page_no),
             ),
         ).paginate(

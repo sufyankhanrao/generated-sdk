@@ -55,13 +55,17 @@ def get_date_array(self)
 
 ## Response Type
 
-`List[date]`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[date]`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_date_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -73,13 +77,17 @@ def get_date(self)
 
 ## Response Type
 
-`date`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `date`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_date()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -91,13 +99,17 @@ def return_company_model(self)
 
 ## Response Type
 
-[`Company`](../../doc/models/company.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Company`](../../doc/models/company.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.return_company_model()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -109,13 +121,17 @@ def return_boss_model(self)
 
 ## Response Type
 
-[`BossCompany`](../../doc/models/boss-company.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BossCompany`](../../doc/models/boss-company.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.return_boss_model()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -140,13 +156,17 @@ def return_employee_model(self)
 
 ## Response Type
 
-[`EmployeeComp`](../../doc/models/employee-comp.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`EmployeeComp`](../../doc/models/employee-comp.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.return_employee_model()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -171,13 +191,17 @@ def return_developer_model(self)
 
 ## Response Type
 
-[`Developer`](../../doc/models/developer.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Developer`](../../doc/models/developer.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.return_developer_model()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -205,13 +229,17 @@ def return_tester_model(self)
 
 ## Response Type
 
-[`SoftwareTester`](../../doc/models/software-tester.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SoftwareTester`](../../doc/models/software-tester.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.return_tester_model()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -239,13 +267,17 @@ def return_complex_1_object(self)
 
 ## Response Type
 
-[`Complex1`](../../doc/models/complex-1.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Complex1`](../../doc/models/complex-1.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.return_complex_1_object()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -413,13 +445,17 @@ def return_response_with_enums(self)
 
 ## Response Type
 
-[`ResponseWithEnum`](../../doc/models/response-with-enum.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseWithEnum`](../../doc/models/response-with-enum.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.return_response_with_enums()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -455,13 +491,17 @@ def return_complex_2_object(self)
 
 ## Response Type
 
-[`Complex2`](../../doc/models/complex-2.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Complex2`](../../doc/models/complex-2.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.return_complex_2_object()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -503,13 +543,17 @@ def return_complex_3_object(self)
 
 ## Response Type
 
-[`Complex3`](../../doc/models/complex-3.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Complex3`](../../doc/models/complex-3.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.return_complex_3_object()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -590,13 +634,17 @@ def get_long(self)
 
 ## Response Type
 
-`int`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `int`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_long()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -608,13 +656,17 @@ def get_model(self)
 
 ## Response Type
 
-[`Person`](../../doc/models/person.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Person`](../../doc/models/person.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_model()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -626,13 +678,17 @@ def get_void_model(self)
 
 ## Response Type
 
-[`Void`](../../doc/models/void.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Void`](../../doc/models/void.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_void_model()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -644,13 +700,17 @@ def get_string_enum_array(self)
 
 ## Response Type
 
-[`List[Days1Enum]`](../../doc/models/days-1-enum.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[Days1Enum]`](../../doc/models/days-1-enum.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_string_enum_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -662,13 +722,17 @@ def get_string_enum(self)
 
 ## Response Type
 
-[`Days1Enum`](../../doc/models/days-1-enum.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Days1Enum`](../../doc/models/days-1-enum.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_string_enum()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -680,13 +744,17 @@ def get_model_array(self)
 
 ## Response Type
 
-[`List[Person]`](../../doc/models/person.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[Person]`](../../doc/models/person.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_model_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -698,13 +766,17 @@ def get_int_enum(self)
 
 ## Response Type
 
-[`SuiteCodeEnum`](../../doc/models/suite-code-enum.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SuiteCodeEnum`](../../doc/models/suite-code-enum.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_int_enum()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -716,13 +788,17 @@ def get_int_enum_array(self)
 
 ## Response Type
 
-[`List[SuiteCodeEnum]`](../../doc/models/suite-code-enum.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[SuiteCodeEnum]`](../../doc/models/suite-code-enum.md).
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_int_enum_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -734,13 +810,17 @@ def get_precision(self)
 
 ## Response Type
 
-`float`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `float`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_precision()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -754,13 +834,17 @@ def get_binary(self)
 
 ## Response Type
 
-`binary`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `binary`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_binary()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -774,13 +858,17 @@ def get_integer(self)
 
 ## Response Type
 
-`int`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `int`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_integer()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -794,13 +882,17 @@ def get_integer_array(self)
 
 ## Response Type
 
-`List[int]`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[int]`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_integer_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -812,13 +904,17 @@ def get_dynamic(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_dynamic()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -830,13 +926,17 @@ def get_dynamic_array(self)
 
 ## Response Type
 
-`Any`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_dynamic_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -848,13 +948,17 @@ def get_3339_datetime(self)
 
 ## Response Type
 
-`datetime`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `datetime`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_3339_datetime()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -866,13 +970,17 @@ def get_3339_datetime_array(self)
 
 ## Response Type
 
-`List[datetime]`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[datetime]`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_3339_datetime_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -884,13 +992,17 @@ def get_boolean(self)
 
 ## Response Type
 
-`bool`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `bool`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_boolean()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -902,13 +1014,17 @@ def get_boolean_array(self)
 
 ## Response Type
 
-`List[bool]`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[bool]`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_boolean_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -920,12 +1036,17 @@ def get_headers(self)
 
 ## Response Type
 
-`void`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
 ```python
-response_types_controller.get_headers()
+result = response_types_controller.get_headers()
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -937,13 +1058,17 @@ def get_1123_date_time(self)
 
 ## Response Type
 
-`datetime`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `datetime`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_1123_date_time()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -955,13 +1080,17 @@ def get_unix_date_time(self)
 
 ## Response Type
 
-`datetime`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `datetime`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_unix_date_time()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -973,13 +1102,17 @@ def get_1123_date_time_array(self)
 
 ## Response Type
 
-`List[datetime]`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[datetime]`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_1123_date_time_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -991,13 +1124,17 @@ def get_unix_date_time_array(self)
 
 ## Response Type
 
-`List[datetime]`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[datetime]`.
 
 ## Example Usage
 
 ```python
 result = response_types_controller.get_unix_date_time_array()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -1009,11 +1146,16 @@ def get_content_type_headers(self)
 
 ## Response Type
 
-`void`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
 ```python
-response_types_controller.get_content_type_headers()
+result = response_types_controller.get_content_type_headers()
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

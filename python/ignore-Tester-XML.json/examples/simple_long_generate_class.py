@@ -9,7 +9,12 @@ client = TesterxmlClient(
 simple_long_controller = client.simple_long
 try:
     result = simple_long_controller.generate()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

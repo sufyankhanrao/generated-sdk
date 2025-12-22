@@ -35,7 +35,7 @@ def multi_dimensional_model_array_required(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -160,7 +160,11 @@ result = custom_types_controller.multi_dimensional_model_array_required(
     employee_array,
     employee_array_optional=employee_array_optional
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -181,7 +185,7 @@ def multi_dimensional_model_array_optional(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -272,7 +276,11 @@ result = custom_types_controller.multi_dimensional_model_array_optional(
     employee_array=employee_array,
     employee_array_optional=employee_array_optional
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -293,7 +301,7 @@ def custom_type_map_of_array_and_array_of_map_required(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -358,7 +366,11 @@ result = custom_types_controller.custom_type_map_of_array_and_array_of_map_requi
     employee_array_of_map,
     employee_map_of_array
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -379,7 +391,7 @@ def custom_type_map_of_array_and_array_of_map_optional(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -444,7 +456,11 @@ result = custom_types_controller.custom_type_map_of_array_and_array_of_map_optio
     employee_array_of_map=employee_array_of_map,
     employee_map_of_array=employee_map_of_array
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -465,7 +481,7 @@ def send_model_in_form_required(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -618,7 +634,11 @@ result = custom_types_controller.send_model_in_form_required(
     model,
     model_optional=model_optional
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -639,7 +659,7 @@ def send_model_in_form_optional(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -696,6 +716,10 @@ result = custom_types_controller.send_model_in_form_optional(
     model,
     model_optional=model_optional
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

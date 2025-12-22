@@ -40,8 +40,9 @@ class APIController(BaseController):
             test_case (SelectorEnum, optional): The request query parameter.
 
         Returns:
-            ResponsesNonScalarContentResponse: Response from the API. Successful
-                response with content
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful response
+                with content
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -62,7 +63,8 @@ class APIController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ResponsesNonScalarContentResponse.from_dictionary),
+            .deserialize_into(ResponsesNonScalarContentResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def get_scalar_string_content(self,
@@ -73,7 +75,9 @@ class APIController(BaseController):
             test_case (SelectorEnum, optional): The request query parameter.
 
         Returns:
-            str: Response from the API. Successful response with content
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful response
+                with content
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -90,7 +94,8 @@ class APIController(BaseController):
                 .value(test_case)),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_scalar_non_null_string(self,
@@ -101,7 +106,9 @@ class APIController(BaseController):
             test_case (SelectorEnum, optional): The request query parameter.
 
         Returns:
-            str: Response from the API. Successful response with 200
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful response
+                with 200
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -118,7 +125,8 @@ class APIController(BaseController):
                 .value(test_case)),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def get_scalar_number_content(self,
@@ -129,7 +137,9 @@ class APIController(BaseController):
             test_case (SelectorEnum, optional): The request query parameter.
 
         Returns:
-            int: Response from the API. Successful response with content
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful response
+                with content
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -146,5 +156,6 @@ class APIController(BaseController):
                 .value(test_case)),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()

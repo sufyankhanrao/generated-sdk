@@ -33,7 +33,8 @@ class TemplateParamsController(BaseController):
             strings (List[str]): The request template parameter.
 
         Returns:
-            EchoResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -57,7 +58,8 @@ class TemplateParamsController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(EchoResponse.from_dictionary),
+            .deserialize_into(EchoResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()
 
     def send_integer_array(self,
@@ -68,7 +70,8 @@ class TemplateParamsController(BaseController):
             integers (List[int]): The request template parameter.
 
         Returns:
-            EchoResponse: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -92,5 +95,6 @@ class TemplateParamsController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(EchoResponse.from_dictionary),
+            .deserialize_into(EchoResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()

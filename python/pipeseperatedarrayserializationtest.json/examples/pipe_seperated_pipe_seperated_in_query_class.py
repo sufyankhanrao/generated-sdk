@@ -19,7 +19,12 @@ dependent = [
 
 try:
     result = pipe_seperated_controller.get_pipe_seperated_in_query(dependent)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

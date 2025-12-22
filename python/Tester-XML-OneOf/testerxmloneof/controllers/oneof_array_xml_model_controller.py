@@ -40,7 +40,8 @@ class OneofArrayXmlModelController(BaseController):
         This endpoint returns a 'CatsOrDogs' model as xml.
 
         Returns:
-            CatsOrDogs: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -59,7 +60,8 @@ class OneofArrayXmlModelController(BaseController):
             ResponseHandler()
             .deserializer(XmlUtilities.deserialize_xml)
             .deserialize_into(CatsOrDogs)
-            .is_xml_response(True),
+            .is_xml_response(True)
+            .is_api_response(True),
         ).execute()
 
     def validate(self,
@@ -72,7 +74,8 @@ class OneofArrayXmlModelController(BaseController):
             body (CatsOrDogs): The request body parameter.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -96,7 +99,8 @@ class OneofArrayXmlModelController(BaseController):
             .body_serializer(XmlUtilities.serialize_to_xml),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()
 
     def generate_1(self):
@@ -105,7 +109,8 @@ class OneofArrayXmlModelController(BaseController):
         This endpoint returns a 'CatsOrDogs' model as xml.
 
         Returns:
-            CatsOrDogs: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -124,7 +129,8 @@ class OneofArrayXmlModelController(BaseController):
             ResponseHandler()
             .deserializer(XmlUtilities.deserialize_xml)
             .deserialize_into(CatsOrDogs)
-            .is_xml_response(True),
+            .is_xml_response(True)
+            .is_api_response(True),
         ).execute()
 
     def validate_1(self,
@@ -137,7 +143,8 @@ class OneofArrayXmlModelController(BaseController):
             body (CatsOrDogs): The request body parameter.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -161,5 +168,6 @@ class OneofArrayXmlModelController(BaseController):
             .body_serializer(XmlUtilities.serialize_to_xml),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.dynamic_deserialize),
+            .deserializer(APIHelper.dynamic_deserialize)
+            .is_api_response(True),
         ).execute()

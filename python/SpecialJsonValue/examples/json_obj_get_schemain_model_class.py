@@ -9,7 +9,12 @@ client = JsonvaluetesterClient(
 json_obj_controller = client.json_obj
 try:
     result = json_obj_controller.get_schemain_model()
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

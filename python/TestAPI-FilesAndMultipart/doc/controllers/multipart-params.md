@@ -29,7 +29,7 @@ def send_multipart_with_json(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -79,6 +79,10 @@ collect = {
     'strings': 'strings0'
 }
 result = multipart_params_controller.send_multipart_with_json(collect)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

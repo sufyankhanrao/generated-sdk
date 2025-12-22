@@ -58,7 +58,12 @@ try:
         query_enum=query_enum,
         query_date_time=query_date_time
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

@@ -16,7 +16,12 @@ body = CatOrDog(
 
 try:
     result = oneof_xml_model_controller.validate(body)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

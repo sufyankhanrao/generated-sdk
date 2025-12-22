@@ -14,7 +14,12 @@ body = SingleElementWithNodeName(
 
 try:
     result = single_element_model_with_model_node_name_controller.validate(body)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

@@ -58,7 +58,12 @@ boolean_array = [
 
 try:
     result = native_types_controller.multi_dimensional_native_array_required(boolean_array)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

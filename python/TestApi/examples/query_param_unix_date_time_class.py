@@ -41,7 +41,12 @@ datetime = dateutil.datetime.utcfromtimestamp(1480809600)
 
 try:
     result = query_param_controller.unix_date_time(datetime)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

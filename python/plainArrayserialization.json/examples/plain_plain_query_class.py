@@ -19,7 +19,12 @@ query_param = [
 
 try:
     result = plain_controller.get_plain_query(query_param)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

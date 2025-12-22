@@ -40,7 +40,8 @@ class APIController(BaseController):
             test_case (TestCaseEnum, optional): The request query parameter.
 
         Returns:
-            EnumsAllowAdditionalResponse: Response from the API. Successful response
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Successful response
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -61,5 +62,6 @@ class APIController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(EnumsAllowAdditionalResponse.from_dictionary),
+            .deserialize_into(EnumsAllowAdditionalResponse.from_dictionary)
+            .is_api_response(True),
         ).execute()

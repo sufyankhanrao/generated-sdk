@@ -41,7 +41,7 @@ def send_string_boolean_object_dynamic_required(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -60,7 +60,11 @@ result = native_types_controller.send_string_boolean_object_dynamic_required(
     object_var,
     dynamic_var
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -85,7 +89,7 @@ def send_string_boolean_object_dynamic_optional(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -104,7 +108,11 @@ result = native_types_controller.send_string_boolean_object_dynamic_optional(
     object_var=object_var,
     dynamic_var=dynamic_var
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -129,7 +137,7 @@ def send_date_and_time_required(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -148,7 +156,11 @@ result = native_types_controller.send_date_and_time_required(
     rfc_3339_date_time,
     date_var
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -173,7 +185,7 @@ def send_date_and_time_optional(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -192,7 +204,11 @@ result = native_types_controller.send_date_and_time_optional(
     rfc_3339_date_time=rfc_3339_date_time,
     date_var=date_var
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -211,7 +227,7 @@ def multi_dimensional_native_array_required(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -264,7 +280,11 @@ boolean_array = [
 ]
 
 result = native_types_controller.multi_dimensional_native_array_required(boolean_array)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -283,7 +303,7 @@ def multi_dimensional_native_array_optional(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -338,7 +358,11 @@ boolean_array = [
 result = native_types_controller.multi_dimensional_native_array_optional(
     boolean_array=boolean_array
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -359,7 +383,7 @@ def native_map_of_array_and_array_of_map_required(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -376,7 +400,11 @@ result = native_types_controller.native_map_of_array_and_array_of_map_required(
     boolean_array_of_map,
     boolean_map_of_array
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -397,7 +425,7 @@ def native_map_of_array_and_array_of_map_optional(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -414,6 +442,10 @@ result = native_types_controller.native_map_of_array_and_array_of_map_optional(
     boolean_array_of_map=boolean_array_of_map,
     boolean_map_of_array=boolean_map_of_array
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

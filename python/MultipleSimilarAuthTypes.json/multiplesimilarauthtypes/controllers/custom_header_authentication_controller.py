@@ -38,7 +38,8 @@ class CustomHeaderAuthenticationController(BaseController):
         """Perform a GET request to /auth/customHeaderSignature.
 
         Returns:
-            str: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -53,5 +54,6 @@ class CustomHeaderAuthenticationController(BaseController):
             .auth(And(Single("breezeHeader"), Single("customHeader"))),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize),
+            .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True),
         ).execute()

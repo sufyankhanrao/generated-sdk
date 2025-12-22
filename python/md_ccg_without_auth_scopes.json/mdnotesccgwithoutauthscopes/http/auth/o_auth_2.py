@@ -112,7 +112,7 @@ class OAuth2(HeaderAuth):
         token = self._o_auth_api.request_token(
             self.build_basic_auth_header(),
             _optional_form_parameters=additional_params,
-        )
+        ).body
         if hasattr(token, "expires_in"):
             current_utc_timestamp = AuthHelper.get_current_utc_timestamp()
             token.expiry = AuthHelper.get_token_expiry(

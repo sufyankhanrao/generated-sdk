@@ -44,7 +44,8 @@ class CustomizedErrorMessagesController(BaseController):
         This endpoint contains cases for customized error templates at endpoint level.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -62,6 +63,7 @@ class CustomizedErrorMessagesController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
             .local_error_template("default",
                 "Local error message for default case: {$statusCode}, accept => {$res"
                 "ponse.header.content-type}), body => {$response.body}.",
@@ -94,7 +96,8 @@ class CustomizedErrorMessagesController(BaseController):
         level.
 
         Returns:
-            Any: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -112,6 +115,7 @@ class CustomizedErrorMessagesController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
+            .is_api_response(True)
             .local_error_template("500",
                 "Local Error template 500: {$statusCode}, accept => {$response.header"
                 ".content-type}, body => {$response.body#/unknownProperty}.",

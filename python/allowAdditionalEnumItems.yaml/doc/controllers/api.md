@@ -24,12 +24,16 @@ def get_enums(self,
 
 ## Response Type
 
-[`EnumsAllowAdditionalResponse`](../../doc/models/enums-allow-additional-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`EnumsAllowAdditionalResponse`](../../doc/models/enums-allow-additional-response.md).
 
 ## Example Usage
 
 ```python
 result = client_controller.get_enums()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

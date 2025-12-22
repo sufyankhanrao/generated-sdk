@@ -19,7 +19,12 @@ body = [
 
 try:
     result = attributes_and_elements_model_controller.validate_array(body)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

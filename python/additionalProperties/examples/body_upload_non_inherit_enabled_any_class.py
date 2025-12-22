@@ -24,7 +24,12 @@ body = NonInheritEnabledAny(
 
 try:
     result = body_controller.upload_non_inherit_enabled_any(body)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

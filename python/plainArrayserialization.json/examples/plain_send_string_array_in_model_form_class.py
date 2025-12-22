@@ -23,7 +23,12 @@ body = Model(
 
 try:
     result = plain_controller.create_send_string_array_in_model_form(body)
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

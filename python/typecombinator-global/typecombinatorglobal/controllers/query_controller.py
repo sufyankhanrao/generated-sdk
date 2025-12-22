@@ -47,7 +47,8 @@ class QueryController(BaseController):
                 parameter.
 
         Returns:
-            str | int: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -81,5 +82,6 @@ class QueryController(BaseController):
             ResponseHandler()
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
-                 .get("AnyOfPrimitive"), value)),
+                 .get("AnyOfPrimitive"), value))
+            .is_api_response(True),
         ).execute()

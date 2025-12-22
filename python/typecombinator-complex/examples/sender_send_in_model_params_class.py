@@ -1967,7 +1967,12 @@ try:
         query_non_scalar_model=query_non_scalar_model,
         query_mixed_model=query_mixed_model
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

@@ -24,13 +24,17 @@ def generate(self)
 
 ## Response Type
 
-[`ModelWithInheritedElements`](../../doc/models/model-with-inherited-elements.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ModelWithInheritedElements`](../../doc/models/model-with-inherited-elements.md).
 
 ## Example Usage
 
 ```python
 result = elements_model_with_inheritance_controller.generate()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -51,7 +55,7 @@ def validate(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -67,6 +71,10 @@ body = ModelWithInheritedElements(
 )
 
 result = elements_model_with_inheritance_controller.validate(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

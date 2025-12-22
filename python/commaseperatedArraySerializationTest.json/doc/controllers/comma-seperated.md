@@ -32,7 +32,7 @@ def get_comma_seperated_in_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -45,7 +45,11 @@ dependent = [
 ]
 
 result = comma_seperated_controller.get_comma_seperated_in_query(dependent)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -64,7 +68,7 @@ def get_comma_seperated_in_query_1(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -77,7 +81,11 @@ dependent = [
 ]
 
 result = comma_seperated_controller.get_comma_seperated_in_query_1(dependent)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -96,7 +104,7 @@ def create_send_comma_separated_complex_type_in_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -142,7 +150,11 @@ complex_type = ComplexType(
 )
 
 result = comma_seperated_controller.create_send_comma_separated_complex_type_in_query(complex_type)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -161,7 +173,7 @@ def create_send_comma_separated_list_of_complex_type_in_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -209,7 +221,11 @@ complex_type = [
 ]
 
 result = comma_seperated_controller.create_send_comma_separated_list_of_complex_type_in_query(complex_type)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -228,7 +244,7 @@ def create_send_comma_separated_map_of_complex_type_in_query(self,
 
 ## Response Type
 
-[`ServerResponse`](../../doc/models/server-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
 
 ## Example Usage
 
@@ -276,6 +292,10 @@ complex_type = {
 }
 
 result = comma_seperated_controller.create_send_comma_separated_map_of_complex_type_in_query(complex_type)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

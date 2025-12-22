@@ -42,7 +42,12 @@ try:
         query_scalar=query_scalar,
         query_non_scalar=query_non_scalar
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

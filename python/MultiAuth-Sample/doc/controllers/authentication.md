@@ -29,13 +29,17 @@ def custom_authentication(self)
 
 ## Response Type
 
-`str`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
 
 ## Example Usage
 
 ```python
 result = authentication_controller.custom_authentication()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -47,13 +51,17 @@ def o_auth_bearer_token(self)
 
 ## Response Type
 
-`str`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
 
 ## Example Usage
 
 ```python
 result = authentication_controller.o_auth_bearer_token()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -65,13 +73,17 @@ def o_auth_client_credentials_grant(self)
 
 ## Response Type
 
-[`ServiceStatus`](../../doc/models/service-status.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServiceStatus`](../../doc/models/service-status.md).
 
 ## Example Usage
 
 ```python
 result = authentication_controller.o_auth_client_credentials_grant()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -83,13 +95,17 @@ def o_auth_authorization_grant(self)
 
 ## Response Type
 
-[`User`](../../doc/models/user.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`User`](../../doc/models/user.md).
 
 ## Example Usage
 
 ```python
 result = authentication_controller.o_auth_authorization_grant()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -101,13 +117,17 @@ def custom_query_or_header_authentication(self)
 
 ## Response Type
 
-`str`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
 
 ## Example Usage
 
 ```python
 result = authentication_controller.custom_query_or_header_authentication()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -119,13 +139,17 @@ def basic_auth_and_api_header_auth(self)
 
 ## Response Type
 
-`str`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
 
 ## Example Usage
 
 ```python
 result = authentication_controller.basic_auth_and_api_header_auth()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -139,13 +163,17 @@ def o_auth_grant_types_or_combinations(self)
 
 ## Response Type
 
-`str`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
 
 ## Example Usage
 
 ```python
 result = authentication_controller.o_auth_grant_types_or_combinations()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -161,13 +189,17 @@ def multiple_auth_combination(self)
 
 ## Response Type
 
-`str`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
 
 ## Example Usage
 
 ```python
 result = authentication_controller.multiple_auth_combination()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 
@@ -187,12 +219,16 @@ def no_auth(self)
 
 ## Response Type
 
-`str`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
 
 ## Example Usage
 
 ```python
 result = authentication_controller.no_auth()
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 

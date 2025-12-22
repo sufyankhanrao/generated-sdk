@@ -146,7 +146,12 @@ try:
         form_factoring_schema=form_factoring_schema,
         query_multiple_enums=query_multiple_enums
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

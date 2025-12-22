@@ -137,7 +137,12 @@ try:
         employee_array,
         employee_array_optional=employee_array_optional
     )
-    print(result)
+
+    if result.is_success():
+        print(result.body)
+    elif result.is_error():
+        print(result.errors)
+
 except APIException as e: 
     print(e)
 

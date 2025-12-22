@@ -52,7 +52,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            List[Dict[str, int | bool | str]] | None: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -76,6 +77,7 @@ class ReceiverController(BaseController):
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
                  .get("ScalarParamResponse"), value))
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -87,7 +89,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            Dict[str, List[Atom] | Atom]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -111,6 +114,7 @@ class ReceiverController(BaseController):
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
                  .get("NonScalarParamResponse"), value))
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -122,7 +126,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            List[Dict[str, bool]] | List[Dict[str, Vehicle]]: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -146,6 +151,7 @@ class ReceiverController(BaseController):
             .deserializer(lambda value: APIHelper.deserialize_union_type(
                  UnionTypeLookUp
                  .get("MixedParamResponse"), value))
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -157,7 +163,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            ScalarModel: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -180,6 +187,7 @@ class ReceiverController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ScalarModel.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -191,7 +199,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            NonScalarModel: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -214,6 +223,7 @@ class ReceiverController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(NonScalarModel.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
 
@@ -225,7 +235,8 @@ class ReceiverController(BaseController):
             case (CaseEnum): The request query parameter. Example: caseA
 
         Returns:
-            MixedModel: Response from the API.
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers.
 
         Raises:
             APIException: When an error occurs while fetching the data from the
@@ -248,5 +259,6 @@ class ReceiverController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(MixedModel.from_dictionary)
+            .is_api_response(True)
             .local_error("400", "", APIException),
         ).execute()
