@@ -30,7 +30,7 @@ def create_send_child(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -59,10 +59,6 @@ result = body_controller.create_send_child(
     field,
     child
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

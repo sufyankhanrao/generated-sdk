@@ -40,12 +40,7 @@ datetime = APIHelper.HttpDateTime.from_value('Mon, 15 Jun 2009 20:45:30 GMT').da
 
 try:
     result = body_params_controller.send_rfc_1123_date_time(datetime)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

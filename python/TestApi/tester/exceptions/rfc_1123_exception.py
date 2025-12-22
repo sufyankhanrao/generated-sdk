@@ -41,11 +41,21 @@ class Rfc1123Exception(APIException):
             dictionary.get("dateTime1")).datetime\
             if dictionary.get("dateTime1") else None
 
+
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"date_time={self.date_time!s}, "
-                f"date_time_1={(self.date_time_1
-                     if hasattr(self, 'date_time_1') else None)!s})")
+        _date_time=self.date_time
+        _date_time_1=(
+            self.date_time_1
+            if hasattr(self, "date_time_1")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"date_time={_date_time!s}"
+            f"date_time_1={_date_time_1!s}"
+            f")"
+        )

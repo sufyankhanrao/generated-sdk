@@ -24,17 +24,13 @@ def generate(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ModelWithInheritedAttributes`](../../doc/models/model-with-inherited-attributes.md).
+[`ModelWithInheritedAttributes`](../../doc/models/model-with-inherited-attributes.md)
 
 ## Example Usage
 
 ```python
 result = attributes_model_with_inheritance_controller.generate()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -55,7 +51,7 @@ def validate(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -71,10 +67,6 @@ body = ModelWithInheritedAttributes(
 )
 
 result = attributes_model_with_inheritance_controller.validate(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

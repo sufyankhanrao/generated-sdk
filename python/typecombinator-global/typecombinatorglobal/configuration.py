@@ -110,8 +110,8 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
                  environment=Environment.PRODUCTION, port="3000",
                  sub_url="multitype/global"):
         """Initialize Configuration object."""
@@ -166,11 +166,10 @@ class Configuration(HttpClientConfiguration):
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
-            http_call_back=http_call_back, timeout=timeout,
-            max_retries=max_retries, backoff_factor=backoff_factor,
-            retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings, environment=environment, port=port,
-            sub_url=sub_url,
+            http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, proxy_settings=proxy_settings,
+            environment=environment, port=port, sub_url=sub_url,
         )
 
     def create_http_client(self):

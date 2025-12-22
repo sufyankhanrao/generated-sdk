@@ -43,12 +43,7 @@ date_time = ModelWithOptionalRfc1123DateTime(
 
 try:
     result = body_params_controller.send_rfc_1123_date_time_in_model(date_time)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

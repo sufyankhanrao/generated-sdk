@@ -117,8 +117,8 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"}",
+            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"ses"
+            "sionType\":\"Morning\"}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -190,8 +190,8 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":false,\"oneOfReqNullable\":\"some string\",\"on"
-            "eOfOptional\":45.8,\"anyOfOptNullable\":234}",
+            "{\"anyOfRequired\":false,\"oneOfReqNullable\":\"some string\",\"oneOfOpt"
+            "ional\":45.8,\"anyOfOptNullable\":234}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -218,12 +218,11 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2}"
-            ",\"oneOfReqNullable\":{\"NumberOfElectrons\":2},\"oneOfOptional\":"
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"},\"anyOfOptNullable\":{\"startsAt\":"
-            "\"15:00\",\"endsAt\":\"21:00\",\"offerDinner\":true,\"sessionType"
-            "\":\"Evening\"}}",
+            "{\"anyOfRequired\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2},\"one"
+            "OfReqNullable\":{\"NumberOfElectrons\":2},\"oneOfOptional\":{\"startsAt"
+            "\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":"
+            "\"Morning\"},\"anyOfOptNullable\":{\"startsAt\":\"15:00\",\"endsAt\":\"2"
+            "1:00\",\"offerDinner\":true,\"sessionType\":\"Evening\"}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -250,8 +249,8 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":23,\"oneOfReqNullable\":{\"NumberOfTyres\":\"4"
-            "\"},\"oneOfOptional\":\"some string\",\"anyOfOptNullable\":234.8}",
+            "{\"anyOfRequired\":23,\"oneOfReqNullable\":{\"NumberOfTyres\":\"4\"},\"o"
+            "neOfOptional\":\"some string\",\"anyOfOptNullable\":234.8}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,

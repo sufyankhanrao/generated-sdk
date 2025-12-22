@@ -32,9 +32,10 @@ class SimpleDateArray(object):
         "date",
     ]
 
-    def __init__(self,
-                 date=APIHelper.SKIP,
-                 date_1=APIHelper.SKIP):
+    def __init__(
+        self,
+        date=APIHelper.SKIP,
+        date_1=APIHelper.SKIP):
         """Initialize a SimpleDateArray instance."""
         # Initialize members of the class
         if date is not APIHelper.SKIP:
@@ -76,18 +77,45 @@ class SimpleDateArray(object):
                 date_1.append(dateutil.parser.parse(x).date())
         else:
             date_1 = APIHelper.SKIP
+
         # Return an object of this model
         return cls(date,
                    date_1)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date={(self.date if hasattr(self, 'date') else None)!r}, "
-                f"date_1={(self.date_1 if hasattr(self, 'date_1') else None)!r})")
+        _date=(
+            self.date
+            if hasattr(self, "date")
+            else None
+        )
+        _date_1=(
+            self.date_1
+            if hasattr(self, "date_1")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"date={_date!r}"
+            f"date_1={_date_1!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date={(self.date if hasattr(self, 'date') else None)!s}, "
-                f"date_1={(self.date_1 if hasattr(self, 'date_1') else None)!s})")
+        _date=(
+            self.date
+            if hasattr(self, "date")
+            else None
+        )
+        _date_1=(
+            self.date_1
+            if hasattr(self, "date_1")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"date={_date!s}"
+            f"date_1={_date_1!s}"
+            f")"
+        )

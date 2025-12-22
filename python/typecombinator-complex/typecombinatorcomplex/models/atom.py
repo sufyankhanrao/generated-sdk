@@ -27,9 +27,10 @@ class Atom(object):
         "number_of_protons",
     ]
 
-    def __init__(self,
-                 number_of_electrons=None,
-                 number_of_protons=APIHelper.SKIP):
+    def __init__(
+        self,
+        number_of_electrons=None,
+        number_of_protons=APIHelper.SKIP):
         """Initialize a Atom instance."""
         # Initialize members of the class
         self.number_of_electrons = number_of_electrons
@@ -56,10 +57,13 @@ class Atom(object):
         # Extract variables from the dictionary
         number_of_electrons =\
             dictionary.get("NumberOfElectrons")\
-            if dictionary.get("NumberOfElectrons") else None
+            if dictionary.get("NumberOfElectrons")\
+                else None
         number_of_protons =\
             dictionary.get("NumberOfProtons")\
-            if dictionary.get("NumberOfProtons") else APIHelper.SKIP
+            if dictionary.get("NumberOfProtons")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(number_of_electrons,
                    number_of_protons)
@@ -79,26 +83,50 @@ class Atom(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.number_of_electrons,
-                type_callable=lambda value: isinstance(value, int))
+                    value=dictionary.number_of_electrons,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("NumberOfElectrons"),
-            type_callable=lambda value: isinstance(value, int))
+                value=dictionary.get("NumberOfElectrons"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_of_electrons={self.number_of_electrons!r}, "
-                f"number_of_protons={(self.number_of_protons
-                     if hasattr(self, 'number_of_protons') else None)!r})")
+        _number_of_electrons=self.number_of_electrons
+        _number_of_protons=(
+            self.number_of_protons
+            if hasattr(self, "number_of_protons")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"number_of_electrons={_number_of_electrons!r}"
+            f"number_of_protons={_number_of_protons!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_of_electrons={self.number_of_electrons!s}, "
-                f"number_of_protons={(self.number_of_protons
-                     if hasattr(self, 'number_of_protons') else None)!s})")
+        _number_of_electrons=self.number_of_electrons
+        _number_of_protons=(
+            self.number_of_protons
+            if hasattr(self, "number_of_protons")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"number_of_electrons={_number_of_electrons!s}"
+            f"number_of_protons={_number_of_protons!s}"
+            f")"
+        )

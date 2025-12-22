@@ -14,8 +14,8 @@ from typecombinatorspecial.models.holds_model_with_oaf_field import (
 class HoldsOafField(object):
     """Implementation of the 'HoldsOafField' model.
 
-    This class contains special combination of required and optional typed
-    models in oneOf/anyOf cases.
+    This class contains special combination of required and optional typed models in
+    oneOf/anyOf cases.
 
     Attributes:
         any_of_dog_cat (Dog | Cat): The model property of type Dog | Cat.
@@ -34,9 +34,10 @@ class HoldsOafField(object):
         "inner_model",
     ]
 
-    def __init__(self,
-                 any_of_dog_cat=None,
-                 inner_model=APIHelper.SKIP):
+    def __init__(
+        self,
+        any_of_dog_cat=None,
+        inner_model=APIHelper.SKIP):
         """Initialize a HoldsOafField instance."""
         # Initialize members of the class
         self.any_of_dog_cat = any_of_dog_cat
@@ -65,10 +66,18 @@ class HoldsOafField(object):
             return None
 
         # Extract variables from the dictionary
-        any_of_dog_cat = APIHelper.deserialize_union_type(UnionTypeLookUp.get("HoldsOafFieldAnyOfDogCat"), dictionary.get("anyOfDogCat"), False) if dictionary.get("anyOfDogCat") is not None else None
-        inner_model = HoldsModelWithOafField.from_dictionary(
+        any_of_dog_cat = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("HoldsOafFieldAnyOfDogCat"),
+            dictionary.get("anyOfDogCat"),
+            False)\
+            if dictionary.get("anyOfDogCat") is not None\
+            else None
+        inner_model =\
+            HoldsModelWithOafField.from_dictionary(
             dictionary.get("innerModel"))\
-            if "innerModel" in dictionary.keys() else APIHelper.SKIP
+                if "innerModel" in dictionary.keys()\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(any_of_dog_cat,
                    inner_model)
@@ -91,23 +100,41 @@ class HoldsOafField(object):
         )
 
         if isinstance(dictionary, cls):
-            return UnionTypeLookUp.get("HoldsOafFieldAnyOfDogCat").validate(dictionary.any_of_dog_cat).is_valid
+            return (UnionTypeLookUp.get("HoldsOafFieldAnyOfDogCat")
+                .validate(dictionary.any_of_dog_cat).is_valid)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return UnionTypeLookUp.get("HoldsOafFieldAnyOfDogCat").validate(dictionary.get("anyOfDogCat")).is_valid
+        return (UnionTypeLookUp.get("HoldsOafFieldAnyOfDogCat")
+            .validate(dictionary.get("anyOfDogCat")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"any_of_dog_cat={self.any_of_dog_cat!r}, "
-                f"inner_model={(self.inner_model
-                     if hasattr(self, 'inner_model') else None)!r})")
+        _any_of_dog_cat=self.any_of_dog_cat
+        _inner_model=(
+            self.inner_model
+            if hasattr(self, "inner_model")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"any_of_dog_cat={_any_of_dog_cat!r}"
+            f"inner_model={_inner_model!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"any_of_dog_cat={self.any_of_dog_cat!s}, "
-                f"inner_model={(self.inner_model
-                     if hasattr(self, 'inner_model') else None)!s})")
+        _any_of_dog_cat=self.any_of_dog_cat
+        _inner_model=(
+            self.inner_model
+            if hasattr(self, "inner_model")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"any_of_dog_cat={_any_of_dog_cat!s}"
+            f"inner_model={_inner_model!s}"
+            f")"
+        )

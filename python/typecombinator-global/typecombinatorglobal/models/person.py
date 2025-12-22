@@ -27,9 +27,10 @@ class Person(object):
         "mtype",
     ]
 
-    def __init__(self,
-                 name=None,
-                 mtype="Person"):
+    def __init__(
+        self,
+        name=None,
+        mtype="Person"):
         """Initialize a Person instance."""
         # Initialize members of the class
         self.mtype = mtype
@@ -66,23 +67,48 @@ class Person(object):
             return unboxer(dictionary)
 
         # Extract variables from the dictionary
-        name = dictionary.get("name") if dictionary.get("name") else None
-        mtype = dictionary.get("type") if dictionary.get("type") else "Person"
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        mtype =\
+            dictionary.get("type")\
+            if dictionary.get("type")\
+                else "Person"
+
         # Return an object of this model
         return cls(name,
                    mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"mtype={(self.mtype if hasattr(self, 'mtype') else None)!r}, "
-                f"name={self.name!r})")
+        _mtype=(
+            self.mtype
+            if hasattr(self, "mtype")
+            else None
+        )
+        _name=self.name
+        return (
+            f"{self.__class__.__name__}("
+            f"mtype={_mtype!r}"
+            f"name={_name!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"mtype={(self.mtype if hasattr(self, 'mtype') else None)!s}, "
-                f"name={self.name!s})")
+        _mtype=(
+            self.mtype
+            if hasattr(self, "mtype")
+            else None
+        )
+        _name=self.name
+        return (
+            f"{self.__class__.__name__}("
+            f"mtype={_mtype!s}"
+            f"name={_name!s}"
+            f")"
+        )
 
 class Employee(Person):
     """Implementation of the 'Employee' model.
@@ -110,12 +136,13 @@ class Employee(Person):
     ]
     _optionals.extend(Person._optionals)
 
-    def __init__(self,
-                 ssn=None,
-                 name=None,
-                 salary=APIHelper.SKIP,
-                 build=APIHelper.SKIP,
-                 mtype="Empl"):
+    def __init__(
+        self,
+        ssn=None,
+        name=None,
+        salary=APIHelper.SKIP,
+        build=APIHelper.SKIP,
+        mtype="Empl"):
         """Initialize a Employee instance."""
         # Initialize members of the class
         self.ssn = ssn
@@ -125,8 +152,9 @@ class Employee(Person):
             self.build = build
 
         # Call the constructor for the base class
-        super(Employee, self).__init__(name,
-                                       mtype)
+        super(Employee, self).__init__(
+            name,
+            mtype)
 
     @classmethod
     def from_dictionary(cls,
@@ -157,15 +185,27 @@ class Employee(Person):
             return unboxer(dictionary)
 
         # Extract variables from the dictionary
-        ssn = dictionary.get("ssn") if dictionary.get("ssn") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
+        ssn =\
+            dictionary.get("ssn")\
+            if dictionary.get("ssn")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
         salary =\
             dictionary.get("salary")\
-            if dictionary.get("salary") else APIHelper.SKIP
+            if dictionary.get("salary")\
+                else APIHelper.SKIP
         build =\
             dictionary.get("build")\
-            if dictionary.get("build") else APIHelper.SKIP
-        mtype = dictionary.get("type") if dictionary.get("type") else "Empl"
+            if dictionary.get("build")\
+                else APIHelper.SKIP
+        mtype =\
+            dictionary.get("type")\
+            if dictionary.get("type")\
+                else "Empl"
+
         # Return an object of this model
         return cls(ssn,
                    name,
@@ -188,11 +228,19 @@ class Employee(Person):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.ssn,
-                type_callable=lambda value: isinstance(value, float)) \
+                    value=dictionary.ssn,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        float,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.name,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
@@ -210,29 +258,67 @@ class Employee(Person):
             return validator(dictionary)
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("ssn"),
-            type_callable=lambda value: isinstance(value, float)) \
+                value=dictionary.get("ssn"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    float,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("name"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("name"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"ssn={self.ssn!r}, "
-                f"salary={(self.salary if hasattr(self, 'salary') else None)!r}, "
-                f"build={(self.build if hasattr(self, 'build') else None)!r})")
+        _ssn=self.ssn
+        _salary=(
+            self.salary
+            if hasattr(self, "salary")
+            else None
+        )
+        _build=(
+            self.build
+            if hasattr(self, "build")
+            else None
+        )
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"ssn={_ssn!r}"
+            f"salary={_salary!r}"
+            f"build={_build!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"ssn={self.ssn!s}, "
-                f"salary={(self.salary if hasattr(self, 'salary') else None)!s}, "
-                f"build={(self.build if hasattr(self, 'build') else None)!s})")
+        _ssn=self.ssn
+        _salary=(
+            self.salary
+            if hasattr(self, "salary")
+            else None
+        )
+        _build=(
+            self.build
+            if hasattr(self, "build")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"ssn={_ssn!s}"
+            f"salary={_salary!s}"
+            f"build={_build!s}"
+            f")"
+        )
 
 class Entrepreneur(Person):
     """Implementation of the 'Entrepreneur' model.
@@ -257,11 +343,12 @@ class Entrepreneur(Person):
     ]
     _optionals.extend(Person._optionals)
 
-    def __init__(self,
-                 number_of_startups=None,
-                 name=None,
-                 build=APIHelper.SKIP,
-                 mtype="Entr"):
+    def __init__(
+        self,
+        number_of_startups=None,
+        name=None,
+        build=APIHelper.SKIP,
+        mtype="Entr"):
         """Initialize a Entrepreneur instance."""
         # Initialize members of the class
         self.number_of_startups = number_of_startups
@@ -269,8 +356,9 @@ class Entrepreneur(Person):
             self.build = build
 
         # Call the constructor for the base class
-        super(Entrepreneur, self).__init__(name,
-                                           mtype)
+        super(Entrepreneur, self).__init__(
+            name,
+            mtype)
 
     @classmethod
     def from_dictionary(cls,
@@ -292,12 +380,21 @@ class Entrepreneur(Person):
         # Extract variables from the dictionary
         number_of_startups =\
             dictionary.get("number_of_startups")\
-            if dictionary.get("number_of_startups") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
+            if dictionary.get("number_of_startups")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
         build =\
             dictionary.get("build")\
-            if dictionary.get("build") else APIHelper.SKIP
-        mtype = dictionary.get("type") if dictionary.get("type") else "Entr"
+            if dictionary.get("build")\
+                else APIHelper.SKIP
+        mtype =\
+            dictionary.get("type")\
+            if dictionary.get("type")\
+                else "Entr"
+
         # Return an object of this model
         return cls(number_of_startups,
                    name,
@@ -319,37 +416,73 @@ class Entrepreneur(Person):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.number_of_startups,
-                type_callable=lambda value: isinstance(value, float)) \
+                    value=dictionary.number_of_startups,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        float,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.name,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("number_of_startups"),
-            type_callable=lambda value: isinstance(value, float)) \
+                value=dictionary.get("number_of_startups"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    float,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("name"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("name"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"number_of_startups={self.number_of_startups!r}, "
-                f"build={(self.build if hasattr(self, 'build') else None)!r})")
+        _number_of_startups=self.number_of_startups
+        _build=(
+            self.build
+            if hasattr(self, "build")
+            else None
+        )
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"number_of_startups={_number_of_startups!r}"
+            f"build={_build!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"number_of_startups={self.number_of_startups!s}, "
-                f"build={(self.build if hasattr(self, 'build') else None)!s})")
+        _number_of_startups=self.number_of_startups
+        _build=(
+            self.build
+            if hasattr(self, "build")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"number_of_startups={_number_of_startups!s}"
+            f"build={_build!s}"
+            f")"
+        )
 
 class ProductManager(Employee):
     """Implementation of the 'ProductManager' model.
@@ -370,23 +503,25 @@ class ProductManager(Employee):
         "mtype": "type",
     }
 
-    def __init__(self,
-                 number_of_reportees=None,
-                 ssn=None,
-                 name=None,
-                 salary=APIHelper.SKIP,
-                 build=APIHelper.SKIP,
-                 mtype="Product Manager"):
+    def __init__(
+        self,
+        number_of_reportees=None,
+        ssn=None,
+        name=None,
+        salary=APIHelper.SKIP,
+        build=APIHelper.SKIP,
+        mtype="Product Manager"):
         """Initialize a ProductManager instance."""
         # Initialize members of the class
         self.number_of_reportees = number_of_reportees
 
         # Call the constructor for the base class
-        super(ProductManager, self).__init__(ssn,
-                                             name,
-                                             salary,
-                                             build,
-                                             mtype)
+        super(ProductManager, self).__init__(
+            ssn,
+            name,
+            salary,
+            build,
+            mtype)
 
     @classmethod
     def from_dictionary(cls,
@@ -408,18 +543,29 @@ class ProductManager(Employee):
         # Extract variables from the dictionary
         number_of_reportees =\
             dictionary.get("number_of_reportees")\
-            if dictionary.get("number_of_reportees") else None
-        ssn = dictionary.get("ssn") if dictionary.get("ssn") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
+            if dictionary.get("number_of_reportees")\
+                else None
+        ssn =\
+            dictionary.get("ssn")\
+            if dictionary.get("ssn")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
         salary =\
             dictionary.get("salary")\
-            if dictionary.get("salary") else APIHelper.SKIP
+            if dictionary.get("salary")\
+                else APIHelper.SKIP
         build =\
             dictionary.get("build")\
-            if dictionary.get("build") else APIHelper.SKIP
+            if dictionary.get("build")\
+                else APIHelper.SKIP
         mtype =\
             dictionary.get("type")\
-            if dictionary.get("type") else "Product Manager"
+            if dictionary.get("type")\
+                else "Product Manager"
+
         # Return an object of this model
         return cls(number_of_reportees,
                    ssn,
@@ -430,17 +576,27 @@ class ProductManager(Employee):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"number_of_reportees={self.number_of_reportees!r})")
+        _number_of_reportees=self.number_of_reportees
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"number_of_reportees={_number_of_reportees!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"number_of_reportees={self.number_of_reportees!s})")
+        _number_of_reportees=self.number_of_reportees
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"number_of_reportees={_number_of_reportees!s}"
+            f")"
+        )
 
 class SoftwareDeveloper(Employee):
     """Implementation of the 'SoftwareDeveloper' model.
@@ -469,14 +625,15 @@ class SoftwareDeveloper(Employee):
     ]
     _optionals.extend(Employee._optionals)
 
-    def __init__(self,
-                 ssn=None,
-                 name=None,
-                 boss_name=APIHelper.SKIP,
-                 languages=APIHelper.SKIP,
-                 salary=APIHelper.SKIP,
-                 build=APIHelper.SKIP,
-                 mtype="Software Developer"):
+    def __init__(
+        self,
+        ssn=None,
+        name=None,
+        boss_name=APIHelper.SKIP,
+        languages=APIHelper.SKIP,
+        salary=APIHelper.SKIP,
+        build=APIHelper.SKIP,
+        mtype="Software Developer"):
         """Initialize a SoftwareDeveloper instance."""
         # Initialize members of the class
         if boss_name is not APIHelper.SKIP:
@@ -485,11 +642,12 @@ class SoftwareDeveloper(Employee):
             self.languages = languages
 
         # Call the constructor for the base class
-        super(SoftwareDeveloper, self).__init__(ssn,
-                                                name,
-                                                salary,
-                                                build,
-                                                mtype)
+        super(SoftwareDeveloper, self).__init__(
+            ssn,
+            name,
+            salary,
+            build,
+            mtype)
 
     @classmethod
     def from_dictionary(cls,
@@ -509,23 +667,35 @@ class SoftwareDeveloper(Employee):
             return None
 
         # Extract variables from the dictionary
-        ssn = dictionary.get("ssn") if dictionary.get("ssn") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
+        ssn =\
+            dictionary.get("ssn")\
+            if dictionary.get("ssn")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
         boss_name =\
             dictionary.get("boss_name")\
-            if dictionary.get("boss_name") else APIHelper.SKIP
+            if dictionary.get("boss_name")\
+                else APIHelper.SKIP
         languages =\
             dictionary.get("languages")\
-            if dictionary.get("languages") else APIHelper.SKIP
+            if dictionary.get("languages")\
+                else APIHelper.SKIP
         salary =\
             dictionary.get("salary")\
-            if dictionary.get("salary") else APIHelper.SKIP
+            if dictionary.get("salary")\
+                else APIHelper.SKIP
         build =\
             dictionary.get("build")\
-            if dictionary.get("build") else APIHelper.SKIP
+            if dictionary.get("build")\
+                else APIHelper.SKIP
         mtype =\
             dictionary.get("type")\
-            if dictionary.get("type") else "Software Developer"
+            if dictionary.get("type")\
+                else "Software Developer"
+
         # Return an object of this model
         return cls(ssn,
                    name,
@@ -537,20 +707,44 @@ class SoftwareDeveloper(Employee):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"boss_name={(self.boss_name
-                     if hasattr(self, 'boss_name') else None)!r}, "
-                f"languages={(self.languages
-                     if hasattr(self, 'languages') else None)!r})")
+        _boss_name=(
+            self.boss_name
+            if hasattr(self, "boss_name")
+            else None
+        )
+        _languages=(
+            self.languages
+            if hasattr(self, "languages")
+            else None
+        )
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"boss_name={_boss_name!r}"
+            f"languages={_languages!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"boss_name={(self.boss_name
-                     if hasattr(self, 'boss_name') else None)!s}, "
-                f"languages={(self.languages
-                     if hasattr(self, 'languages') else None)!s})")
+        _boss_name=(
+            self.boss_name
+            if hasattr(self, "boss_name")
+            else None
+        )
+        _languages=(
+            self.languages
+            if hasattr(self, "languages")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"boss_name={_boss_name!s}"
+            f"languages={_languages!s}"
+            f")"
+        )

@@ -17,8 +17,8 @@ class ModelWithNestedElementsModel(object):
     Attributes:
         elements (SimpleElements): A model with only non-array, primitive type
             elements. Look
-            [here](https://gist.github.com/thehappybug/f6cf13f8b5c14a9079ed6402
-            fffe6861#generate-simple-object) for the expected xml schema
+            [here](https://gist.github.com/thehappybug/f6cf13f8b5c14a9079ed6402fffe686
+            1#generate-simple-object) for the expected xml schema
         simple (str): The model property of type str.
 
     """
@@ -29,9 +29,10 @@ class ModelWithNestedElementsModel(object):
         "simple": "simple",
     }
 
-    def __init__(self,
-                 elements=None,
-                 simple=None):
+    def __init__(
+        self,
+        elements=None,
+        simple=None):
         """Initialize a ModelWithNestedElementsModel instance."""
         # Initialize members of the class
         self.elements = elements
@@ -55,10 +56,15 @@ class ModelWithNestedElementsModel(object):
             return None
 
         # Extract variables from the dictionary
-        elements = SimpleElements.from_dictionary(
+        elements =\
+            SimpleElements.from_dictionary(
             dictionary.get("Elements"))\
-            if dictionary.get("Elements") else None
-        simple = dictionary.get("simple") if dictionary.get("simple") else None
+                if dictionary.get("Elements") else None
+        simple =\
+            dictionary.get("simple")\
+            if dictionary.get("simple")\
+                else None
+
         # Return an object of this model
         return cls(elements,
                    simple)
@@ -92,12 +98,22 @@ class ModelWithNestedElementsModel(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"elements={self.elements!r}, "
-                f"simple={self.simple!r})")
+        _elements=self.elements
+        _simple=self.simple
+        return (
+            f"{self.__class__.__name__}("
+            f"elements={_elements!r}"
+            f"simple={_simple!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"elements={self.elements!s}, "
-                f"simple={self.simple!s})")
+        _elements=self.elements
+        _simple=self.simple
+        return (
+            f"{self.__class__.__name__}("
+            f"elements={_elements!s}"
+            f"simple={_simple!s}"
+            f")"
+        )

@@ -23,8 +23,9 @@ class CatsOrADogOrWolves(object):
         "value": "value",
     }
 
-    def __init__(self,
-                 value=None):
+    def __init__(
+        self,
+        value=None):
         """Initialize a CatsOrADogOrWolves instance."""
         # Initialize members of the class
         self.value = value
@@ -47,7 +48,11 @@ class CatsOrADogOrWolves(object):
             return None
 
         # Extract variables from the dictionary
-        value = dictionary.get("value") if dictionary.get("value") else None
+        value =\
+            dictionary.get("value")\
+            if dictionary.get("value")\
+                else None
+
         # Return an object of this model
         return cls(value)
 
@@ -77,10 +82,18 @@ class CatsOrADogOrWolves(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"value={self.value!r})")
+        _value=self.value
+        return (
+            f"{self.__class__.__name__}("
+            f"value={_value!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"value={self.value!s})")
+        _value=self.value
+        return (
+            f"{self.__class__.__name__}("
+            f"value={_value!s}"
+            f")"
+        )

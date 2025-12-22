@@ -25,7 +25,8 @@ class MonthNameEnum(object):
 
     """
 
-    _all_values = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    _all_values = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"]
     JANUARY = "January"
 
     FEBRUARY = "February"

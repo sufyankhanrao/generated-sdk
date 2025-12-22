@@ -28,12 +28,7 @@ try:
         rfc_3339_date_time=rfc_3339_date_time,
         date_var=date_var
     )
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

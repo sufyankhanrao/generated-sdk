@@ -28,7 +28,7 @@ def create_order(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Order`](../../doc/models/order.md).
+[`Order`](../../doc/models/order.md)
 
 ## Related Callbacks
 
@@ -55,11 +55,7 @@ body = CreateOrderRequest(
 )
 
 result = orders_controller.create_order(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

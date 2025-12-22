@@ -12,8 +12,8 @@ class UuidAsOptional(object):
 
     Attributes:
         uuid (uuid|str): The model property of type uuid|str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -26,9 +26,10 @@ class UuidAsOptional(object):
         "uuid",
     ]
 
-    def __init__(self,
-                 uuid=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        uuid=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a UuidAsOptional instance."""
         # Initialize members of the class
         if uuid is not APIHelper.SKIP:
@@ -59,7 +60,9 @@ class UuidAsOptional(object):
         # Extract variables from the dictionary
         uuid =\
             dictionary.get("uuid")\
-            if dictionary.get("uuid") else APIHelper.SKIP
+            if dictionary.get("uuid")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -69,12 +72,30 @@ class UuidAsOptional(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"uuid={(self.uuid if hasattr(self, 'uuid') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _uuid=(
+            self.uuid
+            if hasattr(self, "uuid")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"uuid={_uuid!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"uuid={(self.uuid if hasattr(self, 'uuid') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _uuid=(
+            self.uuid
+            if hasattr(self, "uuid")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"uuid={_uuid!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

@@ -11,8 +11,8 @@ class Imaging(object):
         name (str): The model property of type str.
         time (str): The model property of type str.
         location (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -23,11 +23,12 @@ class Imaging(object):
         "time": "time",
     }
 
-    def __init__(self,
-                 location=None,
-                 name=None,
-                 time=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        location=None,
+        name=None,
+        time=None,
+        additional_properties=None):
         """Initialize a Imaging instance."""
         # Initialize members of the class
         self.name = name
@@ -59,9 +60,17 @@ class Imaging(object):
         # Extract variables from the dictionary
         location =\
             dictionary.get("location")\
-            if dictionary.get("location") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        time = dictionary.get("time") if dictionary.get("time") else None
+            if dictionary.get("location")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        time =\
+            dictionary.get("time")\
+            if dictionary.get("time")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -73,16 +82,30 @@ class Imaging(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!r}, "
-                f"time={self.time!r}, "
-                f"location={self.location!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _name=self.name
+        _time=self.time
+        _location=self.location
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!r}"
+            f"time={_time!r}"
+            f"location={_location!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!s}, "
-                f"time={self.time!s}, "
-                f"location={self.location!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _name=self.name
+        _time=self.time
+        _location=self.location
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!s}"
+            f"time={_time!s}"
+            f"location={_location!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

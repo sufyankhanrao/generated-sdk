@@ -17,12 +17,7 @@ client = BatesterwithcustomparametersClient(
 client_controller = client.client
 try:
     result = client_controller.get_basic_auth_test()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

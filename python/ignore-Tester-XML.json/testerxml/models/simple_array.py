@@ -11,8 +11,8 @@ from testerxml.utilities.xml_utilities import (
 class SimpleArray(object):
     """Implementation of the 'simpleArray' model.
 
-    A model containing a string array with no xml attributes. This model's xml
-    name should be "useThis"
+    A model containing a string array with no xml attributes. This model's xml name
+    should be "useThis"
 
     Attributes:
         elem (List[str]): The model property of type List[str].
@@ -24,8 +24,9 @@ class SimpleArray(object):
         "elem": "elem",
     }
 
-    def __init__(self,
-                 elem=None):
+    def __init__(
+        self,
+        elem=None):
         """Initialize a SimpleArray instance."""
         # Initialize members of the class
         self.elem = elem
@@ -48,7 +49,11 @@ class SimpleArray(object):
             return None
 
         # Extract variables from the dictionary
-        elem = dictionary.get("elem") if dictionary.get("elem") else None
+        elem =\
+            dictionary.get("elem")\
+            if dictionary.get("elem")\
+                else None
+
         # Return an object of this model
         return cls(elem)
 
@@ -78,10 +83,18 @@ class SimpleArray(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"elem={self.elem!r})")
+        _elem=self.elem
+        return (
+            f"{self.__class__.__name__}("
+            f"elem={_elem!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"elem={self.elem!s})")
+        _elem=self.elem
+        return (
+            f"{self.__class__.__name__}("
+            f"elem={_elem!s}"
+            f")"
+        )

@@ -17,8 +17,7 @@ class InnerModel1(object):
     This class contains enum types in oneOf/anyOf cases.
 
     Attributes:
-        country (AfricaContinentEnum): The model property of type
-            AfricaContinentEnum.
+        country (AfricaContinentEnum): The model property of type AfricaContinentEnum.
 
     """
 
@@ -27,8 +26,9 @@ class InnerModel1(object):
         "country": "country",
     }
 
-    def __init__(self,
-                 country=None):
+    def __init__(
+        self,
+        country=None):
         """Initialize a InnerModel1 instance."""
         # Initialize members of the class
         self.country = country
@@ -51,7 +51,11 @@ class InnerModel1(object):
             return None
 
         # Extract variables from the dictionary
-        country = dictionary.get("country") if dictionary.get("country") else None
+        country =\
+            dictionary.get("country")\
+            if dictionary.get("country")\
+                else None
+
         # Return an object of this model
         return cls(country)
 
@@ -70,22 +74,32 @@ class InnerModel1(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.country,
-                type_callable=lambda value: AfricaContinentEnum.validate(value))
+                    value=dictionary.country,
+                    type_callable=lambda value:
+                        AfricaContinentEnum.validate(value))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("country"),
-            type_callable=lambda value: AfricaContinentEnum.validate(value))
+                value=dictionary.get("country"),
+                type_callable=lambda value:
+                    AfricaContinentEnum.validate(value))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"country={self.country!r})")
+        _country=self.country
+        return (
+            f"{self.__class__.__name__}("
+            f"country={_country!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"country={self.country!s})")
+        _country=self.country
+        return (
+            f"{self.__class__.__name__}("
+            f"country={_country!s}"
+            f")"
+        )

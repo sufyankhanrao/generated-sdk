@@ -36,7 +36,7 @@ def create_send_unix_date(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -58,11 +58,7 @@ result = unix_date_controller.create_send_unix_date(
     field,
     date
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -87,7 +83,7 @@ def create_send_unix_date_array(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -111,11 +107,7 @@ result = unix_date_controller.create_send_unix_date_array(
     field,
     date
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -140,7 +132,7 @@ def create_send_unix_date_map(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -164,10 +156,6 @@ result = unix_date_controller.create_send_unix_date_map(
     field,
     date
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

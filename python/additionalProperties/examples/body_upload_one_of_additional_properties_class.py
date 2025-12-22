@@ -30,12 +30,7 @@ body = OneOfAdditionalProperties(
 
 try:
     result = body_controller.upload_one_of_additional_properties(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

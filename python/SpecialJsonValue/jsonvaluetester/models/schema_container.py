@@ -15,10 +15,9 @@ class SchemaContainer(object):
         id (str): The model property of type str.
         schema (dict): The model property of type dict.
         schema_array (List[dict]): The model property of type List[dict].
-        schema_map (Dict[str, dict]): The model property of type Dict[str,
-            dict].
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        schema_map (Dict[str, dict]): The model property of type Dict[str, dict].
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -36,13 +35,14 @@ class SchemaContainer(object):
         "schema_map",
     ]
 
-    def __init__(self,
-                 id=None,
-                 name=None,
-                 schema=None,
-                 schema_array=APIHelper.SKIP,
-                 schema_map=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        id=None,
+        name=None,
+        schema=None,
+        schema_array=APIHelper.SKIP,
+        schema_map=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a SchemaContainer instance."""
         # Initialize members of the class
         self.name = name
@@ -76,15 +76,27 @@ class SchemaContainer(object):
             return None
 
         # Extract variables from the dictionary
-        id = dictionary.get("id") if dictionary.get("id") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        schema = dictionary.get("schema") if dictionary.get("schema") else None
+        id =\
+            dictionary.get("id")\
+            if dictionary.get("id")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        schema =\
+            dictionary.get("schema")\
+            if dictionary.get("schema")\
+                else None
         schema_array =\
             dictionary.get("schemaArray")\
-            if dictionary.get("schemaArray") else APIHelper.SKIP
+            if dictionary.get("schemaArray")\
+                else APIHelper.SKIP
         schema_map =\
             dictionary.get("schemaMap")\
-            if dictionary.get("schemaMap") else APIHelper.SKIP
+            if dictionary.get("schemaMap")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -98,24 +110,54 @@ class SchemaContainer(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!r}, "
-                f"id={self.id!r}, "
-                f"schema={self.schema!r}, "
-                f"schema_array={(self.schema_array
-                     if hasattr(self, 'schema_array') else None)!r}, "
-                f"schema_map={(self.schema_map
-                     if hasattr(self, 'schema_map') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _name=self.name
+        _id=self.id
+        _schema=self.schema
+        _schema_array=(
+            self.schema_array
+            if hasattr(self, "schema_array")
+            else None
+        )
+        _schema_map=(
+            self.schema_map
+            if hasattr(self, "schema_map")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!r}"
+            f"id={_id!r}"
+            f"schema={_schema!r}"
+            f"schema_array={_schema_array!r}"
+            f"schema_map={_schema_map!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!s}, "
-                f"id={self.id!s}, "
-                f"schema={self.schema!s}, "
-                f"schema_array={(self.schema_array
-                     if hasattr(self, 'schema_array') else None)!s}, "
-                f"schema_map={(self.schema_map
-                     if hasattr(self, 'schema_map') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _name=self.name
+        _id=self.id
+        _schema=self.schema
+        _schema_array=(
+            self.schema_array
+            if hasattr(self, "schema_array")
+            else None
+        )
+        _schema_map=(
+            self.schema_map
+            if hasattr(self, "schema_map")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!s}"
+            f"id={_id!s}"
+            f"schema={_schema!s}"
+            f"schema_array={_schema_array!s}"
+            f"schema_map={_schema_map!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

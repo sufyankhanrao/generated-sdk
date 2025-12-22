@@ -47,9 +47,9 @@ class OrdersControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         body = APIHelper.json_deserialize(
-            "{\"customerId\":\"cust_12345\",\"items\":[{\"productId\":\"prod_00"
-            "1\",\"quantity\":2,\"price\":29.99}],\"callbackUrl\":\"https://mer"
-            "chant.example.com/callbacks/payment\"}",
+            "{\"customerId\":\"cust_12345\",\"items\":[{\"productId\":\"prod_001\",\""
+            "quantity\":2,\"price\":29.99}],\"callbackUrl\":\"https://merchant.exampl"
+            "e.com/callbacks/payment\"}",
             CreateOrderRequest.from_dictionary,
         )
 

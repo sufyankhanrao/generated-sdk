@@ -14,8 +14,8 @@ class QueryParameter(object):
 
     Attributes:
         key (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -28,9 +28,10 @@ class QueryParameter(object):
         "key",
     ]
 
-    def __init__(self,
-                 key=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        key=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a QueryParameter instance."""
         # Initialize members of the class
         if key is not APIHelper.SKIP:
@@ -59,7 +60,11 @@ class QueryParameter(object):
             return None
 
         # Extract variables from the dictionary
-        key = dictionary.get("key") if dictionary.get("key") else APIHelper.SKIP
+        key =\
+            dictionary.get("key")\
+            if dictionary.get("key")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -69,12 +74,30 @@ class QueryParameter(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"key={(self.key if hasattr(self, 'key') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _key=(
+            self.key
+            if hasattr(self, "key")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"key={_key!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"key={(self.key if hasattr(self, 'key') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _key=(
+            self.key
+            if hasattr(self, "key")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"key={_key!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

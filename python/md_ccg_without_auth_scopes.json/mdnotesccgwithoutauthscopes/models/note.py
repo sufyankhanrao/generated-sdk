@@ -18,8 +18,8 @@ class Note(object):
         user_id (int): The model property of type int.
         created_at (str): The model property of type str.
         updated_at (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -42,14 +42,15 @@ class Note(object):
         "updated_at",
     ]
 
-    def __init__(self,
-                 id=APIHelper.SKIP,
-                 title=APIHelper.SKIP,
-                 body=APIHelper.SKIP,
-                 user_id=APIHelper.SKIP,
-                 created_at=APIHelper.SKIP,
-                 updated_at=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        id=APIHelper.SKIP,
+        title=APIHelper.SKIP,
+        body=APIHelper.SKIP,
+        user_id=APIHelper.SKIP,
+        created_at=APIHelper.SKIP,
+        updated_at=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a Note instance."""
         # Initialize members of the class
         if id is not APIHelper.SKIP:
@@ -88,22 +89,31 @@ class Note(object):
             return None
 
         # Extract variables from the dictionary
-        id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
+        id =\
+            dictionary.get("id")\
+            if dictionary.get("id")\
+                else APIHelper.SKIP
         title =\
             dictionary.get("title")\
-            if dictionary.get("title") else APIHelper.SKIP
+            if dictionary.get("title")\
+                else APIHelper.SKIP
         body =\
             dictionary.get("body")\
-            if dictionary.get("body") else APIHelper.SKIP
+            if dictionary.get("body")\
+                else APIHelper.SKIP
         user_id =\
             dictionary.get("user_id")\
-            if dictionary.get("user_id") else APIHelper.SKIP
+            if dictionary.get("user_id")\
+                else APIHelper.SKIP
         created_at =\
             dictionary.get("created_at")\
-            if dictionary.get("created_at") else APIHelper.SKIP
+            if dictionary.get("created_at")\
+                else APIHelper.SKIP
         updated_at =\
             dictionary.get("updated_at")\
-            if dictionary.get("updated_at") else APIHelper.SKIP
+            if dictionary.get("updated_at")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -118,28 +128,90 @@ class Note(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"title={(self.title if hasattr(self, 'title') else None)!r}, "
-                f"body={(self.body if hasattr(self, 'body') else None)!r}, "
-                f"user_id={(self.user_id
-                     if hasattr(self, 'user_id') else None)!r}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!r}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _id=(
+            self.id
+            if hasattr(self, "id")
+            else None
+        )
+        _title=(
+            self.title
+            if hasattr(self, "title")
+            else None
+        )
+        _body=(
+            self.body
+            if hasattr(self, "body")
+            else None
+        )
+        _user_id=(
+            self.user_id
+            if hasattr(self, "user_id")
+            else None
+        )
+        _created_at=(
+            self.created_at
+            if hasattr(self, "created_at")
+            else None
+        )
+        _updated_at=(
+            self.updated_at
+            if hasattr(self, "updated_at")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!r}"
+            f"title={_title!r}"
+            f"body={_body!r}"
+            f"user_id={_user_id!r}"
+            f"created_at={_created_at!r}"
+            f"updated_at={_updated_at!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"title={(self.title if hasattr(self, 'title') else None)!s}, "
-                f"body={(self.body if hasattr(self, 'body') else None)!s}, "
-                f"user_id={(self.user_id
-                     if hasattr(self, 'user_id') else None)!s}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!s}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _id=(
+            self.id
+            if hasattr(self, "id")
+            else None
+        )
+        _title=(
+            self.title
+            if hasattr(self, "title")
+            else None
+        )
+        _body=(
+            self.body
+            if hasattr(self, "body")
+            else None
+        )
+        _user_id=(
+            self.user_id
+            if hasattr(self, "user_id")
+            else None
+        )
+        _created_at=(
+            self.created_at
+            if hasattr(self, "created_at")
+            else None
+        )
+        _updated_at=(
+            self.updated_at
+            if hasattr(self, "updated_at")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!s}"
+            f"title={_title!s}"
+            f"body={_body!s}"
+            f"user_id={_user_id!s}"
+            f"created_at={_created_at!s}"
+            f"updated_at={_updated_at!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

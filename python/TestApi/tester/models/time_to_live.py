@@ -10,8 +10,8 @@ class TimeToLive(object):
     Attributes:
         deadline (str): The model property of type str.
         delete_after_hours (int): The model property of type int.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -21,10 +21,11 @@ class TimeToLive(object):
         "delete_after_hours": "deleteAfterHours",
     }
 
-    def __init__(self,
-                 deadline=None,
-                 delete_after_hours=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        deadline=None,
+        delete_after_hours=None,
+        additional_properties=None):
         """Initialize a TimeToLive instance."""
         # Initialize members of the class
         self.deadline = deadline
@@ -55,10 +56,13 @@ class TimeToLive(object):
         # Extract variables from the dictionary
         deadline =\
             dictionary.get("deadline")\
-            if dictionary.get("deadline") else None
+            if dictionary.get("deadline")\
+                else None
         delete_after_hours =\
             dictionary.get("deleteAfterHours")\
-            if dictionary.get("deleteAfterHours") else None
+            if dictionary.get("deleteAfterHours")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -69,14 +73,26 @@ class TimeToLive(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"deadline={self.deadline!r}, "
-                f"delete_after_hours={self.delete_after_hours!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _deadline=self.deadline
+        _delete_after_hours=self.delete_after_hours
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"deadline={_deadline!r}"
+            f"delete_after_hours={_delete_after_hours!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"deadline={self.deadline!s}, "
-                f"delete_after_hours={self.delete_after_hours!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _deadline=self.deadline
+        _delete_after_hours=self.delete_after_hours
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"deadline={_deadline!s}"
+            f"delete_after_hours={_delete_after_hours!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

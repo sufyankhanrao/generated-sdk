@@ -44,12 +44,7 @@ days = [
 
 try:
     result = query_param_controller.string_enum_array(days)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

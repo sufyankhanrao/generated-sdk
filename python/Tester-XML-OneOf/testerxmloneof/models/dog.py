@@ -21,8 +21,9 @@ class Dog(object):
         "barks": "Barks",
     }
 
-    def __init__(self,
-                 barks=None):
+    def __init__(
+        self,
+        barks=None):
         """Initialize a Dog instance."""
         # Initialize members of the class
         self.barks = barks
@@ -45,7 +46,11 @@ class Dog(object):
             return None
 
         # Extract variables from the dictionary
-        barks = dictionary.get("Barks") if "Barks" in dictionary.keys() else None
+        barks =\
+            dictionary.get("Barks")\
+            if "Barks" in dictionary.keys()\
+                else None
+
         # Return an object of this model
         return cls(barks)
 
@@ -75,10 +80,18 @@ class Dog(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"barks={self.barks!r})")
+        _barks=self.barks
+        return (
+            f"{self.__class__.__name__}("
+            f"barks={_barks!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"barks={self.barks!s})")
+        _barks=self.barks
+        return (
+            f"{self.__class__.__name__}("
+            f"barks={_barks!s}"
+            f")"
+        )

@@ -21,8 +21,9 @@ class PaymentStatusUpdatedEvent(object):
         "payment_status_id": "paymentStatusId",
     }
 
-    def __init__(self,
-                 payment_status_id=None):
+    def __init__(
+        self,
+        payment_status_id=None):
         """Initialize a PaymentStatusUpdatedEvent instance."""
         # Initialize members of the class
         self.payment_status_id = payment_status_id
@@ -47,7 +48,9 @@ class PaymentStatusUpdatedEvent(object):
         # Extract variables from the dictionary
         payment_status_id =\
             dictionary.get("paymentStatusId")\
-            if dictionary.get("paymentStatusId") else None
+            if dictionary.get("paymentStatusId")\
+                else None
+
         # Return an object of this model
         return cls(payment_status_id)
 
@@ -66,22 +69,38 @@ class PaymentStatusUpdatedEvent(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.payment_status_id,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.payment_status_id,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("paymentStatusId"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("paymentStatusId"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"payment_status_id={self.payment_status_id!r})")
+        _payment_status_id=self.payment_status_id
+        return (
+            f"{self.__class__.__name__}("
+            f"payment_status_id={_payment_status_id!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"payment_status_id={self.payment_status_id!s})")
+        _payment_status_id=self.payment_status_id
+        return (
+            f"{self.__class__.__name__}("
+            f"payment_status_id={_payment_status_id!s}"
+            f")"
+        )

@@ -12,12 +12,7 @@ client = CustomizableerrormessagesClient(
 customized_error_messages_controller = client.customized_error_messages
 try:
     result = customized_error_messages_controller.endpoint_level_error_template_message()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except ErrorModel3Exception as e: 
     print(e)
 except ErrorModel2Exception as e: 

@@ -44,14 +44,15 @@ class Person(object):
         "person_type",
     ]
 
-    def __init__(self,
-                 address=None,
-                 age=None,
-                 birthday=None,
-                 birthtime=None,
-                 name=None,
-                 uid=None,
-                 person_type="Per"):
+    def __init__(
+        self,
+        address=None,
+        age=None,
+        birthday=None,
+        birthtime=None,
+        name=None,
+        uid=None,
+        person_type="Per"):
         """Initialize a Person instance."""
         # Initialize members of the class
         self.address = address
@@ -59,7 +60,8 @@ class Person(object):
         self.birthday = birthday
         self.birthtime =\
              APIHelper.apply_datetime_converter(
-            birthtime, APIHelper.RFC3339DateTime) if birthtime else None
+            birthtime, APIHelper.RFC3339DateTime)\
+             if birthtime else None
         self.name = name
         self.uid = uid
         self.person_type = person_type
@@ -93,18 +95,33 @@ class Person(object):
             return unboxer(dictionary)
 
         # Extract variables from the dictionary
-        address = dictionary.get("address") if dictionary.get("address") else None
-        age = dictionary.get("age") if dictionary.get("age") else None
-        birthday = dateutil.parser.parse(dictionary.get("birthday")).date()\
+        address =\
+            dictionary.get("address")\
+            if dictionary.get("address")\
+                else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else None
+        birthday = dateutil.parser.parse(
+            dictionary.get("birthday")).date()\
             if dictionary.get("birthday") else None
         birthtime = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("birthtime")).datetime\
             if dictionary.get("birthtime") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        uid = dictionary.get("uid") if dictionary.get("uid") else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        uid =\
+            dictionary.get("uid")\
+            if dictionary.get("uid")\
+                else None
         person_type =\
             dictionary.get("personType")\
-            if dictionary.get("personType") else "Per"
+            if dictionary.get("personType")\
+                else "Per"
+
         # Return an object of this model
         return cls(address,
                    age,
@@ -129,23 +146,47 @@ class Person(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.address,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.address,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.age,
-                type_callable=lambda value: isinstance(value, int)) \
+                    value=dictionary.age,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.birthday,
-                type_callable=lambda value: isinstance(value, date)) \
+                    value=dictionary.birthday,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        date,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.birthtime,
-                type_callable=lambda value: isinstance(value, APIHelper.RFC3339DateTime)) \
+                    value=dictionary.birthtime,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        APIHelper.RFC3339DateTime,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.name,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.uid,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.uid,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
@@ -163,47 +204,97 @@ class Person(object):
             return validator(dictionary)
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("address"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("address"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("age"),
-            type_callable=lambda value: isinstance(value, int)) \
+                value=dictionary.get("age"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("birthday"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("birthday"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("birthtime"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("birthtime"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("name"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("name"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("uid"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("uid"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"address={self.address!r}, "
-                f"age={self.age!r}, "
-                f"birthday={self.birthday!r}, "
-                f"birthtime={self.birthtime!r}, "
-                f"name={self.name!r}, "
-                f"uid={self.uid!r}, "
-                f"person_type={(self.person_type
-                     if hasattr(self, 'person_type') else None)!r})")
+        _address=self.address
+        _age=self.age
+        _birthday=self.birthday
+        _birthtime=self.birthtime
+        _name=self.name
+        _uid=self.uid
+        _person_type=(
+            self.person_type
+            if hasattr(self, "person_type")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"address={_address!r}"
+            f"age={_age!r}"
+            f"birthday={_birthday!r}"
+            f"birthtime={_birthtime!r}"
+            f"name={_name!r}"
+            f"uid={_uid!r}"
+            f"person_type={_person_type!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"address={self.address!s}, "
-                f"age={self.age!s}, "
-                f"birthday={self.birthday!s}, "
-                f"birthtime={self.birthtime!s}, "
-                f"name={self.name!s}, "
-                f"uid={self.uid!s}, "
-                f"person_type={(self.person_type
-                     if hasattr(self, 'person_type') else None)!s})")
+        _address=self.address
+        _age=self.age
+        _birthday=self.birthday
+        _birthtime=self.birthtime
+        _name=self.name
+        _uid=self.uid
+        _person_type=(
+            self.person_type
+            if hasattr(self, "person_type")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"address={_address!s}"
+            f"age={_age!s}"
+            f"birthday={_birthday!s}"
+            f"birthtime={_birthtime!s}"
+            f"name={_name!s}"
+            f"uid={_uid!s}"
+            f"person_type={_person_type!s}"
+            f")"
+        )
 
 class Employee(Person):
     """Implementation of the 'Employee' model.
@@ -215,8 +306,7 @@ class Employee(Person):
         hired_at (datetime): The model property of type datetime.
         joining_day (DaysEnum): The model property of type DaysEnum.
         salary (int): The model property of type int.
-        working_days (List[DaysEnum]): The model property of type
-            List[DaysEnum].
+        working_days (List[DaysEnum]): The model property of type List[DaysEnum].
         boss (Person): The model property of type Person.
 
     """
@@ -248,28 +338,30 @@ class Employee(Person):
         "boss",
     ]
 
-    def __init__(self,
-                 department=None,
-                 dependents=None,
-                 hired_at=None,
-                 joining_day="Monday",
-                 salary=None,
-                 working_days=None,
-                 address=None,
-                 age=None,
-                 birthday=None,
-                 birthtime=None,
-                 name=None,
-                 uid=None,
-                 boss=APIHelper.SKIP,
-                 person_type="Empl"):
+    def __init__(
+        self,
+        department=None,
+        dependents=None,
+        hired_at=None,
+        joining_day="Monday",
+        salary=None,
+        working_days=None,
+        address=None,
+        age=None,
+        birthday=None,
+        birthtime=None,
+        name=None,
+        uid=None,
+        boss=APIHelper.SKIP,
+        person_type="Empl"):
         """Initialize a Employee instance."""
         # Initialize members of the class
         self.department = department
         self.dependents = dependents
         self.hired_at =\
              APIHelper.apply_datetime_converter(
-            hired_at, APIHelper.HttpDateTime) if hired_at else None
+            hired_at, APIHelper.HttpDateTime)\
+             if hired_at else None
         self.joining_day = joining_day
         self.salary = salary
         self.working_days = working_days
@@ -277,13 +369,14 @@ class Employee(Person):
             self.boss = boss
 
         # Call the constructor for the base class
-        super(Employee, self).__init__(address,
-                                       age,
-                                       birthday,
-                                       birthtime,
-                                       name,
-                                       uid,
-                                       person_type)
+        super(Employee, self).__init__(
+            address,
+            age,
+            birthday,
+            birthtime,
+            name,
+            uid,
+            person_type)
 
     @classmethod
     def from_dictionary(cls,
@@ -305,7 +398,8 @@ class Employee(Person):
         # Extract variables from the dictionary
         department =\
             dictionary.get("department")\
-            if dictionary.get("department") else None
+            if dictionary.get("department")\
+                else None
         dependents = None
         if dictionary.get("dependents") is not None:
             dependents = [
@@ -317,27 +411,50 @@ class Employee(Person):
             if dictionary.get("hiredAt") else None
         joining_day =\
             dictionary.get("joiningDay")\
-            if dictionary.get("joiningDay") else "Monday"
-        salary = dictionary.get("salary") if dictionary.get("salary") else None
+            if dictionary.get("joiningDay")\
+                else "Monday"
+        salary =\
+            dictionary.get("salary")\
+            if dictionary.get("salary")\
+                else None
         working_days =\
             dictionary.get("workingDays")\
-            if dictionary.get("workingDays") else None
-        address = dictionary.get("address") if dictionary.get("address") else None
-        age = dictionary.get("age") if dictionary.get("age") else None
-        birthday = dateutil.parser.parse(dictionary.get("birthday")).date()\
+            if dictionary.get("workingDays")\
+                else None
+        address =\
+            dictionary.get("address")\
+            if dictionary.get("address")\
+                else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else None
+        birthday = dateutil.parser.parse(
+            dictionary.get("birthday")).date()\
             if dictionary.get("birthday") else None
         birthtime = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("birthtime")).datetime\
             if dictionary.get("birthtime") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        uid = dictionary.get("uid") if dictionary.get("uid") else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        uid =\
+            dictionary.get("uid")\
+            if dictionary.get("uid")\
+                else None
         if "boss" in dictionary.keys():
-            boss = Person.from_dictionary(dictionary.get("boss")) if dictionary.get("boss") else None
+            boss =\
+                Person.from_dictionary(
+                dictionary.get("boss"))\
+                if dictionary.get("boss") else None
         else:
             boss = APIHelper.SKIP
         person_type =\
             dictionary.get("personType")\
-            if dictionary.get("personType") else "Empl"
+            if dictionary.get("personType")\
+                else "Empl"
+
         # Return an object of this model
         return cls(department,
                    dependents,
@@ -356,29 +473,59 @@ class Employee(Person):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"department={self.department!r}, "
-                f"dependents={self.dependents!r}, "
-                f"hired_at={self.hired_at!r}, "
-                f"joining_day={self.joining_day!r}, "
-                f"salary={self.salary!r}, "
-                f"working_days={self.working_days!r}, "
-                f"boss={(self.boss if hasattr(self, 'boss') else None)!r})")
+        _department=self.department
+        _dependents=self.dependents
+        _hired_at=self.hired_at
+        _joining_day=self.joining_day
+        _salary=self.salary
+        _working_days=self.working_days
+        _boss=(
+            self.boss
+            if hasattr(self, "boss")
+            else None
+        )
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"department={_department!r}"
+            f"dependents={_dependents!r}"
+            f"hired_at={_hired_at!r}"
+            f"joining_day={_joining_day!r}"
+            f"salary={_salary!r}"
+            f"working_days={_working_days!r}"
+            f"boss={_boss!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"department={self.department!s}, "
-                f"dependents={self.dependents!s}, "
-                f"hired_at={self.hired_at!s}, "
-                f"joining_day={self.joining_day!s}, "
-                f"salary={self.salary!s}, "
-                f"working_days={self.working_days!s}, "
-                f"boss={(self.boss if hasattr(self, 'boss') else None)!s})")
+        _department=self.department
+        _dependents=self.dependents
+        _hired_at=self.hired_at
+        _joining_day=self.joining_day
+        _salary=self.salary
+        _working_days=self.working_days
+        _boss=(
+            self.boss
+            if hasattr(self, "boss")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"department={_department!s}"
+            f"dependents={_dependents!s}"
+            f"hired_at={_hired_at!s}"
+            f"joining_day={_joining_day!s}"
+            f"salary={_salary!s}"
+            f"working_days={_working_days!s}"
+            f"boss={_boss!s}"
+            f")"
+        )
 
 class Postman(Person):
     """Implementation of the 'Postman' model.
@@ -390,8 +537,7 @@ class Postman(Person):
         hired_at (datetime): The model property of type datetime.
         joining_day (DaysEnum): The model property of type DaysEnum.
         salary (int): The model property of type int.
-        working_days (List[DaysEnum]): The model property of type
-            List[DaysEnum].
+        working_days (List[DaysEnum]): The model property of type List[DaysEnum].
 
     """
 
@@ -412,39 +558,42 @@ class Postman(Person):
         "person_type": "personType",
     }
 
-    def __init__(self,
-                 department=None,
-                 dependents=None,
-                 hired_at=None,
-                 joining_day="Monday",
-                 salary=None,
-                 working_days=None,
-                 address=None,
-                 age=None,
-                 birthday=None,
-                 birthtime=None,
-                 name=None,
-                 uid=None,
-                 person_type="Post"):
+    def __init__(
+        self,
+        department=None,
+        dependents=None,
+        hired_at=None,
+        joining_day="Monday",
+        salary=None,
+        working_days=None,
+        address=None,
+        age=None,
+        birthday=None,
+        birthtime=None,
+        name=None,
+        uid=None,
+        person_type="Post"):
         """Initialize a Postman instance."""
         # Initialize members of the class
         self.department = department
         self.dependents = dependents
         self.hired_at =\
              APIHelper.apply_datetime_converter(
-            hired_at, APIHelper.HttpDateTime) if hired_at else None
+            hired_at, APIHelper.HttpDateTime)\
+             if hired_at else None
         self.joining_day = joining_day
         self.salary = salary
         self.working_days = working_days
 
         # Call the constructor for the base class
-        super(Postman, self).__init__(address,
-                                      age,
-                                      birthday,
-                                      birthtime,
-                                      name,
-                                      uid,
-                                      person_type)
+        super(Postman, self).__init__(
+            address,
+            age,
+            birthday,
+            birthtime,
+            name,
+            uid,
+            person_type)
 
     @classmethod
     def from_dictionary(cls,
@@ -466,7 +615,8 @@ class Postman(Person):
         # Extract variables from the dictionary
         department =\
             dictionary.get("department")\
-            if dictionary.get("department") else None
+            if dictionary.get("department")\
+                else None
         dependents = None
         if dictionary.get("dependents") is not None:
             dependents = [
@@ -478,23 +628,43 @@ class Postman(Person):
             if dictionary.get("hiredAt") else None
         joining_day =\
             dictionary.get("joiningDay")\
-            if dictionary.get("joiningDay") else "Monday"
-        salary = dictionary.get("salary") if dictionary.get("salary") else None
+            if dictionary.get("joiningDay")\
+                else "Monday"
+        salary =\
+            dictionary.get("salary")\
+            if dictionary.get("salary")\
+                else None
         working_days =\
             dictionary.get("workingDays")\
-            if dictionary.get("workingDays") else None
-        address = dictionary.get("address") if dictionary.get("address") else None
-        age = dictionary.get("age") if dictionary.get("age") else None
-        birthday = dateutil.parser.parse(dictionary.get("birthday")).date()\
+            if dictionary.get("workingDays")\
+                else None
+        address =\
+            dictionary.get("address")\
+            if dictionary.get("address")\
+                else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else None
+        birthday = dateutil.parser.parse(
+            dictionary.get("birthday")).date()\
             if dictionary.get("birthday") else None
         birthtime = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("birthtime")).datetime\
             if dictionary.get("birthtime") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        uid = dictionary.get("uid") if dictionary.get("uid") else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        uid =\
+            dictionary.get("uid")\
+            if dictionary.get("uid")\
+                else None
         person_type =\
             dictionary.get("personType")\
-            if dictionary.get("personType") else "Post"
+            if dictionary.get("personType")\
+                else "Post"
+
         # Return an object of this model
         return cls(department,
                    dependents,
@@ -525,106 +695,204 @@ class Postman(Person):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.department,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.department,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.dependents,
-                type_callable=lambda value: Person.validate(value),
-                is_model_dict=True,
-                is_inner_model_dict=True) \
+                    value=dictionary.dependents,
+                    type_callable=lambda value:
+                        Person.validate(value),
+                    is_model_dict=True,
+                    is_inner_model_dict=True) \
                 and APIHelper.is_valid_type(
-                value=dictionary.hired_at,
-                type_callable=lambda value: isinstance(value, APIHelper.HttpDateTime)) \
+                    value=dictionary.hired_at,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        APIHelper.HttpDateTime,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.joining_day,
-                type_callable=lambda value: DaysEnum.validate(value)) \
+                    value=dictionary.joining_day,
+                    type_callable=lambda value:
+                        DaysEnum.validate(value)) \
                 and APIHelper.is_valid_type(
-                value=dictionary.salary,
-                type_callable=lambda value: isinstance(value, int)) \
+                    value=dictionary.salary,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.working_days,
-                type_callable=lambda value: DaysEnum.validate(value)) \
+                    value=dictionary.working_days,
+                    type_callable=lambda value:
+                        DaysEnum.validate(value)) \
                 and APIHelper.is_valid_type(
-                value=dictionary.address,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.address,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.age,
-                type_callable=lambda value: isinstance(value, int)) \
+                    value=dictionary.age,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.birthday,
-                type_callable=lambda value: isinstance(value, date)) \
+                    value=dictionary.birthday,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        date,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.birthtime,
-                type_callable=lambda value: isinstance(value, APIHelper.RFC3339DateTime)) \
+                    value=dictionary.birthtime,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        APIHelper.RFC3339DateTime,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.name,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.uid,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.uid,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("department"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("department"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("dependents"),
-            type_callable=lambda value: Person.validate(value),
-            is_model_dict=True,
-            is_inner_model_dict=True) \
+                value=dictionary.get("dependents"),
+                type_callable=lambda value:
+                    Person.validate(value),
+                is_model_dict=True,
+                is_inner_model_dict=True) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("hiredAt"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("hiredAt"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("joiningDay"),
-            type_callable=lambda value: DaysEnum.validate(value)) \
+                value=dictionary.get("joiningDay"),
+                type_callable=lambda value:
+                    DaysEnum.validate(value)) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("salary"),
-            type_callable=lambda value: isinstance(value, int)) \
+                value=dictionary.get("salary"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("workingDays"),
-            type_callable=lambda value: DaysEnum.validate(value)) \
+                value=dictionary.get("workingDays"),
+                type_callable=lambda value:
+                    DaysEnum.validate(value)) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("address"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("address"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("age"),
-            type_callable=lambda value: isinstance(value, int)) \
+                value=dictionary.get("age"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("birthday"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("birthday"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("birthtime"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("birthtime"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("name"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("name"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("uid"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("uid"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"department={self.department!r}, "
-                f"dependents={self.dependents!r}, "
-                f"hired_at={self.hired_at!r}, "
-                f"joining_day={self.joining_day!r}, "
-                f"salary={self.salary!r}, "
-                f"working_days={self.working_days!r})")
+        _department=self.department
+        _dependents=self.dependents
+        _hired_at=self.hired_at
+        _joining_day=self.joining_day
+        _salary=self.salary
+        _working_days=self.working_days
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"department={_department!r}"
+            f"dependents={_dependents!r}"
+            f"hired_at={_hired_at!r}"
+            f"joining_day={_joining_day!r}"
+            f"salary={_salary!r}"
+            f"working_days={_working_days!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"department={self.department!s}, "
-                f"dependents={self.dependents!s}, "
-                f"hired_at={self.hired_at!s}, "
-                f"joining_day={self.joining_day!s}, "
-                f"salary={self.salary!s}, "
-                f"working_days={self.working_days!s})")
+        _department=self.department
+        _dependents=self.dependents
+        _hired_at=self.hired_at
+        _joining_day=self.joining_day
+        _salary=self.salary
+        _working_days=self.working_days
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"department={_department!s}"
+            f"dependents={_dependents!s}"
+            f"hired_at={_hired_at!s}"
+            f"joining_day={_joining_day!s}"
+            f"salary={_salary!s}"
+            f"working_days={_working_days!s}"
+            f")"
+        )

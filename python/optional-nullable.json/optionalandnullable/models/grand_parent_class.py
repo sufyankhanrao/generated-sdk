@@ -31,10 +31,11 @@ class GrandParentClass(object):
         "grand_parent_required_nullable",
     ]
 
-    def __init__(self,
-                 grand_parent_required_nullable=None,
-                 grand_parent_required="not nullable and required",
-                 grand_parent_optional=APIHelper.SKIP):
+    def __init__(
+        self,
+        grand_parent_required_nullable=None,
+        grand_parent_required="not nullable and required",
+        grand_parent_optional=APIHelper.SKIP):
         """Initialize a GrandParentClass instance."""
         # Initialize members of the class
         if grand_parent_optional is not APIHelper.SKIP:
@@ -62,13 +63,17 @@ class GrandParentClass(object):
         # Extract variables from the dictionary
         grand_parent_required_nullable =\
             dictionary.get("Grand_Parent_Required_Nullable")\
-            if dictionary.get("Grand_Parent_Required_Nullable") else None
+            if dictionary.get("Grand_Parent_Required_Nullable")\
+                else None
         grand_parent_required =\
             dictionary.get("Grand_Parent_Required")\
-            if dictionary.get("Grand_Parent_Required") else "not nullable and required"
+            if dictionary.get("Grand_Parent_Required")\
+                else "not nullable and required"
         grand_parent_optional =\
             dictionary.get("Grand_Parent_Optional")\
-            if dictionary.get("Grand_Parent_Optional") else APIHelper.SKIP
+            if dictionary.get("Grand_Parent_Optional")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(grand_parent_required_nullable,
                    grand_parent_required,
@@ -76,21 +81,37 @@ class GrandParentClass(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"grand_parent_optional={(self.grand_parent_optional
-                     if hasattr(self, 'grand_parent_optional') else None)!r}, "
-                f"grand_parent_required_nullable={
-                    self.grand_parent_required_nullable!r}, "
-                f"grand_parent_required={self.grand_parent_required!r})")
+        _grand_parent_optional=(
+            self.grand_parent_optional
+            if hasattr(self, "grand_parent_optional")
+            else None
+        )
+        _grand_parent_required_nullable=self.grand_parent_required_nullable
+        _grand_parent_required=self.grand_parent_required
+        return (
+            f"{self.__class__.__name__}("
+            f"grand_parent_optional={_grand_parent_optional!r}"
+            f"grand_parent_required_nullable={_grand_parent_required_nullable!r}"
+            f"grand_parent_required={_grand_parent_required!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"grand_parent_optional={(self.grand_parent_optional
-                     if hasattr(self, 'grand_parent_optional') else None)!s}, "
-                f"grand_parent_required_nullable={
-                    self.grand_parent_required_nullable!s}, "
-                f"grand_parent_required={self.grand_parent_required!s})")
+        _grand_parent_optional=(
+            self.grand_parent_optional
+            if hasattr(self, "grand_parent_optional")
+            else None
+        )
+        _grand_parent_required_nullable=self.grand_parent_required_nullable
+        _grand_parent_required=self.grand_parent_required
+        return (
+            f"{self.__class__.__name__}("
+            f"grand_parent_optional={_grand_parent_optional!s}"
+            f"grand_parent_required_nullable={_grand_parent_required_nullable!s}"
+            f"grand_parent_required={_grand_parent_required!s}"
+            f")"
+        )
 
 class ParentClass(GrandParentClass):
     """Implementation of the 'Parent Class' model.
@@ -100,8 +121,8 @@ class ParentClass(GrandParentClass):
         mclass (int): The model property of type int.
         precision (float): The model property of type float.
         big_decimal (float): The model property of type float.
-        parent_optional_nullable_with_default_value (str): The model property
-            of type str.
+        parent_optional_nullable_with_default_value (str): The model property of type
+            str.
         parent_optional (str): The model property of type str.
         parent_required_nullable (str): The model property of type str.
         parent_required (str): The model property of type str.
@@ -141,17 +162,18 @@ class ParentClass(GrandParentClass):
     ]
     _nullables.extend(GrandParentClass._nullables)
 
-    def __init__(self,
-                 parent_required_nullable=None,
-                 parent_required="not nullable and required",
-                 grand_parent_required_nullable=None,
-                 grand_parent_required="not nullable and required",
-                 mclass=23,
-                 precision=APIHelper.SKIP,
-                 big_decimal=APIHelper.SKIP,
-                 parent_optional_nullable_with_default_value="Has default value",
-                 parent_optional=APIHelper.SKIP,
-                 grand_parent_optional=APIHelper.SKIP):
+    def __init__(
+        self,
+        parent_required_nullable=None,
+        parent_required="not nullable and required",
+        grand_parent_required_nullable=None,
+        grand_parent_required="not nullable and required",
+        mclass=23,
+        precision=APIHelper.SKIP,
+        big_decimal=APIHelper.SKIP,
+        parent_optional_nullable_with_default_value="Has default value",
+        parent_optional=APIHelper.SKIP,
+        grand_parent_optional=APIHelper.SKIP):
         """Initialize a ParentClass instance."""
         # Initialize members of the class
         self.mclass = mclass
@@ -167,9 +189,10 @@ class ParentClass(GrandParentClass):
         self.parent_required = parent_required
 
         # Call the constructor for the base class
-        super(ParentClass, self).__init__(grand_parent_required_nullable,
-                                          grand_parent_required,
-                                          grand_parent_optional)
+        super(ParentClass, self).__init__(
+            grand_parent_required_nullable,
+            grand_parent_required,
+            grand_parent_optional)
 
     @classmethod
     def from_dictionary(cls,
@@ -191,32 +214,45 @@ class ParentClass(GrandParentClass):
         # Extract variables from the dictionary
         parent_required_nullable =\
             dictionary.get("Parent_Required_Nullable")\
-            if dictionary.get("Parent_Required_Nullable") else None
+            if dictionary.get("Parent_Required_Nullable")\
+                else None
         parent_required =\
             dictionary.get("Parent_Required")\
-            if dictionary.get("Parent_Required") else "not nullable and required"
+            if dictionary.get("Parent_Required")\
+                else "not nullable and required"
         grand_parent_required_nullable =\
             dictionary.get("Grand_Parent_Required_Nullable")\
-            if dictionary.get("Grand_Parent_Required_Nullable") else None
+            if dictionary.get("Grand_Parent_Required_Nullable")\
+                else None
         grand_parent_required =\
             dictionary.get("Grand_Parent_Required")\
-            if dictionary.get("Grand_Parent_Required") else "not nullable and required"
-        mclass = dictionary.get("class") if dictionary.get("class") else 23
+            if dictionary.get("Grand_Parent_Required")\
+                else "not nullable and required"
+        mclass =\
+            dictionary.get("class")\
+            if dictionary.get("class")\
+                else 23
         precision =\
             dictionary.get("precision")\
-            if "precision" in dictionary.keys() else APIHelper.SKIP
+            if "precision" in dictionary.keys()\
+                else APIHelper.SKIP
         big_decimal =\
             dictionary.get("Big_Decimal")\
-            if "Big_Decimal" in dictionary.keys() else APIHelper.SKIP
+            if "Big_Decimal" in dictionary.keys()\
+                else APIHelper.SKIP
         parent_optional_nullable_with_default_value =\
             dictionary.get("Parent_Optional_Nullable_With_Default_Value")\
-            if dictionary.get("Parent_Optional_Nullable_With_Default_Value") else "Has default value"
+            if dictionary.get("Parent_Optional_Nullable_With_Default_Value")\
+                else "Has default value"
         parent_optional =\
             dictionary.get("Parent_Optional")\
-            if dictionary.get("Parent_Optional") else APIHelper.SKIP
+            if dictionary.get("Parent_Optional")\
+                else APIHelper.SKIP
         grand_parent_optional =\
             dictionary.get("Grand_Parent_Optional")\
-            if dictionary.get("Grand_Parent_Optional") else APIHelper.SKIP
+            if dictionary.get("Grand_Parent_Optional")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(parent_required_nullable,
                    parent_required,
@@ -231,37 +267,91 @@ class ParentClass(GrandParentClass):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"mclass={(self.mclass if hasattr(self, 'mclass') else None)!r}, "
-                f"precision={(self.precision
-                     if hasattr(self, 'precision') else None)!r}, "
-                f"big_decimal={(self.big_decimal
-                     if hasattr(self, 'big_decimal') else None)!r}, "
-                f"parent_optional_nullable_with_default_value={(self.parent_optional_nullable_with_default_value
-                     if hasattr(self, 'parent_optional_nullable_with_default_value') else None)!r}, "
-                f"parent_optional={(self.parent_optional
-                     if hasattr(self, 'parent_optional') else None)!r}, "
-                f"parent_required_nullable={self.parent_required_nullable!r}, "
-                f"parent_required={self.parent_required!r})")
+        _mclass=(
+            self.mclass
+            if hasattr(self, "mclass")
+            else None
+        )
+        _precision=(
+            self.precision
+            if hasattr(self, "precision")
+            else None
+        )
+        _big_decimal=(
+            self.big_decimal
+            if hasattr(self, "big_decimal")
+            else None
+        )
+        _parent_optional_nullable_with_default_value=(
+            self.parent_optional_nullable_with_default_value
+            if hasattr(self, "parent_optional_nullable_with_default_value")
+            else None
+        )
+        _parent_optional=(
+            self.parent_optional
+            if hasattr(self, "parent_optional")
+            else None
+        )
+        _parent_required_nullable=self.parent_required_nullable
+        _parent_required=self.parent_required
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"mclass={_mclass!r}"
+            f"precision={_precision!r}"
+            f"big_decimal={_big_decimal!r}"
+            f"parent_optional_nullable_with_default_value={_parent_optional_nullable_with_default_value!r}"
+            f"parent_optional={_parent_optional!r}"
+            f"parent_required_nullable={_parent_required_nullable!r}"
+            f"parent_required={_parent_required!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"mclass={(self.mclass if hasattr(self, 'mclass') else None)!s}, "
-                f"precision={(self.precision
-                     if hasattr(self, 'precision') else None)!s}, "
-                f"big_decimal={(self.big_decimal
-                     if hasattr(self, 'big_decimal') else None)!s}, "
-                f"parent_optional_nullable_with_default_value={(self.parent_optional_nullable_with_default_value
-                     if hasattr(self, 'parent_optional_nullable_with_default_value') else None)!s}, "
-                f"parent_optional={(self.parent_optional
-                     if hasattr(self, 'parent_optional') else None)!s}, "
-                f"parent_required_nullable={self.parent_required_nullable!s}, "
-                f"parent_required={self.parent_required!s})")
+        _mclass=(
+            self.mclass
+            if hasattr(self, "mclass")
+            else None
+        )
+        _precision=(
+            self.precision
+            if hasattr(self, "precision")
+            else None
+        )
+        _big_decimal=(
+            self.big_decimal
+            if hasattr(self, "big_decimal")
+            else None
+        )
+        _parent_optional_nullable_with_default_value=(
+            self.parent_optional_nullable_with_default_value
+            if hasattr(self, "parent_optional_nullable_with_default_value")
+            else None
+        )
+        _parent_optional=(
+            self.parent_optional
+            if hasattr(self, "parent_optional")
+            else None
+        )
+        _parent_required_nullable=self.parent_required_nullable
+        _parent_required=self.parent_required
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"mclass={_mclass!s}"
+            f"precision={_precision!s}"
+            f"big_decimal={_big_decimal!s}"
+            f"parent_optional_nullable_with_default_value={_parent_optional_nullable_with_default_value!s}"
+            f"parent_optional={_parent_optional!s}"
+            f"parent_required_nullable={_parent_required_nullable!s}"
+            f"parent_required={_parent_required!s}"
+            f")"
+        )
 
 class ChildClass(ParentClass):
     """Implementation of the 'Child Class' model.
@@ -269,8 +359,7 @@ class ChildClass(ParentClass):
 
     Attributes:
         optional_nullable (str): The model property of type str.
-        optional_nullable_with_default_value (str): The model property of type
-            str.
+        optional_nullable_with_default_value (str): The model property of type str.
         optional (str): The model property of type str.
         required_nullable (str): The model property of type str.
         required (str): The model property of type str.
@@ -317,23 +406,24 @@ class ChildClass(ParentClass):
     ]
     _nullables.extend(ParentClass._nullables)
 
-    def __init__(self,
-                 required_nullable=None,
-                 required="not nullable and required",
-                 parent_required_nullable=None,
-                 parent_required="not nullable and required",
-                 grand_parent_required_nullable=None,
-                 grand_parent_required="not nullable and required",
-                 optional_nullable=APIHelper.SKIP,
-                 optional_nullable_with_default_value="With default value",
-                 optional=APIHelper.SKIP,
-                 child_class_array=APIHelper.SKIP,
-                 mclass=23,
-                 precision=APIHelper.SKIP,
-                 big_decimal=APIHelper.SKIP,
-                 parent_optional_nullable_with_default_value="Has default value",
-                 parent_optional=APIHelper.SKIP,
-                 grand_parent_optional=APIHelper.SKIP):
+    def __init__(
+        self,
+        required_nullable=None,
+        required="not nullable and required",
+        parent_required_nullable=None,
+        parent_required="not nullable and required",
+        grand_parent_required_nullable=None,
+        grand_parent_required="not nullable and required",
+        optional_nullable=APIHelper.SKIP,
+        optional_nullable_with_default_value="With default value",
+        optional=APIHelper.SKIP,
+        child_class_array=APIHelper.SKIP,
+        mclass=23,
+        precision=APIHelper.SKIP,
+        big_decimal=APIHelper.SKIP,
+        parent_optional_nullable_with_default_value="Has default value",
+        parent_optional=APIHelper.SKIP,
+        grand_parent_optional=APIHelper.SKIP):
         """Initialize a ChildClass instance."""
         # Initialize members of the class
         if optional_nullable is not APIHelper.SKIP:
@@ -348,16 +438,17 @@ class ChildClass(ParentClass):
             self.child_class_array = child_class_array
 
         # Call the constructor for the base class
-        super(ChildClass, self).__init__(parent_required_nullable,
-                                         parent_required,
-                                         grand_parent_required_nullable,
-                                         grand_parent_required,
-                                         mclass,
-                                         precision,
-                                         big_decimal,
-                                         parent_optional_nullable_with_default_value,
-                                         parent_optional,
-                                         grand_parent_optional)
+        super(ChildClass, self).__init__(
+            parent_required_nullable,
+            parent_required,
+            grand_parent_required_nullable,
+            grand_parent_required,
+            mclass,
+            precision,
+            big_decimal,
+            parent_optional_nullable_with_default_value,
+            parent_optional,
+            grand_parent_optional)
 
     @classmethod
     def from_dictionary(cls,
@@ -379,51 +470,72 @@ class ChildClass(ParentClass):
         # Extract variables from the dictionary
         required_nullable =\
             dictionary.get("Required_Nullable")\
-            if dictionary.get("Required_Nullable") else None
+            if dictionary.get("Required_Nullable")\
+                else None
         required =\
             dictionary.get("Required")\
-            if dictionary.get("Required") else "not nullable and required"
+            if dictionary.get("Required")\
+                else "not nullable and required"
         parent_required_nullable =\
             dictionary.get("Parent_Required_Nullable")\
-            if dictionary.get("Parent_Required_Nullable") else None
+            if dictionary.get("Parent_Required_Nullable")\
+                else None
         parent_required =\
             dictionary.get("Parent_Required")\
-            if dictionary.get("Parent_Required") else "not nullable and required"
+            if dictionary.get("Parent_Required")\
+                else "not nullable and required"
         grand_parent_required_nullable =\
             dictionary.get("Grand_Parent_Required_Nullable")\
-            if dictionary.get("Grand_Parent_Required_Nullable") else None
+            if dictionary.get("Grand_Parent_Required_Nullable")\
+                else None
         grand_parent_required =\
             dictionary.get("Grand_Parent_Required")\
-            if dictionary.get("Grand_Parent_Required") else "not nullable and required"
+            if dictionary.get("Grand_Parent_Required")\
+                else "not nullable and required"
         optional_nullable =\
             dictionary.get("Optional_Nullable")\
-            if "Optional_Nullable" in dictionary.keys() else APIHelper.SKIP
+            if "Optional_Nullable" in dictionary.keys()\
+                else APIHelper.SKIP
         optional_nullable_with_default_value =\
             dictionary.get("Optional_Nullable_With_Default_Value")\
-            if dictionary.get("Optional_Nullable_With_Default_Value") else "With default value"
+            if dictionary.get("Optional_Nullable_With_Default_Value")\
+                else "With default value"
         optional =\
             dictionary.get("Optional")\
-            if dictionary.get("Optional") else APIHelper.SKIP
+            if dictionary.get("Optional")\
+                else APIHelper.SKIP
         if "Child_Class_Array" in dictionary.keys():
-            child_class_array = [ChildClass.from_dictionary(x) for x in dictionary.get("Child_Class_Array")] if dictionary.get("Child_Class_Array") else None
+            child_class_array = [
+                ChildClass.from_dictionary(x)
+                for x in dictionary.get("Child_Class_Array")
+            ] if dictionary.get("Child_Class_Array") else None
         else:
             child_class_array = APIHelper.SKIP
-        mclass = dictionary.get("class") if dictionary.get("class") else 23
+        mclass =\
+            dictionary.get("class")\
+            if dictionary.get("class")\
+                else 23
         precision =\
             dictionary.get("precision")\
-            if "precision" in dictionary.keys() else APIHelper.SKIP
+            if "precision" in dictionary.keys()\
+                else APIHelper.SKIP
         big_decimal =\
             dictionary.get("Big_Decimal")\
-            if "Big_Decimal" in dictionary.keys() else APIHelper.SKIP
+            if "Big_Decimal" in dictionary.keys()\
+                else APIHelper.SKIP
         parent_optional_nullable_with_default_value =\
             dictionary.get("Parent_Optional_Nullable_With_Default_Value")\
-            if dictionary.get("Parent_Optional_Nullable_With_Default_Value") else "Has default value"
+            if dictionary.get("Parent_Optional_Nullable_With_Default_Value")\
+                else "Has default value"
         parent_optional =\
             dictionary.get("Parent_Optional")\
-            if dictionary.get("Parent_Optional") else APIHelper.SKIP
+            if dictionary.get("Parent_Optional")\
+                else APIHelper.SKIP
         grand_parent_optional =\
             dictionary.get("Grand_Parent_Optional")\
-            if dictionary.get("Grand_Parent_Optional") else APIHelper.SKIP
+            if dictionary.get("Grand_Parent_Optional")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(required_nullable,
                    required,
@@ -444,35 +556,79 @@ class ChildClass(ParentClass):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"optional_nullable={(self.optional_nullable
-                     if hasattr(self, 'optional_nullable') else None)!r}, "
-                f"optional_nullable_with_default_value={(self.optional_nullable_with_default_value
-                     if hasattr(self, 'optional_nullable_with_default_value') else None)!r}, "
-                f"optional={(self.optional
-                     if hasattr(self, 'optional') else None)!r}, "
-                f"required_nullable={self.required_nullable!r}, "
-                f"required={self.required!r}, "
-                f"child_class_array={(self.child_class_array
-                     if hasattr(self, 'child_class_array') else None)!r})")
+        _optional_nullable=(
+            self.optional_nullable
+            if hasattr(self, "optional_nullable")
+            else None
+        )
+        _optional_nullable_with_default_value=(
+            self.optional_nullable_with_default_value
+            if hasattr(self, "optional_nullable_with_default_value")
+            else None
+        )
+        _optional=(
+            self.optional
+            if hasattr(self, "optional")
+            else None
+        )
+        _required_nullable=self.required_nullable
+        _required=self.required
+        _child_class_array=(
+            self.child_class_array
+            if hasattr(self, "child_class_array")
+            else None
+        )
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"optional_nullable={_optional_nullable!r}"
+            f"optional_nullable_with_default_value={_optional_nullable_with_default_value!r}"
+            f"optional={_optional!r}"
+            f"required_nullable={_required_nullable!r}"
+            f"required={_required!r}"
+            f"child_class_array={_child_class_array!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"optional_nullable={(self.optional_nullable
-                     if hasattr(self, 'optional_nullable') else None)!s}, "
-                f"optional_nullable_with_default_value={(self.optional_nullable_with_default_value
-                     if hasattr(self, 'optional_nullable_with_default_value') else None)!s}, "
-                f"optional={(self.optional
-                     if hasattr(self, 'optional') else None)!s}, "
-                f"required_nullable={self.required_nullable!s}, "
-                f"required={self.required!s}, "
-                f"child_class_array={(self.child_class_array
-                     if hasattr(self, 'child_class_array') else None)!s})")
+        _optional_nullable=(
+            self.optional_nullable
+            if hasattr(self, "optional_nullable")
+            else None
+        )
+        _optional_nullable_with_default_value=(
+            self.optional_nullable_with_default_value
+            if hasattr(self, "optional_nullable_with_default_value")
+            else None
+        )
+        _optional=(
+            self.optional
+            if hasattr(self, "optional")
+            else None
+        )
+        _required_nullable=self.required_nullable
+        _required=self.required
+        _child_class_array=(
+            self.child_class_array
+            if hasattr(self, "child_class_array")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"optional_nullable={_optional_nullable!s}"
+            f"optional_nullable_with_default_value={_optional_nullable_with_default_value!s}"
+            f"optional={_optional!s}"
+            f"required_nullable={_required_nullable!s}"
+            f"required={_required!s}"
+            f"child_class_array={_child_class_array!s}"
+            f")"
+        )
 
 class Child2Class(ParentClass):
     """Implementation of the 'Child2 Class' model.
@@ -513,20 +669,21 @@ class Child2Class(ParentClass):
     ]
     _nullables.extend(ParentClass._nullables)
 
-    def __init__(self,
-                 required_nullable=None,
-                 required="not nullable and required",
-                 parent_required_nullable=None,
-                 parent_required="not nullable and required",
-                 grand_parent_required_nullable=None,
-                 grand_parent_required="not nullable and required",
-                 optional=APIHelper.SKIP,
-                 mclass=23,
-                 precision=APIHelper.SKIP,
-                 big_decimal=APIHelper.SKIP,
-                 parent_optional_nullable_with_default_value="Has default value",
-                 parent_optional=APIHelper.SKIP,
-                 grand_parent_optional=APIHelper.SKIP):
+    def __init__(
+        self,
+        required_nullable=None,
+        required="not nullable and required",
+        parent_required_nullable=None,
+        parent_required="not nullable and required",
+        grand_parent_required_nullable=None,
+        grand_parent_required="not nullable and required",
+        optional=APIHelper.SKIP,
+        mclass=23,
+        precision=APIHelper.SKIP,
+        big_decimal=APIHelper.SKIP,
+        parent_optional_nullable_with_default_value="Has default value",
+        parent_optional=APIHelper.SKIP,
+        grand_parent_optional=APIHelper.SKIP):
         """Initialize a Child2Class instance."""
         # Initialize members of the class
         if optional is not APIHelper.SKIP:
@@ -535,16 +692,17 @@ class Child2Class(ParentClass):
         self.required = required
 
         # Call the constructor for the base class
-        super(Child2Class, self).__init__(parent_required_nullable,
-                                          parent_required,
-                                          grand_parent_required_nullable,
-                                          grand_parent_required,
-                                          mclass,
-                                          precision,
-                                          big_decimal,
-                                          parent_optional_nullable_with_default_value,
-                                          parent_optional,
-                                          grand_parent_optional)
+        super(Child2Class, self).__init__(
+            parent_required_nullable,
+            parent_required,
+            grand_parent_required_nullable,
+            grand_parent_required,
+            mclass,
+            precision,
+            big_decimal,
+            parent_optional_nullable_with_default_value,
+            parent_optional,
+            grand_parent_optional)
 
     @classmethod
     def from_dictionary(cls,
@@ -566,41 +724,57 @@ class Child2Class(ParentClass):
         # Extract variables from the dictionary
         required_nullable =\
             dictionary.get("Required_Nullable")\
-            if dictionary.get("Required_Nullable") else None
+            if dictionary.get("Required_Nullable")\
+                else None
         required =\
             dictionary.get("Required")\
-            if dictionary.get("Required") else "not nullable and required"
+            if dictionary.get("Required")\
+                else "not nullable and required"
         parent_required_nullable =\
             dictionary.get("Parent_Required_Nullable")\
-            if dictionary.get("Parent_Required_Nullable") else None
+            if dictionary.get("Parent_Required_Nullable")\
+                else None
         parent_required =\
             dictionary.get("Parent_Required")\
-            if dictionary.get("Parent_Required") else "not nullable and required"
+            if dictionary.get("Parent_Required")\
+                else "not nullable and required"
         grand_parent_required_nullable =\
             dictionary.get("Grand_Parent_Required_Nullable")\
-            if dictionary.get("Grand_Parent_Required_Nullable") else None
+            if dictionary.get("Grand_Parent_Required_Nullable")\
+                else None
         grand_parent_required =\
             dictionary.get("Grand_Parent_Required")\
-            if dictionary.get("Grand_Parent_Required") else "not nullable and required"
+            if dictionary.get("Grand_Parent_Required")\
+                else "not nullable and required"
         optional =\
             dictionary.get("Optional")\
-            if dictionary.get("Optional") else APIHelper.SKIP
-        mclass = dictionary.get("class") if dictionary.get("class") else 23
+            if dictionary.get("Optional")\
+                else APIHelper.SKIP
+        mclass =\
+            dictionary.get("class")\
+            if dictionary.get("class")\
+                else 23
         precision =\
             dictionary.get("precision")\
-            if "precision" in dictionary.keys() else APIHelper.SKIP
+            if "precision" in dictionary.keys()\
+                else APIHelper.SKIP
         big_decimal =\
             dictionary.get("Big_Decimal")\
-            if "Big_Decimal" in dictionary.keys() else APIHelper.SKIP
+            if "Big_Decimal" in dictionary.keys()\
+                else APIHelper.SKIP
         parent_optional_nullable_with_default_value =\
             dictionary.get("Parent_Optional_Nullable_With_Default_Value")\
-            if dictionary.get("Parent_Optional_Nullable_With_Default_Value") else "Has default value"
+            if dictionary.get("Parent_Optional_Nullable_With_Default_Value")\
+                else "Has default value"
         parent_optional =\
             dictionary.get("Parent_Optional")\
-            if dictionary.get("Parent_Optional") else APIHelper.SKIP
+            if dictionary.get("Parent_Optional")\
+                else APIHelper.SKIP
         grand_parent_optional =\
             dictionary.get("Grand_Parent_Optional")\
-            if dictionary.get("Grand_Parent_Optional") else APIHelper.SKIP
+            if dictionary.get("Grand_Parent_Optional")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(required_nullable,
                    required,
@@ -618,20 +792,40 @@ class Child2Class(ParentClass):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"optional={(self.optional
-                     if hasattr(self, 'optional') else None)!r}, "
-                f"required_nullable={self.required_nullable!r}, "
-                f"required={self.required!r})")
+        _optional=(
+            self.optional
+            if hasattr(self, "optional")
+            else None
+        )
+        _required_nullable=self.required_nullable
+        _required=self.required
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"optional={_optional!r}"
+            f"required_nullable={_required_nullable!r}"
+            f"required={_required!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"optional={(self.optional
-                     if hasattr(self, 'optional') else None)!s}, "
-                f"required_nullable={self.required_nullable!s}, "
-                f"required={self.required!s})")
+        _optional=(
+            self.optional
+            if hasattr(self, "optional")
+            else None
+        )
+        _required_nullable=self.required_nullable
+        _required=self.required
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"optional={_optional!s}"
+            f"required_nullable={_required_nullable!s}"
+            f"required={_required!s}"
+            f")"
+        )

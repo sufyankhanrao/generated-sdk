@@ -48,12 +48,7 @@ try:
         non_inherit_enabled_any,
         any_of_additional_properties
     )
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

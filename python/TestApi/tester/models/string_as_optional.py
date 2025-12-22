@@ -19,8 +19,8 @@ class StringAsOptional(object):
 
     Attributes:
         string (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -33,9 +33,10 @@ class StringAsOptional(object):
         "string",
     ]
 
-    def __init__(self,
-                 string=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        string=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a StringAsOptional instance."""
         # Initialize members of the class
         if string is not APIHelper.SKIP:
@@ -66,7 +67,9 @@ class StringAsOptional(object):
         # Extract variables from the dictionary
         string =\
             dictionary.get("string")\
-            if dictionary.get("string") else APIHelper.SKIP
+            if dictionary.get("string")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -76,15 +79,33 @@ class StringAsOptional(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string={(self.string if hasattr(self, 'string') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _string=(
+            self.string
+            if hasattr(self, "string")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"string={_string!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string={(self.string if hasattr(self, 'string') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _string=(
+            self.string
+            if hasattr(self, "string")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"string={_string!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )
 
 class AllOptionals(StringAsOptional):
     """Implementation of the 'all optionals' model.
@@ -94,12 +115,11 @@ class AllOptionals(StringAsOptional):
         id (int): The model property of type int.
         optional_numbers (List[NumberAsOptional]): The model property of type
             List[NumberAsOptional].
-        optional_long (LongAsOptional): The model property of type
-            LongAsOptional.
+        optional_long (LongAsOptional): The model property of type LongAsOptional.
         optional_precision (PrecisionAsOptional): The model property of type
             PrecisionAsOptional.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -124,13 +144,14 @@ class AllOptionals(StringAsOptional):
         "id",
     ]
 
-    def __init__(self,
-                 id=APIHelper.SKIP,
-                 optional_long=APIHelper.SKIP,
-                 optional_numbers=APIHelper.SKIP,
-                 optional_precision=APIHelper.SKIP,
-                 string=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        id=APIHelper.SKIP,
+        optional_long=APIHelper.SKIP,
+        optional_numbers=APIHelper.SKIP,
+        optional_precision=APIHelper.SKIP,
+        string=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a AllOptionals instance."""
         # Initialize members of the class
         if id is not APIHelper.SKIP:
@@ -143,8 +164,9 @@ class AllOptionals(StringAsOptional):
             self.optional_precision = optional_precision
 
         # Call the constructor for the base class
-        super(AllOptionals, self).__init__(string,
-                                           additional_properties)
+        super(AllOptionals, self).__init__(
+            string,
+            additional_properties)
 
     @classmethod
     def from_dictionary(cls,
@@ -164,10 +186,15 @@ class AllOptionals(StringAsOptional):
             return None
 
         # Extract variables from the dictionary
-        id = dictionary.get("id") if "id" in dictionary.keys() else APIHelper.SKIP
-        optional_long = LongAsOptional.from_dictionary(
+        id =\
+            dictionary.get("id")\
+            if "id" in dictionary.keys()\
+                else APIHelper.SKIP
+        optional_long =\
+            LongAsOptional.from_dictionary(
             dictionary.get("optionalLong"))\
-            if "optionalLong" in dictionary.keys() else APIHelper.SKIP
+                if "optionalLong" in dictionary.keys()\
+                else APIHelper.SKIP
         optional_numbers = None
         if dictionary.get("optionalNumbers") is not None:
             optional_numbers = [
@@ -176,12 +203,16 @@ class AllOptionals(StringAsOptional):
             ]
         else:
             optional_numbers = APIHelper.SKIP
-        optional_precision = PrecisionAsOptional.from_dictionary(
+        optional_precision =\
+            PrecisionAsOptional.from_dictionary(
             dictionary.get("optionalPrecision"))\
-            if "optionalPrecision" in dictionary.keys() else APIHelper.SKIP
+                if "optionalPrecision" in dictionary.keys()\
+                else APIHelper.SKIP
         string =\
             dictionary.get("string")\
-            if dictionary.get("string") else APIHelper.SKIP
+            if dictionary.get("string")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -195,26 +226,68 @@ class AllOptionals(StringAsOptional):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"optional_numbers={(self.optional_numbers
-                     if hasattr(self, 'optional_numbers') else None)!r}, "
-                f"optional_long={(self.optional_long
-                     if hasattr(self, 'optional_long') else None)!r}, "
-                f"optional_precision={(self.optional_precision
-                     if hasattr(self, 'optional_precision') else None)!r})")
+        _id=(
+            self.id
+            if hasattr(self, "id")
+            else None
+        )
+        _optional_numbers=(
+            self.optional_numbers
+            if hasattr(self, "optional_numbers")
+            else None
+        )
+        _optional_long=(
+            self.optional_long
+            if hasattr(self, "optional_long")
+            else None
+        )
+        _optional_precision=(
+            self.optional_precision
+            if hasattr(self, "optional_precision")
+            else None
+        )
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"id={_id!r}"
+            f"optional_numbers={_optional_numbers!r}"
+            f"optional_long={_optional_long!r}"
+            f"optional_precision={_optional_precision!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"optional_numbers={(self.optional_numbers
-                     if hasattr(self, 'optional_numbers') else None)!s}, "
-                f"optional_long={(self.optional_long
-                     if hasattr(self, 'optional_long') else None)!s}, "
-                f"optional_precision={(self.optional_precision
-                     if hasattr(self, 'optional_precision') else None)!s})")
+        _id=(
+            self.id
+            if hasattr(self, "id")
+            else None
+        )
+        _optional_numbers=(
+            self.optional_numbers
+            if hasattr(self, "optional_numbers")
+            else None
+        )
+        _optional_long=(
+            self.optional_long
+            if hasattr(self, "optional_long")
+            else None
+        )
+        _optional_precision=(
+            self.optional_precision
+            if hasattr(self, "optional_precision")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"id={_id!s}"
+            f"optional_numbers={_optional_numbers!s}"
+            f"optional_long={_optional_long!s}"
+            f"optional_precision={_optional_precision!s}"
+            f")"
+        )

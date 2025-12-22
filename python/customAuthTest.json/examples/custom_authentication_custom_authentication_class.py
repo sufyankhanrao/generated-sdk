@@ -13,12 +13,7 @@ client = CustomauthenticationClient(
 custom_authentication_controller = client.custom_authentication
 try:
     result = custom_authentication_controller.get_custom_authentication()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

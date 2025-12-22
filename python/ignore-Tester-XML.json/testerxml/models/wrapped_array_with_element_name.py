@@ -14,9 +14,9 @@ class WrappedArrayWithElementName(object):
     A model containing a string array
 
     Attributes:
-        elem (List[str]): A string array that should be wrapped in another
-            element.  The wrapping element's xml name should be "elem" and the
-            xml names of the elements should be "animal"
+        elem (List[str]): A string array that should be wrapped in another element.
+            The wrapping element's xml name should be "elem" and the xml names of the
+            elements should be "animal"
 
     """
 
@@ -25,8 +25,9 @@ class WrappedArrayWithElementName(object):
         "elem": "elem",
     }
 
-    def __init__(self,
-                 elem=None):
+    def __init__(
+        self,
+        elem=None):
         """Initialize a WrappedArrayWithElementName instance."""
         # Initialize members of the class
         self.elem = elem
@@ -49,7 +50,11 @@ class WrappedArrayWithElementName(object):
             return None
 
         # Extract variables from the dictionary
-        elem = dictionary.get("elem") if dictionary.get("elem") else None
+        elem =\
+            dictionary.get("elem")\
+            if dictionary.get("elem")\
+                else None
+
         # Return an object of this model
         return cls(elem)
 
@@ -81,10 +86,18 @@ class WrappedArrayWithElementName(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"elem={self.elem!r})")
+        _elem=self.elem
+        return (
+            f"{self.__class__.__name__}("
+            f"elem={_elem!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"elem={self.elem!s})")
+        _elem=self.elem
+        return (
+            f"{self.__class__.__name__}("
+            f"elem={_elem!s}"
+            f")"
+        )

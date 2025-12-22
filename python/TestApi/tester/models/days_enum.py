@@ -16,8 +16,8 @@ class DaysEnum(object):
         WEDNESDAY_: The enum member of type str.
         THURSDAY: The enum member of type str.
         FRI DAY: The enum member of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 

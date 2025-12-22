@@ -11,8 +11,8 @@ class Before(object):
         use_check_box (bool): The model property of type bool.
         title (str): The model property of type str.
         message (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -23,11 +23,12 @@ class Before(object):
         "use_check_box": "useCheckBox",
     }
 
-    def __init__(self,
-                 message=None,
-                 title=None,
-                 use_check_box=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        message=None,
+        title=None,
+        use_check_box=None,
+        additional_properties=None):
         """Initialize a Before instance."""
         # Initialize members of the class
         self.use_check_box = use_check_box
@@ -57,11 +58,19 @@ class Before(object):
             return None
 
         # Extract variables from the dictionary
-        message = dictionary.get("message") if dictionary.get("message") else None
-        title = dictionary.get("title") if dictionary.get("title") else None
+        message =\
+            dictionary.get("message")\
+            if dictionary.get("message")\
+                else None
+        title =\
+            dictionary.get("title")\
+            if dictionary.get("title")\
+                else None
         use_check_box =\
             dictionary.get("useCheckBox")\
-            if "useCheckBox" in dictionary.keys() else None
+            if "useCheckBox" in dictionary.keys()\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -73,16 +82,30 @@ class Before(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"use_check_box={self.use_check_box!r}, "
-                f"title={self.title!r}, "
-                f"message={self.message!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _use_check_box=self.use_check_box
+        _title=self.title
+        _message=self.message
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"use_check_box={_use_check_box!r}"
+            f"title={_title!r}"
+            f"message={_message!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"use_check_box={self.use_check_box!s}, "
-                f"title={self.title!s}, "
-                f"message={self.message!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _use_check_box=self.use_check_box
+        _title=self.title
+        _message=self.message
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"use_check_box={_use_check_box!s}"
+            f"title={_title!s}"
+            f"message={_message!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

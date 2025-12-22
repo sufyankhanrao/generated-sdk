@@ -14,8 +14,8 @@ class OptionalsEnum(object):
         EMPTYBODY: The enum member of type str.
         BODYWITHEMPTYFIELDS: The enum member of type str.
         BODYWITHFIELDS: The enum member of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 

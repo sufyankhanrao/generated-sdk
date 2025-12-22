@@ -26,9 +26,10 @@ class Engine(object):
         "fuel_type": "fuelType",
     }
 
-    def __init__(self,
-                 horsepower=None,
-                 fuel_type=None):
+    def __init__(
+        self,
+        horsepower=None,
+        fuel_type=None):
         """Initialize a Engine instance."""
         # Initialize members of the class
         self.horsepower = horsepower
@@ -54,10 +55,13 @@ class Engine(object):
         # Extract variables from the dictionary
         horsepower =\
             dictionary.get("horsepower")\
-            if dictionary.get("horsepower") else None
+            if dictionary.get("horsepower")\
+                else None
         fuel_type =\
             dictionary.get("fuelType")\
-            if dictionary.get("fuelType") else None
+            if dictionary.get("fuelType")\
+                else None
+
         # Return an object of this model
         return cls(horsepower,
                    fuel_type)
@@ -77,30 +81,50 @@ class Engine(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.horsepower,
-                type_callable=lambda value: isinstance(value, int)) \
+                    value=dictionary.horsepower,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.fuel_type,
-                type_callable=lambda value: FuelTypeEnum.validate(value))
+                    value=dictionary.fuel_type,
+                    type_callable=lambda value:
+                        FuelTypeEnum.validate(value))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("horsepower"),
-            type_callable=lambda value: isinstance(value, int)) \
+                value=dictionary.get("horsepower"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("fuelType"),
-            type_callable=lambda value: FuelTypeEnum.validate(value))
+                value=dictionary.get("fuelType"),
+                type_callable=lambda value:
+                    FuelTypeEnum.validate(value))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"horsepower={self.horsepower!r}, "
-                f"fuel_type={self.fuel_type!r})")
+        _horsepower=self.horsepower
+        _fuel_type=self.fuel_type
+        return (
+            f"{self.__class__.__name__}("
+            f"horsepower={_horsepower!r}"
+            f"fuel_type={_fuel_type!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"horsepower={self.horsepower!s}, "
-                f"fuel_type={self.fuel_type!s})")
+        _horsepower=self.horsepower
+        _fuel_type=self.fuel_type
+        return (
+            f"{self.__class__.__name__}("
+            f"horsepower={_horsepower!s}"
+            f"fuel_type={_fuel_type!s}"
+            f")"
+        )

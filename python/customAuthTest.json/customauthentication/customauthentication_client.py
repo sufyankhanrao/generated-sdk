@@ -54,7 +54,8 @@ class CustomauthenticationClient(object):
             .base_uri_executor(self.config.get_base_uri)\
             .user_agent(BaseController.user_agent(),
                 BaseController.user_agent_parameters())\
-            .global_header("accessToken", self.config.access_token)
+            .global_header("accessToken",
+                self.config.access_token)
 
         self.auth_managers = {
             "httpCustom": CustomAuthentication(self.config),

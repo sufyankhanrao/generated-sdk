@@ -37,23 +37,36 @@ class ErrorModel2Exception(APIException):
         """
         self.error_description =\
             dictionary.get("error description")\
-            if dictionary.get("error description") else None
+            if dictionary.get("error description")\
+                else None
         self.caught =\
             dictionary.get("caught")\
-            if dictionary.get("caught") else None
+            if dictionary.get("caught")\
+                else None
         self.exception =\
             dictionary.get("Exception")\
-            if dictionary.get("Exception") else None
+            if dictionary.get("Exception")\
+                else None
         self.inner_exception =\
             dictionary.get("Inner Exception")\
-            if dictionary.get("Inner Exception") else None
+            if dictionary.get("Inner Exception")\
+                else None
+
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"error_description={self.error_description!s}, "
-                f"caught={self.caught!s}, "
-                f"exception={self.exception!s}, "
-                f"inner_exception={self.inner_exception!s})")
+        _error_description=self.error_description
+        _caught=self.caught
+        _exception=self.exception
+        _inner_exception=self.inner_exception
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"error_description={_error_description!s}"
+            f"caught={_caught!s}"
+            f"exception={_exception!s}"
+            f"inner_exception={_inner_exception!s}"
+            f")"
+        )

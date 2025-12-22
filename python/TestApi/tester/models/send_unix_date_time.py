@@ -13,8 +13,8 @@ class SendUnixDateTime(object):
 
     Attributes:
         date_time (UnixDateTime): The model property of type UnixDateTime.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -27,9 +27,10 @@ class SendUnixDateTime(object):
         "date_time",
     ]
 
-    def __init__(self,
-                 date_time=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        date_time=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a SendUnixDateTime instance."""
         # Initialize members of the class
         if date_time is not APIHelper.SKIP:
@@ -58,9 +59,12 @@ class SendUnixDateTime(object):
             return None
 
         # Extract variables from the dictionary
-        date_time = UnixDateTime.from_dictionary(
+        date_time =\
+            UnixDateTime.from_dictionary(
             dictionary.get("dateTime"))\
-            if "dateTime" in dictionary.keys() else APIHelper.SKIP
+                if "dateTime" in dictionary.keys()\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -70,14 +74,30 @@ class SendUnixDateTime(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date_time={(self.date_time
-                     if hasattr(self, 'date_time') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _date_time=(
+            self.date_time
+            if hasattr(self, "date_time")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"date_time={_date_time!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date_time={(self.date_time
-                     if hasattr(self, 'date_time') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _date_time=(
+            self.date_time
+            if hasattr(self, "date_time")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"date_time={_date_time!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

@@ -60,12 +60,7 @@ try:
     result = native_types_controller.multi_dimensional_native_array_optional(
         boolean_array=boolean_array
     )
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

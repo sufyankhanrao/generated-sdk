@@ -15,9 +15,8 @@ class UserStatusNotificationEvent(object):
     """Implementation of the 'UserStatusNotificationEvent' model.
 
     Attributes:
-        user_status_notification_event_type
-            (UserStatusNotificationEventTypeEnum): The model property of type
-            UserStatusNotificationEventTypeEnum.
+        user_status_notification_event_type (UserStatusNotificationEventTypeEnum):
+            The model property of type UserStatusNotificationEventTypeEnum.
 
     """
 
@@ -26,8 +25,9 @@ class UserStatusNotificationEvent(object):
         "user_status_notification_event_type": "userStatusNotificationEventType",
     }
 
-    def __init__(self,
-                 user_status_notification_event_type=None):
+    def __init__(
+        self,
+        user_status_notification_event_type=None):
         """Initialize a UserStatusNotificationEvent instance."""
         # Initialize members of the class
         self.user_status_notification_event_type =\
@@ -53,7 +53,9 @@ class UserStatusNotificationEvent(object):
         # Extract variables from the dictionary
         user_status_notification_event_type =\
             dictionary.get("userStatusNotificationEventType")\
-            if dictionary.get("userStatusNotificationEventType") else None
+            if dictionary.get("userStatusNotificationEventType")\
+                else None
+
         # Return an object of this model
         return cls(user_status_notification_event_type)
 
@@ -72,24 +74,32 @@ class UserStatusNotificationEvent(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.user_status_notification_event_type,
-                type_callable=lambda value: UserStatusNotificationEventTypeEnum.validate(value))
+                    value=dictionary.user_status_notification_event_type,
+                    type_callable=lambda value:
+                        UserStatusNotificationEventTypeEnum.validate(value))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("userStatusNotificationEventType"),
-            type_callable=lambda value: UserStatusNotificationEventTypeEnum.validate(value))
+                value=dictionary.get("userStatusNotificationEventType"),
+                type_callable=lambda value:
+                    UserStatusNotificationEventTypeEnum.validate(value))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"user_status_notification_event_type={
-                    self.user_status_notification_event_type!r})")
+        _user_status_notification_event_type=self.user_status_notification_event_type
+        return (
+            f"{self.__class__.__name__}("
+            f"user_status_notification_event_type={_user_status_notification_event_type!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"user_status_notification_event_type={
-                    self.user_status_notification_event_type!s})")
+        _user_status_notification_event_type=self.user_status_notification_event_type
+        return (
+            f"{self.__class__.__name__}("
+            f"user_status_notification_event_type={_user_status_notification_event_type!s}"
+            f")"
+        )

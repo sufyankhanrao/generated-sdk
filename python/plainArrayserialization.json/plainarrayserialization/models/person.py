@@ -18,9 +18,10 @@ class Person(object):
         "field": "field",
     }
 
-    def __init__(self,
-                 name=None,
-                 field=None):
+    def __init__(
+        self,
+        name=None,
+        field=None):
         """Initialize a Person instance."""
         # Initialize members of the class
         self.name = name
@@ -44,20 +45,37 @@ class Person(object):
             return None
 
         # Extract variables from the dictionary
-        name = dictionary.get("name") if dictionary.get("name") else None
-        field = dictionary.get("field") if dictionary.get("field") else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        field =\
+            dictionary.get("field")\
+            if dictionary.get("field")\
+                else None
+
         # Return an object of this model
         return cls(name,
                    field)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!r}, "
-                f"field={self.field!r})")
+        _name=self.name
+        _field=self.field
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!r}"
+            f"field={_field!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!s}, "
-                f"field={self.field!s})")
+        _name=self.name
+        _field=self.field
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!s}"
+            f"field={_field!s}"
+            f")"
+        )

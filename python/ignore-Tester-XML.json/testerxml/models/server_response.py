@@ -28,9 +28,10 @@ class ServerResponse(object):
         "message",
     ]
 
-    def __init__(self,
-                 success=None,
-                 message=APIHelper.SKIP):
+    def __init__(
+        self,
+        success=None,
+        message=APIHelper.SKIP):
         """Initialize a ServerResponse instance."""
         # Initialize members of the class
         self.success = success
@@ -57,10 +58,13 @@ class ServerResponse(object):
         # Extract variables from the dictionary
         success =\
             dictionary.get("success")\
-            if "success" in dictionary.keys() else None
+            if "success" in dictionary.keys()\
+                else None
         message =\
             dictionary.get("message")\
-            if dictionary.get("message") else APIHelper.SKIP
+            if dictionary.get("message")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(success,
                    message)
@@ -94,14 +98,30 @@ class ServerResponse(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"success={self.success!r}, "
-                f"message={(self.message
-                     if hasattr(self, 'message') else None)!r})")
+        _success=self.success
+        _message=(
+            self.message
+            if hasattr(self, "message")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"success={_success!r}"
+            f"message={_message!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"success={self.success!s}, "
-                f"message={(self.message
-                     if hasattr(self, 'message') else None)!s})")
+        _success=self.success
+        _message=(
+            self.message
+            if hasattr(self, "message")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"success={_success!s}"
+            f"message={_message!s}"
+            f")"
+        )

@@ -34,11 +34,12 @@ class AuditLogEvent(object):
         "context",
     ]
 
-    def __init__(self,
-                 event_type=APIHelper.SKIP,
-                 actor=APIHelper.SKIP,
-                 action=APIHelper.SKIP,
-                 context=APIHelper.SKIP):
+    def __init__(
+        self,
+        event_type=APIHelper.SKIP,
+        actor=APIHelper.SKIP,
+        action=APIHelper.SKIP,
+        context=APIHelper.SKIP):
         """Initialize a AuditLogEvent instance."""
         # Initialize members of the class
         if event_type is not APIHelper.SKIP:
@@ -70,16 +71,21 @@ class AuditLogEvent(object):
         # Extract variables from the dictionary
         event_type =\
             dictionary.get("eventType")\
-            if dictionary.get("eventType") else APIHelper.SKIP
+            if dictionary.get("eventType")\
+                else APIHelper.SKIP
         actor =\
             dictionary.get("actor")\
-            if dictionary.get("actor") else APIHelper.SKIP
+            if dictionary.get("actor")\
+                else APIHelper.SKIP
         action =\
             dictionary.get("action")\
-            if dictionary.get("action") else APIHelper.SKIP
+            if dictionary.get("action")\
+                else APIHelper.SKIP
         context =\
             dictionary.get("context")\
-            if dictionary.get("context") else APIHelper.SKIP
+            if dictionary.get("context")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(event_type,
                    actor,
@@ -109,20 +115,62 @@ class AuditLogEvent(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event_type={(self.event_type
-                     if hasattr(self, 'event_type') else None)!r}, "
-                f"actor={(self.actor if hasattr(self, 'actor') else None)!r}, "
-                f"action={(self.action if hasattr(self, 'action') else None)!r}, "
-                f"context={(self.context
-                     if hasattr(self, 'context') else None)!r})")
+        _event_type=(
+            self.event_type
+            if hasattr(self, "event_type")
+            else None
+        )
+        _actor=(
+            self.actor
+            if hasattr(self, "actor")
+            else None
+        )
+        _action=(
+            self.action
+            if hasattr(self, "action")
+            else None
+        )
+        _context=(
+            self.context
+            if hasattr(self, "context")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"event_type={_event_type!r}"
+            f"actor={_actor!r}"
+            f"action={_action!r}"
+            f"context={_context!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event_type={(self.event_type
-                     if hasattr(self, 'event_type') else None)!s}, "
-                f"actor={(self.actor if hasattr(self, 'actor') else None)!s}, "
-                f"action={(self.action if hasattr(self, 'action') else None)!s}, "
-                f"context={(self.context
-                     if hasattr(self, 'context') else None)!s})")
+        _event_type=(
+            self.event_type
+            if hasattr(self, "event_type")
+            else None
+        )
+        _actor=(
+            self.actor
+            if hasattr(self, "actor")
+            else None
+        )
+        _action=(
+            self.action
+            if hasattr(self, "action")
+            else None
+        )
+        _context=(
+            self.context
+            if hasattr(self, "context")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"event_type={_event_type!s}"
+            f"actor={_actor!s}"
+            f"action={_action!s}"
+            f"context={_context!s}"
+            f")"
+        )

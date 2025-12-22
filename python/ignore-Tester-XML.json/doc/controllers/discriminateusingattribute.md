@@ -24,17 +24,13 @@ def generate(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BaseForDiscriminatorInAttribute`](../../doc/models/base-for-discriminator-in-attribute.md).
+[`BaseForDiscriminatorInAttribute`](../../doc/models/base-for-discriminator-in-attribute.md)
 
 ## Example Usage
 
 ```python
 result = discriminate_using_attribute_controller.generate()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -55,7 +51,7 @@ def validate(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -66,10 +62,6 @@ body = BaseForDiscriminatorInAttribute(
 )
 
 result = discriminate_using_attribute_controller.validate(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

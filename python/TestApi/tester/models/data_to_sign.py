@@ -10,8 +10,8 @@ class DataToSign(object):
     Attributes:
         file_name (str): The model property of type str.
         convert_to_pdf (bool): The model property of type bool.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -21,10 +21,11 @@ class DataToSign(object):
         "file_name": "fileName",
     }
 
-    def __init__(self,
-                 convert_to_pdf=None,
-                 file_name=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        convert_to_pdf=None,
+        file_name=None,
+        additional_properties=None):
         """Initialize a DataToSign instance."""
         # Initialize members of the class
         self.file_name = file_name
@@ -55,10 +56,13 @@ class DataToSign(object):
         # Extract variables from the dictionary
         convert_to_pdf =\
             dictionary.get("convertToPDF")\
-            if "convertToPDF" in dictionary.keys() else None
+            if "convertToPDF" in dictionary.keys()\
+                else None
         file_name =\
             dictionary.get("fileName")\
-            if dictionary.get("fileName") else None
+            if dictionary.get("fileName")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -69,14 +73,26 @@ class DataToSign(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"file_name={self.file_name!r}, "
-                f"convert_to_pdf={self.convert_to_pdf!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _file_name=self.file_name
+        _convert_to_pdf=self.convert_to_pdf
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"file_name={_file_name!r}"
+            f"convert_to_pdf={_convert_to_pdf!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"file_name={self.file_name!s}, "
-                f"convert_to_pdf={self.convert_to_pdf!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _file_name=self.file_name
+        _convert_to_pdf=self.convert_to_pdf
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"file_name={_file_name!s}"
+            f"convert_to_pdf={_convert_to_pdf!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

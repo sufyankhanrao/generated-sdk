@@ -30,11 +30,12 @@ class Car(object):
         "engine": "engine",
     }
 
-    def __init__(self,
-                 make=None,
-                 model=None,
-                 doors=None,
-                 engine=None):
+    def __init__(
+        self,
+        make=None,
+        model=None,
+        doors=None,
+        engine=None):
         """Initialize a Car instance."""
         # Initialize members of the class
         self.make = make
@@ -60,12 +61,23 @@ class Car(object):
             return None
 
         # Extract variables from the dictionary
-        make = dictionary.get("make") if dictionary.get("make") else None
-        model = dictionary.get("model") if dictionary.get("model") else None
-        doors = dictionary.get("doors") if dictionary.get("doors") else None
-        engine = Engine.from_dictionary(
+        make =\
+            dictionary.get("make")\
+            if dictionary.get("make")\
+                else None
+        model =\
+            dictionary.get("model")\
+            if dictionary.get("model")\
+                else None
+        doors =\
+            dictionary.get("doors")\
+            if dictionary.get("doors")\
+                else None
+        engine =\
+            Engine.from_dictionary(
             dictionary.get("engine"))\
-            if dictionary.get("engine") else None
+                if dictionary.get("engine") else None
+
         # Return an object of this model
         return cls(make,
                    model,
@@ -87,48 +99,88 @@ class Car(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.make,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.make,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.model,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.model,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.doors,
-                type_callable=lambda value: isinstance(value, int)) \
+                    value=dictionary.doors,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.engine,
-                type_callable=lambda value: Engine.validate(value),
-                is_model_dict=True)
+                    value=dictionary.engine,
+                    type_callable=lambda value:
+                        Engine.validate(value),
+                    is_model_dict=True)
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("make"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("make"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("model"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("model"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("doors"),
-            type_callable=lambda value: isinstance(value, int)) \
+                value=dictionary.get("doors"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("engine"),
-            type_callable=lambda value: Engine.validate(value),
-            is_model_dict=True)
+                value=dictionary.get("engine"),
+                type_callable=lambda value:
+                    Engine.validate(value),
+                is_model_dict=True)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"make={self.make!r}, "
-                f"model={self.model!r}, "
-                f"doors={self.doors!r}, "
-                f"engine={self.engine!r})")
+        _make=self.make
+        _model=self.model
+        _doors=self.doors
+        _engine=self.engine
+        return (
+            f"{self.__class__.__name__}("
+            f"make={_make!r}"
+            f"model={_model!r}"
+            f"doors={_doors!r}"
+            f"engine={_engine!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"make={self.make!s}, "
-                f"model={self.model!s}, "
-                f"doors={self.doors!s}, "
-                f"engine={self.engine!s})")
+        _make=self.make
+        _model=self.model
+        _doors=self.doors
+        _engine=self.engine
+        return (
+            f"{self.__class__.__name__}("
+            f"make={_make!s}"
+            f"model={_model!s}"
+            f"doors={_doors!s}"
+            f"engine={_engine!s}"
+            f")"
+        )

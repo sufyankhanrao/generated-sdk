@@ -8,8 +8,8 @@ class Response(object):
 
     Attributes:
         file_request_count (int): The model property of type int.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -18,9 +18,10 @@ class Response(object):
         "file_request_count": "file_request_count",
     }
 
-    def __init__(self,
-                 file_request_count=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        file_request_count=None,
+        additional_properties=None):
         """Initialize a Response instance."""
         # Initialize members of the class
         self.file_request_count = file_request_count
@@ -50,7 +51,9 @@ class Response(object):
         # Extract variables from the dictionary
         file_request_count =\
             dictionary.get("file_request_count")\
-            if dictionary.get("file_request_count") else None
+            if dictionary.get("file_request_count")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -60,12 +63,22 @@ class Response(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"file_request_count={self.file_request_count!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _file_request_count=self.file_request_count
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"file_request_count={_file_request_count!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"file_request_count={self.file_request_count!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _file_request_count=self.file_request_count
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"file_request_count={_file_request_count!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

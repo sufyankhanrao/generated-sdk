@@ -131,11 +131,10 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
-                 environment=Environment.TESTING, port="80", suites=1,
-                 token=None, api_key=None,
-                 custom_query_authentication_credentials=None):
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
+                 environment=Environment.TESTING, port="80", suites=1, token=None,
+                 api_key=None, custom_query_authentication_credentials=None):
         """Initialize Configuration object."""
         if retry_methods is None:
             retry_methods = ["GET", "PUT"]
@@ -173,8 +172,8 @@ class Configuration(HttpClientConfiguration):
                    override_http_client_configuration=None, http_call_back=None,
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
-                   environment=None, port=None, suites=None, token=None,
-                   api_key=None, custom_query_authentication_credentials=None):
+                   environment=None, port=None, suites=None, token=None, api_key=None,
+                   custom_query_authentication_credentials=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration =\
@@ -258,9 +257,9 @@ class Configuration(HttpClientConfiguration):
                 and api_key is None:
             return custom_query_authentication_credentials
 
-        warnings.warn(message=("The 'token', 'api_key' params are deprecated. U"
-                               "se 'custom_query_authentication_credentials' pa"
-                               "ram instead."),
+        warnings.warn(message=("The 'token', 'api_key' params are deprecated. Use 'cu"
+                               "stom_query_authentication_credentials' param instead."
+                               ""),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
@@ -268,7 +267,7 @@ class Configuration(HttpClientConfiguration):
             return custom_query_authentication_credentials.clone_with(token,
                                                                       api_key)
 
-        from customqueryparameter.http.auth.custom_query_authentication import (
+        from customqueryparameter.http.auth.custom_query_authentication import (  # noqa: E501
             CustomQueryAuthenticationCredentials,
         )
         return CustomQueryAuthenticationCredentials(token, api_key)
@@ -308,6 +307,7 @@ class Configuration(HttpClientConfiguration):
         from customqueryparameter.http.auth.custom_query_authentication import (
             CustomQueryAuthenticationCredentials,
         )
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

@@ -44,13 +44,14 @@ class FulfillmentCallback(object):
         "timestamp",
     ]
 
-    def __init__(self,
-                 order_id=None,
-                 fulfillment_status=None,
-                 tracking_number=APIHelper.SKIP,
-                 carrier=APIHelper.SKIP,
-                 estimated_delivery=APIHelper.SKIP,
-                 timestamp=APIHelper.SKIP):
+    def __init__(
+        self,
+        order_id=None,
+        fulfillment_status=None,
+        tracking_number=APIHelper.SKIP,
+        carrier=APIHelper.SKIP,
+        estimated_delivery=APIHelper.SKIP,
+        timestamp=APIHelper.SKIP):
         """Initialize a FulfillmentCallback instance."""
         # Initialize members of the class
         self.order_id = order_id
@@ -64,7 +65,8 @@ class FulfillmentCallback(object):
         if timestamp is not APIHelper.SKIP:
             self.timestamp =\
                  APIHelper.apply_datetime_converter(
-                timestamp, APIHelper.RFC3339DateTime) if timestamp else None
+                timestamp, APIHelper.RFC3339DateTime)\
+                 if timestamp else None
 
     @classmethod
     def from_dictionary(cls,
@@ -86,21 +88,27 @@ class FulfillmentCallback(object):
         # Extract variables from the dictionary
         order_id =\
             dictionary.get("orderId")\
-            if dictionary.get("orderId") else None
+            if dictionary.get("orderId")\
+                else None
         fulfillment_status =\
             dictionary.get("fulfillmentStatus")\
-            if dictionary.get("fulfillmentStatus") else None
+            if dictionary.get("fulfillmentStatus")\
+                else None
         tracking_number =\
             dictionary.get("trackingNumber")\
-            if dictionary.get("trackingNumber") else APIHelper.SKIP
+            if dictionary.get("trackingNumber")\
+                else APIHelper.SKIP
         carrier =\
             dictionary.get("carrier")\
-            if dictionary.get("carrier") else APIHelper.SKIP
-        estimated_delivery = dateutil.parser.parse(dictionary.get("estimatedDelivery")).date()\
+            if dictionary.get("carrier")\
+                else APIHelper.SKIP
+        estimated_delivery = dateutil.parser.parse(
+            dictionary.get("estimatedDelivery")).date()\
             if dictionary.get("estimatedDelivery") else APIHelper.SKIP
         timestamp = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("timestamp")).datetime\
             if dictionary.get("timestamp") else APIHelper.SKIP
+
         # Return an object of this model
         return cls(order_id,
                    fulfillment_status,
@@ -124,46 +132,98 @@ class FulfillmentCallback(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.order_id,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.order_id,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.fulfillment_status,
-                type_callable=lambda value: FulfillmentStatusEnum.validate(value))
+                    value=dictionary.fulfillment_status,
+                    type_callable=lambda value:
+                        FulfillmentStatusEnum.validate(value))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("orderId"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("orderId"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("fulfillmentStatus"),
-            type_callable=lambda value: FulfillmentStatusEnum.validate(value))
+                value=dictionary.get("fulfillmentStatus"),
+                type_callable=lambda value:
+                    FulfillmentStatusEnum.validate(value))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"order_id={self.order_id!r}, "
-                f"fulfillment_status={self.fulfillment_status!r}, "
-                f"tracking_number={(self.tracking_number
-                     if hasattr(self, 'tracking_number') else None)!r}, "
-                f"carrier={(self.carrier
-                     if hasattr(self, 'carrier') else None)!r}, "
-                f"estimated_delivery={(self.estimated_delivery
-                     if hasattr(self, 'estimated_delivery') else None)!r}, "
-                f"timestamp={(self.timestamp
-                     if hasattr(self, 'timestamp') else None)!r})")
+        _order_id=self.order_id
+        _fulfillment_status=self.fulfillment_status
+        _tracking_number=(
+            self.tracking_number
+            if hasattr(self, "tracking_number")
+            else None
+        )
+        _carrier=(
+            self.carrier
+            if hasattr(self, "carrier")
+            else None
+        )
+        _estimated_delivery=(
+            self.estimated_delivery
+            if hasattr(self, "estimated_delivery")
+            else None
+        )
+        _timestamp=(
+            self.timestamp
+            if hasattr(self, "timestamp")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"order_id={_order_id!r}"
+            f"fulfillment_status={_fulfillment_status!r}"
+            f"tracking_number={_tracking_number!r}"
+            f"carrier={_carrier!r}"
+            f"estimated_delivery={_estimated_delivery!r}"
+            f"timestamp={_timestamp!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"order_id={self.order_id!s}, "
-                f"fulfillment_status={self.fulfillment_status!s}, "
-                f"tracking_number={(self.tracking_number
-                     if hasattr(self, 'tracking_number') else None)!s}, "
-                f"carrier={(self.carrier
-                     if hasattr(self, 'carrier') else None)!s}, "
-                f"estimated_delivery={(self.estimated_delivery
-                     if hasattr(self, 'estimated_delivery') else None)!s}, "
-                f"timestamp={(self.timestamp
-                     if hasattr(self, 'timestamp') else None)!s})")
+        _order_id=self.order_id
+        _fulfillment_status=self.fulfillment_status
+        _tracking_number=(
+            self.tracking_number
+            if hasattr(self, "tracking_number")
+            else None
+        )
+        _carrier=(
+            self.carrier
+            if hasattr(self, "carrier")
+            else None
+        )
+        _estimated_delivery=(
+            self.estimated_delivery
+            if hasattr(self, "estimated_delivery")
+            else None
+        )
+        _timestamp=(
+            self.timestamp
+            if hasattr(self, "timestamp")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"order_id={_order_id!s}"
+            f"fulfillment_status={_fulfillment_status!s}"
+            f"tracking_number={_tracking_number!s}"
+            f"carrier={_carrier!s}"
+            f"estimated_delivery={_estimated_delivery!s}"
+            f"timestamp={_timestamp!s}"
+            f")"
+        )

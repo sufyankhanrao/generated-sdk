@@ -65,9 +65,9 @@ class SenderControllerTests(ControllerTestBase):
         )
         form_non_scalar = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsFormNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,"
-            "\"sessionType\":\"Morning\"}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"start"
+            "sAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}",
         )
         query_mixed = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsQueryMixed"),
@@ -87,9 +87,9 @@ class SenderControllerTests(ControllerTestBase):
         )
         query_non_scalar = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsQueryNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,"
-            "\"sessionType\":\"Morning\"}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"start"
+            "sAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}",
         )
 
         # Perform the API call through the SDK function
@@ -134,13 +134,13 @@ class SenderControllerTests(ControllerTestBase):
         )
         form_non_scalar = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsFormNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"Numbe"
+            "rOfTyres\":\"4\",\"HaveTrunk\":true}}",
         )
         query_mixed = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsQueryMixed"),
-            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\""
-            ":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}}",
+            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"Nu"
+            "mberOfElectrons\":4,\"NumberOfProtons\":4}}",
         )
         header = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsHeader"),
@@ -148,8 +148,8 @@ class SenderControllerTests(ControllerTestBase):
         )
         form_mixed = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsFormMixed"),
-            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\""
-            ":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}}",
+            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"Nu"
+            "mberOfElectrons\":4,\"NumberOfProtons\":4}}",
         )
         query_scalar = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsQueryScalar"),
@@ -157,8 +157,8 @@ class SenderControllerTests(ControllerTestBase):
         )
         query_non_scalar = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsQueryNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"Numbe"
+            "rOfTyres\":\"4\",\"HaveTrunk\":true}}",
         )
 
         # Perform the API call through the SDK function
@@ -204,9 +204,9 @@ class SenderControllerTests(ControllerTestBase):
         )
         options["form_non_scalar"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputFormNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,"
-            "\"sessionType\":\"Morning\"}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"start"
+            "sAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}",
         )
         options["query_mixed"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputQueryMixed"),
@@ -226,9 +226,9 @@ class SenderControllerTests(ControllerTestBase):
         )
         options["query_non_scalar"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputQueryNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,"
-            "\"sessionType\":\"Morning\"}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"start"
+            "sAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}",
         )
 
         # Perform the API call through the SDK function
@@ -267,13 +267,13 @@ class SenderControllerTests(ControllerTestBase):
         )
         options["form_non_scalar"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputFormNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"Numbe"
+            "rOfTyres\":\"4\",\"HaveTrunk\":true}}",
         )
         options["query_mixed"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputQueryMixed"),
-            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\""
-            ":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}}",
+            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"Nu"
+            "mberOfElectrons\":4,\"NumberOfProtons\":4}}",
         )
         options["header"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputHeader"),
@@ -281,8 +281,8 @@ class SenderControllerTests(ControllerTestBase):
         )
         options["form_mixed"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputFormMixed"),
-            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\""
-            ":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}}",
+            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"Nu"
+            "mberOfElectrons\":4,\"NumberOfProtons\":4}}",
         )
         options["query_scalar"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputQueryScalar"),
@@ -290,8 +290,8 @@ class SenderControllerTests(ControllerTestBase):
         )
         options["query_non_scalar"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputQueryNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"Numbe"
+            "rOfTyres\":\"4\",\"HaveTrunk\":true}}",
         )
 
         # Perform the API call through the SDK function
@@ -381,9 +381,9 @@ class SenderControllerTests(ControllerTestBase):
         # Parameters for the API call
         body = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendNonScalarParamBody"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,"
-            "\"sessionType\":\"Morning\"}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"start"
+            "sAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}",
         )
 
         # Perform the API call through the SDK function
@@ -413,8 +413,8 @@ class SenderControllerTests(ControllerTestBase):
         # Parameters for the API call
         body = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendNonScalarParamBody"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"Numbe"
+            "rOfTyres\":\"4\",\"HaveTrunk\":true}}",
         )
 
         # Perform the API call through the SDK function
@@ -474,8 +474,8 @@ class SenderControllerTests(ControllerTestBase):
         # Parameters for the API call
         body = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendMixedParamBody"),
-            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\""
-            ":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}}",
+            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"Nu"
+            "mberOfElectrons\":4,\"NumberOfProtons\":4}}",
         )
 
         # Perform the API call through the SDK function
@@ -509,9 +509,9 @@ class SenderControllerTests(ControllerTestBase):
         )
         body_non_scalar = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCombinedBodyNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,"
-            "\"sessionType\":\"Morning\"}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"start"
+            "sAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}",
         )
         body_mixed = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCombinedBodyMixed"),
@@ -551,13 +551,13 @@ class SenderControllerTests(ControllerTestBase):
         )
         body_non_scalar = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCombinedBodyNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"Numbe"
+            "rOfTyres\":\"4\",\"HaveTrunk\":true}}",
         )
         body_mixed = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCombinedBodyMixed"),
-            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\""
-            ":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}}",
+            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"Nu"
+            "mberOfElectrons\":4,\"NumberOfProtons\":4}}",
         )
 
         # Perform the API call through the SDK function
@@ -594,9 +594,9 @@ class SenderControllerTests(ControllerTestBase):
         )
         options["body_non_scalar"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectCombinedInputBodyNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,"
-            "\"sessionType\":\"Morning\"}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"start"
+            "sAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}",
         )
         options["body_mixed"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectCombinedInputBodyMixed"),
@@ -635,13 +635,13 @@ class SenderControllerTests(ControllerTestBase):
         )
         options["body_non_scalar"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectCombinedInputBodyNonScalar"),
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"Numbe"
+            "rOfTyres\":\"4\",\"HaveTrunk\":true}}",
         )
         options["body_mixed"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectCombinedInputBodyMixed"),
-            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\""
-            ":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}}",
+            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"Nu"
+            "mberOfElectrons\":4,\"NumberOfProtons\":4}}",
         )
 
         # Perform the API call through the SDK function
@@ -670,59 +670,59 @@ class SenderControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         form_non_scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":{\"NumberOfElectrons\":2,\"NumberOfP"
-            "rotons\":2},\"key2\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":"
-            "2}},\"allInnerArray\":[{\"NumberOfElectrons\":2},{\"NumberOfElectr"
-            "ons\":2}],\"outerArray\":[{\"startsAt\":\"6:00\",\"endsAt\":\"11:0"
-            "0\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"},{\"NumberO"
-            "fTyres\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1\":{\"star"
-            "tsAt\":\"15:00\",\"endsAt\":\"21:00\",\"offerDinner\":true,\"sessi"
-            "onType\":\"Evening\"},\"key2\":{\"startsAt\":\"6:00\",\"endsAt\":"
-            "\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}}}",
+            "{\"singleInnerMap\":{\"key1\":{\"NumberOfElectrons\":2,\"NumberOfProtons"
+            "\":2},\"key2\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2}},\"allInn"
+            "erArray\":[{\"NumberOfElectrons\":2},{\"NumberOfElectrons\":2}],\"outerA"
+            "rray\":[{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":tr"
+            "ue,\"sessionType\":\"Morning\"},{\"NumberOfTyres\":\"4\",\"HaveTrunk\":t"
+            "rue}],\"outerMap\":{\"key1\":{\"startsAt\":\"15:00\",\"endsAt\":\"21:00"
+            "\",\"offerDinner\":true,\"sessionType\":\"Evening\"},\"key2\":{\"startsA"
+            "t\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\""
+            ":\"Morning\"}}}",
             NonScalarModel.from_dictionary,
         )
         query_non_scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":{\"NumberOfElectrons\":2,\"NumberOfP"
-            "rotons\":2},\"key2\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":"
-            "2}},\"allInnerArray\":[{\"NumberOfElectrons\":2},{\"NumberOfElectr"
-            "ons\":2}],\"outerArray\":[{\"startsAt\":\"6:00\",\"endsAt\":\"11:0"
-            "0\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"},{\"NumberO"
-            "fTyres\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1\":{\"star"
-            "tsAt\":\"15:00\",\"endsAt\":\"21:00\",\"offerDinner\":true,\"sessi"
-            "onType\":\"Evening\"},\"key2\":{\"startsAt\":\"6:00\",\"endsAt\":"
-            "\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}}}",
+            "{\"singleInnerMap\":{\"key1\":{\"NumberOfElectrons\":2,\"NumberOfProtons"
+            "\":2},\"key2\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2}},\"allInn"
+            "erArray\":[{\"NumberOfElectrons\":2},{\"NumberOfElectrons\":2}],\"outerA"
+            "rray\":[{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":tr"
+            "ue,\"sessionType\":\"Morning\"},{\"NumberOfTyres\":\"4\",\"HaveTrunk\":t"
+            "rue}],\"outerMap\":{\"key1\":{\"startsAt\":\"15:00\",\"endsAt\":\"21:00"
+            "\",\"offerDinner\":true,\"sessionType\":\"Evening\"},\"key2\":{\"startsA"
+            "t\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\""
+            ":\"Morning\"}}}",
             NonScalarModel.from_dictionary,
         )
         query_mixed_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":23,\"key2\":23},\"allInnerArray\":[{"
-            "\"NumberOfTyres\":\"4\"},{\"NumberOfTyres\":\"4\"}],\"outerArray\""
-            ":[\"some string\",{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],\""
-            "outerMap\":{\"key1\":234.8,\"key2\":{\"name\":\"Shahid Khaliq\",\""
-            "age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321"
-            "\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54"
-            ".9571247Z\",\"personType\":\"Per\"}}}",
+            "{\"singleInnerMap\":{\"key1\":23,\"key2\":23},\"allInnerArray\":[{\"Numb"
+            "erOfTyres\":\"4\"},{\"NumberOfTyres\":\"4\"}],\"outerArray\":[\"some str"
+            "ing\",{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1"
+            "\":234.8,\"key2\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"addre"
+            "ss\":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\","
+            "\"birthtime\":\"1994-02-13T14:01:54.9571247Z\",\"personType\":\"Per\"}}}"
+            "",
             MixedModel.from_dictionary,
         )
         form_scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":false,\"allInnerArray\":[\"some string\",\"som"
-            "e string\"],\"outerArray\":[45.8,\"some string\"],\"outerMap\":{\""
-            "key1\":23,\"key2\":false}}",
+            "{\"singleInnerMap\":false,\"allInnerArray\":[\"some string\",\"some stri"
+            "ng\"],\"outerArray\":[45.8,\"some string\"],\"outerMap\":{\"key1\":23,\""
+            "key2\":false}}",
             ScalarModel.from_dictionary,
         )
         form_mixed_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":23,\"key2\":23},\"allInnerArray\":[{"
-            "\"NumberOfTyres\":\"4\"},{\"NumberOfTyres\":\"4\"}],\"outerArray\""
-            ":[\"some string\",{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],\""
-            "outerMap\":{\"key1\":234.8,\"key2\":{\"name\":\"Shahid Khaliq\",\""
-            "age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321"
-            "\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54"
-            ".9571247Z\",\"personType\":\"Per\"}}}",
+            "{\"singleInnerMap\":{\"key1\":23,\"key2\":23},\"allInnerArray\":[{\"Numb"
+            "erOfTyres\":\"4\"},{\"NumberOfTyres\":\"4\"}],\"outerArray\":[\"some str"
+            "ing\",{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1"
+            "\":234.8,\"key2\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"addre"
+            "ss\":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\","
+            "\"birthtime\":\"1994-02-13T14:01:54.9571247Z\",\"personType\":\"Per\"}}}"
+            "",
             MixedModel.from_dictionary,
         )
         query_scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":false,\"allInnerArray\":[\"some string\",\"som"
-            "e string\"],\"outerArray\":[45.8,\"some string\"],\"outerMap\":{\""
-            "key1\":23,\"key2\":false}}",
+            "{\"singleInnerMap\":false,\"allInnerArray\":[\"some string\",\"some stri"
+            "ng\"],\"outerArray\":[45.8,\"some string\"],\"outerMap\":{\"key1\":23,\""
+            "key2\":false}}",
             ScalarModel.from_dictionary,
         )
 
@@ -757,61 +757,59 @@ class SenderControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         form_non_scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"NumberOfElectrons\":2},\"allInnerArray\":[{"
-            "\"NumberOfTyres\":\"2\"},{\"NumberOfTyres\":\"2\"}],\"outerArray\""
-            ":[{\"NumberOfElectrons\":2,\"NumberOfProtons\":2},{\"NumberOfTyres"
-            "\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1\":{\"startsAt\""
-            ":\"15:00\",\"endsAt\":\"21:00\",\"offerLunch\":true,\"sessionType"
-            "\":\"Noon\"},\"key2\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\","
-            "\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}}}",
+            "{\"singleInnerMap\":{\"NumberOfElectrons\":2},\"allInnerArray\":[{\"Numb"
+            "erOfTyres\":\"2\"},{\"NumberOfTyres\":\"2\"}],\"outerArray\":[{\"NumberO"
+            "fElectrons\":2,\"NumberOfProtons\":2},{\"NumberOfTyres\":\"4\",\"HaveTru"
+            "nk\":true}],\"outerMap\":{\"key1\":{\"startsAt\":\"15:00\",\"endsAt\":\""
+            "21:00\",\"offerLunch\":true,\"sessionType\":\"Noon\"},\"key2\":{\"starts"
+            "At\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}}",
             NonScalarModel.from_dictionary,
         )
         query_non_scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"NumberOfElectrons\":2},\"allInnerArray\":[{"
-            "\"NumberOfTyres\":\"2\"},{\"NumberOfTyres\":\"2\"}],\"outerArray\""
-            ":[{\"NumberOfElectrons\":2,\"NumberOfProtons\":2},{\"NumberOfTyres"
-            "\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1\":{\"startsAt\""
-            ":\"15:00\",\"endsAt\":\"21:00\",\"offerLunch\":true,\"sessionType"
-            "\":\"Noon\"},\"key2\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\","
-            "\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}}}",
+            "{\"singleInnerMap\":{\"NumberOfElectrons\":2},\"allInnerArray\":[{\"Numb"
+            "erOfTyres\":\"2\"},{\"NumberOfTyres\":\"2\"}],\"outerArray\":[{\"NumberO"
+            "fElectrons\":2,\"NumberOfProtons\":2},{\"NumberOfTyres\":\"4\",\"HaveTru"
+            "nk\":true}],\"outerMap\":{\"key1\":{\"startsAt\":\"15:00\",\"endsAt\":\""
+            "21:00\",\"offerLunch\":true,\"sessionType\":\"Noon\"},\"key2\":{\"starts"
+            "At\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}}",
             NonScalarModel.from_dictionary,
         )
         query_mixed_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"NumberOfElectrons\":4},\"allInnerArray\":[f"
-            "alse,true],\"outerArray\":[\"some string\",{\"startsAt\":\"6:00\","
-            "\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morn"
-            "ing\"}],\"outerMap\":{\"key1\":{\"name\":\"Shahid Khaliq\",\"age\""
-            ":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321\",\"b"
-            "irthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54.95712"
-            "47Z\",\"personType\":\"Per\"},\"key2\":{\"name\":\"Shahid Khaliq\""
-            ",\"age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"1233"
-            "21\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:"
-            "54.9571247Z\",\"personType\":\"Per\"}}}",
+            "{\"singleInnerMap\":{\"NumberOfElectrons\":4},\"allInnerArray\":[false,t"
+            "rue],\"outerArray\":[\"some string\",{\"startsAt\":\"6:00\",\"endsAt\":"
+            "\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}],\"outerMa"
+            "p\":{\"key1\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"address\""
+            ":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"bi"
+            "rthtime\":\"1994-02-13T14:01:54.9571247Z\",\"personType\":\"Per\"},\"key"
+            "2\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"address\":\"H # 531"
+            ", S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"birthtime\":"
+            "\"1994-02-13T14:01:54.9571247Z\",\"personType\":\"Per\"}}}",
             MixedModel.from_dictionary,
         )
         form_scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":45.8,\"key2\":45.8},\"allInnerArray"
-            "\":[23,23],\"outerArray\":[\"some string\",\"some string\"],\"oute"
-            "rMap\":{\"key1\":true,\"key2\":false}}",
+            "{\"singleInnerMap\":{\"key1\":45.8,\"key2\":45.8},\"allInnerArray\":[23,"
+            "23],\"outerArray\":[\"some string\",\"some string\"],\"outerMap\":{\"key"
+            "1\":true,\"key2\":false}}",
             ScalarModel.from_dictionary,
         )
         form_mixed_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"NumberOfElectrons\":4},\"allInnerArray\":[f"
-            "alse,true],\"outerArray\":[\"some string\",{\"startsAt\":\"6:00\","
-            "\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morn"
-            "ing\"}],\"outerMap\":{\"key1\":{\"name\":\"Shahid Khaliq\",\"age\""
-            ":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321\",\"b"
-            "irthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54.95712"
-            "47Z\",\"personType\":\"Per\"},\"key2\":{\"name\":\"Shahid Khaliq\""
-            ",\"age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"1233"
-            "21\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:"
-            "54.9571247Z\",\"personType\":\"Per\"}}}",
+            "{\"singleInnerMap\":{\"NumberOfElectrons\":4},\"allInnerArray\":[false,t"
+            "rue],\"outerArray\":[\"some string\",{\"startsAt\":\"6:00\",\"endsAt\":"
+            "\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}],\"outerMa"
+            "p\":{\"key1\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"address\""
+            ":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"bi"
+            "rthtime\":\"1994-02-13T14:01:54.9571247Z\",\"personType\":\"Per\"},\"key"
+            "2\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"address\":\"H # 531"
+            ", S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"birthtime\":"
+            "\"1994-02-13T14:01:54.9571247Z\",\"personType\":\"Per\"}}}",
             MixedModel.from_dictionary,
         )
         query_scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":45.8,\"key2\":45.8},\"allInnerArray"
-            "\":[23,23],\"outerArray\":[\"some string\",\"some string\"],\"oute"
-            "rMap\":{\"key1\":true,\"key2\":false}}",
+            "{\"singleInnerMap\":{\"key1\":45.8,\"key2\":45.8},\"allInnerArray\":[23,"
+            "23],\"outerArray\":[\"some string\",\"some string\"],\"outerMap\":{\"key"
+            "1\":true,\"key2\":false}}",
             ScalarModel.from_dictionary,
         )
 
@@ -846,31 +844,31 @@ class SenderControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         non_scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":{\"NumberOfElectrons\":2,\"NumberOfP"
-            "rotons\":2},\"key2\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":"
-            "2}},\"allInnerArray\":[{\"NumberOfElectrons\":2},{\"NumberOfElectr"
-            "ons\":2}],\"outerArray\":[{\"startsAt\":\"6:00\",\"endsAt\":\"11:0"
-            "0\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"},{\"NumberO"
-            "fTyres\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1\":{\"star"
-            "tsAt\":\"15:00\",\"endsAt\":\"21:00\",\"offerDinner\":true,\"sessi"
-            "onType\":\"Evening\"},\"key2\":{\"startsAt\":\"6:00\",\"endsAt\":"
-            "\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}}}",
+            "{\"singleInnerMap\":{\"key1\":{\"NumberOfElectrons\":2,\"NumberOfProtons"
+            "\":2},\"key2\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2}},\"allInn"
+            "erArray\":[{\"NumberOfElectrons\":2},{\"NumberOfElectrons\":2}],\"outerA"
+            "rray\":[{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":tr"
+            "ue,\"sessionType\":\"Morning\"},{\"NumberOfTyres\":\"4\",\"HaveTrunk\":t"
+            "rue}],\"outerMap\":{\"key1\":{\"startsAt\":\"15:00\",\"endsAt\":\"21:00"
+            "\",\"offerDinner\":true,\"sessionType\":\"Evening\"},\"key2\":{\"startsA"
+            "t\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\""
+            ":\"Morning\"}}}",
             NonScalarModel.from_dictionary,
         )
         mixed_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":23,\"key2\":23},\"allInnerArray\":[{"
-            "\"NumberOfTyres\":\"4\"},{\"NumberOfTyres\":\"4\"}],\"outerArray\""
-            ":[\"some string\",{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],\""
-            "outerMap\":{\"key1\":234.8,\"key2\":{\"name\":\"Shahid Khaliq\",\""
-            "age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321"
-            "\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54"
-            ".9571247Z\",\"personType\":\"Per\"}}}",
+            "{\"singleInnerMap\":{\"key1\":23,\"key2\":23},\"allInnerArray\":[{\"Numb"
+            "erOfTyres\":\"4\"},{\"NumberOfTyres\":\"4\"}],\"outerArray\":[\"some str"
+            "ing\",{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1"
+            "\":234.8,\"key2\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"addre"
+            "ss\":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\","
+            "\"birthtime\":\"1994-02-13T14:01:54.9571247Z\",\"personType\":\"Per\"}}}"
+            "",
             MixedModel.from_dictionary,
         )
         scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":false,\"allInnerArray\":[\"some string\",\"som"
-            "e string\"],\"outerArray\":[45.8,\"some string\"],\"outerMap\":{\""
-            "key1\":23,\"key2\":false}}",
+            "{\"singleInnerMap\":false,\"allInnerArray\":[\"some string\",\"some stri"
+            "ng\"],\"outerArray\":[45.8,\"some string\"],\"outerMap\":{\"key1\":23,\""
+            "key2\":false}}",
             ScalarModel.from_dictionary,
         )
 
@@ -902,32 +900,31 @@ class SenderControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         non_scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"NumberOfElectrons\":2},\"allInnerArray\":[{"
-            "\"NumberOfTyres\":\"2\"},{\"NumberOfTyres\":\"2\"}],\"outerArray\""
-            ":[{\"NumberOfElectrons\":2,\"NumberOfProtons\":2},{\"NumberOfTyres"
-            "\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1\":{\"startsAt\""
-            ":\"15:00\",\"endsAt\":\"21:00\",\"offerLunch\":true,\"sessionType"
-            "\":\"Noon\"},\"key2\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\","
-            "\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}}}",
+            "{\"singleInnerMap\":{\"NumberOfElectrons\":2},\"allInnerArray\":[{\"Numb"
+            "erOfTyres\":\"2\"},{\"NumberOfTyres\":\"2\"}],\"outerArray\":[{\"NumberO"
+            "fElectrons\":2,\"NumberOfProtons\":2},{\"NumberOfTyres\":\"4\",\"HaveTru"
+            "nk\":true}],\"outerMap\":{\"key1\":{\"startsAt\":\"15:00\",\"endsAt\":\""
+            "21:00\",\"offerLunch\":true,\"sessionType\":\"Noon\"},\"key2\":{\"starts"
+            "At\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}}",
             NonScalarModel.from_dictionary,
         )
         mixed_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"NumberOfElectrons\":4},\"allInnerArray\":[f"
-            "alse,true],\"outerArray\":[\"some string\",{\"startsAt\":\"6:00\","
-            "\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morn"
-            "ing\"}],\"outerMap\":{\"key1\":{\"name\":\"Shahid Khaliq\",\"age\""
-            ":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321\",\"b"
-            "irthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54.95712"
-            "47Z\",\"personType\":\"Per\"},\"key2\":{\"name\":\"Shahid Khaliq\""
-            ",\"age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"1233"
-            "21\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:"
-            "54.9571247Z\",\"personType\":\"Per\"}}}",
+            "{\"singleInnerMap\":{\"NumberOfElectrons\":4},\"allInnerArray\":[false,t"
+            "rue],\"outerArray\":[\"some string\",{\"startsAt\":\"6:00\",\"endsAt\":"
+            "\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}],\"outerMa"
+            "p\":{\"key1\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"address\""
+            ":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"bi"
+            "rthtime\":\"1994-02-13T14:01:54.9571247Z\",\"personType\":\"Per\"},\"key"
+            "2\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"address\":\"H # 531"
+            ", S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"birthtime\":"
+            "\"1994-02-13T14:01:54.9571247Z\",\"personType\":\"Per\"}}}",
             MixedModel.from_dictionary,
         )
         scalar_model = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":45.8,\"key2\":45.8},\"allInnerArray"
-            "\":[23,23],\"outerArray\":[\"some string\",\"some string\"],\"oute"
-            "rMap\":{\"key1\":true,\"key2\":false}}",
+            "{\"singleInnerMap\":{\"key1\":45.8,\"key2\":45.8},\"allInnerArray\":[23,"
+            "23],\"outerArray\":[\"some string\",\"some string\"],\"outerMap\":{\"key"
+            "1\":true,\"key2\":false}}",
             ScalarModel.from_dictionary,
         )
 

@@ -17,12 +17,7 @@ client = CustomheadersignatureClient(
 custom_header_signature_controller = client.custom_header_signature
 try:
     result = custom_header_signature_controller.get_custom_header_signature()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

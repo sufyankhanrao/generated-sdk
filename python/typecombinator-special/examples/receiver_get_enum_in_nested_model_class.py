@@ -10,12 +10,7 @@ client = TypecombinatorspecialClient(
 receiver_controller = client.receiver
 try:
     result = receiver_controller.get_enum_in_nested_model()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

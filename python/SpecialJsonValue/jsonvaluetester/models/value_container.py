@@ -16,8 +16,8 @@ class ValueContainer(object):
         value (Any): The model property of type Any.
         value_array (List[Any]): The model property of type List[Any].
         value_map (Dict[str, Any]): The model property of type Dict[str, Any].
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -35,13 +35,14 @@ class ValueContainer(object):
         "value_map",
     ]
 
-    def __init__(self,
-                 id=None,
-                 name=None,
-                 value=None,
-                 value_array=APIHelper.SKIP,
-                 value_map=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        id=None,
+        name=None,
+        value=None,
+        value_array=APIHelper.SKIP,
+        value_map=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a ValueContainer instance."""
         # Initialize members of the class
         self.name = name
@@ -75,15 +76,27 @@ class ValueContainer(object):
             return None
 
         # Extract variables from the dictionary
-        id = dictionary.get("id") if dictionary.get("id") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        value = dictionary.get("value") if dictionary.get("value") else None
+        id =\
+            dictionary.get("id")\
+            if dictionary.get("id")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        value =\
+            dictionary.get("value")\
+            if dictionary.get("value")\
+                else None
         value_array =\
             dictionary.get("valueArray")\
-            if dictionary.get("valueArray") else APIHelper.SKIP
+            if dictionary.get("valueArray")\
+                else APIHelper.SKIP
         value_map =\
             dictionary.get("valueMap")\
-            if dictionary.get("valueMap") else APIHelper.SKIP
+            if dictionary.get("valueMap")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -97,24 +110,54 @@ class ValueContainer(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!r}, "
-                f"id={self.id!r}, "
-                f"value={self.value!r}, "
-                f"value_array={(self.value_array
-                     if hasattr(self, 'value_array') else None)!r}, "
-                f"value_map={(self.value_map
-                     if hasattr(self, 'value_map') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _name=self.name
+        _id=self.id
+        _value=self.value
+        _value_array=(
+            self.value_array
+            if hasattr(self, "value_array")
+            else None
+        )
+        _value_map=(
+            self.value_map
+            if hasattr(self, "value_map")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!r}"
+            f"id={_id!r}"
+            f"value={_value!r}"
+            f"value_array={_value_array!r}"
+            f"value_map={_value_map!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!s}, "
-                f"id={self.id!s}, "
-                f"value={self.value!s}, "
-                f"value_array={(self.value_array
-                     if hasattr(self, 'value_array') else None)!s}, "
-                f"value_map={(self.value_map
-                     if hasattr(self, 'value_map') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _name=self.name
+        _id=self.id
+        _value=self.value
+        _value_array=(
+            self.value_array
+            if hasattr(self, "value_array")
+            else None
+        )
+        _value_map=(
+            self.value_map
+            if hasattr(self, "value_map")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!s}"
+            f"id={_id!s}"
+            f"value={_value!s}"
+            f"value_array={_value_array!s}"
+            f"value_map={_value_map!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

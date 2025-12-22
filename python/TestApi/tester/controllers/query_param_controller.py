@@ -4,6 +4,7 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+# ruff: noqa: D410
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
@@ -32,14 +33,12 @@ class QueryParamController(BaseController):
             dates (List[date]): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -47,18 +46,17 @@ class QueryParamController(BaseController):
             .path("/query/datearray")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("dates")
-                         .value(dates)
-                         .is_required(True))
+                .key("dates")
+                .value(dates)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def optional_dynamic_query_param(self,
@@ -70,18 +68,16 @@ class QueryParamController(BaseController):
 
         Args:
             name (str): The request query parameter.
-            _optional_query_parameters (Array, optional): Additional optional
-                query parameters are supported by this endpoint
+            _optional_query_parameters (Array, optional): Additional optional query
+                parameters are supported by this endpoint
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -89,19 +85,18 @@ class QueryParamController(BaseController):
             .path("/query/optionalQueryParam")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("name")
-                         .value(name)
-                         .is_required(True))
+                .key("name")
+                .value(name)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .additional_query_params(_optional_query_parameters),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def date(self,
@@ -112,14 +107,12 @@ class QueryParamController(BaseController):
             date (date): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -127,18 +120,17 @@ class QueryParamController(BaseController):
             .path("/query/date")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("date")
-                         .value(date)
-                         .is_required(True))
+                .key("date")
+                .value(date)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def unix_date_time_array(self,
@@ -149,14 +141,12 @@ class QueryParamController(BaseController):
             datetimes (List[datetime]): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -164,19 +154,18 @@ class QueryParamController(BaseController):
             .path("/query/unixdatetimearray")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("datetimes")
-                         .value([APIHelper.when_defined(APIHelper.UnixDateTime,
-                             element) for element in datetimes])
-                         .is_required(True))
+                .key("datetimes")
+                .value([APIHelper.when_defined(APIHelper.UnixDateTime,
+                    element) for element in datetimes])
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def unix_date_time(self,
@@ -187,14 +176,12 @@ class QueryParamController(BaseController):
             datetime (datetime): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -202,19 +189,18 @@ class QueryParamController(BaseController):
             .path("/query/unixdatetime")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("datetime")
-                         .value(APIHelper.when_defined(APIHelper.UnixDateTime,
-                             datetime))
-                         .is_required(True))
+                .key("datetime")
+                .value(APIHelper.when_defined(APIHelper.UnixDateTime,
+                    datetime))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def rfc_1123_date_time(self,
@@ -225,14 +211,12 @@ class QueryParamController(BaseController):
             datetime (datetime): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -240,19 +224,18 @@ class QueryParamController(BaseController):
             .path("/query/rfc1123datetime")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("datetime")
-                         .value(APIHelper.when_defined(APIHelper.HttpDateTime,
-                             datetime))
-                         .is_required(True))
+                .key("datetime")
+                .value(APIHelper.when_defined(APIHelper.HttpDateTime,
+                    datetime))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def rfc_1123_date_time_array(self,
@@ -263,14 +246,12 @@ class QueryParamController(BaseController):
             datetimes (List[datetime]): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -278,19 +259,18 @@ class QueryParamController(BaseController):
             .path("/query/rfc1123datetimearray")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("datetimes")
-                         .value([APIHelper.when_defined(APIHelper.HttpDateTime,
-                             element) for element in datetimes])
-                         .is_required(True))
+                .key("datetimes")
+                .value([APIHelper.when_defined(APIHelper.HttpDateTime,
+                    element) for element in datetimes])
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def rfc_3339_date_time_array(self,
@@ -301,14 +281,12 @@ class QueryParamController(BaseController):
             datetimes (List[datetime]): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -316,19 +294,18 @@ class QueryParamController(BaseController):
             .path("/query/rfc3339datetimearray")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("datetimes")
-                         .value([APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                             element) for element in datetimes])
-                         .is_required(True))
+                .key("datetimes")
+                .value([APIHelper.when_defined(APIHelper.RFC3339DateTime,
+                    element) for element in datetimes])
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def rfc_3339_date_time(self,
@@ -339,14 +316,12 @@ class QueryParamController(BaseController):
             datetime (datetime): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -354,33 +329,30 @@ class QueryParamController(BaseController):
             .path("/query/rfc3339datetime")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("datetime")
-                         .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                             datetime))
-                         .is_required(True))
+                .key("datetime")
+                .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
+                    datetime))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def no_params(self):
         """Perform a GET request to /query/noparams.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -388,14 +360,13 @@ class QueryParamController(BaseController):
             .path("/query/noparams")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def string_param(self,
@@ -406,14 +377,12 @@ class QueryParamController(BaseController):
             string (str): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -421,18 +390,17 @@ class QueryParamController(BaseController):
             .path("/query/stringparam")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("string")
-                         .value(string)
-                         .is_required(True))
+                .key("string")
+                .value(string)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def url_param(self,
@@ -443,14 +411,12 @@ class QueryParamController(BaseController):
             url (str): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -458,18 +424,17 @@ class QueryParamController(BaseController):
             .path("/query/urlparam")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("url")
-                         .value(url)
-                         .is_required(True))
+                .key("url")
+                .value(url)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def number_array(self,
@@ -480,14 +445,12 @@ class QueryParamController(BaseController):
             integers (List[int]): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -495,18 +458,17 @@ class QueryParamController(BaseController):
             .path("/query/numberarray")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("integers")
-                         .value(integers)
-                         .is_required(True))
+                .key("integers")
+                .value(integers)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def string_array(self,
@@ -517,14 +479,12 @@ class QueryParamController(BaseController):
             strings (List[str]): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -532,18 +492,17 @@ class QueryParamController(BaseController):
             .path("/query/stringarray")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("strings")
-                         .value(strings)
-                         .is_required(True))
+                .key("strings")
+                .value(strings)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def simple_query(self,
@@ -557,18 +516,16 @@ class QueryParamController(BaseController):
             boolean (bool): The request query parameter.
             number (int): The request query parameter.
             string (str): The request query parameter.
-            _optional_query_parameters (Array, optional): Additional optional
-                query parameters are supported by this endpoint
+            _optional_query_parameters (Array, optional): Additional optional query
+                parameters are supported by this endpoint
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -576,27 +533,26 @@ class QueryParamController(BaseController):
             .path("/query")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("boolean")
-                         .value(boolean)
-                         .is_required(True))
+                .key("boolean")
+                .value(boolean)
+                .is_required(True))
             .query_param(Parameter()
-                         .key("number")
-                         .value(number)
-                         .is_required(True))
+                .key("number")
+                .value(number)
+                .is_required(True))
             .query_param(Parameter()
-                         .key("string")
-                         .value(string)
-                         .is_required(True))
+                .key("string")
+                .value(string)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .additional_query_params(_optional_query_parameters),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def string_enum_array(self,
@@ -607,14 +563,12 @@ class QueryParamController(BaseController):
             days (List[Days1Enum]): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -622,18 +576,17 @@ class QueryParamController(BaseController):
             .path("/query/stringenumarray")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("days")
-                         .value(days)
-                         .is_required(True))
+                .key("days")
+                .value(days)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def multiple_params(self,
@@ -650,14 +603,12 @@ class QueryParamController(BaseController):
             url (str): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -665,30 +616,29 @@ class QueryParamController(BaseController):
             .path("/query/multipleparams")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("number")
-                         .value(number)
-                         .is_required(True))
+                .key("number")
+                .value(number)
+                .is_required(True))
             .query_param(Parameter()
-                         .key("precision")
-                         .value(precision)
-                         .is_required(True))
+                .key("precision")
+                .value(precision)
+                .is_required(True))
             .query_param(Parameter()
-                         .key("string")
-                         .value(string)
-                         .is_required(True))
+                .key("string")
+                .value(string)
+                .is_required(True))
             .query_param(Parameter()
-                         .key("url")
-                         .value(url)
-                         .is_required(True))
+                .key("url")
+                .value(url)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def integer_enum_array(self,
@@ -699,14 +649,12 @@ class QueryParamController(BaseController):
             suites (List[SuiteCodeEnum]): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -714,18 +662,17 @@ class QueryParamController(BaseController):
             .path("/query/integerenumarray")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("suites")
-                         .value(suites)
-                         .is_required(True))
+                .key("suites")
+                .value(suites)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_indexed_complex_type_in_query(self,
@@ -736,14 +683,12 @@ class QueryParamController(BaseController):
             complex_type (ComplexType): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -751,21 +696,20 @@ class QueryParamController(BaseController):
             .path("/query/complex/indexed")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("complexType")
-                         .value(complex_type)
-                         .is_required(True))
+                .key("complexType")
+                .value(complex_type)
+                .is_required(True))
             .query_param(Parameter()
-                         .key("content")
-                         .value("SIMPLE"))
+                .key("content")
+                .value("SIMPLE"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_indexed_list_of_complex_type_in_query(self,
@@ -776,14 +720,12 @@ class QueryParamController(BaseController):
             complex_type (List[ComplexType]): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -791,21 +733,20 @@ class QueryParamController(BaseController):
             .path("/query/complex/indexed")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("complexType")
-                         .value(complex_type)
-                         .is_required(True))
+                .key("complexType")
+                .value(complex_type)
+                .is_required(True))
             .query_param(Parameter()
-                         .key("content")
-                         .value("ARRAY"))
+                .key("content")
+                .value("ARRAY"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_indexed_map_of_complex_type_in_query(self,
@@ -816,14 +757,12 @@ class QueryParamController(BaseController):
             complex_type (Dict[str, ComplexType]): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -831,19 +770,18 @@ class QueryParamController(BaseController):
             .path("/query/complex/indexed")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("complexType")
-                         .value(complex_type)
-                         .is_required(True))
+                .key("complexType")
+                .value(complex_type)
+                .is_required(True))
             .query_param(Parameter()
-                         .key("content")
-                         .value("MAP"))
+                .key("content")
+                .value("MAP"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()

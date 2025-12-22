@@ -18,16 +18,15 @@ class Medication(object):
     Attributes:
         ace_inhibitors (List[AceInhibitor]): The model property of type
             List[AceInhibitor].
-        antianginal (List[Antianginal]): The model property of type
-            List[Antianginal].
+        antianginal (List[Antianginal]): The model property of type List[Antianginal].
         anticoagulants (List[Anticoagulant]): The model property of type
             List[Anticoagulant].
         beta_blocker (List[BetaBlocker]): The model property of type
             List[BetaBlocker].
         diuretic (List[Diuretic]): The model property of type List[Diuretic].
         mineral (List[Mineral]): The model property of type List[Mineral].
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -41,14 +40,15 @@ class Medication(object):
         "mineral": "mineral",
     }
 
-    def __init__(self,
-                 ace_inhibitors=None,
-                 antianginal=None,
-                 anticoagulants=None,
-                 beta_blocker=None,
-                 diuretic=None,
-                 mineral=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        ace_inhibitors=None,
+        antianginal=None,
+        anticoagulants=None,
+        beta_blocker=None,
+        diuretic=None,
+        mineral=None,
+        additional_properties=None):
         """Initialize a Medication instance."""
         # Initialize members of the class
         self.ace_inhibitors = ace_inhibitors
@@ -117,6 +117,7 @@ class Medication(object):
                 Mineral.from_dictionary(x)
                     for x in dictionary.get("mineral")
             ]
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -131,22 +132,42 @@ class Medication(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"ace_inhibitors={self.ace_inhibitors!r}, "
-                f"antianginal={self.antianginal!r}, "
-                f"anticoagulants={self.anticoagulants!r}, "
-                f"beta_blocker={self.beta_blocker!r}, "
-                f"diuretic={self.diuretic!r}, "
-                f"mineral={self.mineral!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _ace_inhibitors=self.ace_inhibitors
+        _antianginal=self.antianginal
+        _anticoagulants=self.anticoagulants
+        _beta_blocker=self.beta_blocker
+        _diuretic=self.diuretic
+        _mineral=self.mineral
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"ace_inhibitors={_ace_inhibitors!r}"
+            f"antianginal={_antianginal!r}"
+            f"anticoagulants={_anticoagulants!r}"
+            f"beta_blocker={_beta_blocker!r}"
+            f"diuretic={_diuretic!r}"
+            f"mineral={_mineral!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"ace_inhibitors={self.ace_inhibitors!s}, "
-                f"antianginal={self.antianginal!s}, "
-                f"anticoagulants={self.anticoagulants!s}, "
-                f"beta_blocker={self.beta_blocker!s}, "
-                f"diuretic={self.diuretic!s}, "
-                f"mineral={self.mineral!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _ace_inhibitors=self.ace_inhibitors
+        _antianginal=self.antianginal
+        _anticoagulants=self.anticoagulants
+        _beta_blocker=self.beta_blocker
+        _diuretic=self.diuretic
+        _mineral=self.mineral
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"ace_inhibitors={_ace_inhibitors!s}"
+            f"antianginal={_antianginal!s}"
+            f"anticoagulants={_anticoagulants!s}"
+            f"beta_blocker={_beta_blocker!s}"
+            f"diuretic={_diuretic!s}"
+            f"mineral={_mineral!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

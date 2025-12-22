@@ -44,14 +44,13 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Optional_Nullable"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable_With_Default_Value\":\"With default value\",\""
-            "Required_Nullable\":null,\"Required\":\"not nullable and required"
-            "\",\"Optional\":\"not nullable and optional\",\"Child_Class_Array"
-            "\":null}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable_With"
+            "_Default_Value\":\"With default value\",\"Required_Nullable\":null,\"Req"
+            "uired\":\"not nullable and required\",\"Optional\":\"not nullable and op"
+            "tional\",\"Child_Class_Array\":null}",
             ChildClass.from_dictionary,
         )
 
@@ -74,14 +73,14 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Optional_Nullable"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":\"setted optionalNullable\",\"Optional_Nulla"
-            "ble_With_Default_Value\":\"With default value\",\"Required_Nullabl"
-            "e\":null,\"Required\":\"not nullable and required\",\"Optional\":"
-            "\"not nullable and optional\",\"Child_Class_Array\":null}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable\":\""
+            "setted optionalNullable\",\"Optional_Nullable_With_Default_Value\":\"Wit"
+            "h default value\",\"Required_Nullable\":null,\"Required\":\"not nullable"
+            " and required\",\"Optional\":\"not nullable and optional\",\"Child_Class"
+            "_Array\":null}",
             ChildClass.from_dictionary,
         )
 
@@ -104,14 +103,13 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = True
         field = "Optional_Nullable"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":null,\"Optional_Nullable_With_Default_Value"
-            "\":\"With default value\",\"Required_Nullable\":null,\"Required\":"
-            "\"not nullable and required\",\"Optional\":\"not nullable and opti"
-            "onal\",\"Child_Class_Array\":null}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable\":nu"
+            "ll,\"Optional_Nullable_With_Default_Value\":\"With default value\",\"Req"
+            "uired_Nullable\":null,\"Required\":\"not nullable and required\",\"Optio"
+            "nal\":\"not nullable and optional\",\"Child_Class_Array\":null}",
             ChildClass.from_dictionary,
         )
 
@@ -134,14 +132,13 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Optional"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":null,\"Optional_Nullable_With_Default_Value"
-            "\":\"With default value\",\"Required_Nullable\":null,\"Required\":"
-            "\"not nullable and required\",\"Optional\":\"not nullable and opti"
-            "onal\",\"Child_Class_Array\":null}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable\":nu"
+            "ll,\"Optional_Nullable_With_Default_Value\":\"With default value\",\"Req"
+            "uired_Nullable\":null,\"Required\":\"not nullable and required\",\"Optio"
+            "nal\":\"not nullable and optional\",\"Child_Class_Array\":null}",
             ChildClass.from_dictionary,
         )
 
@@ -164,13 +161,13 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Optional"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":null,\"Optional_Nullable_With_Default_Value"
-            "\":\"With default value\",\"Required_Nullable\":null,\"Required\":"
-            "\"not nullable and required\",\"Child_Class_Array\":null}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable\":nu"
+            "ll,\"Optional_Nullable_With_Default_Value\":\"With default value\",\"Req"
+            "uired_Nullable\":null,\"Required\":\"not nullable and required\",\"Child"
+            "_Class_Array\":null}",
             ChildClass.from_dictionary,
         )
 
@@ -193,14 +190,14 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Required_Nullable"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":null,\"Optional_Nullable_With_Default_Value"
-            "\":\"With default value\",\"Required_Nullable\":\"setted required "
-            "nullable\",\"Required\":\"not nullable and required\",\"Optional\""
-            ":\"not nullable and optional\",\"Child_Class_Array\":null}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable\":nu"
+            "ll,\"Optional_Nullable_With_Default_Value\":\"With default value\",\"Req"
+            "uired_Nullable\":\"setted required nullable\",\"Required\":\"not nullabl"
+            "e and required\",\"Optional\":\"not nullable and optional\",\"Child_Clas"
+            "s_Array\":null}",
             ChildClass.from_dictionary,
         )
 
@@ -223,14 +220,13 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = True
         field = "Required_Nullable"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":null,\"Optional_Nullable_With_Default_Value"
-            "\":\"With default value\",\"Required_Nullable\":null,\"Required\":"
-            "\"not nullable and required\",\"Optional\":\"not nullable and opti"
-            "onal\",\"Child_Class_Array\":null}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable\":nu"
+            "ll,\"Optional_Nullable_With_Default_Value\":\"With default value\",\"Req"
+            "uired_Nullable\":null,\"Required\":\"not nullable and required\",\"Optio"
+            "nal\":\"not nullable and optional\",\"Child_Class_Array\":null}",
             ChildClass.from_dictionary,
         )
 
@@ -253,14 +249,13 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Required"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":null,\"Optional_Nullable_With_Default_Value"
-            "\":\"With default value\",\"Required_Nullable\":null,\"Required\":"
-            "\"not nullable and required\",\"Optional\":\"not nullable and opti"
-            "onal\",\"Child_Class_Array\":null}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable\":nu"
+            "ll,\"Optional_Nullable_With_Default_Value\":\"With default value\",\"Req"
+            "uired_Nullable\":null,\"Required\":\"not nullable and required\",\"Optio"
+            "nal\":\"not nullable and optional\",\"Child_Class_Array\":null}",
             ChildClass.from_dictionary,
         )
 
@@ -283,14 +278,13 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Child_Class_Array"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":null,\"Optional_Nullable_With_Default_Value"
-            "\":\"With default value\",\"Required_Nullable\":null,\"Required\":"
-            "\"not nullable and required\",\"Optional\":\"not nullable and opti"
-            "onal\"}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable\":nu"
+            "ll,\"Optional_Nullable_With_Default_Value\":\"With default value\",\"Req"
+            "uired_Nullable\":null,\"Required\":\"not nullable and required\",\"Optio"
+            "nal\":\"not nullable and optional\"}",
             ChildClass.from_dictionary,
         )
 
@@ -313,29 +307,27 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Child_Class_Array"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":null,\"Optional_Nullable_With_Default_Value"
-            "\":\"With default value\",\"Required_Nullable\":null,\"Required\":"
-            "\"not nullable and required\",\"Optional\":\"not nullable and opti"
-            "onal\",\"Child_Class_Array\":[{\"Grand_Parent_Required_Nullable\":"
-            "null,\"Grand_Parent_Required\":\"not nullable and required\",\"cla"
-            "ss\":23,\"Parent_Optional_Nullable_With_Default_Value\":\"Has defa"
-            "ult value\",\"Parent_Required_Nullable\":null,\"Parent_Required\":"
-            "\"not nullable and required\",\"Optional_Nullable\":null,\"Optiona"
-            "l_Nullable_With_Default_Value\":\"With default value\",\"Required_"
-            "Nullable\":null,\"Required\":\"not nullable and required\",\"Optio"
-            "nal\":\"not nullable and optional\",\"Child_Class_Array\":null},{"
-            "\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":"
-            "\"not nullable and required\",\"class\":23,\"Parent_Optional_Nulla"
-            "ble_With_Default_Value\":\"Has default value\",\"Parent_Required_N"
-            "ullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":null,\"Optional_Nullable_With_Default_Value"
-            "\":\"With default value\",\"Required_Nullable\":null,\"Required\":"
-            "\"not nullable and required\",\"Optional\":\"not nullable and opti"
-            "onal\",\"Child_Class_Array\":null}]}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable\":nu"
+            "ll,\"Optional_Nullable_With_Default_Value\":\"With default value\",\"Req"
+            "uired_Nullable\":null,\"Required\":\"not nullable and required\",\"Optio"
+            "nal\":\"not nullable and optional\",\"Child_Class_Array\":[{\"Grand_Pare"
+            "nt_Required_Nullable\":null,\"Grand_Parent_Required\":\"not nullable and"
+            " required\",\"class\":23,\"Parent_Optional_Nullable_With_Default_Value\""
+            ":\"Has default value\",\"Parent_Required_Nullable\":null,\"Parent_Requir"
+            "ed\":\"not nullable and required\",\"Optional_Nullable\":null,\"Optional"
+            "_Nullable_With_Default_Value\":\"With default value\",\"Required_Nullabl"
+            "e\":null,\"Required\":\"not nullable and required\",\"Optional\":\"not n"
+            "ullable and optional\",\"Child_Class_Array\":null},{\"Grand_Parent_Requi"
+            "red_Nullable\":null,\"Grand_Parent_Required\":\"not nullable and require"
+            "d\",\"class\":23,\"Parent_Optional_Nullable_With_Default_Value\":\"Has d"
+            "efault value\",\"Parent_Required_Nullable\":null,\"Parent_Required\":\"n"
+            "ot nullable and required\",\"Optional_Nullable\":null,\"Optional_Nullabl"
+            "e_With_Default_Value\":\"With default value\",\"Required_Nullable\":null"
+            ",\"Required\":\"not nullable and required\",\"Optional\":\"not nullable "
+            "and optional\",\"Child_Class_Array\":null}]}",
             ChildClass.from_dictionary,
         )
 
@@ -358,14 +350,13 @@ class BodyControllerTests(ControllerTestBase):
         set_to_null = True
         field = "Optional_Nullable"
         child = APIHelper.json_deserialize(
-            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\""
-            ":\"not nullable and required\",\"class\":23,\"Parent_Optional_Null"
-            "able_With_Default_Value\":\"Has default value\",\"Parent_Required_"
-            "Nullable\":null,\"Parent_Required\":\"not nullable and required\","
-            "\"Optional_Nullable\":null,\"Optional_Nullable_With_Default_Value"
-            "\":\"With default value\",\"Required_Nullable\":null,\"Required\":"
-            "\"not nullable and required\",\"Optional\":\"not nullable and opti"
-            "onal\",\"Child_Class_Array\":null}",
+            "{\"Grand_Parent_Required_Nullable\":null,\"Grand_Parent_Required\":\"not"
+            " nullable and required\",\"class\":23,\"Parent_Optional_Nullable_With_De"
+            "fault_Value\":\"Has default value\",\"Parent_Required_Nullable\":null,\""
+            "Parent_Required\":\"not nullable and required\",\"Optional_Nullable\":nu"
+            "ll,\"Optional_Nullable_With_Default_Value\":\"With default value\",\"Req"
+            "uired_Nullable\":null,\"Required\":\"not nullable and required\",\"Optio"
+            "nal\":\"not nullable and optional\",\"Child_Class_Array\":null}",
             ChildClass.from_dictionary,
         )
 

@@ -15,11 +15,10 @@ class OAuthToken(object):
         access_token (str): Access token
         token_type (str): Type of access token
         expires_in (int): Time in seconds before the access token expires
-        scope (str): List of scopes granted This is a space-delimited list of
-            strings.
+        scope (str): List of scopes granted This is a space-delimited list of strings.
         expiry (int): Time of token expiry as unix timestamp (UTC)
-        refresh_token (str): Refresh token Used to get a new access token when
-            it expires.
+        refresh_token (str): Refresh token Used to get a new access token when it
+            expires.
 
     """
 
@@ -40,13 +39,14 @@ class OAuthToken(object):
         "refresh_token",
     ]
 
-    def __init__(self,
-                 access_token=None,
-                 token_type=None,
-                 expires_in=APIHelper.SKIP,
-                 scope=APIHelper.SKIP,
-                 expiry=APIHelper.SKIP,
-                 refresh_token=APIHelper.SKIP):
+    def __init__(
+        self,
+        access_token=None,
+        token_type=None,
+        expires_in=APIHelper.SKIP,
+        scope=APIHelper.SKIP,
+        expiry=APIHelper.SKIP,
+        refresh_token=APIHelper.SKIP):
         """Initialize a OAuthToken instance."""
         # Initialize members of the class
         self.access_token = access_token
@@ -80,22 +80,29 @@ class OAuthToken(object):
         # Extract variables from the dictionary
         access_token =\
             dictionary.get("access_token")\
-            if dictionary.get("access_token") else None
+            if dictionary.get("access_token")\
+                else None
         token_type =\
             dictionary.get("token_type")\
-            if dictionary.get("token_type") else None
+            if dictionary.get("token_type")\
+                else None
         expires_in =\
             dictionary.get("expires_in")\
-            if dictionary.get("expires_in") else APIHelper.SKIP
+            if dictionary.get("expires_in")\
+                else APIHelper.SKIP
         scope =\
             dictionary.get("scope")\
-            if dictionary.get("scope") else APIHelper.SKIP
+            if dictionary.get("scope")\
+                else APIHelper.SKIP
         expiry =\
             dictionary.get("expiry")\
-            if dictionary.get("expiry") else APIHelper.SKIP
+            if dictionary.get("expiry")\
+                else APIHelper.SKIP
         refresh_token =\
             dictionary.get("refresh_token")\
-            if dictionary.get("refresh_token") else APIHelper.SKIP
+            if dictionary.get("refresh_token")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(access_token,
                    token_type,

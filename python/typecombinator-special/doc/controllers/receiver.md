@@ -34,7 +34,7 @@ def enum_param(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[DaysEnum | MonthNameEnum | MonthNumberEnum]`.
+List[[Days](../../doc/models/days-enum.md) | [MonthName](../../doc/models/month-name-enum.md) | [MonthNumber](../../doc/models/month-number-enum.md)]
 
 ## Example Usage
 
@@ -42,11 +42,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 case = CaseEnum.CASEA
 
 result = receiver_controller.enum_param(case)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -71,7 +67,7 @@ def date_time_param(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[date | datetime]`.
+List[date | datetime]
 
 ## Example Usage
 
@@ -79,11 +75,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 case = CaseEnum.CASEA
 
 result = receiver_controller.date_time_param(case)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -108,7 +100,7 @@ def req_opt_param(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Cat | Dog | Rabbit`.
+[Cat](../../doc/models/cat.md) | [Dog](../../doc/models/dog.md) | [Rabbit](../../doc/models/rabbit.md)
 
 ## Example Usage
 
@@ -116,11 +108,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 case = CaseEnum.CASEA
 
 result = receiver_controller.req_opt_param(case)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -145,7 +133,7 @@ def multiple_enums(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`MultipleEnums`](../../doc/models/multiple-enums.md).
+[`MultipleEnums`](../../doc/models/multiple-enums.md)
 
 ## Example Usage
 
@@ -153,11 +141,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 case = CaseEnum.CASEA
 
 result = receiver_controller.multiple_enums(case)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -182,7 +166,7 @@ def date_time_cases(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DateTimeCases`](../../doc/models/date-time-cases.md).
+[`DateTimeCases`](../../doc/models/date-time-cases.md)
 
 ## Example Usage
 
@@ -190,11 +174,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 case = CaseEnum.CASEA
 
 result = receiver_controller.date_time_cases(case)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -219,7 +199,7 @@ def factoring_schema(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FactoringSchema`](../../doc/models/factoring-schema.md).
+[`FactoringSchema`](../../doc/models/factoring-schema.md)
 
 ## Example Usage
 
@@ -227,11 +207,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 case = CaseEnum.CASEA
 
 result = receiver_controller.factoring_schema(case)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -249,17 +225,13 @@ def get_enum_in_nested_model(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`OuterModel`](../../doc/models/outer-model.md).
+[`OuterModel`](../../doc/models/outer-model.md)
 
 ## Example Usage
 
 ```python
 result = receiver_controller.get_enum_in_nested_model()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

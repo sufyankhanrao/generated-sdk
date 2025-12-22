@@ -29,7 +29,7 @@ def send_string_array(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`EchoResponse`](../../doc/models/echo-response.md).
+[`EchoResponse`](../../doc/models/echo-response.md)
 
 ## Example Usage
 
@@ -39,11 +39,7 @@ strings = [
 ]
 
 result = template_params_controller.send_string_array(strings)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -62,7 +58,7 @@ def send_integer_array(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`EchoResponse`](../../doc/models/echo-response.md).
+[`EchoResponse`](../../doc/models/echo-response.md)
 
 ## Example Usage
 
@@ -74,10 +70,6 @@ integers = [
 ]
 
 result = template_params_controller.send_integer_array(integers)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

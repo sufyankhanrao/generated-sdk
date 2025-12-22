@@ -16,18 +16,18 @@ class ScalarModel(object):
     Attributes:
         single_inner_map (Dict[str, float] | bool): The model property of type
             Dict[str, float] | bool.
-        all_inner_array (List[int] | List[str] | None): The model property of
-            type List[int] | List[str] | None.
-        outer_array (List[int | float | str] | None): The model property of
-            type List[int | float | str] | None.
+        all_inner_array (List[int] | List[str] | None): The model property of type
+            List[int] | List[str] | None.
+        outer_array (List[int | float | str] | None): The model property of type
+            List[int | float | str] | None.
         outer_map (Dict[str, int | bool] | None): The model property of type
             Dict[str, int | bool] | None.
-        inner_nullable (int | None | Any): The model property of type int |
-            None | Any.
-        inner_array_with_nullable (List[int] | List[Any] | None): The model
-            property of type List[int] | List[Any] | None.
-        inner_map_with_nullable (Dict[str, int] | Dict[str, Any] | None): The
-            model property of type Dict[str, int] | Dict[str, Any] | None.
+        inner_nullable (int | None | Any): The model property of type int | None |
+            Any.
+        inner_array_with_nullable (List[int] | List[Any] | None): The model property
+            of type List[int] | List[Any] | None.
+        inner_map_with_nullable (Dict[str, int] | Dict[str, Any] | None): The model
+            property of type Dict[str, int] | Dict[str, Any] | None.
 
     """
 
@@ -55,14 +55,15 @@ class ScalarModel(object):
         "outer_map",
     ]
 
-    def __init__(self,
-                 single_inner_map=None,
-                 all_inner_array=None,
-                 outer_array=APIHelper.SKIP,
-                 outer_map=APIHelper.SKIP,
-                 inner_nullable=APIHelper.SKIP,
-                 inner_array_with_nullable=APIHelper.SKIP,
-                 inner_map_with_nullable=APIHelper.SKIP):
+    def __init__(
+        self,
+        single_inner_map=None,
+        all_inner_array=None,
+        outer_array=APIHelper.SKIP,
+        outer_map=APIHelper.SKIP,
+        inner_nullable=APIHelper.SKIP,
+        inner_array_with_nullable=APIHelper.SKIP,
+        inner_map_with_nullable=APIHelper.SKIP):
         """Initialize a ScalarModel instance."""
         # Initialize members of the class
         self.single_inner_map = single_inner_map
@@ -100,16 +101,52 @@ class ScalarModel(object):
             return None
 
         # Extract variables from the dictionary
-        single_inner_map = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelSingleInnerMap"), dictionary.get("singleInnerMap"), False) if dictionary.get("singleInnerMap") is not None else None
-        all_inner_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelAllInnerArray"), dictionary.get("allInnerArray"), False) if dictionary.get("allInnerArray") is not None else None
-        outer_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelOuterArray"), dictionary.get("outerArray"), False) if dictionary.get("outerArray") is not None else APIHelper.SKIP
+        single_inner_map = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelSingleInnerMap"),
+            dictionary.get("singleInnerMap"),
+            False)\
+            if dictionary.get("singleInnerMap") is not None\
+            else None
+        all_inner_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelAllInnerArray"),
+            dictionary.get("allInnerArray"),
+            False)\
+            if dictionary.get("allInnerArray") is not None\
+            else None
+        outer_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelOuterArray"),
+            dictionary.get("outerArray"),
+            False)\
+            if dictionary.get("outerArray") is not None\
+            else APIHelper.SKIP
         if "outerMap" in dictionary.keys():
-            outer_map = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelOuterMap"), dictionary.get("outerMap"), False) if dictionary.get("outerMap") is not None else None
+            outer_map = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelOuterMap"),
+            dictionary.get("outerMap"),
+            False)\
+            if dictionary.get("outerMap") is not None\
+            else None
         else:
             outer_map = APIHelper.SKIP
-        inner_nullable = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelInnerNullable"), dictionary.get("innerNullable"), False) if dictionary.get("innerNullable") is not None else APIHelper.SKIP
-        inner_array_with_nullable = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelInnerArrayWithNullable"), dictionary.get("innerArrayWithNullable"), False) if dictionary.get("innerArrayWithNullable") is not None else APIHelper.SKIP
-        inner_map_with_nullable = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelInnerMapWithNullable"), dictionary.get("innerMapWithNullable"), False) if dictionary.get("innerMapWithNullable") is not None else APIHelper.SKIP
+        inner_nullable = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelInnerNullable"),
+            dictionary.get("innerNullable"),
+            False)\
+            if dictionary.get("innerNullable") is not None\
+            else APIHelper.SKIP
+        inner_array_with_nullable = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelInnerArrayWithNullable"),
+            dictionary.get("innerArrayWithNullable"),
+            False)\
+            if dictionary.get("innerArrayWithNullable") is not None\
+            else APIHelper.SKIP
+        inner_map_with_nullable = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelInnerMapWithNullable"),
+            dictionary.get("innerMapWithNullable"),
+            False)\
+            if dictionary.get("innerMapWithNullable") is not None\
+            else APIHelper.SKIP
+
         # Return an object of this model
         return cls(single_inner_map,
                    all_inner_array,
@@ -137,43 +174,97 @@ class ScalarModel(object):
         )
 
         if isinstance(dictionary, cls):
-            return UnionTypeLookUp.get("ScalarModelSingleInnerMap").validate(dictionary.single_inner_map).is_valid \
-                and UnionTypeLookUp.get("ScalarModelAllInnerArray").validate(dictionary.all_inner_array).is_valid
+            return (UnionTypeLookUp.get("ScalarModelSingleInnerMap")
+                .validate(dictionary.single_inner_map).is_valid) \
+                and (UnionTypeLookUp.get("ScalarModelAllInnerArray")
+                .validate(dictionary.all_inner_array).is_valid)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return UnionTypeLookUp.get("ScalarModelSingleInnerMap").validate(dictionary.get("singleInnerMap")).is_valid \
-            and UnionTypeLookUp.get("ScalarModelAllInnerArray").validate(dictionary.get("allInnerArray")).is_valid
+        return (UnionTypeLookUp.get("ScalarModelSingleInnerMap")
+            .validate(dictionary.get("singleInnerMap")).is_valid) \
+            and (UnionTypeLookUp.get("ScalarModelAllInnerArray")
+            .validate(dictionary.get("allInnerArray")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"single_inner_map={self.single_inner_map!r}, "
-                f"all_inner_array={self.all_inner_array!r}, "
-                f"outer_array={(self.outer_array
-                     if hasattr(self, 'outer_array') else None)!r}, "
-                f"outer_map={(self.outer_map
-                     if hasattr(self, 'outer_map') else None)!r}, "
-                f"inner_nullable={(self.inner_nullable
-                     if hasattr(self, 'inner_nullable') else None)!r}, "
-                f"inner_array_with_nullable={(self.inner_array_with_nullable
-                     if hasattr(self, 'inner_array_with_nullable') else None)!r}, "
-                f"inner_map_with_nullable={(self.inner_map_with_nullable
-                     if hasattr(self, 'inner_map_with_nullable') else None)!r})")
+        _single_inner_map=self.single_inner_map
+        _all_inner_array=self.all_inner_array
+        _outer_array=(
+            self.outer_array
+            if hasattr(self, "outer_array")
+            else None
+        )
+        _outer_map=(
+            self.outer_map
+            if hasattr(self, "outer_map")
+            else None
+        )
+        _inner_nullable=(
+            self.inner_nullable
+            if hasattr(self, "inner_nullable")
+            else None
+        )
+        _inner_array_with_nullable=(
+            self.inner_array_with_nullable
+            if hasattr(self, "inner_array_with_nullable")
+            else None
+        )
+        _inner_map_with_nullable=(
+            self.inner_map_with_nullable
+            if hasattr(self, "inner_map_with_nullable")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"single_inner_map={_single_inner_map!r}"
+            f"all_inner_array={_all_inner_array!r}"
+            f"outer_array={_outer_array!r}"
+            f"outer_map={_outer_map!r}"
+            f"inner_nullable={_inner_nullable!r}"
+            f"inner_array_with_nullable={_inner_array_with_nullable!r}"
+            f"inner_map_with_nullable={_inner_map_with_nullable!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"single_inner_map={self.single_inner_map!s}, "
-                f"all_inner_array={self.all_inner_array!s}, "
-                f"outer_array={(self.outer_array
-                     if hasattr(self, 'outer_array') else None)!s}, "
-                f"outer_map={(self.outer_map
-                     if hasattr(self, 'outer_map') else None)!s}, "
-                f"inner_nullable={(self.inner_nullable
-                     if hasattr(self, 'inner_nullable') else None)!s}, "
-                f"inner_array_with_nullable={(self.inner_array_with_nullable
-                     if hasattr(self, 'inner_array_with_nullable') else None)!s}, "
-                f"inner_map_with_nullable={(self.inner_map_with_nullable
-                     if hasattr(self, 'inner_map_with_nullable') else None)!s})")
+        _single_inner_map=self.single_inner_map
+        _all_inner_array=self.all_inner_array
+        _outer_array=(
+            self.outer_array
+            if hasattr(self, "outer_array")
+            else None
+        )
+        _outer_map=(
+            self.outer_map
+            if hasattr(self, "outer_map")
+            else None
+        )
+        _inner_nullable=(
+            self.inner_nullable
+            if hasattr(self, "inner_nullable")
+            else None
+        )
+        _inner_array_with_nullable=(
+            self.inner_array_with_nullable
+            if hasattr(self, "inner_array_with_nullable")
+            else None
+        )
+        _inner_map_with_nullable=(
+            self.inner_map_with_nullable
+            if hasattr(self, "inner_map_with_nullable")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"single_inner_map={_single_inner_map!s}"
+            f"all_inner_array={_all_inner_array!s}"
+            f"outer_array={_outer_array!s}"
+            f"outer_map={_outer_map!s}"
+            f"inner_nullable={_inner_nullable!s}"
+            f"inner_array_with_nullable={_inner_array_with_nullable!s}"
+            f"inner_map_with_nullable={_inner_map_with_nullable!s}"
+            f")"
+        )

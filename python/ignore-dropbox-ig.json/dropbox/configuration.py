@@ -129,11 +129,10 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
-                 environment=Environment.PRODUCTION,
-                 basepath="api.dropboxapi.com", o_auth_client_id=None,
-                 o_auth_redirect_uri=None, o_auth_token=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
+                 environment=Environment.PRODUCTION, basepath="api.dropboxapi.com",
+                 o_auth_client_id=None, o_auth_redirect_uri=None, o_auth_token=None,
                  o_auth_scopes=None, implicit_auth_credentials=None):
         """Initialize Configuration object."""
         if retry_methods is None:
@@ -172,8 +171,8 @@ class Configuration(HttpClientConfiguration):
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
                    environment=None, basepath=None, o_auth_client_id=None,
-                   o_auth_redirect_uri=None, o_auth_token=None,
-                   o_auth_scopes=None, implicit_auth_credentials=None):
+                   o_auth_redirect_uri=None, o_auth_token=None, o_auth_scopes=None,
+                   implicit_auth_credentials=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration =\
@@ -196,11 +195,10 @@ class Configuration(HttpClientConfiguration):
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
-            http_call_back=http_call_back, timeout=timeout,
-            max_retries=max_retries, backoff_factor=backoff_factor,
-            retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings, environment=environment,
-            basepath=basepath,
+            http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, proxy_settings=proxy_settings,
+            environment=environment, basepath=basepath,
             implicit_auth_credentials=implicit_auth_credentials,
         )
 
@@ -256,10 +254,9 @@ class Configuration(HttpClientConfiguration):
                 and o_auth_scopes is None:
             return implicit_auth_credentials
 
-        warnings.warn(message=("The 'o_auth_client_id', 'o_auth_redirect_uri', "
-                               "'o_auth_token', 'o_auth_scopes' params are depr"
-                               "ecated. Use 'implicit_auth_credentials' param i"
-                               "nstead."),
+        warnings.warn(message=("The 'o_auth_client_id', 'o_auth_redirect_uri', 'o_aut"
+                               "h_token', 'o_auth_scopes' params are deprecated. Use "
+                               "'implicit_auth_credentials' param instead."),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
@@ -269,7 +266,7 @@ class Configuration(HttpClientConfiguration):
                                                         o_auth_token,
                                                         o_auth_scopes)
 
-        from dropbox.http.auth.o_auth_2 import (
+        from dropbox.http.auth.o_auth_2 import (  # noqa: E501
             ImplicitAuthCredentials,
         )
         return ImplicitAuthCredentials(o_auth_client_id, o_auth_redirect_uri,
@@ -306,9 +303,8 @@ class Configuration(HttpClientConfiguration):
             os.getenv("ENVIRONMENT"), Environment.PRODUCTION)
         basepath = os.getenv("BASEPATH", "api.dropboxapi.com")
 
-        from dropbox.http.auth.o_auth_2 import (
-            ImplicitAuthCredentials,
-        )
+        from dropbox.http.auth.o_auth_2 import ImplicitAuthCredentials
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

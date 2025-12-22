@@ -14,8 +14,8 @@ class ParamFormatEnum(object):
         BODY: The enum member of type str.
         HEADER: The enum member of type str.
         QUERY: The enum member of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 

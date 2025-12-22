@@ -37,7 +37,7 @@ def send_valuein_model(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -49,11 +49,7 @@ body = ValueContainer(
 )
 
 result = json_val_controller.send_valuein_model(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -74,7 +70,7 @@ def send_valueas_body(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -82,11 +78,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 body = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 
 result = json_val_controller.send_valueas_body(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -111,7 +103,7 @@ def send_valueas_form(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -122,11 +114,7 @@ collect = {
     'model': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 }
 result = json_val_controller.send_valueas_form(collect)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -150,7 +138,7 @@ def send_valueas_query(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -160,11 +148,7 @@ collect = {
     'model': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 }
 result = json_val_controller.send_valueas_query(collect)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -178,17 +162,13 @@ def get_value(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
 ```python
 result = json_val_controller.get_value()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -202,17 +182,13 @@ def get_value_array(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[Any]`.
+`List[Any]`
 
 ## Example Usage
 
 ```python
 result = json_val_controller.get_value_array()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -226,17 +202,13 @@ def get_value_map(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Dict[str, Any]`.
+`Dict[str, Any]`
 
 ## Example Usage
 
 ```python
 result = json_val_controller.get_value_map()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -250,16 +222,12 @@ def get_valuein_model(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ValueContainer`](../../doc/models/value-container.md).
+[`ValueContainer`](../../doc/models/value-container.md)
 
 ## Example Usage
 
 ```python
 result = json_val_controller.get_valuein_model()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

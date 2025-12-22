@@ -16,12 +16,7 @@ body = SchemaContainer(
 
 try:
     result = json_obj_controller.send_schemain_model(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

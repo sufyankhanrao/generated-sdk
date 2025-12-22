@@ -10,8 +10,8 @@ class Styling(object):
     Attributes:
         color_theme (str): The model property of type str.
         spinner (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -21,10 +21,11 @@ class Styling(object):
         "spinner": "spinner",
     }
 
-    def __init__(self,
-                 color_theme=None,
-                 spinner=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        color_theme=None,
+        spinner=None,
+        additional_properties=None):
         """Initialize a Styling instance."""
         # Initialize members of the class
         self.color_theme = color_theme
@@ -55,8 +56,13 @@ class Styling(object):
         # Extract variables from the dictionary
         color_theme =\
             dictionary.get("colorTheme")\
-            if dictionary.get("colorTheme") else None
-        spinner = dictionary.get("spinner") if dictionary.get("spinner") else None
+            if dictionary.get("colorTheme")\
+                else None
+        spinner =\
+            dictionary.get("spinner")\
+            if dictionary.get("spinner")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -67,14 +73,26 @@ class Styling(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"color_theme={self.color_theme!r}, "
-                f"spinner={self.spinner!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _color_theme=self.color_theme
+        _spinner=self.spinner
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"color_theme={_color_theme!r}"
+            f"spinner={_spinner!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"color_theme={self.color_theme!s}, "
-                f"spinner={self.spinner!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _color_theme=self.color_theme
+        _spinner=self.spinner
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"color_theme={_color_theme!s}"
+            f"spinner={_spinner!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

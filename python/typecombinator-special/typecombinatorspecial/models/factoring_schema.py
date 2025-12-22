@@ -11,24 +11,23 @@ from typecombinatorspecial.api_helper import (
 class FactoringSchema(object):
     """Implementation of the 'FactoringSchema' model.
 
-    This class contains special combination of required and optional typed
-    models in oneOf/anyOf cases.
+    This class contains special combination of required and optional typed models in
+    oneOf/anyOf cases.
 
     Attributes:
         any_of_dog_cat (Dog | Cat): This will be mapped by Dog for values:
-            {"bark":false, "age":2, "breed":"husky"} or {"bark":false,
-            "age":2, "unknown":"something"}
+            {"bark":false, "age":2, "breed":"husky"} or {"bark":false, "age":2,
+            "unknown":"something"}
         any_of_cat_dog (Cat | Dog): This will be mapped by Cat for values:
             {"bark":false, "age":2, "breed":"husky"} or {"bark":false, "age":2}
-        any_of_squirrel_dog (Squirrel | Dog): This will be mapped by Squirrel
-            for values: {"cute":true, "breed":"husky"} or {"bark":true,
-            "age":2}
-        one_of_cat_dog_rabbit (Cat | Dog | Rabbit): This will be mapped by Cat
-            for value: {"bark":false, "breed":"husky"} and Rabbit for value:
-            {"age":2, "cute":true}
-        one_of_vehicles (VehicleA | VehicleB): This will be mapped by VehicleA
-            for value: {"NumberOfTyres":"4","model":"6"} and VehicleB for
-            value: {"NumberOfTyres":4,"model":6}
+        any_of_squirrel_dog (Squirrel | Dog): This will be mapped by Squirrel for
+            values: {"cute":true, "breed":"husky"} or {"bark":true, "age":2}
+        one_of_cat_dog_rabbit (Cat | Dog | Rabbit): This will be mapped by Cat for
+            value: {"bark":false, "breed":"husky"} and Rabbit for value: {"age":2,
+            "cute":true}
+        one_of_vehicles (VehicleA | VehicleB): This will be mapped by VehicleA for
+            value: {"NumberOfTyres":"4","model":"6"} and VehicleB for value:
+            {"NumberOfTyres":4,"model":6}
 
     """
 
@@ -41,12 +40,13 @@ class FactoringSchema(object):
         "one_of_vehicles": "oneOfVehicles",
     }
 
-    def __init__(self,
-                 any_of_dog_cat=None,
-                 any_of_cat_dog=None,
-                 any_of_squirrel_dog=None,
-                 one_of_cat_dog_rabbit=None,
-                 one_of_vehicles=None):
+    def __init__(
+        self,
+        any_of_dog_cat=None,
+        any_of_cat_dog=None,
+        any_of_squirrel_dog=None,
+        one_of_cat_dog_rabbit=None,
+        one_of_vehicles=None):
         """Initialize a FactoringSchema instance."""
         # Initialize members of the class
         self.any_of_dog_cat = any_of_dog_cat
@@ -77,11 +77,37 @@ class FactoringSchema(object):
             return None
 
         # Extract variables from the dictionary
-        any_of_dog_cat = APIHelper.deserialize_union_type(UnionTypeLookUp.get("FactoringSchemaAnyOfDogCat"), dictionary.get("anyOfDogCat"), False) if dictionary.get("anyOfDogCat") is not None else None
-        any_of_cat_dog = APIHelper.deserialize_union_type(UnionTypeLookUp.get("FactoringSchemaAnyOfCatDog"), dictionary.get("anyOfCatDog"), False) if dictionary.get("anyOfCatDog") is not None else None
-        any_of_squirrel_dog = APIHelper.deserialize_union_type(UnionTypeLookUp.get("FactoringSchemaAnyOfSquirrelDog"), dictionary.get("anyOfSquirrelDog"), False) if dictionary.get("anyOfSquirrelDog") is not None else None
-        one_of_cat_dog_rabbit = APIHelper.deserialize_union_type(UnionTypeLookUp.get("FactoringSchemaOneOfCatDogRabbit"), dictionary.get("oneOfCatDogRabbit"), False) if dictionary.get("oneOfCatDogRabbit") is not None else None
-        one_of_vehicles = APIHelper.deserialize_union_type(UnionTypeLookUp.get("FactoringSchemaOneOfVehicles"), dictionary.get("oneOfVehicles"), False) if dictionary.get("oneOfVehicles") is not None else None
+        any_of_dog_cat = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("FactoringSchemaAnyOfDogCat"),
+            dictionary.get("anyOfDogCat"),
+            False)\
+            if dictionary.get("anyOfDogCat") is not None\
+            else None
+        any_of_cat_dog = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("FactoringSchemaAnyOfCatDog"),
+            dictionary.get("anyOfCatDog"),
+            False)\
+            if dictionary.get("anyOfCatDog") is not None\
+            else None
+        any_of_squirrel_dog = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("FactoringSchemaAnyOfSquirrelDog"),
+            dictionary.get("anyOfSquirrelDog"),
+            False)\
+            if dictionary.get("anyOfSquirrelDog") is not None\
+            else None
+        one_of_cat_dog_rabbit = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("FactoringSchemaOneOfCatDogRabbit"),
+            dictionary.get("oneOfCatDogRabbit"),
+            False)\
+            if dictionary.get("oneOfCatDogRabbit") is not None\
+            else None
+        one_of_vehicles = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("FactoringSchemaOneOfVehicles"),
+            dictionary.get("oneOfVehicles"),
+            False)\
+            if dictionary.get("oneOfVehicles") is not None\
+            else None
+
         # Return an object of this model
         return cls(any_of_dog_cat,
                    any_of_cat_dog,
@@ -107,35 +133,61 @@ class FactoringSchema(object):
         )
 
         if isinstance(dictionary, cls):
-            return UnionTypeLookUp.get("FactoringSchemaAnyOfDogCat").validate(dictionary.any_of_dog_cat).is_valid \
-                and UnionTypeLookUp.get("FactoringSchemaAnyOfCatDog").validate(dictionary.any_of_cat_dog).is_valid \
-                and UnionTypeLookUp.get("FactoringSchemaAnyOfSquirrelDog").validate(dictionary.any_of_squirrel_dog).is_valid \
-                and UnionTypeLookUp.get("FactoringSchemaOneOfCatDogRabbit").validate(dictionary.one_of_cat_dog_rabbit).is_valid \
-                and UnionTypeLookUp.get("FactoringSchemaOneOfVehicles").validate(dictionary.one_of_vehicles).is_valid
+            return (UnionTypeLookUp.get("FactoringSchemaAnyOfDogCat")
+                .validate(dictionary.any_of_dog_cat).is_valid) \
+                and (UnionTypeLookUp.get("FactoringSchemaAnyOfCatDog")
+                .validate(dictionary.any_of_cat_dog).is_valid) \
+                and (UnionTypeLookUp.get("FactoringSchemaAnyOfSquirrelDog")
+                .validate(dictionary.any_of_squirrel_dog).is_valid) \
+                and (UnionTypeLookUp.get("FactoringSchemaOneOfCatDogRabbit")
+                .validate(dictionary.one_of_cat_dog_rabbit).is_valid) \
+                and (UnionTypeLookUp.get("FactoringSchemaOneOfVehicles")
+                .validate(dictionary.one_of_vehicles).is_valid)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return UnionTypeLookUp.get("FactoringSchemaAnyOfDogCat").validate(dictionary.get("anyOfDogCat")).is_valid \
-            and UnionTypeLookUp.get("FactoringSchemaAnyOfCatDog").validate(dictionary.get("anyOfCatDog")).is_valid \
-            and UnionTypeLookUp.get("FactoringSchemaAnyOfSquirrelDog").validate(dictionary.get("anyOfSquirrelDog")).is_valid \
-            and UnionTypeLookUp.get("FactoringSchemaOneOfCatDogRabbit").validate(dictionary.get("oneOfCatDogRabbit")).is_valid \
-            and UnionTypeLookUp.get("FactoringSchemaOneOfVehicles").validate(dictionary.get("oneOfVehicles")).is_valid
+        return (UnionTypeLookUp.get("FactoringSchemaAnyOfDogCat")
+            .validate(dictionary.get("anyOfDogCat")).is_valid) \
+            and (UnionTypeLookUp.get("FactoringSchemaAnyOfCatDog")
+            .validate(dictionary.get("anyOfCatDog")).is_valid) \
+            and (UnionTypeLookUp.get("FactoringSchemaAnyOfSquirrelDog")
+            .validate(dictionary.get("anyOfSquirrelDog")).is_valid) \
+            and (UnionTypeLookUp.get("FactoringSchemaOneOfCatDogRabbit")
+            .validate(dictionary.get("oneOfCatDogRabbit")).is_valid) \
+            and (UnionTypeLookUp.get("FactoringSchemaOneOfVehicles")
+            .validate(dictionary.get("oneOfVehicles")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"any_of_dog_cat={self.any_of_dog_cat!r}, "
-                f"any_of_cat_dog={self.any_of_cat_dog!r}, "
-                f"any_of_squirrel_dog={self.any_of_squirrel_dog!r}, "
-                f"one_of_cat_dog_rabbit={self.one_of_cat_dog_rabbit!r}, "
-                f"one_of_vehicles={self.one_of_vehicles!r})")
+        _any_of_dog_cat=self.any_of_dog_cat
+        _any_of_cat_dog=self.any_of_cat_dog
+        _any_of_squirrel_dog=self.any_of_squirrel_dog
+        _one_of_cat_dog_rabbit=self.one_of_cat_dog_rabbit
+        _one_of_vehicles=self.one_of_vehicles
+        return (
+            f"{self.__class__.__name__}("
+            f"any_of_dog_cat={_any_of_dog_cat!r}"
+            f"any_of_cat_dog={_any_of_cat_dog!r}"
+            f"any_of_squirrel_dog={_any_of_squirrel_dog!r}"
+            f"one_of_cat_dog_rabbit={_one_of_cat_dog_rabbit!r}"
+            f"one_of_vehicles={_one_of_vehicles!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"any_of_dog_cat={self.any_of_dog_cat!s}, "
-                f"any_of_cat_dog={self.any_of_cat_dog!s}, "
-                f"any_of_squirrel_dog={self.any_of_squirrel_dog!s}, "
-                f"one_of_cat_dog_rabbit={self.one_of_cat_dog_rabbit!s}, "
-                f"one_of_vehicles={self.one_of_vehicles!s})")
+        _any_of_dog_cat=self.any_of_dog_cat
+        _any_of_cat_dog=self.any_of_cat_dog
+        _any_of_squirrel_dog=self.any_of_squirrel_dog
+        _one_of_cat_dog_rabbit=self.one_of_cat_dog_rabbit
+        _one_of_vehicles=self.one_of_vehicles
+        return (
+            f"{self.__class__.__name__}("
+            f"any_of_dog_cat={_any_of_dog_cat!s}"
+            f"any_of_cat_dog={_any_of_cat_dog!s}"
+            f"any_of_squirrel_dog={_any_of_squirrel_dog!s}"
+            f"one_of_cat_dog_rabbit={_one_of_cat_dog_rabbit!s}"
+            f"one_of_vehicles={_one_of_vehicles!s}"
+            f")"
+        )

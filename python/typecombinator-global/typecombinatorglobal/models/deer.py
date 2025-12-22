@@ -25,10 +25,11 @@ class Deer(object):
         "mtype": "type",
     }
 
-    def __init__(self,
-                 name=None,
-                 weight=None,
-                 mtype=None):
+    def __init__(
+        self,
+        name=None,
+        weight=None,
+        mtype=None):
         """Initialize a Deer instance."""
         # Initialize members of the class
         self.name = name
@@ -53,9 +54,19 @@ class Deer(object):
             return None
 
         # Extract variables from the dictionary
-        name = dictionary.get("name") if dictionary.get("name") else None
-        weight = dictionary.get("weight") if dictionary.get("weight") else None
-        mtype = dictionary.get("type") if dictionary.get("type") else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        weight =\
+            dictionary.get("weight")\
+            if dictionary.get("weight")\
+                else None
+        mtype =\
+            dictionary.get("type")\
+            if dictionary.get("type")\
+                else None
+
         # Return an object of this model
         return cls(name,
                    weight,
@@ -76,38 +87,74 @@ class Deer(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.name,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.weight,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.weight,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.mtype,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.mtype,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("name"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("name"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("weight"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("weight"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("type"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("type"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!r}, "
-                f"weight={self.weight!r}, "
-                f"mtype={self.mtype!r})")
+        _name=self.name
+        _weight=self.weight
+        _mtype=self.mtype
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!r}"
+            f"weight={_weight!r}"
+            f"mtype={_mtype!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!s}, "
-                f"weight={self.weight!s}, "
-                f"mtype={self.mtype!s})")
+        _name=self.name
+        _weight=self.weight
+        _mtype=self.mtype
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!s}"
+            f"weight={_weight!s}"
+            f"mtype={_mtype!s}"
+            f")"
+        )

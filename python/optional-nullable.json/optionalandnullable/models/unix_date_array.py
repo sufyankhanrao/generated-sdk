@@ -11,8 +11,7 @@ class UnixDateArray(object):
 
     Attributes:
         date_time (List[datetime]): The model property of type List[datetime].
-        date_time_1 (List[datetime]): The model property of type
-            List[datetime].
+        date_time_1 (List[datetime]): The model property of type List[datetime].
 
     """
 
@@ -30,9 +29,10 @@ class UnixDateArray(object):
         "date_time",
     ]
 
-    def __init__(self,
-                 date_time_1=None,
-                 date_time=APIHelper.SKIP):
+    def __init__(
+        self,
+        date_time_1=None,
+        date_time=APIHelper.SKIP):
         """Initialize a UnixDateArray instance."""
         # Initialize members of the class
         if date_time is not None and date_time is not APIHelper.SKIP:
@@ -78,20 +78,37 @@ class UnixDateArray(object):
                 date_time = None
         else:
             date_time = APIHelper.SKIP
+
         # Return an object of this model
         return cls(date_time_1,
                    date_time)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date_time={(self.date_time
-                     if hasattr(self, 'date_time') else None)!r}, "
-                f"date_time_1={self.date_time_1!r})")
+        _date_time=(
+            self.date_time
+            if hasattr(self, "date_time")
+            else None
+        )
+        _date_time_1=self.date_time_1
+        return (
+            f"{self.__class__.__name__}("
+            f"date_time={_date_time!r}"
+            f"date_time_1={_date_time_1!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date_time={(self.date_time
-                     if hasattr(self, 'date_time') else None)!s}, "
-                f"date_time_1={self.date_time_1!s})")
+        _date_time=(
+            self.date_time
+            if hasattr(self, "date_time")
+            else None
+        )
+        _date_time_1=self.date_time_1
+        return (
+            f"{self.__class__.__name__}("
+            f"date_time={_date_time!s}"
+            f"date_time_1={_date_time_1!s}"
+            f")"
+        )

@@ -9,8 +9,8 @@ class Payment(object):
 
     Attributes:
         payment_type (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -23,9 +23,10 @@ class Payment(object):
         "payment_type",
     ]
 
-    def __init__(self,
-                 payment_type="Payment",
-                 additional_properties=None):
+    def __init__(
+        self,
+        payment_type="Payment",
+        additional_properties=None):
         """Initialize a Payment instance."""
         # Initialize members of the class
         self.payment_type = payment_type
@@ -66,7 +67,9 @@ class Payment(object):
         # Extract variables from the dictionary
         payment_type =\
             dictionary.get("paymentType")\
-            if dictionary.get("paymentType") else "Payment"
+            if dictionary.get("paymentType")\
+                else "Payment"
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -76,17 +79,33 @@ class Payment(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"payment_type={(self.payment_type
-                     if hasattr(self, 'payment_type') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _payment_type=(
+            self.payment_type
+            if hasattr(self, "payment_type")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"payment_type={_payment_type!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"payment_type={(self.payment_type
-                     if hasattr(self, 'payment_type') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _payment_type=(
+            self.payment_type
+            if hasattr(self, "payment_type")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"payment_type={_payment_type!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )
 
 class PaymentCard(Payment):
     """Implementation of the 'PaymentCard' model.
@@ -94,8 +113,8 @@ class PaymentCard(Payment):
 
     Attributes:
         swiped (bool): The model property of type bool.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -105,17 +124,19 @@ class PaymentCard(Payment):
         "payment_type": "paymentType",
     }
 
-    def __init__(self,
-                 swiped=None,
-                 payment_type="CARD",
-                 additional_properties=None):
+    def __init__(
+        self,
+        swiped=None,
+        payment_type="CARD",
+        additional_properties=None):
         """Initialize a PaymentCard instance."""
         # Initialize members of the class
         self.swiped = swiped
 
         # Call the constructor for the base class
-        super(PaymentCard, self).__init__(payment_type,
-                                          additional_properties)
+        super(PaymentCard, self).__init__(
+            payment_type,
+            additional_properties)
 
     @classmethod
     def from_dictionary(cls,
@@ -137,10 +158,13 @@ class PaymentCard(Payment):
         # Extract variables from the dictionary
         swiped =\
             dictionary.get("swiped")\
-            if "swiped" in dictionary.keys() else None
+            if "swiped" in dictionary.keys()\
+                else None
         payment_type =\
             dictionary.get("paymentType")\
-            if dictionary.get("paymentType") else "CARD"
+            if dictionary.get("paymentType")\
+                else "CARD"
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -151,17 +175,27 @@ class PaymentCard(Payment):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"swiped={self.swiped!r})")
+        _swiped=self.swiped
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"swiped={_swiped!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"swiped={self.swiped!s})")
+        _swiped=self.swiped
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"swiped={_swiped!s}"
+            f")"
+        )
 
 class PaymentCash(Payment):
     """Implementation of the 'PaymentCash' model.
@@ -169,8 +203,8 @@ class PaymentCash(Payment):
 
     Attributes:
         received (bool): The model property of type bool.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -180,17 +214,19 @@ class PaymentCash(Payment):
         "payment_type": "paymentType",
     }
 
-    def __init__(self,
-                 received=None,
-                 payment_type="CASH",
-                 additional_properties=None):
+    def __init__(
+        self,
+        received=None,
+        payment_type="CASH",
+        additional_properties=None):
         """Initialize a PaymentCash instance."""
         # Initialize members of the class
         self.received = received
 
         # Call the constructor for the base class
-        super(PaymentCash, self).__init__(payment_type,
-                                          additional_properties)
+        super(PaymentCash, self).__init__(
+            payment_type,
+            additional_properties)
 
     @classmethod
     def from_dictionary(cls,
@@ -212,10 +248,13 @@ class PaymentCash(Payment):
         # Extract variables from the dictionary
         received =\
             dictionary.get("received")\
-            if "received" in dictionary.keys() else None
+            if "received" in dictionary.keys()\
+                else None
         payment_type =\
             dictionary.get("paymentType")\
-            if dictionary.get("paymentType") else "CASH"
+            if dictionary.get("paymentType")\
+                else "CASH"
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -226,14 +265,24 @@ class PaymentCash(Payment):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"received={self.received!r})")
+        _received=self.received
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"received={_received!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"received={self.received!s})")
+        _received=self.received
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"received={_received!s}"
+            f")"
+        )

@@ -131,8 +131,8 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
                  environment=Environment.TESTING, port="80", suites=1,
                  token="Qaws2W233WedeRe4T56G6Vref2", api_key="api-key",
                  custom_header_authentication_credentials=None):
@@ -173,8 +173,8 @@ class Configuration(HttpClientConfiguration):
                    override_http_client_configuration=None, http_call_back=None,
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
-                   environment=None, port=None, suites=None, token=None,
-                   api_key=None, custom_header_authentication_credentials=None):
+                   environment=None, port=None, suites=None, token=None, api_key=None,
+                   custom_header_authentication_credentials=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration =\
@@ -258,9 +258,9 @@ class Configuration(HttpClientConfiguration):
                 and api_key is None:
             return custom_header_authentication_credentials
 
-        warnings.warn(message=("The 'token', 'api_key' params are deprecated. U"
-                               "se 'custom_header_authentication_credentials' p"
-                               "aram instead."),
+        warnings.warn(message=("The 'token', 'api_key' params are deprecated. Use 'cu"
+                               "stom_header_authentication_credentials' param instead"
+                               "."),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
@@ -268,7 +268,7 @@ class Configuration(HttpClientConfiguration):
             return custom_header_authentication_credentials.clone_with(token,
                                                                        api_key)
 
-        from customheadersignature.http.auth.custom_header_authentication import (
+        from customheadersignature.http.auth.custom_header_authentication import (  # noqa: E501
             CustomHeaderAuthenticationCredentials,
         )
         return CustomHeaderAuthenticationCredentials(token, api_key)
@@ -308,6 +308,7 @@ class Configuration(HttpClientConfiguration):
         from customheadersignature.http.auth.custom_header_authentication import (
             CustomHeaderAuthenticationCredentials,
         )
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

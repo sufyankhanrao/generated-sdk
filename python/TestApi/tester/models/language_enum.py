@@ -12,8 +12,8 @@ class LanguageEnum(object):
         EN: The enum member of type str.
         DZ: The enum member of type str.
         NL: The enum member of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 

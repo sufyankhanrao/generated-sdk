@@ -30,9 +30,10 @@ class EnumsAllowAdditionalResponse(object):
         "string_enum",
     ]
 
-    def __init__(self,
-                 numeric_enum=APIHelper.SKIP,
-                 string_enum=APIHelper.SKIP):
+    def __init__(
+        self,
+        numeric_enum=APIHelper.SKIP,
+        string_enum=APIHelper.SKIP):
         """Initialize a EnumsAllowAdditionalResponse instance."""
         # Initialize members of the class
         if numeric_enum is not APIHelper.SKIP:
@@ -61,28 +62,55 @@ class EnumsAllowAdditionalResponse(object):
         # Extract variables from the dictionary
         numeric_enum =\
             dictionary.get("numeric_enum")\
-            if dictionary.get("numeric_enum") else APIHelper.SKIP
+            if dictionary.get("numeric_enum")\
+                else APIHelper.SKIP
         string_enum =\
             dictionary.get("string_enum")\
-            if dictionary.get("string_enum") else APIHelper.SKIP
+            if dictionary.get("string_enum")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(numeric_enum,
                    string_enum)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"numeric_enum={(self.numeric_enum
-                     if hasattr(self, 'numeric_enum') else None)!r}, "
-                f"string_enum={(self.string_enum
-                     if hasattr(self, 'string_enum') else None)!r}, "
-                f"const_value={self.const_value!r})")
+        _numeric_enum=(
+            self.numeric_enum
+            if hasattr(self, "numeric_enum")
+            else None
+        )
+        _string_enum=(
+            self.string_enum
+            if hasattr(self, "string_enum")
+            else None
+        )
+        _const_value=self.const_value
+        return (
+            f"{self.__class__.__name__}("
+            f"numeric_enum={_numeric_enum!r}"
+            f"string_enum={_string_enum!r}"
+            f"const_value={_const_value!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"numeric_enum={(self.numeric_enum
-                     if hasattr(self, 'numeric_enum') else None)!s}, "
-                f"string_enum={(self.string_enum
-                     if hasattr(self, 'string_enum') else None)!s}, "
-                f"const_value={self.const_value!s})")
+        _numeric_enum=(
+            self.numeric_enum
+            if hasattr(self, "numeric_enum")
+            else None
+        )
+        _string_enum=(
+            self.string_enum
+            if hasattr(self, "string_enum")
+            else None
+        )
+        _const_value=self.const_value
+        return (
+            f"{self.__class__.__name__}("
+            f"numeric_enum={_numeric_enum!s}"
+            f"string_enum={_string_enum!s}"
+            f"const_value={_const_value!s}"
+            f")"
+        )

@@ -30,9 +30,10 @@ class BaseForDiscriminatorInElement(object):
         "discriminator",
     ]
 
-    def __init__(self,
-                 base_field=None,
-                 discriminator="Anakin Skywalker"):
+    def __init__(
+        self,
+        base_field=None,
+        discriminator="Anakin Skywalker"):
         """Initialize a BaseForDiscriminatorInElement instance."""
         # Initialize members of the class
         self.discriminator = discriminator
@@ -68,10 +69,13 @@ class BaseForDiscriminatorInElement(object):
         # Extract variables from the dictionary
         base_field =\
             dictionary.get("Base Field")\
-            if dictionary.get("Base Field") else None
+            if dictionary.get("Base Field")\
+                else None
         discriminator =\
             dictionary.get("discriminator")\
-            if dictionary.get("discriminator") else "Anakin Skywalker"
+            if dictionary.get("discriminator")\
+                else "Anakin Skywalker"
+
         # Return an object of this model
         return cls(base_field,
                    discriminator)
@@ -115,23 +119,38 @@ class BaseForDiscriminatorInElement(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"discriminator={(self.discriminator
-                     if hasattr(self, 'discriminator') else None)!r}, "
-                f"base_field={self.base_field!r})")
+        _discriminator=(
+            self.discriminator
+            if hasattr(self, "discriminator")
+            else None
+        )
+        _base_field=self.base_field
+        return (
+            f"{self.__class__.__name__}("
+            f"discriminator={_discriminator!r}"
+            f"base_field={_base_field!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"discriminator={(self.discriminator
-                     if hasattr(self, 'discriminator') else None)!s}, "
-                f"base_field={self.base_field!s})")
+        _discriminator=(
+            self.discriminator
+            if hasattr(self, "discriminator")
+            else None
+        )
+        _base_field=self.base_field
+        return (
+            f"{self.__class__.__name__}("
+            f"discriminator={_discriminator!s}"
+            f"base_field={_base_field!s}"
+            f")"
+        )
 
 class DiscriminatorInElement(BaseForDiscriminatorInElement):
     """Implementation of the 'Discriminator in Element' model.
 
-    The child model to be used for testing discriminator support using
-    elements.
+    The child model to be used for testing discriminator support using elements.
     NOTE: This class inherits from 'BaseForDiscriminatorInElement'.
 
     Attributes:
@@ -146,17 +165,19 @@ class DiscriminatorInElement(BaseForDiscriminatorInElement):
         "discriminator": "discriminator",
     }
 
-    def __init__(self,
-                 added_field=None,
-                 base_field=None,
-                 discriminator="Luke Skywalker"):
+    def __init__(
+        self,
+        added_field=None,
+        base_field=None,
+        discriminator="Luke Skywalker"):
         """Initialize a DiscriminatorInElement instance."""
         # Initialize members of the class
         self.added_field = added_field
 
         # Call the constructor for the base class
-        super(DiscriminatorInElement, self).__init__(base_field,
-                                                     discriminator)
+        super(DiscriminatorInElement, self).__init__(
+            base_field,
+            discriminator)
 
     @classmethod
     def from_dictionary(cls,
@@ -178,13 +199,17 @@ class DiscriminatorInElement(BaseForDiscriminatorInElement):
         # Extract variables from the dictionary
         added_field =\
             dictionary.get("Added Field")\
-            if dictionary.get("Added Field") else None
+            if dictionary.get("Added Field")\
+                else None
         base_field =\
             dictionary.get("Base Field")\
-            if dictionary.get("Base Field") else None
+            if dictionary.get("Base Field")\
+                else None
         discriminator =\
             dictionary.get("discriminator")\
-            if dictionary.get("discriminator") else "Luke Skywalker"
+            if dictionary.get("discriminator")\
+                else "Luke Skywalker"
+
         # Return an object of this model
         return cls(added_field,
                    base_field,
@@ -222,14 +247,24 @@ class DiscriminatorInElement(BaseForDiscriminatorInElement):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"added_field={self.added_field!r})")
+        _added_field=self.added_field
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"added_field={_added_field!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"added_field={self.added_field!s})")
+        _added_field=self.added_field
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"added_field={_added_field!s}"
+            f")"
+        )

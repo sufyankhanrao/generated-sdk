@@ -31,11 +31,12 @@ class OrderItem(object):
         "description",
     ]
 
-    def __init__(self,
-                 product_id=None,
-                 quantity=None,
-                 price=None,
-                 description=APIHelper.SKIP):
+    def __init__(
+        self,
+        product_id=None,
+        quantity=None,
+        price=None,
+        description=APIHelper.SKIP):
         """Initialize a OrderItem instance."""
         # Initialize members of the class
         self.product_id = product_id
@@ -64,14 +65,21 @@ class OrderItem(object):
         # Extract variables from the dictionary
         product_id =\
             dictionary.get("productId")\
-            if dictionary.get("productId") else None
+            if dictionary.get("productId")\
+                else None
         quantity =\
             dictionary.get("quantity")\
-            if dictionary.get("quantity") else None
-        price = dictionary.get("price") if dictionary.get("price") else None
+            if dictionary.get("quantity")\
+                else None
+        price =\
+            dictionary.get("price")\
+            if dictionary.get("price")\
+                else None
         description =\
             dictionary.get("description")\
-            if dictionary.get("description") else APIHelper.SKIP
+            if dictionary.get("description")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(product_id,
                    quantity,
@@ -80,18 +88,38 @@ class OrderItem(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"product_id={self.product_id!r}, "
-                f"quantity={self.quantity!r}, "
-                f"price={self.price!r}, "
-                f"description={(self.description
-                     if hasattr(self, 'description') else None)!r})")
+        _product_id=self.product_id
+        _quantity=self.quantity
+        _price=self.price
+        _description=(
+            self.description
+            if hasattr(self, "description")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"product_id={_product_id!r}"
+            f"quantity={_quantity!r}"
+            f"price={_price!r}"
+            f"description={_description!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"product_id={self.product_id!s}, "
-                f"quantity={self.quantity!s}, "
-                f"price={self.price!s}, "
-                f"description={(self.description
-                     if hasattr(self, 'description') else None)!s})")
+        _product_id=self.product_id
+        _quantity=self.quantity
+        _price=self.price
+        _description=(
+            self.description
+            if hasattr(self, "description")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"product_id={_product_id!s}"
+            f"quantity={_quantity!s}"
+            f"price={_price!s}"
+            f"description={_description!s}"
+            f")"
+        )

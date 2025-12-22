@@ -27,9 +27,10 @@ class ModelWithNestedAttributesModel(object):
         "simple": "simple",
     }
 
-    def __init__(self,
-                 simple_attributes=None,
-                 simple=None):
+    def __init__(
+        self,
+        simple_attributes=None,
+        simple=None):
         """Initialize a ModelWithNestedAttributesModel instance."""
         # Initialize members of the class
         self.simple_attributes = simple_attributes
@@ -53,10 +54,15 @@ class ModelWithNestedAttributesModel(object):
             return None
 
         # Extract variables from the dictionary
-        simple_attributes = SimpleAttributes.from_dictionary(
+        simple_attributes =\
+            SimpleAttributes.from_dictionary(
             dictionary.get("SimpleAttributes"))\
-            if dictionary.get("SimpleAttributes") else None
-        simple = dictionary.get("simple") if dictionary.get("simple") else None
+                if dictionary.get("SimpleAttributes") else None
+        simple =\
+            dictionary.get("simple")\
+            if dictionary.get("simple")\
+                else None
+
         # Return an object of this model
         return cls(simple_attributes,
                    simple)
@@ -90,12 +96,22 @@ class ModelWithNestedAttributesModel(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"simple_attributes={self.simple_attributes!r}, "
-                f"simple={self.simple!r})")
+        _simple_attributes=self.simple_attributes
+        _simple=self.simple
+        return (
+            f"{self.__class__.__name__}("
+            f"simple_attributes={_simple_attributes!r}"
+            f"simple={_simple!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"simple_attributes={self.simple_attributes!s}, "
-                f"simple={self.simple!s})")
+        _simple_attributes=self.simple_attributes
+        _simple=self.simple
+        return (
+            f"{self.__class__.__name__}("
+            f"simple_attributes={_simple_attributes!s}"
+            f"simple={_simple!s}"
+            f")"
+        )

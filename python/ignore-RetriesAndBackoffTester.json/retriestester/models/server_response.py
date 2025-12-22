@@ -13,10 +13,9 @@ class ServerResponse(object):
     Attributes:
         passed (bool): The model property of type bool.
         retry_count (int): The model property of type int.
-        idle_time_between_api_calls (List[int]): The model property of type
-            List[int].
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        idle_time_between_api_calls (List[int]): The model property of type List[int].
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -31,11 +30,12 @@ class ServerResponse(object):
         "idle_time_between_api_calls",
     ]
 
-    def __init__(self,
-                 passed=None,
-                 retry_count=None,
-                 idle_time_between_api_calls=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        passed=None,
+        retry_count=None,
+        idle_time_between_api_calls=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a ServerResponse instance."""
         # Initialize members of the class
         self.passed = passed
@@ -68,13 +68,17 @@ class ServerResponse(object):
         # Extract variables from the dictionary
         passed =\
             dictionary.get("passed")\
-            if "passed" in dictionary.keys() else None
+            if "passed" in dictionary.keys()\
+                else None
         retry_count =\
             dictionary.get("retryCount")\
-            if dictionary.get("retryCount") else None
+            if dictionary.get("retryCount")\
+                else None
         idle_time_between_api_calls =\
             dictionary.get("idleTimeBetweenApiCalls")\
-            if dictionary.get("idleTimeBetweenApiCalls") else APIHelper.SKIP
+            if dictionary.get("idleTimeBetweenApiCalls")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -86,18 +90,38 @@ class ServerResponse(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"passed={self.passed!r}, "
-                f"retry_count={self.retry_count!r}, "
-                f"idle_time_between_api_calls={(self.idle_time_between_api_calls
-                     if hasattr(self, 'idle_time_between_api_calls') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _passed=self.passed
+        _retry_count=self.retry_count
+        _idle_time_between_api_calls=(
+            self.idle_time_between_api_calls
+            if hasattr(self, "idle_time_between_api_calls")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"passed={_passed!r}"
+            f"retry_count={_retry_count!r}"
+            f"idle_time_between_api_calls={_idle_time_between_api_calls!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"passed={self.passed!s}, "
-                f"retry_count={self.retry_count!s}, "
-                f"idle_time_between_api_calls={(self.idle_time_between_api_calls
-                     if hasattr(self, 'idle_time_between_api_calls') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _passed=self.passed
+        _retry_count=self.retry_count
+        _idle_time_between_api_calls=(
+            self.idle_time_between_api_calls
+            if hasattr(self, "idle_time_between_api_calls")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"passed={_passed!s}"
+            f"retry_count={_retry_count!s}"
+            f"idle_time_between_api_calls={_idle_time_between_api_calls!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

@@ -10,8 +10,8 @@ class ContactDetails(object):
     Attributes:
         email (str): The model property of type str.
         url (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -21,10 +21,11 @@ class ContactDetails(object):
         "url": "url",
     }
 
-    def __init__(self,
-                 email=None,
-                 url=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        email=None,
+        url=None,
+        additional_properties=None):
         """Initialize a ContactDetails instance."""
         # Initialize members of the class
         self.email = email
@@ -53,8 +54,15 @@ class ContactDetails(object):
             return None
 
         # Extract variables from the dictionary
-        email = dictionary.get("email") if dictionary.get("email") else None
-        url = dictionary.get("url") if dictionary.get("url") else None
+        email =\
+            dictionary.get("email")\
+            if dictionary.get("email")\
+                else None
+        url =\
+            dictionary.get("url")\
+            if dictionary.get("url")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -65,14 +73,26 @@ class ContactDetails(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"email={self.email!r}, "
-                f"url={self.url!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _email=self.email
+        _url=self.url
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"email={_email!r}"
+            f"url={_url!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"email={self.email!s}, "
-                f"url={self.url!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _email=self.email
+        _url=self.url
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"email={_email!s}"
+            f"url={_url!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

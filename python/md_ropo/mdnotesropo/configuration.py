@@ -124,8 +124,8 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
                  environment=Environment.PRODUCTION, o_auth_username=None,
                  o_auth_password=None, o_auth_token=None, o_auth_scopes=None,
                  resource_password_auth_credentials=None):
@@ -185,10 +185,10 @@ class Configuration(HttpClientConfiguration):
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
-            http_call_back=http_call_back, timeout=timeout,
-            max_retries=max_retries, backoff_factor=backoff_factor,
-            retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings, environment=environment,
+            http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, proxy_settings=proxy_settings,
+            environment=environment,
             resource_password_auth_credentials=resource_password_auth_credentials,
         )
 
@@ -237,10 +237,9 @@ class Configuration(HttpClientConfiguration):
                 and o_auth_scopes is None:
             return resource_password_auth_credentials
 
-        warnings.warn(message=("The 'o_auth_username', 'o_auth_password', 'o_au"
-                               "th_token', 'o_auth_scopes' params are deprecate"
-                               "d. Use 'resource_password_auth_credentials' par"
-                               "am instead."),
+        warnings.warn(message=("The 'o_auth_username', 'o_auth_password', 'o_auth_tok"
+                               "en', 'o_auth_scopes' params are deprecated. Use 'reso"
+                               "urce_password_auth_credentials' param instead."),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
@@ -248,7 +247,7 @@ class Configuration(HttpClientConfiguration):
             return resource_password_auth_credentials.clone_with(
                 o_auth_username, o_auth_password, o_auth_token, o_auth_scopes)
 
-        from mdnotesropo.http.auth.o_auth_2 import (
+        from mdnotesropo.http.auth.o_auth_2 import (  # noqa: E501
             ResourcePasswordAuthCredentials,
         )
         return ResourcePasswordAuthCredentials(o_auth_username, o_auth_password,
@@ -284,9 +283,8 @@ class Configuration(HttpClientConfiguration):
         environment = Environment.from_value(
             os.getenv("ENVIRONMENT"), Environment.PRODUCTION)
 
-        from mdnotesropo.http.auth.o_auth_2 import (
-            ResourcePasswordAuthCredentials,
-        )
+        from mdnotesropo.http.auth.o_auth_2 import ResourcePasswordAuthCredentials
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

@@ -14,8 +14,8 @@ class SuiteCodeEnum(object):
         SPADES: The enum member of type int.
         CLUBS: The enum member of type int.
         DIAMONDS: The enum member of type int.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 

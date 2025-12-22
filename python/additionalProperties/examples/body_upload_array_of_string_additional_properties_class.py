@@ -27,12 +27,7 @@ body = ArrayOfStringAdditionalProperties(
 
 try:
     result = body_controller.upload_array_of_string_additional_properties(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

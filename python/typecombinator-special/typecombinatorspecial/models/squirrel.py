@@ -30,9 +30,10 @@ class Squirrel(object):
         "childern",
     ]
 
-    def __init__(self,
-                 squeak=APIHelper.SKIP,
-                 childern=APIHelper.SKIP):
+    def __init__(
+        self,
+        squeak=APIHelper.SKIP,
+        childern=APIHelper.SKIP):
         """Initialize a Squirrel instance."""
         # Initialize members of the class
         if squeak is not APIHelper.SKIP:
@@ -60,10 +61,13 @@ class Squirrel(object):
         # Extract variables from the dictionary
         squeak =\
             dictionary.get("squeak")\
-            if "squeak" in dictionary.keys() else APIHelper.SKIP
+            if "squeak" in dictionary.keys()\
+                else APIHelper.SKIP
         childern =\
             dictionary.get("childern")\
-            if dictionary.get("childern") else APIHelper.SKIP
+            if dictionary.get("childern")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(squeak,
                    childern)
@@ -91,14 +95,38 @@ class Squirrel(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"squeak={(self.squeak if hasattr(self, 'squeak') else None)!r}, "
-                f"childern={(self.childern
-                     if hasattr(self, 'childern') else None)!r})")
+        _squeak=(
+            self.squeak
+            if hasattr(self, "squeak")
+            else None
+        )
+        _childern=(
+            self.childern
+            if hasattr(self, "childern")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"squeak={_squeak!r}"
+            f"childern={_childern!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"squeak={(self.squeak if hasattr(self, 'squeak') else None)!s}, "
-                f"childern={(self.childern
-                     if hasattr(self, 'childern') else None)!s})")
+        _squeak=(
+            self.squeak
+            if hasattr(self, "squeak")
+            else None
+        )
+        _childern=(
+            self.childern
+            if hasattr(self, "childern")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"squeak={_squeak!s}"
+            f"childern={_childern!s}"
+            f")"
+        )

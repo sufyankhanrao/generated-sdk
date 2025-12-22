@@ -158,14 +158,14 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
                  environment=Environment.TESTING, port="80", suites=1,
                  basic_auth_credentials=None, api_key_credentials=None,
                  api_header_credentials=None, o_auth_ccg_credentials=None,
                  o_auth_acg_credentials=None, o_auth_ropcg_credentials=None,
-                 o_auth_bearer_token_credentials=None,
-                 custom_auth_credentials=None, access_token=""):
+                 o_auth_bearer_token_credentials=None, custom_auth_credentials=None,
+                 access_token=""):
         """Initialize Configuration object."""
         if retry_methods is None:
             retry_methods = ["GET", "PUT"]
@@ -230,8 +230,8 @@ class Configuration(HttpClientConfiguration):
                    basic_auth_credentials=None, api_key_credentials=None,
                    api_header_credentials=None, o_auth_ccg_credentials=None,
                    o_auth_acg_credentials=None, o_auth_ropcg_credentials=None,
-                   o_auth_bearer_token_credentials=None,
-                   custom_auth_credentials=None, access_token=None):
+                   o_auth_bearer_token_credentials=None, custom_auth_credentials=None,
+                   access_token=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration =\
@@ -265,19 +265,18 @@ class Configuration(HttpClientConfiguration):
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
-            http_call_back=http_call_back, timeout=timeout,
-            max_retries=max_retries, backoff_factor=backoff_factor,
-            retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings, environment=environment, port=port,
-            suites=suites, basic_auth_credentials=basic_auth_credentials,
+            http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, proxy_settings=proxy_settings,
+            environment=environment, port=port, suites=suites,
+            basic_auth_credentials=basic_auth_credentials,
             api_key_credentials=api_key_credentials,
             api_header_credentials=api_header_credentials,
             o_auth_ccg_credentials=o_auth_ccg_credentials,
             o_auth_acg_credentials=o_auth_acg_credentials,
             o_auth_ropcg_credentials=o_auth_ropcg_credentials,
             o_auth_bearer_token_credentials=o_auth_bearer_token_credentials,
-            custom_auth_credentials=custom_auth_credentials,
-            access_token=access_token,
+            custom_auth_credentials=custom_auth_credentials, access_token=access_token,
         )
 
     def create_http_client(self):
@@ -357,27 +356,28 @@ class Configuration(HttpClientConfiguration):
         suites = SuiteCodeEnum.from_value(os.getenv("SUITES"), 1)
         access_token = os.getenv("ACCESS_TOKEN", "")
 
-        from multiauthsample.http.auth.basic_auth import (
-            BasicAuthCredentials,
+        from multiauthsample.http.auth.api_header import (
+            ApiHeaderCredentials,
         )
         from multiauthsample.http.auth.api_key import (
             ApiKeyCredentials,
         )
-        from multiauthsample.http.auth.api_header import (
-            ApiHeaderCredentials,
-        )
-        from multiauthsample.http.auth.o_auth_ccg import (
-            OAuthCCGCredentials,
+        from multiauthsample.http.auth.basic_auth import (
+            BasicAuthCredentials,
         )
         from multiauthsample.http.auth.o_auth_acg import (
             OAuthACGCredentials,
         )
-        from multiauthsample.http.auth.o_auth_ropcg import (
-            OAuthROPCGCredentials,
-        )
         from multiauthsample.http.auth.o_auth_bearer_token import (
             OAuthBearerTokenCredentials,
         )
+        from multiauthsample.http.auth.o_auth_ccg import (
+            OAuthCCGCredentials,
+        )
+        from multiauthsample.http.auth.o_auth_ropcg import (
+            OAuthROPCGCredentials,
+        )
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

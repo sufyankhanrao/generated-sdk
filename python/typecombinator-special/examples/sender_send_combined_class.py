@@ -35,12 +35,7 @@ try:
         body_date_time,
         body_req_opt
     )
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

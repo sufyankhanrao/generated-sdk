@@ -11,8 +11,8 @@ class OAuthScopeOAuthACGEnum(object):
 
     Attributes:
         READ_SCOPE: Read request for files
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 

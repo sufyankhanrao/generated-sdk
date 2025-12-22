@@ -16,8 +16,8 @@ class TypeEnum(object):
         DATETIME: The enum member of type str.
         DATE: The enum member of type str.
         STRING: The enum member of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 

@@ -130,8 +130,8 @@ class SenderControllerTests(ControllerTestBase):
         )
         form_non_scalar = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsFormNonScalar"),
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"}",
+            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"ses"
+            "sionType\":\"Morning\"}",
         )
         query_mixed = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsQueryMixed"),
@@ -148,8 +148,8 @@ class SenderControllerTests(ControllerTestBase):
         )
         query_non_scalar = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendParamsQueryNonScalar"),
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"}",
+            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"ses"
+            "sionType\":\"Morning\"}",
         )
 
         # Perform the API call through the SDK function
@@ -254,8 +254,8 @@ class SenderControllerTests(ControllerTestBase):
         )
         options["form_non_scalar"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputFormNonScalar"),
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"}",
+            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"ses"
+            "sionType\":\"Morning\"}",
         )
         options["query_mixed"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputQueryMixed"),
@@ -272,8 +272,8 @@ class SenderControllerTests(ControllerTestBase):
         )
         options["query_non_scalar"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectParamsInputQueryNonScalar"),
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"}",
+            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"ses"
+            "sionType\":\"Morning\"}",
         )
 
         # Perform the API call through the SDK function
@@ -393,8 +393,8 @@ class SenderControllerTests(ControllerTestBase):
         # Parameters for the API call
         body = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendNonScalarParamBody"),
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"}",
+            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"ses"
+            "sionType\":\"Morning\"}",
         )
 
         # Perform the API call through the SDK function
@@ -528,8 +528,8 @@ class SenderControllerTests(ControllerTestBase):
         )
         body_non_scalar = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCombinedBodyNonScalar"),
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"}",
+            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"ses"
+            "sionType\":\"Morning\"}",
         )
         body_mixed = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCombinedBodyMixed"),
@@ -609,8 +609,8 @@ class SenderControllerTests(ControllerTestBase):
         )
         options["body_non_scalar"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectCombinedInputBodyNonScalar"),
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"}",
+            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"ses"
+            "sionType\":\"Morning\"}",
         )
         options["body_mixed"] = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("SendCollectCombinedInputBodyMixed"),
@@ -643,41 +643,39 @@ class SenderControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         form_non_scalar_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2}"
-            ",\"oneOfReqNullable\":{\"NumberOfElectrons\":2},\"oneOfOptional\":"
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"},\"anyOfOptNullable\":{\"startsAt\":"
-            "\"15:00\",\"endsAt\":\"21:00\",\"offerDinner\":true,\"sessionType"
-            "\":\"Evening\"}}",
+            "{\"anyOfRequired\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2},\"one"
+            "OfReqNullable\":{\"NumberOfElectrons\":2},\"oneOfOptional\":{\"startsAt"
+            "\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":"
+            "\"Morning\"},\"anyOfOptNullable\":{\"startsAt\":\"15:00\",\"endsAt\":\"2"
+            "1:00\",\"offerDinner\":true,\"sessionType\":\"Evening\"}}",
             NonScalarModel.from_dictionary,
         )
         query_non_scalar_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2}"
-            ",\"oneOfReqNullable\":{\"NumberOfElectrons\":2},\"oneOfOptional\":"
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"},\"anyOfOptNullable\":{\"startsAt\":"
-            "\"15:00\",\"endsAt\":\"21:00\",\"offerDinner\":true,\"sessionType"
-            "\":\"Evening\"}}",
+            "{\"anyOfRequired\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2},\"one"
+            "OfReqNullable\":{\"NumberOfElectrons\":2},\"oneOfOptional\":{\"startsAt"
+            "\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":"
+            "\"Morning\"},\"anyOfOptNullable\":{\"startsAt\":\"15:00\",\"endsAt\":\"2"
+            "1:00\",\"offerDinner\":true,\"sessionType\":\"Evening\"}}",
             NonScalarModel.from_dictionary,
         )
         query_mixed_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":23,\"oneOfReqNullable\":{\"NumberOfTyres\":\"4"
-            "\"},\"oneOfOptional\":\"some string\",\"anyOfOptNullable\":234.8}",
+            "{\"anyOfRequired\":23,\"oneOfReqNullable\":{\"NumberOfTyres\":\"4\"},\"o"
+            "neOfOptional\":\"some string\",\"anyOfOptNullable\":234.8}",
             MixedModel.from_dictionary,
         )
         form_scalar_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":false,\"oneOfReqNullable\":\"some string\",\"on"
-            "eOfOptional\":45.8,\"anyOfOptNullable\":234}",
+            "{\"anyOfRequired\":false,\"oneOfReqNullable\":\"some string\",\"oneOfOpt"
+            "ional\":45.8,\"anyOfOptNullable\":234}",
             ScalarModel.from_dictionary,
         )
         form_mixed_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":23,\"oneOfReqNullable\":{\"NumberOfTyres\":\"4"
-            "\"},\"oneOfOptional\":\"some string\",\"anyOfOptNullable\":234.8}",
+            "{\"anyOfRequired\":23,\"oneOfReqNullable\":{\"NumberOfTyres\":\"4\"},\"o"
+            "neOfOptional\":\"some string\",\"anyOfOptNullable\":234.8}",
             MixedModel.from_dictionary,
         )
         query_scalar_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":false,\"oneOfReqNullable\":\"some string\",\"on"
-            "eOfOptional\":45.8,\"anyOfOptNullable\":234}",
+            "{\"anyOfRequired\":false,\"oneOfReqNullable\":\"some string\",\"oneOfOpt"
+            "ional\":45.8,\"anyOfOptNullable\":234}",
             ScalarModel.from_dictionary,
         )
 
@@ -712,18 +710,18 @@ class SenderControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         form_non_scalar_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":{\"NumberOfElectrons\":2},\"oneOfReqNullable\":"
-            "{\"NumberOfTyres\":\"2\"},\"anyOfOptNullable\":null}",
+            "{\"anyOfRequired\":{\"NumberOfElectrons\":2},\"oneOfReqNullable\":{\"Num"
+            "berOfTyres\":\"2\"},\"anyOfOptNullable\":null}",
             NonScalarModel.from_dictionary,
         )
         query_non_scalar_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":{\"NumberOfElectrons\":2},\"oneOfReqNullable\":"
-            "{\"NumberOfTyres\":\"2\"},\"anyOfOptNullable\":null}",
+            "{\"anyOfRequired\":{\"NumberOfElectrons\":2},\"oneOfReqNullable\":{\"Num"
+            "berOfTyres\":\"2\"},\"anyOfOptNullable\":null}",
             NonScalarModel.from_dictionary,
         )
         query_mixed_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":{\"NumberOfElectrons\":4},\"oneOfReqNullable\":"
-            "false,\"anyOfOptNullable\":null}",
+            "{\"anyOfRequired\":{\"NumberOfElectrons\":4},\"oneOfReqNullable\":false,"
+            "\"anyOfOptNullable\":null}",
             MixedModel.from_dictionary,
         )
         form_scalar_model = APIHelper.json_deserialize(
@@ -731,8 +729,8 @@ class SenderControllerTests(ControllerTestBase):
             ScalarModel.from_dictionary,
         )
         form_mixed_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":{\"NumberOfElectrons\":4},\"oneOfReqNullable\":"
-            "false,\"anyOfOptNullable\":null}",
+            "{\"anyOfRequired\":{\"NumberOfElectrons\":4},\"oneOfReqNullable\":false,"
+            "\"anyOfOptNullable\":null}",
             MixedModel.from_dictionary,
         )
         query_scalar_model = APIHelper.json_deserialize(
@@ -771,22 +769,21 @@ class SenderControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         non_scalar_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2}"
-            ",\"oneOfReqNullable\":{\"NumberOfElectrons\":2},\"oneOfOptional\":"
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"},\"anyOfOptNullable\":{\"startsAt\":"
-            "\"15:00\",\"endsAt\":\"21:00\",\"offerDinner\":true,\"sessionType"
-            "\":\"Evening\"}}",
+            "{\"anyOfRequired\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2},\"one"
+            "OfReqNullable\":{\"NumberOfElectrons\":2},\"oneOfOptional\":{\"startsAt"
+            "\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":"
+            "\"Morning\"},\"anyOfOptNullable\":{\"startsAt\":\"15:00\",\"endsAt\":\"2"
+            "1:00\",\"offerDinner\":true,\"sessionType\":\"Evening\"}}",
             NonScalarModel.from_dictionary,
         )
         mixed_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":23,\"oneOfReqNullable\":{\"NumberOfTyres\":\"4"
-            "\"},\"oneOfOptional\":\"some string\",\"anyOfOptNullable\":234.8}",
+            "{\"anyOfRequired\":23,\"oneOfReqNullable\":{\"NumberOfTyres\":\"4\"},\"o"
+            "neOfOptional\":\"some string\",\"anyOfOptNullable\":234.8}",
             MixedModel.from_dictionary,
         )
         scalar_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":false,\"oneOfReqNullable\":\"some string\",\"on"
-            "eOfOptional\":45.8,\"anyOfOptNullable\":234}",
+            "{\"anyOfRequired\":false,\"oneOfReqNullable\":\"some string\",\"oneOfOpt"
+            "ional\":45.8,\"anyOfOptNullable\":234}",
             ScalarModel.from_dictionary,
         )
 
@@ -818,13 +815,13 @@ class SenderControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         non_scalar_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":{\"NumberOfElectrons\":2},\"oneOfReqNullable\":"
-            "{\"NumberOfTyres\":\"2\"},\"anyOfOptNullable\":null}",
+            "{\"anyOfRequired\":{\"NumberOfElectrons\":2},\"oneOfReqNullable\":{\"Num"
+            "berOfTyres\":\"2\"},\"anyOfOptNullable\":null}",
             NonScalarModel.from_dictionary,
         )
         mixed_model = APIHelper.json_deserialize(
-            "{\"anyOfRequired\":{\"NumberOfElectrons\":4},\"oneOfReqNullable\":"
-            "false,\"anyOfOptNullable\":null}",
+            "{\"anyOfRequired\":{\"NumberOfElectrons\":4},\"oneOfReqNullable\":false,"
+            "\"anyOfOptNullable\":null}",
             MixedModel.from_dictionary,
         )
         scalar_model = APIHelper.json_deserialize(

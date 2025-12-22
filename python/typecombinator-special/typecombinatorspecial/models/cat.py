@@ -33,10 +33,11 @@ class Cat(object):
         "cute",
     ]
 
-    def __init__(self,
-                 bark=None,
-                 age=APIHelper.SKIP,
-                 cute=APIHelper.SKIP):
+    def __init__(
+        self,
+        bark=None,
+        age=APIHelper.SKIP,
+        cute=APIHelper.SKIP):
         """Initialize a Cat instance."""
         # Initialize members of the class
         self.bark = bark
@@ -63,11 +64,19 @@ class Cat(object):
             return None
 
         # Extract variables from the dictionary
-        bark = dictionary.get("bark") if "bark" in dictionary.keys() else None
-        age = dictionary.get("age") if dictionary.get("age") else APIHelper.SKIP
+        bark =\
+            dictionary.get("bark")\
+            if "bark" in dictionary.keys()\
+                else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else APIHelper.SKIP
         cute =\
             dictionary.get("cute")\
-            if "cute" in dictionary.keys() else APIHelper.SKIP
+            if "cute" in dictionary.keys()\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(bark,
                    age,
@@ -88,26 +97,62 @@ class Cat(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.bark,
-                type_callable=lambda value: isinstance(value, bool))
+                    value=dictionary.bark,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        bool,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("bark"),
-            type_callable=lambda value: isinstance(value, bool))
+                value=dictionary.get("bark"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    bool,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"bark={self.bark!r}, "
-                f"age={(self.age if hasattr(self, 'age') else None)!r}, "
-                f"cute={(self.cute if hasattr(self, 'cute') else None)!r})")
+        _bark=self.bark
+        _age=(
+            self.age
+            if hasattr(self, "age")
+            else None
+        )
+        _cute=(
+            self.cute
+            if hasattr(self, "cute")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"bark={_bark!r}"
+            f"age={_age!r}"
+            f"cute={_cute!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"bark={self.bark!s}, "
-                f"age={(self.age if hasattr(self, 'age') else None)!s}, "
-                f"cute={(self.cute if hasattr(self, 'cute') else None)!s})")
+        _bark=self.bark
+        _age=(
+            self.age
+            if hasattr(self, "age")
+            else None
+        )
+        _cute=(
+            self.cute
+            if hasattr(self, "cute")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"bark={_bark!s}"
+            f"age={_age!s}"
+            f"cute={_cute!s}"
+            f")"
+        )

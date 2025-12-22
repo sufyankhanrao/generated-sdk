@@ -13,12 +13,11 @@ class ComplexType(object):
 
     Attributes:
         number_list_type (List[int]): The model property of type List[int].
-        number_map_type (Dict[str, int]): The model property of type Dict[str,
-            int].
+        number_map_type (Dict[str, int]): The model property of type Dict[str, int].
         inner_complex_type (InnerComplexType): The model property of type
             InnerComplexType.
-        inner_complex_list_type (List[InnerComplexType]): The model property
-            of type List[InnerComplexType].
+        inner_complex_list_type (List[InnerComplexType]): The model property of type
+            List[InnerComplexType].
 
     """
 
@@ -30,11 +29,12 @@ class ComplexType(object):
         "inner_complex_list_type": "innerComplexListType",
     }
 
-    def __init__(self,
-                 number_list_type=None,
-                 number_map_type=None,
-                 inner_complex_type=None,
-                 inner_complex_list_type=None):
+    def __init__(
+        self,
+        number_list_type=None,
+        number_map_type=None,
+        inner_complex_type=None,
+        inner_complex_list_type=None):
         """Initialize a ComplexType instance."""
         # Initialize members of the class
         self.number_list_type = number_list_type
@@ -62,19 +62,23 @@ class ComplexType(object):
         # Extract variables from the dictionary
         number_list_type =\
             dictionary.get("numberListType")\
-            if dictionary.get("numberListType") else None
+            if dictionary.get("numberListType")\
+                else None
         number_map_type =\
             dictionary.get("numberMapType")\
-            if dictionary.get("numberMapType") else None
-        inner_complex_type = InnerComplexType.from_dictionary(
+            if dictionary.get("numberMapType")\
+                else None
+        inner_complex_type =\
+            InnerComplexType.from_dictionary(
             dictionary.get("innerComplexType"))\
-            if dictionary.get("innerComplexType") else None
+                if dictionary.get("innerComplexType") else None
         inner_complex_list_type = None
         if dictionary.get("innerComplexListType") is not None:
             inner_complex_list_type = [
                 InnerComplexType.from_dictionary(x)
                     for x in dictionary.get("innerComplexListType")
             ]
+
         # Return an object of this model
         return cls(number_list_type,
                    number_map_type,
@@ -83,16 +87,30 @@ class ComplexType(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_list_type={self.number_list_type!r}, "
-                f"number_map_type={self.number_map_type!r}, "
-                f"inner_complex_type={self.inner_complex_type!r}, "
-                f"inner_complex_list_type={self.inner_complex_list_type!r})")
+        _number_list_type=self.number_list_type
+        _number_map_type=self.number_map_type
+        _inner_complex_type=self.inner_complex_type
+        _inner_complex_list_type=self.inner_complex_list_type
+        return (
+            f"{self.__class__.__name__}("
+            f"number_list_type={_number_list_type!r}"
+            f"number_map_type={_number_map_type!r}"
+            f"inner_complex_type={_inner_complex_type!r}"
+            f"inner_complex_list_type={_inner_complex_list_type!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_list_type={self.number_list_type!s}, "
-                f"number_map_type={self.number_map_type!s}, "
-                f"inner_complex_type={self.inner_complex_type!s}, "
-                f"inner_complex_list_type={self.inner_complex_list_type!s})")
+        _number_list_type=self.number_list_type
+        _number_map_type=self.number_map_type
+        _inner_complex_type=self.inner_complex_type
+        _inner_complex_list_type=self.inner_complex_list_type
+        return (
+            f"{self.__class__.__name__}("
+            f"number_list_type={_number_list_type!s}"
+            f"number_map_type={_number_map_type!s}"
+            f"inner_complex_type={_inner_complex_type!s}"
+            f"inner_complex_list_type={_inner_complex_list_type!s}"
+            f")"
+        )

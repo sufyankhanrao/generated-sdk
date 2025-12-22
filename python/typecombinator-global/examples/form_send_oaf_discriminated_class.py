@@ -53,12 +53,7 @@ try:
         one_of_lion_and_squirrel_speed,
         one_of_lion_and_squirrel_area
     )
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

@@ -14,11 +14,10 @@ class Animal(object):
     Attributes:
         pet_type (str): The model property of type str.
         id (str | int | None): AnyOf with primitive types and metadata.
-        friend (Lion | Deer | None): allOf (LionVsDeer) and its an alias of
-            LionVsDeer
-        enemy (Lion | Squirrel | None): OneOf (Lion, Squirrel) with an
-            additional "kind" property discriminator of mapping
-            (northener:Lion, westener:Squirrel)
+        friend (Lion | Deer | None): allOf (LionVsDeer) and its an alias of LionVsDeer
+        enemy (Lion | Squirrel | None): OneOf (Lion, Squirrel) with an additional
+            "kind" property discriminator of mapping (northener:Lion,
+            westener:Squirrel)
         kind (str): The model property of type str.
 
     """
@@ -40,12 +39,13 @@ class Animal(object):
         "kind",
     ]
 
-    def __init__(self,
-                 pet_type="Animal",
-                 id=APIHelper.SKIP,
-                 friend=APIHelper.SKIP,
-                 enemy=APIHelper.SKIP,
-                 kind=APIHelper.SKIP):
+    def __init__(
+        self,
+        pet_type="Animal",
+        id=APIHelper.SKIP,
+        friend=APIHelper.SKIP,
+        enemy=APIHelper.SKIP,
+        kind=APIHelper.SKIP):
         """Initialize a Animal instance."""
         # Initialize members of the class
         self.pet_type = pet_type
@@ -93,13 +93,31 @@ class Animal(object):
         # Extract variables from the dictionary
         pet_type =\
             dictionary.get("pet_type")\
-            if dictionary.get("pet_type") else "Animal"
-        id = APIHelper.deserialize_union_type(UnionTypeLookUp.get("AnyOfPrimitive2"), dictionary.get("id"), False) if dictionary.get("id") is not None else APIHelper.SKIP
-        friend = APIHelper.deserialize_union_type(UnionTypeLookUp.get("OneOfLionDeerType3"), dictionary.get("friend"), False) if dictionary.get("friend") is not None else APIHelper.SKIP
-        enemy = APIHelper.deserialize_union_type(UnionTypeLookUp.get("OneOfLionSquirrelAreaKind2"), dictionary.get("enemy"), False) if dictionary.get("enemy") is not None else APIHelper.SKIP
+            if dictionary.get("pet_type")\
+                else "Animal"
+        id = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("AnyOfPrimitive2"),
+            dictionary.get("id"),
+            False)\
+            if dictionary.get("id") is not None\
+            else APIHelper.SKIP
+        friend = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("OneOfLionDeerType3"),
+            dictionary.get("friend"),
+            False)\
+            if dictionary.get("friend") is not None\
+            else APIHelper.SKIP
+        enemy = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("OneOfLionSquirrelAreaKind2"),
+            dictionary.get("enemy"),
+            False)\
+            if dictionary.get("enemy") is not None\
+            else APIHelper.SKIP
         kind =\
             dictionary.get("kind")\
-            if dictionary.get("kind") else APIHelper.SKIP
+            if dictionary.get("kind")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(pet_type,
                    id,
@@ -142,23 +160,77 @@ class Animal(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"pet_type={(self.pet_type
-                     if hasattr(self, 'pet_type') else None)!r}, "
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"friend={(self.friend if hasattr(self, 'friend') else None)!r}, "
-                f"enemy={(self.enemy if hasattr(self, 'enemy') else None)!r}, "
-                f"kind={(self.kind if hasattr(self, 'kind') else None)!r})")
+        _pet_type=(
+            self.pet_type
+            if hasattr(self, "pet_type")
+            else None
+        )
+        _id=(
+            self.id
+            if hasattr(self, "id")
+            else None
+        )
+        _friend=(
+            self.friend
+            if hasattr(self, "friend")
+            else None
+        )
+        _enemy=(
+            self.enemy
+            if hasattr(self, "enemy")
+            else None
+        )
+        _kind=(
+            self.kind
+            if hasattr(self, "kind")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"pet_type={_pet_type!r}"
+            f"id={_id!r}"
+            f"friend={_friend!r}"
+            f"enemy={_enemy!r}"
+            f"kind={_kind!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"pet_type={(self.pet_type
-                     if hasattr(self, 'pet_type') else None)!s}, "
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"friend={(self.friend if hasattr(self, 'friend') else None)!s}, "
-                f"enemy={(self.enemy if hasattr(self, 'enemy') else None)!s}, "
-                f"kind={(self.kind if hasattr(self, 'kind') else None)!s})")
+        _pet_type=(
+            self.pet_type
+            if hasattr(self, "pet_type")
+            else None
+        )
+        _id=(
+            self.id
+            if hasattr(self, "id")
+            else None
+        )
+        _friend=(
+            self.friend
+            if hasattr(self, "friend")
+            else None
+        )
+        _enemy=(
+            self.enemy
+            if hasattr(self, "enemy")
+            else None
+        )
+        _kind=(
+            self.kind
+            if hasattr(self, "kind")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"pet_type={_pet_type!s}"
+            f"id={_id!s}"
+            f"friend={_friend!s}"
+            f"enemy={_enemy!s}"
+            f"kind={_kind!s}"
+            f")"
+        )
 
 class Cat(Animal):
     """Implementation of the 'Cat' model.
@@ -188,15 +260,16 @@ class Cat(Animal):
     ]
     _optionals.extend(Animal._optionals)
 
-    def __init__(self,
-                 name=None,
-                 color=None,
-                 one_of_kind=APIHelper.SKIP,
-                 pet_type="Cat",
-                 id=APIHelper.SKIP,
-                 friend=APIHelper.SKIP,
-                 enemy=APIHelper.SKIP,
-                 kind=APIHelper.SKIP):
+    def __init__(
+        self,
+        name=None,
+        color=None,
+        one_of_kind=APIHelper.SKIP,
+        pet_type="Cat",
+        id=APIHelper.SKIP,
+        friend=APIHelper.SKIP,
+        enemy=APIHelper.SKIP,
+        kind=APIHelper.SKIP):
         """Initialize a Cat instance."""
         # Initialize members of the class
         self.name = name
@@ -205,11 +278,12 @@ class Cat(Animal):
             self.one_of_kind = one_of_kind
 
         # Call the constructor for the base class
-        super(Cat, self).__init__(pet_type,
-                                  id,
-                                  friend,
-                                  enemy,
-                                  kind)
+        super(Cat, self).__init__(
+            pet_type,
+            id,
+            friend,
+            enemy,
+            kind)
 
     @classmethod
     def from_dictionary(cls,
@@ -233,20 +307,45 @@ class Cat(Animal):
             return None
 
         # Extract variables from the dictionary
-        name = dictionary.get("name") if dictionary.get("name") else None
-        color = dictionary.get("color") if dictionary.get("color") else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        color =\
+            dictionary.get("color")\
+            if dictionary.get("color")\
+                else None
         one_of_kind =\
             dictionary.get("One Of kind")\
-            if dictionary.get("One Of kind") else APIHelper.SKIP
+            if dictionary.get("One Of kind")\
+                else APIHelper.SKIP
         pet_type =\
             dictionary.get("pet_type")\
-            if dictionary.get("pet_type") else "Cat"
-        id = APIHelper.deserialize_union_type(UnionTypeLookUp.get("AnyOfPrimitive2"), dictionary.get("id"), False) if dictionary.get("id") is not None else APIHelper.SKIP
-        friend = APIHelper.deserialize_union_type(UnionTypeLookUp.get("OneOfLionDeerType3"), dictionary.get("friend"), False) if dictionary.get("friend") is not None else APIHelper.SKIP
-        enemy = APIHelper.deserialize_union_type(UnionTypeLookUp.get("OneOfLionSquirrelAreaKind2"), dictionary.get("enemy"), False) if dictionary.get("enemy") is not None else APIHelper.SKIP
+            if dictionary.get("pet_type")\
+                else "Cat"
+        id = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("AnyOfPrimitive2"),
+            dictionary.get("id"),
+            False)\
+            if dictionary.get("id") is not None\
+            else APIHelper.SKIP
+        friend = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("OneOfLionDeerType3"),
+            dictionary.get("friend"),
+            False)\
+            if dictionary.get("friend") is not None\
+            else APIHelper.SKIP
+        enemy = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("OneOfLionSquirrelAreaKind2"),
+            dictionary.get("enemy"),
+            False)\
+            if dictionary.get("enemy") is not None\
+            else APIHelper.SKIP
         kind =\
             dictionary.get("kind")\
-            if dictionary.get("kind") else APIHelper.SKIP
+            if dictionary.get("kind")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(name,
                    color,
@@ -272,41 +371,77 @@ class Cat(Animal):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.name,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.color,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.color,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("name"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("name"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("color"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("color"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"name={self.name!r}, "
-                f"color={self.color!r}, "
-                f"one_of_kind={(self.one_of_kind
-                     if hasattr(self, 'one_of_kind') else None)!r})")
+        _name=self.name
+        _color=self.color
+        _one_of_kind=(
+            self.one_of_kind
+            if hasattr(self, "one_of_kind")
+            else None
+        )
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"name={_name!r}"
+            f"color={_color!r}"
+            f"one_of_kind={_one_of_kind!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"name={self.name!s}, "
-                f"color={self.color!s}, "
-                f"one_of_kind={(self.one_of_kind
-                     if hasattr(self, 'one_of_kind') else None)!s})")
+        _name=self.name
+        _color=self.color
+        _one_of_kind=(
+            self.one_of_kind
+            if hasattr(self, "one_of_kind")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"name={_name!s}"
+            f"color={_color!s}"
+            f"one_of_kind={_one_of_kind!s}"
+            f")"
+        )
 
 class Dog(Animal):
     """Implementation of the 'Dog' model.
@@ -336,15 +471,16 @@ class Dog(Animal):
     ]
     _optionals.extend(Animal._optionals)
 
-    def __init__(self,
-                 name=None,
-                 fangs=None,
-                 one_of_kind=APIHelper.SKIP,
-                 pet_type="Dog",
-                 id=APIHelper.SKIP,
-                 friend=APIHelper.SKIP,
-                 enemy=APIHelper.SKIP,
-                 kind=APIHelper.SKIP):
+    def __init__(
+        self,
+        name=None,
+        fangs=None,
+        one_of_kind=APIHelper.SKIP,
+        pet_type="Dog",
+        id=APIHelper.SKIP,
+        friend=APIHelper.SKIP,
+        enemy=APIHelper.SKIP,
+        kind=APIHelper.SKIP):
         """Initialize a Dog instance."""
         # Initialize members of the class
         self.name = name
@@ -353,11 +489,12 @@ class Dog(Animal):
             self.one_of_kind = one_of_kind
 
         # Call the constructor for the base class
-        super(Dog, self).__init__(pet_type,
-                                  id,
-                                  friend,
-                                  enemy,
-                                  kind)
+        super(Dog, self).__init__(
+            pet_type,
+            id,
+            friend,
+            enemy,
+            kind)
 
     @classmethod
     def from_dictionary(cls,
@@ -381,20 +518,45 @@ class Dog(Animal):
             return None
 
         # Extract variables from the dictionary
-        name = dictionary.get("name") if dictionary.get("name") else None
-        fangs = dictionary.get("fangs") if dictionary.get("fangs") else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        fangs =\
+            dictionary.get("fangs")\
+            if dictionary.get("fangs")\
+                else None
         one_of_kind =\
             dictionary.get("One Of kind")\
-            if dictionary.get("One Of kind") else APIHelper.SKIP
+            if dictionary.get("One Of kind")\
+                else APIHelper.SKIP
         pet_type =\
             dictionary.get("pet_type")\
-            if dictionary.get("pet_type") else "Dog"
-        id = APIHelper.deserialize_union_type(UnionTypeLookUp.get("AnyOfPrimitive2"), dictionary.get("id"), False) if dictionary.get("id") is not None else APIHelper.SKIP
-        friend = APIHelper.deserialize_union_type(UnionTypeLookUp.get("OneOfLionDeerType3"), dictionary.get("friend"), False) if dictionary.get("friend") is not None else APIHelper.SKIP
-        enemy = APIHelper.deserialize_union_type(UnionTypeLookUp.get("OneOfLionSquirrelAreaKind2"), dictionary.get("enemy"), False) if dictionary.get("enemy") is not None else APIHelper.SKIP
+            if dictionary.get("pet_type")\
+                else "Dog"
+        id = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("AnyOfPrimitive2"),
+            dictionary.get("id"),
+            False)\
+            if dictionary.get("id") is not None\
+            else APIHelper.SKIP
+        friend = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("OneOfLionDeerType3"),
+            dictionary.get("friend"),
+            False)\
+            if dictionary.get("friend") is not None\
+            else APIHelper.SKIP
+        enemy = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("OneOfLionSquirrelAreaKind2"),
+            dictionary.get("enemy"),
+            False)\
+            if dictionary.get("enemy") is not None\
+            else APIHelper.SKIP
         kind =\
             dictionary.get("kind")\
-            if dictionary.get("kind") else APIHelper.SKIP
+            if dictionary.get("kind")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(name,
                    fangs,
@@ -420,38 +582,74 @@ class Dog(Animal):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.name,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.fangs,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.fangs,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("name"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("name"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("fangs"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("fangs"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"name={self.name!r}, "
-                f"fangs={self.fangs!r}, "
-                f"one_of_kind={(self.one_of_kind
-                     if hasattr(self, 'one_of_kind') else None)!r})")
+        _name=self.name
+        _fangs=self.fangs
+        _one_of_kind=(
+            self.one_of_kind
+            if hasattr(self, "one_of_kind")
+            else None
+        )
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"name={_name!r}"
+            f"fangs={_fangs!r}"
+            f"one_of_kind={_one_of_kind!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"name={self.name!s}, "
-                f"fangs={self.fangs!s}, "
-                f"one_of_kind={(self.one_of_kind
-                     if hasattr(self, 'one_of_kind') else None)!s})")
+        _name=self.name
+        _fangs=self.fangs
+        _one_of_kind=(
+            self.one_of_kind
+            if hasattr(self, "one_of_kind")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"name={_name!s}"
+            f"fangs={_fangs!s}"
+            f"one_of_kind={_one_of_kind!s}"
+            f")"
+        )

@@ -12,8 +12,8 @@ class NumberAsOptional(object):
 
     Attributes:
         number (int): The model property of type int.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -26,9 +26,10 @@ class NumberAsOptional(object):
         "number",
     ]
 
-    def __init__(self,
-                 number=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        number=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a NumberAsOptional instance."""
         # Initialize members of the class
         if number is not APIHelper.SKIP:
@@ -59,7 +60,9 @@ class NumberAsOptional(object):
         # Extract variables from the dictionary
         number =\
             dictionary.get("number")\
-            if dictionary.get("number") else APIHelper.SKIP
+            if dictionary.get("number")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -69,12 +72,30 @@ class NumberAsOptional(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number={(self.number if hasattr(self, 'number') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _number=(
+            self.number
+            if hasattr(self, "number")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"number={_number!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number={(self.number if hasattr(self, 'number') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _number=(
+            self.number
+            if hasattr(self, "number")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"number={_number!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

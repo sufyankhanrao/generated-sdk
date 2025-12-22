@@ -59,8 +59,7 @@ class APIControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"passed\":true,\"retryCount\":3,\"idleTimeBetweenApiCalls\":[2,4"
-            ",8]}",
+            "{\"passed\":true,\"retryCount\":3,\"idleTimeBetweenApiCalls\":[2,4,8]}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -109,8 +108,7 @@ class APIControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"passed\":true,\"retryCount\":3,\"idleTimeBetweenApiCalls\":[2,4"
-            ",8]}",
+            "{\"passed\":true,\"retryCount\":3,\"idleTimeBetweenApiCalls\":[2,4,8]}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -172,8 +170,7 @@ class APIControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"passed\":true,\"retryCount\":3,\"idleTimeBetweenApiCalls\":[5,4"
-            ",8]}",
+            "{\"passed\":true,\"retryCount\":3,\"idleTimeBetweenApiCalls\":[5,4,8]}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -218,8 +215,7 @@ class APIControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"passed\":true,\"retryCount\":3,\"idleTimeBetweenApiCalls\":[2,4"
-            ",8]}",
+            "{\"passed\":true,\"retryCount\":3,\"idleTimeBetweenApiCalls\":[2,4,8]}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -250,8 +246,7 @@ class APIControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"passed\":true,\"retryCount\":2,\"idleTimeBetweenApiCalls\":[3,4"
-            "]}",
+            "{\"passed\":true,\"retryCount\":2,\"idleTimeBetweenApiCalls\":[3,4]}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -300,8 +295,7 @@ class APIControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"passed\":true,\"retryCount\":1,\"idleTimeBetweenApiCalls\":[3]}"
-            "",
+            "{\"passed\":true,\"retryCount\":1,\"idleTimeBetweenApiCalls\":[3]}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,

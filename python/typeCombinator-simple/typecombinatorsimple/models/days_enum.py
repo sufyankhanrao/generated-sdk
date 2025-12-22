@@ -20,7 +20,8 @@ class DaysEnum(object):
 
     """
 
-    _all_values = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    _all_values = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
+        "Friday", "Saturday"]
     SUNDAY = "Sunday"
 
     MONDAY = "Monday"

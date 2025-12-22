@@ -16,12 +16,7 @@ body = CatsOrADogOrWolves(
 
 try:
     result = oneof_array_or_single_xml_model_with_optional_wrapping_element_controller.validate_1(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

@@ -21,14 +21,13 @@ class Signer(object):
         external_signer_id (str): The model property of type str.
         redirect_settings (RedirectSettings): The model property of type
             RedirectSettings.
-        signature_type (SignatureType): The model property of type
-            SignatureType.
+        signature_type (SignatureType): The model property of type SignatureType.
         ui (Ui): The model property of type Ui.
         tags (List[str]): The model property of type List[str].
         order (int): The model property of type int.
         required (bool): The model property of type bool.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -46,18 +45,19 @@ class Signer(object):
         "url": "url",
     }
 
-    def __init__(self,
-                 external_signer_id=None,
-                 id=None,
-                 links=None,
-                 order=None,
-                 redirect_settings=None,
-                 required=None,
-                 signature_type=None,
-                 tags=None,
-                 ui=None,
-                 url=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        external_signer_id=None,
+        id=None,
+        links=None,
+        order=None,
+        redirect_settings=None,
+        required=None,
+        signature_type=None,
+        tags=None,
+        ui=None,
+        url=None,
+        additional_properties=None):
         """Initialize a Signer instance."""
         # Initialize members of the class
         self.id = id
@@ -96,24 +96,45 @@ class Signer(object):
         # Extract variables from the dictionary
         external_signer_id =\
             dictionary.get("externalSignerId")\
-            if dictionary.get("externalSignerId") else None
-        id = dictionary.get("id") if dictionary.get("id") else None
-        links = dictionary.get("links") if dictionary.get("links") else None
-        order = dictionary.get("order") if dictionary.get("order") else None
-        redirect_settings = RedirectSettings.from_dictionary(
+            if dictionary.get("externalSignerId")\
+                else None
+        id =\
+            dictionary.get("id")\
+            if dictionary.get("id")\
+                else None
+        links =\
+            dictionary.get("links")\
+            if dictionary.get("links")\
+                else None
+        order =\
+            dictionary.get("order")\
+            if dictionary.get("order")\
+                else None
+        redirect_settings =\
+            RedirectSettings.from_dictionary(
             dictionary.get("redirectSettings"))\
-            if dictionary.get("redirectSettings") else None
+                if dictionary.get("redirectSettings") else None
         required =\
             dictionary.get("required")\
-            if "required" in dictionary.keys() else None
-        signature_type = SignatureType.from_dictionary(
+            if "required" in dictionary.keys()\
+                else None
+        signature_type =\
+            SignatureType.from_dictionary(
             dictionary.get("signatureType"))\
-            if dictionary.get("signatureType") else None
-        tags = dictionary.get("tags") if dictionary.get("tags") else None
-        ui = Ui.from_dictionary(
+                if dictionary.get("signatureType") else None
+        tags =\
+            dictionary.get("tags")\
+            if dictionary.get("tags")\
+                else None
+        ui =\
+            Ui.from_dictionary(
             dictionary.get("ui"))\
-            if dictionary.get("ui") else None
-        url = dictionary.get("url") if dictionary.get("url") else None
+                if dictionary.get("ui") else None
+        url =\
+            dictionary.get("url")\
+            if dictionary.get("url")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -132,30 +153,58 @@ class Signer(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!r}, "
-                f"url={self.url!r}, "
-                f"links={self.links!r}, "
-                f"external_signer_id={self.external_signer_id!r}, "
-                f"redirect_settings={self.redirect_settings!r}, "
-                f"signature_type={self.signature_type!r}, "
-                f"ui={self.ui!r}, "
-                f"tags={self.tags!r}, "
-                f"order={self.order!r}, "
-                f"required={self.required!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _id=self.id
+        _url=self.url
+        _links=self.links
+        _external_signer_id=self.external_signer_id
+        _redirect_settings=self.redirect_settings
+        _signature_type=self.signature_type
+        _ui=self.ui
+        _tags=self.tags
+        _order=self.order
+        _required=self.required
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!r}"
+            f"url={_url!r}"
+            f"links={_links!r}"
+            f"external_signer_id={_external_signer_id!r}"
+            f"redirect_settings={_redirect_settings!r}"
+            f"signature_type={_signature_type!r}"
+            f"ui={_ui!r}"
+            f"tags={_tags!r}"
+            f"order={_order!r}"
+            f"required={_required!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!s}, "
-                f"url={self.url!s}, "
-                f"links={self.links!s}, "
-                f"external_signer_id={self.external_signer_id!s}, "
-                f"redirect_settings={self.redirect_settings!s}, "
-                f"signature_type={self.signature_type!s}, "
-                f"ui={self.ui!s}, "
-                f"tags={self.tags!s}, "
-                f"order={self.order!s}, "
-                f"required={self.required!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _id=self.id
+        _url=self.url
+        _links=self.links
+        _external_signer_id=self.external_signer_id
+        _redirect_settings=self.redirect_settings
+        _signature_type=self.signature_type
+        _ui=self.ui
+        _tags=self.tags
+        _order=self.order
+        _required=self.required
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!s}"
+            f"url={_url!s}"
+            f"links={_links!s}"
+            f"external_signer_id={_external_signer_id!s}"
+            f"redirect_settings={_redirect_settings!s}"
+            f"signature_type={_signature_type!s}"
+            f"ui={_ui!s}"
+            f"tags={_tags!s}"
+            f"order={_order!s}"
+            f"required={_required!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

@@ -57,12 +57,7 @@ complex_type = ComplexType(
 
 try:
     result = pipe_seperated_controller.create_send_pipe_separated_complex_type_in_query(complex_type)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

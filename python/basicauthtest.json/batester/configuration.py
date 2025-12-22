@@ -130,11 +130,11 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
-                 logging_configuration=None, environment=Environment.TESTING,
-                 port="80", suites=1, basic_auth_user_name=None,
-                 basic_auth_password=None, basic_auth_credentials=None):
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None, logging_configuration=None,
+                 environment=Environment.TESTING, port="80", suites=1,
+                 basic_auth_user_name=None, basic_auth_password=None,
+                 basic_auth_credentials=None):
         """Initialize Configuration object."""
         if retry_methods is None:
             retry_methods = ["GET", "PUT"]
@@ -175,8 +175,8 @@ class Configuration(HttpClientConfiguration):
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
                    logging_configuration=None, environment=None, port=None,
-                   suites=None, basic_auth_user_name=None,
-                   basic_auth_password=None, basic_auth_credentials=None):
+                   suites=None, basic_auth_user_name=None, basic_auth_password=None,
+                   basic_auth_credentials=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration =\
@@ -201,13 +201,11 @@ class Configuration(HttpClientConfiguration):
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
-            http_call_back=http_call_back, timeout=timeout,
-            max_retries=max_retries, backoff_factor=backoff_factor,
-            retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings,
+            http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, proxy_settings=proxy_settings,
             logging_configuration=logging_configuration, environment=environment,
-            port=port, suites=suites,
-            basic_auth_credentials=basic_auth_credentials,
+            port=port, suites=suites, basic_auth_credentials=basic_auth_credentials,
         )
 
     def create_http_client(self):
@@ -263,9 +261,9 @@ class Configuration(HttpClientConfiguration):
                 and basic_auth_password is None:
             return basic_auth_credentials
 
-        warnings.warn(message=("The 'basic_auth_user_name', 'basic_auth_passwor"
-                               "d' params are deprecated. Use 'basic_auth_crede"
-                               "ntials' param instead."),
+        warnings.warn(message=("The 'basic_auth_user_name', 'basic_auth_password' par"
+                               "ams are deprecated. Use 'basic_auth_credentials' para"
+                               "m instead."),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
@@ -273,7 +271,7 @@ class Configuration(HttpClientConfiguration):
             return basic_auth_credentials.clone_with(basic_auth_user_name,
                                                      basic_auth_password)
 
-        from batester.http.auth.basic_auth import (
+        from batester.http.auth.basic_auth import (  # noqa: E501
             BasicAuthCredentials,
         )
         return BasicAuthCredentials(basic_auth_user_name, basic_auth_password)
@@ -310,9 +308,8 @@ class Configuration(HttpClientConfiguration):
         port = os.getenv("PORT", "80")
         suites = SuiteCodeEnum.from_value(os.getenv("SUITES"), 1)
 
-        from batester.http.auth.basic_auth import (
-            BasicAuthCredentials,
-        )
+        from batester.http.auth.basic_auth import BasicAuthCredentials
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

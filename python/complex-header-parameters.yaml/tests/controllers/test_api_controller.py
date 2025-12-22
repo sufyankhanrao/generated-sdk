@@ -66,8 +66,8 @@ class APIControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         vehicle_header = APIHelper.json_deserialize(
-            "{\"make\":\"Toyota\",\"model\":\"Camry\",\"year\":2022,\"engine\":"
-            "{\"horsepower\":3000,\"fuelType\":\"Petrol\"}}",
+            "{\"make\":\"Toyota\",\"model\":\"Camry\",\"year\":2022,\"engine\":{\"hor"
+            "sepower\":3000,\"fuelType\":\"Petrol\"}}",
             Vehicle.from_dictionary,
         )
 
@@ -85,8 +85,8 @@ class APIControllerTests(ControllerTestBase):
         # Parameters for the API call
         one_of_vehicle = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("OneOfVehicle"),
-            "{\"make\":\"Yamaha\",\"model\":\"VMax\",\"year\":2020,\"engineCapa"
-            "city\":1800}",
+            "{\"make\":\"Yamaha\",\"model\":\"VMax\",\"year\":2020,\"engineCapacity\""
+            ":1800}",
         )
 
         # Perform the API call through the SDK function
@@ -103,8 +103,8 @@ class APIControllerTests(ControllerTestBase):
         # Parameters for the API call
         one_of_vehicle = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("OneOfVehicle"),
-            "{\"make\":\"Toyota\",\"model\":\"Yaris\",\"doors\":2,\"engine\":{"
-            "\"horsepower\":1500,\"fuelType\":\"Petrol\"}}",
+            "{\"make\":\"Toyota\",\"model\":\"Yaris\",\"doors\":2,\"engine\":{\"horse"
+            "power\":1500,\"fuelType\":\"Petrol\"}}",
         )
 
         # Perform the API call through the SDK function
@@ -120,10 +120,10 @@ class APIControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         map_of_vehicles = APIHelper.json_deserialize(
-            "{\"Toyota Camry\":{\"make\":\"Toyota\",\"model\":\"Camry\",\"year"
-            "\":2022,\"engine\":{\"horsepower\":3000,\"fuelType\":\"Petrol\"}},"
-            "\"Toyota Yaris\":{\"make\":\"Toyota\",\"model\":\"Yaris\",\"year\""
-            ":2020,\"engine\":{\"horsepower\":1300,\"fuelType\":\"Petrol\"}}}",
+            "{\"Toyota Camry\":{\"make\":\"Toyota\",\"model\":\"Camry\",\"year\":2022"
+            ",\"engine\":{\"horsepower\":3000,\"fuelType\":\"Petrol\"}},\"Toyota Yari"
+            "s\":{\"make\":\"Toyota\",\"model\":\"Yaris\",\"year\":2020,\"engine\":{"
+            "\"horsepower\":1300,\"fuelType\":\"Petrol\"}}}",
             Vehicle.from_dictionary,
             as_dict=True,
         )
@@ -141,10 +141,10 @@ class APIControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         array_of_vehicles = APIHelper.json_deserialize(
-            "[{\"make\":\"Toyota\",\"model\":\"Camry\",\"year\":2022,\"engine\""
-            ":{\"horsepower\":3000,\"fuelType\":\"Petrol\"}},{\"make\":\"Toyota"
-            "\",\"model\":\"Yaris\",\"year\":2020,\"engine\":{\"horsepower\":13"
-            "00,\"fuelType\":\"Petrol\"}}]",
+            "[{\"make\":\"Toyota\",\"model\":\"Camry\",\"year\":2022,\"engine\":{\"ho"
+            "rsepower\":3000,\"fuelType\":\"Petrol\"}},{\"make\":\"Toyota\",\"model\""
+            ":\"Yaris\",\"year\":2020,\"engine\":{\"horsepower\":1300,\"fuelType\":\""
+            "Petrol\"}}]",
             Vehicle.from_dictionary,
         )
 

@@ -41,12 +41,7 @@ input = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 
 try:
     result = echo_controller.form_echo(input)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

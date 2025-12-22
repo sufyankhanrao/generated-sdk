@@ -16,12 +16,7 @@ try:
     result = client_controller.retrieve_checkout_order(
         pay_pal_mock_response=pay_pal_mock_response
     )
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

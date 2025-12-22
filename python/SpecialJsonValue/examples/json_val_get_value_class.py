@@ -9,12 +9,7 @@ client = JsonvaluetesterClient(
 json_val_controller = client.json_val
 try:
     result = json_val_controller.get_value()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

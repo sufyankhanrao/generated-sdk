@@ -13,8 +13,8 @@ class Glossary(object):
     Attributes:
         title (str): The model property of type str.
         gloss_div (GlossDiv): The model property of type GlossDiv.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -24,10 +24,11 @@ class Glossary(object):
         "title": "title",
     }
 
-    def __init__(self,
-                 gloss_div=None,
-                 title=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        gloss_div=None,
+        title=None,
+        additional_properties=None):
         """Initialize a Glossary instance."""
         # Initialize members of the class
         self.title = title
@@ -56,10 +57,15 @@ class Glossary(object):
             return None
 
         # Extract variables from the dictionary
-        gloss_div = GlossDiv.from_dictionary(
+        gloss_div =\
+            GlossDiv.from_dictionary(
             dictionary.get("GlossDiv"))\
-            if dictionary.get("GlossDiv") else None
-        title = dictionary.get("title") if dictionary.get("title") else None
+                if dictionary.get("GlossDiv") else None
+        title =\
+            dictionary.get("title")\
+            if dictionary.get("title")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -70,14 +76,26 @@ class Glossary(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"title={self.title!r}, "
-                f"gloss_div={self.gloss_div!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _title=self.title
+        _gloss_div=self.gloss_div
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"title={_title!r}"
+            f"gloss_div={_gloss_div!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"title={self.title!s}, "
-                f"gloss_div={self.gloss_div!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _title=self.title
+        _gloss_div=self.gloss_div
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"title={_title!s}"
+            f"gloss_div={_gloss_div!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

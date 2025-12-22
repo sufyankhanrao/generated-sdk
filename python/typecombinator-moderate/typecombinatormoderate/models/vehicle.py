@@ -21,8 +21,9 @@ class Vehicle(object):
         "number_of_tyres": "NumberOfTyres",
     }
 
-    def __init__(self,
-                 number_of_tyres=None):
+    def __init__(
+        self,
+        number_of_tyres=None):
         """Initialize a Vehicle instance."""
         # Initialize members of the class
         self.number_of_tyres = number_of_tyres
@@ -47,7 +48,9 @@ class Vehicle(object):
         # Extract variables from the dictionary
         number_of_tyres =\
             dictionary.get("NumberOfTyres")\
-            if dictionary.get("NumberOfTyres") else None
+            if dictionary.get("NumberOfTyres")\
+                else None
+
         # Return an object of this model
         return cls(number_of_tyres)
 
@@ -66,25 +69,41 @@ class Vehicle(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.number_of_tyres,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.number_of_tyres,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("NumberOfTyres"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("NumberOfTyres"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_of_tyres={self.number_of_tyres!r})")
+        _number_of_tyres=self.number_of_tyres
+        return (
+            f"{self.__class__.__name__}("
+            f"number_of_tyres={_number_of_tyres!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_of_tyres={self.number_of_tyres!s})")
+        _number_of_tyres=self.number_of_tyres
+        return (
+            f"{self.__class__.__name__}("
+            f"number_of_tyres={_number_of_tyres!s}"
+            f")"
+        )
 
 class Car(Vehicle):
     """Implementation of the 'Car' model.
@@ -101,15 +120,17 @@ class Car(Vehicle):
         "number_of_tyres": "NumberOfTyres",
     }
 
-    def __init__(self,
-                 have_trunk=None,
-                 number_of_tyres=None):
+    def __init__(
+        self,
+        have_trunk=None,
+        number_of_tyres=None):
         """Initialize a Car instance."""
         # Initialize members of the class
         self.have_trunk = have_trunk
 
         # Call the constructor for the base class
-        super(Car, self).__init__(number_of_tyres)
+        super(Car, self).__init__(
+            number_of_tyres)
 
     @classmethod
     def from_dictionary(cls,
@@ -131,10 +152,13 @@ class Car(Vehicle):
         # Extract variables from the dictionary
         have_trunk =\
             dictionary.get("HaveTrunk")\
-            if "HaveTrunk" in dictionary.keys() else None
+            if "HaveTrunk" in dictionary.keys()\
+                else None
         number_of_tyres =\
             dictionary.get("NumberOfTyres")\
-            if dictionary.get("NumberOfTyres") else None
+            if dictionary.get("NumberOfTyres")\
+                else None
+
         # Return an object of this model
         return cls(have_trunk,
                    number_of_tyres)
@@ -154,32 +178,58 @@ class Car(Vehicle):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.have_trunk,
-                type_callable=lambda value: isinstance(value, bool)) \
+                    value=dictionary.have_trunk,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        bool,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.number_of_tyres,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.number_of_tyres,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("HaveTrunk"),
-            type_callable=lambda value: isinstance(value, bool)) \
+                value=dictionary.get("HaveTrunk"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    bool,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("NumberOfTyres"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("NumberOfTyres"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"have_trunk={self.have_trunk!r})")
+        _have_trunk=self.have_trunk
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"have_trunk={_have_trunk!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"have_trunk={self.have_trunk!s})")
+        _have_trunk=self.have_trunk
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"have_trunk={_have_trunk!s}"
+            f")"
+        )

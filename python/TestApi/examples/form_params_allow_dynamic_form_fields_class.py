@@ -46,12 +46,7 @@ try:
         name,
         _optional_form_parameters=_optional_form_parameters
     )
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

@@ -40,12 +40,7 @@ body = SimpleModel(
 
 try:
     result = body_controller.upload_simple_model(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

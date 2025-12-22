@@ -18,9 +18,10 @@ class ResponsesNonScalarContentResponse(object):
         "name": "name",
     }
 
-    def __init__(self,
-                 id=None,
-                 name=None):
+    def __init__(
+        self,
+        id=None,
+        name=None):
         """Initialize a ResponsesNonScalarContentResponse instance."""
         # Initialize members of the class
         self.id = id
@@ -44,20 +45,37 @@ class ResponsesNonScalarContentResponse(object):
             return None
 
         # Extract variables from the dictionary
-        id = dictionary.get("id") if dictionary.get("id") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
+        id =\
+            dictionary.get("id")\
+            if dictionary.get("id")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+
         # Return an object of this model
         return cls(id,
                    name)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!r}, "
-                f"name={self.name!r})")
+        _id=self.id
+        _name=self.name
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!r}"
+            f"name={_name!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!s}, "
-                f"name={self.name!s})")
+        _id=self.id
+        _name=self.name
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!s}"
+            f"name={_name!s}"
+            f")"
+        )

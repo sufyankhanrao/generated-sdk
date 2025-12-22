@@ -99,9 +99,9 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,"
-            "\"sessionType\":\"Morning\"}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"start"
+            "sAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -128,8 +128,8 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{"
-            "\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}}",
+            "{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"Numbe"
+            "rOfTyres\":\"4\",\"HaveTrunk\":true}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -183,8 +183,8 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\""
-            ":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}}",
+            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"Nu"
+            "mberOfElectrons\":4,\"NumberOfProtons\":4}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -211,9 +211,9 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":false,\"allInnerArray\":[\"some string\",\"som"
-            "e string\"],\"outerArray\":[45.8,\"some string\"],\"outerMap\":{\""
-            "key1\":23,\"key2\":false}}",
+            "{\"singleInnerMap\":false,\"allInnerArray\":[\"some string\",\"some stri"
+            "ng\"],\"outerArray\":[45.8,\"some string\"],\"outerMap\":{\"key1\":23,\""
+            "key2\":false}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -240,9 +240,9 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":45.8,\"key2\":45.8},\"allInnerArray"
-            "\":[23,23],\"outerArray\":[\"some string\",\"some string\"],\"oute"
-            "rMap\":{\"key1\":true,\"key2\":false}}",
+            "{\"singleInnerMap\":{\"key1\":45.8,\"key2\":45.8},\"allInnerArray\":[23,"
+            "23],\"outerArray\":[\"some string\",\"some string\"],\"outerMap\":{\"key"
+            "1\":true,\"key2\":false}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -269,15 +269,15 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":{\"NumberOfElectrons\":2,\"NumberOfP"
-            "rotons\":2},\"key2\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":"
-            "2}},\"allInnerArray\":[{\"NumberOfElectrons\":2},{\"NumberOfElectr"
-            "ons\":2}],\"outerArray\":[{\"startsAt\":\"6:00\",\"endsAt\":\"11:0"
-            "0\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"},{\"NumberO"
-            "fTyres\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1\":{\"star"
-            "tsAt\":\"15:00\",\"endsAt\":\"21:00\",\"offerDinner\":true,\"sessi"
-            "onType\":\"Evening\"},\"key2\":{\"startsAt\":\"6:00\",\"endsAt\":"
-            "\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}}}",
+            "{\"singleInnerMap\":{\"key1\":{\"NumberOfElectrons\":2,\"NumberOfProtons"
+            "\":2},\"key2\":{\"NumberOfElectrons\":2,\"NumberOfProtons\":2}},\"allInn"
+            "erArray\":[{\"NumberOfElectrons\":2},{\"NumberOfElectrons\":2}],\"outerA"
+            "rray\":[{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":tr"
+            "ue,\"sessionType\":\"Morning\"},{\"NumberOfTyres\":\"4\",\"HaveTrunk\":t"
+            "rue}],\"outerMap\":{\"key1\":{\"startsAt\":\"15:00\",\"endsAt\":\"21:00"
+            "\",\"offerDinner\":true,\"sessionType\":\"Evening\"},\"key2\":{\"startsA"
+            "t\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\""
+            ":\"Morning\"}}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -304,13 +304,13 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"NumberOfElectrons\":2},\"allInnerArray\":[{"
-            "\"NumberOfTyres\":\"2\"},{\"NumberOfTyres\":\"2\"}],\"outerArray\""
-            ":[{\"NumberOfElectrons\":2,\"NumberOfProtons\":2},{\"NumberOfTyres"
-            "\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1\":{\"startsAt\""
-            ":\"15:00\",\"endsAt\":\"21:00\",\"offerLunch\":true,\"sessionType"
-            "\":\"Noon\"},\"key2\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\","
-            "\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}}}",
+            "{\"singleInnerMap\":{\"NumberOfElectrons\":2},\"allInnerArray\":[{\"Numb"
+            "erOfTyres\":\"2\"},{\"NumberOfTyres\":\"2\"}],\"outerArray\":[{\"NumberO"
+            "fElectrons\":2,\"NumberOfProtons\":2},{\"NumberOfTyres\":\"4\",\"HaveTru"
+            "nk\":true}],\"outerMap\":{\"key1\":{\"startsAt\":\"15:00\",\"endsAt\":\""
+            "21:00\",\"offerLunch\":true,\"sessionType\":\"Noon\"},\"key2\":{\"starts"
+            "At\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType"
+            "\":\"Morning\"}}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -337,13 +337,12 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"key1\":23,\"key2\":23},\"allInnerArray\":[{"
-            "\"NumberOfTyres\":\"4\"},{\"NumberOfTyres\":\"4\"}],\"outerArray\""
-            ":[\"some string\",{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],\""
-            "outerMap\":{\"key1\":234.8,\"key2\":{\"name\":\"Shahid Khaliq\",\""
-            "age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321"
-            "\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54"
-            "+00:00\",\"personType\":\"Per\"}}}",
+            "{\"singleInnerMap\":{\"key1\":23,\"key2\":23},\"allInnerArray\":[{\"Numb"
+            "erOfTyres\":\"4\"},{\"NumberOfTyres\":\"4\"}],\"outerArray\":[\"some str"
+            "ing\",{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],\"outerMap\":{\"key1"
+            "\":234.8,\"key2\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"addre"
+            "ss\":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\","
+            "\"birthtime\":\"1994-02-13T14:01:54+00:00\",\"personType\":\"Per\"}}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -370,16 +369,15 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"singleInnerMap\":{\"NumberOfElectrons\":4},\"allInnerArray\":[f"
-            "alse,true],\"outerArray\":[\"some string\",{\"startsAt\":\"6:00\","
-            "\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morn"
-            "ing\"}],\"outerMap\":{\"key1\":{\"name\":\"Shahid Khaliq\",\"age\""
-            ":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321\",\"b"
-            "irthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54+00:00"
-            "\",\"personType\":\"Per\"},\"key2\":{\"name\":\"Shahid Khaliq\",\""
-            "age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321"
-            "\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54"
-            "+00:00\",\"personType\":\"Per\"}}}",
+            "{\"singleInnerMap\":{\"NumberOfElectrons\":4},\"allInnerArray\":[false,t"
+            "rue],\"outerArray\":[\"some string\",{\"startsAt\":\"6:00\",\"endsAt\":"
+            "\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"}],\"outerMa"
+            "p\":{\"key1\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"address\""
+            ":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"bi"
+            "rthtime\":\"1994-02-13T14:01:54+00:00\",\"personType\":\"Per\"},\"key2\""
+            ":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"address\":\"H # 531, S"
+            " # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1"
+            "994-02-13T14:01:54+00:00\",\"personType\":\"Per\"}}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,

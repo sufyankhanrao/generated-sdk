@@ -39,7 +39,7 @@ def send_all_of_discriminated(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Cat | Dog`.
+[Cat](../../doc/models/cat.md) | [Dog](../../doc/models/dog.md)
 
 ## Example Usage
 
@@ -112,11 +112,7 @@ result = form_controller.send_all_of_discriminated(
     one_of_cat_dog_oaf_pet_type,
     one_of_cat_dog_kind
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response
@@ -155,7 +151,7 @@ def send_oaf_discriminated(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Lion | Squirrel`.
+[Lion](../../doc/models/lion.md) | [Squirrel](../../doc/models/squirrel.md)
 
 ## Example Usage
 
@@ -201,11 +197,7 @@ result = form_controller.send_oaf_discriminated(
     one_of_lion_and_squirrel_speed,
     one_of_lion_and_squirrel_area
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -228,7 +220,7 @@ def send_alias(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Lion | Deer`.
+[Lion](../../doc/models/lion.md) | [Deer](../../doc/models/deer.md)
 
 ## Example Usage
 
@@ -249,11 +241,7 @@ result = form_controller.send_alias(
     alias,
     alias_of_alias
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response
@@ -298,7 +286,7 @@ def send_oaf_with_all_of_discriminated_variants(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Animal | Lion | Cat | Squirrel | Employee | Entrepreneur`.
+[Animal](../../doc/models/animal.md) | [Lion](../../doc/models/lion.md) | [Cat](../../doc/models/cat.md) | [Squirrel](../../doc/models/squirrel.md) | [Employee](../../doc/models/employee.md) | [Entrepreneur](../../doc/models/entrepreneur.md)
 
 ## Example Usage
 
@@ -398,10 +386,6 @@ result = form_controller.send_oaf_with_all_of_discriminated_variants(
     one_of_employee_entrepreneur_disc,
     one_of_employee_entrepreneur
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

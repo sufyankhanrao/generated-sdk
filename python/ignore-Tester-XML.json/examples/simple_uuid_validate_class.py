@@ -11,12 +11,7 @@ body = '00000df8-0000-0000-0000-000000000000'
 
 try:
     result = simple_uuid_controller.validate(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

@@ -34,11 +34,12 @@ class CreateOrderRequest(object):
         "metadata",
     ]
 
-    def __init__(self,
-                 customer_id=None,
-                 items=None,
-                 callback_url=None,
-                 metadata=APIHelper.SKIP):
+    def __init__(
+        self,
+        customer_id=None,
+        items=None,
+        callback_url=None,
+        metadata=APIHelper.SKIP):
         """Initialize a CreateOrderRequest instance."""
         # Initialize members of the class
         self.customer_id = customer_id
@@ -67,7 +68,8 @@ class CreateOrderRequest(object):
         # Extract variables from the dictionary
         customer_id =\
             dictionary.get("customerId")\
-            if dictionary.get("customerId") else None
+            if dictionary.get("customerId")\
+                else None
         items = None
         if dictionary.get("items") is not None:
             items = [
@@ -76,10 +78,13 @@ class CreateOrderRequest(object):
             ]
         callback_url =\
             dictionary.get("callbackUrl")\
-            if dictionary.get("callbackUrl") else None
+            if dictionary.get("callbackUrl")\
+                else None
         metadata =\
             dictionary.get("metadata")\
-            if dictionary.get("metadata") else APIHelper.SKIP
+            if dictionary.get("metadata")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(customer_id,
                    items,
@@ -88,18 +93,38 @@ class CreateOrderRequest(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"customer_id={self.customer_id!r}, "
-                f"items={self.items!r}, "
-                f"callback_url={self.callback_url!r}, "
-                f"metadata={(self.metadata
-                     if hasattr(self, 'metadata') else None)!r})")
+        _customer_id=self.customer_id
+        _items=self.items
+        _callback_url=self.callback_url
+        _metadata=(
+            self.metadata
+            if hasattr(self, "metadata")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"customer_id={_customer_id!r}"
+            f"items={_items!r}"
+            f"callback_url={_callback_url!r}"
+            f"metadata={_metadata!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"customer_id={self.customer_id!s}, "
-                f"items={self.items!s}, "
-                f"callback_url={self.callback_url!s}, "
-                f"metadata={(self.metadata
-                     if hasattr(self, 'metadata') else None)!s})")
+        _customer_id=self.customer_id
+        _items=self.items
+        _callback_url=self.callback_url
+        _metadata=(
+            self.metadata
+            if hasattr(self, "metadata")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"customer_id={_customer_id!s}"
+            f"items={_items!s}"
+            f"callback_url={_callback_url!s}"
+            f"metadata={_metadata!s}"
+            f")"
+        )

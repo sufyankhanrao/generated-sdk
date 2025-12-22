@@ -14,8 +14,8 @@ class OuterModel(object):
     This class contains enum types in oneOf/anyOf cases.
 
     Attributes:
-        model (InnerModel1 | InnerModel2): The model property of type
-            InnerModel1 | InnerModel2.
+        model (InnerModel1 | InnerModel2): The model property of type InnerModel1 |
+            InnerModel2.
 
     """
 
@@ -24,8 +24,9 @@ class OuterModel(object):
         "model": "model",
     }
 
-    def __init__(self,
-                 model=None):
+    def __init__(
+        self,
+        model=None):
         """Initialize a OuterModel instance."""
         # Initialize members of the class
         self.model = model
@@ -52,7 +53,13 @@ class OuterModel(object):
             return None
 
         # Extract variables from the dictionary
-        model = APIHelper.deserialize_union_type(UnionTypeLookUp.get("OuterModelModel"), dictionary.get("model"), False) if dictionary.get("model") is not None else None
+        model = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("OuterModelModel"),
+            dictionary.get("model"),
+            False)\
+            if dictionary.get("model") is not None\
+            else None
+
         # Return an object of this model
         return cls(model)
 
@@ -74,19 +81,29 @@ class OuterModel(object):
         )
 
         if isinstance(dictionary, cls):
-            return UnionTypeLookUp.get("OuterModelModel").validate(dictionary.model).is_valid
+            return (UnionTypeLookUp.get("OuterModelModel")
+                .validate(dictionary.model).is_valid)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return UnionTypeLookUp.get("OuterModelModel").validate(dictionary.get("model")).is_valid
+        return (UnionTypeLookUp.get("OuterModelModel")
+            .validate(dictionary.get("model")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"model={self.model!r})")
+        _model=self.model
+        return (
+            f"{self.__class__.__name__}("
+            f"model={_model!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"model={self.model!s})")
+        _model=self.model
+        return (
+            f"{self.__class__.__name__}("
+            f"model={_model!s}"
+            f")"
+        )

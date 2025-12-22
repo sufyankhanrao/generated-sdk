@@ -24,12 +24,7 @@ try:
         body_non_scalar,
         body_mixed
     )
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

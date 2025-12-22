@@ -12,8 +12,8 @@ class UnixDateMap(object):
     Attributes:
         date_time (Dict[str, datetime]): The model property of type Dict[str,
             datetime].
-        date_time_1 (Dict[str, datetime]): The model property of type
-            Dict[str, datetime].
+        date_time_1 (Dict[str, datetime]): The model property of type Dict[str,
+            datetime].
 
     """
 
@@ -31,18 +31,21 @@ class UnixDateMap(object):
         "date_time",
     ]
 
-    def __init__(self,
-                 date_time_1=None,
-                 date_time=APIHelper.SKIP):
+    def __init__(
+        self,
+        date_time_1=None,
+        date_time=APIHelper.SKIP):
         """Initialize a UnixDateMap instance."""
         # Initialize members of the class
         if date_time is not APIHelper.SKIP:
             self.date_time =\
                  APIHelper.apply_datetime_converter(
-                date_time, APIHelper.UnixDateTime) if date_time else None
+                date_time, APIHelper.UnixDateTime)\
+                 if date_time else None
         self.date_time_1 =\
              APIHelper.apply_datetime_converter(
-            date_time_1, APIHelper.UnixDateTime) if date_time_1 else None
+            date_time_1, APIHelper.UnixDateTime)\
+             if date_time_1 else None
 
     @classmethod
     def from_dictionary(cls,
@@ -72,20 +75,37 @@ class UnixDateMap(object):
 
         else:
             date_time = APIHelper.SKIP
+
         # Return an object of this model
         return cls(date_time_1,
                    date_time)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date_time={(self.date_time
-                     if hasattr(self, 'date_time') else None)!r}, "
-                f"date_time_1={self.date_time_1!r})")
+        _date_time=(
+            self.date_time
+            if hasattr(self, "date_time")
+            else None
+        )
+        _date_time_1=self.date_time_1
+        return (
+            f"{self.__class__.__name__}("
+            f"date_time={_date_time!r}"
+            f"date_time_1={_date_time_1!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date_time={(self.date_time
-                     if hasattr(self, 'date_time') else None)!s}, "
-                f"date_time_1={self.date_time_1!s})")
+        _date_time=(
+            self.date_time
+            if hasattr(self, "date_time")
+            else None
+        )
+        _date_time_1=self.date_time_1
+        return (
+            f"{self.__class__.__name__}("
+            f"date_time={_date_time!s}"
+            f"date_time_1={_date_time_1!s}"
+            f")"
+        )

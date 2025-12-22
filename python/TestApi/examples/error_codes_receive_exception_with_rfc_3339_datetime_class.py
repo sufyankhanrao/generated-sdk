@@ -37,12 +37,7 @@ client = TesterClient(
 error_codes_controller = client.error_codes
 try:
     result = error_codes_controller.receive_exception_with_rfc_3339_datetime()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except ExceptionWithRfc3339DateTimeException as e: 
     print(e)
 except NestedModelException as e: 

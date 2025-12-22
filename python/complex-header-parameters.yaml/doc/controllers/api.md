@@ -34,7 +34,7 @@ def retrieve_checkout_order(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SuccessResponse`](../../doc/models/success-response.md).
+[`SuccessResponse`](../../doc/models/success-response.md)
 
 ## Example Usage
 
@@ -46,11 +46,7 @@ pay_pal_mock_response = PaypalMockResponseSchema(
 result = client_controller.retrieve_checkout_order(
     pay_pal_mock_response=pay_pal_mock_response
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -71,7 +67,7 @@ def submit_vehicle_information(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SuccessResponse`](../../doc/models/success-response.md).
+[`SuccessResponse`](../../doc/models/success-response.md)
 
 ## Example Usage
 
@@ -87,11 +83,7 @@ vehicle_header = Vehicle(
 )
 
 result = client_controller.submit_vehicle_information(vehicle_header)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -118,7 +110,7 @@ def submit_a_one_of_vehicle(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SuccessResponse`](../../doc/models/success-response.md).
+[`SuccessResponse`](../../doc/models/success-response.md)
 
 ## Example Usage
 
@@ -134,11 +126,7 @@ one_of_vehicle = Car(
 )
 
 result = client_controller.submit_a_one_of_vehicle(one_of_vehicle)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -159,7 +147,7 @@ def submit_a_map_of_vehicles(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SuccessResponse`](../../doc/models/success-response.md).
+[`SuccessResponse`](../../doc/models/success-response.md)
 
 ## Example Usage
 
@@ -186,11 +174,7 @@ map_of_vehicles = {
 }
 
 result = client_controller.submit_a_map_of_vehicles(map_of_vehicles)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -217,7 +201,7 @@ def submit_an_array_of_vehicles(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SuccessResponse`](../../doc/models/success-response.md).
+[`SuccessResponse`](../../doc/models/success-response.md)
 
 ## Example Usage
 
@@ -244,11 +228,7 @@ array_of_vehicles = [
 ]
 
 result = client_controller.submit_an_array_of_vehicles(array_of_vehicles)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

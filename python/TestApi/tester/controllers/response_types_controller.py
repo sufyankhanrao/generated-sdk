@@ -4,6 +4,7 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+# ruff: noqa: D410
 from apimatic_core.configurations.endpoint_configuration import (
     EndpointConfiguration,
 )
@@ -48,14 +49,12 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/date.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            List[date]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -63,30 +62,27 @@ class ResponseTypesController(BaseController):
             .path("/response/date")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.date_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.date_deserialize),
         ).execute()
 
     def get_date(self):
         """Perform a GET request to /response/date.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            date: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -96,22 +92,19 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.date_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.date_deserialize),
         ).execute()
 
     def return_company_model(self):
         """Perform a GET request to /response/company.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Company: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -119,28 +112,25 @@ class ResponseTypesController(BaseController):
             .path("/response/company")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Company.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(Company.from_dictionary),
         ).execute()
 
     def return_boss_model(self):
         """Perform a GET request to /response/boss.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            BossCompany: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -148,28 +138,25 @@ class ResponseTypesController(BaseController):
             .path("/response/boss")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(BossCompany.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(BossCompany.from_dictionary),
         ).execute()
 
     def return_employee_model(self):
         """Perform a GET request to /response/employee.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            EmployeeComp: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -177,28 +164,25 @@ class ResponseTypesController(BaseController):
             .path("/response/employee")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(EmployeeComp.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(EmployeeComp.from_dictionary),
         ).execute()
 
     def return_developer_model(self):
         """Perform a GET request to /response/developer.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Developer: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -206,28 +190,25 @@ class ResponseTypesController(BaseController):
             .path("/response/developer")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Developer.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(Developer.from_dictionary),
         ).execute()
 
     def return_tester_model(self):
         """Perform a GET request to /response/tester.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            SoftwareTester: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -235,28 +216,25 @@ class ResponseTypesController(BaseController):
             .path("/response/tester")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(SoftwareTester.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(SoftwareTester.from_dictionary),
         ).execute()
 
     def return_complex_1_object(self):
         """Perform a GET request to /response/complex1.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Complex1: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -264,28 +242,25 @@ class ResponseTypesController(BaseController):
             .path("/response/complex1")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Complex1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(Complex1.from_dictionary),
         ).execute()
 
     def return_response_with_enums(self):
         """Perform a GET request to /response/responseWitEnum.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ResponseWithEnum: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -293,28 +268,25 @@ class ResponseTypesController(BaseController):
             .path("/response/responseWitEnum")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ResponseWithEnum.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ResponseWithEnum.from_dictionary),
         ).execute()
 
     def return_complex_2_object(self):
         """Perform a GET request to /response/complex2.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Complex2: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -322,28 +294,25 @@ class ResponseTypesController(BaseController):
             .path("/response/complex2")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Complex2.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(Complex2.from_dictionary),
         ).execute()
 
     def return_complex_3_object(self):
         """Perform a GET request to /response/complex3.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Complex3: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -351,28 +320,25 @@ class ResponseTypesController(BaseController):
             .path("/response/complex3")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Complex3.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(Complex3.from_dictionary),
         ).execute()
 
     def get_long(self):
         """Perform a GET request to /response/long.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            int: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -382,22 +348,19 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_model(self):
         """Perform a GET request to /response/model.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Person: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -405,28 +368,25 @@ class ResponseTypesController(BaseController):
             .path("/response/model")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Person.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(Person.from_dictionary),
         ).execute()
 
     def get_void_model(self):
         """Perform a GET request to /response/getVoidModel.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Void: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -434,28 +394,25 @@ class ResponseTypesController(BaseController):
             .path("/response/getVoidModel")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Void.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(Void.from_dictionary),
         ).execute()
 
     def get_string_enum_array(self):
         """Perform a GET request to /response/enum.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            List[Days1Enum]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -463,33 +420,30 @@ class ResponseTypesController(BaseController):
             .path("/response/enum")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .query_param(Parameter()
-                         .key("type")
-                         .value("string"))
+                .key("type")
+                .value("string"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_string_enum(self):
         """Perform a GET request to /response/enum.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Days1Enum: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -497,27 +451,24 @@ class ResponseTypesController(BaseController):
             .path("/response/enum")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("type")
-                         .value("string")),
+                .key("type")
+                .value("string")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_model_array(self):
         """Perform a GET request to /response/model.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            List[Person]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -525,31 +476,28 @@ class ResponseTypesController(BaseController):
             .path("/response/model")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Person.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(Person.from_dictionary),
         ).execute()
 
     def get_int_enum(self):
         """Perform a GET request to /response/enum.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            SuiteCodeEnum: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -557,27 +505,24 @@ class ResponseTypesController(BaseController):
             .path("/response/enum")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("type")
-                         .value("int")),
+                .key("type")
+                .value("int")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_int_enum_array(self):
         """Perform a GET request to /response/enum.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            List[SuiteCodeEnum]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -585,33 +530,30 @@ class ResponseTypesController(BaseController):
             .path("/response/enum")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .query_param(Parameter()
-                         .key("type")
-                         .value("int"))
+                .key("type")
+                .value("int"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_precision(self):
         """Perform a GET request to /response/precision.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            float: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -621,8 +563,7 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_binary(self):
@@ -631,14 +572,12 @@ class ResponseTypesController(BaseController):
         ﻿gets a binary﻿ object
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            binary: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -648,8 +587,7 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).endpoint_configuration(
             EndpointConfiguration()
             .has_binary_response(True),
@@ -661,14 +599,12 @@ class ResponseTypesController(BaseController):
         Gets a integer response
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            int: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -678,8 +614,7 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_integer_array(self):
@@ -688,14 +623,12 @@ class ResponseTypesController(BaseController):
         Get an array of integers.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            List[int]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -703,30 +636,27 @@ class ResponseTypesController(BaseController):
             .path("/response/integer")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_dynamic(self):
         """Perform a GET request to /response/dynamic.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Any: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -734,30 +664,27 @@ class ResponseTypesController(BaseController):
             .path("/response/dynamic")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("echo")
-                         .value(True))
+                .key("echo")
+                .value(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.dynamic_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.dynamic_deserialize),
         ).execute()
 
     def get_dynamic_array(self):
         """Perform a GET request to /response/dynamic.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Any: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -765,33 +692,30 @@ class ResponseTypesController(BaseController):
             .path("/response/dynamic")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .query_param(Parameter()
-                         .key("echo")
-                         .value(True))
+                .key("echo")
+                .value(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.dynamic_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.dynamic_deserialize),
         ).execute()
 
     def get_3339_datetime(self):
         """Perform a GET request to /response/3339datetime.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            datetime: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -802,7 +726,6 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
-            .is_api_response(True)
             .datetime_format(DateTimeFormat.RFC3339_DATE_TIME),
         ).execute()
 
@@ -810,14 +733,12 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/3339datetime.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            List[datetime]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -825,16 +746,15 @@ class ResponseTypesController(BaseController):
             .path("/response/3339datetime")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
-            .is_api_response(True)
             .datetime_format(DateTimeFormat.RFC3339_DATE_TIME),
         ).execute()
 
@@ -842,14 +762,12 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/boolean.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            bool: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -859,22 +777,19 @@ class ResponseTypesController(BaseController):
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_boolean_array(self):
         """Perform a GET request to /response/boolean.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            List[bool]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -882,30 +797,27 @@ class ResponseTypesController(BaseController):
             .path("/response/boolean")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_headers(self):
         """Perform a GET request to /response/headers.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            void: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -913,26 +825,23 @@ class ResponseTypesController(BaseController):
             .path("/response/headers")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
-            .is_nullify404(True)
-            .is_api_response(True),
+            .is_nullify404(True),
         ).execute()
 
     def get_1123_date_time(self):
         """Perform a GET request to /response/1123datetime.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            datetime: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -943,7 +852,6 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
-            .is_api_response(True)
             .datetime_format(DateTimeFormat.HTTP_DATE_TIME),
         ).execute()
 
@@ -951,14 +859,12 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/unixdatetime.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            datetime: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -969,7 +875,6 @@ class ResponseTypesController(BaseController):
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
-            .is_api_response(True)
             .datetime_format(DateTimeFormat.UNIX_DATE_TIME),
         ).execute()
 
@@ -977,14 +882,12 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/1123datetime.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            List[datetime]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -992,16 +895,15 @@ class ResponseTypesController(BaseController):
             .path("/response/1123datetime")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
-            .is_api_response(True)
             .datetime_format(DateTimeFormat.HTTP_DATE_TIME),
         ).execute()
 
@@ -1009,14 +911,12 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/unixdatetime.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            List[datetime]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1024,16 +924,15 @@ class ResponseTypesController(BaseController):
             .path("/response/unixdatetime")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.datetime_deserialize)
-            .is_api_response(True)
             .datetime_format(DateTimeFormat.UNIX_DATE_TIME),
         ).execute()
 
@@ -1041,14 +940,12 @@ class ResponseTypesController(BaseController):
         """Perform a GET request to /response/getContentType.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            void: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1056,10 +953,9 @@ class ResponseTypesController(BaseController):
             .path("/response/getContentType")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
-            .is_nullify404(True)
-            .is_api_response(True),
+            .is_nullify404(True),
         ).execute()

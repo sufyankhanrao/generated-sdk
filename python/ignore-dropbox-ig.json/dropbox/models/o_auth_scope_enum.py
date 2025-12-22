@@ -12,8 +12,8 @@ class OAuthScopeEnum(object):
     Attributes:
         READ_SCOPE: Read scope
         WRITE_SCOPE: Write scope
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 

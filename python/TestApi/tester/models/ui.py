@@ -15,8 +15,8 @@ class Ui(object):
         dialogs (Dialogs): The model property of type Dialogs.
         language (LanguageEnum): The model property of type LanguageEnum.
         styling (Styling): The model property of type Styling.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -27,11 +27,12 @@ class Ui(object):
         "styling": "styling",
     }
 
-    def __init__(self,
-                 dialogs=None,
-                 language=None,
-                 styling=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        dialogs=None,
+        language=None,
+        styling=None,
+        additional_properties=None):
         """Initialize a Ui instance."""
         # Initialize members of the class
         self.dialogs = dialogs
@@ -61,15 +62,19 @@ class Ui(object):
             return None
 
         # Extract variables from the dictionary
-        dialogs = Dialogs.from_dictionary(
+        dialogs =\
+            Dialogs.from_dictionary(
             dictionary.get("dialogs"))\
-            if dictionary.get("dialogs") else None
+                if dictionary.get("dialogs") else None
         language =\
             dictionary.get("language")\
-            if dictionary.get("language") else None
-        styling = Styling.from_dictionary(
+            if dictionary.get("language")\
+                else None
+        styling =\
+            Styling.from_dictionary(
             dictionary.get("styling"))\
-            if dictionary.get("styling") else None
+                if dictionary.get("styling") else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -81,16 +86,30 @@ class Ui(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"dialogs={self.dialogs!r}, "
-                f"language={self.language!r}, "
-                f"styling={self.styling!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _dialogs=self.dialogs
+        _language=self.language
+        _styling=self.styling
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"dialogs={_dialogs!r}"
+            f"language={_language!r}"
+            f"styling={_styling!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"dialogs={self.dialogs!s}, "
-                f"language={self.language!s}, "
-                f"styling={self.styling!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _dialogs=self.dialogs
+        _language=self.language
+        _styling=self.styling
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"dialogs={_dialogs!s}"
+            f"language={_language!s}"
+            f"styling={_styling!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

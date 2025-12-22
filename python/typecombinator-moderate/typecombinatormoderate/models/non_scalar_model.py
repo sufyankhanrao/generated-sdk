@@ -16,15 +16,14 @@ class NonScalarModel(object):
     Attributes:
         single_inner_map (Dict[str, Atom] | Orbit): The model property of type
             Dict[str, Atom] | Orbit.
-        all_inner_array (List[Orbit] | List[Vehicle] | None): The model
-            property of type List[Orbit] | List[Vehicle] | None.
-        outer_array (List[Car | Morning | Atom] | None): The model property of
-            type List[Car | Morning | Atom] | None.
-        outer_map (Dict[str, Morning | Evening | Noon] | None): The model
-            property of type Dict[str, Morning | Evening | Noon] | None.
-        inner_collection_with_nullable (Atom | None | List[Atom] | Dict[str,
-            Atom]): The model property of type Atom | None | List[Atom] |
-            Dict[str, Atom].
+        all_inner_array (List[Orbit] | List[Vehicle] | None): The model property of
+            type List[Orbit] | List[Vehicle] | None.
+        outer_array (List[Car | Morning | Atom] | None): The model property of type
+            List[Car | Morning | Atom] | None.
+        outer_map (Dict[str, Morning | Evening | Noon] | None): The model property of
+            type Dict[str, Morning | Evening | Noon] | None.
+        inner_collection_with_nullable (Atom | None | List[Atom] | Dict[str, Atom]):
+            The model property of type Atom | None | List[Atom] | Dict[str, Atom].
 
     """
 
@@ -48,12 +47,13 @@ class NonScalarModel(object):
         "outer_map",
     ]
 
-    def __init__(self,
-                 single_inner_map=None,
-                 all_inner_array=None,
-                 outer_array=APIHelper.SKIP,
-                 outer_map=APIHelper.SKIP,
-                 inner_collection_with_nullable=APIHelper.SKIP):
+    def __init__(
+        self,
+        single_inner_map=None,
+        all_inner_array=None,
+        outer_array=APIHelper.SKIP,
+        outer_map=APIHelper.SKIP,
+        inner_collection_with_nullable=APIHelper.SKIP):
         """Initialize a NonScalarModel instance."""
         # Initialize members of the class
         self.single_inner_map = single_inner_map
@@ -87,14 +87,40 @@ class NonScalarModel(object):
             return None
 
         # Extract variables from the dictionary
-        single_inner_map = APIHelper.deserialize_union_type(UnionTypeLookUp.get("NonScalarModelSingleInnerMap"), dictionary.get("singleInnerMap"), False) if dictionary.get("singleInnerMap") is not None else None
-        all_inner_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("NonScalarModelAllInnerArray"), dictionary.get("allInnerArray"), False) if dictionary.get("allInnerArray") is not None else None
-        outer_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("NonScalarModelOuterArray"), dictionary.get("outerArray"), False) if dictionary.get("outerArray") is not None else APIHelper.SKIP
+        single_inner_map = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("NonScalarModelSingleInnerMap"),
+            dictionary.get("singleInnerMap"),
+            False)\
+            if dictionary.get("singleInnerMap") is not None\
+            else None
+        all_inner_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("NonScalarModelAllInnerArray"),
+            dictionary.get("allInnerArray"),
+            False)\
+            if dictionary.get("allInnerArray") is not None\
+            else None
+        outer_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("NonScalarModelOuterArray"),
+            dictionary.get("outerArray"),
+            False)\
+            if dictionary.get("outerArray") is not None\
+            else APIHelper.SKIP
         if "outerMap" in dictionary.keys():
-            outer_map = APIHelper.deserialize_union_type(UnionTypeLookUp.get("NonScalarModelOuterMap"), dictionary.get("outerMap"), False) if dictionary.get("outerMap") is not None else None
+            outer_map = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("NonScalarModelOuterMap"),
+            dictionary.get("outerMap"),
+            False)\
+            if dictionary.get("outerMap") is not None\
+            else None
         else:
             outer_map = APIHelper.SKIP
-        inner_collection_with_nullable = APIHelper.deserialize_union_type(UnionTypeLookUp.get("NonScalarModelInnerCollectionWithNullable"), dictionary.get("innerCollectionWithNullable"), False) if dictionary.get("innerCollectionWithNullable") is not None else APIHelper.SKIP
+        inner_collection_with_nullable = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("NonScalarModelInnerCollectionWithNullable"),
+            dictionary.get("innerCollectionWithNullable"),
+            False)\
+            if dictionary.get("innerCollectionWithNullable") is not None\
+            else APIHelper.SKIP
+
         # Return an object of this model
         return cls(single_inner_map,
                    all_inner_array,
@@ -120,35 +146,73 @@ class NonScalarModel(object):
         )
 
         if isinstance(dictionary, cls):
-            return UnionTypeLookUp.get("NonScalarModelSingleInnerMap").validate(dictionary.single_inner_map).is_valid \
-                and UnionTypeLookUp.get("NonScalarModelAllInnerArray").validate(dictionary.all_inner_array).is_valid
+            return (UnionTypeLookUp.get("NonScalarModelSingleInnerMap")
+                .validate(dictionary.single_inner_map).is_valid) \
+                and (UnionTypeLookUp.get("NonScalarModelAllInnerArray")
+                .validate(dictionary.all_inner_array).is_valid)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return UnionTypeLookUp.get("NonScalarModelSingleInnerMap").validate(dictionary.get("singleInnerMap")).is_valid \
-            and UnionTypeLookUp.get("NonScalarModelAllInnerArray").validate(dictionary.get("allInnerArray")).is_valid
+        return (UnionTypeLookUp.get("NonScalarModelSingleInnerMap")
+            .validate(dictionary.get("singleInnerMap")).is_valid) \
+            and (UnionTypeLookUp.get("NonScalarModelAllInnerArray")
+            .validate(dictionary.get("allInnerArray")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"single_inner_map={self.single_inner_map!r}, "
-                f"all_inner_array={self.all_inner_array!r}, "
-                f"outer_array={(self.outer_array
-                     if hasattr(self, 'outer_array') else None)!r}, "
-                f"outer_map={(self.outer_map
-                     if hasattr(self, 'outer_map') else None)!r}, "
-                f"inner_collection_with_nullable={(self.inner_collection_with_nullable
-                     if hasattr(self, 'inner_collection_with_nullable') else None)!r})")
+        _single_inner_map=self.single_inner_map
+        _all_inner_array=self.all_inner_array
+        _outer_array=(
+            self.outer_array
+            if hasattr(self, "outer_array")
+            else None
+        )
+        _outer_map=(
+            self.outer_map
+            if hasattr(self, "outer_map")
+            else None
+        )
+        _inner_collection_with_nullable=(
+            self.inner_collection_with_nullable
+            if hasattr(self, "inner_collection_with_nullable")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"single_inner_map={_single_inner_map!r}"
+            f"all_inner_array={_all_inner_array!r}"
+            f"outer_array={_outer_array!r}"
+            f"outer_map={_outer_map!r}"
+            f"inner_collection_with_nullable={_inner_collection_with_nullable!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"single_inner_map={self.single_inner_map!s}, "
-                f"all_inner_array={self.all_inner_array!s}, "
-                f"outer_array={(self.outer_array
-                     if hasattr(self, 'outer_array') else None)!s}, "
-                f"outer_map={(self.outer_map
-                     if hasattr(self, 'outer_map') else None)!s}, "
-                f"inner_collection_with_nullable={(self.inner_collection_with_nullable
-                     if hasattr(self, 'inner_collection_with_nullable') else None)!s})")
+        _single_inner_map=self.single_inner_map
+        _all_inner_array=self.all_inner_array
+        _outer_array=(
+            self.outer_array
+            if hasattr(self, "outer_array")
+            else None
+        )
+        _outer_map=(
+            self.outer_map
+            if hasattr(self, "outer_map")
+            else None
+        )
+        _inner_collection_with_nullable=(
+            self.inner_collection_with_nullable
+            if hasattr(self, "inner_collection_with_nullable")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"single_inner_map={_single_inner_map!s}"
+            f"all_inner_array={_all_inner_array!s}"
+            f"outer_array={_outer_array!s}"
+            f"outer_map={_outer_map!s}"
+            f"inner_collection_with_nullable={_inner_collection_with_nullable!s}"
+            f")"
+        )

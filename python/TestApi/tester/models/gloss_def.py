@@ -10,8 +10,8 @@ class GlossDef(object):
     Attributes:
         para (str): The model property of type str.
         gloss_see_also (List[str]): The model property of type List[str].
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -21,10 +21,11 @@ class GlossDef(object):
         "para": "para",
     }
 
-    def __init__(self,
-                 gloss_see_also=None,
-                 para=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        gloss_see_also=None,
+        para=None,
+        additional_properties=None):
         """Initialize a GlossDef instance."""
         # Initialize members of the class
         self.para = para
@@ -55,8 +56,13 @@ class GlossDef(object):
         # Extract variables from the dictionary
         gloss_see_also =\
             dictionary.get("GlossSeeAlso")\
-            if dictionary.get("GlossSeeAlso") else None
-        para = dictionary.get("para") if dictionary.get("para") else None
+            if dictionary.get("GlossSeeAlso")\
+                else None
+        para =\
+            dictionary.get("para")\
+            if dictionary.get("para")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -67,14 +73,26 @@ class GlossDef(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"para={self.para!r}, "
-                f"gloss_see_also={self.gloss_see_also!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _para=self.para
+        _gloss_see_also=self.gloss_see_also
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"para={_para!r}"
+            f"gloss_see_also={_gloss_see_also!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"para={self.para!s}, "
-                f"gloss_see_also={self.gloss_see_also!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _para=self.para
+        _gloss_see_also=self.gloss_see_also
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"para={_para!s}"
+            f"gloss_see_also={_gloss_see_also!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

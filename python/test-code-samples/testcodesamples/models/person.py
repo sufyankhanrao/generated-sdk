@@ -20,8 +20,8 @@ class Person(object):
         name (str): The model property of type str.
         uid (str): The model property of type str.
         person_type (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -42,15 +42,16 @@ class Person(object):
         "person_type",
     ]
 
-    def __init__(self,
-                 address=None,
-                 age=None,
-                 name=None,
-                 uid=None,
-                 birthday=APIHelper.SKIP,
-                 birthtime=APIHelper.SKIP,
-                 person_type="Per",
-                 additional_properties=None):
+    def __init__(
+        self,
+        address=None,
+        age=None,
+        name=None,
+        uid=None,
+        birthday=APIHelper.SKIP,
+        birthtime=APIHelper.SKIP,
+        person_type="Per",
+        additional_properties=None):
         """Initialize a Person instance."""
         # Initialize members of the class
         self.address = address
@@ -60,7 +61,8 @@ class Person(object):
         if birthtime is not APIHelper.SKIP:
             self.birthtime =\
                  APIHelper.apply_datetime_converter(
-                birthtime, APIHelper.RFC3339DateTime) if birthtime else None
+                birthtime, APIHelper.RFC3339DateTime)\
+                 if birthtime else None
         self.name = name
         self.uid = uid
         self.person_type = person_type
@@ -100,18 +102,33 @@ class Person(object):
             return unboxer(dictionary)
 
         # Extract variables from the dictionary
-        address = dictionary.get("address") if dictionary.get("address") else None
-        age = dictionary.get("age") if dictionary.get("age") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        uid = dictionary.get("uid") if dictionary.get("uid") else None
-        birthday = dateutil.parser.parse(dictionary.get("birthday")).date()\
+        address =\
+            dictionary.get("address")\
+            if dictionary.get("address")\
+                else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        uid =\
+            dictionary.get("uid")\
+            if dictionary.get("uid")\
+                else None
+        birthday = dateutil.parser.parse(
+            dictionary.get("birthday")).date()\
             if dictionary.get("birthday") else APIHelper.SKIP
         birthtime = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("birthtime")).datetime\
             if dictionary.get("birthtime") else APIHelper.SKIP
         person_type =\
             dictionary.get("personType")\
-            if dictionary.get("personType") else "Per"
+            if dictionary.get("personType")\
+                else "Per"
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -127,33 +144,73 @@ class Person(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"address={self.address!r}, "
-                f"age={self.age!r}, "
-                f"birthday={(self.birthday
-                     if hasattr(self, 'birthday') else None)!r}, "
-                f"birthtime={(self.birthtime
-                     if hasattr(self, 'birthtime') else None)!r}, "
-                f"name={self.name!r}, "
-                f"uid={self.uid!r}, "
-                f"person_type={(self.person_type
-                     if hasattr(self, 'person_type') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _address=self.address
+        _age=self.age
+        _birthday=(
+            self.birthday
+            if hasattr(self, "birthday")
+            else None
+        )
+        _birthtime=(
+            self.birthtime
+            if hasattr(self, "birthtime")
+            else None
+        )
+        _name=self.name
+        _uid=self.uid
+        _person_type=(
+            self.person_type
+            if hasattr(self, "person_type")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"address={_address!r}"
+            f"age={_age!r}"
+            f"birthday={_birthday!r}"
+            f"birthtime={_birthtime!r}"
+            f"name={_name!r}"
+            f"uid={_uid!r}"
+            f"person_type={_person_type!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"address={self.address!s}, "
-                f"age={self.age!s}, "
-                f"birthday={(self.birthday
-                     if hasattr(self, 'birthday') else None)!s}, "
-                f"birthtime={(self.birthtime
-                     if hasattr(self, 'birthtime') else None)!s}, "
-                f"name={self.name!s}, "
-                f"uid={self.uid!s}, "
-                f"person_type={(self.person_type
-                     if hasattr(self, 'person_type') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _address=self.address
+        _age=self.age
+        _birthday=(
+            self.birthday
+            if hasattr(self, "birthday")
+            else None
+        )
+        _birthtime=(
+            self.birthtime
+            if hasattr(self, "birthtime")
+            else None
+        )
+        _name=self.name
+        _uid=self.uid
+        _person_type=(
+            self.person_type
+            if hasattr(self, "person_type")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"address={_address!s}"
+            f"age={_age!s}"
+            f"birthday={_birthday!s}"
+            f"birthtime={_birthtime!s}"
+            f"name={_name!s}"
+            f"uid={_uid!s}"
+            f"person_type={_person_type!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )
 
 class EmployeeRequired(Person):
     """Implementation of the 'EmployeeRequired' model.
@@ -173,8 +230,8 @@ class EmployeeRequired(Person):
         joining_day (Days): The model property of type Days.
         salary (int): The model property of type int.
         boss (Person): The model property of type Person.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -206,28 +263,29 @@ class EmployeeRequired(Person):
         "boss",
     ]
 
-    def __init__(self,
-                 department=None,
-                 boolean_var=None,
-                 object_var=None,
-                 dynamic_var=None,
-                 date_time_unix_var=None,
-                 r_fc_1123_var=None,
-                 r_fc_3339_var=None,
-                 date_var=None,
-                 dependents=None,
-                 hired_at=None,
-                 joining_day="Monday",
-                 salary=None,
-                 boss=None,
-                 address=None,
-                 age=None,
-                 name=None,
-                 uid=None,
-                 birthday=APIHelper.SKIP,
-                 birthtime=APIHelper.SKIP,
-                 person_type="Empl",
-                 additional_properties=None):
+    def __init__(
+        self,
+        department=None,
+        boolean_var=None,
+        object_var=None,
+        dynamic_var=None,
+        date_time_unix_var=None,
+        r_fc_1123_var=None,
+        r_fc_3339_var=None,
+        date_var=None,
+        dependents=None,
+        hired_at=None,
+        joining_day="Monday",
+        salary=None,
+        boss=None,
+        address=None,
+        age=None,
+        name=None,
+        uid=None,
+        birthday=APIHelper.SKIP,
+        birthtime=APIHelper.SKIP,
+        person_type="Empl",
+        additional_properties=None):
         """Initialize a EmployeeRequired instance."""
         # Initialize members of the class
         self.department = department
@@ -236,31 +294,36 @@ class EmployeeRequired(Person):
         self.dynamic_var = dynamic_var
         self.date_time_unix_var =\
              APIHelper.apply_datetime_converter(
-            date_time_unix_var, APIHelper.UnixDateTime) if date_time_unix_var else None
+            date_time_unix_var, APIHelper.UnixDateTime)\
+             if date_time_unix_var else None
         self.r_fc_1123_var =\
              APIHelper.apply_datetime_converter(
-            r_fc_1123_var, APIHelper.HttpDateTime) if r_fc_1123_var else None
+            r_fc_1123_var, APIHelper.HttpDateTime)\
+             if r_fc_1123_var else None
         self.r_fc_3339_var =\
              APIHelper.apply_datetime_converter(
-            r_fc_3339_var, APIHelper.RFC3339DateTime) if r_fc_3339_var else None
+            r_fc_3339_var, APIHelper.RFC3339DateTime)\
+             if r_fc_3339_var else None
         self.date_var = date_var
         self.dependents = dependents
         self.hired_at =\
              APIHelper.apply_datetime_converter(
-            hired_at, APIHelper.HttpDateTime) if hired_at else None
+            hired_at, APIHelper.HttpDateTime)\
+             if hired_at else None
         self.joining_day = joining_day
         self.salary = salary
         self.boss = boss
 
         # Call the constructor for the base class
-        super(EmployeeRequired, self).__init__(address,
-                                               age,
-                                               name,
-                                               uid,
-                                               birthday,
-                                               birthtime,
-                                               person_type,
-                                               additional_properties)
+        super(EmployeeRequired, self).__init__(
+            address,
+            age,
+            name,
+            uid,
+            birthday,
+            birthtime,
+            person_type,
+            additional_properties)
 
     @classmethod
     def from_dictionary(cls,
@@ -292,16 +355,20 @@ class EmployeeRequired(Person):
         # Extract variables from the dictionary
         department =\
             dictionary.get("department")\
-            if dictionary.get("department") else None
+            if dictionary.get("department")\
+                else None
         boolean_var =\
             dictionary.get("booleanVar")\
-            if "booleanVar" in dictionary.keys() else None
+            if "booleanVar" in dictionary.keys()\
+                else None
         object_var =\
             dictionary.get("objectVar")\
-            if dictionary.get("objectVar") else None
+            if dictionary.get("objectVar")\
+                else None
         dynamic_var =\
             dictionary.get("dynamicVar")\
-            if dictionary.get("dynamicVar") else None
+            if dictionary.get("dynamicVar")\
+                else None
         date_time_unix_var = APIHelper.UnixDateTime.from_value(
             dictionary.get("dateTimeUnixVar")).datetime\
             if dictionary.get("dateTimeUnixVar") else None
@@ -311,7 +378,8 @@ class EmployeeRequired(Person):
         r_fc_3339_var = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("rFC3339Var")).datetime\
             if dictionary.get("rFC3339Var") else None
-        date_var = dateutil.parser.parse(dictionary.get("dateVar")).date()\
+        date_var = dateutil.parser.parse(
+            dictionary.get("dateVar")).date()\
             if dictionary.get("dateVar") else None
         dependents = None
         if dictionary.get("dependents") is not None:
@@ -324,23 +392,43 @@ class EmployeeRequired(Person):
             if dictionary.get("hiredAt") else None
         joining_day =\
             dictionary.get("joiningDay")\
-            if dictionary.get("joiningDay") else "Monday"
-        salary = dictionary.get("salary") if dictionary.get("salary") else None
-        boss = Person.from_dictionary(
+            if dictionary.get("joiningDay")\
+                else "Monday"
+        salary =\
+            dictionary.get("salary")\
+            if dictionary.get("salary")\
+                else None
+        boss =\
+            Person.from_dictionary(
             dictionary.get("boss"))\
-            if dictionary.get("boss") else None
-        address = dictionary.get("address") if dictionary.get("address") else None
-        age = dictionary.get("age") if dictionary.get("age") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        uid = dictionary.get("uid") if dictionary.get("uid") else None
-        birthday = dateutil.parser.parse(dictionary.get("birthday")).date()\
+                if dictionary.get("boss") else None
+        address =\
+            dictionary.get("address")\
+            if dictionary.get("address")\
+                else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        uid =\
+            dictionary.get("uid")\
+            if dictionary.get("uid")\
+                else None
+        birthday = dateutil.parser.parse(
+            dictionary.get("birthday")).date()\
             if dictionary.get("birthday") else APIHelper.SKIP
         birthtime = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("birthtime")).datetime\
             if dictionary.get("birthtime") else APIHelper.SKIP
         person_type =\
             dictionary.get("personType")\
-            if dictionary.get("personType") else "Empl"
+            if dictionary.get("personType")\
+                else "Empl"
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -369,41 +457,75 @@ class EmployeeRequired(Person):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"department={self.department!r}, "
-                f"boolean_var={self.boolean_var!r}, "
-                f"object_var={self.object_var!r}, "
-                f"dynamic_var={self.dynamic_var!r}, "
-                f"date_time_unix_var={self.date_time_unix_var!r}, "
-                f"r_fc_1123_var={self.r_fc_1123_var!r}, "
-                f"r_fc_3339_var={self.r_fc_3339_var!r}, "
-                f"date_var={self.date_var!r}, "
-                f"dependents={self.dependents!r}, "
-                f"hired_at={self.hired_at!r}, "
-                f"joining_day={self.joining_day!r}, "
-                f"salary={self.salary!r}, "
-                f"boss={self.boss!r})")
+        _department=self.department
+        _boolean_var=self.boolean_var
+        _object_var=self.object_var
+        _dynamic_var=self.dynamic_var
+        _date_time_unix_var=self.date_time_unix_var
+        _r_fc_1123_var=self.r_fc_1123_var
+        _r_fc_3339_var=self.r_fc_3339_var
+        _date_var=self.date_var
+        _dependents=self.dependents
+        _hired_at=self.hired_at
+        _joining_day=self.joining_day
+        _salary=self.salary
+        _boss=self.boss
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"department={_department!r}"
+            f"boolean_var={_boolean_var!r}"
+            f"object_var={_object_var!r}"
+            f"dynamic_var={_dynamic_var!r}"
+            f"date_time_unix_var={_date_time_unix_var!r}"
+            f"r_fc_1123_var={_r_fc_1123_var!r}"
+            f"r_fc_3339_var={_r_fc_3339_var!r}"
+            f"date_var={_date_var!r}"
+            f"dependents={_dependents!r}"
+            f"hired_at={_hired_at!r}"
+            f"joining_day={_joining_day!r}"
+            f"salary={_salary!r}"
+            f"boss={_boss!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"department={self.department!s}, "
-                f"boolean_var={self.boolean_var!s}, "
-                f"object_var={self.object_var!s}, "
-                f"dynamic_var={self.dynamic_var!s}, "
-                f"date_time_unix_var={self.date_time_unix_var!s}, "
-                f"r_fc_1123_var={self.r_fc_1123_var!s}, "
-                f"r_fc_3339_var={self.r_fc_3339_var!s}, "
-                f"date_var={self.date_var!s}, "
-                f"dependents={self.dependents!s}, "
-                f"hired_at={self.hired_at!s}, "
-                f"joining_day={self.joining_day!s}, "
-                f"salary={self.salary!s}, "
-                f"boss={self.boss!s})")
+        _department=self.department
+        _boolean_var=self.boolean_var
+        _object_var=self.object_var
+        _dynamic_var=self.dynamic_var
+        _date_time_unix_var=self.date_time_unix_var
+        _r_fc_1123_var=self.r_fc_1123_var
+        _r_fc_3339_var=self.r_fc_3339_var
+        _date_var=self.date_var
+        _dependents=self.dependents
+        _hired_at=self.hired_at
+        _joining_day=self.joining_day
+        _salary=self.salary
+        _boss=self.boss
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"department={_department!s}"
+            f"boolean_var={_boolean_var!s}"
+            f"object_var={_object_var!s}"
+            f"dynamic_var={_dynamic_var!s}"
+            f"date_time_unix_var={_date_time_unix_var!s}"
+            f"r_fc_1123_var={_r_fc_1123_var!s}"
+            f"r_fc_3339_var={_r_fc_3339_var!s}"
+            f"date_var={_date_var!s}"
+            f"dependents={_dependents!s}"
+            f"hired_at={_hired_at!s}"
+            f"joining_day={_joining_day!s}"
+            f"salary={_salary!s}"
+            f"boss={_boss!s}"
+            f")"
+        )
 
 class EmployeeOptional(Person):
     """Implementation of the 'EmployeeOptional' model.
@@ -423,8 +545,8 @@ class EmployeeOptional(Person):
         joining_day (Days): The model property of type Days.
         salary (int): The model property of type int.
         boss (Person): The model property of type Person.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -473,28 +595,29 @@ class EmployeeOptional(Person):
         "boss",
     ]
 
-    def __init__(self,
-                 address=None,
-                 age=None,
-                 name=None,
-                 uid=None,
-                 department=APIHelper.SKIP,
-                 boolean_var=APIHelper.SKIP,
-                 object_var=APIHelper.SKIP,
-                 dynamic_var=APIHelper.SKIP,
-                 date_time_unix_var=APIHelper.SKIP,
-                 r_fc_1123_var=APIHelper.SKIP,
-                 r_fc_3339_var=APIHelper.SKIP,
-                 date_var=APIHelper.SKIP,
-                 dependents=APIHelper.SKIP,
-                 hired_at=APIHelper.SKIP,
-                 joining_day="Monday",
-                 salary=APIHelper.SKIP,
-                 boss=APIHelper.SKIP,
-                 birthday=APIHelper.SKIP,
-                 birthtime=APIHelper.SKIP,
-                 person_type="Empl",
-                 additional_properties=None):
+    def __init__(
+        self,
+        address=None,
+        age=None,
+        name=None,
+        uid=None,
+        department=APIHelper.SKIP,
+        boolean_var=APIHelper.SKIP,
+        object_var=APIHelper.SKIP,
+        dynamic_var=APIHelper.SKIP,
+        date_time_unix_var=APIHelper.SKIP,
+        r_fc_1123_var=APIHelper.SKIP,
+        r_fc_3339_var=APIHelper.SKIP,
+        date_var=APIHelper.SKIP,
+        dependents=APIHelper.SKIP,
+        hired_at=APIHelper.SKIP,
+        joining_day="Monday",
+        salary=APIHelper.SKIP,
+        boss=APIHelper.SKIP,
+        birthday=APIHelper.SKIP,
+        birthtime=APIHelper.SKIP,
+        person_type="Empl",
+        additional_properties=None):
         """Initialize a EmployeeOptional instance."""
         # Initialize members of the class
         if department is not APIHelper.SKIP:
@@ -508,15 +631,18 @@ class EmployeeOptional(Person):
         if date_time_unix_var is not APIHelper.SKIP:
             self.date_time_unix_var =\
                  APIHelper.apply_datetime_converter(
-                date_time_unix_var, APIHelper.UnixDateTime) if date_time_unix_var else None
+                date_time_unix_var, APIHelper.UnixDateTime)\
+                 if date_time_unix_var else None
         if r_fc_1123_var is not APIHelper.SKIP:
             self.r_fc_1123_var =\
                  APIHelper.apply_datetime_converter(
-                r_fc_1123_var, APIHelper.HttpDateTime) if r_fc_1123_var else None
+                r_fc_1123_var, APIHelper.HttpDateTime)\
+                 if r_fc_1123_var else None
         if r_fc_3339_var is not APIHelper.SKIP:
             self.r_fc_3339_var =\
                  APIHelper.apply_datetime_converter(
-                r_fc_3339_var, APIHelper.RFC3339DateTime) if r_fc_3339_var else None
+                r_fc_3339_var, APIHelper.RFC3339DateTime)\
+                 if r_fc_3339_var else None
         if date_var is not APIHelper.SKIP:
             self.date_var = date_var
         if dependents is not APIHelper.SKIP:
@@ -524,7 +650,8 @@ class EmployeeOptional(Person):
         if hired_at is not APIHelper.SKIP:
             self.hired_at =\
                  APIHelper.apply_datetime_converter(
-                hired_at, APIHelper.HttpDateTime) if hired_at else None
+                hired_at, APIHelper.HttpDateTime)\
+                 if hired_at else None
         self.joining_day = joining_day
         if salary is not APIHelper.SKIP:
             self.salary = salary
@@ -532,14 +659,15 @@ class EmployeeOptional(Person):
             self.boss = boss
 
         # Call the constructor for the base class
-        super(EmployeeOptional, self).__init__(address,
-                                               age,
-                                               name,
-                                               uid,
-                                               birthday,
-                                               birthtime,
-                                               person_type,
-                                               additional_properties)
+        super(EmployeeOptional, self).__init__(
+            address,
+            age,
+            name,
+            uid,
+            birthday,
+            birthtime,
+            person_type,
+            additional_properties)
 
     @classmethod
     def from_dictionary(cls,
@@ -559,22 +687,38 @@ class EmployeeOptional(Person):
             return None
 
         # Extract variables from the dictionary
-        address = dictionary.get("address") if dictionary.get("address") else None
-        age = dictionary.get("age") if dictionary.get("age") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        uid = dictionary.get("uid") if dictionary.get("uid") else None
+        address =\
+            dictionary.get("address")\
+            if dictionary.get("address")\
+                else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        uid =\
+            dictionary.get("uid")\
+            if dictionary.get("uid")\
+                else None
         department =\
             dictionary.get("department")\
-            if dictionary.get("department") else APIHelper.SKIP
+            if dictionary.get("department")\
+                else APIHelper.SKIP
         boolean_var =\
             dictionary.get("booleanVar")\
-            if "booleanVar" in dictionary.keys() else APIHelper.SKIP
+            if "booleanVar" in dictionary.keys()\
+                else APIHelper.SKIP
         object_var =\
             dictionary.get("objectVar")\
-            if dictionary.get("objectVar") else APIHelper.SKIP
+            if dictionary.get("objectVar")\
+                else APIHelper.SKIP
         dynamic_var =\
             dictionary.get("dynamicVar")\
-            if dictionary.get("dynamicVar") else APIHelper.SKIP
+            if dictionary.get("dynamicVar")\
+                else APIHelper.SKIP
         date_time_unix_var = APIHelper.UnixDateTime.from_value(
             dictionary.get("dateTimeUnixVar")).datetime\
             if dictionary.get("dateTimeUnixVar") else APIHelper.SKIP
@@ -584,7 +728,8 @@ class EmployeeOptional(Person):
         r_fc_3339_var = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("rFC3339Var")).datetime\
             if dictionary.get("rFC3339Var") else APIHelper.SKIP
-        date_var = dateutil.parser.parse(dictionary.get("dateVar")).date()\
+        date_var = dateutil.parser.parse(
+            dictionary.get("dateVar")).date()\
             if dictionary.get("dateVar") else APIHelper.SKIP
         dependents = None
         if dictionary.get("dependents") is not None:
@@ -599,22 +744,30 @@ class EmployeeOptional(Person):
             if dictionary.get("hiredAt") else APIHelper.SKIP
         joining_day =\
             dictionary.get("joiningDay")\
-            if dictionary.get("joiningDay") else "Monday"
+            if dictionary.get("joiningDay")\
+                else "Monday"
         salary =\
             dictionary.get("salary")\
-            if dictionary.get("salary") else APIHelper.SKIP
+            if dictionary.get("salary")\
+                else APIHelper.SKIP
         if "boss" in dictionary.keys():
-            boss = Person.from_dictionary(dictionary.get("boss")) if dictionary.get("boss") else None
+            boss =\
+                Person.from_dictionary(
+                dictionary.get("boss"))\
+                if dictionary.get("boss") else None
         else:
             boss = APIHelper.SKIP
-        birthday = dateutil.parser.parse(dictionary.get("birthday")).date()\
+        birthday = dateutil.parser.parse(
+            dictionary.get("birthday")).date()\
             if dictionary.get("birthday") else APIHelper.SKIP
         birthtime = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("birthtime")).datetime\
             if dictionary.get("birthtime") else APIHelper.SKIP
         person_type =\
             dictionary.get("personType")\
-            if dictionary.get("personType") else "Empl"
+            if dictionary.get("personType")\
+                else "Empl"
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -643,63 +796,179 @@ class EmployeeOptional(Person):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"department={(self.department
-                     if hasattr(self, 'department') else None)!r}, "
-                f"boolean_var={(self.boolean_var
-                     if hasattr(self, 'boolean_var') else None)!r}, "
-                f"object_var={(self.object_var
-                     if hasattr(self, 'object_var') else None)!r}, "
-                f"dynamic_var={(self.dynamic_var
-                     if hasattr(self, 'dynamic_var') else None)!r}, "
-                f"date_time_unix_var={(self.date_time_unix_var
-                     if hasattr(self, 'date_time_unix_var') else None)!r}, "
-                f"r_fc_1123_var={(self.r_fc_1123_var
-                     if hasattr(self, 'r_fc_1123_var') else None)!r}, "
-                f"r_fc_3339_var={(self.r_fc_3339_var
-                     if hasattr(self, 'r_fc_3339_var') else None)!r}, "
-                f"date_var={(self.date_var
-                     if hasattr(self, 'date_var') else None)!r}, "
-                f"dependents={(self.dependents
-                     if hasattr(self, 'dependents') else None)!r}, "
-                f"hired_at={(self.hired_at
-                     if hasattr(self, 'hired_at') else None)!r}, "
-                f"joining_day={(self.joining_day
-                     if hasattr(self, 'joining_day') else None)!r}, "
-                f"salary={(self.salary if hasattr(self, 'salary') else None)!r}, "
-                f"boss={(self.boss if hasattr(self, 'boss') else None)!r})")
+        _department=(
+            self.department
+            if hasattr(self, "department")
+            else None
+        )
+        _boolean_var=(
+            self.boolean_var
+            if hasattr(self, "boolean_var")
+            else None
+        )
+        _object_var=(
+            self.object_var
+            if hasattr(self, "object_var")
+            else None
+        )
+        _dynamic_var=(
+            self.dynamic_var
+            if hasattr(self, "dynamic_var")
+            else None
+        )
+        _date_time_unix_var=(
+            self.date_time_unix_var
+            if hasattr(self, "date_time_unix_var")
+            else None
+        )
+        _r_fc_1123_var=(
+            self.r_fc_1123_var
+            if hasattr(self, "r_fc_1123_var")
+            else None
+        )
+        _r_fc_3339_var=(
+            self.r_fc_3339_var
+            if hasattr(self, "r_fc_3339_var")
+            else None
+        )
+        _date_var=(
+            self.date_var
+            if hasattr(self, "date_var")
+            else None
+        )
+        _dependents=(
+            self.dependents
+            if hasattr(self, "dependents")
+            else None
+        )
+        _hired_at=(
+            self.hired_at
+            if hasattr(self, "hired_at")
+            else None
+        )
+        _joining_day=(
+            self.joining_day
+            if hasattr(self, "joining_day")
+            else None
+        )
+        _salary=(
+            self.salary
+            if hasattr(self, "salary")
+            else None
+        )
+        _boss=(
+            self.boss
+            if hasattr(self, "boss")
+            else None
+        )
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"department={_department!r}"
+            f"boolean_var={_boolean_var!r}"
+            f"object_var={_object_var!r}"
+            f"dynamic_var={_dynamic_var!r}"
+            f"date_time_unix_var={_date_time_unix_var!r}"
+            f"r_fc_1123_var={_r_fc_1123_var!r}"
+            f"r_fc_3339_var={_r_fc_3339_var!r}"
+            f"date_var={_date_var!r}"
+            f"dependents={_dependents!r}"
+            f"hired_at={_hired_at!r}"
+            f"joining_day={_joining_day!r}"
+            f"salary={_salary!r}"
+            f"boss={_boss!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"department={(self.department
-                     if hasattr(self, 'department') else None)!s}, "
-                f"boolean_var={(self.boolean_var
-                     if hasattr(self, 'boolean_var') else None)!s}, "
-                f"object_var={(self.object_var
-                     if hasattr(self, 'object_var') else None)!s}, "
-                f"dynamic_var={(self.dynamic_var
-                     if hasattr(self, 'dynamic_var') else None)!s}, "
-                f"date_time_unix_var={(self.date_time_unix_var
-                     if hasattr(self, 'date_time_unix_var') else None)!s}, "
-                f"r_fc_1123_var={(self.r_fc_1123_var
-                     if hasattr(self, 'r_fc_1123_var') else None)!s}, "
-                f"r_fc_3339_var={(self.r_fc_3339_var
-                     if hasattr(self, 'r_fc_3339_var') else None)!s}, "
-                f"date_var={(self.date_var
-                     if hasattr(self, 'date_var') else None)!s}, "
-                f"dependents={(self.dependents
-                     if hasattr(self, 'dependents') else None)!s}, "
-                f"hired_at={(self.hired_at
-                     if hasattr(self, 'hired_at') else None)!s}, "
-                f"joining_day={(self.joining_day
-                     if hasattr(self, 'joining_day') else None)!s}, "
-                f"salary={(self.salary if hasattr(self, 'salary') else None)!s}, "
-                f"boss={(self.boss if hasattr(self, 'boss') else None)!s})")
+        _department=(
+            self.department
+            if hasattr(self, "department")
+            else None
+        )
+        _boolean_var=(
+            self.boolean_var
+            if hasattr(self, "boolean_var")
+            else None
+        )
+        _object_var=(
+            self.object_var
+            if hasattr(self, "object_var")
+            else None
+        )
+        _dynamic_var=(
+            self.dynamic_var
+            if hasattr(self, "dynamic_var")
+            else None
+        )
+        _date_time_unix_var=(
+            self.date_time_unix_var
+            if hasattr(self, "date_time_unix_var")
+            else None
+        )
+        _r_fc_1123_var=(
+            self.r_fc_1123_var
+            if hasattr(self, "r_fc_1123_var")
+            else None
+        )
+        _r_fc_3339_var=(
+            self.r_fc_3339_var
+            if hasattr(self, "r_fc_3339_var")
+            else None
+        )
+        _date_var=(
+            self.date_var
+            if hasattr(self, "date_var")
+            else None
+        )
+        _dependents=(
+            self.dependents
+            if hasattr(self, "dependents")
+            else None
+        )
+        _hired_at=(
+            self.hired_at
+            if hasattr(self, "hired_at")
+            else None
+        )
+        _joining_day=(
+            self.joining_day
+            if hasattr(self, "joining_day")
+            else None
+        )
+        _salary=(
+            self.salary
+            if hasattr(self, "salary")
+            else None
+        )
+        _boss=(
+            self.boss
+            if hasattr(self, "boss")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"department={_department!s}"
+            f"boolean_var={_boolean_var!s}"
+            f"object_var={_object_var!s}"
+            f"dynamic_var={_dynamic_var!s}"
+            f"date_time_unix_var={_date_time_unix_var!s}"
+            f"r_fc_1123_var={_r_fc_1123_var!s}"
+            f"r_fc_3339_var={_r_fc_3339_var!s}"
+            f"date_var={_date_var!s}"
+            f"dependents={_dependents!s}"
+            f"hired_at={_hired_at!s}"
+            f"joining_day={_joining_day!s}"
+            f"salary={_salary!s}"
+            f"boss={_boss!s}"
+            f")"
+        )
 
 class Boss(EmployeeRequired):
     """Implementation of the 'Boss' model.
@@ -709,10 +978,9 @@ class Boss(EmployeeRequired):
 
     Attributes:
         promoted_at (datetime): The model property of type datetime.
-        assistant (EmployeeRequired): The model property of type
-            EmployeeRequired.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        assistant (EmployeeRequired): The model property of type EmployeeRequired.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -747,59 +1015,62 @@ class Boss(EmployeeRequired):
     ]
     _nullables.extend(EmployeeRequired._nullables)
 
-    def __init__(self,
-                 promoted_at=None,
-                 assistant=None,
-                 department=None,
-                 boolean_var=None,
-                 object_var=None,
-                 dynamic_var=None,
-                 date_time_unix_var=None,
-                 r_fc_1123_var=None,
-                 r_fc_3339_var=None,
-                 date_var=None,
-                 dependents=None,
-                 hired_at=None,
-                 joining_day="Monday",
-                 salary=None,
-                 boss=None,
-                 address=None,
-                 age=None,
-                 name=None,
-                 uid=None,
-                 birthday=APIHelper.SKIP,
-                 birthtime=APIHelper.SKIP,
-                 person_type="Boss",
-                 additional_properties=None):
+    def __init__(
+        self,
+        promoted_at=None,
+        assistant=None,
+        department=None,
+        boolean_var=None,
+        object_var=None,
+        dynamic_var=None,
+        date_time_unix_var=None,
+        r_fc_1123_var=None,
+        r_fc_3339_var=None,
+        date_var=None,
+        dependents=None,
+        hired_at=None,
+        joining_day="Monday",
+        salary=None,
+        boss=None,
+        address=None,
+        age=None,
+        name=None,
+        uid=None,
+        birthday=APIHelper.SKIP,
+        birthtime=APIHelper.SKIP,
+        person_type="Boss",
+        additional_properties=None):
         """Initialize a Boss instance."""
         # Initialize members of the class
         self.promoted_at =\
              APIHelper.apply_datetime_converter(
-            promoted_at, APIHelper.UnixDateTime) if promoted_at else None
+            promoted_at, APIHelper.UnixDateTime)\
+             if promoted_at else None
         self.assistant = assistant
 
         # Call the constructor for the base class
-        super(Boss, self).__init__(department,
-                                   boolean_var,
-                                   object_var,
-                                   dynamic_var,
-                                   date_time_unix_var,
-                                   r_fc_1123_var,
-                                   r_fc_3339_var,
-                                   date_var,
-                                   dependents,
-                                   hired_at,
-                                   joining_day,
-                                   salary,
-                                   boss,
-                                   address,
-                                   age,
-                                   name,
-                                   uid,
-                                   birthday,
-                                   birthtime,
-                                   person_type,
-                                   additional_properties)
+        super(Boss, self).__init__(
+            department,
+            boolean_var,
+            object_var,
+            dynamic_var,
+            date_time_unix_var,
+            r_fc_1123_var,
+            r_fc_3339_var,
+            date_var,
+            dependents,
+            hired_at,
+            joining_day,
+            salary,
+            boss,
+            address,
+            age,
+            name,
+            uid,
+            birthday,
+            birthtime,
+            person_type,
+            additional_properties)
 
     @classmethod
     def from_dictionary(cls,
@@ -822,21 +1093,26 @@ class Boss(EmployeeRequired):
         promoted_at = APIHelper.UnixDateTime.from_value(
             dictionary.get("promotedAt")).datetime\
             if dictionary.get("promotedAt") else None
-        assistant = EmployeeRequired.from_dictionary(
+        assistant =\
+            EmployeeRequired.from_dictionary(
             dictionary.get("assistant"))\
-            if dictionary.get("assistant") else None
+                if dictionary.get("assistant") else None
         department =\
             dictionary.get("department")\
-            if dictionary.get("department") else None
+            if dictionary.get("department")\
+                else None
         boolean_var =\
             dictionary.get("booleanVar")\
-            if "booleanVar" in dictionary.keys() else None
+            if "booleanVar" in dictionary.keys()\
+                else None
         object_var =\
             dictionary.get("objectVar")\
-            if dictionary.get("objectVar") else None
+            if dictionary.get("objectVar")\
+                else None
         dynamic_var =\
             dictionary.get("dynamicVar")\
-            if dictionary.get("dynamicVar") else None
+            if dictionary.get("dynamicVar")\
+                else None
         date_time_unix_var = APIHelper.UnixDateTime.from_value(
             dictionary.get("dateTimeUnixVar")).datetime\
             if dictionary.get("dateTimeUnixVar") else None
@@ -846,7 +1122,8 @@ class Boss(EmployeeRequired):
         r_fc_3339_var = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("rFC3339Var")).datetime\
             if dictionary.get("rFC3339Var") else None
-        date_var = dateutil.parser.parse(dictionary.get("dateVar")).date()\
+        date_var = dateutil.parser.parse(
+            dictionary.get("dateVar")).date()\
             if dictionary.get("dateVar") else None
         dependents = None
         if dictionary.get("dependents") is not None:
@@ -859,23 +1136,43 @@ class Boss(EmployeeRequired):
             if dictionary.get("hiredAt") else None
         joining_day =\
             dictionary.get("joiningDay")\
-            if dictionary.get("joiningDay") else "Monday"
-        salary = dictionary.get("salary") if dictionary.get("salary") else None
-        boss = Person.from_dictionary(
+            if dictionary.get("joiningDay")\
+                else "Monday"
+        salary =\
+            dictionary.get("salary")\
+            if dictionary.get("salary")\
+                else None
+        boss =\
+            Person.from_dictionary(
             dictionary.get("boss"))\
-            if dictionary.get("boss") else None
-        address = dictionary.get("address") if dictionary.get("address") else None
-        age = dictionary.get("age") if dictionary.get("age") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        uid = dictionary.get("uid") if dictionary.get("uid") else None
-        birthday = dateutil.parser.parse(dictionary.get("birthday")).date()\
+                if dictionary.get("boss") else None
+        address =\
+            dictionary.get("address")\
+            if dictionary.get("address")\
+                else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        uid =\
+            dictionary.get("uid")\
+            if dictionary.get("uid")\
+                else None
+        birthday = dateutil.parser.parse(
+            dictionary.get("birthday")).date()\
             if dictionary.get("birthday") else APIHelper.SKIP
         birthtime = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("birthtime")).datetime\
             if dictionary.get("birthtime") else APIHelper.SKIP
         person_type =\
             dictionary.get("personType")\
-            if dictionary.get("personType") else "Boss"
+            if dictionary.get("personType")\
+                else "Boss"
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -906,16 +1203,28 @@ class Boss(EmployeeRequired):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"promoted_at={self.promoted_at!r}, "
-                f"assistant={self.assistant!r})")
+        _promoted_at=self.promoted_at
+        _assistant=self.assistant
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"promoted_at={_promoted_at!r}"
+            f"assistant={_assistant!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"promoted_at={self.promoted_at!s}, "
-                f"assistant={self.assistant!s})")
+        _promoted_at=self.promoted_at
+        _assistant=self.assistant
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"promoted_at={_promoted_at!s}"
+            f"assistant={_assistant!s}"
+            f")"
+        )

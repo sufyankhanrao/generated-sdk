@@ -18,9 +18,10 @@ class Employee(object):
         "dependents": "dependents",
     }
 
-    def __init__(self,
-                 age=None,
-                 dependents=None):
+    def __init__(
+        self,
+        age=None,
+        dependents=None):
         """Initialize a Employee instance."""
         # Initialize members of the class
         self.age = age
@@ -44,22 +45,37 @@ class Employee(object):
             return None
 
         # Extract variables from the dictionary
-        age = dictionary.get("age") if dictionary.get("age") else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else None
         dependents =\
             dictionary.get("dependents")\
-            if dictionary.get("dependents") else None
+            if dictionary.get("dependents")\
+                else None
+
         # Return an object of this model
         return cls(age,
                    dependents)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"age={self.age!r}, "
-                f"dependents={self.dependents!r})")
+        _age=self.age
+        _dependents=self.dependents
+        return (
+            f"{self.__class__.__name__}("
+            f"age={_age!r}"
+            f"dependents={_dependents!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"age={self.age!s}, "
-                f"dependents={self.dependents!s})")
+        _age=self.age
+        _dependents=self.dependents
+        return (
+            f"{self.__class__.__name__}("
+            f"age={_age!s}"
+            f"dependents={_dependents!s}"
+            f")"
+        )

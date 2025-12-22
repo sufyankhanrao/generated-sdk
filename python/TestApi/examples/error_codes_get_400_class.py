@@ -37,12 +37,7 @@ client = TesterClient(
 error_codes_controller = client.error_codes
 try:
     result = error_codes_controller.get_400()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

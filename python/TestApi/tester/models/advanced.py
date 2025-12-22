@@ -16,8 +16,8 @@ class Advanced(object):
         required_signatures (int): The model property of type int.
         get_social_security_number (bool): The model property of type bool.
         time_to_live (TimeToLive): The model property of type TimeToLive.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -30,13 +30,14 @@ class Advanced(object):
         "time_to_live": "timeToLive",
     }
 
-    def __init__(self,
-                 attachments=None,
-                 get_social_security_number=None,
-                 required_signatures=None,
-                 tags=None,
-                 time_to_live=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        attachments=None,
+        get_social_security_number=None,
+        required_signatures=None,
+        tags=None,
+        time_to_live=None,
+        additional_properties=None):
         """Initialize a Advanced instance."""
         # Initialize members of the class
         self.tags = tags
@@ -70,17 +71,25 @@ class Advanced(object):
         # Extract variables from the dictionary
         attachments =\
             dictionary.get("attachments")\
-            if dictionary.get("attachments") else None
+            if dictionary.get("attachments")\
+                else None
         get_social_security_number =\
             dictionary.get("getSocialSecurityNumber")\
-            if "getSocialSecurityNumber" in dictionary.keys() else None
+            if "getSocialSecurityNumber" in dictionary.keys()\
+                else None
         required_signatures =\
             dictionary.get("requiredSignatures")\
-            if dictionary.get("requiredSignatures") else None
-        tags = dictionary.get("tags") if dictionary.get("tags") else None
-        time_to_live = TimeToLive.from_dictionary(
+            if dictionary.get("requiredSignatures")\
+                else None
+        tags =\
+            dictionary.get("tags")\
+            if dictionary.get("tags")\
+                else None
+        time_to_live =\
+            TimeToLive.from_dictionary(
             dictionary.get("timeToLive"))\
-            if dictionary.get("timeToLive") else None
+                if dictionary.get("timeToLive") else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -94,20 +103,38 @@ class Advanced(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"tags={self.tags!r}, "
-                f"attachments={self.attachments!r}, "
-                f"required_signatures={self.required_signatures!r}, "
-                f"get_social_security_number={self.get_social_security_number!r}, "
-                f"time_to_live={self.time_to_live!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _tags=self.tags
+        _attachments=self.attachments
+        _required_signatures=self.required_signatures
+        _get_social_security_number=self.get_social_security_number
+        _time_to_live=self.time_to_live
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"tags={_tags!r}"
+            f"attachments={_attachments!r}"
+            f"required_signatures={_required_signatures!r}"
+            f"get_social_security_number={_get_social_security_number!r}"
+            f"time_to_live={_time_to_live!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"tags={self.tags!s}, "
-                f"attachments={self.attachments!s}, "
-                f"required_signatures={self.required_signatures!s}, "
-                f"get_social_security_number={self.get_social_security_number!s}, "
-                f"time_to_live={self.time_to_live!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _tags=self.tags
+        _attachments=self.attachments
+        _required_signatures=self.required_signatures
+        _get_social_security_number=self.get_social_security_number
+        _time_to_live=self.time_to_live
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"tags={_tags!s}"
+            f"attachments={_attachments!s}"
+            f"required_signatures={_required_signatures!s}"
+            f"get_social_security_number={_get_social_security_number!s}"
+            f"time_to_live={_time_to_live!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

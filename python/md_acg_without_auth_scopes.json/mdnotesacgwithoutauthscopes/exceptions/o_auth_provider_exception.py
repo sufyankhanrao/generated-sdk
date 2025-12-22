@@ -35,21 +35,40 @@ class OAuthProviderException(APIException):
             MUST match property names in the API description.
 
         """
-        self.error = dictionary.get("error") if dictionary.get("error") else None
+        self.error =\
+            dictionary.get("error")\
+            if dictionary.get("error")\
+                else None
         self.error_description =\
             dictionary.get("error_description")\
-            if dictionary.get("error_description") else None
+            if dictionary.get("error_description")\
+                else None
         self.error_uri =\
             dictionary.get("error_uri")\
-            if dictionary.get("error_uri") else None
+            if dictionary.get("error_uri")\
+                else None
+
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"error={self.error!s}, "
-                f"error_description={(self.error_description
-                     if hasattr(self, 'error_description') else None)!s}, "
-                f"error_uri={(self.error_uri
-                     if hasattr(self, 'error_uri') else None)!s})")
+        _error=self.error
+        _error_description=(
+            self.error_description
+            if hasattr(self, "error_description")
+            else None
+        )
+        _error_uri=(
+            self.error_uri
+            if hasattr(self, "error_uri")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"error={_error!s}"
+            f"error_description={_error_description!s}"
+            f"error_uri={_error_uri!s}"
+            f")"
+        )

@@ -12,8 +12,8 @@ class Dialogs(object):
 
     Attributes:
         before (Before): The model property of type Before.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -22,9 +22,10 @@ class Dialogs(object):
         "before": "before",
     }
 
-    def __init__(self,
-                 before=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        before=None,
+        additional_properties=None):
         """Initialize a Dialogs instance."""
         # Initialize members of the class
         self.before = before
@@ -52,9 +53,11 @@ class Dialogs(object):
             return None
 
         # Extract variables from the dictionary
-        before = Before.from_dictionary(
+        before =\
+            Before.from_dictionary(
             dictionary.get("before"))\
-            if dictionary.get("before") else None
+                if dictionary.get("before") else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -64,12 +67,22 @@ class Dialogs(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"before={self.before!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _before=self.before
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"before={_before!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"before={self.before!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _before=self.before
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"before={_before!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

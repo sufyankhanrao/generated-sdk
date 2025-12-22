@@ -32,11 +32,12 @@ class WebhookRegistration(object):
         "active",
     ]
 
-    def __init__(self,
-                 url=None,
-                 events=None,
-                 secret=APIHelper.SKIP,
-                 active=True):
+    def __init__(
+        self,
+        url=None,
+        events=None,
+        secret=APIHelper.SKIP,
+        active=True):
         """Initialize a WebhookRegistration instance."""
         # Initialize members of the class
         self.url = url
@@ -63,12 +64,23 @@ class WebhookRegistration(object):
             return None
 
         # Extract variables from the dictionary
-        url = dictionary.get("url") if dictionary.get("url") else None
-        events = dictionary.get("events") if dictionary.get("events") else None
+        url =\
+            dictionary.get("url")\
+            if dictionary.get("url")\
+                else None
+        events =\
+            dictionary.get("events")\
+            if dictionary.get("events")\
+                else None
         secret =\
             dictionary.get("secret")\
-            if dictionary.get("secret") else APIHelper.SKIP
-        active = dictionary.get("active") if dictionary.get("active") else True
+            if dictionary.get("secret")\
+                else APIHelper.SKIP
+        active =\
+            dictionary.get("active")\
+            if dictionary.get("active")\
+                else True
+
         # Return an object of this model
         return cls(url,
                    events,
@@ -77,16 +89,46 @@ class WebhookRegistration(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"url={self.url!r}, "
-                f"events={self.events!r}, "
-                f"secret={(self.secret if hasattr(self, 'secret') else None)!r}, "
-                f"active={(self.active if hasattr(self, 'active') else None)!r})")
+        _url=self.url
+        _events=self.events
+        _secret=(
+            self.secret
+            if hasattr(self, "secret")
+            else None
+        )
+        _active=(
+            self.active
+            if hasattr(self, "active")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"url={_url!r}"
+            f"events={_events!r}"
+            f"secret={_secret!r}"
+            f"active={_active!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"url={self.url!s}, "
-                f"events={self.events!s}, "
-                f"secret={(self.secret if hasattr(self, 'secret') else None)!s}, "
-                f"active={(self.active if hasattr(self, 'active') else None)!s})")
+        _url=self.url
+        _events=self.events
+        _secret=(
+            self.secret
+            if hasattr(self, "secret")
+            else None
+        )
+        _active=(
+            self.active
+            if hasattr(self, "active")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"url={_url!s}"
+            f"events={_events!s}"
+            f"secret={_secret!s}"
+            f"active={_active!s}"
+            f")"
+        )

@@ -9,12 +9,7 @@ client = TesterxmlClient(
 wrapped_and_named_array_controller = client.wrapped_and_named_array
 try:
     result = wrapped_and_named_array_controller.generate()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

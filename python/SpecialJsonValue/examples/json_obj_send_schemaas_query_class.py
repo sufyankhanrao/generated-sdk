@@ -13,12 +13,7 @@ collect = {
 }
 try:
     result = json_obj_controller.send_schemaas_query(collect)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

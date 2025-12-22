@@ -122,8 +122,8 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
                  environment=Environment.TESTING, port="80", suites=1,
                  access_token=None, bearer_auth_credentials=None):
         """Initialize Configuration object."""
@@ -188,11 +188,11 @@ class Configuration(HttpClientConfiguration):
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
-            http_call_back=http_call_back, timeout=timeout,
-            max_retries=max_retries, backoff_factor=backoff_factor,
-            retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings, environment=environment, port=port,
-            suites=suites, bearer_auth_credentials=bearer_auth_credentials,
+            http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, proxy_settings=proxy_settings,
+            environment=environment, port=port, suites=suites,
+            bearer_auth_credentials=bearer_auth_credentials,
         )
 
     def create_http_client(self):
@@ -246,15 +246,15 @@ class Configuration(HttpClientConfiguration):
         if access_token is None:
             return bearer_auth_credentials
 
-        warnings.warn(message=("The 'access_token' params are deprecated. Use '"
-                               "bearer_auth_credentials' param instead."),
+        warnings.warn(message=("The 'access_token' params are deprecated. Use 'bearer"
+                               "_auth_credentials' param instead."),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
         if bearer_auth_credentials is not None:
             return bearer_auth_credentials.clone_with(access_token)
 
-        from jwttester.http.auth.o_auth_2 import (
+        from jwttester.http.auth.o_auth_2 import (  # noqa: E501
             BearerAuthCredentials,
         )
         return BearerAuthCredentials(access_token)
@@ -291,9 +291,8 @@ class Configuration(HttpClientConfiguration):
         port = os.getenv("PORT", "80")
         suites = SuiteCodeEnum.from_value(os.getenv("SUITES"), 1)
 
-        from jwttester.http.auth.o_auth_2 import (
-            BearerAuthCredentials,
-        )
+        from jwttester.http.auth.o_auth_2 import BearerAuthCredentials
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

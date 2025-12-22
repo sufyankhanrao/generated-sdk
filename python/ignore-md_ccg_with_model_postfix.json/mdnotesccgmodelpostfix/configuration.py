@@ -124,11 +124,11 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
                  environment=Environment.PRODUCTION, o_auth_client_id=None,
-                 o_auth_client_secret=None, o_auth_token=None,
-                 o_auth_scopes=None, client_credentials_auth_credentials=None):
+                 o_auth_client_secret=None, o_auth_token=None, o_auth_scopes=None,
+                 client_credentials_auth_credentials=None):
         """Initialize Configuration object."""
         if retry_methods is None:
             retry_methods = ["GET", "PUT"]
@@ -161,9 +161,9 @@ class Configuration(HttpClientConfiguration):
                    override_http_client_configuration=None, http_call_back=None,
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
-                   environment=None, o_auth_client_id=None,
-                   o_auth_client_secret=None, o_auth_token=None,
-                   o_auth_scopes=None, client_credentials_auth_credentials=None):
+                   environment=None, o_auth_client_id=None, o_auth_client_secret=None,
+                   o_auth_token=None, o_auth_scopes=None,
+                   client_credentials_auth_credentials=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration =\
@@ -237,10 +237,10 @@ class Configuration(HttpClientConfiguration):
                 and o_auth_scopes is None:
             return client_credentials_auth_credentials
 
-        warnings.warn(message=("The 'o_auth_client_id', 'o_auth_client_secret',"
-                               " 'o_auth_token', 'o_auth_scopes' params are dep"
-                               "recated. Use 'client_credentials_auth_credentia"
-                               "ls' param instead."),
+        warnings.warn(message=("The 'o_auth_client_id', 'o_auth_client_secret', 'o_au"
+                               "th_token', 'o_auth_scopes' params are deprecated. Use"
+                               " 'client_credentials_auth_credentials' param instead."
+                               ""),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
@@ -249,7 +249,7 @@ class Configuration(HttpClientConfiguration):
                 o_auth_client_id, o_auth_client_secret, o_auth_token,
                 o_auth_scopes)
 
-        from mdnotesccgmodelpostfix.http.auth.o_auth_2 import (
+        from mdnotesccgmodelpostfix.http.auth.o_auth_2 import (  # noqa: E501
             ClientCredentialsAuthCredentials,
         )
         return ClientCredentialsAuthCredentials(o_auth_client_id,
@@ -289,6 +289,7 @@ class Configuration(HttpClientConfiguration):
         from mdnotesccgmodelpostfix.http.auth.o_auth_2 import (
             ClientCredentialsAuthCredentials,
         )
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

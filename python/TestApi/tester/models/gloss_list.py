@@ -12,8 +12,8 @@ class GlossList(object):
 
     Attributes:
         gloss_entry (GlossEntry): The model property of type GlossEntry.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -22,9 +22,10 @@ class GlossList(object):
         "gloss_entry": "GlossEntry",
     }
 
-    def __init__(self,
-                 gloss_entry=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        gloss_entry=None,
+        additional_properties=None):
         """Initialize a GlossList instance."""
         # Initialize members of the class
         self.gloss_entry = gloss_entry
@@ -52,9 +53,11 @@ class GlossList(object):
             return None
 
         # Extract variables from the dictionary
-        gloss_entry = GlossEntry.from_dictionary(
+        gloss_entry =\
+            GlossEntry.from_dictionary(
             dictionary.get("GlossEntry"))\
-            if dictionary.get("GlossEntry") else None
+                if dictionary.get("GlossEntry") else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -64,12 +67,22 @@ class GlossList(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"gloss_entry={self.gloss_entry!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _gloss_entry=self.gloss_entry
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"gloss_entry={_gloss_entry!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"gloss_entry={self.gloss_entry!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _gloss_entry=self.gloss_entry
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"gloss_entry={_gloss_entry!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

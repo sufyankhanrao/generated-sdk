@@ -4,6 +4,7 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+# ruff: noqa: D410
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
@@ -32,14 +33,12 @@ class FormParamsController(BaseController):
             body (DeleteBody): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -47,21 +46,20 @@ class FormParamsController(BaseController):
             .path("/form/deleteForm")
             .http_method(HttpMethodEnum.DELETE)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_delete_multipart(self,
@@ -72,14 +70,12 @@ class FormParamsController(BaseController):
             file (typing.BinaryIO): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -87,19 +83,18 @@ class FormParamsController(BaseController):
             .path("/form/deleteMultipart")
             .http_method(HttpMethodEnum.DELETE)
             .multipart_param(Parameter()
-                             .key("file")
-                             .value(file)
-                             .default_content_type("application/octet-stream")
-                             .is_required(True))
+                .key("file")
+                .value(file)
+                .default_content_type("application/octet-stream")
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_date_array(self,
@@ -110,14 +105,12 @@ class FormParamsController(BaseController):
             dates (List[date]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -125,24 +118,23 @@ class FormParamsController(BaseController):
             .path("/form/date")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("dates")
-                        .value(dates)
-                        .is_required(True))
+                .key("dates")
+                .value(dates)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_date(self,
@@ -153,14 +145,12 @@ class FormParamsController(BaseController):
             date (date): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -168,21 +158,20 @@ class FormParamsController(BaseController):
             .path("/form/date")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("date")
-                        .value(date)
-                        .is_required(True))
+                .key("date")
+                .value(date)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_unix_date_time(self,
@@ -193,14 +182,12 @@ class FormParamsController(BaseController):
             datetime (datetime): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -208,22 +195,21 @@ class FormParamsController(BaseController):
             .path("/form/unixdatetime")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("datetime")
-                        .value(APIHelper.when_defined(APIHelper.UnixDateTime,
-                            datetime))
-                        .is_required(True))
+                .key("datetime")
+                .value(APIHelper.when_defined(APIHelper.UnixDateTime,
+                    datetime))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_1123_date_time(self,
@@ -234,14 +220,12 @@ class FormParamsController(BaseController):
             datetime (datetime): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -249,22 +233,21 @@ class FormParamsController(BaseController):
             .path("/form/rfc1123datetime")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("datetime")
-                        .value(APIHelper.when_defined(APIHelper.HttpDateTime,
-                            datetime))
-                        .is_required(True))
+                .key("datetime")
+                .value(APIHelper.when_defined(APIHelper.HttpDateTime,
+                    datetime))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_3339_date_time(self,
@@ -275,14 +258,12 @@ class FormParamsController(BaseController):
             datetime (datetime): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -290,22 +271,21 @@ class FormParamsController(BaseController):
             .path("/form/rfc3339datetime")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("datetime")
-                        .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                            datetime))
-                        .is_required(True))
+                .key("datetime")
+                .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
+                    datetime))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_unix_date_time_array(self,
@@ -316,14 +296,12 @@ class FormParamsController(BaseController):
             datetimes (List[datetime]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -331,25 +309,24 @@ class FormParamsController(BaseController):
             .path("/form/unixdatetime")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("datetimes")
-                        .value([APIHelper.when_defined(APIHelper.UnixDateTime,
-                            element) for element in datetimes])
-                        .is_required(True))
+                .key("datetimes")
+                .value([APIHelper.when_defined(APIHelper.UnixDateTime,
+                    element) for element in datetimes])
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_1123_date_time_array(self,
@@ -360,14 +337,12 @@ class FormParamsController(BaseController):
             datetimes (List[datetime]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -375,25 +350,24 @@ class FormParamsController(BaseController):
             .path("/form/rfc1123datetime")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("datetimes")
-                        .value([APIHelper.when_defined(APIHelper.HttpDateTime,
-                            element) for element in datetimes])
-                        .is_required(True))
+                .key("datetimes")
+                .value([APIHelper.when_defined(APIHelper.HttpDateTime,
+                    element) for element in datetimes])
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_long(self,
@@ -404,14 +378,12 @@ class FormParamsController(BaseController):
             value (int): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -419,21 +391,20 @@ class FormParamsController(BaseController):
             .path("/form/number")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("value")
-                        .value(value)
-                        .is_required(True))
+                .key("value")
+                .value(value)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_integer_array(self,
@@ -444,14 +415,12 @@ class FormParamsController(BaseController):
             integers (List[int]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -459,24 +428,23 @@ class FormParamsController(BaseController):
             .path("/form/number")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("integers")
-                        .value(integers)
-                        .is_required(True))
+                .key("integers")
+                .value(integers)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string_array(self,
@@ -487,14 +455,12 @@ class FormParamsController(BaseController):
             strings (List[str]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -502,24 +468,23 @@ class FormParamsController(BaseController):
             .path("/form/string")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("strings")
-                        .value(strings)
-                        .is_required(True))
+                .key("strings")
+                .value(strings)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def allow_dynamic_form_fields(self,
@@ -529,18 +494,16 @@ class FormParamsController(BaseController):
 
         Args:
             name (str): The request form parameter.
-            _optional_form_parameters (Array, optional): Additional optional
-                form parameters are supported by this endpoint
+            _optional_form_parameters (Array, optional): Additional optional form
+                parameters are supported by this endpoint
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -548,22 +511,21 @@ class FormParamsController(BaseController):
             .path("/form/allowDynamicFormFields")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("name")
-                        .value(name)
-                        .is_required(True))
+                .key("name")
+                .value(name)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .additional_form_params(_optional_form_parameters),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_model(self,
@@ -574,14 +536,12 @@ class FormParamsController(BaseController):
             model (Employee): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -589,21 +549,20 @@ class FormParamsController(BaseController):
             .path("/form/model")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("model")
-                        .value(model)
-                        .is_required(True))
+                .key("model")
+                .value(model)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_model_array(self,
@@ -614,14 +573,12 @@ class FormParamsController(BaseController):
             models (List[Employee]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -629,24 +586,23 @@ class FormParamsController(BaseController):
             .path("/form/model")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("models")
-                        .value(models)
-                        .is_required(True))
+                .key("models")
+                .value(models)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_file(self,
@@ -657,14 +613,12 @@ class FormParamsController(BaseController):
             file (typing.BinaryIO): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -672,19 +626,18 @@ class FormParamsController(BaseController):
             .path("/form/file")
             .http_method(HttpMethodEnum.POST)
             .multipart_param(Parameter()
-                             .key("file")
-                             .value(file)
-                             .default_content_type("application/octet-stream")
-                             .is_required(True))
+                .key("file")
+                .value(file)
+                .default_content_type("application/octet-stream")
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_multiple_files(self,
@@ -697,14 +650,12 @@ class FormParamsController(BaseController):
             file_1 (typing.BinaryIO): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -712,24 +663,23 @@ class FormParamsController(BaseController):
             .path("/form/multipleFiles")
             .http_method(HttpMethodEnum.POST)
             .multipart_param(Parameter()
-                             .key("file")
-                             .value(file)
-                             .default_content_type("application/octet-stream")
-                             .is_required(True))
+                .key("file")
+                .value(file)
+                .default_content_type("application/octet-stream")
+                .is_required(True))
             .multipart_param(Parameter()
-                             .key("file1")
-                             .value(file_1)
-                             .default_content_type("application/octet-stream")
-                             .is_required(True))
+                .key("file1")
+                .value(file_1)
+                .default_content_type("application/octet-stream")
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string(self,
@@ -740,14 +690,12 @@ class FormParamsController(BaseController):
             value (str): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -755,21 +703,20 @@ class FormParamsController(BaseController):
             .path("/form/string")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("value")
-                        .value(value)
-                        .is_required(True))
+                .key("value")
+                .value(value)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_3339_date_time_array(self,
@@ -780,14 +727,12 @@ class FormParamsController(BaseController):
             datetimes (List[datetime]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -795,25 +740,24 @@ class FormParamsController(BaseController):
             .path("/form/rfc3339datetime")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("datetimes")
-                        .value([APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                            element) for element in datetimes])
-                        .is_required(True))
+                .key("datetimes")
+                .value([APIHelper.when_defined(APIHelper.RFC3339DateTime,
+                    element) for element in datetimes])
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_mixed_array(self,
@@ -823,25 +767,23 @@ class FormParamsController(BaseController):
         Send a variety for form params. Returns file count and body params
 
         Args:
-            options (dict, optional): Key-value pairs for any of the
-                parameters to this API Endpoint. All parameters to the
-                endpoint are supplied through the dictionary with their names
-                being the key and their desired values being the value. A list
-                of parameters that can be used are::
+            options (dict, optional): Key-value pairs for any of the parameters to
+                this API Endpoint. All parameters to the endpoint are supplied
+                through the dictionary with their names being the key and their
+                desired values being the value. A list of parameters that can be used
+                are::
                     file -- typing.BinaryIO -- The request form parameter.
                     integers -- List[int] -- The request form parameter.
                     models -- List[Employee] -- The request form parameter.
                     strings -- List[str] -- The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -849,31 +791,30 @@ class FormParamsController(BaseController):
             .path("/form/mixed")
             .http_method(HttpMethodEnum.POST)
             .multipart_param(Parameter()
-                             .key("file")
-                             .value(options.get("file", None))
-                             .default_content_type("application/octet-stream")
-                             .is_required(True))
+                .key("file")
+                .value(options.get("file", None))
+                .default_content_type("application/octet-stream")
+                .is_required(True))
             .form_param(Parameter()
-                        .key("integers")
-                        .value(options.get("integers", None))
-                        .is_required(True))
+                .key("integers")
+                .value(options.get("integers", None))
+                .is_required(True))
             .form_param(Parameter()
-                        .key("models")
-                        .value(options.get("models", None))
-                        .is_required(True))
+                .key("models")
+                .value(options.get("models", None))
+                .is_required(True))
             .form_param(Parameter()
-                        .key("strings")
-                        .value(options.get("strings", None))
-                        .is_required(True))
+                .key("strings")
+                .value(options.get("strings", None))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def update_model_with_form(self,
@@ -884,14 +825,12 @@ class FormParamsController(BaseController):
             model (Employee): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -899,21 +838,20 @@ class FormParamsController(BaseController):
             .path("/form/updateModel")
             .http_method(HttpMethodEnum.PUT)
             .form_param(Parameter()
-                        .key("model")
-                        .value(model)
-                        .is_required(True))
+                .key("model")
+                .value(model)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_delete_form_1(self,
@@ -924,14 +862,12 @@ class FormParamsController(BaseController):
             model (Employee): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -939,21 +875,20 @@ class FormParamsController(BaseController):
             .path("/form/deleteForm1")
             .http_method(HttpMethodEnum.DELETE)
             .form_param(Parameter()
-                        .key("model")
-                        .value(model)
-                        .is_required(True))
+                .key("model")
+                .value(model)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_delete_form_with_model_array(self,
@@ -964,14 +899,12 @@ class FormParamsController(BaseController):
             models (List[Employee]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -979,24 +912,23 @@ class FormParamsController(BaseController):
             .path("/form/deleteForm1")
             .http_method(HttpMethodEnum.DELETE)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("models")
-                        .value(models)
-                        .is_required(True))
+                .key("models")
+                .value(models)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def update_model_array_with_form(self,
@@ -1007,14 +939,12 @@ class FormParamsController(BaseController):
             models (List[Employee]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1022,24 +952,23 @@ class FormParamsController(BaseController):
             .path("/form/updateModel")
             .http_method(HttpMethodEnum.PUT)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("models")
-                        .value(models)
-                        .is_required(True))
+                .key("models")
+                .value(models)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def update_string_with_form(self,
@@ -1050,14 +979,12 @@ class FormParamsController(BaseController):
             value (str): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1065,21 +992,20 @@ class FormParamsController(BaseController):
             .path("/form/updateString")
             .http_method(HttpMethodEnum.PUT)
             .form_param(Parameter()
-                        .key("value")
-                        .value(value)
-                        .is_required(True))
+                .key("value")
+                .value(value)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def update_string_array_with_form(self,
@@ -1090,14 +1016,12 @@ class FormParamsController(BaseController):
             strings (List[str]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1105,24 +1029,23 @@ class FormParamsController(BaseController):
             .path("/form/updateString")
             .http_method(HttpMethodEnum.PUT)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("strings")
-                        .value(strings)
-                        .is_required(True))
+                .key("strings")
+                .value(strings)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_integer_enum_array(self,
@@ -1133,14 +1056,12 @@ class FormParamsController(BaseController):
             suites (List[SuiteCodeEnum]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1148,24 +1069,23 @@ class FormParamsController(BaseController):
             .path("/form/integerenum")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("suites")
-                        .value(suites)
-                        .is_required(True))
+                .key("suites")
+                .value(suites)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string_enum_array(self,
@@ -1176,14 +1096,12 @@ class FormParamsController(BaseController):
             days (List[Days1Enum]): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1191,24 +1109,23 @@ class FormParamsController(BaseController):
             .path("/form/stringenum")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .form_param(Parameter()
-                        .key("days")
-                        .value(days)
-                        .is_required(True))
+                .key("days")
+                .value(days)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string_in_form_with_new_line(self,
@@ -1219,14 +1136,12 @@ class FormParamsController(BaseController):
             body (TestNstringEncoding): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1234,21 +1149,20 @@ class FormParamsController(BaseController):
             .path("/form/stringEncoding")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string_in_form_with_r(self,
@@ -1259,14 +1173,12 @@ class FormParamsController(BaseController):
             body (TestRstringEncoding): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1274,21 +1186,20 @@ class FormParamsController(BaseController):
             .path("/form/stringEncoding")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string_in_form_with_r_n(self,
@@ -1299,14 +1210,12 @@ class FormParamsController(BaseController):
             body (TestRNstringEncoding): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1314,21 +1223,20 @@ class FormParamsController(BaseController):
             .path("/form/stringEncoding")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def all_optionals(self,
@@ -1338,18 +1246,16 @@ class FormParamsController(BaseController):
 
         Args:
             model (AllOptionals): The request form parameter.
-            option (OptionalsEnum, optional): The request form parameter.
-                Example: empty
+            option (OptionalsEnum, optional): The request form parameter. Example:
+                empty
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1357,24 +1263,23 @@ class FormParamsController(BaseController):
             .path("/form/alloptionals")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("model")
-                        .value(model)
-                        .is_required(True))
+                .key("model")
+                .value(model)
+                .is_required(True))
             .form_param(Parameter()
-                        .key("option")
-                        .value(option))
+                .key("option")
+                .value(option))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_optional_unix_date_time_in_body(self,
@@ -1385,14 +1290,12 @@ class FormParamsController(BaseController):
             date_time (datetime, optional): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1400,21 +1303,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalUnixTimeStamp")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("dateTime")
-                        .value(APIHelper.when_defined(APIHelper.UnixDateTime,
-                            date_time)))
+                .key("dateTime")
+                .value(APIHelper.when_defined(APIHelper.UnixDateTime,
+                    date_time)))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_optional_rfc_1123_in_body(self,
@@ -1425,14 +1327,12 @@ class FormParamsController(BaseController):
             body (datetime): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1440,22 +1340,21 @@ class FormParamsController(BaseController):
             .path("/form/optionlRfc1123")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(APIHelper.when_defined(APIHelper.HttpDateTime,
-                            body))
-                        .is_required(True))
+                .key("body")
+                .value(APIHelper.when_defined(APIHelper.HttpDateTime,
+                    body))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_datetime_optional_in_endpoint(self,
@@ -1466,14 +1365,12 @@ class FormParamsController(BaseController):
             body (datetime, optional): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1481,21 +1378,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalDateTime")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                            body)))
+                .key("body")
+                .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
+                    body)))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_optional_unix_time_stamp_in_model_body(self,
@@ -1506,14 +1402,12 @@ class FormParamsController(BaseController):
             date_time (UnixDateTime): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1521,21 +1415,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalUnixDateTimeInModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("dateTime")
-                        .value(date_time)
-                        .is_required(True))
+                .key("dateTime")
+                .value(date_time)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_optional_unix_time_stamp_in_nested_model_body(self,
@@ -1546,14 +1439,12 @@ class FormParamsController(BaseController):
             date_time (SendUnixDateTime): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1561,21 +1452,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalUnixTimeStampInNestedModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("dateTime")
-                        .value(date_time)
-                        .is_required(True))
+                .key("dateTime")
+                .value(date_time)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_1123_date_time_in_nested_model(self,
@@ -1586,14 +1476,12 @@ class FormParamsController(BaseController):
             body (SendRfc1123DateTime): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1601,21 +1489,20 @@ class FormParamsController(BaseController):
             .path("/form/rfc1123InNestedModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_1123_date_time_in_model(self,
@@ -1623,18 +1510,15 @@ class FormParamsController(BaseController):
         """Perform a POST request to /form/OptionalRfc1123InModel.
 
         Args:
-            date_time (ModelWithOptionalRfc1123DateTime): The request form
-                parameter.
+            date_time (ModelWithOptionalRfc1123DateTime): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1642,21 +1526,20 @@ class FormParamsController(BaseController):
             .path("/form/OptionalRfc1123InModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("dateTime")
-                        .value(date_time)
-                        .is_required(True))
+                .key("dateTime")
+                .value(date_time)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_optional_datetime_in_model(self,
@@ -1664,18 +1547,15 @@ class FormParamsController(BaseController):
         """Perform a POST request to /form/optionalDateTimeInBody.
 
         Args:
-            body (ModelWithOptionalRfc3339DateTime): The request form
-                parameter.
+            body (ModelWithOptionalRfc3339DateTime): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1683,21 +1563,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalDateTimeInBody")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_339_date_time_in_nested_models(self,
@@ -1708,14 +1587,12 @@ class FormParamsController(BaseController):
             body (SendRfc339DateTime): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1723,21 +1600,20 @@ class FormParamsController(BaseController):
             .path("/form/dateTimeInNestedModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def uuid_as_optional(self,
@@ -1748,14 +1624,12 @@ class FormParamsController(BaseController):
             body (UuidAsOptional): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1763,21 +1637,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalUUIDInModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def boolean_as_optional(self,
@@ -1788,14 +1661,12 @@ class FormParamsController(BaseController):
             body (BooleanAsOptional): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1803,21 +1674,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalBooleanInModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def date_as_optional(self,
@@ -1828,14 +1698,12 @@ class FormParamsController(BaseController):
             body (DateAsOptional): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1843,21 +1711,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalDateInModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def dynamic_as_optional(self,
@@ -1868,14 +1735,12 @@ class FormParamsController(BaseController):
             body (DynamicAsOptional): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1883,21 +1748,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalDynamicInModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def string_as_optional(self,
@@ -1908,14 +1772,12 @@ class FormParamsController(BaseController):
             body (StringAsOptional): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1923,21 +1785,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalStringInModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def precision_as_optional(self,
@@ -1948,14 +1809,12 @@ class FormParamsController(BaseController):
             body (PrecisionAsOptional): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1963,21 +1822,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalPrecisionInModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def long_as_optional(self,
@@ -1988,14 +1846,12 @@ class FormParamsController(BaseController):
             body (LongAsOptional): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -2003,21 +1859,20 @@ class FormParamsController(BaseController):
             .path("/form/optionalLongInModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_number_as_optional(self,
@@ -2028,14 +1883,12 @@ class FormParamsController(BaseController):
             body (NumberAsOptional): The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -2043,19 +1896,18 @@ class FormParamsController(BaseController):
             .path("/form/optionalNumberInModel")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("body")
-                        .value(body)
-                        .is_required(True))
+                .key("body")
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()

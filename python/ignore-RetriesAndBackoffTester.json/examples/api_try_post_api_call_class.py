@@ -9,12 +9,7 @@ client = RetriestesterClient(
 client_controller = client.client
 try:
     result = client_controller.try_post_api_call()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

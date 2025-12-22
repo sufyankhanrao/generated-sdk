@@ -35,20 +35,36 @@ class ErrorException(APIException):
             MUST match property names in the API description.
 
         """
-        self.error = dictionary.get("error") if dictionary.get("error") else None
+        self.error =\
+            dictionary.get("error")\
+            if dictionary.get("error")\
+                else None
         self.message =\
             dictionary.get("message")\
-            if dictionary.get("message") else None
+            if dictionary.get("message")\
+                else None
         self.details =\
             dictionary.get("details")\
-            if dictionary.get("details") else None
+            if dictionary.get("details")\
+                else None
+
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"error={self.error!s}, "
-                f"message={self.message!s}, "
-                f"details={(self.details
-                     if hasattr(self, 'details') else None)!s})")
+        _error=self.error
+        _message=self.message
+        _details=(
+            self.details
+            if hasattr(self, "details")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"error={_error!s}"
+            f"message={_message!s}"
+            f"details={_details!s}"
+            f")"
+        )

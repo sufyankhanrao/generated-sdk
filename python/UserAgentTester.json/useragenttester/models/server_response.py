@@ -14,8 +14,8 @@ class ServerResponse(object):
         passed (bool): The model property of type bool.
         message (str): The model property of type str.
         input (Dict[str, Any]): The model property of type Dict[str, Any].
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -31,11 +31,12 @@ class ServerResponse(object):
         "input",
     ]
 
-    def __init__(self,
-                 passed=None,
-                 message=APIHelper.SKIP,
-                 input=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        passed=None,
+        message=APIHelper.SKIP,
+        input=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a ServerResponse instance."""
         # Initialize members of the class
         self.passed = passed
@@ -69,13 +70,17 @@ class ServerResponse(object):
         # Extract variables from the dictionary
         passed =\
             dictionary.get("passed")\
-            if "passed" in dictionary.keys() else None
+            if "passed" in dictionary.keys()\
+                else None
         message =\
             dictionary.get("Message")\
-            if dictionary.get("Message") else APIHelper.SKIP
+            if dictionary.get("Message")\
+                else APIHelper.SKIP
         input =\
             dictionary.get("input")\
-            if dictionary.get("input") else APIHelper.SKIP
+            if dictionary.get("input")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -87,18 +92,46 @@ class ServerResponse(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"passed={self.passed!r}, "
-                f"message={(self.message
-                     if hasattr(self, 'message') else None)!r}, "
-                f"input={(self.input if hasattr(self, 'input') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _passed=self.passed
+        _message=(
+            self.message
+            if hasattr(self, "message")
+            else None
+        )
+        _input=(
+            self.input
+            if hasattr(self, "input")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"passed={_passed!r}"
+            f"message={_message!r}"
+            f"input={_input!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"passed={self.passed!s}, "
-                f"message={(self.message
-                     if hasattr(self, 'message') else None)!s}, "
-                f"input={(self.input if hasattr(self, 'input') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _passed=self.passed
+        _message=(
+            self.message
+            if hasattr(self, "message")
+            else None
+        )
+        _input=(
+            self.input
+            if hasattr(self, "input")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"passed={_passed!s}"
+            f"message={_message!s}"
+            f"input={_input!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

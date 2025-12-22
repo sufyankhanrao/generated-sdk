@@ -18,8 +18,8 @@ class Feed(object):
         description (str): The model property of type str.
         mtype (str): The model property of type str.
         entries (List[Entry]): The model property of type List[Entry].
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -34,15 +34,16 @@ class Feed(object):
         "mtype": "type",
     }
 
-    def __init__(self,
-                 author=None,
-                 description=None,
-                 entries=None,
-                 feed_url=None,
-                 link=None,
-                 title=None,
-                 mtype=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        author=None,
+        description=None,
+        entries=None,
+        feed_url=None,
+        link=None,
+        title=None,
+        mtype=None,
+        additional_properties=None):
         """Initialize a Feed instance."""
         # Initialize members of the class
         self.feed_url = feed_url
@@ -76,10 +77,14 @@ class Feed(object):
             return None
 
         # Extract variables from the dictionary
-        author = dictionary.get("author") if dictionary.get("author") else None
+        author =\
+            dictionary.get("author")\
+            if dictionary.get("author")\
+                else None
         description =\
             dictionary.get("description")\
-            if dictionary.get("description") else None
+            if dictionary.get("description")\
+                else None
         entries = None
         if dictionary.get("entries") is not None:
             entries = [
@@ -88,10 +93,21 @@ class Feed(object):
             ]
         feed_url =\
             dictionary.get("feedUrl")\
-            if dictionary.get("feedUrl") else None
-        link = dictionary.get("link") if dictionary.get("link") else None
-        title = dictionary.get("title") if dictionary.get("title") else None
-        mtype = dictionary.get("type") if dictionary.get("type") else None
+            if dictionary.get("feedUrl")\
+                else None
+        link =\
+            dictionary.get("link")\
+            if dictionary.get("link")\
+                else None
+        title =\
+            dictionary.get("title")\
+            if dictionary.get("title")\
+                else None
+        mtype =\
+            dictionary.get("type")\
+            if dictionary.get("type")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -107,24 +123,46 @@ class Feed(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"feed_url={self.feed_url!r}, "
-                f"title={self.title!r}, "
-                f"link={self.link!r}, "
-                f"author={self.author!r}, "
-                f"description={self.description!r}, "
-                f"mtype={self.mtype!r}, "
-                f"entries={self.entries!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _feed_url=self.feed_url
+        _title=self.title
+        _link=self.link
+        _author=self.author
+        _description=self.description
+        _mtype=self.mtype
+        _entries=self.entries
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"feed_url={_feed_url!r}"
+            f"title={_title!r}"
+            f"link={_link!r}"
+            f"author={_author!r}"
+            f"description={_description!r}"
+            f"mtype={_mtype!r}"
+            f"entries={_entries!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"feed_url={self.feed_url!s}, "
-                f"title={self.title!s}, "
-                f"link={self.link!s}, "
-                f"author={self.author!s}, "
-                f"description={self.description!s}, "
-                f"mtype={self.mtype!s}, "
-                f"entries={self.entries!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _feed_url=self.feed_url
+        _title=self.title
+        _link=self.link
+        _author=self.author
+        _description=self.description
+        _mtype=self.mtype
+        _entries=self.entries
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"feed_url={_feed_url!s}"
+            f"title={_title!s}"
+            f"link={_link!s}"
+            f"author={_author!s}"
+            f"description={_description!s}"
+            f"mtype={_mtype!s}"
+            f"entries={_entries!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

@@ -28,10 +28,11 @@ class ServerResponse(object):
         "input",
     ]
 
-    def __init__(self,
-                 passed=None,
-                 message=APIHelper.SKIP,
-                 input=APIHelper.SKIP):
+    def __init__(
+        self,
+        passed=None,
+        message=APIHelper.SKIP,
+        input=APIHelper.SKIP):
         """Initialize a ServerResponse instance."""
         # Initialize members of the class
         self.passed = passed
@@ -60,13 +61,17 @@ class ServerResponse(object):
         # Extract variables from the dictionary
         passed =\
             dictionary.get("passed")\
-            if "passed" in dictionary.keys() else None
+            if "passed" in dictionary.keys()\
+                else None
         message =\
             dictionary.get("Message")\
-            if dictionary.get("Message") else APIHelper.SKIP
+            if dictionary.get("Message")\
+                else APIHelper.SKIP
         input =\
             dictionary.get("input")\
-            if dictionary.get("input") else APIHelper.SKIP
+            if dictionary.get("input")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(passed,
                    message,
@@ -74,16 +79,42 @@ class ServerResponse(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"passed={self.passed!r}, "
-                f"message={(self.message
-                     if hasattr(self, 'message') else None)!r}, "
-                f"input={(self.input if hasattr(self, 'input') else None)!r})")
+        _passed=self.passed
+        _message=(
+            self.message
+            if hasattr(self, "message")
+            else None
+        )
+        _input=(
+            self.input
+            if hasattr(self, "input")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"passed={_passed!r}"
+            f"message={_message!r}"
+            f"input={_input!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"passed={self.passed!s}, "
-                f"message={(self.message
-                     if hasattr(self, 'message') else None)!s}, "
-                f"input={(self.input if hasattr(self, 'input') else None)!s})")
+        _passed=self.passed
+        _message=(
+            self.message
+            if hasattr(self, "message")
+            else None
+        )
+        _input=(
+            self.input
+            if hasattr(self, "input")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"passed={_passed!s}"
+            f"message={_message!s}"
+            f"input={_input!s}"
+            f")"
+        )

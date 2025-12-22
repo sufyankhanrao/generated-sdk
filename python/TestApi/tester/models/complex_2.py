@@ -12,8 +12,8 @@ class Complex2(object):
 
     Attributes:
         glossary (Glossary): The model property of type Glossary.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -22,9 +22,10 @@ class Complex2(object):
         "glossary": "glossary",
     }
 
-    def __init__(self,
-                 glossary=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        glossary=None,
+        additional_properties=None):
         """Initialize a Complex2 instance."""
         # Initialize members of the class
         self.glossary = glossary
@@ -52,9 +53,11 @@ class Complex2(object):
             return None
 
         # Extract variables from the dictionary
-        glossary = Glossary.from_dictionary(
+        glossary =\
+            Glossary.from_dictionary(
             dictionary.get("glossary"))\
-            if dictionary.get("glossary") else None
+                if dictionary.get("glossary") else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -64,12 +67,22 @@ class Complex2(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"glossary={self.glossary!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _glossary=self.glossary
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"glossary={_glossary!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"glossary={self.glossary!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _glossary=self.glossary
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"glossary={_glossary!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

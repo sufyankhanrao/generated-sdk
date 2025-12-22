@@ -14,14 +14,13 @@ class ComplexType(object):
 
     Attributes:
         number_list_type (List[int]): The model property of type List[int].
-        number_map_type (Dict[str, int]): The model property of type Dict[str,
-            int].
+        number_map_type (Dict[str, int]): The model property of type Dict[str, int].
         inner_complex_type (InnerComplexType): The model property of type
             InnerComplexType.
-        inner_complex_list_type (List[InnerComplexType]): The model property
-            of type List[InnerComplexType].
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        inner_complex_list_type (List[InnerComplexType]): The model property of type
+            List[InnerComplexType].
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -33,12 +32,13 @@ class ComplexType(object):
         "number_map_type": "numberMapType",
     }
 
-    def __init__(self,
-                 inner_complex_list_type=None,
-                 inner_complex_type=None,
-                 number_list_type=None,
-                 number_map_type=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        inner_complex_list_type=None,
+        inner_complex_type=None,
+        number_list_type=None,
+        number_map_type=None,
+        additional_properties=None):
         """Initialize a ComplexType instance."""
         # Initialize members of the class
         self.number_list_type = number_list_type
@@ -75,15 +75,19 @@ class ComplexType(object):
                 InnerComplexType.from_dictionary(x)
                     for x in dictionary.get("innerComplexListType")
             ]
-        inner_complex_type = InnerComplexType.from_dictionary(
+        inner_complex_type =\
+            InnerComplexType.from_dictionary(
             dictionary.get("innerComplexType"))\
-            if dictionary.get("innerComplexType") else None
+                if dictionary.get("innerComplexType") else None
         number_list_type =\
             dictionary.get("numberListType")\
-            if dictionary.get("numberListType") else None
+            if dictionary.get("numberListType")\
+                else None
         number_map_type =\
             dictionary.get("numberMapType")\
-            if dictionary.get("numberMapType") else None
+            if dictionary.get("numberMapType")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -96,18 +100,34 @@ class ComplexType(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_list_type={self.number_list_type!r}, "
-                f"number_map_type={self.number_map_type!r}, "
-                f"inner_complex_type={self.inner_complex_type!r}, "
-                f"inner_complex_list_type={self.inner_complex_list_type!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _number_list_type=self.number_list_type
+        _number_map_type=self.number_map_type
+        _inner_complex_type=self.inner_complex_type
+        _inner_complex_list_type=self.inner_complex_list_type
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"number_list_type={_number_list_type!r}"
+            f"number_map_type={_number_map_type!r}"
+            f"inner_complex_type={_inner_complex_type!r}"
+            f"inner_complex_list_type={_inner_complex_list_type!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_list_type={self.number_list_type!s}, "
-                f"number_map_type={self.number_map_type!s}, "
-                f"inner_complex_type={self.inner_complex_type!s}, "
-                f"inner_complex_list_type={self.inner_complex_list_type!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _number_list_type=self.number_list_type
+        _number_map_type=self.number_map_type
+        _inner_complex_type=self.inner_complex_type
+        _inner_complex_list_type=self.inner_complex_list_type
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"number_list_type={_number_list_type!s}"
+            f"number_map_type={_number_map_type!s}"
+            f"inner_complex_type={_inner_complex_type!s}"
+            f"inner_complex_list_type={_inner_complex_list_type!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

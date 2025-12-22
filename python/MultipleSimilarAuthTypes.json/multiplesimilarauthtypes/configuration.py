@@ -130,8 +130,8 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
                  environment=Environment.TESTING, port="80", suites=1,
                  breeze_header_credentials=None, custom_header_credentials=None,
                  http_query_credentials=None):
@@ -178,8 +178,8 @@ class Configuration(HttpClientConfiguration):
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
                    environment=None, port=None, suites=None,
-                   breeze_header_credentials=None,
-                   custom_header_credentials=None, http_query_credentials=None):
+                   breeze_header_credentials=None, custom_header_credentials=None,
+                   http_query_credentials=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration =\
@@ -205,11 +205,11 @@ class Configuration(HttpClientConfiguration):
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
-            http_call_back=http_call_back, timeout=timeout,
-            max_retries=max_retries, backoff_factor=backoff_factor,
-            retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings, environment=environment, port=port,
-            suites=suites, breeze_header_credentials=breeze_header_credentials,
+            http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, proxy_settings=proxy_settings,
+            environment=environment, port=port, suites=suites,
+            breeze_header_credentials=breeze_header_credentials,
             custom_header_credentials=custom_header_credentials,
             http_query_credentials=http_query_credentials,
         )
@@ -299,6 +299,7 @@ class Configuration(HttpClientConfiguration):
         from multiplesimilarauthtypes.http.auth.http_query import (
             HttpQueryCredentials,
         )
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

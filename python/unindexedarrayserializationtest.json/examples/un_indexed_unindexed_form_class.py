@@ -28,12 +28,7 @@ model = Employee(
 
 try:
     result = un_indexed_controller.create_unindexed_form(model)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

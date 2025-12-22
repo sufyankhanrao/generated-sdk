@@ -13,8 +13,8 @@ class TeamEnum(object):
         CGAAS: The enum member of type str.
         UX: The enum member of type str.
         QA: The enum member of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 

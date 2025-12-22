@@ -32,7 +32,7 @@ def json_echo(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
@@ -40,11 +40,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 input = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 
 result = echo_controller.json_echo(input)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -65,7 +61,7 @@ def form_echo(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
@@ -73,11 +69,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 input = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 
 result = echo_controller.form_echo(input)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -96,7 +88,7 @@ def query_echo(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`EchoResponse`](../../doc/models/echo-response.md).
+[`EchoResponse`](../../doc/models/echo-response.md)
 
 ## Example Usage
 
@@ -108,10 +100,6 @@ _optional_query_parameters = {
 result = echo_controller.query_echo(
     _optional_query_parameters=_optional_query_parameters
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

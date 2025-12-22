@@ -127,8 +127,8 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
                  environment=Environment.PRODUCTION, o_auth_client_id=None,
                  o_auth_client_secret=None, o_auth_redirect_uri=None,
                  o_auth_token=None, o_auth_scopes=None,
@@ -166,9 +166,8 @@ class Configuration(HttpClientConfiguration):
                    override_http_client_configuration=None, http_call_back=None,
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
-                   environment=None, o_auth_client_id=None,
-                   o_auth_client_secret=None, o_auth_redirect_uri=None,
-                   o_auth_token=None, o_auth_scopes=None,
+                   environment=None, o_auth_client_id=None, o_auth_client_secret=None,
+                   o_auth_redirect_uri=None, o_auth_token=None, o_auth_scopes=None,
                    authorization_code_auth_credentials=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
@@ -246,10 +245,10 @@ class Configuration(HttpClientConfiguration):
                 and o_auth_scopes is None:
             return authorization_code_auth_credentials
 
-        warnings.warn(message=("The 'o_auth_client_id', 'o_auth_client_secret',"
-                               " 'o_auth_redirect_uri', 'o_auth_token', 'o_auth"
-                               "_scopes' params are deprecated. Use 'authorizat"
-                               "ion_code_auth_credentials' param instead."),
+        warnings.warn(message=("The 'o_auth_client_id', 'o_auth_client_secret', 'o_au"
+                               "th_redirect_uri', 'o_auth_token', 'o_auth_scopes' par"
+                               "ams are deprecated. Use 'authorization_code_auth_cred"
+                               "entials' param instead."),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
@@ -258,7 +257,7 @@ class Configuration(HttpClientConfiguration):
                 o_auth_client_id, o_auth_client_secret, o_auth_redirect_uri,
                 o_auth_token, o_auth_scopes)
 
-        from mdnotesacg.http.auth.o_auth_2 import (
+        from mdnotesacg.http.auth.o_auth_2 import (  # noqa: E501
             AuthorizationCodeAuthCredentials,
         )
         return AuthorizationCodeAuthCredentials(o_auth_client_id,
@@ -296,9 +295,8 @@ class Configuration(HttpClientConfiguration):
         environment = Environment.from_value(
             os.getenv("ENVIRONMENT"), Environment.PRODUCTION)
 
-        from mdnotesacg.http.auth.o_auth_2 import (
-            AuthorizationCodeAuthCredentials,
-        )
+        from mdnotesacg.http.auth.o_auth_2 import AuthorizationCodeAuthCredentials
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

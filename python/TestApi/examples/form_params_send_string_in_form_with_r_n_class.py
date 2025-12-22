@@ -43,12 +43,7 @@ body = TestRNstringEncoding(
 
 try:
     result = form_params_controller.send_string_in_form_with_r_n(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

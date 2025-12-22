@@ -10,8 +10,8 @@ class Void(object):
     Attributes:
         id (int): The model property of type int.
         message (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -21,10 +21,11 @@ class Void(object):
         "message": "message",
     }
 
-    def __init__(self,
-                 id=None,
-                 message=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        id=None,
+        message=None,
+        additional_properties=None):
         """Initialize a Void instance."""
         # Initialize members of the class
         self.id = id
@@ -53,8 +54,15 @@ class Void(object):
             return None
 
         # Extract variables from the dictionary
-        id = dictionary.get("id") if dictionary.get("id") else None
-        message = dictionary.get("message") if dictionary.get("message") else None
+        id =\
+            dictionary.get("id")\
+            if dictionary.get("id")\
+                else None
+        message =\
+            dictionary.get("message")\
+            if dictionary.get("message")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -65,14 +73,26 @@ class Void(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!r}, "
-                f"message={self.message!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _id=self.id
+        _message=self.message
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!r}"
+            f"message={_message!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!s}, "
-                f"message={self.message!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _id=self.id
+        _message=self.message
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!s}"
+            f"message={_message!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

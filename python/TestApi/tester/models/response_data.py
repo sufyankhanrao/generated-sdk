@@ -12,8 +12,8 @@ class ResponseData(object):
 
     Attributes:
         feed (Feed): The model property of type Feed.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -22,9 +22,10 @@ class ResponseData(object):
         "feed": "feed",
     }
 
-    def __init__(self,
-                 feed=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        feed=None,
+        additional_properties=None):
         """Initialize a ResponseData instance."""
         # Initialize members of the class
         self.feed = feed
@@ -52,9 +53,11 @@ class ResponseData(object):
             return None
 
         # Extract variables from the dictionary
-        feed = Feed.from_dictionary(
+        feed =\
+            Feed.from_dictionary(
             dictionary.get("feed"))\
-            if dictionary.get("feed") else None
+                if dictionary.get("feed") else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -64,12 +67,22 @@ class ResponseData(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"feed={self.feed!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _feed=self.feed
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"feed={_feed!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"feed={self.feed!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _feed=self.feed
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"feed={_feed!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

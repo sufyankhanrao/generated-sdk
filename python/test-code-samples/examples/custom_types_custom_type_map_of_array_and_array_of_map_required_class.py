@@ -77,12 +77,7 @@ try:
         employee_array_of_map,
         employee_map_of_array
     )
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

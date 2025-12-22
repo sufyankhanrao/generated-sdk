@@ -39,23 +39,25 @@ class InnerComplexType(object):
         "string_list_type": "stringListType",
     }
 
-    def __init__(self,
-                 string_type=None,
-                 boolean_type=None,
-                 date_time_type=None,
-                 date_type=None,
-                 uuid_type=None,
-                 long_type=None,
-                 precision_type=None,
-                 object_type=None,
-                 string_list_type=None):
+    def __init__(
+        self,
+        string_type=None,
+        boolean_type=None,
+        date_time_type=None,
+        date_type=None,
+        uuid_type=None,
+        long_type=None,
+        precision_type=None,
+        object_type=None,
+        string_list_type=None):
         """Initialize a InnerComplexType instance."""
         # Initialize members of the class
         self.string_type = string_type
         self.boolean_type = boolean_type
         self.date_time_type =\
              APIHelper.apply_datetime_converter(
-            date_time_type, APIHelper.RFC3339DateTime) if date_time_type else None
+            date_time_type, APIHelper.RFC3339DateTime)\
+             if date_time_type else None
         self.date_type = date_type
         self.uuid_type = uuid_type
         self.long_type = long_type
@@ -83,30 +85,39 @@ class InnerComplexType(object):
         # Extract variables from the dictionary
         string_type =\
             dictionary.get("stringType")\
-            if dictionary.get("stringType") else None
+            if dictionary.get("stringType")\
+                else None
         boolean_type =\
             dictionary.get("booleanType")\
-            if "booleanType" in dictionary.keys() else None
+            if "booleanType" in dictionary.keys()\
+                else None
         date_time_type = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("dateTimeType")).datetime\
             if dictionary.get("dateTimeType") else None
-        date_type = dateutil.parser.parse(dictionary.get("dateType")).date()\
+        date_type = dateutil.parser.parse(
+            dictionary.get("dateType")).date()\
             if dictionary.get("dateType") else None
         uuid_type =\
             dictionary.get("uuidType")\
-            if dictionary.get("uuidType") else None
+            if dictionary.get("uuidType")\
+                else None
         long_type =\
             dictionary.get("longType")\
-            if dictionary.get("longType") else None
+            if dictionary.get("longType")\
+                else None
         precision_type =\
             dictionary.get("precisionType")\
-            if dictionary.get("precisionType") else None
+            if dictionary.get("precisionType")\
+                else None
         object_type =\
             dictionary.get("objectType")\
-            if dictionary.get("objectType") else None
+            if dictionary.get("objectType")\
+                else None
         string_list_type =\
             dictionary.get("stringListType")\
-            if dictionary.get("stringListType") else None
+            if dictionary.get("stringListType")\
+                else None
+
         # Return an object of this model
         return cls(string_type,
                    boolean_type,
@@ -120,26 +131,50 @@ class InnerComplexType(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string_type={self.string_type!r}, "
-                f"boolean_type={self.boolean_type!r}, "
-                f"date_time_type={self.date_time_type!r}, "
-                f"date_type={self.date_type!r}, "
-                f"uuid_type={self.uuid_type!r}, "
-                f"long_type={self.long_type!r}, "
-                f"precision_type={self.precision_type!r}, "
-                f"object_type={self.object_type!r}, "
-                f"string_list_type={self.string_list_type!r})")
+        _string_type=self.string_type
+        _boolean_type=self.boolean_type
+        _date_time_type=self.date_time_type
+        _date_type=self.date_type
+        _uuid_type=self.uuid_type
+        _long_type=self.long_type
+        _precision_type=self.precision_type
+        _object_type=self.object_type
+        _string_list_type=self.string_list_type
+        return (
+            f"{self.__class__.__name__}("
+            f"string_type={_string_type!r}"
+            f"boolean_type={_boolean_type!r}"
+            f"date_time_type={_date_time_type!r}"
+            f"date_type={_date_type!r}"
+            f"uuid_type={_uuid_type!r}"
+            f"long_type={_long_type!r}"
+            f"precision_type={_precision_type!r}"
+            f"object_type={_object_type!r}"
+            f"string_list_type={_string_list_type!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string_type={self.string_type!s}, "
-                f"boolean_type={self.boolean_type!s}, "
-                f"date_time_type={self.date_time_type!s}, "
-                f"date_type={self.date_type!s}, "
-                f"uuid_type={self.uuid_type!s}, "
-                f"long_type={self.long_type!s}, "
-                f"precision_type={self.precision_type!s}, "
-                f"object_type={self.object_type!s}, "
-                f"string_list_type={self.string_list_type!s})")
+        _string_type=self.string_type
+        _boolean_type=self.boolean_type
+        _date_time_type=self.date_time_type
+        _date_type=self.date_type
+        _uuid_type=self.uuid_type
+        _long_type=self.long_type
+        _precision_type=self.precision_type
+        _object_type=self.object_type
+        _string_list_type=self.string_list_type
+        return (
+            f"{self.__class__.__name__}("
+            f"string_type={_string_type!s}"
+            f"boolean_type={_boolean_type!s}"
+            f"date_time_type={_date_time_type!s}"
+            f"date_type={_date_type!s}"
+            f"uuid_type={_uuid_type!s}"
+            f"long_type={_long_type!s}"
+            f"precision_type={_precision_type!s}"
+            f"object_type={_object_type!s}"
+            f"string_list_type={_string_list_type!s}"
+            f")"
+        )

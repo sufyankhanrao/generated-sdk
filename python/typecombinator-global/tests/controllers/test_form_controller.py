@@ -48,18 +48,16 @@ class FormControllerTests(ControllerTestBase):
         # Parameters for the API call
         one_of_cat_dog_all_of_pet_type = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("OneOfCatDogPetType-AllOf"),
-            "{\"name\":\"hosico-cat\",\"color\":\"yellow\",\"pet_type\":\"Cat\""
-            "}",
+            "{\"name\":\"hosico-cat\",\"color\":\"yellow\",\"pet_type\":\"Cat\"}",
         )
         one_of_cat_dog_oaf_pet_type = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("OneOfCatDogPetType-Oaf"),
-            "{\"name\":\"mosco-cat\",\"color\":\"yellow\",\"pet_type\":\"Kitty"
-            "\"}",
+            "{\"name\":\"mosco-cat\",\"color\":\"yellow\",\"pet_type\":\"Kitty\"}",
         )
         one_of_cat_dog_kind = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("OneOfCatDogKind"),
-            "{\"name\":\"hosico-dog\",\"fangs\":\"yes\",\"pet_type\":\"Cat\",\""
-            "One Of kind\":\"large\"}",
+            "{\"name\":\"hosico-dog\",\"fangs\":\"yes\",\"pet_type\":\"Cat\",\"One Of"
+            " kind\":\"large\"}",
         )
 
         # Perform the API call through the SDK function
@@ -95,23 +93,22 @@ class FormControllerTests(ControllerTestBase):
         )
         one_of_lion_and_dear_2 = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("OneOfLionDeerType2"),
-            "{\"id\":\"23\",\"weight\":\"100 kg\",\"type\":\"h$u\\\\n(\\t,e),r"
-            "\"}",
+            "{\"id\":\"23\",\"weight\":\"100 kg\",\"type\":\"h$u\\\\n(\\t,e),r\"}",
         )
         one_of_dear_and_one_of_lion_squirrel = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("OneOfDeerAndOneOfLionSquirrel"),
-            "{\"name\":\"deer-23\",\"weight\":\"30 kg\",\"type\":\"hunter\",\"k"
-            "ind\":\"{fa{}st}\"}",
+            "{\"name\":\"deer-23\",\"weight\":\"30 kg\",\"type\":\"hunter\",\"kind\":"
+            "\"{fa{}st}\"}",
         )
         one_of_lion_and_squirrel_speed = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("one of lion squirrel speed kind"),
-            "{\"id\":\"23\",\"weight\":\"100 kg\",\"type\":\"hunter\",\"kind\":"
-            "\"{fa{}st}\"}",
+            "{\"id\":\"23\",\"weight\":\"100 kg\",\"type\":\"hunter\",\"kind\":\"{fa{"
+            "}st}\"}",
         )
         one_of_lion_and_squirrel_area = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("OneOfLionSquirrelAreaKind"),
-            "{\"id\":\"23\",\"size\":\"very small\",\"type\":\"agile\",\"kind\""
-            ":\"westener\"}",
+            "{\"id\":\"23\",\"size\":\"very small\",\"type\":\"agile\",\"kind\":\"wes"
+            "tener\"}",
         )
 
         # Perform the API call through the SDK function
@@ -127,8 +124,8 @@ class FormControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"id\":\"23\",\"weight\":\"100 kg\",\"type\":\"hunter\",\"kind\":"
-            "\"northener\"}",
+            "{\"id\":\"23\",\"weight\":\"100 kg\",\"type\":\"hunter\",\"kind\":\"nort"
+            "hener\"}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,

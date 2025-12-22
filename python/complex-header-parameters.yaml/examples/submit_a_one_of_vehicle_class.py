@@ -22,12 +22,7 @@ one_of_vehicle = Car(
 
 try:
     result = client_controller.submit_a_one_of_vehicle(one_of_vehicle)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

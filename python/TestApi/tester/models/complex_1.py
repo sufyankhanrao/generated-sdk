@@ -13,12 +13,11 @@ class Complex1(object):
     """Implementation of the 'complex1' model.
 
     Attributes:
-        medications (List[Medication]): The model property of type
-            List[Medication].
+        medications (List[Medication]): The model property of type List[Medication].
         labs (List[Lab]): The model property of type List[Lab].
         imaging (List[Imaging]): The model property of type List[Imaging].
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -29,11 +28,12 @@ class Complex1(object):
         "medications": "medications",
     }
 
-    def __init__(self,
-                 imaging=None,
-                 labs=None,
-                 medications=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        imaging=None,
+        labs=None,
+        medications=None,
+        additional_properties=None):
         """Initialize a Complex1 instance."""
         # Initialize members of the class
         self.medications = medications
@@ -81,6 +81,7 @@ class Complex1(object):
                 Medication.from_dictionary(x)
                     for x in dictionary.get("medications")
             ]
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -92,16 +93,30 @@ class Complex1(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"medications={self.medications!r}, "
-                f"labs={self.labs!r}, "
-                f"imaging={self.imaging!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _medications=self.medications
+        _labs=self.labs
+        _imaging=self.imaging
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"medications={_medications!r}"
+            f"labs={_labs!r}"
+            f"imaging={_imaging!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"medications={self.medications!s}, "
-                f"labs={self.labs!s}, "
-                f"imaging={self.imaging!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _medications=self.medications
+        _labs=self.labs
+        _imaging=self.imaging
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"medications={_medications!s}"
+            f"labs={_labs!s}"
+            f"imaging={_imaging!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

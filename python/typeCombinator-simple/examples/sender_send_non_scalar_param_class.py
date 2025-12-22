@@ -16,12 +16,7 @@ body = Car(
 
 try:
     result = sender_controller.send_non_scalar_param(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

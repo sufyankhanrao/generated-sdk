@@ -27,9 +27,10 @@ class PaymentCompletedEvent(object):
         "event_type",
     ]
 
-    def __init__(self,
-                 payment_id=None,
-                 event_type=APIHelper.SKIP):
+    def __init__(
+        self,
+        payment_id=None,
+        event_type=APIHelper.SKIP):
         """Initialize a PaymentCompletedEvent instance."""
         # Initialize members of the class
         if event_type is not APIHelper.SKIP:
@@ -56,10 +57,13 @@ class PaymentCompletedEvent(object):
         # Extract variables from the dictionary
         payment_id =\
             dictionary.get("paymentId")\
-            if dictionary.get("paymentId") else None
+            if dictionary.get("paymentId")\
+                else None
         event_type =\
             dictionary.get("eventType")\
-            if dictionary.get("eventType") else APIHelper.SKIP
+            if dictionary.get("eventType")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(payment_id,
                    event_type)
@@ -79,26 +83,50 @@ class PaymentCompletedEvent(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.payment_id,
-                type_callable=lambda value: isinstance(value, int))
+                    value=dictionary.payment_id,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("paymentId"),
-            type_callable=lambda value: isinstance(value, int))
+                value=dictionary.get("paymentId"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event_type={(self.event_type
-                     if hasattr(self, 'event_type') else None)!r}, "
-                f"payment_id={self.payment_id!r})")
+        _event_type=(
+            self.event_type
+            if hasattr(self, "event_type")
+            else None
+        )
+        _payment_id=self.payment_id
+        return (
+            f"{self.__class__.__name__}("
+            f"event_type={_event_type!r}"
+            f"payment_id={_payment_id!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event_type={(self.event_type
-                     if hasattr(self, 'event_type') else None)!s}, "
-                f"payment_id={self.payment_id!s})")
+        _event_type=(
+            self.event_type
+            if hasattr(self, "event_type")
+            else None
+        )
+        _payment_id=self.payment_id
+        return (
+            f"{self.__class__.__name__}("
+            f"event_type={_event_type!s}"
+            f"payment_id={_payment_id!s}"
+            f")"
+        )

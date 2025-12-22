@@ -50,40 +50,37 @@ class BaseController(object):
                 "Global Error Message for 0 {$response.body}.")
                 .exception_type(ErrorModel1Exception),
             "410": ErrorCase().error_message_template(
-                "Global Error template 4XX: {$statusCode}, accept => {$response"
-                ".header.content-type}, body => {$response.body#/unknownPropert"
-                "y}.")
+                "Global Error template 4XX: {$statusCode}, accept => {$response.heade"
+                "r.content-type}, body => {$response.body#/unknownProperty}.")
                 .exception_type(ErrorModel2Exception),
             "501": ErrorCase().error_message_template(
-                "Global Error template 501: {$statusCode}, accept => {$response"
-                ".header.content-type}, body => {$response.body#/ServerCode}-{$"
-                "response.body#/ServerMessage}-{$response.body#/model/name}-{$r"
-                "esponse.body#/unknownProperty}.")
+                "Global Error template 501: {$statusCode}, accept => {$response.heade"
+                "r.content-type}, body => {$response.body#/ServerCode}-{$response.bod"
+                "y#/ServerMessage}-{$response.body#/model/name}-{$response.body#/unkn"
+                "ownProperty}.")
                 .exception_type(ErrorModel1Exception),
             "502": ErrorCase().error_message_template(
-                "Global Error template 502: {$statusCode}, accept => {$response"
-                ".header.content-type}, body => {$response.body#/error descript"
-                "ion}-{$response.body#/caught}-{$response.body#/Exception}-{$re"
-                "sponse.body#/Inner Exception}-{$response.body#/unknownProperty"
-                "}.")
+                "Global Error template 502: {$statusCode}, accept => {$response.heade"
+                "r.content-type}, body => {$response.body#/error description}-{$respo"
+                "nse.body#/caught}-{$response.body#/Exception}-{$response.body#/Inner"
+                " Exception}-{$response.body#/unknownProperty}.")
                 .exception_type(ErrorModel2Exception),
             "503": ErrorCase().error_message_template(
-                "Global Error template 503: {$statusCode}, accept => {$response"
-                ".header.content-type}, body => {$response.body#/ServerCode}-{$"
-                "response.body#/ServerMessage}-{$response.body#/SecretMessageFo"
-                "rEndpoint}-{$response.body#/unknownProperty}.")
+                "Global Error template 503: {$statusCode}, accept => {$response.heade"
+                "r.content-type}, body => {$response.body#/ServerCode}-{$response.bod"
+                "y#/ServerMessage}-{$response.body#/SecretMessageForEndpoint}-{$respo"
+                "nse.body#/unknownProperty}.")
                 .exception_type(ErrorModel3Exception),
             "504": ErrorCase().error_message(
                 "Global Error Message for 504")
                 .exception_type(ErrorModel1Exception),
             "500": ErrorCase().error_message_template(
-                "Global Error template 500: {$statusCode}, accept => {$response"
-                ".header.content-type}, body => {$response.body}.")
+                "Global Error template 500: {$statusCode}, accept => {$response.heade"
+                "r.content-type}, body => {$response.body}.")
                 .exception_type(ErrorModel1Exception),
             "4XX": ErrorCase().error_message_template(
-                "Global Error template 4XX: {$statusCode}, accept => {$response"
-                ".header.content-type}, body => {$response.body#/unknownPropert"
-                "y}.")
+                "Global Error template 4XX: {$statusCode}, accept => {$response.heade"
+                "r.content-type}, body => {$response.body#/unknownProperty}.")
                 .exception_type(ErrorModel1Exception),
             "520": ErrorCase().error_message_template(
                 "This is statusCode {$statusCode}")

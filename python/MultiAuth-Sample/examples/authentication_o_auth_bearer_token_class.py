@@ -17,12 +17,7 @@ client = MultiauthsampleClient(
 authentication_controller = client.authentication
 try:
     result = authentication_controller.o_auth_bearer_token()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

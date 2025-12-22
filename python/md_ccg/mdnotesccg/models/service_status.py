@@ -43,15 +43,16 @@ class ServiceStatus(object):
         "php_version",
     ]
 
-    def __init__(self,
-                 status=None,
-                 app=APIHelper.SKIP,
-                 moto=APIHelper.SKIP,
-                 notes=APIHelper.SKIP,
-                 users=APIHelper.SKIP,
-                 time=APIHelper.SKIP,
-                 os=APIHelper.SKIP,
-                 php_version=APIHelper.SKIP):
+    def __init__(
+        self,
+        status=None,
+        app=APIHelper.SKIP,
+        moto=APIHelper.SKIP,
+        notes=APIHelper.SKIP,
+        users=APIHelper.SKIP,
+        time=APIHelper.SKIP,
+        os=APIHelper.SKIP,
+        php_version=APIHelper.SKIP):
         """Initialize a ServiceStatus instance."""
         # Initialize members of the class
         if app is not APIHelper.SKIP:
@@ -88,24 +89,39 @@ class ServiceStatus(object):
             return None
 
         # Extract variables from the dictionary
-        status = dictionary.get("status") if dictionary.get("status") else None
-        app = dictionary.get("app") if dictionary.get("app") else APIHelper.SKIP
+        status =\
+            dictionary.get("status")\
+            if dictionary.get("status")\
+                else None
+        app =\
+            dictionary.get("app")\
+            if dictionary.get("app")\
+                else APIHelper.SKIP
         moto =\
             dictionary.get("moto")\
-            if dictionary.get("moto") else APIHelper.SKIP
+            if dictionary.get("moto")\
+                else APIHelper.SKIP
         notes =\
             dictionary.get("notes")\
-            if dictionary.get("notes") else APIHelper.SKIP
+            if dictionary.get("notes")\
+                else APIHelper.SKIP
         users =\
             dictionary.get("users")\
-            if dictionary.get("users") else APIHelper.SKIP
+            if dictionary.get("users")\
+                else APIHelper.SKIP
         time =\
             dictionary.get("time")\
-            if dictionary.get("time") else APIHelper.SKIP
-        os = dictionary.get("os") if dictionary.get("os") else APIHelper.SKIP
+            if dictionary.get("time")\
+                else APIHelper.SKIP
+        os =\
+            dictionary.get("os")\
+            if dictionary.get("os")\
+                else APIHelper.SKIP
         php_version =\
             dictionary.get("php_version")\
-            if dictionary.get("php_version") else APIHelper.SKIP
+            if dictionary.get("php_version")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(status,
                    app,
@@ -118,26 +134,102 @@ class ServiceStatus(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"app={(self.app if hasattr(self, 'app') else None)!r}, "
-                f"moto={(self.moto if hasattr(self, 'moto') else None)!r}, "
-                f"notes={(self.notes if hasattr(self, 'notes') else None)!r}, "
-                f"users={(self.users if hasattr(self, 'users') else None)!r}, "
-                f"time={(self.time if hasattr(self, 'time') else None)!r}, "
-                f"os={(self.os if hasattr(self, 'os') else None)!r}, "
-                f"php_version={(self.php_version
-                     if hasattr(self, 'php_version') else None)!r}, "
-                f"status={self.status!r})")
+        _app=(
+            self.app
+            if hasattr(self, "app")
+            else None
+        )
+        _moto=(
+            self.moto
+            if hasattr(self, "moto")
+            else None
+        )
+        _notes=(
+            self.notes
+            if hasattr(self, "notes")
+            else None
+        )
+        _users=(
+            self.users
+            if hasattr(self, "users")
+            else None
+        )
+        _time=(
+            self.time
+            if hasattr(self, "time")
+            else None
+        )
+        _os=(
+            self.os
+            if hasattr(self, "os")
+            else None
+        )
+        _php_version=(
+            self.php_version
+            if hasattr(self, "php_version")
+            else None
+        )
+        _status=self.status
+        return (
+            f"{self.__class__.__name__}("
+            f"app={_app!r}"
+            f"moto={_moto!r}"
+            f"notes={_notes!r}"
+            f"users={_users!r}"
+            f"time={_time!r}"
+            f"os={_os!r}"
+            f"php_version={_php_version!r}"
+            f"status={_status!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"app={(self.app if hasattr(self, 'app') else None)!s}, "
-                f"moto={(self.moto if hasattr(self, 'moto') else None)!s}, "
-                f"notes={(self.notes if hasattr(self, 'notes') else None)!s}, "
-                f"users={(self.users if hasattr(self, 'users') else None)!s}, "
-                f"time={(self.time if hasattr(self, 'time') else None)!s}, "
-                f"os={(self.os if hasattr(self, 'os') else None)!s}, "
-                f"php_version={(self.php_version
-                     if hasattr(self, 'php_version') else None)!s}, "
-                f"status={self.status!s})")
+        _app=(
+            self.app
+            if hasattr(self, "app")
+            else None
+        )
+        _moto=(
+            self.moto
+            if hasattr(self, "moto")
+            else None
+        )
+        _notes=(
+            self.notes
+            if hasattr(self, "notes")
+            else None
+        )
+        _users=(
+            self.users
+            if hasattr(self, "users")
+            else None
+        )
+        _time=(
+            self.time
+            if hasattr(self, "time")
+            else None
+        )
+        _os=(
+            self.os
+            if hasattr(self, "os")
+            else None
+        )
+        _php_version=(
+            self.php_version
+            if hasattr(self, "php_version")
+            else None
+        )
+        _status=self.status
+        return (
+            f"{self.__class__.__name__}("
+            f"app={_app!s}"
+            f"moto={_moto!s}"
+            f"notes={_notes!s}"
+            f"users={_users!s}"
+            f"time={_time!s}"
+            f"os={_os!s}"
+            f"php_version={_php_version!s}"
+            f"status={_status!s}"
+            f")"
+        )

@@ -11,8 +11,7 @@ from testerxml.utilities.xml_utilities import (
 class SimpleAttributes(object):
     """Implementation of the 'SimpleAttributes' model.
 
-    A model with only attributes (attributes can only be non-array primitive
-    types)
+    A model with only attributes (attributes can only be non-array primitive types)
 
     Attributes:
         string_element (str): string attribute (node name "string")
@@ -38,13 +37,14 @@ class SimpleAttributes(object):
         "attributes_type",
     ]
 
-    def __init__(self,
-                 string_element=None,
-                 nonreserved=None,
-                 number_element=None,
-                 precision=None,
-                 boolean_element=None,
-                 attributes_type="SimpleAttributes"):
+    def __init__(
+        self,
+        string_element=None,
+        nonreserved=None,
+        number_element=None,
+        precision=None,
+        boolean_element=None,
+        attributes_type="SimpleAttributes"):
         """Initialize a SimpleAttributes instance."""
         # Initialize members of the class
         self.string_element = string_element
@@ -84,22 +84,29 @@ class SimpleAttributes(object):
         # Extract variables from the dictionary
         string_element =\
             dictionary.get("string-element")\
-            if dictionary.get("string-element") else None
+            if dictionary.get("string-element")\
+                else None
         nonreserved =\
             dictionary.get("nonreserved")\
-            if dictionary.get("nonreserved") else None
+            if dictionary.get("nonreserved")\
+                else None
         number_element =\
             dictionary.get("number-element")\
-            if dictionary.get("number-element") else None
+            if dictionary.get("number-element")\
+                else None
         precision =\
             dictionary.get("precision")\
-            if dictionary.get("precision") else None
+            if dictionary.get("precision")\
+                else None
         boolean_element =\
             dictionary.get("boolean-element")\
-            if "boolean-element" in dictionary.keys() else None
+            if "boolean-element" in dictionary.keys()\
+                else None
         attributes_type =\
             dictionary.get("attributes_type")\
-            if dictionary.get("attributes_type") else "SimpleAttributes"
+            if dictionary.get("attributes_type")\
+                else "SimpleAttributes"
+
         # Return an object of this model
         return cls(string_element,
                    nonreserved,
@@ -159,25 +166,49 @@ class SimpleAttributes(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string_element={self.string_element!r}, "
-                f"nonreserved={self.nonreserved!r}, "
-                f"number_element={self.number_element!r}, "
-                f"precision={self.precision!r}, "
-                f"boolean_element={self.boolean_element!r}, "
-                f"attributes_type={(self.attributes_type
-                     if hasattr(self, 'attributes_type') else None)!r})")
+        _string_element=self.string_element
+        _nonreserved=self.nonreserved
+        _number_element=self.number_element
+        _precision=self.precision
+        _boolean_element=self.boolean_element
+        _attributes_type=(
+            self.attributes_type
+            if hasattr(self, "attributes_type")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"string_element={_string_element!r}"
+            f"nonreserved={_nonreserved!r}"
+            f"number_element={_number_element!r}"
+            f"precision={_precision!r}"
+            f"boolean_element={_boolean_element!r}"
+            f"attributes_type={_attributes_type!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string_element={self.string_element!s}, "
-                f"nonreserved={self.nonreserved!s}, "
-                f"number_element={self.number_element!s}, "
-                f"precision={self.precision!s}, "
-                f"boolean_element={self.boolean_element!s}, "
-                f"attributes_type={(self.attributes_type
-                     if hasattr(self, 'attributes_type') else None)!s})")
+        _string_element=self.string_element
+        _nonreserved=self.nonreserved
+        _number_element=self.number_element
+        _precision=self.precision
+        _boolean_element=self.boolean_element
+        _attributes_type=(
+            self.attributes_type
+            if hasattr(self, "attributes_type")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"string_element={_string_element!s}"
+            f"nonreserved={_nonreserved!s}"
+            f"number_element={_number_element!s}"
+            f"precision={_precision!s}"
+            f"boolean_element={_boolean_element!s}"
+            f"attributes_type={_attributes_type!s}"
+            f")"
+        )
 
 class ModelWithInheritedAttributes(SimpleAttributes):
     """Implementation of the 'ModelWithInheritedAttributes' model.
@@ -199,25 +230,27 @@ class ModelWithInheritedAttributes(SimpleAttributes):
         "attributes_type": "attributes_type",
     }
 
-    def __init__(self,
-                 new_string_field=None,
-                 string_element=None,
-                 nonreserved=None,
-                 number_element=None,
-                 precision=None,
-                 boolean_element=None,
-                 attributes_type="ModelWithInheritedAttributes"):
+    def __init__(
+        self,
+        new_string_field=None,
+        string_element=None,
+        nonreserved=None,
+        number_element=None,
+        precision=None,
+        boolean_element=None,
+        attributes_type="ModelWithInheritedAttributes"):
         """Initialize a ModelWithInheritedAttributes instance."""
         # Initialize members of the class
         self.new_string_field = new_string_field
 
         # Call the constructor for the base class
-        super(ModelWithInheritedAttributes, self).__init__(string_element,
-                                                           nonreserved,
-                                                           number_element,
-                                                           precision,
-                                                           boolean_element,
-                                                           attributes_type)
+        super(ModelWithInheritedAttributes, self).__init__(
+            string_element,
+            nonreserved,
+            number_element,
+            precision,
+            boolean_element,
+            attributes_type)
 
     @classmethod
     def from_dictionary(cls,
@@ -239,25 +272,33 @@ class ModelWithInheritedAttributes(SimpleAttributes):
         # Extract variables from the dictionary
         new_string_field =\
             dictionary.get("NewStringField")\
-            if dictionary.get("NewStringField") else None
+            if dictionary.get("NewStringField")\
+                else None
         string_element =\
             dictionary.get("string-element")\
-            if dictionary.get("string-element") else None
+            if dictionary.get("string-element")\
+                else None
         nonreserved =\
             dictionary.get("nonreserved")\
-            if dictionary.get("nonreserved") else None
+            if dictionary.get("nonreserved")\
+                else None
         number_element =\
             dictionary.get("number-element")\
-            if dictionary.get("number-element") else None
+            if dictionary.get("number-element")\
+                else None
         precision =\
             dictionary.get("precision")\
-            if dictionary.get("precision") else None
+            if dictionary.get("precision")\
+                else None
         boolean_element =\
             dictionary.get("boolean-element")\
-            if "boolean-element" in dictionary.keys() else None
+            if "boolean-element" in dictionary.keys()\
+                else None
         attributes_type =\
             dictionary.get("attributes_type")\
-            if dictionary.get("attributes_type") else "ModelWithInheritedAttributes"
+            if dictionary.get("attributes_type")\
+                else "ModelWithInheritedAttributes"
+
         # Return an object of this model
         return cls(new_string_field,
                    string_element,
@@ -311,14 +352,24 @@ class ModelWithInheritedAttributes(SimpleAttributes):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"new_string_field={self.new_string_field!r})")
+        _new_string_field=self.new_string_field
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"new_string_field={_new_string_field!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"new_string_field={self.new_string_field!s})")
+        _new_string_field=self.new_string_field
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"new_string_field={_new_string_field!s}"
+            f")"
+        )

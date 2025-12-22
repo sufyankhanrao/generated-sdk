@@ -21,8 +21,9 @@ class SingleElementWithNodeName(object):
         "string_element": "string-element",
     }
 
-    def __init__(self,
-                 string_element=None):
+    def __init__(
+        self,
+        string_element=None):
         """Initialize a SingleElementWithNodeName instance."""
         # Initialize members of the class
         self.string_element = string_element
@@ -47,7 +48,9 @@ class SingleElementWithNodeName(object):
         # Extract variables from the dictionary
         string_element =\
             dictionary.get("string-element")\
-            if dictionary.get("string-element") else None
+            if dictionary.get("string-element")\
+                else None
+
         # Return an object of this model
         return cls(string_element)
 
@@ -77,10 +80,18 @@ class SingleElementWithNodeName(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string_element={self.string_element!r})")
+        _string_element=self.string_element
+        return (
+            f"{self.__class__.__name__}("
+            f"string_element={_string_element!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string_element={self.string_element!s})")
+        _string_element=self.string_element
+        return (
+            f"{self.__class__.__name__}("
+            f"string_element={_string_element!s}"
+            f")"
+        )

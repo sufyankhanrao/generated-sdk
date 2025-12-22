@@ -18,11 +18,11 @@ class EchoResponse(object):
         headers (Dict[str, str]): The model property of type Dict[str, str].
         method (str): The model property of type str.
         path (str): relativePath
-        query (Dict[str, QueryParameter]): The model property of type
-            Dict[str, QueryParameter].
+        query (Dict[str, QueryParameter]): The model property of type Dict[str,
+            QueryParameter].
         upload_count (int): The model property of type int.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -45,14 +45,15 @@ class EchoResponse(object):
         "upload_count",
     ]
 
-    def __init__(self,
-                 body=APIHelper.SKIP,
-                 headers=APIHelper.SKIP,
-                 method=APIHelper.SKIP,
-                 path=APIHelper.SKIP,
-                 query=APIHelper.SKIP,
-                 upload_count=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        body=APIHelper.SKIP,
+        headers=APIHelper.SKIP,
+        method=APIHelper.SKIP,
+        path=APIHelper.SKIP,
+        query=APIHelper.SKIP,
+        upload_count=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a EchoResponse instance."""
         # Initialize members of the class
         if body is not APIHelper.SKIP:
@@ -93,22 +94,30 @@ class EchoResponse(object):
         # Extract variables from the dictionary
         body =\
             dictionary.get("body")\
-            if dictionary.get("body") else APIHelper.SKIP
+            if dictionary.get("body")\
+                else APIHelper.SKIP
         headers =\
             dictionary.get("headers")\
-            if dictionary.get("headers") else APIHelper.SKIP
+            if dictionary.get("headers")\
+                else APIHelper.SKIP
         method =\
             dictionary.get("method")\
-            if dictionary.get("method") else APIHelper.SKIP
+            if dictionary.get("method")\
+                else APIHelper.SKIP
         path =\
             dictionary.get("path")\
-            if dictionary.get("path") else APIHelper.SKIP
-        query = QueryParameter.from_dictionary(
+            if dictionary.get("path")\
+                else APIHelper.SKIP
+        query =\
+            QueryParameter.from_dictionary(
             dictionary.get("query"))\
-            if "query" in dictionary.keys() else APIHelper.SKIP
+                if "query" in dictionary.keys()\
+                else APIHelper.SKIP
         upload_count =\
             dictionary.get("uploadCount")\
-            if dictionary.get("uploadCount") else APIHelper.SKIP
+            if dictionary.get("uploadCount")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -123,26 +132,90 @@ class EchoResponse(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"body={(self.body if hasattr(self, 'body') else None)!r}, "
-                f"headers={(self.headers
-                     if hasattr(self, 'headers') else None)!r}, "
-                f"method={(self.method if hasattr(self, 'method') else None)!r}, "
-                f"path={(self.path if hasattr(self, 'path') else None)!r}, "
-                f"query={(self.query if hasattr(self, 'query') else None)!r}, "
-                f"upload_count={(self.upload_count
-                     if hasattr(self, 'upload_count') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _body=(
+            self.body
+            if hasattr(self, "body")
+            else None
+        )
+        _headers=(
+            self.headers
+            if hasattr(self, "headers")
+            else None
+        )
+        _method=(
+            self.method
+            if hasattr(self, "method")
+            else None
+        )
+        _path=(
+            self.path
+            if hasattr(self, "path")
+            else None
+        )
+        _query=(
+            self.query
+            if hasattr(self, "query")
+            else None
+        )
+        _upload_count=(
+            self.upload_count
+            if hasattr(self, "upload_count")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"body={_body!r}"
+            f"headers={_headers!r}"
+            f"method={_method!r}"
+            f"path={_path!r}"
+            f"query={_query!r}"
+            f"upload_count={_upload_count!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"body={(self.body if hasattr(self, 'body') else None)!s}, "
-                f"headers={(self.headers
-                     if hasattr(self, 'headers') else None)!s}, "
-                f"method={(self.method if hasattr(self, 'method') else None)!s}, "
-                f"path={(self.path if hasattr(self, 'path') else None)!s}, "
-                f"query={(self.query if hasattr(self, 'query') else None)!s}, "
-                f"upload_count={(self.upload_count
-                     if hasattr(self, 'upload_count') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _body=(
+            self.body
+            if hasattr(self, "body")
+            else None
+        )
+        _headers=(
+            self.headers
+            if hasattr(self, "headers")
+            else None
+        )
+        _method=(
+            self.method
+            if hasattr(self, "method")
+            else None
+        )
+        _path=(
+            self.path
+            if hasattr(self, "path")
+            else None
+        )
+        _query=(
+            self.query
+            if hasattr(self, "query")
+            else None
+        )
+        _upload_count=(
+            self.upload_count
+            if hasattr(self, "upload_count")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"body={_body!s}"
+            f"headers={_headers!s}"
+            f"method={_method!s}"
+            f"path={_path!s}"
+            f"query={_query!s}"
+            f"upload_count={_upload_count!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

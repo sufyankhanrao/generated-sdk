@@ -144,8 +144,8 @@ class UnixDateControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Optional_Nullable"
         date = APIHelper.json_deserialize(
-            "{\"dateTime\":[1484719381,1484719381],\"dateTime1\":[1484719381,14"
-            "84719381]}",
+            "{\"dateTime\":[1484719381,1484719381],\"dateTime1\":[1484719381,14847193"
+            "81]}",
             UnixDateArray.from_dictionary,
         )
 
@@ -216,8 +216,7 @@ class UnixDateControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Optional_Nullable"
         date = APIHelper.json_deserialize(
-            "{\"dateTime\":{\"key\":1484719381},\"dateTime1\":{\"key\":14847193"
-            "81}}",
+            "{\"dateTime\":{\"key\":1484719381},\"dateTime1\":{\"key\":1484719381}}",
             UnixDateMap.from_dictionary,
         )
 

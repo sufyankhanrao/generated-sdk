@@ -17,15 +17,13 @@ class OAuthToken(object):
         access_token (str): Access token
         token_type (str): Type of access token
         expires_in (int): Time in seconds before the access token expires
-        scope (str): List of scopes granted This is a space-delimited list of
-            strings.
+        scope (str): List of scopes granted This is a space-delimited list of strings.
         expiry (int): Time of token expiry as unix timestamp (UTC)
-        refresh_token (str): Refresh token Used to get a new access token when
-            it expires.
-        id_token (str): The token representing the identity of a specific
-            session.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        refresh_token (str): Refresh token Used to get a new access token when it
+            expires.
+        id_token (str): The token representing the identity of a specific session.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -48,15 +46,16 @@ class OAuthToken(object):
         "id_token",
     ]
 
-    def __init__(self,
-                 access_token=None,
-                 token_type=None,
-                 expires_in=APIHelper.SKIP,
-                 scope=APIHelper.SKIP,
-                 expiry=APIHelper.SKIP,
-                 refresh_token=APIHelper.SKIP,
-                 id_token=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        access_token=None,
+        token_type=None,
+        expires_in=APIHelper.SKIP,
+        scope=APIHelper.SKIP,
+        expiry=APIHelper.SKIP,
+        refresh_token=APIHelper.SKIP,
+        id_token=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a OAuthToken instance."""
         # Initialize members of the class
         self.access_token = access_token
@@ -97,25 +96,33 @@ class OAuthToken(object):
         # Extract variables from the dictionary
         access_token =\
             dictionary.get("access_token")\
-            if dictionary.get("access_token") else None
+            if dictionary.get("access_token")\
+                else None
         token_type =\
             dictionary.get("token_type")\
-            if dictionary.get("token_type") else None
+            if dictionary.get("token_type")\
+                else None
         expires_in =\
             dictionary.get("expires_in")\
-            if dictionary.get("expires_in") else APIHelper.SKIP
+            if dictionary.get("expires_in")\
+                else APIHelper.SKIP
         scope =\
             dictionary.get("scope")\
-            if dictionary.get("scope") else APIHelper.SKIP
+            if dictionary.get("scope")\
+                else APIHelper.SKIP
         expiry =\
             dictionary.get("expiry")\
-            if dictionary.get("expiry") else APIHelper.SKIP
+            if dictionary.get("expiry")\
+                else APIHelper.SKIP
         refresh_token =\
             dictionary.get("refresh_token")\
-            if dictionary.get("refresh_token") else APIHelper.SKIP
+            if dictionary.get("refresh_token")\
+                else APIHelper.SKIP
         id_token =\
             dictionary.get("id_token")\
-            if dictionary.get("id_token") else APIHelper.SKIP
+            if dictionary.get("id_token")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}

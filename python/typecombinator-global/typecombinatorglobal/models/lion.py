@@ -31,11 +31,12 @@ class Lion(object):
         "kind",
     ]
 
-    def __init__(self,
-                 id=None,
-                 weight=None,
-                 mtype=None,
-                 kind=APIHelper.SKIP):
+    def __init__(
+        self,
+        id=None,
+        weight=None,
+        mtype=None,
+        kind=APIHelper.SKIP):
         """Initialize a Lion instance."""
         # Initialize members of the class
         self.id = id
@@ -62,12 +63,23 @@ class Lion(object):
             return None
 
         # Extract variables from the dictionary
-        id = dictionary.get("id") if dictionary.get("id") else None
-        weight = dictionary.get("weight") if dictionary.get("weight") else None
-        mtype = dictionary.get("type") if dictionary.get("type") else None
+        id =\
+            dictionary.get("id")\
+            if dictionary.get("id")\
+                else None
+        weight =\
+            dictionary.get("weight")\
+            if dictionary.get("weight")\
+                else None
+        mtype =\
+            dictionary.get("type")\
+            if dictionary.get("type")\
+                else None
         kind =\
             dictionary.get("kind")\
-            if dictionary.get("kind") else APIHelper.SKIP
+            if dictionary.get("kind")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(id,
                    weight,
@@ -89,40 +101,86 @@ class Lion(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.id,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.id,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.weight,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.weight,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.mtype,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.mtype,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("id"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("id"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("weight"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("weight"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("type"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("type"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!r}, "
-                f"weight={self.weight!r}, "
-                f"mtype={self.mtype!r}, "
-                f"kind={(self.kind if hasattr(self, 'kind') else None)!r})")
+        _id=self.id
+        _weight=self.weight
+        _mtype=self.mtype
+        _kind=(
+            self.kind
+            if hasattr(self, "kind")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!r}"
+            f"weight={_weight!r}"
+            f"mtype={_mtype!r}"
+            f"kind={_kind!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!s}, "
-                f"weight={self.weight!s}, "
-                f"mtype={self.mtype!s}, "
-                f"kind={(self.kind if hasattr(self, 'kind') else None)!s})")
+        _id=self.id
+        _weight=self.weight
+        _mtype=self.mtype
+        _kind=(
+            self.kind
+            if hasattr(self, "kind")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!s}"
+            f"weight={_weight!s}"
+            f"mtype={_mtype!s}"
+            f"kind={_kind!s}"
+            f")"
+        )

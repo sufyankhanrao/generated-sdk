@@ -15,8 +15,8 @@ class AddDateInGlobalException(object):
     Attributes:
         value (date): The model property of type date.
         value_1 (date): The model property of type date.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -30,10 +30,11 @@ class AddDateInGlobalException(object):
         "value_1",
     ]
 
-    def __init__(self,
-                 value=None,
-                 value_1=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        value=None,
+        value_1=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a AddDateInGlobalException instance."""
         # Initialize members of the class
         self.value = value
@@ -63,10 +64,13 @@ class AddDateInGlobalException(object):
             return None
 
         # Extract variables from the dictionary
-        value = dateutil.parser.parse(dictionary.get("value")).date()\
+        value = dateutil.parser.parse(
+            dictionary.get("value")).date()\
             if dictionary.get("value") else None
-        value_1 = dateutil.parser.parse(dictionary.get("value1")).date()\
+        value_1 = dateutil.parser.parse(
+            dictionary.get("value1")).date()\
             if dictionary.get("value1") else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -77,16 +81,34 @@ class AddDateInGlobalException(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"value={self.value!r}, "
-                f"value_1={(self.value_1
-                     if hasattr(self, 'value_1') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _value=self.value
+        _value_1=(
+            self.value_1
+            if hasattr(self, "value_1")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"value={_value!r}"
+            f"value_1={_value_1!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"value={self.value!s}, "
-                f"value_1={(self.value_1
-                     if hasattr(self, 'value_1') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _value=self.value
+        _value_1=(
+            self.value_1
+            if hasattr(self, "value_1")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"value={_value!s}"
+            f"value_1={_value_1!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

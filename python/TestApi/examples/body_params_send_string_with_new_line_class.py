@@ -43,12 +43,7 @@ body = TestNstringEncoding(
 
 try:
     result = body_params_controller.send_string_with_new_line(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

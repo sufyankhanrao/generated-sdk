@@ -34,15 +34,34 @@ class RFC7807ErrorResponseErrorException(APIException):
             MUST match property names in the API description.
 
         """
-        self.title = dictionary.get("title") if dictionary.get("title") else None
+        self.title =\
+            dictionary.get("title")\
+            if dictionary.get("title")\
+                else None
         self.detail =\
             dictionary.get("detail")\
-            if dictionary.get("detail") else None
+            if dictionary.get("detail")\
+                else None
+
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"title={(self.title if hasattr(self, 'title') else None)!s}, "
-                f"detail={(self.detail if hasattr(self, 'detail') else None)!s})")
+        _title=(
+            self.title
+            if hasattr(self, "title")
+            else None
+        )
+        _detail=(
+            self.detail
+            if hasattr(self, "detail")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"title={_title!s}"
+            f"detail={_detail!s}"
+            f")"
+        )

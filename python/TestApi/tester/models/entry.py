@@ -15,8 +15,8 @@ class Entry(object):
         content_snippet (str): The model property of type str.
         content (str): The model property of type str.
         categories (List[str]): The model property of type List[str].
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -31,15 +31,16 @@ class Entry(object):
         "title": "title",
     }
 
-    def __init__(self,
-                 author=None,
-                 categories=None,
-                 content=None,
-                 content_snippet=None,
-                 link=None,
-                 published_date=None,
-                 title=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        author=None,
+        categories=None,
+        content=None,
+        content_snippet=None,
+        link=None,
+        published_date=None,
+        title=None,
+        additional_properties=None):
         """Initialize a Entry instance."""
         # Initialize members of the class
         self.title = title
@@ -73,19 +74,35 @@ class Entry(object):
             return None
 
         # Extract variables from the dictionary
-        author = dictionary.get("author") if dictionary.get("author") else None
+        author =\
+            dictionary.get("author")\
+            if dictionary.get("author")\
+                else None
         categories =\
             dictionary.get("categories")\
-            if dictionary.get("categories") else None
-        content = dictionary.get("content") if dictionary.get("content") else None
+            if dictionary.get("categories")\
+                else None
+        content =\
+            dictionary.get("content")\
+            if dictionary.get("content")\
+                else None
         content_snippet =\
             dictionary.get("contentSnippet")\
-            if dictionary.get("contentSnippet") else None
-        link = dictionary.get("link") if dictionary.get("link") else None
+            if dictionary.get("contentSnippet")\
+                else None
+        link =\
+            dictionary.get("link")\
+            if dictionary.get("link")\
+                else None
         published_date =\
             dictionary.get("publishedDate")\
-            if dictionary.get("publishedDate") else None
-        title = dictionary.get("title") if dictionary.get("title") else None
+            if dictionary.get("publishedDate")\
+                else None
+        title =\
+            dictionary.get("title")\
+            if dictionary.get("title")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -101,24 +118,46 @@ class Entry(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"title={self.title!r}, "
-                f"link={self.link!r}, "
-                f"author={self.author!r}, "
-                f"published_date={self.published_date!r}, "
-                f"content_snippet={self.content_snippet!r}, "
-                f"content={self.content!r}, "
-                f"categories={self.categories!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _title=self.title
+        _link=self.link
+        _author=self.author
+        _published_date=self.published_date
+        _content_snippet=self.content_snippet
+        _content=self.content
+        _categories=self.categories
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"title={_title!r}"
+            f"link={_link!r}"
+            f"author={_author!r}"
+            f"published_date={_published_date!r}"
+            f"content_snippet={_content_snippet!r}"
+            f"content={_content!r}"
+            f"categories={_categories!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"title={self.title!s}, "
-                f"link={self.link!s}, "
-                f"author={self.author!s}, "
-                f"published_date={self.published_date!s}, "
-                f"content_snippet={self.content_snippet!s}, "
-                f"content={self.content!s}, "
-                f"categories={self.categories!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _title=self.title
+        _link=self.link
+        _author=self.author
+        _published_date=self.published_date
+        _content_snippet=self.content_snippet
+        _content=self.content
+        _categories=self.categories
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"title={_title!s}"
+            f"link={_link!s}"
+            f"author={_author!s}"
+            f"published_date={_published_date!s}"
+            f"content_snippet={_content_snippet!s}"
+            f"content={_content!s}"
+            f"categories={_categories!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

@@ -4,6 +4,7 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+# ruff: noqa: D410
 from apimatic_core.configurations.endpoint_configuration import (
     EndpointConfiguration,
 )
@@ -43,14 +44,12 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -58,25 +57,24 @@ class APIController(BaseController):
             .path("/retries/tryApiCall/{case}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
-                            .key("case")
-                            .value(case)
-                            .is_required(True)
-                            .should_encode(True))
+                .key("case")
+                .value(case)
+                .is_required(True)
+                .should_encode(True))
             .header_param(Parameter()
-                          .key("maxRetries")
-                          .value(max_retries))
+                .key("maxRetries")
+                .value(max_retries))
             .header_param(Parameter()
-                          .key("timeout")
-                          .value(timeout))
+                .key("timeout")
+                .value(timeout))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def try_post_api_call(self,
@@ -89,14 +87,12 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -104,20 +100,19 @@ class APIController(BaseController):
             .path("/retries/tryPostApi")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("maxRetries")
-                          .value(max_retries))
+                .key("maxRetries")
+                .value(max_retries))
             .header_param(Parameter()
-                          .key("timeout")
-                          .value(timeout))
+                .key("timeout")
+                .value(timeout))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def retry_post_api_call(self,
@@ -130,14 +125,12 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -145,20 +138,19 @@ class APIController(BaseController):
             .path("/retries/retryPostApi")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("maxRetries")
-                          .value(max_retries))
+                .key("maxRetries")
+                .value(max_retries))
             .header_param(Parameter()
-                          .key("timeout")
-                          .value(timeout))
+                .key("timeout")
+                .value(timeout))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).endpoint_configuration(
             EndpointConfiguration()
             .to_retry(True),
@@ -176,14 +168,12 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -191,23 +181,22 @@ class APIController(BaseController):
             .path("/retries/retryApiCallAfter")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("maxRetries")
-                          .value(max_retries))
+                .key("maxRetries")
+                .value(max_retries))
             .header_param(Parameter()
-                          .key("retryAfter")
-                          .value(retry_after))
+                .key("retryAfter")
+                .value(retry_after))
             .header_param(Parameter()
-                          .key("timeout")
-                          .value(timeout))
+                .key("timeout")
+                .value(timeout))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def dont_retry_api_call(self,
@@ -220,14 +209,12 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -235,20 +222,19 @@ class APIController(BaseController):
             .path("/retries/dontRetryApi")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("maxRetries")
-                          .value(max_retries))
+                .key("maxRetries")
+                .value(max_retries))
             .header_param(Parameter()
-                          .key("timeout")
-                          .value(timeout))
+                .key("timeout")
+                .value(timeout))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).endpoint_configuration(
             EndpointConfiguration()
             .to_retry(False),
@@ -268,14 +254,12 @@ class APIController(BaseController):
             timeout (int, optional): Timeout for all requests in seconds
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -283,27 +267,26 @@ class APIController(BaseController):
             .path("/retries/tryPutApi")
             .http_method(HttpMethodEnum.PUT)
             .body_param(Parameter()
-                        .value(file)
-                        .is_required(True))
+                .value(file)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("maxRetries")
-                          .value(max_retries))
+                .key("maxRetries")
+                .value(max_retries))
             .header_param(Parameter()
-                          .key("retryAfter")
-                          .value(retry_after))
+                .key("retryAfter")
+                .value(retry_after))
             .header_param(Parameter()
-                          .key("timeout")
-                          .value(timeout))
+                .key("timeout")
+                .value(timeout))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/octet-stream"))
+                .key("content-type")
+                .value("application/octet-stream"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()

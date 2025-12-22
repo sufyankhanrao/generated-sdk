@@ -12,8 +12,8 @@ class PrecisionAsOptional(object):
 
     Attributes:
         precision (float): The model property of type float.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -26,9 +26,10 @@ class PrecisionAsOptional(object):
         "precision",
     ]
 
-    def __init__(self,
-                 precision=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        precision=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a PrecisionAsOptional instance."""
         # Initialize members of the class
         if precision is not APIHelper.SKIP:
@@ -59,7 +60,9 @@ class PrecisionAsOptional(object):
         # Extract variables from the dictionary
         precision =\
             dictionary.get("precision")\
-            if dictionary.get("precision") else APIHelper.SKIP
+            if dictionary.get("precision")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -69,14 +72,30 @@ class PrecisionAsOptional(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"precision={(self.precision
-                     if hasattr(self, 'precision') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _precision=(
+            self.precision
+            if hasattr(self, "precision")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"precision={_precision!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"precision={(self.precision
-                     if hasattr(self, 'precision') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _precision=(
+            self.precision
+            if hasattr(self, "precision")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"precision={_precision!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

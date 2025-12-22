@@ -28,7 +28,7 @@ def get_calculate(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `float`.
+`float`
 
 ## Example Usage
 
@@ -39,10 +39,6 @@ collect = {
     'y': 165.14
 }
 result = simple_calculator_controller.get_calculate(collect)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

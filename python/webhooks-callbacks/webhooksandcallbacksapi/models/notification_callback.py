@@ -25,10 +25,11 @@ class NotificationCallback(object):
         "message": "message",
     }
 
-    def __init__(self,
-                 notification_type=None,
-                 subject=None,
-                 message=None):
+    def __init__(
+        self,
+        notification_type=None,
+        subject=None,
+        message=None):
         """Initialize a NotificationCallback instance."""
         # Initialize members of the class
         self.notification_type = notification_type
@@ -55,9 +56,17 @@ class NotificationCallback(object):
         # Extract variables from the dictionary
         notification_type =\
             dictionary.get("notificationType")\
-            if dictionary.get("notificationType") else None
-        subject = dictionary.get("subject") if dictionary.get("subject") else None
-        message = dictionary.get("message") if dictionary.get("message") else None
+            if dictionary.get("notificationType")\
+                else None
+        subject =\
+            dictionary.get("subject")\
+            if dictionary.get("subject")\
+                else None
+        message =\
+            dictionary.get("message")\
+            if dictionary.get("message")\
+                else None
+
         # Return an object of this model
         return cls(notification_type,
                    subject,
@@ -78,38 +87,74 @@ class NotificationCallback(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.notification_type,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.notification_type,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.subject,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.subject,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.message,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.message,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("notificationType"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("notificationType"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("subject"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("subject"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("message"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("message"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"notification_type={self.notification_type!r}, "
-                f"subject={self.subject!r}, "
-                f"message={self.message!r})")
+        _notification_type=self.notification_type
+        _subject=self.subject
+        _message=self.message
+        return (
+            f"{self.__class__.__name__}("
+            f"notification_type={_notification_type!r}"
+            f"subject={_subject!r}"
+            f"message={_message!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"notification_type={self.notification_type!s}, "
-                f"subject={self.subject!s}, "
-                f"message={self.message!s})")
+        _notification_type=self.notification_type
+        _subject=self.subject
+        _message=self.message
+        return (
+            f"{self.__class__.__name__}("
+            f"notification_type={_notification_type!s}"
+            f"subject={_subject!s}"
+            f"message={_message!s}"
+            f")"
+        )

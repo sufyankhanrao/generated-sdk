@@ -11,17 +11,16 @@ from typecombinatorsimple.api_helper import (
 class MixedModel(object):
     """Implementation of the 'MixedModel' model.
 
-    This class contains mix of scalar and non scalar types in oneOf/anyOf
-    cases.
+    This class contains mix of scalar and non scalar types in oneOf/anyOf cases.
 
     Attributes:
         any_of_required (int | Orbit): The model property of type int | Orbit.
-        one_of_req_nullable (bool | Vehicle | None): The model property of
-            type bool | Vehicle | None.
-        one_of_optional (Car | Morning | str | None): The model property of
-            type Car | Morning | str | None.
-        any_of_opt_nullable (Postman | Person | float | None): The model
-            property of type Postman | Person | float | None.
+        one_of_req_nullable (bool | Vehicle | None): The model property of type bool
+            | Vehicle | None.
+        one_of_optional (Car | Morning | str | None): The model property of type Car
+            | Morning | str | None.
+        any_of_opt_nullable (Postman | Person | float | None): The model property of
+            type Postman | Person | float | None.
 
     """
 
@@ -43,11 +42,12 @@ class MixedModel(object):
         "any_of_opt_nullable",
     ]
 
-    def __init__(self,
-                 any_of_required=None,
-                 one_of_req_nullable=None,
-                 one_of_optional=APIHelper.SKIP,
-                 any_of_opt_nullable=APIHelper.SKIP):
+    def __init__(
+        self,
+        any_of_required=None,
+        one_of_req_nullable=None,
+        one_of_optional=APIHelper.SKIP,
+        any_of_opt_nullable=APIHelper.SKIP):
         """Initialize a MixedModel instance."""
         # Initialize members of the class
         self.any_of_required = any_of_required
@@ -79,13 +79,34 @@ class MixedModel(object):
             return None
 
         # Extract variables from the dictionary
-        any_of_required = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MixedModelAnyOfRequired"), dictionary.get("anyOfRequired"), False) if dictionary.get("anyOfRequired") is not None else None
-        one_of_req_nullable = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MixedModelOneOfReqNullable"), dictionary.get("oneOfReqNullable"), False) if dictionary.get("oneOfReqNullable") is not None else None
-        one_of_optional = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MixedModelOneOfOptional"), dictionary.get("oneOfOptional"), False) if dictionary.get("oneOfOptional") is not None else APIHelper.SKIP
+        any_of_required = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MixedModelAnyOfRequired"),
+            dictionary.get("anyOfRequired"),
+            False)\
+            if dictionary.get("anyOfRequired") is not None\
+            else None
+        one_of_req_nullable = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MixedModelOneOfReqNullable"),
+            dictionary.get("oneOfReqNullable"),
+            False)\
+            if dictionary.get("oneOfReqNullable") is not None\
+            else None
+        one_of_optional = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MixedModelOneOfOptional"),
+            dictionary.get("oneOfOptional"),
+            False)\
+            if dictionary.get("oneOfOptional") is not None\
+            else APIHelper.SKIP
         if "anyOfOptNullable" in dictionary.keys():
-            any_of_opt_nullable = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MixedModelAnyOfOptNullable"), dictionary.get("anyOfOptNullable"), False) if dictionary.get("anyOfOptNullable") is not None else None
+            any_of_opt_nullable = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MixedModelAnyOfOptNullable"),
+            dictionary.get("anyOfOptNullable"),
+            False)\
+            if dictionary.get("anyOfOptNullable") is not None\
+            else None
         else:
             any_of_opt_nullable = APIHelper.SKIP
+
         # Return an object of this model
         return cls(any_of_required,
                    one_of_req_nullable,
@@ -110,31 +131,61 @@ class MixedModel(object):
         )
 
         if isinstance(dictionary, cls):
-            return UnionTypeLookUp.get("MixedModelAnyOfRequired").validate(dictionary.any_of_required).is_valid \
-                and UnionTypeLookUp.get("MixedModelOneOfReqNullable").validate(dictionary.one_of_req_nullable).is_valid
+            return (UnionTypeLookUp.get("MixedModelAnyOfRequired")
+                .validate(dictionary.any_of_required).is_valid) \
+                and (UnionTypeLookUp.get("MixedModelOneOfReqNullable")
+                .validate(dictionary.one_of_req_nullable).is_valid)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return UnionTypeLookUp.get("MixedModelAnyOfRequired").validate(dictionary.get("anyOfRequired")).is_valid \
-            and UnionTypeLookUp.get("MixedModelOneOfReqNullable").validate(dictionary.get("oneOfReqNullable")).is_valid
+        return (UnionTypeLookUp.get("MixedModelAnyOfRequired")
+            .validate(dictionary.get("anyOfRequired")).is_valid) \
+            and (UnionTypeLookUp.get("MixedModelOneOfReqNullable")
+            .validate(dictionary.get("oneOfReqNullable")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"any_of_required={self.any_of_required!r}, "
-                f"one_of_req_nullable={self.one_of_req_nullable!r}, "
-                f"one_of_optional={(self.one_of_optional
-                     if hasattr(self, 'one_of_optional') else None)!r}, "
-                f"any_of_opt_nullable={(self.any_of_opt_nullable
-                     if hasattr(self, 'any_of_opt_nullable') else None)!r})")
+        _any_of_required=self.any_of_required
+        _one_of_req_nullable=self.one_of_req_nullable
+        _one_of_optional=(
+            self.one_of_optional
+            if hasattr(self, "one_of_optional")
+            else None
+        )
+        _any_of_opt_nullable=(
+            self.any_of_opt_nullable
+            if hasattr(self, "any_of_opt_nullable")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"any_of_required={_any_of_required!r}"
+            f"one_of_req_nullable={_one_of_req_nullable!r}"
+            f"one_of_optional={_one_of_optional!r}"
+            f"any_of_opt_nullable={_any_of_opt_nullable!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"any_of_required={self.any_of_required!s}, "
-                f"one_of_req_nullable={self.one_of_req_nullable!s}, "
-                f"one_of_optional={(self.one_of_optional
-                     if hasattr(self, 'one_of_optional') else None)!s}, "
-                f"any_of_opt_nullable={(self.any_of_opt_nullable
-                     if hasattr(self, 'any_of_opt_nullable') else None)!s})")
+        _any_of_required=self.any_of_required
+        _one_of_req_nullable=self.one_of_req_nullable
+        _one_of_optional=(
+            self.one_of_optional
+            if hasattr(self, "one_of_optional")
+            else None
+        )
+        _any_of_opt_nullable=(
+            self.any_of_opt_nullable
+            if hasattr(self, "any_of_opt_nullable")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"any_of_required={_any_of_required!s}"
+            f"one_of_req_nullable={_one_of_req_nullable!s}"
+            f"one_of_optional={_one_of_optional!s}"
+            f"any_of_opt_nullable={_any_of_opt_nullable!s}"
+            f")"
+        )

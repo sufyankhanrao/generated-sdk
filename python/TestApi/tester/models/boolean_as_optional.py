@@ -12,8 +12,8 @@ class BooleanAsOptional(object):
 
     Attributes:
         boolean (bool): The model property of type bool.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -26,9 +26,10 @@ class BooleanAsOptional(object):
         "boolean",
     ]
 
-    def __init__(self,
-                 boolean=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        boolean=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a BooleanAsOptional instance."""
         # Initialize members of the class
         if boolean is not APIHelper.SKIP:
@@ -59,7 +60,9 @@ class BooleanAsOptional(object):
         # Extract variables from the dictionary
         boolean =\
             dictionary.get("boolean")\
-            if "boolean" in dictionary.keys() else APIHelper.SKIP
+            if "boolean" in dictionary.keys()\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -69,14 +72,30 @@ class BooleanAsOptional(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"boolean={(self.boolean
-                     if hasattr(self, 'boolean') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _boolean=(
+            self.boolean
+            if hasattr(self, "boolean")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"boolean={_boolean!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"boolean={(self.boolean
-                     if hasattr(self, 'boolean') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _boolean=(
+            self.boolean
+            if hasattr(self, "boolean")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"boolean={_boolean!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

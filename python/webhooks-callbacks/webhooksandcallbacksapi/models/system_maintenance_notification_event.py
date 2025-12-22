@@ -16,8 +16,8 @@ class SystemMaintenanceNotificationEvent(object):
 
     Attributes:
         system_maintenance_notification_event_type
-            (SystemMaintenanceNotificationEventTypeEnum): The model property
-            of type SystemMaintenanceNotificationEventTypeEnum.
+            (SystemMaintenanceNotificationEventTypeEnum): The model property of type
+            SystemMaintenanceNotificationEventTypeEnum.
 
     """
 
@@ -27,8 +27,9 @@ class SystemMaintenanceNotificationEvent(object):
             "systemMaintenanceNotificationEventType",
     }
 
-    def __init__(self,
-                 system_maintenance_notification_event_type=None):
+    def __init__(
+        self,
+        system_maintenance_notification_event_type=None):
         """Initialize a SystemMaintenanceNotificationEvent instance."""
         # Initialize members of the class
         self.system_maintenance_notification_event_type =\
@@ -54,7 +55,9 @@ class SystemMaintenanceNotificationEvent(object):
         # Extract variables from the dictionary
         system_maintenance_notification_event_type =\
             dictionary.get("systemMaintenanceNotificationEventType")\
-            if dictionary.get("systemMaintenanceNotificationEventType") else None
+            if dictionary.get("systemMaintenanceNotificationEventType")\
+                else None
+
         # Return an object of this model
         return cls(system_maintenance_notification_event_type)
 
@@ -73,24 +76,32 @@ class SystemMaintenanceNotificationEvent(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.system_maintenance_notification_event_type,
-                type_callable=lambda value: SystemMaintenanceNotificationEventTypeEnum.validate(value))
+                    value=dictionary.system_maintenance_notification_event_type,
+                    type_callable=lambda value:
+                        SystemMaintenanceNotificationEventTypeEnum.validate(value))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("systemMaintenanceNotificationEventType"),
-            type_callable=lambda value: SystemMaintenanceNotificationEventTypeEnum.validate(value))
+                value=dictionary.get("systemMaintenanceNotificationEventType"),
+                type_callable=lambda value:
+                    SystemMaintenanceNotificationEventTypeEnum.validate(value))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"system_maintenance_notification_event_type={
-                    self.system_maintenance_notification_event_type!r})")
+        _system_maintenance_notification_event_type=self.system_maintenance_notification_event_type
+        return (
+            f"{self.__class__.__name__}("
+            f"system_maintenance_notification_event_type={_system_maintenance_notification_event_type!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"system_maintenance_notification_event_type={
-                    self.system_maintenance_notification_event_type!s})")
+        _system_maintenance_notification_event_type=self.system_maintenance_notification_event_type
+        return (
+            f"{self.__class__.__name__}("
+            f"system_maintenance_notification_event_type={_system_maintenance_notification_event_type!s}"
+            f")"
+        )

@@ -37,12 +37,7 @@ client = TesterClient(
 error_codes_controller = client.error_codes
 try:
     result = error_codes_controller.long_in_exception()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except ExceptionWithLongException as e: 
     print(e)
 except NestedModelException as e: 

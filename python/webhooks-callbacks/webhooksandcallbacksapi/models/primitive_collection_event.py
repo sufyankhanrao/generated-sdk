@@ -27,9 +27,10 @@ class PrimitiveCollectionEvent(object):
         "event_type",
     ]
 
-    def __init__(self,
-                 ids=None,
-                 event_type=APIHelper.SKIP):
+    def __init__(
+        self,
+        ids=None,
+        event_type=APIHelper.SKIP):
         """Initialize a PrimitiveCollectionEvent instance."""
         # Initialize members of the class
         if event_type is not APIHelper.SKIP:
@@ -54,10 +55,15 @@ class PrimitiveCollectionEvent(object):
             return None
 
         # Extract variables from the dictionary
-        ids = dictionary.get("ids") if dictionary.get("ids") else None
+        ids =\
+            dictionary.get("ids")\
+            if dictionary.get("ids")\
+                else None
         event_type =\
             dictionary.get("eventType")\
-            if dictionary.get("eventType") else APIHelper.SKIP
+            if dictionary.get("eventType")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(ids,
                    event_type)
@@ -77,26 +83,50 @@ class PrimitiveCollectionEvent(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.ids,
-                type_callable=lambda value: isinstance(value, int))
+                    value=dictionary.ids,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("ids"),
-            type_callable=lambda value: isinstance(value, int))
+                value=dictionary.get("ids"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event_type={(self.event_type
-                     if hasattr(self, 'event_type') else None)!r}, "
-                f"ids={self.ids!r})")
+        _event_type=(
+            self.event_type
+            if hasattr(self, "event_type")
+            else None
+        )
+        _ids=self.ids
+        return (
+            f"{self.__class__.__name__}("
+            f"event_type={_event_type!r}"
+            f"ids={_ids!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event_type={(self.event_type
-                     if hasattr(self, 'event_type') else None)!s}, "
-                f"ids={self.ids!s})")
+        _event_type=(
+            self.event_type
+            if hasattr(self, "event_type")
+            else None
+        )
+        _ids=self.ids
+        return (
+            f"{self.__class__.__name__}("
+            f"event_type={_event_type!s}"
+            f"ids={_ids!s}"
+            f")"
+        )

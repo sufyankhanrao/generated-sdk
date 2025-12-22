@@ -15,9 +15,8 @@ class InventoryStockIncreaseEvent(object):
     """Implementation of the 'InventoryStockIncreaseEvent' model.
 
     Attributes:
-        inventory_stock_increase_event_type
-            (InventoryStockIncreaseEventTypeEnum): The model property of type
-            InventoryStockIncreaseEventTypeEnum.
+        inventory_stock_increase_event_type (InventoryStockIncreaseEventTypeEnum):
+            The model property of type InventoryStockIncreaseEventTypeEnum.
 
     """
 
@@ -26,8 +25,9 @@ class InventoryStockIncreaseEvent(object):
         "inventory_stock_increase_event_type": "inventoryStockIncreaseEventType",
     }
 
-    def __init__(self,
-                 inventory_stock_increase_event_type=None):
+    def __init__(
+        self,
+        inventory_stock_increase_event_type=None):
         """Initialize a InventoryStockIncreaseEvent instance."""
         # Initialize members of the class
         self.inventory_stock_increase_event_type =\
@@ -53,7 +53,9 @@ class InventoryStockIncreaseEvent(object):
         # Extract variables from the dictionary
         inventory_stock_increase_event_type =\
             dictionary.get("inventoryStockIncreaseEventType")\
-            if dictionary.get("inventoryStockIncreaseEventType") else None
+            if dictionary.get("inventoryStockIncreaseEventType")\
+                else None
+
         # Return an object of this model
         return cls(inventory_stock_increase_event_type)
 
@@ -72,24 +74,32 @@ class InventoryStockIncreaseEvent(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.inventory_stock_increase_event_type,
-                type_callable=lambda value: InventoryStockIncreaseEventTypeEnum.validate(value))
+                    value=dictionary.inventory_stock_increase_event_type,
+                    type_callable=lambda value:
+                        InventoryStockIncreaseEventTypeEnum.validate(value))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("inventoryStockIncreaseEventType"),
-            type_callable=lambda value: InventoryStockIncreaseEventTypeEnum.validate(value))
+                value=dictionary.get("inventoryStockIncreaseEventType"),
+                type_callable=lambda value:
+                    InventoryStockIncreaseEventTypeEnum.validate(value))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"inventory_stock_increase_event_type={
-                    self.inventory_stock_increase_event_type!r})")
+        _inventory_stock_increase_event_type=self.inventory_stock_increase_event_type
+        return (
+            f"{self.__class__.__name__}("
+            f"inventory_stock_increase_event_type={_inventory_stock_increase_event_type!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"inventory_stock_increase_event_type={
-                    self.inventory_stock_increase_event_type!s})")
+        _inventory_stock_increase_event_type=self.inventory_stock_increase_event_type
+        return (
+            f"{self.__class__.__name__}("
+            f"inventory_stock_increase_event_type={_inventory_stock_increase_event_type!s}"
+            f")"
+        )

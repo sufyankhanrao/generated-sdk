@@ -12,8 +12,8 @@ class LongAsOptional(object):
 
     Attributes:
         long (int): The model property of type int.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -26,9 +26,10 @@ class LongAsOptional(object):
         "long",
     ]
 
-    def __init__(self,
-                 long=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        long=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a LongAsOptional instance."""
         # Initialize members of the class
         if long is not APIHelper.SKIP:
@@ -59,7 +60,9 @@ class LongAsOptional(object):
         # Extract variables from the dictionary
         long =\
             dictionary.get("long")\
-            if dictionary.get("long") else APIHelper.SKIP
+            if dictionary.get("long")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -69,12 +72,30 @@ class LongAsOptional(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"long={(self.long if hasattr(self, 'long') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _long=(
+            self.long
+            if hasattr(self, "long")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"long={_long!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"long={(self.long if hasattr(self, 'long') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _long=(
+            self.long
+            if hasattr(self, "long")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"long={_long!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

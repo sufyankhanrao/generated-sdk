@@ -37,7 +37,7 @@ def send_schemain_model(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -49,11 +49,7 @@ body = SchemaContainer(
 )
 
 result = json_obj_controller.send_schemain_model(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -74,7 +70,7 @@ def send_schemaas_body(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -82,11 +78,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 body = {"key1":"val1","key2":"val2"}
 
 result = json_obj_controller.send_schemaas_body(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -111,7 +103,7 @@ def send_schemaas_form(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -122,11 +114,7 @@ collect = {
     'model': {"key1":"val1","key2":"val2"}
 }
 result = json_obj_controller.send_schemaas_form(collect)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -150,7 +138,7 @@ def send_schemaas_query(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -160,11 +148,7 @@ collect = {
     'model': {"key1":"val1","key2":"val2"}
 }
 result = json_obj_controller.send_schemaas_query(collect)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -178,17 +162,13 @@ def get_schema(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `dict`.
+`dict`
 
 ## Example Usage
 
 ```python
 result = json_obj_controller.get_schema()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -202,17 +182,13 @@ def get_schema_array(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `List[dict]`.
+`List[dict]`
 
 ## Example Usage
 
 ```python
 result = json_obj_controller.get_schema_array()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -226,17 +202,13 @@ def get_schema_map(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Dict[str, dict]`.
+`Dict[str, dict]`
 
 ## Example Usage
 
 ```python
 result = json_obj_controller.get_schema_map()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -250,16 +222,12 @@ def get_schemain_model(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SchemaContainer`](../../doc/models/schema-container.md).
+[`SchemaContainer`](../../doc/models/schema-container.md)
 
 ## Example Usage
 
 ```python
 result = json_obj_controller.get_schemain_model()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

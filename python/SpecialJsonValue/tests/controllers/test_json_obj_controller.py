@@ -45,40 +45,38 @@ class JsonObjControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         body = APIHelper.json_deserialize(
-            "{\"name\":\"a name\",\"id\":\"definition-123\",\"schemaMap\":{\"ke"
-            "y1\":{\"$id\":\"https://example.com/person.schema.json\",\"$schema"
-            "\":\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Pe"
-            "rson\",\"type\":\"object\",\"properties\":{\"firstName\":{\"type\""
-            ":\"string\",\"description\":\"The person's first name.\"},\"lastNa"
-            "me\":{\"type\":\"string\",\"description\":\"The person's last name"
-            ".\",\"test\":null},\"age\":{\"type\":\"integer\",\"description\":"
-            "\"Age in years\",\"minimum\":0}}},\"key2\":{\"$id\":\"https://exam"
-            "ple.com/person.schema.json\",\"$schema\":\"https://json-schema.org"
-            "/draft/2020-12/schema\",\"title\":\"Person\",\"type\":\"object\","
-            "\"properties\":{\"firstName\":{\"type\":\"string\",\"description\""
-            ":\"The person's first name.\"},\"lastName\":{\"type\":\"string\","
-            "\"description\":\"The person's last name.\",\"test\":null},\"age\""
-            ":{\"type\":\"integer\",\"description\":\"Age in years\",\"minimum"
-            "\":0}}}},\"schemaArray\":[{\"$id\":\"https://example.com/person.sc"
-            "hema.json\",\"$schema\":\"https://json-schema.org/draft/2020-12/sc"
-            "hema\",\"title\":\"Person\",\"type\":\"object\",\"properties\":{\""
-            "firstName\":{\"type\":\"string\",\"description\":\"The person's fi"
-            "rst name.\"},\"lastName\":{\"type\":\"string\",\"description\":\"T"
-            "he person's last name.\",\"test\":null},\"age\":{\"type\":\"intege"
-            "r\",\"description\":\"Age in years\",\"minimum\":0}}},{\"$id\":\"h"
-            "ttps://example.com/person.schema.json\",\"$schema\":\"https://json"
-            "-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":"
-            "\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"de"
-            "scription\":\"The person's first name.\"},\"lastName\":{\"type\":"
-            "\"string\",\"description\":\"The person's last name.\",\"test\":nu"
-            "ll},\"age\":{\"type\":\"integer\",\"description\":\"Age in years\""
-            ",\"minimum\":0}}}],\"schema\":{\"$id\":\"https://example.com/perso"
-            "n.schema.json\",\"$schema\":\"https://json-schema.org/draft/2020-1"
-            "2/schema\",\"title\":\"Person\",\"type\":\"object\",\"properties\""
-            ":{\"firstName\":{\"type\":\"string\",\"description\":\"The person'"
-            "s first name.\"},\"lastName\":{\"type\":\"string\",\"description\""
-            ":\"The person's last name.\",\"test\":null},\"age\":{\"type\":\"in"
-            "teger\",\"description\":\"Age in years\",\"minimum\":0}}}}",
+            "{\"name\":\"a name\",\"id\":\"definition-123\",\"schemaMap\":{\"key1\":{"
+            "\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\"https:/"
+            "/json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":\""
+            "object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descriptio"
+            "n\":\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\"de"
+            "scription\":\"The person's last name.\",\"test\":null},\"age\":{\"type\""
+            ":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}},\"key2\":"
+            "{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\"https:"
+            "//json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":"
+            "\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descript"
+            "ion\":\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\""
+            "description\":\"The person's last name.\",\"test\":null},\"age\":{\"type"
+            "\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}}},\"sche"
+            "maArray\":[{\"$id\":\"https://example.com/person.schema.json\",\"$schema"
+            "\":\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Person\""
+            ",\"type\":\"object\",\"properties\":{\"firstName\":{\"type\":\"string\","
+            "\"description\":\"The person's first name.\"},\"lastName\":{\"type\":\"s"
+            "tring\",\"description\":\"The person's last name.\",\"test\":null},\"age"
+            "\":{\"type\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}"
+            "}},{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\"htt"
+            "ps://json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type"
+            "\":\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descr"
+            "iption\":\"The person's first name.\"},\"lastName\":{\"type\":\"string\""
+            ",\"description\":\"The person's last name.\",\"test\":null},\"age\":{\"t"
+            "ype\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}}],\"s"
+            "chema\":{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":"
+            "\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\""
+            "type\":\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"d"
+            "escription\":\"The person's first name.\"},\"lastName\":{\"type\":\"stri"
+            "ng\",\"description\":\"The person's last name.\",\"test\":null},\"age\":"
+            "{\"type\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}}}"
+            "",
             SchemaContainer.from_dictionary,
         )
 
@@ -110,23 +108,90 @@ class JsonObjControllerTests(ControllerTestBase):
         options = {}
         options["content_type"] = "application/x-www-form-urlencoded"
         options["id"] = 54
-        options["model"] = {"$id":"https://example.com/person.schema.json","$schema":"https://json-schema.org/draft/2020-12/schema","title":"Person","type":"object","properties":{"firstName":{"type":"string","description":"The person's first name."},"lastName":{"type":"string","description":"The person's last name.","test":None},"age":{"type":"integer","description":"Age in years","minimum":0}}}
+        options["model"] = {
+            "$id": "https://example.com/person.schema.json",
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "title": "Person",
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "description": "The person's first name.",
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "The person's last name.",
+                    "test": None,
+                },
+                "age": {
+                    "type": "integer",
+                    "description": "Age in years",
+                    "minimum": 0,
+                },
+            },
+        }
+
         options["model_array"] = APIHelper.json_deserialize(
-            "[{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":"
-            "\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Perso"
-            "n\",\"type\":\"object\",\"properties\":{\"firstName\":{\"type\":\""
-            "string\",\"description\":\"The person's first name.\"},\"lastName"
-            "\":{\"type\":\"string\",\"description\":\"The person's last name."
-            "\",\"test\":null},\"age\":{\"type\":\"integer\",\"description\":\""
-            "Age in years\",\"minimum\":0}}},{\"$id\":\"https://example.com/per"
-            "son.schema.json\",\"$schema\":\"https://json-schema.org/draft/2020"
-            "-12/schema\",\"title\":\"Person\",\"type\":\"object\",\"properties"
-            "\":{\"firstName\":{\"type\":\"string\",\"description\":\"The perso"
-            "n's first name.\"},\"lastName\":{\"type\":\"string\",\"description"
-            "\":\"The person's last name.\",\"test\":null},\"age\":{\"type\":\""
-            "integer\",\"description\":\"Age in years\",\"minimum\":0}}}]",
+            "[{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\"https"
+            "://json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":"
+            "\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descript"
+            "ion\":\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\""
+            "description\":\"The person's last name.\",\"test\":null},\"age\":{\"type"
+            "\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}},{\"$id"
+            "\":\"https://example.com/person.schema.json\",\"$schema\":\"https://json"
+            "-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":\"objec"
+            "t\",\"properties\":{\"firstName\":{\"type\":\"string\",\"description\":"
+            "\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\"descri"
+            "ption\":\"The person's last name.\",\"test\":null},\"age\":{\"type\":\"i"
+            "nteger\",\"description\":\"Age in years\",\"minimum\":0}}}]",
         )
-        options["model_map"] = {"key1":{"$id":"https://example.com/person.schema.json","$schema":"https://json-schema.org/draft/2020-12/schema","title":"Person","type":"object","properties":{"firstName":{"type":"string","description":"The person's first name."},"lastName":{"type":"string","description":"The person's last name.","test":None},"age":{"type":"integer","description":"Age in years","minimum":0}}},"key2":{"$id":"https://example.com/person.schema.json","$schema":"https://json-schema.org/draft/2020-12/schema","title":"Person","type":"object","properties":{"firstName":{"type":"string","description":"The person's first name."},"lastName":{"type":"string","description":"The person's last name.","test":None},"age":{"type":"integer","description":"Age in years","minimum":0}}}}
+        options["model_map"] = {
+            "key1": {
+                "$id": "https://example.com/person.schema.json",
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "title": "Person",
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string",
+                        "description": "The person's first name.",
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "The person's last name.",
+                        "test": None,
+                    },
+                    "age": {
+                        "type": "integer",
+                        "description": "Age in years",
+                        "minimum": 0,
+                    },
+                },
+            },
+            "key2": {
+                "$id": "https://example.com/person.schema.json",
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "title": "Person",
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string",
+                        "description": "The person's first name.",
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "The person's last name.",
+                        "test": None,
+                    },
+                    "age": {
+                        "type": "integer",
+                        "description": "Age in years",
+                        "minimum": 0,
+                    },
+                },
+            },
+        }
+
 
         # Perform the API call through the SDK function
         result = self.controller.send_schemaas_form(
@@ -155,23 +220,90 @@ class JsonObjControllerTests(ControllerTestBase):
         # Parameters for the API call
         options = {}
         options["id"] = 54
-        options["model"] = {"$id":"https://example.com/person.schema.json","$schema":"https://json-schema.org/draft/2020-12/schema","title":"Person","type":"object","properties":{"firstName":{"type":"string","description":"The person's first name."},"lastName":{"type":"string","description":"The person's last name.","test":None},"age":{"type":"integer","description":"Age in years","minimum":0}}}
+        options["model"] = {
+            "$id": "https://example.com/person.schema.json",
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "title": "Person",
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string",
+                    "description": "The person's first name.",
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "The person's last name.",
+                    "test": None,
+                },
+                "age": {
+                    "type": "integer",
+                    "description": "Age in years",
+                    "minimum": 0,
+                },
+            },
+        }
+
         options["model_array"] = APIHelper.json_deserialize(
-            "[{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":"
-            "\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Perso"
-            "n\",\"type\":\"object\",\"properties\":{\"firstName\":{\"type\":\""
-            "string\",\"description\":\"The person's first name.\"},\"lastName"
-            "\":{\"type\":\"string\",\"description\":\"The person's last name."
-            "\",\"test\":null},\"age\":{\"type\":\"integer\",\"description\":\""
-            "Age in years\",\"minimum\":0}}},{\"$id\":\"https://example.com/per"
-            "son.schema.json\",\"$schema\":\"https://json-schema.org/draft/2020"
-            "-12/schema\",\"title\":\"Person\",\"type\":\"object\",\"properties"
-            "\":{\"firstName\":{\"type\":\"string\",\"description\":\"The perso"
-            "n's first name.\"},\"lastName\":{\"type\":\"string\",\"description"
-            "\":\"The person's last name.\",\"test\":null},\"age\":{\"type\":\""
-            "integer\",\"description\":\"Age in years\",\"minimum\":0}}}]",
+            "[{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\"https"
+            "://json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":"
+            "\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descript"
+            "ion\":\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\""
+            "description\":\"The person's last name.\",\"test\":null},\"age\":{\"type"
+            "\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}},{\"$id"
+            "\":\"https://example.com/person.schema.json\",\"$schema\":\"https://json"
+            "-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":\"objec"
+            "t\",\"properties\":{\"firstName\":{\"type\":\"string\",\"description\":"
+            "\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\"descri"
+            "ption\":\"The person's last name.\",\"test\":null},\"age\":{\"type\":\"i"
+            "nteger\",\"description\":\"Age in years\",\"minimum\":0}}}]",
         )
-        options["model_map"] = {"key1":{"$id":"https://example.com/person.schema.json","$schema":"https://json-schema.org/draft/2020-12/schema","title":"Person","type":"object","properties":{"firstName":{"type":"string","description":"The person's first name."},"lastName":{"type":"string","description":"The person's last name.","test":None},"age":{"type":"integer","description":"Age in years","minimum":0}}},"key2":{"$id":"https://example.com/person.schema.json","$schema":"https://json-schema.org/draft/2020-12/schema","title":"Person","type":"object","properties":{"firstName":{"type":"string","description":"The person's first name."},"lastName":{"type":"string","description":"The person's last name.","test":None},"age":{"type":"integer","description":"Age in years","minimum":0}}}}
+        options["model_map"] = {
+            "key1": {
+                "$id": "https://example.com/person.schema.json",
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "title": "Person",
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string",
+                        "description": "The person's first name.",
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "The person's last name.",
+                        "test": None,
+                    },
+                    "age": {
+                        "type": "integer",
+                        "description": "Age in years",
+                        "minimum": 0,
+                    },
+                },
+            },
+            "key2": {
+                "$id": "https://example.com/person.schema.json",
+                "$schema": "https://json-schema.org/draft/2020-12/schema",
+                "title": "Person",
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string",
+                        "description": "The person's first name.",
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "description": "The person's last name.",
+                        "test": None,
+                    },
+                    "age": {
+                        "type": "integer",
+                        "description": "Age in years",
+                        "minimum": 0,
+                    },
+                },
+            },
+        }
+
 
         # Perform the API call through the SDK function
         result = self.controller.send_schemaas_query(
@@ -204,13 +336,12 @@ class JsonObjControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\""
-            "https://json-schema.org/draft/2020-12/schema\",\"title\":\"Person"
-            "\",\"type\":\"object\",\"properties\":{\"firstName\":{\"type\":\"s"
-            "tring\",\"description\":\"The person's first name.\"},\"lastName\""
-            ":{\"type\":\"string\",\"description\":\"The person's last name.\","
-            "\"test\":null},\"age\":{\"type\":\"integer\",\"description\":\"Age"
-            " in years\",\"minimum\":0}}}",
+            "{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\"https:"
+            "//json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":"
+            "\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descript"
+            "ion\":\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\""
+            "description\":\"The person's last name.\",\"test\":null},\"age\":{\"type"
+            "\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -232,19 +363,18 @@ class JsonObjControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "[{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":"
-            "\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Perso"
-            "n\",\"type\":\"object\",\"properties\":{\"firstName\":{\"type\":\""
-            "string\",\"description\":\"The person's first name.\"},\"lastName"
-            "\":{\"type\":\"string\",\"description\":\"The person's last name."
-            "\",\"test\":null},\"age\":{\"type\":\"integer\",\"description\":\""
-            "Age in years\",\"minimum\":0}}},{\"$id\":\"https://example.com/per"
-            "son.schema.json\",\"$schema\":\"https://json-schema.org/draft/2020"
-            "-12/schema\",\"title\":\"Person\",\"type\":\"object\",\"properties"
-            "\":{\"firstName\":{\"type\":\"string\",\"description\":\"The perso"
-            "n's first name.\"},\"lastName\":{\"type\":\"string\",\"description"
-            "\":\"The person's last name.\",\"test\":null},\"age\":{\"type\":\""
-            "integer\",\"description\":\"Age in years\",\"minimum\":0}}}]",
+            "[{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\"https"
+            "://json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":"
+            "\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descript"
+            "ion\":\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\""
+            "description\":\"The person's last name.\",\"test\":null},\"age\":{\"type"
+            "\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}},{\"$id"
+            "\":\"https://example.com/person.schema.json\",\"$schema\":\"https://json"
+            "-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":\"objec"
+            "t\",\"properties\":{\"firstName\":{\"type\":\"string\",\"description\":"
+            "\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\"descri"
+            "ption\":\"The person's last name.\",\"test\":null},\"age\":{\"type\":\"i"
+            "nteger\",\"description\":\"Age in years\",\"minimum\":0}}}]",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -266,20 +396,19 @@ class JsonObjControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"key1\":{\"$id\":\"https://example.com/person.schema.json\",\"$s"
-            "chema\":\"https://json-schema.org/draft/2020-12/schema\",\"title\""
-            ":\"Person\",\"type\":\"object\",\"properties\":{\"firstName\":{\"t"
-            "ype\":\"string\",\"description\":\"The person's first name.\"},\"l"
-            "astName\":{\"type\":\"string\",\"description\":\"The person's last"
-            " name.\",\"test\":null},\"age\":{\"type\":\"integer\",\"descriptio"
-            "n\":\"Age in years\",\"minimum\":0}}},\"key2\":{\"$id\":\"https://"
-            "example.com/person.schema.json\",\"$schema\":\"https://json-schema"
-            ".org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":\"object"
-            "\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descriptio"
-            "n\":\"The person's first name.\"},\"lastName\":{\"type\":\"string"
-            "\",\"description\":\"The person's last name.\",\"test\":null},\"ag"
-            "e\":{\"type\":\"integer\",\"description\":\"Age in years\",\"minim"
-            "um\":0}}}}",
+            "{\"key1\":{\"$id\":\"https://example.com/person.schema.json\",\"$schema"
+            "\":\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Person\""
+            ",\"type\":\"object\",\"properties\":{\"firstName\":{\"type\":\"string\","
+            "\"description\":\"The person's first name.\"},\"lastName\":{\"type\":\"s"
+            "tring\",\"description\":\"The person's last name.\",\"test\":null},\"age"
+            "\":{\"type\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}"
+            "}},\"key2\":{\"$id\":\"https://example.com/person.schema.json\",\"$schem"
+            "a\":\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Person"
+            "\",\"type\":\"object\",\"properties\":{\"firstName\":{\"type\":\"string"
+            "\",\"description\":\"The person's first name.\"},\"lastName\":{\"type\":"
+            "\"string\",\"description\":\"The person's last name.\",\"test\":null},\""
+            "age\":{\"type\":\"integer\",\"description\":\"Age in years\",\"minimum\""
+            ":0}}}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -301,40 +430,38 @@ class JsonObjControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"name\":\"a name\",\"id\":\"definition-123\",\"schemaMap\":{\"ke"
-            "y1\":{\"$id\":\"https://example.com/person.schema.json\",\"$schema"
-            "\":\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Pe"
-            "rson\",\"type\":\"object\",\"properties\":{\"firstName\":{\"type\""
-            ":\"string\",\"description\":\"The person's first name.\"},\"lastNa"
-            "me\":{\"type\":\"string\",\"description\":\"The person's last name"
-            ".\",\"test\":null},\"age\":{\"type\":\"integer\",\"description\":"
-            "\"Age in years\",\"minimum\":0}}},\"key2\":{\"$id\":\"https://exam"
-            "ple.com/person.schema.json\",\"$schema\":\"https://json-schema.org"
-            "/draft/2020-12/schema\",\"title\":\"Person\",\"type\":\"object\","
-            "\"properties\":{\"firstName\":{\"type\":\"string\",\"description\""
-            ":\"The person's first name.\"},\"lastName\":{\"type\":\"string\","
-            "\"description\":\"The person's last name.\",\"test\":null},\"age\""
-            ":{\"type\":\"integer\",\"description\":\"Age in years\",\"minimum"
-            "\":0}}}},\"schemaArray\":[{\"$id\":\"https://example.com/person.sc"
-            "hema.json\",\"$schema\":\"https://json-schema.org/draft/2020-12/sc"
-            "hema\",\"title\":\"Person\",\"type\":\"object\",\"properties\":{\""
-            "firstName\":{\"type\":\"string\",\"description\":\"The person's fi"
-            "rst name.\"},\"lastName\":{\"type\":\"string\",\"description\":\"T"
-            "he person's last name.\",\"test\":null},\"age\":{\"type\":\"intege"
-            "r\",\"description\":\"Age in years\",\"minimum\":0}}},{\"$id\":\"h"
-            "ttps://example.com/person.schema.json\",\"$schema\":\"https://json"
-            "-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":"
-            "\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"de"
-            "scription\":\"The person's first name.\"},\"lastName\":{\"type\":"
-            "\"string\",\"description\":\"The person's last name.\",\"test\":nu"
-            "ll},\"age\":{\"type\":\"integer\",\"description\":\"Age in years\""
-            ",\"minimum\":0}}}],\"schema\":{\"$id\":\"https://example.com/perso"
-            "n.schema.json\",\"$schema\":\"https://json-schema.org/draft/2020-1"
-            "2/schema\",\"title\":\"Person\",\"type\":\"object\",\"properties\""
-            ":{\"firstName\":{\"type\":\"string\",\"description\":\"The person'"
-            "s first name.\"},\"lastName\":{\"type\":\"string\",\"description\""
-            ":\"The person's last name.\",\"test\":null},\"age\":{\"type\":\"in"
-            "teger\",\"description\":\"Age in years\",\"minimum\":0}}}}",
+            "{\"name\":\"a name\",\"id\":\"definition-123\",\"schemaMap\":{\"key1\":{"
+            "\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\"https:/"
+            "/json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":\""
+            "object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descriptio"
+            "n\":\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\"de"
+            "scription\":\"The person's last name.\",\"test\":null},\"age\":{\"type\""
+            ":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}},\"key2\":"
+            "{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\"https:"
+            "//json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type\":"
+            "\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descript"
+            "ion\":\"The person's first name.\"},\"lastName\":{\"type\":\"string\",\""
+            "description\":\"The person's last name.\",\"test\":null},\"age\":{\"type"
+            "\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}}},\"sche"
+            "maArray\":[{\"$id\":\"https://example.com/person.schema.json\",\"$schema"
+            "\":\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Person\""
+            ",\"type\":\"object\",\"properties\":{\"firstName\":{\"type\":\"string\","
+            "\"description\":\"The person's first name.\"},\"lastName\":{\"type\":\"s"
+            "tring\",\"description\":\"The person's last name.\",\"test\":null},\"age"
+            "\":{\"type\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}"
+            "}},{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":\"htt"
+            "ps://json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\"type"
+            "\":\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"descr"
+            "iption\":\"The person's first name.\"},\"lastName\":{\"type\":\"string\""
+            ",\"description\":\"The person's last name.\",\"test\":null},\"age\":{\"t"
+            "ype\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}}],\"s"
+            "chema\":{\"$id\":\"https://example.com/person.schema.json\",\"$schema\":"
+            "\"https://json-schema.org/draft/2020-12/schema\",\"title\":\"Person\",\""
+            "type\":\"object\",\"properties\":{\"firstName\":{\"type\":\"string\",\"d"
+            "escription\":\"The person's first name.\"},\"lastName\":{\"type\":\"stri"
+            "ng\",\"description\":\"The person's last name.\",\"test\":null},\"age\":"
+            "{\"type\":\"integer\",\"description\":\"Age in years\",\"minimum\":0}}}}"
+            "",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,

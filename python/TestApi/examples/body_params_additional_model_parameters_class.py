@@ -48,12 +48,7 @@ model = AdditionalModelParameters(
 
 try:
     result = body_params_controller.additional_model_parameters(model)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

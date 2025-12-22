@@ -9,12 +9,7 @@ client = TesterxmloneofClient(
 oneof_array_or_single_xml_model_with_optional_wrapping_element_controller = client.oneof_array_or_single_xml_model_with_optional_wrapping_element
 try:
     result = oneof_array_or_single_xml_model_with_optional_wrapping_element_controller.generate_2()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

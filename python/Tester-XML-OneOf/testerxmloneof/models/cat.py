@@ -21,8 +21,9 @@ class Cat(object):
         "meows": "Meows",
     }
 
-    def __init__(self,
-                 meows=None):
+    def __init__(
+        self,
+        meows=None):
         """Initialize a Cat instance."""
         # Initialize members of the class
         self.meows = meows
@@ -45,7 +46,11 @@ class Cat(object):
             return None
 
         # Extract variables from the dictionary
-        meows = dictionary.get("Meows") if "Meows" in dictionary.keys() else None
+        meows =\
+            dictionary.get("Meows")\
+            if "Meows" in dictionary.keys()\
+                else None
+
         # Return an object of this model
         return cls(meows)
 
@@ -75,10 +80,18 @@ class Cat(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"meows={self.meows!r})")
+        _meows=self.meows
+        return (
+            f"{self.__class__.__name__}("
+            f"meows={_meows!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"meows={self.meows!s})")
+        _meows=self.meows
+        return (
+            f"{self.__class__.__name__}("
+            f"meows={_meows!s}"
+            f")"
+        )

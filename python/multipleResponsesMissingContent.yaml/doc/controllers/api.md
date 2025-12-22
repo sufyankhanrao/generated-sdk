@@ -31,17 +31,13 @@ def get_non_scalar_content(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponsesNonScalarContentResponse`](../../doc/models/responses-non-scalar-content-response.md).
+[`ResponsesNonScalarContentResponse`](../../doc/models/responses-non-scalar-content-response.md)
 
 ## Example Usage
 
 ```python
 result = client_controller.get_non_scalar_content()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -60,17 +56,13 @@ def get_scalar_string_content(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
+`str`
 
 ## Example Usage
 
 ```python
 result = client_controller.get_scalar_string_content()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -89,17 +81,13 @@ def get_scalar_non_null_string(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `str`.
+`str`
 
 ## Example Usage
 
 ```python
 result = client_controller.get_scalar_non_null_string()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -118,16 +106,12 @@ def get_scalar_number_content(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `int`.
+`int`
 
 ## Example Usage
 
 ```python
 result = client_controller.get_scalar_number_content()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

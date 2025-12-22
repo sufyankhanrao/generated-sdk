@@ -9,8 +9,8 @@ class BaseColor(object):
 
     Attributes:
         color (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -19,9 +19,10 @@ class BaseColor(object):
         "color": "color",
     }
 
-    def __init__(self,
-                 color=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        color=None,
+        additional_properties=None):
         """Initialize a BaseColor instance."""
         # Initialize members of the class
         self.color = color
@@ -49,7 +50,11 @@ class BaseColor(object):
             return None
 
         # Extract variables from the dictionary
-        color = dictionary.get("color") if dictionary.get("color") else None
+        color =\
+            dictionary.get("color")\
+            if dictionary.get("color")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -59,15 +64,25 @@ class BaseColor(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"color={self.color!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _color=self.color
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"color={_color!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"color={self.color!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _color=self.color
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"color={_color!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )
 
 class Color(BaseColor):
     """Implementation of the 'Color' model.
@@ -75,8 +90,8 @@ class Color(BaseColor):
 
     Attributes:
         alpha (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -86,17 +101,19 @@ class Color(BaseColor):
         "color": "color",
     }
 
-    def __init__(self,
-                 alpha=None,
-                 color=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        alpha=None,
+        color=None,
+        additional_properties=None):
         """Initialize a Color instance."""
         # Initialize members of the class
         self.alpha = alpha
 
         # Call the constructor for the base class
-        super(Color, self).__init__(color,
-                                    additional_properties)
+        super(Color, self).__init__(
+            color,
+            additional_properties)
 
     @classmethod
     def from_dictionary(cls,
@@ -116,8 +133,15 @@ class Color(BaseColor):
             return None
 
         # Extract variables from the dictionary
-        alpha = dictionary.get("alpha") if dictionary.get("alpha") else None
-        color = dictionary.get("color") if dictionary.get("color") else None
+        alpha =\
+            dictionary.get("alpha")\
+            if dictionary.get("alpha")\
+                else None
+        color =\
+            dictionary.get("color")\
+            if dictionary.get("color")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -128,14 +152,24 @@ class Color(BaseColor):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"alpha={self.alpha!r})")
+        _alpha=self.alpha
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"alpha={_alpha!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"alpha={self.alpha!s})")
+        _alpha=self.alpha
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"alpha={_alpha!s}"
+            f")"
+        )

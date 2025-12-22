@@ -18,8 +18,8 @@ class GlossEntry(object):
         abbrev (str): The model property of type str.
         gloss_def (GlossDef): The model property of type GlossDef.
         gloss_see (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -34,15 +34,16 @@ class GlossEntry(object):
         "sort_as": "SortAs",
     }
 
-    def __init__(self,
-                 abbrev=None,
-                 acronym=None,
-                 gloss_def=None,
-                 gloss_see=None,
-                 gloss_term=None,
-                 id=None,
-                 sort_as=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        abbrev=None,
+        acronym=None,
+        gloss_def=None,
+        gloss_see=None,
+        gloss_term=None,
+        id=None,
+        sort_as=None,
+        additional_properties=None):
         """Initialize a GlossEntry instance."""
         # Initialize members of the class
         self.id = id
@@ -76,19 +77,35 @@ class GlossEntry(object):
             return None
 
         # Extract variables from the dictionary
-        abbrev = dictionary.get("Abbrev") if dictionary.get("Abbrev") else None
-        acronym = dictionary.get("Acronym") if dictionary.get("Acronym") else None
-        gloss_def = GlossDef.from_dictionary(
+        abbrev =\
+            dictionary.get("Abbrev")\
+            if dictionary.get("Abbrev")\
+                else None
+        acronym =\
+            dictionary.get("Acronym")\
+            if dictionary.get("Acronym")\
+                else None
+        gloss_def =\
+            GlossDef.from_dictionary(
             dictionary.get("GlossDef"))\
-            if dictionary.get("GlossDef") else None
+                if dictionary.get("GlossDef") else None
         gloss_see =\
             dictionary.get("GlossSee")\
-            if dictionary.get("GlossSee") else None
+            if dictionary.get("GlossSee")\
+                else None
         gloss_term =\
             dictionary.get("GlossTerm")\
-            if dictionary.get("GlossTerm") else None
-        id = dictionary.get("ID") if dictionary.get("ID") else None
-        sort_as = dictionary.get("SortAs") if dictionary.get("SortAs") else None
+            if dictionary.get("GlossTerm")\
+                else None
+        id =\
+            dictionary.get("ID")\
+            if dictionary.get("ID")\
+                else None
+        sort_as =\
+            dictionary.get("SortAs")\
+            if dictionary.get("SortAs")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -104,24 +121,46 @@ class GlossEntry(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!r}, "
-                f"sort_as={self.sort_as!r}, "
-                f"gloss_term={self.gloss_term!r}, "
-                f"acronym={self.acronym!r}, "
-                f"abbrev={self.abbrev!r}, "
-                f"gloss_def={self.gloss_def!r}, "
-                f"gloss_see={self.gloss_see!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _id=self.id
+        _sort_as=self.sort_as
+        _gloss_term=self.gloss_term
+        _acronym=self.acronym
+        _abbrev=self.abbrev
+        _gloss_def=self.gloss_def
+        _gloss_see=self.gloss_see
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!r}"
+            f"sort_as={_sort_as!r}"
+            f"gloss_term={_gloss_term!r}"
+            f"acronym={_acronym!r}"
+            f"abbrev={_abbrev!r}"
+            f"gloss_def={_gloss_def!r}"
+            f"gloss_see={_gloss_see!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={self.id!s}, "
-                f"sort_as={self.sort_as!s}, "
-                f"gloss_term={self.gloss_term!s}, "
-                f"acronym={self.acronym!s}, "
-                f"abbrev={self.abbrev!s}, "
-                f"gloss_def={self.gloss_def!s}, "
-                f"gloss_see={self.gloss_see!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _id=self.id
+        _sort_as=self.sort_as
+        _gloss_term=self.gloss_term
+        _acronym=self.acronym
+        _abbrev=self.abbrev
+        _gloss_def=self.gloss_def
+        _gloss_see=self.gloss_see
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!s}"
+            f"sort_as={_sort_as!s}"
+            f"gloss_term={_gloss_term!s}"
+            f"acronym={_acronym!s}"
+            f"abbrev={_abbrev!s}"
+            f"gloss_def={_gloss_def!s}"
+            f"gloss_see={_gloss_see!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

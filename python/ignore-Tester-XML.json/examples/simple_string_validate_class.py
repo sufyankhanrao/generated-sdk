@@ -11,12 +11,7 @@ body = 'body6'
 
 try:
     result = simple_string_controller.validate(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

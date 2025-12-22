@@ -40,7 +40,7 @@ def upload_simple_model(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SimpleModel`](../../doc/models/simple-model.md).
+[`SimpleModel`](../../doc/models/simple-model.md)
 
 ## Example Usage
 
@@ -74,11 +74,7 @@ body = SimpleModel(
 )
 
 result = body_controller.upload_simple_model(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -97,7 +93,7 @@ def upload_date_additional_properties(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DateAdditionalProperties`](../../doc/models/date-additional-properties.md).
+[`DateAdditionalProperties`](../../doc/models/date-additional-properties.md)
 
 ## Example Usage
 
@@ -111,11 +107,7 @@ body = DateAdditionalProperties(
 )
 
 result = body_controller.upload_date_additional_properties(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -134,7 +126,7 @@ def upload_date_time_additional_properties(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DateTimeAdditionalProperties`](../../doc/models/date-time-additional-properties.md).
+[`DateTimeAdditionalProperties`](../../doc/models/date-time-additional-properties.md)
 
 ## Example Usage
 
@@ -148,11 +140,7 @@ body = DateTimeAdditionalProperties(
 )
 
 result = body_controller.upload_date_time_additional_properties(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -171,7 +159,7 @@ def upload_uuid_additional_properties(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UUIDAdditionalProperties`](../../doc/models/uuid-additional-properties.md).
+[`UUIDAdditionalProperties`](../../doc/models/uuid-additional-properties.md)
 
 ## Example Usage
 
@@ -185,11 +173,7 @@ body = UUIDAdditionalProperties(
 )
 
 result = body_controller.upload_uuid_additional_properties(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -208,7 +192,7 @@ def upload_array_of_string_additional_properties(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ArrayOfStringAdditionalProperties`](../../doc/models/array-of-string-additional-properties.md).
+[`ArrayOfStringAdditionalProperties`](../../doc/models/array-of-string-additional-properties.md)
 
 ## Example Usage
 
@@ -231,11 +215,7 @@ body = ArrayOfStringAdditionalProperties(
 )
 
 result = body_controller.upload_array_of_string_additional_properties(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -254,7 +234,7 @@ def upload_map_of_array_additional_properties(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`MapOfArrayAdditionalProperties`](../../doc/models/map-of-array-additional-properties.md).
+[`MapOfArrayAdditionalProperties`](../../doc/models/map-of-array-additional-properties.md)
 
 ## Example Usage
 
@@ -276,11 +256,7 @@ body = MapOfArrayAdditionalProperties(
 )
 
 result = body_controller.upload_map_of_array_additional_properties(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -299,7 +275,7 @@ def upload_child_number_type(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ChildNumberType`](../../doc/models/child-number-type.md).
+[`ChildNumberType`](../../doc/models/child-number-type.md)
 
 ## Example Usage
 
@@ -315,11 +291,7 @@ body = ChildNumberType(
 )
 
 result = body_controller.upload_child_number_type(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -338,7 +310,7 @@ def upload_child_string_type(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ChildStringType`](../../doc/models/child-string-type.md).
+[`ChildStringType`](../../doc/models/child-string-type.md)
 
 ## Example Usage
 
@@ -354,11 +326,7 @@ body = ChildStringType(
 )
 
 result = body_controller.upload_child_string_type(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -377,7 +345,7 @@ def upload_non_inherit_enabled_number(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`NonInheritEnabledNumber`](../../doc/models/non-inherit-enabled-number.md).
+[`NonInheritEnabledNumber`](../../doc/models/non-inherit-enabled-number.md)
 
 ## Example Usage
 
@@ -391,11 +359,7 @@ body = NonInheritEnabledNumber(
 )
 
 result = body_controller.upload_non_inherit_enabled_number(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -414,7 +378,7 @@ def upload_non_inherit_enabled_any(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`NonInheritEnabledAny`](../../doc/models/non-inherit-enabled-any.md).
+[`NonInheritEnabledAny`](../../doc/models/non-inherit-enabled-any.md)
 
 ## Example Usage
 
@@ -432,11 +396,7 @@ body = NonInheritEnabledAny(
 )
 
 result = body_controller.upload_non_inherit_enabled_any(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -455,7 +415,7 @@ def upload_one_of_additional_properties(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`OneOfAdditionalProperties`](../../doc/models/one-of-additional-properties.md).
+[`OneOfAdditionalProperties`](../../doc/models/one-of-additional-properties.md)
 
 ## Example Usage
 
@@ -480,10 +440,6 @@ body = OneOfAdditionalProperties(
 )
 
 result = body_controller.upload_one_of_additional_properties(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

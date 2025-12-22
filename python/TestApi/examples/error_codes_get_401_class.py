@@ -38,12 +38,7 @@ client = TesterClient(
 error_codes_controller = client.error_codes
 try:
     result = error_codes_controller.get_401()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except LocalTestException as e: 
     print(e)
 except NestedModelException as e: 

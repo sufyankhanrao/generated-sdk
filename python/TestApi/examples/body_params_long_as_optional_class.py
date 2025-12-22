@@ -42,12 +42,7 @@ body = LongAsOptional(
 
 try:
     result = body_params_controller.long_as_optional(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

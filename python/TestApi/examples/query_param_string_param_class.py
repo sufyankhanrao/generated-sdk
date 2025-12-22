@@ -39,12 +39,7 @@ string = 'string4'
 
 try:
     result = query_param_controller.string_param(string)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

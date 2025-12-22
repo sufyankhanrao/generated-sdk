@@ -4,6 +4,7 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+# ruff: noqa: D410
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
@@ -41,14 +42,12 @@ class JsonObjController(BaseController):
             body (SchemaContainer): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -56,21 +55,20 @@ class JsonObjController(BaseController):
             .path("/body/sendSchemaInModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_schemaas_body(self,
@@ -83,14 +81,12 @@ class JsonObjController(BaseController):
             body (dict): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -98,21 +94,20 @@ class JsonObjController(BaseController):
             .path("/body/sendSchema")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_schemaas_form(self,
@@ -122,27 +117,24 @@ class JsonObjController(BaseController):
         Send Schema as Form
 
         Args:
-            options (dict, optional): Key-value pairs for any of the
-                parameters to this API Endpoint. All parameters to the
-                endpoint are supplied through the dictionary with their names
-                being the key and their desired values being the value. A list
-                of parameters that can be used are::
-                    content_type -- ContentType -- The request header
-                        parameter.
+            options (dict, optional): Key-value pairs for any of the parameters to
+                this API Endpoint. All parameters to the endpoint are supplied
+                through the dictionary with their names being the key and their
+                desired values being the value. A list of parameters that can be used
+                are::
+                    content_type -- ContentType -- The request header parameter.
                     id -- int -- The request form parameter.
                     model -- dict -- The request form parameter.
                     model_array -- List[dict] -- The request form parameter.
                     model_map -- Dict[str, dict] -- The request form parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -150,31 +142,30 @@ class JsonObjController(BaseController):
             .path("/form/sendSchema")
             .http_method(HttpMethodEnum.POST)
             .form_param(Parameter()
-                        .key("id")
-                        .value(options.get("id", None))
-                        .is_required(True))
+                .key("id")
+                .value(options.get("id", None))
+                .is_required(True))
             .form_param(Parameter()
-                        .key("model")
-                        .value(options.get("model", None))
-                        .is_required(True))
+                .key("model")
+                .value(options.get("model", None))
+                .is_required(True))
             .form_param(Parameter()
-                        .key("modelArray")
-                        .value(options.get("model_array", None)))
+                .key("modelArray")
+                .value(options.get("model_array", None)))
             .form_param(Parameter()
-                        .key("modelMap")
-                        .value(options.get("model_map", None)))
+                .key("modelMap")
+                .value(options.get("model_map", None)))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/x-www-form-urlencoded"))
+                            .key("content-type")
+                            .value("application/x-www-form-urlencoded"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_schemaas_query(self,
@@ -184,26 +175,23 @@ class JsonObjController(BaseController):
         Send Schema as Query
 
         Args:
-            options (dict, optional): Key-value pairs for any of the
-                parameters to this API Endpoint. All parameters to the
-                endpoint are supplied through the dictionary with their names
-                being the key and their desired values being the value. A list
-                of parameters that can be used are::
+            options (dict, optional): Key-value pairs for any of the parameters to
+                this API Endpoint. All parameters to the endpoint are supplied
+                through the dictionary with their names being the key and their
+                desired values being the value. A list of parameters that can be used
+                are::
                     id -- int -- The request query parameter.
                     model -- dict -- The request query parameter.
                     model_array -- List[dict] -- The request query parameter.
-                    model_map -- Dict[str, dict] -- The request query
-                        parameter.
+                    model_map -- Dict[str, dict] -- The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -211,28 +199,27 @@ class JsonObjController(BaseController):
             .path("/query/sendSchema")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("id")
-                         .value(options.get("id", None))
-                         .is_required(True))
+                .key("id")
+                .value(options.get("id", None))
+                .is_required(True))
             .query_param(Parameter()
-                         .key("model")
-                         .value(options.get("model", None))
-                         .is_required(True))
+                .key("model")
+                .value(options.get("model", None))
+                .is_required(True))
             .query_param(Parameter()
-                         .key("modelArray")
-                         .value(options.get("model_array", None)))
+                .key("modelArray")
+                .value(options.get("model_array", None)))
             .query_param(Parameter()
-                         .key("modelMap")
-                         .value(options.get("model_map", None)))
+                .key("modelMap")
+                .value(options.get("model_map", None)))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def get_schema(self):
@@ -241,14 +228,12 @@ class JsonObjController(BaseController):
         Get Schema
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            dict: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -256,13 +241,12 @@ class JsonObjController(BaseController):
             .path("/response/getSchema")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_schema_array(self):
@@ -271,14 +255,12 @@ class JsonObjController(BaseController):
         Get Schema Array
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            List[dict]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -286,13 +268,12 @@ class JsonObjController(BaseController):
             .path("/response/getSchemaArray")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_schema_map(self):
@@ -301,14 +282,12 @@ class JsonObjController(BaseController):
         Get Schema Map
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            Dict[str, dict]: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -316,13 +295,12 @@ class JsonObjController(BaseController):
             .path("/response/getSchemaMap")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def get_schemain_model(self):
@@ -331,14 +309,12 @@ class JsonObjController(BaseController):
         Get Schema in Model
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            SchemaContainer: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -346,12 +322,11 @@ class JsonObjController(BaseController):
             .path("/response/getSchemaInModel")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(SchemaContainer.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(SchemaContainer.from_dictionary),
         ).execute()

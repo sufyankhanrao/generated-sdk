@@ -46,14 +46,15 @@ class Order(object):
         "updated_at",
     ]
 
-    def __init__(self,
-                 order_id=APIHelper.SKIP,
-                 customer_id=APIHelper.SKIP,
-                 items=APIHelper.SKIP,
-                 total_amount=APIHelper.SKIP,
-                 status=APIHelper.SKIP,
-                 created_at=APIHelper.SKIP,
-                 updated_at=APIHelper.SKIP):
+    def __init__(
+        self,
+        order_id=APIHelper.SKIP,
+        customer_id=APIHelper.SKIP,
+        items=APIHelper.SKIP,
+        total_amount=APIHelper.SKIP,
+        status=APIHelper.SKIP,
+        created_at=APIHelper.SKIP,
+        updated_at=APIHelper.SKIP):
         """Initialize a Order instance."""
         # Initialize members of the class
         if order_id is not APIHelper.SKIP:
@@ -69,11 +70,13 @@ class Order(object):
         if created_at is not APIHelper.SKIP:
             self.created_at =\
                  APIHelper.apply_datetime_converter(
-                created_at, APIHelper.RFC3339DateTime) if created_at else None
+                created_at, APIHelper.RFC3339DateTime)\
+                 if created_at else None
         if updated_at is not APIHelper.SKIP:
             self.updated_at =\
                  APIHelper.apply_datetime_converter(
-                updated_at, APIHelper.RFC3339DateTime) if updated_at else None
+                updated_at, APIHelper.RFC3339DateTime)\
+                 if updated_at else None
 
     @classmethod
     def from_dictionary(cls,
@@ -95,10 +98,12 @@ class Order(object):
         # Extract variables from the dictionary
         order_id =\
             dictionary.get("orderId")\
-            if dictionary.get("orderId") else APIHelper.SKIP
+            if dictionary.get("orderId")\
+                else APIHelper.SKIP
         customer_id =\
             dictionary.get("customerId")\
-            if dictionary.get("customerId") else APIHelper.SKIP
+            if dictionary.get("customerId")\
+                else APIHelper.SKIP
         items = None
         if dictionary.get("items") is not None:
             items = [
@@ -109,16 +114,19 @@ class Order(object):
             items = APIHelper.SKIP
         total_amount =\
             dictionary.get("totalAmount")\
-            if dictionary.get("totalAmount") else APIHelper.SKIP
+            if dictionary.get("totalAmount")\
+                else APIHelper.SKIP
         status =\
             dictionary.get("status")\
-            if dictionary.get("status") else APIHelper.SKIP
+            if dictionary.get("status")\
+                else APIHelper.SKIP
         created_at = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("createdAt")).datetime\
             if dictionary.get("createdAt") else APIHelper.SKIP
         updated_at = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("updatedAt")).datetime\
             if dictionary.get("updatedAt") else APIHelper.SKIP
+
         # Return an object of this model
         return cls(order_id,
                    customer_id,
@@ -130,32 +138,98 @@ class Order(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"order_id={(self.order_id
-                     if hasattr(self, 'order_id') else None)!r}, "
-                f"customer_id={(self.customer_id
-                     if hasattr(self, 'customer_id') else None)!r}, "
-                f"items={(self.items if hasattr(self, 'items') else None)!r}, "
-                f"total_amount={(self.total_amount
-                     if hasattr(self, 'total_amount') else None)!r}, "
-                f"status={(self.status if hasattr(self, 'status') else None)!r}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!r}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!r})")
+        _order_id=(
+            self.order_id
+            if hasattr(self, "order_id")
+            else None
+        )
+        _customer_id=(
+            self.customer_id
+            if hasattr(self, "customer_id")
+            else None
+        )
+        _items=(
+            self.items
+            if hasattr(self, "items")
+            else None
+        )
+        _total_amount=(
+            self.total_amount
+            if hasattr(self, "total_amount")
+            else None
+        )
+        _status=(
+            self.status
+            if hasattr(self, "status")
+            else None
+        )
+        _created_at=(
+            self.created_at
+            if hasattr(self, "created_at")
+            else None
+        )
+        _updated_at=(
+            self.updated_at
+            if hasattr(self, "updated_at")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"order_id={_order_id!r}"
+            f"customer_id={_customer_id!r}"
+            f"items={_items!r}"
+            f"total_amount={_total_amount!r}"
+            f"status={_status!r}"
+            f"created_at={_created_at!r}"
+            f"updated_at={_updated_at!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"order_id={(self.order_id
-                     if hasattr(self, 'order_id') else None)!s}, "
-                f"customer_id={(self.customer_id
-                     if hasattr(self, 'customer_id') else None)!s}, "
-                f"items={(self.items if hasattr(self, 'items') else None)!s}, "
-                f"total_amount={(self.total_amount
-                     if hasattr(self, 'total_amount') else None)!s}, "
-                f"status={(self.status if hasattr(self, 'status') else None)!s}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!s}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!s})")
+        _order_id=(
+            self.order_id
+            if hasattr(self, "order_id")
+            else None
+        )
+        _customer_id=(
+            self.customer_id
+            if hasattr(self, "customer_id")
+            else None
+        )
+        _items=(
+            self.items
+            if hasattr(self, "items")
+            else None
+        )
+        _total_amount=(
+            self.total_amount
+            if hasattr(self, "total_amount")
+            else None
+        )
+        _status=(
+            self.status
+            if hasattr(self, "status")
+            else None
+        )
+        _created_at=(
+            self.created_at
+            if hasattr(self, "created_at")
+            else None
+        )
+        _updated_at=(
+            self.updated_at
+            if hasattr(self, "updated_at")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"order_id={_order_id!s}"
+            f"customer_id={_customer_id!s}"
+            f"items={_items!s}"
+            f"total_amount={_total_amount!s}"
+            f"status={_status!s}"
+            f"created_at={_created_at!s}"
+            f"updated_at={_updated_at!s}"
+            f")"
+        )

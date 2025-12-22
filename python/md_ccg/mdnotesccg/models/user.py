@@ -35,12 +35,13 @@ class User(object):
         "updated_at",
     ]
 
-    def __init__(self,
-                 id=APIHelper.SKIP,
-                 name=APIHelper.SKIP,
-                 email=APIHelper.SKIP,
-                 created_at=APIHelper.SKIP,
-                 updated_at=APIHelper.SKIP):
+    def __init__(
+        self,
+        id=APIHelper.SKIP,
+        name=APIHelper.SKIP,
+        email=APIHelper.SKIP,
+        created_at=APIHelper.SKIP,
+        updated_at=APIHelper.SKIP):
         """Initialize a User instance."""
         # Initialize members of the class
         if id is not APIHelper.SKIP:
@@ -72,19 +73,27 @@ class User(object):
             return None
 
         # Extract variables from the dictionary
-        id = dictionary.get("id") if dictionary.get("id") else APIHelper.SKIP
+        id =\
+            dictionary.get("id")\
+            if dictionary.get("id")\
+                else APIHelper.SKIP
         name =\
             dictionary.get("name")\
-            if dictionary.get("name") else APIHelper.SKIP
+            if dictionary.get("name")\
+                else APIHelper.SKIP
         email =\
             dictionary.get("email")\
-            if dictionary.get("email") else APIHelper.SKIP
+            if dictionary.get("email")\
+                else APIHelper.SKIP
         created_at =\
             dictionary.get("created_at")\
-            if dictionary.get("created_at") else APIHelper.SKIP
+            if dictionary.get("created_at")\
+                else APIHelper.SKIP
         updated_at =\
             dictionary.get("updated_at")\
-            if dictionary.get("updated_at") else APIHelper.SKIP
+            if dictionary.get("updated_at")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(id,
                    name,
@@ -94,22 +103,74 @@ class User(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!r}, "
-                f"name={(self.name if hasattr(self, 'name') else None)!r}, "
-                f"email={(self.email if hasattr(self, 'email') else None)!r}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!r}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!r})")
+        _id=(
+            self.id
+            if hasattr(self, "id")
+            else None
+        )
+        _name=(
+            self.name
+            if hasattr(self, "name")
+            else None
+        )
+        _email=(
+            self.email
+            if hasattr(self, "email")
+            else None
+        )
+        _created_at=(
+            self.created_at
+            if hasattr(self, "created_at")
+            else None
+        )
+        _updated_at=(
+            self.updated_at
+            if hasattr(self, "updated_at")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!r}"
+            f"name={_name!r}"
+            f"email={_email!r}"
+            f"created_at={_created_at!r}"
+            f"updated_at={_updated_at!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"id={(self.id if hasattr(self, 'id') else None)!s}, "
-                f"name={(self.name if hasattr(self, 'name') else None)!s}, "
-                f"email={(self.email if hasattr(self, 'email') else None)!s}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!s}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!s})")
+        _id=(
+            self.id
+            if hasattr(self, "id")
+            else None
+        )
+        _name=(
+            self.name
+            if hasattr(self, "name")
+            else None
+        )
+        _email=(
+            self.email
+            if hasattr(self, "email")
+            else None
+        )
+        _created_at=(
+            self.created_at
+            if hasattr(self, "created_at")
+            else None
+        )
+        _updated_at=(
+            self.updated_at
+            if hasattr(self, "updated_at")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"id={_id!s}"
+            f"name={_name!s}"
+            f"email={_email!s}"
+            f"created_at={_created_at!s}"
+            f"updated_at={_updated_at!s}"
+            f")"
+        )

@@ -11,12 +11,7 @@ case = 'case0'
 
 try:
     result = client_controller.try_api_call(case)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

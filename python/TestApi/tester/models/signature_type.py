@@ -9,10 +9,9 @@ class SignatureType(object):
 
     Attributes:
         mechanism (str): The model property of type str.
-        on_eaccept_use_hand_written_signature (bool): The model property of
-            type bool.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        on_eaccept_use_hand_written_signature (bool): The model property of type bool.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -22,10 +21,11 @@ class SignatureType(object):
         "on_eaccept_use_hand_written_signature": "onEacceptUseHandWrittenSignature",
     }
 
-    def __init__(self,
-                 mechanism=None,
-                 on_eaccept_use_hand_written_signature=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        mechanism=None,
+        on_eaccept_use_hand_written_signature=None,
+        additional_properties=None):
         """Initialize a SignatureType instance."""
         # Initialize members of the class
         self.mechanism = mechanism
@@ -57,10 +57,13 @@ class SignatureType(object):
         # Extract variables from the dictionary
         mechanism =\
             dictionary.get("mechanism")\
-            if dictionary.get("mechanism") else None
+            if dictionary.get("mechanism")\
+                else None
         on_eaccept_use_hand_written_signature =\
             dictionary.get("onEacceptUseHandWrittenSignature")\
-            if "onEacceptUseHandWrittenSignature" in dictionary.keys() else None
+            if "onEacceptUseHandWrittenSignature" in dictionary.keys()\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -71,16 +74,26 @@ class SignatureType(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"mechanism={self.mechanism!r}, "
-                f"on_eaccept_use_hand_written_signature={
-                    self.on_eaccept_use_hand_written_signature!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _mechanism=self.mechanism
+        _on_eaccept_use_hand_written_signature=self.on_eaccept_use_hand_written_signature
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"mechanism={_mechanism!r}"
+            f"on_eaccept_use_hand_written_signature={_on_eaccept_use_hand_written_signature!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"mechanism={self.mechanism!s}, "
-                f"on_eaccept_use_hand_written_signature={
-                    self.on_eaccept_use_hand_written_signature!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _mechanism=self.mechanism
+        _on_eaccept_use_hand_written_signature=self.on_eaccept_use_hand_written_signature
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"mechanism={_mechanism!s}"
+            f"on_eaccept_use_hand_written_signature={_on_eaccept_use_hand_written_signature!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

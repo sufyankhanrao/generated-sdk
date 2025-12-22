@@ -23,12 +23,7 @@ try:
         query_default_enum=query_default_enum,
         template_default_enum=template_default_enum
     )
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

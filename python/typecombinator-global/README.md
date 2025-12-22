@@ -141,7 +141,6 @@ See the [Environment-Based Client Initialization](doc/environment-based-client-i
 
 ### Utilities
 
-* [ApiResponse](doc/api-response.md)
 * [ApiHelper](doc/api-helper.md)
 * [HttpDateTime](doc/http-date-time.md)
 * [RFC3339DateTime](doc/rfc3339-date-time.md)

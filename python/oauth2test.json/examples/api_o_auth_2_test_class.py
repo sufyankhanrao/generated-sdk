@@ -16,12 +16,7 @@ client = Oa2testerClient(
 client_controller = client.client
 try:
     result = client_controller.get_o_auth_2_test()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

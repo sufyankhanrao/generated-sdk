@@ -13,8 +13,8 @@ class TeamIntegerEnum(object):
         CGAAS: The enum member of type int.
         UX: The enum member of type int.
         QA: The enum member of type int.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 

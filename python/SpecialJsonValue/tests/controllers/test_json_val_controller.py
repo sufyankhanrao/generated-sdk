@@ -45,9 +45,9 @@ class JsonValControllerTests(ControllerTestBase):
         """
         # Parameters for the API call
         body = APIHelper.json_deserialize(
-            "{\"name\":\"a name\",\"id\":\"definition-123\",\"valueMap\":{\"key"
-            "1\":\"some string\",\"key2\":true,\"key3\":123},\"valueArray\":[\""
-            "some string\",true,123],\"value\":\"some string value in model\"}",
+            "{\"name\":\"a name\",\"id\":\"definition-123\",\"valueMap\":{\"key1\":\""
+            "some string\",\"key2\":true,\"key3\":123},\"valueArray\":[\"some string"
+            "\",true,123],\"value\":\"some string value in model\"}",
             ValueContainer.from_dictionary,
         )
 
@@ -292,9 +292,9 @@ class JsonValControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"name\":\"a name\",\"id\":\"definition-123\",\"valueMap\":{\"key"
-            "1\":\"some string\",\"key2\":true,\"key3\":123},\"valueArray\":[\""
-            "some string\",true,123],\"value\":\"some string value in model\"}",
+            "{\"name\":\"a name\",\"id\":\"definition-123\",\"valueMap\":{\"key1\":\""
+            "some string\",\"key2\":true,\"key3\":123},\"valueArray\":[\"some string"
+            "\",true,123],\"value\":\"some string value in model\"}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,

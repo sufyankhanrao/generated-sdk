@@ -23,9 +23,10 @@ class VehicleA(object):
         "model": "model",
     }
 
-    def __init__(self,
-                 number_of_tyres=None,
-                 model=None):
+    def __init__(
+        self,
+        number_of_tyres=None,
+        model=None):
         """Initialize a VehicleA instance."""
         # Initialize members of the class
         self.number_of_tyres = number_of_tyres
@@ -51,8 +52,13 @@ class VehicleA(object):
         # Extract variables from the dictionary
         number_of_tyres =\
             dictionary.get("NumberOfTyres")\
-            if dictionary.get("NumberOfTyres") else None
-        model = dictionary.get("model") if dictionary.get("model") else None
+            if dictionary.get("NumberOfTyres")\
+                else None
+        model =\
+            dictionary.get("model")\
+            if dictionary.get("model")\
+                else None
+
         # Return an object of this model
         return cls(number_of_tyres,
                    model)
@@ -72,30 +78,56 @@ class VehicleA(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.number_of_tyres,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.number_of_tyres,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.model,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.model,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("NumberOfTyres"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("NumberOfTyres"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("model"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("model"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_of_tyres={self.number_of_tyres!r}, "
-                f"model={self.model!r})")
+        _number_of_tyres=self.number_of_tyres
+        _model=self.model
+        return (
+            f"{self.__class__.__name__}("
+            f"number_of_tyres={_number_of_tyres!r}"
+            f"model={_model!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_of_tyres={self.number_of_tyres!s}, "
-                f"model={self.model!s})")
+        _number_of_tyres=self.number_of_tyres
+        _model=self.model
+        return (
+            f"{self.__class__.__name__}("
+            f"number_of_tyres={_number_of_tyres!s}"
+            f"model={_model!s}"
+            f")"
+        )

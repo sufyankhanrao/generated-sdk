@@ -27,9 +27,10 @@ class OrderUpdatedEvent(object):
         "event_type",
     ]
 
-    def __init__(self,
-                 order_updated_id=None,
-                 event_type=APIHelper.SKIP):
+    def __init__(
+        self,
+        order_updated_id=None,
+        event_type=APIHelper.SKIP):
         """Initialize a OrderUpdatedEvent instance."""
         # Initialize members of the class
         if event_type is not APIHelper.SKIP:
@@ -56,10 +57,13 @@ class OrderUpdatedEvent(object):
         # Extract variables from the dictionary
         order_updated_id =\
             dictionary.get("orderUpdatedId")\
-            if dictionary.get("orderUpdatedId") else None
+            if dictionary.get("orderUpdatedId")\
+                else None
         event_type =\
             dictionary.get("eventType")\
-            if dictionary.get("eventType") else APIHelper.SKIP
+            if dictionary.get("eventType")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(order_updated_id,
                    event_type)
@@ -79,26 +83,50 @@ class OrderUpdatedEvent(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.order_updated_id,
-                type_callable=lambda value: isinstance(value, int))
+                    value=dictionary.order_updated_id,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("orderUpdatedId"),
-            type_callable=lambda value: isinstance(value, int))
+                value=dictionary.get("orderUpdatedId"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event_type={(self.event_type
-                     if hasattr(self, 'event_type') else None)!r}, "
-                f"order_updated_id={self.order_updated_id!r})")
+        _event_type=(
+            self.event_type
+            if hasattr(self, "event_type")
+            else None
+        )
+        _order_updated_id=self.order_updated_id
+        return (
+            f"{self.__class__.__name__}("
+            f"event_type={_event_type!r}"
+            f"order_updated_id={_order_updated_id!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"event_type={(self.event_type
-                     if hasattr(self, 'event_type') else None)!s}, "
-                f"order_updated_id={self.order_updated_id!s})")
+        _event_type=(
+            self.event_type
+            if hasattr(self, "event_type")
+            else None
+        )
+        _order_updated_id=self.order_updated_id
+        return (
+            f"{self.__class__.__name__}("
+            f"event_type={_event_type!s}"
+            f"order_updated_id={_order_updated_id!s}"
+            f")"
+        )

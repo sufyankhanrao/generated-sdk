@@ -18,9 +18,10 @@ class Model(object):
         "dependents": "dependents",
     }
 
-    def __init__(self,
-                 name=None,
-                 dependents=None):
+    def __init__(
+        self,
+        name=None,
+        dependents=None):
         """Initialize a Model instance."""
         # Initialize members of the class
         self.name = name
@@ -44,22 +45,37 @@ class Model(object):
             return None
 
         # Extract variables from the dictionary
-        name = dictionary.get("name") if dictionary.get("name") else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
         dependents =\
             dictionary.get("dependents")\
-            if dictionary.get("dependents") else None
+            if dictionary.get("dependents")\
+                else None
+
         # Return an object of this model
         return cls(name,
                    dependents)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!r}, "
-                f"dependents={self.dependents!r})")
+        _name=self.name
+        _dependents=self.dependents
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!r}"
+            f"dependents={_dependents!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!s}, "
-                f"dependents={self.dependents!s})")
+        _name=self.name
+        _dependents=self.dependents
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!s}"
+            f"dependents={_dependents!s}"
+            f")"
+        )

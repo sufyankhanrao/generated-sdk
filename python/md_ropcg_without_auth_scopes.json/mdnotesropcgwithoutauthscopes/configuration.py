@@ -129,12 +129,11 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
                  environment=Environment.PRODUCTION, o_auth_client_id=None,
-                 o_auth_client_secret=None, o_auth_username=None,
-                 o_auth_password=None, o_auth_token=None,
-                 resource_owner_auth_credentials=None):
+                 o_auth_client_secret=None, o_auth_username=None, o_auth_password=None,
+                 o_auth_token=None, resource_owner_auth_credentials=None):
         """Initialize Configuration object."""
         if retry_methods is None:
             retry_methods = ["GET", "PUT"]
@@ -169,9 +168,8 @@ class Configuration(HttpClientConfiguration):
                    override_http_client_configuration=None, http_call_back=None,
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
-                   environment=None, o_auth_client_id=None,
-                   o_auth_client_secret=None, o_auth_username=None,
-                   o_auth_password=None, o_auth_token=None,
+                   environment=None, o_auth_client_id=None, o_auth_client_secret=None,
+                   o_auth_username=None, o_auth_password=None, o_auth_token=None,
                    resource_owner_auth_credentials=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
@@ -195,10 +193,10 @@ class Configuration(HttpClientConfiguration):
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
-            http_call_back=http_call_back, timeout=timeout,
-            max_retries=max_retries, backoff_factor=backoff_factor,
-            retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings, environment=environment,
+            http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, proxy_settings=proxy_settings,
+            environment=environment,
             resource_owner_auth_credentials=resource_owner_auth_credentials,
         )
 
@@ -249,10 +247,10 @@ class Configuration(HttpClientConfiguration):
                 and o_auth_token is None:
             return resource_owner_auth_credentials
 
-        warnings.warn(message=("The 'o_auth_client_id', 'o_auth_client_secret',"
-                               " 'o_auth_username', 'o_auth_password', 'o_auth_"
-                               "token' params are deprecated. Use 'resource_own"
-                               "er_auth_credentials' param instead."),
+        warnings.warn(message=("The 'o_auth_client_id', 'o_auth_client_secret', 'o_au"
+                               "th_username', 'o_auth_password', 'o_auth_token' param"
+                               "s are deprecated. Use 'resource_owner_auth_credential"
+                               "s' param instead."),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
@@ -261,7 +259,7 @@ class Configuration(HttpClientConfiguration):
                 o_auth_client_id, o_auth_client_secret, o_auth_username,
                 o_auth_password, o_auth_token)
 
-        from mdnotesropcgwithoutauthscopes.http.auth.o_auth_2 import (
+        from mdnotesropcgwithoutauthscopes.http.auth.o_auth_2 import (  # noqa: E501
             ResourceOwnerAuthCredentials,
         )
         return ResourceOwnerAuthCredentials(o_auth_client_id,
@@ -302,6 +300,7 @@ class Configuration(HttpClientConfiguration):
         from mdnotesropcgwithoutauthscopes.http.auth.o_auth_2 import (
             ResourceOwnerAuthCredentials,
         )
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

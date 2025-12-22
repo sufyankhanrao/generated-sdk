@@ -4,6 +4,7 @@ This file was automatically generated for Stamplay by APIMATIC v3.0 (
  https://www.apimatic.io ).
 """
 
+# ruff: noqa: D410
 from apimatic_core.request_builder import RequestBuilder
 from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
@@ -35,14 +36,12 @@ class BodyParamsController(BaseController):
             text_string (str): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -50,20 +49,19 @@ class BodyParamsController(BaseController):
             .path("/body/deletePlainTextBody")
             .http_method(HttpMethodEnum.DELETE)
             .body_param(Parameter()
-                        .value(text_string)
-                        .is_required(True))
+                .value(text_string)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_delete_body(self,
@@ -74,14 +72,12 @@ class BodyParamsController(BaseController):
             body (DeleteBody): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -89,21 +85,20 @@ class BodyParamsController(BaseController):
             .path("/body/deleteBody")
             .http_method(HttpMethodEnum.DELETE)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_date_array(self,
@@ -114,14 +109,12 @@ class BodyParamsController(BaseController):
             dates (List[date]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -129,24 +122,23 @@ class BodyParamsController(BaseController):
             .path("/body/date")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value(dates)
-                        .is_required(True))
+                .value(dates)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_date(self,
@@ -157,14 +149,12 @@ class BodyParamsController(BaseController):
             date (date): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -172,21 +162,20 @@ class BodyParamsController(BaseController):
             .path("/body/date")
             .http_method(HttpMethodEnum.POST)
             .body_param(Parameter()
-                        .value(date)
-                        .is_required(True))
+                .value(date)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(str),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_unix_date_time(self,
@@ -197,14 +186,12 @@ class BodyParamsController(BaseController):
             datetime (datetime): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -212,22 +199,21 @@ class BodyParamsController(BaseController):
             .path("/body/unixdatetime")
             .http_method(HttpMethodEnum.POST)
             .body_param(Parameter()
-                        .value(APIHelper.when_defined(APIHelper.UnixDateTime,
-                            datetime))
-                        .is_required(True))
+                .value(APIHelper.when_defined(APIHelper.UnixDateTime,
+                    datetime))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(str),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_1123_date_time(self,
@@ -238,14 +224,12 @@ class BodyParamsController(BaseController):
             datetime (datetime): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -253,22 +237,21 @@ class BodyParamsController(BaseController):
             .path("/body/rfc1123datetime")
             .http_method(HttpMethodEnum.POST)
             .body_param(Parameter()
-                        .value(APIHelper.when_defined(APIHelper.HttpDateTime,
-                            datetime))
-                        .is_required(True))
+                .value(APIHelper.when_defined(APIHelper.HttpDateTime,
+                    datetime))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(str),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_3339_date_time(self,
@@ -279,14 +262,12 @@ class BodyParamsController(BaseController):
             datetime (datetime): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -294,22 +275,21 @@ class BodyParamsController(BaseController):
             .path("/body/rfc3339datetime")
             .http_method(HttpMethodEnum.POST)
             .body_param(Parameter()
-                        .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                            datetime))
-                        .is_required(True))
+                .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
+                    datetime))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(str),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_unix_date_time_array(self,
@@ -320,14 +300,12 @@ class BodyParamsController(BaseController):
             datetimes (List[datetime]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -335,25 +313,24 @@ class BodyParamsController(BaseController):
             .path("/body/unixdatetime")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value([APIHelper.when_defined(APIHelper.UnixDateTime,
-                            element) for element in datetimes])
-                        .is_required(True))
+                .value([APIHelper.when_defined(APIHelper.UnixDateTime,
+                    element) for element in datetimes])
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/json; charset=utf-8"))
+                .key("content-type")
+                .value("application/json; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_1123_date_time_array(self,
@@ -364,14 +341,12 @@ class BodyParamsController(BaseController):
             datetimes (List[datetime]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -379,25 +354,24 @@ class BodyParamsController(BaseController):
             .path("/body/rfc1123datetime")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value([APIHelper.when_defined(APIHelper.HttpDateTime,
-                            element) for element in datetimes])
-                        .is_required(True))
+                .value([APIHelper.when_defined(APIHelper.HttpDateTime,
+                    element) for element in datetimes])
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_3339_date_time_array(self,
@@ -408,14 +382,12 @@ class BodyParamsController(BaseController):
             datetimes (List[datetime]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -423,25 +395,24 @@ class BodyParamsController(BaseController):
             .path("/body/rfc3339datetime")
             .http_method(HttpMethodEnum.POST)
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value([APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                            element) for element in datetimes])
-                        .is_required(True))
+                .value([APIHelper.when_defined(APIHelper.RFC3339DateTime,
+                    element) for element in datetimes])
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("application/json; charset=utf-8"))
+                .key("content-type")
+                .value("application/json; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string_array(self,
@@ -454,14 +425,12 @@ class BodyParamsController(BaseController):
             sarray (List[str]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -469,24 +438,23 @@ class BodyParamsController(BaseController):
             .path("/body/string")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value(sarray)
-                        .is_required(True))
+                .value(sarray)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def update_string(self,
@@ -497,14 +465,12 @@ class BodyParamsController(BaseController):
             value (str): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -512,20 +478,19 @@ class BodyParamsController(BaseController):
             .path("/body/updateString")
             .http_method(HttpMethodEnum.PUT)
             .body_param(Parameter()
-                        .value(value)
-                        .is_required(True))
+                .value(value)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_integer_array(self,
@@ -536,14 +501,12 @@ class BodyParamsController(BaseController):
             integers (List[int]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -551,24 +514,23 @@ class BodyParamsController(BaseController):
             .path("/body/number")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value(integers)
-                        .is_required(True))
+                .value(integers)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def wrap_body_in_object(self,
@@ -581,14 +543,12 @@ class BodyParamsController(BaseController):
             name (str): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -596,26 +556,25 @@ class BodyParamsController(BaseController):
             .path("/body/wrapParamInObject")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .key("field")
-                        .value(field)
-                        .is_required(True))
+                .key("field")
+                .value(field)
+                .is_required(True))
             .body_param(Parameter()
-                        .key("name")
-                        .value(name)
-                        .is_required(True))
+                .key("name")
+                .value(name)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize_wrapped_params),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def additional_model_parameters(self,
@@ -626,14 +585,12 @@ class BodyParamsController(BaseController):
             model (AdditionalModelParameters): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -641,21 +598,20 @@ class BodyParamsController(BaseController):
             .path("/body/additionalModelProperties")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(model)
-                        .is_required(True))
+                .value(model)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def validate_required_parameter(self,
@@ -668,14 +624,12 @@ class BodyParamsController(BaseController):
             option (str, optional): The request query parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -683,24 +637,23 @@ class BodyParamsController(BaseController):
             .path("/body/validateRequiredParam")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(model)
-                        .is_required(True))
+                .value(model)
+                .is_required(True))
             .query_param(Parameter()
-                         .key("option")
-                         .value(option))
+                .key("option")
+                .value(option))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def additional_model_parameters_1(self,
@@ -711,14 +664,12 @@ class BodyParamsController(BaseController):
             model (AdditionalModelParameters): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -726,21 +677,20 @@ class BodyParamsController(BaseController):
             .path("/body/additionalModelProperties")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(model)
-                        .is_required(True))
+                .value(model)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_model(self,
@@ -751,14 +701,12 @@ class BodyParamsController(BaseController):
             model (Employee): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -766,21 +714,20 @@ class BodyParamsController(BaseController):
             .path("/body/model")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(model)
-                        .is_required(True))
+                .value(model)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_model_array(self,
@@ -791,14 +738,12 @@ class BodyParamsController(BaseController):
             models (List[Employee]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -806,24 +751,23 @@ class BodyParamsController(BaseController):
             .path("/body/model")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value(models)
-                        .is_required(True))
+                .value(models)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_model_map(self,
@@ -834,14 +778,12 @@ class BodyParamsController(BaseController):
             models (Dict[str, Employee]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -849,24 +791,23 @@ class BodyParamsController(BaseController):
             .path("/body/model")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("map")
-                         .value(True))
+                .key("map")
+                .value(True))
             .body_param(Parameter()
-                        .value(models)
-                        .is_required(True))
+                .value(models)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_dynamic(self,
@@ -877,14 +818,12 @@ class BodyParamsController(BaseController):
             dynamic (Any): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -892,21 +831,20 @@ class BodyParamsController(BaseController):
             .path("/body/dynamic")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(dynamic)
-                        .is_required(True))
+                .value(dynamic)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string(self,
@@ -917,14 +855,12 @@ class BodyParamsController(BaseController):
             value (str): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -932,25 +868,23 @@ class BodyParamsController(BaseController):
             .path("/body/string")
             .http_method(HttpMethodEnum.POST)
             .body_param(Parameter()
-                        .value(value)
-                        .is_required(True))
+                .value(value)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
-                "The request was malformed.\nIf this update is a 'report lost' "
-                "but the user does not have a known address with a known state,"
-                " the title of the error will be 'User record missing address.'"
-                "'",
+                "The request was malformed.\nIf this update is a 'report lost' but th"
+                "e user does not have a known address with a known state, the title o"
+                "f the error will be 'User record missing address.''",
                 RFC7807ErrorResponseErrorException),
         ).execute()
 
@@ -962,14 +896,12 @@ class BodyParamsController(BaseController):
             days (List[Days1Enum]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -977,24 +909,23 @@ class BodyParamsController(BaseController):
             .path("/body/stringenum")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value(days)
-                        .is_required(True))
+                .value(days)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_integer_enum_array(self,
@@ -1005,14 +936,12 @@ class BodyParamsController(BaseController):
             suites (List[SuiteCodeEnum]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1020,24 +949,23 @@ class BodyParamsController(BaseController):
             .path("/body/integerenum")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value(suites)
-                        .is_required(True))
+                .value(suites)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def update_model(self,
@@ -1048,14 +976,12 @@ class BodyParamsController(BaseController):
             model (Employee): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1063,21 +989,20 @@ class BodyParamsController(BaseController):
             .path("/body/updateModel")
             .http_method(HttpMethodEnum.PUT)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(model)
-                        .is_required(True))
+                .value(model)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_delete_body_with_model(self,
@@ -1088,14 +1013,12 @@ class BodyParamsController(BaseController):
             model (Employee): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1103,21 +1026,20 @@ class BodyParamsController(BaseController):
             .path("/body/deleteBody1")
             .http_method(HttpMethodEnum.DELETE)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(model)
-                        .is_required(True))
+                .value(model)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_delete_body_with_model_array(self,
@@ -1128,14 +1050,12 @@ class BodyParamsController(BaseController):
             models (List[Employee]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1143,24 +1063,23 @@ class BodyParamsController(BaseController):
             .path("/body/deleteBody1")
             .http_method(HttpMethodEnum.DELETE)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value(models)
-                        .is_required(True))
+                .value(models)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def update_model_array(self,
@@ -1171,14 +1090,12 @@ class BodyParamsController(BaseController):
             models (List[Employee]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1186,24 +1103,23 @@ class BodyParamsController(BaseController):
             .path("/body/updateModel")
             .http_method(HttpMethodEnum.PUT)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value(models)
-                        .is_required(True))
+                .value(models)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def update_string_1(self,
@@ -1214,14 +1130,12 @@ class BodyParamsController(BaseController):
             value (str): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1229,20 +1143,19 @@ class BodyParamsController(BaseController):
             .path("/body/updateString")
             .http_method(HttpMethodEnum.PUT)
             .body_param(Parameter()
-                        .value(value)
-                        .is_required(True))
+                .value(value)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json")),
+                .key("accept")
+                .value("application/json")),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def update_string_array(self,
@@ -1253,14 +1166,12 @@ class BodyParamsController(BaseController):
             strings (List[str]): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1268,24 +1179,23 @@ class BodyParamsController(BaseController):
             .path("/body/updateString")
             .http_method(HttpMethodEnum.PUT)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .query_param(Parameter()
-                         .key("array")
-                         .value(True))
+                .key("array")
+                .value(True))
             .body_param(Parameter()
-                        .value(strings)
-                        .is_required(True))
+                .value(strings)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string_with_new_line(self,
@@ -1296,14 +1206,12 @@ class BodyParamsController(BaseController):
             body (TestNstringEncoding): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1311,21 +1219,20 @@ class BodyParamsController(BaseController):
             .path("/body/stringEncoding")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string_with_r(self,
@@ -1336,14 +1243,12 @@ class BodyParamsController(BaseController):
             body (TestRstringEncoding): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1351,21 +1256,20 @@ class BodyParamsController(BaseController):
             .path("/body/stringEncoding")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_string_in_body_with_r_n(self,
@@ -1376,14 +1280,12 @@ class BodyParamsController(BaseController):
             body (TestRNstringEncoding): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1391,21 +1293,20 @@ class BodyParamsController(BaseController):
             .path("/body/stringEncoding")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_optional_unix_date_time_in_body(self,
@@ -1416,14 +1317,12 @@ class BodyParamsController(BaseController):
             date_time (datetime, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1431,21 +1330,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalUnixTimeStamp")
             .http_method(HttpMethodEnum.POST)
             .body_param(Parameter()
-                        .value(APIHelper.when_defined(APIHelper.UnixDateTime,
-                            date_time)))
+                .value(APIHelper.when_defined(APIHelper.UnixDateTime,
+                    date_time)))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(str),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_optional_rfc_1123_in_body(self,
@@ -1456,14 +1354,12 @@ class BodyParamsController(BaseController):
             body (datetime): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1471,22 +1367,21 @@ class BodyParamsController(BaseController):
             .path("/body/optionlRfc1123")
             .http_method(HttpMethodEnum.POST)
             .body_param(Parameter()
-                        .value(APIHelper.when_defined(APIHelper.HttpDateTime,
-                            body))
-                        .is_required(True))
+                .value(APIHelper.when_defined(APIHelper.HttpDateTime,
+                    body))
+                .is_required(True))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(str),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_datetime_optional_in_endpoint(self,
@@ -1497,14 +1392,12 @@ class BodyParamsController(BaseController):
             body (datetime, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1512,21 +1405,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalDateTime")
             .http_method(HttpMethodEnum.POST)
             .body_param(Parameter()
-                        .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                            body)))
+                .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
+                    body)))
             .header_param(Parameter()
-                          .key("content-type")
-                          .value("text/plain; charset=utf-8"))
+                .key("content-type")
+                .value("text/plain; charset=utf-8"))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(str),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_optional_unix_time_stamp_in_model_body(self,
@@ -1537,14 +1429,12 @@ class BodyParamsController(BaseController):
             date_time (UnixDateTime): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1552,21 +1442,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalUnixDateTimeInModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(date_time)
-                        .is_required(True))
+                .value(date_time)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_optional_unix_time_stamp_in_nested_model_body(self,
@@ -1577,14 +1466,12 @@ class BodyParamsController(BaseController):
             date_time (SendUnixDateTime): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1592,21 +1479,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalUnixTimeStampInNestedModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(date_time)
-                        .is_required(True))
+                .value(date_time)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_1123_date_time_in_nested_model(self,
@@ -1617,14 +1503,12 @@ class BodyParamsController(BaseController):
             body (SendRfc1123DateTime): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1632,21 +1516,20 @@ class BodyParamsController(BaseController):
             .path("/body/rfc1123InNestedModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_1123_date_time_in_model(self,
@@ -1654,18 +1537,15 @@ class BodyParamsController(BaseController):
         """Perform a POST request to /body/OptionalRfc1123InModel.
 
         Args:
-            date_time (ModelWithOptionalRfc1123DateTime): The request body
-                parameter.
+            date_time (ModelWithOptionalRfc1123DateTime): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1673,21 +1553,20 @@ class BodyParamsController(BaseController):
             .path("/body/OptionalRfc1123InModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(date_time)
-                        .is_required(True))
+                .value(date_time)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_optional_datetime_in_model(self,
@@ -1695,18 +1574,15 @@ class BodyParamsController(BaseController):
         """Perform a POST request to /body/optionalDateTimeInBody.
 
         Args:
-            body (ModelWithOptionalRfc3339DateTime): The request body
-                parameter.
+            body (ModelWithOptionalRfc3339DateTime): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1714,21 +1590,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalDateTimeInBody")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_rfc_339_date_time_in_nested_models(self,
@@ -1739,14 +1614,12 @@ class BodyParamsController(BaseController):
             body (SendRfc339DateTime): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1754,21 +1627,20 @@ class BodyParamsController(BaseController):
             .path("/body/dateTimeInNestedModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def uuid_as_optional(self,
@@ -1779,14 +1651,12 @@ class BodyParamsController(BaseController):
             body (UuidAsOptional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1794,21 +1664,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalUUIDInModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def boolean_as_optional(self,
@@ -1819,14 +1688,12 @@ class BodyParamsController(BaseController):
             body (BooleanAsOptional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1834,21 +1701,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalBooleanInModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def date_as_optional(self,
@@ -1859,14 +1725,12 @@ class BodyParamsController(BaseController):
             body (DateAsOptional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1874,21 +1738,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalDateInModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def dynamic_as_optional(self,
@@ -1899,14 +1762,12 @@ class BodyParamsController(BaseController):
             body (DynamicAsOptional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1914,21 +1775,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalDynamicInModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def all_optionals(self,
@@ -1938,18 +1798,16 @@ class BodyParamsController(BaseController):
 
         Args:
             body (AllOptionals): The request body parameter.
-            option (OptionalsEnum, optional): The request query parameter.
-                Example: empty
+            option (OptionalsEnum, optional): The request query parameter. Example:
+                empty
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -1957,24 +1815,23 @@ class BodyParamsController(BaseController):
             .path("/body/alloptionals")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
-                         .key("option")
-                         .value(option))
+                .key("option")
+                .value(option))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def string_as_optional(self,
@@ -1985,14 +1842,12 @@ class BodyParamsController(BaseController):
             body (StringAsOptional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -2000,21 +1855,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalStringInModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def precision_as_optional(self,
@@ -2025,14 +1879,12 @@ class BodyParamsController(BaseController):
             body (PrecisionAsOptional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -2040,21 +1892,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalPrecisionInModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def long_as_optional(self,
@@ -2065,14 +1916,12 @@ class BodyParamsController(BaseController):
             body (LongAsOptional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -2080,21 +1929,20 @@ class BodyParamsController(BaseController):
             .path("/body/optionalLongInModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()
 
     def send_number_as_optional(self,
@@ -2105,14 +1953,12 @@ class BodyParamsController(BaseController):
             body (NumberAsOptional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other
-                useful information such as status codes and headers.
+            ServerResponse: Response from the API.
 
         Raises:
-            APIException: When an error occurs while fetching the data from
-                the remote API. This exception includes the HTTP Response
-                code, an error message, and the HTTP body that was received in
-                the request.
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
@@ -2120,19 +1966,18 @@ class BodyParamsController(BaseController):
             .path("/body/optionalNumberInModel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
-                          .key("Content-Type")
-                          .value("application/json"))
+                .key("Content-Type")
+                .value("application/json"))
             .body_param(Parameter()
-                        .value(body)
-                        .is_required(True))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
-                          .key("accept")
-                          .value("application/json"))
+                .key("accept")
+                .value("application/json"))
             .body_serializer(APIHelper.json_serialize),
         ).response(
             ResponseHandler()
             .is_nullify404(True)
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ServerResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ServerResponse.from_dictionary),
         ).execute()

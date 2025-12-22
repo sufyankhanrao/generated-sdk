@@ -22,11 +22,10 @@ class Complex3(object):
         description (str): The model property of type str.
         external_id (str): The model property of type str.
         data_to_sign (DataToSign): The model property of type DataToSign.
-        contact_details (ContactDetails): The model property of type
-            ContactDetails.
+        contact_details (ContactDetails): The model property of type ContactDetails.
         advanced (Advanced): The model property of type Advanced.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -43,17 +42,18 @@ class Complex3(object):
         "title": "title",
     }
 
-    def __init__(self,
-                 advanced=None,
-                 contact_details=None,
-                 data_to_sign=None,
-                 description=None,
-                 document_id=None,
-                 external_id=None,
-                 signers=None,
-                 status=None,
-                 title=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        advanced=None,
+        contact_details=None,
+        data_to_sign=None,
+        description=None,
+        document_id=None,
+        external_id=None,
+        signers=None,
+        status=None,
+        title=None,
+        additional_properties=None):
         """Initialize a Complex3 instance."""
         # Initialize members of the class
         self.document_id = document_id
@@ -89,34 +89,45 @@ class Complex3(object):
             return None
 
         # Extract variables from the dictionary
-        advanced = Advanced.from_dictionary(
+        advanced =\
+            Advanced.from_dictionary(
             dictionary.get("advanced"))\
-            if dictionary.get("advanced") else None
-        contact_details = ContactDetails.from_dictionary(
+                if dictionary.get("advanced") else None
+        contact_details =\
+            ContactDetails.from_dictionary(
             dictionary.get("contactDetails"))\
-            if dictionary.get("contactDetails") else None
-        data_to_sign = DataToSign.from_dictionary(
+                if dictionary.get("contactDetails") else None
+        data_to_sign =\
+            DataToSign.from_dictionary(
             dictionary.get("dataToSign"))\
-            if dictionary.get("dataToSign") else None
+                if dictionary.get("dataToSign") else None
         description =\
             dictionary.get("description")\
-            if dictionary.get("description") else None
+            if dictionary.get("description")\
+                else None
         document_id =\
             dictionary.get("documentId")\
-            if dictionary.get("documentId") else None
+            if dictionary.get("documentId")\
+                else None
         external_id =\
             dictionary.get("externalId")\
-            if dictionary.get("externalId") else None
+            if dictionary.get("externalId")\
+                else None
         signers = None
         if dictionary.get("signers") is not None:
             signers = [
                 Signer.from_dictionary(x)
                     for x in dictionary.get("signers")
             ]
-        status = Status.from_dictionary(
+        status =\
+            Status.from_dictionary(
             dictionary.get("status"))\
-            if dictionary.get("status") else None
-        title = dictionary.get("title") if dictionary.get("title") else None
+                if dictionary.get("status") else None
+        title =\
+            dictionary.get("title")\
+            if dictionary.get("title")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -134,28 +145,54 @@ class Complex3(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"document_id={self.document_id!r}, "
-                f"signers={self.signers!r}, "
-                f"status={self.status!r}, "
-                f"title={self.title!r}, "
-                f"description={self.description!r}, "
-                f"external_id={self.external_id!r}, "
-                f"data_to_sign={self.data_to_sign!r}, "
-                f"contact_details={self.contact_details!r}, "
-                f"advanced={self.advanced!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _document_id=self.document_id
+        _signers=self.signers
+        _status=self.status
+        _title=self.title
+        _description=self.description
+        _external_id=self.external_id
+        _data_to_sign=self.data_to_sign
+        _contact_details=self.contact_details
+        _advanced=self.advanced
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"document_id={_document_id!r}"
+            f"signers={_signers!r}"
+            f"status={_status!r}"
+            f"title={_title!r}"
+            f"description={_description!r}"
+            f"external_id={_external_id!r}"
+            f"data_to_sign={_data_to_sign!r}"
+            f"contact_details={_contact_details!r}"
+            f"advanced={_advanced!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"document_id={self.document_id!s}, "
-                f"signers={self.signers!s}, "
-                f"status={self.status!s}, "
-                f"title={self.title!s}, "
-                f"description={self.description!s}, "
-                f"external_id={self.external_id!s}, "
-                f"data_to_sign={self.data_to_sign!s}, "
-                f"contact_details={self.contact_details!s}, "
-                f"advanced={self.advanced!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _document_id=self.document_id
+        _signers=self.signers
+        _status=self.status
+        _title=self.title
+        _description=self.description
+        _external_id=self.external_id
+        _data_to_sign=self.data_to_sign
+        _contact_details=self.contact_details
+        _advanced=self.advanced
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"document_id={_document_id!s}"
+            f"signers={_signers!s}"
+            f"status={_status!s}"
+            f"title={_title!s}"
+            f"description={_description!s}"
+            f"external_id={_external_id!s}"
+            f"data_to_sign={_data_to_sign!s}"
+            f"contact_details={_contact_details!s}"
+            f"advanced={_advanced!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

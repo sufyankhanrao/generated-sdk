@@ -32,12 +32,7 @@ body = CreateOrderRequest(
 
 try:
     result = orders_controller.create_order(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except ErrorException as e: 
     print(e)
 except APIException as e: 

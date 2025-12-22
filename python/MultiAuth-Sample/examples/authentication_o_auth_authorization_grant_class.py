@@ -66,12 +66,7 @@ except APIException as ex:
 authentication_controller = client.authentication
 try:
     result = authentication_controller.o_auth_authorization_grant()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

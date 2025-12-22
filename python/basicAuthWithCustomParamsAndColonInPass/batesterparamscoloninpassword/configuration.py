@@ -131,11 +131,11 @@ class Configuration(HttpClientConfiguration):
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
-                 timeout=60, max_retries=0, backoff_factor=2,
-                 retry_statuses=None, retry_methods=None, proxy_settings=None,
+                 timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
+                 retry_methods=None, proxy_settings=None,
                  environment=Environment.TESTING, port="80", suites=1,
-                 username="farhan.muhammad+38@apimatic.io",
-                 password="pass:word", basic_auth_credentials=None):
+                 username="farhan.muhammad+38@apimatic.io", password="pass:word",
+                 basic_auth_credentials=None):
         """Initialize Configuration object."""
         if retry_methods is None:
             retry_methods = ["GET", "PUT"]
@@ -198,11 +198,11 @@ class Configuration(HttpClientConfiguration):
         return Configuration(
             http_client_instance=http_client_instance,
             override_http_client_configuration=override_http_client_configuration,
-            http_call_back=http_call_back, timeout=timeout,
-            max_retries=max_retries, backoff_factor=backoff_factor,
-            retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings, environment=environment, port=port,
-            suites=suites, basic_auth_credentials=basic_auth_credentials,
+            http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
+            backoff_factor=backoff_factor, retry_statuses=retry_statuses,
+            retry_methods=retry_methods, proxy_settings=proxy_settings,
+            environment=environment, port=port, suites=suites,
+            basic_auth_credentials=basic_auth_credentials,
         )
 
     def create_http_client(self):
@@ -257,15 +257,15 @@ class Configuration(HttpClientConfiguration):
                 and password is None:
             return basic_auth_credentials
 
-        warnings.warn(message=("The 'username', 'password' params are deprecate"
-                               "d. Use 'basic_auth_credentials' param instead."),
+        warnings.warn(message=("The 'username', 'password' params are deprecated. Use"
+                               " 'basic_auth_credentials' param instead."),
                       category=DeprecationWarning,
                       stacklevel=stack_level)
 
         if basic_auth_credentials is not None:
             return basic_auth_credentials.clone_with(username, password)
 
-        from batesterparamscoloninpassword.http.auth.basic_auth import (
+        from batesterparamscoloninpassword.http.auth.basic_auth import (  # noqa: E501
             BasicAuthCredentials,
         )
         return BasicAuthCredentials(username, password)
@@ -305,6 +305,7 @@ class Configuration(HttpClientConfiguration):
         from batesterparamscoloninpassword.http.auth.basic_auth import (
             BasicAuthCredentials,
         )
+
         # Preparing default configuration
         default_config = cls(
             override_http_client_configuration=override_http_client_configuration,

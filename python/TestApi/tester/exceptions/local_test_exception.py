@@ -37,17 +37,28 @@ class LocalTestException(GlobalTestException):
         super(LocalTestException, self).unbox(dictionary)
         self.secret_message_for_endpoint =\
             dictionary.get("SecretMessageForEndpoint")\
-            if dictionary.get("SecretMessageForEndpoint") else None
+            if dictionary.get("SecretMessageForEndpoint")\
+                else None
         self.error_days =\
             dictionary.get("errorDays")\
-            if dictionary.get("errorDays") else "Friday"
+            if dictionary.get("errorDays")\
+                else "Friday"
+
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"secret_message_for_endpoint={
-                    self.secret_message_for_endpoint!s}, "
-                f"error_days={(self.error_days
-                     if hasattr(self, 'error_days') else None)!s})")
+        _secret_message_for_endpoint=self.secret_message_for_endpoint
+        _error_days=(
+            self.error_days
+            if hasattr(self, "error_days")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"secret_message_for_endpoint={_secret_message_for_endpoint!s}"
+            f"error_days={_error_days!s}"
+            f")"
+        )

@@ -26,8 +26,9 @@ class HoldsModelWithOafField(object):
         "inner_model": "innerModel",
     }
 
-    def __init__(self,
-                 inner_model=None):
+    def __init__(
+        self,
+        inner_model=None):
         """Initialize a HoldsModelWithOafField instance."""
         # Initialize members of the class
         self.inner_model = inner_model
@@ -50,9 +51,11 @@ class HoldsModelWithOafField(object):
             return None
 
         # Extract variables from the dictionary
-        inner_model = HoldsOafField.from_dictionary(
+        inner_model =\
+            HoldsOafField.from_dictionary(
             dictionary.get("innerModel"))\
-            if dictionary.get("innerModel") else None
+                if dictionary.get("innerModel") else None
+
         # Return an object of this model
         return cls(inner_model)
 
@@ -71,24 +74,34 @@ class HoldsModelWithOafField(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.inner_model,
-                type_callable=lambda value: HoldsOafField.validate(value),
-                is_model_dict=True)
+                    value=dictionary.inner_model,
+                    type_callable=lambda value:
+                        HoldsOafField.validate(value),
+                    is_model_dict=True)
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("innerModel"),
-            type_callable=lambda value: HoldsOafField.validate(value),
-            is_model_dict=True)
+                value=dictionary.get("innerModel"),
+                type_callable=lambda value:
+                    HoldsOafField.validate(value),
+                is_model_dict=True)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"inner_model={self.inner_model!r})")
+        _inner_model=self.inner_model
+        return (
+            f"{self.__class__.__name__}("
+            f"inner_model={_inner_model!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"inner_model={self.inner_model!s})")
+        _inner_model=self.inner_model
+        return (
+            f"{self.__class__.__name__}("
+            f"inner_model={_inner_model!s}"
+            f")"
+        )

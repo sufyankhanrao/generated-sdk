@@ -9,8 +9,8 @@ class RedirectSettings(object):
 
     Attributes:
         redirect_mode (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -19,9 +19,10 @@ class RedirectSettings(object):
         "redirect_mode": "redirectMode",
     }
 
-    def __init__(self,
-                 redirect_mode=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        redirect_mode=None,
+        additional_properties=None):
         """Initialize a RedirectSettings instance."""
         # Initialize members of the class
         self.redirect_mode = redirect_mode
@@ -51,7 +52,9 @@ class RedirectSettings(object):
         # Extract variables from the dictionary
         redirect_mode =\
             dictionary.get("redirectMode")\
-            if dictionary.get("redirectMode") else None
+            if dictionary.get("redirectMode")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -61,12 +64,22 @@ class RedirectSettings(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"redirect_mode={self.redirect_mode!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _redirect_mode=self.redirect_mode
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"redirect_mode={_redirect_mode!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"redirect_mode={self.redirect_mode!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _redirect_mode=self.redirect_mode
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"redirect_mode={_redirect_mode!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

@@ -16,8 +16,9 @@ class PaypalMockResponseSchema(object):
         "mock_application_codes": "mock_application_codes",
     }
 
-    def __init__(self,
-                 mock_application_codes=None):
+    def __init__(
+        self,
+        mock_application_codes=None):
         """Initialize a PaypalMockResponseSchema instance."""
         # Initialize members of the class
         self.mock_application_codes = mock_application_codes
@@ -42,16 +43,26 @@ class PaypalMockResponseSchema(object):
         # Extract variables from the dictionary
         mock_application_codes =\
             dictionary.get("mock_application_codes")\
-            if dictionary.get("mock_application_codes") else None
+            if dictionary.get("mock_application_codes")\
+                else None
+
         # Return an object of this model
         return cls(mock_application_codes)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"mock_application_codes={self.mock_application_codes!r})")
+        _mock_application_codes=self.mock_application_codes
+        return (
+            f"{self.__class__.__name__}("
+            f"mock_application_codes={_mock_application_codes!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"mock_application_codes={self.mock_application_codes!s})")
+        _mock_application_codes=self.mock_application_codes
+        return (
+            f"{self.__class__.__name__}("
+            f"mock_application_codes={_mock_application_codes!s}"
+            f")"
+        )

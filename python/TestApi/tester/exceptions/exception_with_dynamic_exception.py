@@ -34,16 +34,30 @@ class ExceptionWithDynamicException(APIException):
             MUST match property names in the API description.
 
         """
-        self.value = dictionary.get("value") if dictionary.get("value") else None
+        self.value =\
+            dictionary.get("value")\
+            if dictionary.get("value")\
+                else None
         self.value_1 =\
             dictionary.get("value1")\
-            if dictionary.get("value1") else None
+            if dictionary.get("value1")\
+                else None
+
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"value={self.value!s}, "
-                f"value_1={(self.value_1
-                     if hasattr(self, 'value_1') else None)!s})")
+        _value=self.value
+        _value_1=(
+            self.value_1
+            if hasattr(self, "value_1")
+            else None
+        )
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"value={_value!s}"
+            f"value_1={_value_1!s}"
+            f")"
+        )

@@ -57,7 +57,8 @@ class TesterxmloneofClient(object):
         """Provide access to the
         OneofArrayOrSingleXmlModelWithOptionalWrappingElementController endpoints.
         """
-        return OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(self.global_configuration)
+        return OneofArrayOrSingleXmlModelWithOptionalWrappingElementController(
+            self.global_configuration)
 
     @LazyProperty
     def array_of_model_with_oneof_models_inside(self):

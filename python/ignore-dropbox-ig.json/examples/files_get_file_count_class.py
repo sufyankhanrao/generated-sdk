@@ -27,12 +27,7 @@ client = DropboxClient(
 files_controller = client.files
 try:
     result = files_controller.get_file_count()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

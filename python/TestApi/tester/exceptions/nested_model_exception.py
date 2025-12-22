@@ -37,19 +37,30 @@ class NestedModelException(APIException):
         """
         self.server_message =\
             dictionary.get("ServerMessage")\
-            if dictionary.get("ServerMessage") else None
+            if dictionary.get("ServerMessage")\
+                else None
         self.server_code =\
             dictionary.get("ServerCode")\
-            if dictionary.get("ServerCode") else None
-        self.model = Validate.from_dictionary(
+            if dictionary.get("ServerCode")\
+                else None
+        self.model =\
+            Validate.from_dictionary(
             dictionary.get("model"))\
-            if dictionary.get("model") else None
+                if dictionary.get("model") else None
+
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"server_message={self.server_message!s}, "
-                f"server_code={self.server_code!s}, "
-                f"model={self.model!s})")
+        _server_message=self.server_message
+        _server_code=self.server_code
+        _model=self.model
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"server_message={_server_message!s}"
+            f"server_code={_server_code!s}"
+            f"model={_model!s}"
+            f")"
+        )

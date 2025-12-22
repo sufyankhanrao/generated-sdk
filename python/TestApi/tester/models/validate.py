@@ -14,8 +14,8 @@ class Validate(object):
         field (str): The model property of type str.
         name (str): The model property of type str.
         address (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -30,11 +30,12 @@ class Validate(object):
         "address",
     ]
 
-    def __init__(self,
-                 field=None,
-                 name=None,
-                 address=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        field=None,
+        name=None,
+        address=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a Validate instance."""
         # Initialize members of the class
         self.field = field
@@ -65,11 +66,19 @@ class Validate(object):
             return None
 
         # Extract variables from the dictionary
-        field = dictionary.get("field") if dictionary.get("field") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
+        field =\
+            dictionary.get("field")\
+            if dictionary.get("field")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
         address =\
             dictionary.get("address")\
-            if dictionary.get("address") else APIHelper.SKIP
+            if dictionary.get("address")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -81,18 +90,38 @@ class Validate(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"field={self.field!r}, "
-                f"name={self.name!r}, "
-                f"address={(self.address
-                     if hasattr(self, 'address') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _field=self.field
+        _name=self.name
+        _address=(
+            self.address
+            if hasattr(self, "address")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"field={_field!r}"
+            f"name={_name!r}"
+            f"address={_address!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"field={self.field!s}, "
-                f"name={self.name!s}, "
-                f"address={(self.address
-                     if hasattr(self, 'address') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _field=self.field
+        _name=self.name
+        _address=(
+            self.address
+            if hasattr(self, "address")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"field={_field!s}"
+            f"name={_name!s}"
+            f"address={_address!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

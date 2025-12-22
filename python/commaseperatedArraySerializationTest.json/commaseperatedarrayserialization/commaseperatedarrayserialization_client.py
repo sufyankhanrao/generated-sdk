@@ -23,7 +23,9 @@ from commaseperatedarrayserialization.controllers.comma_seperated_controller imp
 
 
 class CommaseperatedarrayserializationClient(object):
-    """Client that provide access to the CommaseperatedarrayserializationClient APIs."""
+    """Client that provide access to the CommaseperatedarrayserializationClient
+    APIs.
+    """
 
     @LazyProperty
     def comma_seperated(self):

@@ -28,17 +28,13 @@ def generate(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CatsOrADogOrWolves`](../../doc/models/cats-or-a-dog-or-wolves.md).
+[`CatsOrADogOrWolves`](../../doc/models/cats-or-a-dog-or-wolves.md)
 
 ## Example Usage
 
 ```python
 result = oneof_array_or_single_xml_model_with_optional_wrapping_element_controller.generate()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -59,7 +55,7 @@ def validate(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
@@ -69,11 +65,7 @@ body = CatsOrADogOrWolves(
 )
 
 result = oneof_array_or_single_xml_model_with_optional_wrapping_element_controller.validate(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -87,17 +79,13 @@ def generate_1(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CatsOrADogOrWolves`](../../doc/models/cats-or-a-dog-or-wolves.md).
+[`CatsOrADogOrWolves`](../../doc/models/cats-or-a-dog-or-wolves.md)
 
 ## Example Usage
 
 ```python
 result = oneof_array_or_single_xml_model_with_optional_wrapping_element_controller.generate_1()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -118,7 +106,7 @@ def validate_1(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
@@ -128,11 +116,7 @@ body = CatsOrADogOrWolves(
 )
 
 result = oneof_array_or_single_xml_model_with_optional_wrapping_element_controller.validate_1(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -146,17 +130,13 @@ def generate_2(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CatsOrADogOrWolves`](../../doc/models/cats-or-a-dog-or-wolves.md).
+[`CatsOrADogOrWolves`](../../doc/models/cats-or-a-dog-or-wolves.md)
 
 ## Example Usage
 
 ```python
 result = oneof_array_or_single_xml_model_with_optional_wrapping_element_controller.generate_2()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -177,7 +157,7 @@ def validate_2(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
@@ -187,10 +167,6 @@ body = CatsOrADogOrWolves(
 )
 
 result = oneof_array_or_single_xml_model_with_optional_wrapping_element_controller.validate_2(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

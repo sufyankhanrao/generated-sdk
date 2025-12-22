@@ -144,7 +144,7 @@ class OAuth2(HeaderAuth):
             auth_code,
             self._o_auth_redirect_uri,
             _optional_form_parameters=additional_params,
-        ).body
+        )
         if hasattr(token, "expires_in"):
             current_utc_timestamp = AuthHelper.get_current_utc_timestamp()
             token.expiry = AuthHelper.get_token_expiry(
@@ -188,7 +188,7 @@ class OAuth2(HeaderAuth):
             self.build_basic_auth_header(),
             self._o_auth_token.refresh_token,
             _optional_form_parameters=additional_params,
-        ).body
+        )
         if hasattr(token, "expires_in"):
             current_utc_timestamp = AuthHelper.get_current_utc_timestamp()
             token.expiry = AuthHelper.get_token_expiry(

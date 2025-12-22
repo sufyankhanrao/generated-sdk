@@ -37,12 +37,13 @@ class Webhook(object):
         "delivery_count",
     ]
 
-    def __init__(self,
-                 webhook_id=APIHelper.SKIP,
-                 created_at=APIHelper.SKIP,
-                 updated_at=APIHelper.SKIP,
-                 last_delivery=APIHelper.SKIP,
-                 delivery_count=APIHelper.SKIP):
+    def __init__(
+        self,
+        webhook_id=APIHelper.SKIP,
+        created_at=APIHelper.SKIP,
+        updated_at=APIHelper.SKIP,
+        last_delivery=APIHelper.SKIP,
+        delivery_count=APIHelper.SKIP):
         """Initialize a Webhook instance."""
         # Initialize members of the class
         if webhook_id is not APIHelper.SKIP:
@@ -50,15 +51,18 @@ class Webhook(object):
         if created_at is not APIHelper.SKIP:
             self.created_at =\
                  APIHelper.apply_datetime_converter(
-                created_at, APIHelper.RFC3339DateTime) if created_at else None
+                created_at, APIHelper.RFC3339DateTime)\
+                 if created_at else None
         if updated_at is not APIHelper.SKIP:
             self.updated_at =\
                  APIHelper.apply_datetime_converter(
-                updated_at, APIHelper.RFC3339DateTime) if updated_at else None
+                updated_at, APIHelper.RFC3339DateTime)\
+                 if updated_at else None
         if last_delivery is not APIHelper.SKIP:
             self.last_delivery =\
                  APIHelper.apply_datetime_converter(
-                last_delivery, APIHelper.RFC3339DateTime) if last_delivery else None
+                last_delivery, APIHelper.RFC3339DateTime)\
+                 if last_delivery else None
         if delivery_count is not APIHelper.SKIP:
             self.delivery_count = delivery_count
 
@@ -82,7 +86,8 @@ class Webhook(object):
         # Extract variables from the dictionary
         webhook_id =\
             dictionary.get("webhookId")\
-            if dictionary.get("webhookId") else APIHelper.SKIP
+            if dictionary.get("webhookId")\
+                else APIHelper.SKIP
         created_at = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("createdAt")).datetime\
             if dictionary.get("createdAt") else APIHelper.SKIP
@@ -94,7 +99,9 @@ class Webhook(object):
             if dictionary.get("lastDelivery") else APIHelper.SKIP
         delivery_count =\
             dictionary.get("deliveryCount")\
-            if dictionary.get("deliveryCount") else APIHelper.SKIP
+            if dictionary.get("deliveryCount")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(webhook_id,
                    created_at,
@@ -104,28 +111,74 @@ class Webhook(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"webhook_id={(self.webhook_id
-                     if hasattr(self, 'webhook_id') else None)!r}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!r}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!r}, "
-                f"last_delivery={(self.last_delivery
-                     if hasattr(self, 'last_delivery') else None)!r}, "
-                f"delivery_count={(self.delivery_count
-                     if hasattr(self, 'delivery_count') else None)!r})")
+        _webhook_id=(
+            self.webhook_id
+            if hasattr(self, "webhook_id")
+            else None
+        )
+        _created_at=(
+            self.created_at
+            if hasattr(self, "created_at")
+            else None
+        )
+        _updated_at=(
+            self.updated_at
+            if hasattr(self, "updated_at")
+            else None
+        )
+        _last_delivery=(
+            self.last_delivery
+            if hasattr(self, "last_delivery")
+            else None
+        )
+        _delivery_count=(
+            self.delivery_count
+            if hasattr(self, "delivery_count")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"webhook_id={_webhook_id!r}"
+            f"created_at={_created_at!r}"
+            f"updated_at={_updated_at!r}"
+            f"last_delivery={_last_delivery!r}"
+            f"delivery_count={_delivery_count!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"webhook_id={(self.webhook_id
-                     if hasattr(self, 'webhook_id') else None)!s}, "
-                f"created_at={(self.created_at
-                     if hasattr(self, 'created_at') else None)!s}, "
-                f"updated_at={(self.updated_at
-                     if hasattr(self, 'updated_at') else None)!s}, "
-                f"last_delivery={(self.last_delivery
-                     if hasattr(self, 'last_delivery') else None)!s}, "
-                f"delivery_count={(self.delivery_count
-                     if hasattr(self, 'delivery_count') else None)!s})")
+        _webhook_id=(
+            self.webhook_id
+            if hasattr(self, "webhook_id")
+            else None
+        )
+        _created_at=(
+            self.created_at
+            if hasattr(self, "created_at")
+            else None
+        )
+        _updated_at=(
+            self.updated_at
+            if hasattr(self, "updated_at")
+            else None
+        )
+        _last_delivery=(
+            self.last_delivery
+            if hasattr(self, "last_delivery")
+            else None
+        )
+        _delivery_count=(
+            self.delivery_count
+            if hasattr(self, "delivery_count")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"webhook_id={_webhook_id!s}"
+            f"created_at={_created_at!s}"
+            f"updated_at={_updated_at!s}"
+            f"last_delivery={_last_delivery!s}"
+            f"delivery_count={_delivery_count!s}"
+            f")"
+        )

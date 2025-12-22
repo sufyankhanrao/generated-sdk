@@ -15,8 +15,8 @@ class AdditionalModelParameters(object):
         field (str): The model property of type str.
         address (str): The model property of type str.
         job (Job): The model property of type Job.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -28,12 +28,13 @@ class AdditionalModelParameters(object):
         "name": "name",
     }
 
-    def __init__(self,
-                 job=None,
-                 address=None,
-                 field=None,
-                 name=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        job=None,
+        address=None,
+        field=None,
+        name=None,
+        additional_properties=None):
         """Initialize a AdditionalModelParameters instance."""
         # Initialize members of the class
         self.name = name
@@ -64,12 +65,23 @@ class AdditionalModelParameters(object):
             return None
 
         # Extract variables from the dictionary
-        job = Job.from_dictionary(
+        job =\
+            Job.from_dictionary(
             dictionary.get("Job"))\
-            if dictionary.get("Job") else None
-        address = dictionary.get("address") if dictionary.get("address") else None
-        field = dictionary.get("field") if dictionary.get("field") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
+                if dictionary.get("Job") else None
+        address =\
+            dictionary.get("address")\
+            if dictionary.get("address")\
+                else None
+        field =\
+            dictionary.get("field")\
+            if dictionary.get("field")\
+                else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -82,18 +94,34 @@ class AdditionalModelParameters(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!r}, "
-                f"field={self.field!r}, "
-                f"address={self.address!r}, "
-                f"job={self.job!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _name=self.name
+        _field=self.field
+        _address=self.address
+        _job=self.job
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!r}"
+            f"field={_field!r}"
+            f"address={_address!r}"
+            f"job={_job!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!s}, "
-                f"field={self.field!s}, "
-                f"address={self.address!s}, "
-                f"job={self.job!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _name=self.name
+        _field=self.field
+        _address=self.address
+        _job=self.job
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!s}"
+            f"field={_field!s}"
+            f"address={_address!s}"
+            f"job={_job!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

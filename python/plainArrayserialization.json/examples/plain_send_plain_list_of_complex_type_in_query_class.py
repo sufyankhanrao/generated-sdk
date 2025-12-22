@@ -59,12 +59,7 @@ complex_type = [
 
 try:
     result = plain_controller.create_send_plain_list_of_complex_type_in_query(complex_type)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

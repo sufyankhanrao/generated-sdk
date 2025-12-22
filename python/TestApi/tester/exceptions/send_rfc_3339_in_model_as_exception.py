@@ -37,13 +37,20 @@ class SendRfc3339InModelAsException(APIException):
             MUST match property names in the API description.
 
         """
-        self.body = AddRfc3339DatetimeInGlobalException.from_dictionary(
+        self.body =\
+            AddRfc3339DatetimeInGlobalException.from_dictionary(
             dictionary.get("body"))\
-            if dictionary.get("body") else None
+                if dictionary.get("body") else None
+
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"body={self.body!s})")
+        _body=self.body
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"body={_body!s}"
+            f")"
+        )

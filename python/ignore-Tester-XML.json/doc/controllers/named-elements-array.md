@@ -24,17 +24,13 @@ def generate(self)
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SimpleArrayWithElementName`](../../doc/models/simple-array-with-element-name.md).
+[`SimpleArrayWithElementName`](../../doc/models/simple-array-with-element-name.md)
 
 ## Example Usage
 
 ```python
 result = named_elements_array_controller.generate()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -55,7 +51,7 @@ def validate(self,
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ServerResponse`](../../doc/models/server-response.md).
+[`ServerResponse`](../../doc/models/server-response.md)
 
 ## Example Usage
 
@@ -67,10 +63,6 @@ body = SimpleArrayWithElementName(
 )
 
 result = named_elements_array_controller.validate(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

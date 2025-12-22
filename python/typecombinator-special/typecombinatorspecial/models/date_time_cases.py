@@ -14,16 +14,15 @@ class DateTimeCases(object):
     This class contains datetime types in oneOf/anyOf cases.
 
     Attributes:
-        rfc_3339_vs_string (datetime | str): The model property of type
-            datetime | str.
-        all_one_of (date | datetime): The model property of type date |
-            datetime.
-        all_outer_array (List[date | datetime]): The model property of type
-            List[date | datetime].
+        rfc_3339_vs_string (datetime | str): The model property of type datetime |
+            str.
+        all_one_of (date | datetime): The model property of type date | datetime.
+        all_outer_array (List[date | datetime]): The model property of type List[date
+            | datetime].
         datevs_array (List[datetime] | datetime): The model property of type
             List[datetime] | datetime.
-        mapvs_array (List[datetime] | Dict[str, datetime]): The model property
-            of type List[datetime] | Dict[str, datetime].
+        mapvs_array (List[datetime] | Dict[str, datetime]): The model property of
+            type List[datetime] | Dict[str, datetime].
 
     """
 
@@ -36,29 +35,35 @@ class DateTimeCases(object):
         "mapvs_array": "mapvsArray",
     }
 
-    def __init__(self,
-                 rfc_3339_vs_string=None,
-                 all_one_of=None,
-                 all_outer_array=None,
-                 datevs_array=None,
-                 mapvs_array=None):
+    def __init__(
+        self,
+        rfc_3339_vs_string=None,
+        all_one_of=None,
+        all_outer_array=None,
+        datevs_array=None,
+        mapvs_array=None):
         """Initialize a DateTimeCases instance."""
         # Initialize members of the class
         self.rfc_3339_vs_string =\
              APIHelper.apply_datetime_converter(
-            rfc_3339_vs_string, APIHelper.RFC3339DateTime) if rfc_3339_vs_string else None
+            rfc_3339_vs_string, APIHelper.RFC3339DateTime)\
+             if rfc_3339_vs_string else None
         self.all_one_of =\
              APIHelper.apply_datetime_converter(
-            all_one_of, APIHelper.UnixDateTime) if all_one_of else None
+            all_one_of, APIHelper.UnixDateTime)\
+             if all_one_of else None
         self.all_outer_array =\
              APIHelper.apply_datetime_converter(
-            all_outer_array, APIHelper.UnixDateTime) if all_outer_array else None
+            all_outer_array, APIHelper.UnixDateTime)\
+             if all_outer_array else None
         self.datevs_array =\
              APIHelper.apply_datetime_converter(
-            datevs_array, APIHelper.HttpDateTime) if datevs_array else None
+            datevs_array, APIHelper.HttpDateTime)\
+             if datevs_array else None
         self.mapvs_array =\
              APIHelper.apply_datetime_converter(
-            mapvs_array, APIHelper.HttpDateTime) if mapvs_array else None
+            mapvs_array, APIHelper.HttpDateTime)\
+             if mapvs_array else None
 
     @classmethod
     def from_dictionary(cls,
@@ -82,11 +87,37 @@ class DateTimeCases(object):
             return None
 
         # Extract variables from the dictionary
-        rfc_3339_vs_string = APIHelper.deserialize_union_type(UnionTypeLookUp.get("DateTimeCasesRfc3339vsString"), dictionary.get("rfc3339vsString"), False) if dictionary.get("rfc3339vsString") is not None else None
-        all_one_of = APIHelper.deserialize_union_type(UnionTypeLookUp.get("DateTimeCasesAllOneOf"), dictionary.get("allOneOf"), False) if dictionary.get("allOneOf") is not None else None
-        all_outer_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("DateTimeCasesAllOuterArray"), dictionary.get("allOuterArray"), False) if dictionary.get("allOuterArray") is not None else None
-        datevs_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("DateTimeCasesDatevsArray"), dictionary.get("datevsArray"), False) if dictionary.get("datevsArray") is not None else None
-        mapvs_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("DateTimeCasesMapvsArray"), dictionary.get("mapvsArray"), False) if dictionary.get("mapvsArray") is not None else None
+        rfc_3339_vs_string = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("DateTimeCasesRfc3339vsString"),
+            dictionary.get("rfc3339vsString"),
+            False)\
+            if dictionary.get("rfc3339vsString") is not None\
+            else None
+        all_one_of = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("DateTimeCasesAllOneOf"),
+            dictionary.get("allOneOf"),
+            False)\
+            if dictionary.get("allOneOf") is not None\
+            else None
+        all_outer_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("DateTimeCasesAllOuterArray"),
+            dictionary.get("allOuterArray"),
+            False)\
+            if dictionary.get("allOuterArray") is not None\
+            else None
+        datevs_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("DateTimeCasesDatevsArray"),
+            dictionary.get("datevsArray"),
+            False)\
+            if dictionary.get("datevsArray") is not None\
+            else None
+        mapvs_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("DateTimeCasesMapvsArray"),
+            dictionary.get("mapvsArray"),
+            False)\
+            if dictionary.get("mapvsArray") is not None\
+            else None
+
         # Return an object of this model
         return cls(rfc_3339_vs_string,
                    all_one_of,
@@ -112,35 +143,61 @@ class DateTimeCases(object):
         )
 
         if isinstance(dictionary, cls):
-            return UnionTypeLookUp.get("DateTimeCasesRfc3339vsString").validate(dictionary.rfc_3339_vs_string).is_valid \
-                and UnionTypeLookUp.get("DateTimeCasesAllOneOf").validate(dictionary.all_one_of).is_valid \
-                and UnionTypeLookUp.get("DateTimeCasesAllOuterArray").validate(dictionary.all_outer_array).is_valid \
-                and UnionTypeLookUp.get("DateTimeCasesDatevsArray").validate(dictionary.datevs_array).is_valid \
-                and UnionTypeLookUp.get("DateTimeCasesMapvsArray").validate(dictionary.mapvs_array).is_valid
+            return (UnionTypeLookUp.get("DateTimeCasesRfc3339vsString")
+                .validate(dictionary.rfc_3339_vs_string).is_valid) \
+                and (UnionTypeLookUp.get("DateTimeCasesAllOneOf")
+                .validate(dictionary.all_one_of).is_valid) \
+                and (UnionTypeLookUp.get("DateTimeCasesAllOuterArray")
+                .validate(dictionary.all_outer_array).is_valid) \
+                and (UnionTypeLookUp.get("DateTimeCasesDatevsArray")
+                .validate(dictionary.datevs_array).is_valid) \
+                and (UnionTypeLookUp.get("DateTimeCasesMapvsArray")
+                .validate(dictionary.mapvs_array).is_valid)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return UnionTypeLookUp.get("DateTimeCasesRfc3339vsString").validate(dictionary.get("rfc3339vsString")).is_valid \
-            and UnionTypeLookUp.get("DateTimeCasesAllOneOf").validate(dictionary.get("allOneOf")).is_valid \
-            and UnionTypeLookUp.get("DateTimeCasesAllOuterArray").validate(dictionary.get("allOuterArray")).is_valid \
-            and UnionTypeLookUp.get("DateTimeCasesDatevsArray").validate(dictionary.get("datevsArray")).is_valid \
-            and UnionTypeLookUp.get("DateTimeCasesMapvsArray").validate(dictionary.get("mapvsArray")).is_valid
+        return (UnionTypeLookUp.get("DateTimeCasesRfc3339vsString")
+            .validate(dictionary.get("rfc3339vsString")).is_valid) \
+            and (UnionTypeLookUp.get("DateTimeCasesAllOneOf")
+            .validate(dictionary.get("allOneOf")).is_valid) \
+            and (UnionTypeLookUp.get("DateTimeCasesAllOuterArray")
+            .validate(dictionary.get("allOuterArray")).is_valid) \
+            and (UnionTypeLookUp.get("DateTimeCasesDatevsArray")
+            .validate(dictionary.get("datevsArray")).is_valid) \
+            and (UnionTypeLookUp.get("DateTimeCasesMapvsArray")
+            .validate(dictionary.get("mapvsArray")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"rfc_3339_vs_string={self.rfc_3339_vs_string!r}, "
-                f"all_one_of={self.all_one_of!r}, "
-                f"all_outer_array={self.all_outer_array!r}, "
-                f"datevs_array={self.datevs_array!r}, "
-                f"mapvs_array={self.mapvs_array!r})")
+        _rfc_3339_vs_string=self.rfc_3339_vs_string
+        _all_one_of=self.all_one_of
+        _all_outer_array=self.all_outer_array
+        _datevs_array=self.datevs_array
+        _mapvs_array=self.mapvs_array
+        return (
+            f"{self.__class__.__name__}("
+            f"rfc_3339_vs_string={_rfc_3339_vs_string!r}"
+            f"all_one_of={_all_one_of!r}"
+            f"all_outer_array={_all_outer_array!r}"
+            f"datevs_array={_datevs_array!r}"
+            f"mapvs_array={_mapvs_array!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"rfc_3339_vs_string={self.rfc_3339_vs_string!s}, "
-                f"all_one_of={self.all_one_of!s}, "
-                f"all_outer_array={self.all_outer_array!s}, "
-                f"datevs_array={self.datevs_array!s}, "
-                f"mapvs_array={self.mapvs_array!s})")
+        _rfc_3339_vs_string=self.rfc_3339_vs_string
+        _all_one_of=self.all_one_of
+        _all_outer_array=self.all_outer_array
+        _datevs_array=self.datevs_array
+        _mapvs_array=self.mapvs_array
+        return (
+            f"{self.__class__.__name__}("
+            f"rfc_3339_vs_string={_rfc_3339_vs_string!s}"
+            f"all_one_of={_all_one_of!s}"
+            f"all_outer_array={_all_outer_array!s}"
+            f"datevs_array={_datevs_array!s}"
+            f"mapvs_array={_mapvs_array!s}"
+            f")"
+        )

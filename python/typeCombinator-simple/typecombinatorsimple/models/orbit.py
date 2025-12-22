@@ -21,8 +21,9 @@ class Orbit(object):
         "number_of_electrons": "NumberOfElectrons",
     }
 
-    def __init__(self,
-                 number_of_electrons=None):
+    def __init__(
+        self,
+        number_of_electrons=None):
         """Initialize a Orbit instance."""
         # Initialize members of the class
         self.number_of_electrons = number_of_electrons
@@ -47,7 +48,9 @@ class Orbit(object):
         # Extract variables from the dictionary
         number_of_electrons =\
             dictionary.get("NumberOfElectrons")\
-            if dictionary.get("NumberOfElectrons") else None
+            if dictionary.get("NumberOfElectrons")\
+                else None
+
         # Return an object of this model
         return cls(number_of_electrons)
 
@@ -66,22 +69,38 @@ class Orbit(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.number_of_electrons,
-                type_callable=lambda value: isinstance(value, int))
+                    value=dictionary.number_of_electrons,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("NumberOfElectrons"),
-            type_callable=lambda value: isinstance(value, int))
+                value=dictionary.get("NumberOfElectrons"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_of_electrons={self.number_of_electrons!r})")
+        _number_of_electrons=self.number_of_electrons
+        return (
+            f"{self.__class__.__name__}("
+            f"number_of_electrons={_number_of_electrons!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"number_of_electrons={self.number_of_electrons!s})")
+        _number_of_electrons=self.number_of_electrons
+        return (
+            f"{self.__class__.__name__}("
+            f"number_of_electrons={_number_of_electrons!s}"
+            f")"
+        )

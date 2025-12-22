@@ -20,7 +20,8 @@ class AfricaContinentEnum(object):
 
     """
 
-    _all_values = ["Algeria", "Angola", "Chad", "Egypt", "Cameroon", "Equatorial Guinea", "Botswana"]
+    _all_values = ["Algeria", "Angola", "Chad", "Egypt", "Cameroon",
+        "Equatorial Guinea", "Botswana"]
     ALGERIA = "Algeria"
 
     ANGOLA = "Angola"

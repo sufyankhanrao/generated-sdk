@@ -19,12 +19,7 @@ query_param = [
 
 try:
     result = un_indexed_controller.get_un_indexed_query(query_param)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

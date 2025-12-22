@@ -14,8 +14,8 @@ class DateAsOptional(object):
 
     Attributes:
         date (date): The model property of type date.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -28,9 +28,10 @@ class DateAsOptional(object):
         "date",
     ]
 
-    def __init__(self,
-                 date=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        date=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a DateAsOptional instance."""
         # Initialize members of the class
         if date is not APIHelper.SKIP:
@@ -59,8 +60,10 @@ class DateAsOptional(object):
             return None
 
         # Extract variables from the dictionary
-        date = dateutil.parser.parse(dictionary.get("date")).date()\
+        date = dateutil.parser.parse(
+            dictionary.get("date")).date()\
             if dictionary.get("date") else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -70,12 +73,30 @@ class DateAsOptional(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date={(self.date if hasattr(self, 'date') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _date=(
+            self.date
+            if hasattr(self, "date")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"date={_date!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date={(self.date if hasattr(self, 'date') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _date=(
+            self.date
+            if hasattr(self, "date")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"date={_date!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

@@ -11,18 +11,17 @@ from typecombinatormoderate.api_helper import (
 class MixedModel(object):
     """Implementation of the 'MixedModel' model.
 
-    This class contains mix of scalar and non scalar types in oneOf/anyOf
-    cases.
+    This class contains mix of scalar and non scalar types in oneOf/anyOf cases.
 
     Attributes:
         single_inner_map (Dict[str, int] | Orbit): The model property of type
             Dict[str, int] | Orbit.
-        all_inner_array (List[bool] | List[Vehicle] | None): The model
-            property of type List[bool] | List[Vehicle] | None.
-        outer_array (List[Car | Morning | str] | None): The model property of
-            type List[Car | Morning | str] | None.
-        outer_map (Dict[str, Postman | Person | float] | None): The model
-            property of type Dict[str, Postman | Person | float] | None.
+        all_inner_array (List[bool] | List[Vehicle] | None): The model property of
+            type List[bool] | List[Vehicle] | None.
+        outer_array (List[Car | Morning | str] | None): The model property of type
+            List[Car | Morning | str] | None.
+        outer_map (Dict[str, Postman | Person | float] | None): The model property of
+            type Dict[str, Postman | Person | float] | None.
 
     """
 
@@ -44,11 +43,12 @@ class MixedModel(object):
         "outer_map",
     ]
 
-    def __init__(self,
-                 single_inner_map=None,
-                 all_inner_array=None,
-                 outer_array=APIHelper.SKIP,
-                 outer_map=APIHelper.SKIP):
+    def __init__(
+        self,
+        single_inner_map=None,
+        all_inner_array=None,
+        outer_array=APIHelper.SKIP,
+        outer_map=APIHelper.SKIP):
         """Initialize a MixedModel instance."""
         # Initialize members of the class
         self.single_inner_map = single_inner_map
@@ -80,13 +80,34 @@ class MixedModel(object):
             return None
 
         # Extract variables from the dictionary
-        single_inner_map = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MixedModelSingleInnerMap"), dictionary.get("singleInnerMap"), False) if dictionary.get("singleInnerMap") is not None else None
-        all_inner_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MixedModelAllInnerArray"), dictionary.get("allInnerArray"), False) if dictionary.get("allInnerArray") is not None else None
-        outer_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MixedModelOuterArray"), dictionary.get("outerArray"), False) if dictionary.get("outerArray") is not None else APIHelper.SKIP
+        single_inner_map = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MixedModelSingleInnerMap"),
+            dictionary.get("singleInnerMap"),
+            False)\
+            if dictionary.get("singleInnerMap") is not None\
+            else None
+        all_inner_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MixedModelAllInnerArray"),
+            dictionary.get("allInnerArray"),
+            False)\
+            if dictionary.get("allInnerArray") is not None\
+            else None
+        outer_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MixedModelOuterArray"),
+            dictionary.get("outerArray"),
+            False)\
+            if dictionary.get("outerArray") is not None\
+            else APIHelper.SKIP
         if "outerMap" in dictionary.keys():
-            outer_map = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MixedModelOuterMap"), dictionary.get("outerMap"), False) if dictionary.get("outerMap") is not None else None
+            outer_map = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MixedModelOuterMap"),
+            dictionary.get("outerMap"),
+            False)\
+            if dictionary.get("outerMap") is not None\
+            else None
         else:
             outer_map = APIHelper.SKIP
+
         # Return an object of this model
         return cls(single_inner_map,
                    all_inner_array,
@@ -111,31 +132,61 @@ class MixedModel(object):
         )
 
         if isinstance(dictionary, cls):
-            return UnionTypeLookUp.get("MixedModelSingleInnerMap").validate(dictionary.single_inner_map).is_valid \
-                and UnionTypeLookUp.get("MixedModelAllInnerArray").validate(dictionary.all_inner_array).is_valid
+            return (UnionTypeLookUp.get("MixedModelSingleInnerMap")
+                .validate(dictionary.single_inner_map).is_valid) \
+                and (UnionTypeLookUp.get("MixedModelAllInnerArray")
+                .validate(dictionary.all_inner_array).is_valid)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return UnionTypeLookUp.get("MixedModelSingleInnerMap").validate(dictionary.get("singleInnerMap")).is_valid \
-            and UnionTypeLookUp.get("MixedModelAllInnerArray").validate(dictionary.get("allInnerArray")).is_valid
+        return (UnionTypeLookUp.get("MixedModelSingleInnerMap")
+            .validate(dictionary.get("singleInnerMap")).is_valid) \
+            and (UnionTypeLookUp.get("MixedModelAllInnerArray")
+            .validate(dictionary.get("allInnerArray")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"single_inner_map={self.single_inner_map!r}, "
-                f"all_inner_array={self.all_inner_array!r}, "
-                f"outer_array={(self.outer_array
-                     if hasattr(self, 'outer_array') else None)!r}, "
-                f"outer_map={(self.outer_map
-                     if hasattr(self, 'outer_map') else None)!r})")
+        _single_inner_map=self.single_inner_map
+        _all_inner_array=self.all_inner_array
+        _outer_array=(
+            self.outer_array
+            if hasattr(self, "outer_array")
+            else None
+        )
+        _outer_map=(
+            self.outer_map
+            if hasattr(self, "outer_map")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"single_inner_map={_single_inner_map!r}"
+            f"all_inner_array={_all_inner_array!r}"
+            f"outer_array={_outer_array!r}"
+            f"outer_map={_outer_map!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"single_inner_map={self.single_inner_map!s}, "
-                f"all_inner_array={self.all_inner_array!s}, "
-                f"outer_array={(self.outer_array
-                     if hasattr(self, 'outer_array') else None)!s}, "
-                f"outer_map={(self.outer_map
-                     if hasattr(self, 'outer_map') else None)!s})")
+        _single_inner_map=self.single_inner_map
+        _all_inner_array=self.all_inner_array
+        _outer_array=(
+            self.outer_array
+            if hasattr(self, "outer_array")
+            else None
+        )
+        _outer_map=(
+            self.outer_map
+            if hasattr(self, "outer_map")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"single_inner_map={_single_inner_map!s}"
+            f"all_inner_array={_all_inner_array!s}"
+            f"outer_array={_outer_array!s}"
+            f"outer_map={_outer_map!s}"
+            f")"
+        )

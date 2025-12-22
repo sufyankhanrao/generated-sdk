@@ -11,8 +11,8 @@ class Attributes(object):
         exclusive_maximum (bool): The model property of type bool.
         exclusive_minimum (bool): The model property of type bool.
         id (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -23,11 +23,12 @@ class Attributes(object):
         "id": "id",
     }
 
-    def __init__(self,
-                 exclusive_maximum=None,
-                 exclusive_minimum=None,
-                 id=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        exclusive_maximum=None,
+        exclusive_minimum=None,
+        id=None,
+        additional_properties=None):
         """Initialize a Attributes instance."""
         # Initialize members of the class
         self.exclusive_maximum = exclusive_maximum
@@ -59,11 +60,17 @@ class Attributes(object):
         # Extract variables from the dictionary
         exclusive_maximum =\
             dictionary.get("exclusiveMaximum")\
-            if "exclusiveMaximum" in dictionary.keys() else None
+            if "exclusiveMaximum" in dictionary.keys()\
+                else None
         exclusive_minimum =\
             dictionary.get("exclusiveMinimum")\
-            if "exclusiveMinimum" in dictionary.keys() else None
-        id = dictionary.get("id") if dictionary.get("id") else None
+            if "exclusiveMinimum" in dictionary.keys()\
+                else None
+        id =\
+            dictionary.get("id")\
+            if dictionary.get("id")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -75,16 +82,30 @@ class Attributes(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"exclusive_maximum={self.exclusive_maximum!r}, "
-                f"exclusive_minimum={self.exclusive_minimum!r}, "
-                f"id={self.id!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _exclusive_maximum=self.exclusive_maximum
+        _exclusive_minimum=self.exclusive_minimum
+        _id=self.id
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"exclusive_maximum={_exclusive_maximum!r}"
+            f"exclusive_minimum={_exclusive_minimum!r}"
+            f"id={_id!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"exclusive_maximum={self.exclusive_maximum!s}, "
-                f"exclusive_minimum={self.exclusive_minimum!s}, "
-                f"id={self.id!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _exclusive_maximum=self.exclusive_maximum
+        _exclusive_minimum=self.exclusive_minimum
+        _id=self.id
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"exclusive_maximum={_exclusive_maximum!s}"
+            f"exclusive_minimum={_exclusive_minimum!s}"
+            f"id={_id!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

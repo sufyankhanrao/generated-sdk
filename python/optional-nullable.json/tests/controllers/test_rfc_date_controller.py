@@ -75,8 +75,8 @@ class RfcDateControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Optional_Nullable"
         date = APIHelper.json_deserialize(
-            "{\"dateTime\":\"Wed, 20 Jan 2021 12:12:41 GMT\",\"dateTime1\":\"We"
-            "d, 20 Jan 2021 12:12:41 GMT\"}",
+            "{\"dateTime\":\"Wed, 20 Jan 2021 12:12:41 GMT\",\"dateTime1\":\"Wed, 20 "
+            "Jan 2021 12:12:41 GMT\"}",
             Rfc1123Date.from_dictionary,
         )
 
@@ -99,8 +99,7 @@ class RfcDateControllerTests(ControllerTestBase):
         set_to_null = True
         field = "Optional_Nullable"
         date = APIHelper.json_deserialize(
-            "{\"dateTime\":null,\"dateTime1\":\"Wed, 20 Jan 2021 12:12:41 GMT\""
-            "}",
+            "{\"dateTime\":null,\"dateTime1\":\"Wed, 20 Jan 2021 12:12:41 GMT\"}",
             Rfc1123Date.from_dictionary,
         )
 
@@ -123,8 +122,8 @@ class RfcDateControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Optional_Nullable"
         date = APIHelper.json_deserialize(
-            "{\"dateTime1\":[\"Wed, 20 Jan 2021 12:12:41 GMT\",\"Wed, 20 Jan 20"
-            "21 12:12:41 GMT\"]}",
+            "{\"dateTime1\":[\"Wed, 20 Jan 2021 12:12:41 GMT\",\"Wed, 20 Jan 2021 12:"
+            "12:41 GMT\"]}",
             Rfc1123DateArray.from_dictionary,
         )
 
@@ -147,9 +146,9 @@ class RfcDateControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Optional_Nullable"
         date = APIHelper.json_deserialize(
-            "{\"dateTime\":[\"Wed, 20 Jan 2021 12:12:41 GMT\",\"Wed, 20 Jan 202"
-            "1 12:12:41 GMT\"],\"dateTime1\":[\"Wed, 20 Jan 2021 12:12:41 GMT\""
-            ",\"Wed, 20 Jan 2021 12:12:41 GMT\"]}",
+            "{\"dateTime\":[\"Wed, 20 Jan 2021 12:12:41 GMT\",\"Wed, 20 Jan 2021 12:1"
+            "2:41 GMT\"],\"dateTime1\":[\"Wed, 20 Jan 2021 12:12:41 GMT\",\"Wed, 20 J"
+            "an 2021 12:12:41 GMT\"]}",
             Rfc1123DateArray.from_dictionary,
         )
 
@@ -172,8 +171,8 @@ class RfcDateControllerTests(ControllerTestBase):
         set_to_null = True
         field = "Optional_Nullable"
         date = APIHelper.json_deserialize(
-            "{\"dateTime\":null,\"dateTime1\":[\"Wed, 20 Jan 2021 12:12:41 GMT"
-            "\",\"Wed, 20 Jan 2021 12:12:41 GMT\"]}",
+            "{\"dateTime\":null,\"dateTime1\":[\"Wed, 20 Jan 2021 12:12:41 GMT\",\"We"
+            "d, 20 Jan 2021 12:12:41 GMT\"]}",
             Rfc1123DateArray.from_dictionary,
         )
 
@@ -221,8 +220,8 @@ class RfcDateControllerTests(ControllerTestBase):
         set_to_null = False
         field = "Optional_Nullable"
         date = APIHelper.json_deserialize(
-            "{\"dateTime\":{\"key\":\"Wed, 20 Jan 2021 12:26:13 GMT\"},\"dateTi"
-            "me1\":{\"key\":\"Wed, 20 Jan 2021 12:26:13 GMT\"}}",
+            "{\"dateTime\":{\"key\":\"Wed, 20 Jan 2021 12:26:13 GMT\"},\"dateTime1\":"
+            "{\"key\":\"Wed, 20 Jan 2021 12:26:13 GMT\"}}",
             Rfc1123DateMap.from_dictionary,
         )
 
@@ -246,8 +245,8 @@ class RfcDateControllerTests(ControllerTestBase):
         set_to_null = True
         field = "Optional_Nullable"
         date = APIHelper.json_deserialize(
-            "{\"dateTime\":null,\"dateTime1\":{\"key\":\"Wed, 20 Jan 2021 12:26"
-            ":13 GMT\"}}",
+            "{\"dateTime\":null,\"dateTime1\":{\"key\":\"Wed, 20 Jan 2021 12:26:13 GM"
+            "T\"}}",
             Rfc1123DateMap.from_dictionary,
         )
 

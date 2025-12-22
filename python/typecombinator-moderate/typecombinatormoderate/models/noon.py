@@ -33,11 +33,12 @@ class Noon(object):
         "session_type",
     ]
 
-    def __init__(self,
-                 starts_at=None,
-                 ends_at=None,
-                 offer_lunch=None,
-                 session_type="Noon"):
+    def __init__(
+        self,
+        starts_at=None,
+        ends_at=None,
+        offer_lunch=None,
+        session_type="Noon"):
         """Initialize a Noon instance."""
         # Initialize members of the class
         self.starts_at = starts_at
@@ -65,14 +66,21 @@ class Noon(object):
         # Extract variables from the dictionary
         starts_at =\
             dictionary.get("startsAt")\
-            if dictionary.get("startsAt") else None
-        ends_at = dictionary.get("endsAt") if dictionary.get("endsAt") else None
+            if dictionary.get("startsAt")\
+                else None
+        ends_at =\
+            dictionary.get("endsAt")\
+            if dictionary.get("endsAt")\
+                else None
         offer_lunch =\
             dictionary.get("offerLunch")\
-            if "offerLunch" in dictionary.keys() else None
+            if "offerLunch" in dictionary.keys()\
+                else None
         session_type =\
             dictionary.get("sessionType")\
-            if dictionary.get("sessionType") else "Noon"
+            if dictionary.get("sessionType")\
+                else "Noon"
+
         # Return an object of this model
         return cls(starts_at,
                    ends_at,
@@ -94,42 +102,86 @@ class Noon(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.starts_at,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.starts_at,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.ends_at,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.ends_at,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.offer_lunch,
-                type_callable=lambda value: isinstance(value, bool))
+                    value=dictionary.offer_lunch,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        bool,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("startsAt"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("startsAt"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("endsAt"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("endsAt"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("offerLunch"),
-            type_callable=lambda value: isinstance(value, bool))
+                value=dictionary.get("offerLunch"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    bool,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"starts_at={self.starts_at!r}, "
-                f"ends_at={self.ends_at!r}, "
-                f"offer_lunch={self.offer_lunch!r}, "
-                f"session_type={(self.session_type
-                     if hasattr(self, 'session_type') else None)!r})")
+        _starts_at=self.starts_at
+        _ends_at=self.ends_at
+        _offer_lunch=self.offer_lunch
+        _session_type=(
+            self.session_type
+            if hasattr(self, "session_type")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"starts_at={_starts_at!r}"
+            f"ends_at={_ends_at!r}"
+            f"offer_lunch={_offer_lunch!r}"
+            f"session_type={_session_type!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"starts_at={self.starts_at!s}, "
-                f"ends_at={self.ends_at!s}, "
-                f"offer_lunch={self.offer_lunch!s}, "
-                f"session_type={(self.session_type
-                     if hasattr(self, 'session_type') else None)!s})")
+        _starts_at=self.starts_at
+        _ends_at=self.ends_at
+        _offer_lunch=self.offer_lunch
+        _session_type=(
+            self.session_type
+            if hasattr(self, "session_type")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"starts_at={_starts_at!s}"
+            f"ends_at={_ends_at!s}"
+            f"offer_lunch={_offer_lunch!s}"
+            f"session_type={_session_type!s}"
+            f")"
+        )

@@ -15,12 +15,7 @@ image = FileWrapper(Path('dummy_file').open('rb'), 'optional-content-type')
 
 try:
     result = binary_params_controller.send_image_with_constant_content_type(image)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

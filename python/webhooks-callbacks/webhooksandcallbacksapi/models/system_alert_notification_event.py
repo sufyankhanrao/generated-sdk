@@ -15,9 +15,8 @@ class SystemAlertNotificationEvent(object):
     """Implementation of the 'SystemAlertNotificationEvent' model.
 
     Attributes:
-        system_alert_notification_event_type
-            (SystemAlertNotificationEventTypeEnum): The model property of type
-            SystemAlertNotificationEventTypeEnum.
+        system_alert_notification_event_type (SystemAlertNotificationEventTypeEnum):
+            The model property of type SystemAlertNotificationEventTypeEnum.
 
     """
 
@@ -26,8 +25,9 @@ class SystemAlertNotificationEvent(object):
         "system_alert_notification_event_type": "systemAlertNotificationEventType",
     }
 
-    def __init__(self,
-                 system_alert_notification_event_type=None):
+    def __init__(
+        self,
+        system_alert_notification_event_type=None):
         """Initialize a SystemAlertNotificationEvent instance."""
         # Initialize members of the class
         self.system_alert_notification_event_type =\
@@ -53,7 +53,9 @@ class SystemAlertNotificationEvent(object):
         # Extract variables from the dictionary
         system_alert_notification_event_type =\
             dictionary.get("systemAlertNotificationEventType")\
-            if dictionary.get("systemAlertNotificationEventType") else None
+            if dictionary.get("systemAlertNotificationEventType")\
+                else None
+
         # Return an object of this model
         return cls(system_alert_notification_event_type)
 
@@ -72,24 +74,32 @@ class SystemAlertNotificationEvent(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.system_alert_notification_event_type,
-                type_callable=lambda value: SystemAlertNotificationEventTypeEnum.validate(value))
+                    value=dictionary.system_alert_notification_event_type,
+                    type_callable=lambda value:
+                        SystemAlertNotificationEventTypeEnum.validate(value))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("systemAlertNotificationEventType"),
-            type_callable=lambda value: SystemAlertNotificationEventTypeEnum.validate(value))
+                value=dictionary.get("systemAlertNotificationEventType"),
+                type_callable=lambda value:
+                    SystemAlertNotificationEventTypeEnum.validate(value))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"system_alert_notification_event_type={
-                    self.system_alert_notification_event_type!r})")
+        _system_alert_notification_event_type=self.system_alert_notification_event_type
+        return (
+            f"{self.__class__.__name__}("
+            f"system_alert_notification_event_type={_system_alert_notification_event_type!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"system_alert_notification_event_type={
-                    self.system_alert_notification_event_type!s})")
+        _system_alert_notification_event_type=self.system_alert_notification_event_type
+        return (
+            f"{self.__class__.__name__}("
+            f"system_alert_notification_event_type={_system_alert_notification_event_type!s}"
+            f")"
+        )

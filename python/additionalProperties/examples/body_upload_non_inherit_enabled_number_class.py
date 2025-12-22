@@ -18,12 +18,7 @@ body = NonInheritEnabledNumber(
 
 try:
     result = body_controller.upload_non_inherit_enabled_number(body)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

@@ -20,7 +20,8 @@ class AsiaContinentEnum(object):
 
     """
 
-    _all_values = ["Pakistan", "Afghanistan", "India", "Bhutan", "Nepal", "Iran", "Bangladesh"]
+    _all_values = ["Pakistan", "Afghanistan", "India", "Bhutan", "Nepal",
+        "Iran", "Bangladesh"]
     PAKISTAN = "Pakistan"
 
     AFGHANISTAN = "Afghanistan"

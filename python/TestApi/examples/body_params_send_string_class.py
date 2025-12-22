@@ -40,12 +40,7 @@ value = 'value2'
 
 try:
     result = body_params_controller.send_string(value)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except RFC7807ErrorResponseErrorException as e: 
     print(e)
 except NestedModelException as e: 

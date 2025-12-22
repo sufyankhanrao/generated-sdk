@@ -14,31 +14,30 @@ class ScalarModel(object):
     This class contains scalar types in oneOf/anyOf cases.
 
     Attributes:
-        multi_any_of (float | str | int): The model property of type float |
-            str | int.
-        multi_one_of_any_of (float | int | str): The model property of type
-            float | int | str.
-        single_inner_map_of_array (Dict[str, List[float]] | Dict[str, float]):
-            The model property of type Dict[str, List[float]] | Dict[str,
-            float].
-        outer_map_of_single_inner_array (Dict[str, List[float] | float]): The
-            model property of type Dict[str, List[float] | float].
-        all_inner_array_of_map (List[Dict[str, int]] | List[Dict[str, str]] |
-            None): The model property of type List[Dict[str, int]] |
-            List[Dict[str, str]] | None.
-        all_inner_array_of_map_2 (Dict[str, List[Dict[str, int]] |
-            List[Dict[str, str]]] | None): The model property of type
-            Dict[str, List[Dict[str, int]] | List[Dict[str, str]]] | None.
-        outer_array_of_map (List[Dict[str, int | bool | str]] | None): The
-            model property of type List[Dict[str, int | bool | str]] | None.
-        outer_array_of_map_2 (List[Dict[str, List[int] | List[bool] |
-            List[str]]] | None): The model property of type List[Dict[str,
-            List[int] | List[bool] | List[str]]] | None.
-        outer_map_of_array (Dict[str, List[int | bool]] | None): The model
-            property of type Dict[str, List[int | bool]] | None.
-        outer_map_of_array_2 (Dict[str, List[Dict[str, int] | Dict[str,
-            bool]]] | None): The model property of type Dict[str,
-            List[Dict[str, int] | Dict[str, bool]]] | None.
+        multi_any_of (float | str | int): The model property of type float | str |
+            int.
+        multi_one_of_any_of (float | int | str): The model property of type float |
+            int | str.
+        single_inner_map_of_array (Dict[str, List[float]] | Dict[str, float]): The
+            model property of type Dict[str, List[float]] | Dict[str, float].
+        outer_map_of_single_inner_array (Dict[str, List[float] | float]): The model
+            property of type Dict[str, List[float] | float].
+        all_inner_array_of_map (List[Dict[str, int]] | List[Dict[str, str]] | None):
+            The model property of type List[Dict[str, int]] | List[Dict[str, str]] |
+            None.
+        all_inner_array_of_map_2 (Dict[str, List[Dict[str, int]] | List[Dict[str,
+            str]]] | None): The model property of type Dict[str, List[Dict[str, int]]
+            | List[Dict[str, str]]] | None.
+        outer_array_of_map (List[Dict[str, int | bool | str]] | None): The model
+            property of type List[Dict[str, int | bool | str]] | None.
+        outer_array_of_map_2 (List[Dict[str, List[int] | List[bool] | List[str]]] |
+            None): The model property of type List[Dict[str, List[int] | List[bool] |
+            List[str]]] | None.
+        outer_map_of_array (Dict[str, List[int | bool]] | None): The model property
+            of type Dict[str, List[int | bool]] | None.
+        outer_map_of_array_2 (Dict[str, List[Dict[str, int] | Dict[str, bool]]] |
+            None): The model property of type Dict[str, List[Dict[str, int] |
+            Dict[str, bool]]] | None.
 
     """
 
@@ -70,17 +69,18 @@ class ScalarModel(object):
         "outer_map_of_array_2",
     ]
 
-    def __init__(self,
-                 multi_any_of=None,
-                 multi_one_of_any_of=None,
-                 single_inner_map_of_array=None,
-                 outer_map_of_single_inner_array=None,
-                 all_inner_array_of_map=None,
-                 all_inner_array_of_map_2=None,
-                 outer_array_of_map=APIHelper.SKIP,
-                 outer_array_of_map_2=APIHelper.SKIP,
-                 outer_map_of_array=APIHelper.SKIP,
-                 outer_map_of_array_2=APIHelper.SKIP):
+    def __init__(
+        self,
+        multi_any_of=None,
+        multi_one_of_any_of=None,
+        single_inner_map_of_array=None,
+        outer_map_of_single_inner_array=None,
+        all_inner_array_of_map=None,
+        all_inner_array_of_map_2=None,
+        outer_array_of_map=APIHelper.SKIP,
+        outer_array_of_map_2=APIHelper.SKIP,
+        outer_map_of_array=APIHelper.SKIP,
+        outer_map_of_array_2=APIHelper.SKIP):
         """Initialize a ScalarModel instance."""
         # Initialize members of the class
         self.multi_any_of = multi_any_of
@@ -120,22 +120,73 @@ class ScalarModel(object):
             return None
 
         # Extract variables from the dictionary
-        multi_any_of = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelMultiAnyOf"), dictionary.get("multiAnyOf"), False) if dictionary.get("multiAnyOf") is not None else None
-        multi_one_of_any_of = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelMultiOneOfAnyOf"), dictionary.get("multiOneOfAnyOf"), False) if dictionary.get("multiOneOfAnyOf") is not None else None
-        single_inner_map_of_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelSingleInnerMapOfArray"), dictionary.get("singleInnerMapOfArray"), False) if dictionary.get("singleInnerMapOfArray") is not None else None
-        outer_map_of_single_inner_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelOuterMapOfSingleInnerArray"), dictionary.get("outerMapOfSingleInnerArray"), False) if dictionary.get("outerMapOfSingleInnerArray") is not None else None
-        all_inner_array_of_map = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap"), dictionary.get("allInnerArrayOfMap"), False) if dictionary.get("allInnerArrayOfMap") is not None else None
-        all_inner_array_of_map_2 = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap2"), dictionary.get("allInnerArrayOfMap2"), False) if dictionary.get("allInnerArrayOfMap2") is not None else None
-        outer_array_of_map = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelOuterArrayOfMap"), dictionary.get("outerArrayOfMap"), False) if dictionary.get("outerArrayOfMap") is not None else APIHelper.SKIP
-        outer_array_of_map_2 = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelOuterArrayOfMap2"), dictionary.get("outerArrayOfMap2"), False) if dictionary.get("outerArrayOfMap2") is not None else APIHelper.SKIP
+        multi_any_of = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelMultiAnyOf"),
+            dictionary.get("multiAnyOf"),
+            False)\
+            if dictionary.get("multiAnyOf") is not None\
+            else None
+        multi_one_of_any_of = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelMultiOneOfAnyOf"),
+            dictionary.get("multiOneOfAnyOf"),
+            False)\
+            if dictionary.get("multiOneOfAnyOf") is not None\
+            else None
+        single_inner_map_of_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelSingleInnerMapOfArray"),
+            dictionary.get("singleInnerMapOfArray"),
+            False)\
+            if dictionary.get("singleInnerMapOfArray") is not None\
+            else None
+        outer_map_of_single_inner_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelOuterMapOfSingleInnerArray"),
+            dictionary.get("outerMapOfSingleInnerArray"),
+            False)\
+            if dictionary.get("outerMapOfSingleInnerArray") is not None\
+            else None
+        all_inner_array_of_map = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap"),
+            dictionary.get("allInnerArrayOfMap"),
+            False)\
+            if dictionary.get("allInnerArrayOfMap") is not None\
+            else None
+        all_inner_array_of_map_2 = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap2"),
+            dictionary.get("allInnerArrayOfMap2"),
+            False)\
+            if dictionary.get("allInnerArrayOfMap2") is not None\
+            else None
+        outer_array_of_map = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelOuterArrayOfMap"),
+            dictionary.get("outerArrayOfMap"),
+            False)\
+            if dictionary.get("outerArrayOfMap") is not None\
+            else APIHelper.SKIP
+        outer_array_of_map_2 = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelOuterArrayOfMap2"),
+            dictionary.get("outerArrayOfMap2"),
+            False)\
+            if dictionary.get("outerArrayOfMap2") is not None\
+            else APIHelper.SKIP
         if "outerMapOfArray" in dictionary.keys():
-            outer_map_of_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelOuterMapOfArray"), dictionary.get("outerMapOfArray"), False) if dictionary.get("outerMapOfArray") is not None else None
+            outer_map_of_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelOuterMapOfArray"),
+            dictionary.get("outerMapOfArray"),
+            False)\
+            if dictionary.get("outerMapOfArray") is not None\
+            else None
         else:
             outer_map_of_array = APIHelper.SKIP
         if "outerMapOfArray2" in dictionary.keys():
-            outer_map_of_array_2 = APIHelper.deserialize_union_type(UnionTypeLookUp.get("ScalarModelOuterMapOfArray2"), dictionary.get("outerMapOfArray2"), False) if dictionary.get("outerMapOfArray2") is not None else None
+            outer_map_of_array_2 = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("ScalarModelOuterMapOfArray2"),
+            dictionary.get("outerMapOfArray2"),
+            False)\
+            if dictionary.get("outerMapOfArray2") is not None\
+            else None
         else:
             outer_map_of_array_2 = APIHelper.SKIP
+
         # Return an object of this model
         return cls(multi_any_of,
                    multi_one_of_any_of,
@@ -166,57 +217,117 @@ class ScalarModel(object):
         )
 
         if isinstance(dictionary, cls):
-            return UnionTypeLookUp.get("ScalarModelMultiAnyOf").validate(dictionary.multi_any_of).is_valid \
-                and UnionTypeLookUp.get("ScalarModelMultiOneOfAnyOf").validate(dictionary.multi_one_of_any_of).is_valid \
-                and UnionTypeLookUp.get("ScalarModelSingleInnerMapOfArray").validate(dictionary.single_inner_map_of_array).is_valid \
-                and UnionTypeLookUp.get("ScalarModelOuterMapOfSingleInnerArray").validate(dictionary.outer_map_of_single_inner_array).is_valid \
-                and UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap").validate(dictionary.all_inner_array_of_map).is_valid \
-                and UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap2").validate(dictionary.all_inner_array_of_map_2).is_valid
+            return (UnionTypeLookUp.get("ScalarModelMultiAnyOf")
+                .validate(dictionary.multi_any_of).is_valid) \
+                and (UnionTypeLookUp.get("ScalarModelMultiOneOfAnyOf")
+                .validate(dictionary.multi_one_of_any_of).is_valid) \
+                and (UnionTypeLookUp.get("ScalarModelSingleInnerMapOfArray")
+                .validate(dictionary.single_inner_map_of_array).is_valid) \
+                and (UnionTypeLookUp.get("ScalarModelOuterMapOfSingleInnerArray")
+                .validate(dictionary.outer_map_of_single_inner_array).is_valid) \
+                and (UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap")
+                .validate(dictionary.all_inner_array_of_map).is_valid) \
+                and (UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap2")
+                .validate(dictionary.all_inner_array_of_map_2).is_valid)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return UnionTypeLookUp.get("ScalarModelMultiAnyOf").validate(dictionary.get("multiAnyOf")).is_valid \
-            and UnionTypeLookUp.get("ScalarModelMultiOneOfAnyOf").validate(dictionary.get("multiOneOfAnyOf")).is_valid \
-            and UnionTypeLookUp.get("ScalarModelSingleInnerMapOfArray").validate(dictionary.get("singleInnerMapOfArray")).is_valid \
-            and UnionTypeLookUp.get("ScalarModelOuterMapOfSingleInnerArray").validate(dictionary.get("outerMapOfSingleInnerArray")).is_valid \
-            and UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap").validate(dictionary.get("allInnerArrayOfMap")).is_valid \
-            and UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap2").validate(dictionary.get("allInnerArrayOfMap2")).is_valid
+        return (UnionTypeLookUp.get("ScalarModelMultiAnyOf")
+            .validate(dictionary.get("multiAnyOf")).is_valid) \
+            and (UnionTypeLookUp.get("ScalarModelMultiOneOfAnyOf")
+            .validate(dictionary.get("multiOneOfAnyOf")).is_valid) \
+            and (UnionTypeLookUp.get("ScalarModelSingleInnerMapOfArray")
+            .validate(dictionary.get("singleInnerMapOfArray")).is_valid) \
+            and (UnionTypeLookUp.get("ScalarModelOuterMapOfSingleInnerArray")
+            .validate(dictionary.get("outerMapOfSingleInnerArray")).is_valid) \
+            and (UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap")
+            .validate(dictionary.get("allInnerArrayOfMap")).is_valid) \
+            and (UnionTypeLookUp.get("ScalarModelAllInnerArrayOfMap2")
+            .validate(dictionary.get("allInnerArrayOfMap2")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"multi_any_of={self.multi_any_of!r}, "
-                f"multi_one_of_any_of={self.multi_one_of_any_of!r}, "
-                f"single_inner_map_of_array={self.single_inner_map_of_array!r}, "
-                f"outer_map_of_single_inner_array={
-                    self.outer_map_of_single_inner_array!r}, "
-                f"all_inner_array_of_map={self.all_inner_array_of_map!r}, "
-                f"all_inner_array_of_map_2={self.all_inner_array_of_map_2!r}, "
-                f"outer_array_of_map={(self.outer_array_of_map
-                     if hasattr(self, 'outer_array_of_map') else None)!r}, "
-                f"outer_array_of_map_2={(self.outer_array_of_map_2
-                     if hasattr(self, 'outer_array_of_map_2') else None)!r}, "
-                f"outer_map_of_array={(self.outer_map_of_array
-                     if hasattr(self, 'outer_map_of_array') else None)!r}, "
-                f"outer_map_of_array_2={(self.outer_map_of_array_2
-                     if hasattr(self, 'outer_map_of_array_2') else None)!r})")
+        _multi_any_of=self.multi_any_of
+        _multi_one_of_any_of=self.multi_one_of_any_of
+        _single_inner_map_of_array=self.single_inner_map_of_array
+        _outer_map_of_single_inner_array=self.outer_map_of_single_inner_array
+        _all_inner_array_of_map=self.all_inner_array_of_map
+        _all_inner_array_of_map_2=self.all_inner_array_of_map_2
+        _outer_array_of_map=(
+            self.outer_array_of_map
+            if hasattr(self, "outer_array_of_map")
+            else None
+        )
+        _outer_array_of_map_2=(
+            self.outer_array_of_map_2
+            if hasattr(self, "outer_array_of_map_2")
+            else None
+        )
+        _outer_map_of_array=(
+            self.outer_map_of_array
+            if hasattr(self, "outer_map_of_array")
+            else None
+        )
+        _outer_map_of_array_2=(
+            self.outer_map_of_array_2
+            if hasattr(self, "outer_map_of_array_2")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"multi_any_of={_multi_any_of!r}"
+            f"multi_one_of_any_of={_multi_one_of_any_of!r}"
+            f"single_inner_map_of_array={_single_inner_map_of_array!r}"
+            f"outer_map_of_single_inner_array={_outer_map_of_single_inner_array!r}"
+            f"all_inner_array_of_map={_all_inner_array_of_map!r}"
+            f"all_inner_array_of_map_2={_all_inner_array_of_map_2!r}"
+            f"outer_array_of_map={_outer_array_of_map!r}"
+            f"outer_array_of_map_2={_outer_array_of_map_2!r}"
+            f"outer_map_of_array={_outer_map_of_array!r}"
+            f"outer_map_of_array_2={_outer_map_of_array_2!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"multi_any_of={self.multi_any_of!s}, "
-                f"multi_one_of_any_of={self.multi_one_of_any_of!s}, "
-                f"single_inner_map_of_array={self.single_inner_map_of_array!s}, "
-                f"outer_map_of_single_inner_array={
-                    self.outer_map_of_single_inner_array!s}, "
-                f"all_inner_array_of_map={self.all_inner_array_of_map!s}, "
-                f"all_inner_array_of_map_2={self.all_inner_array_of_map_2!s}, "
-                f"outer_array_of_map={(self.outer_array_of_map
-                     if hasattr(self, 'outer_array_of_map') else None)!s}, "
-                f"outer_array_of_map_2={(self.outer_array_of_map_2
-                     if hasattr(self, 'outer_array_of_map_2') else None)!s}, "
-                f"outer_map_of_array={(self.outer_map_of_array
-                     if hasattr(self, 'outer_map_of_array') else None)!s}, "
-                f"outer_map_of_array_2={(self.outer_map_of_array_2
-                     if hasattr(self, 'outer_map_of_array_2') else None)!s})")
+        _multi_any_of=self.multi_any_of
+        _multi_one_of_any_of=self.multi_one_of_any_of
+        _single_inner_map_of_array=self.single_inner_map_of_array
+        _outer_map_of_single_inner_array=self.outer_map_of_single_inner_array
+        _all_inner_array_of_map=self.all_inner_array_of_map
+        _all_inner_array_of_map_2=self.all_inner_array_of_map_2
+        _outer_array_of_map=(
+            self.outer_array_of_map
+            if hasattr(self, "outer_array_of_map")
+            else None
+        )
+        _outer_array_of_map_2=(
+            self.outer_array_of_map_2
+            if hasattr(self, "outer_array_of_map_2")
+            else None
+        )
+        _outer_map_of_array=(
+            self.outer_map_of_array
+            if hasattr(self, "outer_map_of_array")
+            else None
+        )
+        _outer_map_of_array_2=(
+            self.outer_map_of_array_2
+            if hasattr(self, "outer_map_of_array_2")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"multi_any_of={_multi_any_of!s}"
+            f"multi_one_of_any_of={_multi_one_of_any_of!s}"
+            f"single_inner_map_of_array={_single_inner_map_of_array!s}"
+            f"outer_map_of_single_inner_array={_outer_map_of_single_inner_array!s}"
+            f"all_inner_array_of_map={_all_inner_array_of_map!s}"
+            f"all_inner_array_of_map_2={_all_inner_array_of_map_2!s}"
+            f"outer_array_of_map={_outer_array_of_map!s}"
+            f"outer_array_of_map_2={_outer_array_of_map_2!s}"
+            f"outer_map_of_array={_outer_map_of_array!s}"
+            f"outer_map_of_array_2={_outer_map_of_array_2!s}"
+            f")"
+        )

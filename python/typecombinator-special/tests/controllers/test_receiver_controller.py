@@ -216,9 +216,9 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"daysvsString\":\"Sunday\",\"allOneOf\":2,\"allOuterArray\":[2,"
-            "\"February\"],\"enumvsArray\":\"Sunday\",\"mapvsArray\":{\"key1\":"
-            "\"Sunday\",\"key2\":\"Monday\"}}",
+            "{\"daysvsString\":\"Sunday\",\"allOneOf\":2,\"allOuterArray\":[2,\"Febru"
+            "ary\"],\"enumvsArray\":\"Sunday\",\"mapvsArray\":{\"key1\":\"Sunday\",\""
+            "key2\":\"Monday\"}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -245,9 +245,9 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"daysvsString\":\"some string\",\"allOneOf\":\"February\",\"allO"
-            "uterArray\":[2,\"Sunday\"],\"enumvsArray\":[\"Sunday\",\"Monday\"]"
-            ",\"mapvsArray\":[\"Sunday\",\"Monday\"]}",
+            "{\"daysvsString\":\"some string\",\"allOneOf\":\"February\",\"allOuterAr"
+            "ray\":[2,\"Sunday\"],\"enumvsArray\":[\"Sunday\",\"Monday\"],\"mapvsArra"
+            "y\":[\"Sunday\",\"Monday\"]}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -274,11 +274,11 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"rfc3339vsString\":\"1994-02-13T14:01:54.9571247Z\",\"allOneOf\""
-            ":\"1994-02-13\",\"allOuterArray\":[1484719381,\"1994-02-13T14:01:5"
-            "4.9571247Z\"],\"datevsArray\":\"Sun, 06 Nov 1994 08:49:37 GMT\",\""
-            "mapvsArray\":{\"key1\":\"Sun, 06 Nov 1994 08:49:37 GMT\",\"key2\":"
-            "\"Sun, 06 Nov 1994 08:49:37 GMT\"}}",
+            "{\"rfc3339vsString\":\"1994-02-13T14:01:54.9571247Z\",\"allOneOf\":\"199"
+            "4-02-13\",\"allOuterArray\":[1484719381,\"1994-02-13T14:01:54.9571247Z\""
+            "],\"datevsArray\":\"Sun, 06 Nov 1994 08:49:37 GMT\",\"mapvsArray\":{\"ke"
+            "y1\":\"Sun, 06 Nov 1994 08:49:37 GMT\",\"key2\":\"Sun, 06 Nov 1994 08:49"
+            ":37 GMT\"}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -305,11 +305,10 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"rfc3339vsString\":\"some string\",\"allOneOf\":1484719381,\"all"
-            "OuterArray\":[1484719381,\"1994-02-13\"],\"datevsArray\":[\"Sun, 0"
-            "6 Nov 1994 08:49:37 GMT\",\"Sun, 06 Nov 1994 08:49:37 GMT\"],\"map"
-            "vsArray\":[\"Sun, 06 Nov 1994 08:49:37 GMT\",\"Sun, 06 Nov 1994 08"
-            ":49:37 GMT\"]}",
+            "{\"rfc3339vsString\":\"some string\",\"allOneOf\":1484719381,\"allOuterA"
+            "rray\":[1484719381,\"1994-02-13\"],\"datevsArray\":[\"Sun, 06 Nov 1994 0"
+            "8:49:37 GMT\",\"Sun, 06 Nov 1994 08:49:37 GMT\"],\"mapvsArray\":[\"Sun, "
+            "06 Nov 1994 08:49:37 GMT\",\"Sun, 06 Nov 1994 08:49:37 GMT\"]}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -336,11 +335,11 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"anyOfDogCat\":{\"bark\":false,\"age\":2,\"breed\":\"husky\"},\""
-            "anyOfCatDog\":{\"bark\":false,\"age\":2,\"breed\":\"husky\"},\"any"
-            "OfSquirrelDog\":{\"cute\":true,\"breed\":\"husky\"},\"oneOfCatDogR"
-            "abbit\":{\"bark\":false,\"breed\":\"husky\"},\"oneOfVehicles\":{\""
-            "NumberOfTyres\":\"4\",\"model\":\"6\"}}",
+            "{\"anyOfDogCat\":{\"bark\":false,\"age\":2,\"breed\":\"husky\"},\"anyOfC"
+            "atDog\":{\"bark\":false,\"age\":2,\"breed\":\"husky\"},\"anyOfSquirrelDo"
+            "g\":{\"cute\":true,\"breed\":\"husky\"},\"oneOfCatDogRabbit\":{\"bark\":"
+            "false,\"breed\":\"husky\"},\"oneOfVehicles\":{\"NumberOfTyres\":\"4\",\""
+            "model\":\"6\"}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -367,10 +366,10 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"anyOfDogCat\":{\"bark\":false,\"age\":2,\"unknown\":\"something"
-            "\"},\"anyOfCatDog\":{\"bark\":false,\"age\":2},\"anyOfSquirrelDog"
-            "\":{\"bark\":true,\"age\":2},\"oneOfCatDogRabbit\":{\"age\":2,\"cu"
-            "te\":true},\"oneOfVehicles\":{\"NumberOfTyres\":4,\"model\":6}}",
+            "{\"anyOfDogCat\":{\"bark\":false,\"age\":2,\"unknown\":\"something\"},\""
+            "anyOfCatDog\":{\"bark\":false,\"age\":2},\"anyOfSquirrelDog\":{\"bark\":"
+            "true,\"age\":2},\"oneOfCatDogRabbit\":{\"age\":2,\"cute\":true},\"oneOfV"
+            "ehicles\":{\"NumberOfTyres\":4,\"model\":6}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,

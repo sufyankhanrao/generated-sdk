@@ -45,12 +45,7 @@ datetimes = [
 
 try:
     result = form_params_controller.send_rfc_3339_date_time_array(datetimes)
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except NestedModelException as e: 
     print(e)
 except CustomErrorResponseException as e: 

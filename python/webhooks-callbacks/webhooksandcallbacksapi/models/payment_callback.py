@@ -44,14 +44,15 @@ class PaymentCallback(object):
         "failure_reason",
     ]
 
-    def __init__(self,
-                 order_id=None,
-                 payment_status=None,
-                 transaction_id=None,
-                 amount=APIHelper.SKIP,
-                 currency=APIHelper.SKIP,
-                 timestamp=APIHelper.SKIP,
-                 failure_reason=APIHelper.SKIP):
+    def __init__(
+        self,
+        order_id=None,
+        payment_status=None,
+        transaction_id=None,
+        amount=APIHelper.SKIP,
+        currency=APIHelper.SKIP,
+        timestamp=APIHelper.SKIP,
+        failure_reason=APIHelper.SKIP):
         """Initialize a PaymentCallback instance."""
         # Initialize members of the class
         self.order_id = order_id
@@ -64,7 +65,8 @@ class PaymentCallback(object):
         if timestamp is not APIHelper.SKIP:
             self.timestamp =\
                  APIHelper.apply_datetime_converter(
-                timestamp, APIHelper.RFC3339DateTime) if timestamp else None
+                timestamp, APIHelper.RFC3339DateTime)\
+                 if timestamp else None
         if failure_reason is not APIHelper.SKIP:
             self.failure_reason = failure_reason
 
@@ -88,25 +90,32 @@ class PaymentCallback(object):
         # Extract variables from the dictionary
         order_id =\
             dictionary.get("orderId")\
-            if dictionary.get("orderId") else None
+            if dictionary.get("orderId")\
+                else None
         payment_status =\
             dictionary.get("paymentStatus")\
-            if dictionary.get("paymentStatus") else None
+            if dictionary.get("paymentStatus")\
+                else None
         transaction_id =\
             dictionary.get("transactionId")\
-            if dictionary.get("transactionId") else None
+            if dictionary.get("transactionId")\
+                else None
         amount =\
             dictionary.get("amount")\
-            if dictionary.get("amount") else APIHelper.SKIP
+            if dictionary.get("amount")\
+                else APIHelper.SKIP
         currency =\
             dictionary.get("currency")\
-            if dictionary.get("currency") else APIHelper.SKIP
+            if dictionary.get("currency")\
+                else APIHelper.SKIP
         timestamp = APIHelper.RFC3339DateTime.from_value(
             dictionary.get("timestamp")).datetime\
             if dictionary.get("timestamp") else APIHelper.SKIP
         failure_reason =\
             dictionary.get("failureReason")\
-            if dictionary.get("failureReason") else APIHelper.SKIP
+            if dictionary.get("failureReason")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(order_id,
                    payment_status,
@@ -131,52 +140,116 @@ class PaymentCallback(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.order_id,
-                type_callable=lambda value: isinstance(value, str)) \
+                    value=dictionary.order_id,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.payment_status,
-                type_callable=lambda value: PaymentStatusEnum.validate(value)) \
+                    value=dictionary.payment_status,
+                    type_callable=lambda value:
+                        PaymentStatusEnum.validate(value)) \
                 and APIHelper.is_valid_type(
-                value=dictionary.transaction_id,
-                type_callable=lambda value: isinstance(value, str))
+                    value=dictionary.transaction_id,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("orderId"),
-            type_callable=lambda value: isinstance(value, str)) \
+                value=dictionary.get("orderId"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("paymentStatus"),
-            type_callable=lambda value: PaymentStatusEnum.validate(value)) \
+                value=dictionary.get("paymentStatus"),
+                type_callable=lambda value:
+                    PaymentStatusEnum.validate(value)) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("transactionId"),
-            type_callable=lambda value: isinstance(value, str))
+                value=dictionary.get("transactionId"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"order_id={self.order_id!r}, "
-                f"payment_status={self.payment_status!r}, "
-                f"transaction_id={self.transaction_id!r}, "
-                f"amount={(self.amount if hasattr(self, 'amount') else None)!r}, "
-                f"currency={(self.currency
-                     if hasattr(self, 'currency') else None)!r}, "
-                f"timestamp={(self.timestamp
-                     if hasattr(self, 'timestamp') else None)!r}, "
-                f"failure_reason={(self.failure_reason
-                     if hasattr(self, 'failure_reason') else None)!r})")
+        _order_id=self.order_id
+        _payment_status=self.payment_status
+        _transaction_id=self.transaction_id
+        _amount=(
+            self.amount
+            if hasattr(self, "amount")
+            else None
+        )
+        _currency=(
+            self.currency
+            if hasattr(self, "currency")
+            else None
+        )
+        _timestamp=(
+            self.timestamp
+            if hasattr(self, "timestamp")
+            else None
+        )
+        _failure_reason=(
+            self.failure_reason
+            if hasattr(self, "failure_reason")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"order_id={_order_id!r}"
+            f"payment_status={_payment_status!r}"
+            f"transaction_id={_transaction_id!r}"
+            f"amount={_amount!r}"
+            f"currency={_currency!r}"
+            f"timestamp={_timestamp!r}"
+            f"failure_reason={_failure_reason!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"order_id={self.order_id!s}, "
-                f"payment_status={self.payment_status!s}, "
-                f"transaction_id={self.transaction_id!s}, "
-                f"amount={(self.amount if hasattr(self, 'amount') else None)!s}, "
-                f"currency={(self.currency
-                     if hasattr(self, 'currency') else None)!s}, "
-                f"timestamp={(self.timestamp
-                     if hasattr(self, 'timestamp') else None)!s}, "
-                f"failure_reason={(self.failure_reason
-                     if hasattr(self, 'failure_reason') else None)!s})")
+        _order_id=self.order_id
+        _payment_status=self.payment_status
+        _transaction_id=self.transaction_id
+        _amount=(
+            self.amount
+            if hasattr(self, "amount")
+            else None
+        )
+        _currency=(
+            self.currency
+            if hasattr(self, "currency")
+            else None
+        )
+        _timestamp=(
+            self.timestamp
+            if hasattr(self, "timestamp")
+            else None
+        )
+        _failure_reason=(
+            self.failure_reason
+            if hasattr(self, "failure_reason")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"order_id={_order_id!s}"
+            f"payment_status={_payment_status!s}"
+            f"transaction_id={_transaction_id!s}"
+            f"amount={_amount!s}"
+            f"currency={_currency!s}"
+            f"timestamp={_timestamp!s}"
+            f"failure_reason={_failure_reason!s}"
+            f")"
+        )

@@ -162,7 +162,6 @@ The SDK can be configured to use a different environment for making API calls. A
 
 ### Utilities
 
-* [ApiResponse](doc/api-response.md)
 * [ApiHelper](doc/api-helper.md)
 * [HttpDateTime](doc/http-date-time.md)
 * [RFC3339DateTime](doc/rfc3339-date-time.md)

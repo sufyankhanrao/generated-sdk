@@ -9,12 +9,7 @@ client = MultipleresponsesmissingcontentClient(
 client_controller = client.client
 try:
     result = client_controller.get_scalar_string_content()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

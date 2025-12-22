@@ -27,11 +27,12 @@ class AttributesAndElements(object):
         "number_element": "number-element",
     }
 
-    def __init__(self,
-                 string_attr=None,
-                 number_attr=None,
-                 string_element=None,
-                 number_element=None):
+    def __init__(
+        self,
+        string_attr=None,
+        number_attr=None,
+        string_element=None,
+        number_element=None):
         """Initialize a AttributesAndElements instance."""
         # Initialize members of the class
         self.string_attr = string_attr
@@ -59,16 +60,21 @@ class AttributesAndElements(object):
         # Extract variables from the dictionary
         string_attr =\
             dictionary.get("string-attr")\
-            if dictionary.get("string-attr") else None
+            if dictionary.get("string-attr")\
+                else None
         number_attr =\
             dictionary.get("number-attr")\
-            if dictionary.get("number-attr") else None
+            if dictionary.get("number-attr")\
+                else None
         string_element =\
             dictionary.get("string-element")\
-            if dictionary.get("string-element") else None
+            if dictionary.get("string-element")\
+                else None
         number_element =\
             dictionary.get("number-element")\
-            if dictionary.get("number-element") else None
+            if dictionary.get("number-element")\
+                else None
+
         # Return an object of this model
         return cls(string_attr,
                    number_attr,
@@ -110,16 +116,30 @@ class AttributesAndElements(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string_attr={self.string_attr!r}, "
-                f"number_attr={self.number_attr!r}, "
-                f"string_element={self.string_element!r}, "
-                f"number_element={self.number_element!r})")
+        _string_attr=self.string_attr
+        _number_attr=self.number_attr
+        _string_element=self.string_element
+        _number_element=self.number_element
+        return (
+            f"{self.__class__.__name__}("
+            f"string_attr={_string_attr!r}"
+            f"number_attr={_number_attr!r}"
+            f"string_element={_string_element!r}"
+            f"number_element={_number_element!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"string_attr={self.string_attr!s}, "
-                f"number_attr={self.number_attr!s}, "
-                f"string_element={self.string_element!s}, "
-                f"number_element={self.number_element!s})")
+        _string_attr=self.string_attr
+        _number_attr=self.number_attr
+        _string_element=self.string_element
+        _number_element=self.number_element
+        return (
+            f"{self.__class__.__name__}("
+            f"string_attr={_string_attr!s}"
+            f"number_attr={_number_attr!s}"
+            f"string_element={_string_element!s}"
+            f"number_element={_number_element!s}"
+            f")"
+        )

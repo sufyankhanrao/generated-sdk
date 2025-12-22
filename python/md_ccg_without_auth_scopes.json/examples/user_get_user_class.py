@@ -21,12 +21,7 @@ client = MdnotesccgwithoutauthscopesClient(
 user_controller = client.user
 try:
     result = user_controller.get_user()
-
-    if result.is_success():
-        print(result.body)
-    elif result.is_error():
-        print(result.errors)
-
+    print(result)
 except APIException as e: 
     print(e)
 

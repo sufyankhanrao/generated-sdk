@@ -30,9 +30,10 @@ class Rabbit(object):
         "cute",
     ]
 
-    def __init__(self,
-                 age=None,
-                 cute=APIHelper.SKIP):
+    def __init__(
+        self,
+        age=None,
+        cute=APIHelper.SKIP):
         """Initialize a Rabbit instance."""
         # Initialize members of the class
         self.age = age
@@ -57,10 +58,15 @@ class Rabbit(object):
             return None
 
         # Extract variables from the dictionary
-        age = dictionary.get("age") if dictionary.get("age") else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else None
         cute =\
             dictionary.get("cute")\
-            if "cute" in dictionary.keys() else APIHelper.SKIP
+            if "cute" in dictionary.keys()\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(age,
                    cute)
@@ -80,24 +86,50 @@ class Rabbit(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.age,
-                type_callable=lambda value: isinstance(value, int))
+                    value=dictionary.age,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("age"),
-            type_callable=lambda value: isinstance(value, int))
+                value=dictionary.get("age"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"age={self.age!r}, "
-                f"cute={(self.cute if hasattr(self, 'cute') else None)!r})")
+        _age=self.age
+        _cute=(
+            self.cute
+            if hasattr(self, "cute")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"age={_age!r}"
+            f"cute={_cute!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"age={self.age!s}, "
-                f"cute={(self.cute if hasattr(self, 'cute') else None)!s})")
+        _age=self.age
+        _cute=(
+            self.cute
+            if hasattr(self, "cute")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"age={_age!s}"
+            f"cute={_cute!s}"
+            f")"
+        )

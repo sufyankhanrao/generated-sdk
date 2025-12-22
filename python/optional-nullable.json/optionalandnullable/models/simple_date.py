@@ -32,9 +32,10 @@ class SimpleDate(object):
         "date_nullable",
     ]
 
-    def __init__(self,
-                 date_nullable=APIHelper.SKIP,
-                 date=APIHelper.SKIP):
+    def __init__(
+        self,
+        date_nullable=APIHelper.SKIP,
+        date=APIHelper.SKIP):
         """Initialize a SimpleDate instance."""
         # Initialize members of the class
         if date_nullable is not APIHelper.SKIP:
@@ -61,27 +62,54 @@ class SimpleDate(object):
 
         # Extract variables from the dictionary
         if "dateNullable" in dictionary.keys():
-            date_nullable = dateutil.parser.parse(dictionary.get("dateNullable")).date()\
+            date_nullable = dateutil.parser.parse(
+                dictionary.get("dateNullable")).date()\
                 if dictionary.get("dateNullable") else None
 
         else:
             date_nullable = APIHelper.SKIP
-        date = dateutil.parser.parse(dictionary.get("date")).date()\
+        date = dateutil.parser.parse(
+            dictionary.get("date")).date()\
             if dictionary.get("date") else APIHelper.SKIP
+
         # Return an object of this model
         return cls(date_nullable,
                    date)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date_nullable={(self.date_nullable
-                     if hasattr(self, 'date_nullable') else None)!r}, "
-                f"date={(self.date if hasattr(self, 'date') else None)!r})")
+        _date_nullable=(
+            self.date_nullable
+            if hasattr(self, "date_nullable")
+            else None
+        )
+        _date=(
+            self.date
+            if hasattr(self, "date")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"date_nullable={_date_nullable!r}"
+            f"date={_date!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"date_nullable={(self.date_nullable
-                     if hasattr(self, 'date_nullable') else None)!s}, "
-                f"date={(self.date if hasattr(self, 'date') else None)!s})")
+        _date_nullable=(
+            self.date_nullable
+            if hasattr(self, "date_nullable")
+            else None
+        )
+        _date=(
+            self.date
+            if hasattr(self, "date")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"date_nullable={_date_nullable!s}"
+            f"date={_date!s}"
+            f")"
+        )

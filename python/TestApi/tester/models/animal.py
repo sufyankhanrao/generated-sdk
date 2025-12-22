@@ -13,8 +13,8 @@ class Animal(object):
     Attributes:
         name (str): The model property of type str.
         color (Color): The model property of type Color.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -24,10 +24,11 @@ class Animal(object):
         "name": "name",
     }
 
-    def __init__(self,
-                 color=None,
-                 name=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        color=None,
+        name=None,
+        additional_properties=None):
         """Initialize a Animal instance."""
         # Initialize members of the class
         self.name = name
@@ -56,10 +57,15 @@ class Animal(object):
             return None
 
         # Extract variables from the dictionary
-        color = Color.from_dictionary(
+        color =\
+            Color.from_dictionary(
             dictionary.get("color"))\
-            if dictionary.get("color") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
+                if dictionary.get("color") else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -70,17 +76,29 @@ class Animal(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!r}, "
-                f"color={self.color!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _name=self.name
+        _color=self.color
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!r}"
+            f"color={_color!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"name={self.name!s}, "
-                f"color={self.color!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _name=self.name
+        _color=self.color
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"name={_name!s}"
+            f"color={_color!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )
 
 class Cat(Animal):
     """Implementation of the 'Cat' model.
@@ -88,8 +106,8 @@ class Cat(Animal):
 
     Attributes:
         mtype (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -100,19 +118,21 @@ class Cat(Animal):
         "mtype": "type",
     }
 
-    def __init__(self,
-                 color=None,
-                 name=None,
-                 mtype=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        color=None,
+        name=None,
+        mtype=None,
+        additional_properties=None):
         """Initialize a Cat instance."""
         # Initialize members of the class
         self.mtype = mtype
 
         # Call the constructor for the base class
-        super(Cat, self).__init__(color,
-                                  name,
-                                  additional_properties)
+        super(Cat, self).__init__(
+            color,
+            name,
+            additional_properties)
 
     @classmethod
     def from_dictionary(cls,
@@ -132,11 +152,19 @@ class Cat(Animal):
             return None
 
         # Extract variables from the dictionary
-        color = Color.from_dictionary(
+        color =\
+            Color.from_dictionary(
             dictionary.get("color"))\
-            if dictionary.get("color") else None
-        name = dictionary.get("name") if dictionary.get("name") else None
-        mtype = dictionary.get("type") if dictionary.get("type") else None
+                if dictionary.get("color") else None
+        name =\
+            dictionary.get("name")\
+            if dictionary.get("name")\
+                else None
+        mtype =\
+            dictionary.get("type")\
+            if dictionary.get("type")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -148,14 +176,24 @@ class Cat(Animal):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        base_repr = super().__repr__()
-        return (f"{self.__class__.__name__}("
-                f"{base_repr[base_repr.find('(') + 1:-1]}, "
-                f"mtype={self.mtype!r})")
+        _mtype=self.mtype
+        _base_repr = super().__repr__()
+        _base_repr = _base_repr[_base_repr.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_repr={_base_repr!r}"
+            f"mtype={_mtype!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        base_str = super().__str__()
-        return (f"{self.__class__.__name__}("
-                f"{base_str[base_str.find('(') + 1:-1]}, "
-                f"mtype={self.mtype!s})")
+        _mtype=self.mtype
+        _base_str = super().__str__()
+        _base_str = _base_str[_base_str.find("(") + 1:-1]
+        return (
+            f"{self.__class__.__name__}("
+            f"base_str={_base_str!s}"
+            f"mtype={_mtype!s}"
+            f")"
+        )

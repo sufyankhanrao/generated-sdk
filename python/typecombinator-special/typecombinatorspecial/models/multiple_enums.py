@@ -14,17 +14,15 @@ class MultipleEnums(object):
     This class contains enum types in oneOf/anyOf cases.
 
     Attributes:
-        daysvs_string (DaysEnum | str): The model property of type DaysEnum |
-            str.
-        all_one_of (DaysEnum | MonthNameEnum | MonthNumberEnum): The model
-            property of type DaysEnum | MonthNameEnum | MonthNumberEnum.
-        all_outer_array (List[DaysEnum | MonthNameEnum | MonthNumberEnum]):
-            The model property of type List[DaysEnum | MonthNameEnum |
-            MonthNumberEnum].
-        enumvs_array (DaysEnum | List[DaysEnum]): The model property of type
-            DaysEnum | List[DaysEnum].
-        mapvs_array (Dict[str, DaysEnum] | List[DaysEnum]): The model property
-            of type Dict[str, DaysEnum] | List[DaysEnum].
+        daysvs_string (DaysEnum | str): The model property of type DaysEnum | str.
+        all_one_of (DaysEnum | MonthNameEnum | MonthNumberEnum): The model property
+            of type DaysEnum | MonthNameEnum | MonthNumberEnum.
+        all_outer_array (List[DaysEnum | MonthNameEnum | MonthNumberEnum]): The model
+            property of type List[DaysEnum | MonthNameEnum | MonthNumberEnum].
+        enumvs_array (DaysEnum | List[DaysEnum]): The model property of type DaysEnum
+            | List[DaysEnum].
+        mapvs_array (Dict[str, DaysEnum] | List[DaysEnum]): The model property of
+            type Dict[str, DaysEnum] | List[DaysEnum].
 
     """
 
@@ -37,12 +35,13 @@ class MultipleEnums(object):
         "mapvs_array": "mapvsArray",
     }
 
-    def __init__(self,
-                 daysvs_string=None,
-                 all_one_of=None,
-                 all_outer_array=None,
-                 enumvs_array=None,
-                 mapvs_array=None):
+    def __init__(
+        self,
+        daysvs_string=None,
+        all_one_of=None,
+        all_outer_array=None,
+        enumvs_array=None,
+        mapvs_array=None):
         """Initialize a MultipleEnums instance."""
         # Initialize members of the class
         self.daysvs_string = daysvs_string
@@ -73,11 +72,37 @@ class MultipleEnums(object):
             return None
 
         # Extract variables from the dictionary
-        daysvs_string = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MultipleEnumsDaysvsString"), dictionary.get("daysvsString"), False) if dictionary.get("daysvsString") is not None else None
-        all_one_of = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MultipleEnumsAllOneOf"), dictionary.get("allOneOf"), False) if dictionary.get("allOneOf") is not None else None
-        all_outer_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MultipleEnumsAllOuterArray"), dictionary.get("allOuterArray"), False) if dictionary.get("allOuterArray") is not None else None
-        enumvs_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MultipleEnumsEnumvsArray"), dictionary.get("enumvsArray"), False) if dictionary.get("enumvsArray") is not None else None
-        mapvs_array = APIHelper.deserialize_union_type(UnionTypeLookUp.get("MultipleEnumsMapvsArray"), dictionary.get("mapvsArray"), False) if dictionary.get("mapvsArray") is not None else None
+        daysvs_string = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MultipleEnumsDaysvsString"),
+            dictionary.get("daysvsString"),
+            False)\
+            if dictionary.get("daysvsString") is not None\
+            else None
+        all_one_of = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MultipleEnumsAllOneOf"),
+            dictionary.get("allOneOf"),
+            False)\
+            if dictionary.get("allOneOf") is not None\
+            else None
+        all_outer_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MultipleEnumsAllOuterArray"),
+            dictionary.get("allOuterArray"),
+            False)\
+            if dictionary.get("allOuterArray") is not None\
+            else None
+        enumvs_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MultipleEnumsEnumvsArray"),
+            dictionary.get("enumvsArray"),
+            False)\
+            if dictionary.get("enumvsArray") is not None\
+            else None
+        mapvs_array = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("MultipleEnumsMapvsArray"),
+            dictionary.get("mapvsArray"),
+            False)\
+            if dictionary.get("mapvsArray") is not None\
+            else None
+
         # Return an object of this model
         return cls(daysvs_string,
                    all_one_of,
@@ -103,35 +128,61 @@ class MultipleEnums(object):
         )
 
         if isinstance(dictionary, cls):
-            return UnionTypeLookUp.get("MultipleEnumsDaysvsString").validate(dictionary.daysvs_string).is_valid \
-                and UnionTypeLookUp.get("MultipleEnumsAllOneOf").validate(dictionary.all_one_of).is_valid \
-                and UnionTypeLookUp.get("MultipleEnumsAllOuterArray").validate(dictionary.all_outer_array).is_valid \
-                and UnionTypeLookUp.get("MultipleEnumsEnumvsArray").validate(dictionary.enumvs_array).is_valid \
-                and UnionTypeLookUp.get("MultipleEnumsMapvsArray").validate(dictionary.mapvs_array).is_valid
+            return (UnionTypeLookUp.get("MultipleEnumsDaysvsString")
+                .validate(dictionary.daysvs_string).is_valid) \
+                and (UnionTypeLookUp.get("MultipleEnumsAllOneOf")
+                .validate(dictionary.all_one_of).is_valid) \
+                and (UnionTypeLookUp.get("MultipleEnumsAllOuterArray")
+                .validate(dictionary.all_outer_array).is_valid) \
+                and (UnionTypeLookUp.get("MultipleEnumsEnumvsArray")
+                .validate(dictionary.enumvs_array).is_valid) \
+                and (UnionTypeLookUp.get("MultipleEnumsMapvsArray")
+                .validate(dictionary.mapvs_array).is_valid)
 
         if not isinstance(dictionary, dict):
             return False
 
-        return UnionTypeLookUp.get("MultipleEnumsDaysvsString").validate(dictionary.get("daysvsString")).is_valid \
-            and UnionTypeLookUp.get("MultipleEnumsAllOneOf").validate(dictionary.get("allOneOf")).is_valid \
-            and UnionTypeLookUp.get("MultipleEnumsAllOuterArray").validate(dictionary.get("allOuterArray")).is_valid \
-            and UnionTypeLookUp.get("MultipleEnumsEnumvsArray").validate(dictionary.get("enumvsArray")).is_valid \
-            and UnionTypeLookUp.get("MultipleEnumsMapvsArray").validate(dictionary.get("mapvsArray")).is_valid
+        return (UnionTypeLookUp.get("MultipleEnumsDaysvsString")
+            .validate(dictionary.get("daysvsString")).is_valid) \
+            and (UnionTypeLookUp.get("MultipleEnumsAllOneOf")
+            .validate(dictionary.get("allOneOf")).is_valid) \
+            and (UnionTypeLookUp.get("MultipleEnumsAllOuterArray")
+            .validate(dictionary.get("allOuterArray")).is_valid) \
+            and (UnionTypeLookUp.get("MultipleEnumsEnumvsArray")
+            .validate(dictionary.get("enumvsArray")).is_valid) \
+            and (UnionTypeLookUp.get("MultipleEnumsMapvsArray")
+            .validate(dictionary.get("mapvsArray")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"daysvs_string={self.daysvs_string!r}, "
-                f"all_one_of={self.all_one_of!r}, "
-                f"all_outer_array={self.all_outer_array!r}, "
-                f"enumvs_array={self.enumvs_array!r}, "
-                f"mapvs_array={self.mapvs_array!r})")
+        _daysvs_string=self.daysvs_string
+        _all_one_of=self.all_one_of
+        _all_outer_array=self.all_outer_array
+        _enumvs_array=self.enumvs_array
+        _mapvs_array=self.mapvs_array
+        return (
+            f"{self.__class__.__name__}("
+            f"daysvs_string={_daysvs_string!r}"
+            f"all_one_of={_all_one_of!r}"
+            f"all_outer_array={_all_outer_array!r}"
+            f"enumvs_array={_enumvs_array!r}"
+            f"mapvs_array={_mapvs_array!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"daysvs_string={self.daysvs_string!s}, "
-                f"all_one_of={self.all_one_of!s}, "
-                f"all_outer_array={self.all_outer_array!s}, "
-                f"enumvs_array={self.enumvs_array!s}, "
-                f"mapvs_array={self.mapvs_array!s})")
+        _daysvs_string=self.daysvs_string
+        _all_one_of=self.all_one_of
+        _all_outer_array=self.all_outer_array
+        _enumvs_array=self.enumvs_array
+        _mapvs_array=self.mapvs_array
+        return (
+            f"{self.__class__.__name__}("
+            f"daysvs_string={_daysvs_string!s}"
+            f"all_one_of={_all_one_of!s}"
+            f"all_outer_array={_all_outer_array!s}"
+            f"enumvs_array={_enumvs_array!s}"
+            f"mapvs_array={_mapvs_array!s}"
+            f")"
+        )

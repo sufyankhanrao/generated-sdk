@@ -12,8 +12,8 @@ class DynamicAsOptional(object):
 
     Attributes:
         dynamic (Any): The model property of type Any.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -26,9 +26,10 @@ class DynamicAsOptional(object):
         "dynamic",
     ]
 
-    def __init__(self,
-                 dynamic=APIHelper.SKIP,
-                 additional_properties=None):
+    def __init__(
+        self,
+        dynamic=APIHelper.SKIP,
+        additional_properties=None):
         """Initialize a DynamicAsOptional instance."""
         # Initialize members of the class
         if dynamic is not APIHelper.SKIP:
@@ -59,7 +60,9 @@ class DynamicAsOptional(object):
         # Extract variables from the dictionary
         dynamic =\
             dictionary.get("dynamic")\
-            if dictionary.get("dynamic") else APIHelper.SKIP
+            if dictionary.get("dynamic")\
+                else APIHelper.SKIP
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -69,14 +72,30 @@ class DynamicAsOptional(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"dynamic={(self.dynamic
-                     if hasattr(self, 'dynamic') else None)!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _dynamic=(
+            self.dynamic
+            if hasattr(self, "dynamic")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"dynamic={_dynamic!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"dynamic={(self.dynamic
-                     if hasattr(self, 'dynamic') else None)!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _dynamic=(
+            self.dynamic
+            if hasattr(self, "dynamic")
+            else None
+        )
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"dynamic={_dynamic!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

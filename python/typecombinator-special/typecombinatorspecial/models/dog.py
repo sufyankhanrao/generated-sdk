@@ -39,11 +39,12 @@ class Dog(object):
         "breed",
     ]
 
-    def __init__(self,
-                 bark=None,
-                 age=None,
-                 cute=APIHelper.SKIP,
-                 breed=APIHelper.SKIP):
+    def __init__(
+        self,
+        bark=None,
+        age=None,
+        cute=APIHelper.SKIP,
+        breed=APIHelper.SKIP):
         """Initialize a Dog instance."""
         # Initialize members of the class
         self.bark = bark
@@ -71,14 +72,23 @@ class Dog(object):
             return None
 
         # Extract variables from the dictionary
-        bark = dictionary.get("bark") if "bark" in dictionary.keys() else None
-        age = dictionary.get("age") if dictionary.get("age") else None
+        bark =\
+            dictionary.get("bark")\
+            if "bark" in dictionary.keys()\
+                else None
+        age =\
+            dictionary.get("age")\
+            if dictionary.get("age")\
+                else None
         cute =\
             dictionary.get("cute")\
-            if "cute" in dictionary.keys() else APIHelper.SKIP
+            if "cute" in dictionary.keys()\
+                else APIHelper.SKIP
         breed =\
             dictionary.get("breed")\
-            if "breed" in dictionary.keys() else APIHelper.SKIP
+            if "breed" in dictionary.keys()\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(bark,
                    age,
@@ -100,34 +110,80 @@ class Dog(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
-                value=dictionary.bark,
-                type_callable=lambda value: isinstance(value, bool)) \
+                    value=dictionary.bark,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        bool,
+                )) \
                 and APIHelper.is_valid_type(
-                value=dictionary.age,
-                type_callable=lambda value: isinstance(value, int))
+                    value=dictionary.age,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                ))
 
         if not isinstance(dictionary, dict):
             return False
 
         return APIHelper.is_valid_type(
-            value=dictionary.get("bark"),
-            type_callable=lambda value: isinstance(value, bool)) \
+                value=dictionary.get("bark"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    bool,
+            )) \
             and APIHelper.is_valid_type(
-            value=dictionary.get("age"),
-            type_callable=lambda value: isinstance(value, int))
+                value=dictionary.get("age"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"bark={self.bark!r}, "
-                f"age={self.age!r}, "
-                f"cute={(self.cute if hasattr(self, 'cute') else None)!r}, "
-                f"breed={(self.breed if hasattr(self, 'breed') else None)!r})")
+        _bark=self.bark
+        _age=self.age
+        _cute=(
+            self.cute
+            if hasattr(self, "cute")
+            else None
+        )
+        _breed=(
+            self.breed
+            if hasattr(self, "breed")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"bark={_bark!r}"
+            f"age={_age!r}"
+            f"cute={_cute!r}"
+            f"breed={_breed!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"bark={self.bark!s}, "
-                f"age={self.age!s}, "
-                f"cute={(self.cute if hasattr(self, 'cute') else None)!s}, "
-                f"breed={(self.breed if hasattr(self, 'breed') else None)!s})")
+        _bark=self.bark
+        _age=self.age
+        _cute=(
+            self.cute
+            if hasattr(self, "cute")
+            else None
+        )
+        _breed=(
+            self.breed
+            if hasattr(self, "breed")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"bark={_bark!s}"
+            f"age={_age!s}"
+            f"cute={_cute!s}"
+            f"breed={_breed!s}"
+            f")"
+        )

@@ -54,8 +54,7 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "[{\"key1\":12,\"key2\":\"some string\"},{\"key1\":12,\"key2\":12}]"
-            "",
+            "[{\"key1\":12,\"key2\":\"some string\"},{\"key1\":12,\"key2\":12}]",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -82,8 +81,8 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "[{\"key1\":\"some string\",\"key2\":\"some string\"},{\"key1\":12,"
-            "\"key2\":\"some string\"}]",
+            "[{\"key1\":\"some string\",\"key2\":\"some string\"},{\"key1\":12,\"key2"
+            "\":\"some string\"}]",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -110,9 +109,9 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"key1\":[{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},{\"Numb"
-            "erOfElectrons\":4,\"NumberOfProtons\":4}],\"key2\":{\"NumberOfElec"
-            "trons\":4,\"NumberOfProtons\":4}}",
+            "{\"key1\":[{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},{\"NumberOfEl"
+            "ectrons\":4,\"NumberOfProtons\":4}],\"key2\":{\"NumberOfElectrons\":4,\""
+            "NumberOfProtons\":4}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -139,8 +138,8 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\""
-            ":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}}",
+            "{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"Nu"
+            "mberOfElectrons\":4,\"NumberOfProtons\":4}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -194,9 +193,9 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "[{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{\"NumberOfTyres\":"
-            "\"4\"}},{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{\"NumberOfTy"
-            "res\":\"4\"}}]",
+            "[{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{\"NumberOfTyres\":\"4\"}}"
+            ",{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{\"NumberOfTyres\":\"4\"}}"
+            "]",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -223,18 +222,17 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"multiAnyOf\":23,\"multiOneOfAnyOf\":23,\"singleInnerMapOfArray"
-            "\":{\"key1\":[12.3,12.3],\"key2\":[12.3,12.3]},\"outerMapOfSingleI"
-            "nnerArray\":{\"key1\":[12.3,12.3],\"key2\":12.3},\"allInnerArrayOf"
-            "Map\":[{\"key1\":12,\"key2\":12},{\"key1\":12,\"key2\":12}],\"allI"
-            "nnerArrayOfMap2\":{\"key1\":[{\"key1\":12,\"key2\":12},{\"key1\":1"
-            "2,\"key2\":12}],\"key2\":[{\"key1\":\"some string\",\"key2\":\"som"
-            "e string\"}]},\"outerArrayOfMap\":[{\"key1\":12,\"key2\":\"some st"
-            "ring\"},{\"key1\":12,\"key2\":12}],\"outerArrayOfMap2\":[{\"key1\""
-            ":[12,12],\"key2\":[\"some string\",\"some string\"]},{\"key1\":[12"
-            ",12],\"key2\":[12,12]}],\"outerMapOfArray\":{\"key1\":[12,true],\""
-            "key2\":[false,true]},\"outerMapOfArray2\":{\"key1\":[{\"key1\":12,"
-            "\"key2\":12},{\"key1\":true,\"key2\":false}],\"key2\":[{\"key1\":1"
+            "{\"multiAnyOf\":23,\"multiOneOfAnyOf\":23,\"singleInnerMapOfArray\":{\"k"
+            "ey1\":[12.3,12.3],\"key2\":[12.3,12.3]},\"outerMapOfSingleInnerArray\":{"
+            "\"key1\":[12.3,12.3],\"key2\":12.3},\"allInnerArrayOfMap\":[{\"key1\":12"
+            ",\"key2\":12},{\"key1\":12,\"key2\":12}],\"allInnerArrayOfMap2\":{\"key1"
+            "\":[{\"key1\":12,\"key2\":12},{\"key1\":12,\"key2\":12}],\"key2\":[{\"ke"
+            "y1\":\"some string\",\"key2\":\"some string\"}]},\"outerArrayOfMap\":[{"
+            "\"key1\":12,\"key2\":\"some string\"},{\"key1\":12,\"key2\":12}],\"outer"
+            "ArrayOfMap2\":[{\"key1\":[12,12],\"key2\":[\"some string\",\"some string"
+            "\"]},{\"key1\":[12,12],\"key2\":[12,12]}],\"outerMapOfArray\":{\"key1\":"
+            "[12,true],\"key2\":[false,true]},\"outerMapOfArray2\":{\"key1\":[{\"key1"
+            "\":12,\"key2\":12},{\"key1\":true,\"key2\":false}],\"key2\":[{\"key1\":1"
             "2,\"key2\":12},{\"key1\":12,\"key2\":12}]}}",
         )
         received_body = APIHelper.json_deserialize(
@@ -262,21 +260,20 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"multiAnyOf\":\"some string\",\"multiOneOfAnyOf\":\"some string"
-            "\",\"singleInnerMapOfArray\":{\"key1\":12.3,\"key2\":12.3},\"outer"
-            "MapOfSingleInnerArray\":{\"key1\":12.3,\"key2\":12.3},\"allInnerAr"
-            "rayOfMap\":[{\"key1\":\"some string\",\"key2\":\"some string\"},{"
-            "\"key1\":\"some string\",\"key2\":\"some string\"}],\"allInnerArra"
-            "yOfMap2\":{\"key1\":[{\"key1\":12,\"key2\":12},{\"key1\":12,\"key2"
-            "\":12}],\"key2\":[{\"key1\":12,\"key2\":12},{\"key1\":12,\"key2\":"
-            "12}]},\"outerArrayOfMap\":[{\"key1\":\"some string\",\"key2\":\"so"
-            "me string\"},{\"key1\":12,\"key2\":\"some string\"}],\"outerArrayO"
-            "fMap2\":[{\"key1\":[\"some string\"],\"key2\":[\"some string\"]},{"
-            "\"key1\":[12],\"key2\":[\"some string\",\"some string\"]}],\"outer"
-            "MapOfArray\":{\"key1\":[12,12],\"key2\":[12,false]},\"outerMapOfAr"
-            "ray2\":{\"key1\":[{\"key1\":true,\"key2\":false},{\"key1\":true,\""
-            "key2\":false}],\"key2\":[{\"key1\":true,\"key2\":false},{\"key1\":"
-            "12,\"key2\":12}]}}",
+            "{\"multiAnyOf\":\"some string\",\"multiOneOfAnyOf\":\"some string\",\"si"
+            "ngleInnerMapOfArray\":{\"key1\":12.3,\"key2\":12.3},\"outerMapOfSingleIn"
+            "nerArray\":{\"key1\":12.3,\"key2\":12.3},\"allInnerArrayOfMap\":[{\"key1"
+            "\":\"some string\",\"key2\":\"some string\"},{\"key1\":\"some string\","
+            "\"key2\":\"some string\"}],\"allInnerArrayOfMap2\":{\"key1\":[{\"key1\":"
+            "12,\"key2\":12},{\"key1\":12,\"key2\":12}],\"key2\":[{\"key1\":12,\"key2"
+            "\":12},{\"key1\":12,\"key2\":12}]},\"outerArrayOfMap\":[{\"key1\":\"some"
+            " string\",\"key2\":\"some string\"},{\"key1\":12,\"key2\":\"some string"
+            "\"}],\"outerArrayOfMap2\":[{\"key1\":[\"some string\"],\"key2\":[\"some "
+            "string\"]},{\"key1\":[12],\"key2\":[\"some string\",\"some string\"]}],"
+            "\"outerMapOfArray\":{\"key1\":[12,12],\"key2\":[12,false]},\"outerMapOfA"
+            "rray2\":{\"key1\":[{\"key1\":true,\"key2\":false},{\"key1\":true,\"key2"
+            "\":false}],\"key2\":[{\"key1\":true,\"key2\":false},{\"key1\":12,\"key2"
+            "\":12}]}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -303,47 +300,44 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"multiAnyOf\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"mul"
-            "tiOneOfAnyOf\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"sing"
-            "leInnerMapOfArray\":{\"key1\":[{\"NumberOfElectrons\":4,\"NumberOf"
-            "Protons\":4},{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}],\"ke"
-            "y2\":[{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}]},\"outerMap"
-            "OfSingleInnerArray\":{\"key1\":[{\"NumberOfElectrons\":4,\"NumberO"
-            "fProtons\":4},{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}],\"k"
-            "ey2\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}},\"allInnerA"
-            "rrayOfMap\":[{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{\"Numbe"
-            "rOfElectrons\":4}},{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{"
-            "\"NumberOfElectrons\":4}}],\"allInnerArrayOfMap2\":{\"key1\":[{\"k"
-            "ey1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfElectrons\":4}"
-            "},{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfElectron"
-            "s\":4}}],\"key2\":[{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{"
-            "\"NumberOfTyres\":\"4\"}}]},\"outerArrayOfMap\":[{\"key1\":{\"Numb"
-            "erOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"NumberOfElectron"
-            "s\":4,\"NumberOfProtons\":4}},{\"key1\":{\"NumberOfTyres\":\"4\","
-            "\"HaveTrunk\":true},\"key2\":{\"NumberOfTyres\":\"4\",\"HaveTrunk"
-            "\":true}}],\"outerArrayOfMap2\":[{\"key1\":[{\"NumberOfTyres\":\"4"
-            "\",\"HaveTrunk\":true},{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true"
-            "}],\"key2\":[{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},{\"Nu"
-            "mberOfElectrons\":4,\"NumberOfProtons\":4}]},{\"key1\":[{\"NumberO"
-            "fTyres\":\"4\",\"HaveTrunk\":true}],\"key2\":[{\"NumberOfTyres\":"
-            "\"4\",\"HaveTrunk\":true},{\"NumberOfTyres\":\"4\",\"HaveTrunk\":t"
-            "rue}]}],\"outerMapOfArray\":{\"key1\":[{\"startsAt\":\"6:00\",\"en"
-            "dsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning"
-            "\"},{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerDinner\":tr"
-            "ue,\"sessionType\":\"Evening\"}],\"key2\":[{\"startsAt\":\"6:00\","
-            "\"endsAt\":\"11:00\",\"offerLunch\":true,\"sessionType\":\"Noon\"}"
-            ",{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerDinner\":true,"
-            "\"sessionType\":\"Evening\"}]},\"outerMapOfArray2\":{\"key1\":[{\""
-            "key1\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerLunch\":"
-            "true,\"sessionType\":\"Noon\"},\"key2\":{\"startsAt\":\"6:00\",\"e"
-            "ndsAt\":\"11:00\",\"offerLunch\":true,\"sessionType\":\"Noon\"}},{"
-            "\"key1\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBre"
-            "ak\":true,\"sessionType\":\"Morning\"}}],\"key2\":[{\"key1\":{\"st"
-            "artsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerDinner\":true,\"sess"
-            "ionType\":\"Evening\"}},{\"key1\":{\"startsAt\":\"6:00\",\"endsAt"
-            "\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"},"
-            "\"key2\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBre"
-            "ak\":true,\"sessionType\":\"Morning\"}}]}}",
+            "{\"multiAnyOf\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"multiOneO"
+            "fAnyOf\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"singleInnerMapOf"
+            "Array\":{\"key1\":[{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},{\"Nu"
+            "mberOfElectrons\":4,\"NumberOfProtons\":4}],\"key2\":[{\"NumberOfElectro"
+            "ns\":4,\"NumberOfProtons\":4}]},\"outerMapOfSingleInnerArray\":{\"key1\""
+            ":[{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},{\"NumberOfElectrons\""
+            ":4,\"NumberOfProtons\":4}],\"key2\":{\"NumberOfElectrons\":4,\"NumberOfP"
+            "rotons\":4}},\"allInnerArrayOfMap\":[{\"key1\":{\"NumberOfElectrons\":4}"
+            ",\"key2\":{\"NumberOfElectrons\":4}},{\"key1\":{\"NumberOfElectrons\":4}"
+            ",\"key2\":{\"NumberOfElectrons\":4}}],\"allInnerArrayOfMap2\":{\"key1\":"
+            "[{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfElectrons\":4}}"
+            ",{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfElectrons\":4}}"
+            "],\"key2\":[{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{\"NumberOfTyre"
+            "s\":\"4\"}}]},\"outerArrayOfMap\":[{\"key1\":{\"NumberOfTyres\":\"4\",\""
+            "HaveTrunk\":true},\"key2\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":"
+            "4}},{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"N"
+            "umberOfTyres\":\"4\",\"HaveTrunk\":true}}],\"outerArrayOfMap2\":[{\"key1"
+            "\":[{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},{\"NumberOfTyres\":\"4"
+            "\",\"HaveTrunk\":true}],\"key2\":[{\"NumberOfElectrons\":4,\"NumberOfPro"
+            "tons\":4},{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}]},{\"key1\":[{"
+            "\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],\"key2\":[{\"NumberOfTyres"
+            "\":\"4\",\"HaveTrunk\":true},{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true"
+            "}]}],\"outerMapOfArray\":{\"key1\":[{\"startsAt\":\"6:00\",\"endsAt\":\""
+            "11:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"},{\"startsAt"
+            "\":\"6:00\",\"endsAt\":\"11:00\",\"offerDinner\":true,\"sessionType\":\""
+            "Evening\"}],\"key2\":[{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offe"
+            "rLunch\":true,\"sessionType\":\"Noon\"},{\"startsAt\":\"6:00\",\"endsAt"
+            "\":\"11:00\",\"offerDinner\":true,\"sessionType\":\"Evening\"}]},\"outer"
+            "MapOfArray2\":{\"key1\":[{\"key1\":{\"startsAt\":\"6:00\",\"endsAt\":\"1"
+            "1:00\",\"offerLunch\":true,\"sessionType\":\"Noon\"},\"key2\":{\"startsA"
+            "t\":\"6:00\",\"endsAt\":\"11:00\",\"offerLunch\":true,\"sessionType\":\""
+            "Noon\"}},{\"key1\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTe"
+            "aBreak\":true,\"sessionType\":\"Morning\"}}],\"key2\":[{\"key1\":{\"star"
+            "tsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerDinner\":true,\"sessionType"
+            "\":\"Evening\"}},{\"key1\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\","
+            "\"offerTeaBreak\":true,\"sessionType\":\"Morning\"},\"key2\":{\"startsAt"
+            "\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":"
+            "\"Morning\"}}]}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -370,45 +364,41 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"multiAnyOf\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offe"
-            "rTeaBreak\":true,\"sessionType\":\"Morning\"},\"multiOneOfAnyOf\":"
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"},\"singleInnerMapOfArray\":{\"key1\":"
-            "{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"Number"
-            "OfElectrons\":4,\"NumberOfProtons\":4}},\"outerMapOfSingleInnerArr"
-            "ay\":{\"key1\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"k"
-            "ey2\":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}},\"allInnerA"
-            "rrayOfMap\":[{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{\"Numbe"
-            "rOfTyres\":\"4\"}},{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{"
-            "\"NumberOfTyres\":\"4\"}}],\"allInnerArrayOfMap2\":{\"key1\":[{\"k"
-            "ey1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfElectrons\":4}"
-            "},{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfElectron"
-            "s\":4}}],\"key2\":[{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{"
-            "\"NumberOfElectrons\":4}},{\"key1\":{\"NumberOfElectrons\":4},\"ke"
-            "y2\":{\"NumberOfElectrons\":4}}]},\"outerArrayOfMap\":[{\"key1\":{"
-            "\"NumberOfElectrons\":4,\"NumberOfProtons\":4},\"key2\":{\"NumberO"
-            "fElectrons\":4,\"NumberOfProtons\":4}},{\"key1\":{\"NumberOfTyres"
-            "\":\"4\",\"HaveTrunk\":true},\"key2\":{\"NumberOfElectrons\":4,\"N"
-            "umberOfProtons\":4}}],\"outerArrayOfMap2\":[{\"key1\":[{\"NumberOf"
-            "Electrons\":4,\"NumberOfProtons\":4}],\"key2\":[{\"NumberOfElectro"
-            "ns\":4,\"NumberOfProtons\":4}]},{\"key1\":[{\"NumberOfTyres\":\"4"
-            "\",\"HaveTrunk\":true}],\"key2\":[{\"NumberOfElectrons\":4,\"Numbe"
-            "rOfProtons\":4}]}],\"outerMapOfArray\":{\"key1\":[{\"startsAt\":\""
-            "6:00\",\"endsAt\":\"11:00\",\"offerLunch\":true,\"sessionType\":\""
-            "Noon\"},{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBrea"
-            "k\":true,\"sessionType\":\"Morning\"}],\"key2\":[{\"startsAt\":\"6"
-            ":00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":"
-            "\"Morning\"},{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerDi"
-            "nner\":true,\"sessionType\":\"Evening\"}]},\"outerMapOfArray2\":{"
-            "\"key1\":[{\"key1\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\""
-            "offerLunch\":true,\"sessionType\":\"Noon\"},\"key2\":{\"startsAt\""
-            ":\"6:00\",\"endsAt\":\"11:00\",\"offerLunch\":true,\"sessionType\""
-            ":\"Noon\"}},{\"key1\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\","
-            "\"offerLunch\":true,\"sessionType\":\"Noon\"}}],\"key2\":[{\"key1"
-            "\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerDinner\":tru"
-            "e,\"sessionType\":\"Evening\"}},{\"key1\":{\"startsAt\":\"6:00\","
-            "\"endsAt\":\"11:00\",\"offerDinner\":true,\"sessionType\":\"Evenin"
-            "g\"}}]}}",
+            "{\"multiAnyOf\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBr"
+            "eak\":true,\"sessionType\":\"Morning\"},\"multiOneOfAnyOf\":{\"startsAt"
+            "\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":"
+            "\"Morning\"},\"singleInnerMapOfArray\":{\"key1\":{\"NumberOfElectrons\":"
+            "4,\"NumberOfProtons\":4},\"key2\":{\"NumberOfElectrons\":4,\"NumberOfPro"
+            "tons\":4}},\"outerMapOfSingleInnerArray\":{\"key1\":{\"NumberOfElectrons"
+            "\":4,\"NumberOfProtons\":4},\"key2\":{\"NumberOfElectrons\":4,\"NumberOf"
+            "Protons\":4}},\"allInnerArrayOfMap\":[{\"key1\":{\"NumberOfTyres\":\"4\""
+            "},\"key2\":{\"NumberOfTyres\":\"4\"}},{\"key1\":{\"NumberOfTyres\":\"4\""
+            "},\"key2\":{\"NumberOfTyres\":\"4\"}}],\"allInnerArrayOfMap2\":{\"key1\""
+            ":[{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfElectrons\":4}"
+            "},{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfElectrons\":4}"
+            "}],\"key2\":[{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfEle"
+            "ctrons\":4}},{\"key1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfEle"
+            "ctrons\":4}}]},\"outerArrayOfMap\":[{\"key1\":{\"NumberOfElectrons\":4,"
+            "\"NumberOfProtons\":4},\"key2\":{\"NumberOfElectrons\":4,\"NumberOfProto"
+            "ns\":4}},{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\""
+            ":{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}}],\"outerArrayOfMap2\":"
+            "[{\"key1\":[{\"NumberOfElectrons\":4,\"NumberOfProtons\":4}],\"key2\":[{"
+            "\"NumberOfElectrons\":4,\"NumberOfProtons\":4}]},{\"key1\":[{\"NumberOfT"
+            "yres\":\"4\",\"HaveTrunk\":true}],\"key2\":[{\"NumberOfElectrons\":4,\"N"
+            "umberOfProtons\":4}]}],\"outerMapOfArray\":{\"key1\":[{\"startsAt\":\"6:"
+            "00\",\"endsAt\":\"11:00\",\"offerLunch\":true,\"sessionType\":\"Noon\"},"
+            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"ses"
+            "sionType\":\"Morning\"}],\"key2\":[{\"startsAt\":\"6:00\",\"endsAt\":\"1"
+            "1:00\",\"offerTeaBreak\":true,\"sessionType\":\"Morning\"},{\"startsAt\""
+            ":\"6:00\",\"endsAt\":\"11:00\",\"offerDinner\":true,\"sessionType\":\"Ev"
+            "ening\"}]},\"outerMapOfArray2\":{\"key1\":[{\"key1\":{\"startsAt\":\"6:0"
+            "0\",\"endsAt\":\"11:00\",\"offerLunch\":true,\"sessionType\":\"Noon\"},"
+            "\"key2\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerLunch\":true"
+            ",\"sessionType\":\"Noon\"}},{\"key1\":{\"startsAt\":\"6:00\",\"endsAt\":"
+            "\"11:00\",\"offerLunch\":true,\"sessionType\":\"Noon\"}}],\"key2\":[{\"k"
+            "ey1\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerDinner\":true,"
+            "\"sessionType\":\"Evening\"}},{\"key1\":{\"startsAt\":\"6:00\",\"endsAt"
+            "\":\"11:00\",\"offerDinner\":true,\"sessionType\":\"Evening\"}}]}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -435,36 +425,34 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"multiAnyOf\":\"some string\",\"multiOneOfAnyOf\":\"some string"
-            "\",\"singleInnerMapOfArray\":{\"key1\":[23,23],\"key2\":[23,23]},"
-            "\"outerMapOfSingleInnerArray\":{\"key1\":[23,23],\"key2\":{\"Numbe"
-            "rOfElectrons\":4}},\"allInnerArrayOfMap\":[{\"key1\":false,\"key2"
-            "\":true},{\"key1\":false,\"key2\":true}],\"allInnerArrayOfMap2\":{"
-            "\"key1\":[{\"key1\":false,\"key2\":true},{\"key1\":false,\"key2\":"
-            "true}],\"key2\":[{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{\"N"
-            "umberOfTyres\":\"4\"}}]},\"outerArrayOfMap\":[{\"key1\":{\"NumberO"
-            "fTyres\":\"4\",\"HaveTrunk\":true},\"key2\":\"some string\"},{\"ke"
-            "y1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":{\"Numb"
-            "erOfTyres\":\"4\",\"HaveTrunk\":true}}],\"outerArrayOfMap2\":[{\"k"
-            "ey1\":[{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},{\"NumberOfTyr"
-            "es\":\"4\",\"HaveTrunk\":true}],\"key2\":[\"some string\",\"some s"
-            "tring\"]},{\"key1\":[{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}]"
-            ",\"key2\":[{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}]}],\"outer"
-            "MapOfArray\":{\"key1\":[{\"name\":\"Shahid Khaliq\",\"age\":514748"
-            "3645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday"
-            "\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54+00:00\",\"pe"
-            "rsonType\":\"Per\"},12.3],\"key2\":[12.3,12.3]},\"outerMapOfArray2"
-            "\":{\"key1\":[{\"key1\":12.3,\"key2\":12.3},{\"key1\":{\"name\":\""
-            "Shahid Khaliq\",\"age\":5147483645,\"address\":\"H # 531, S # 20\""
-            ",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"birthtime\":\"19"
-            "94-02-13T14:01:54+00:00\",\"personType\":\"Per\"}}],\"key2\":[{\"k"
-            "ey1\":12.3,\"key2\":12.3},{\"key1\":{\"name\":\"Shahid Khaliq\",\""
-            "age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321"
-            "\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54"
-            "+00:00\",\"personType\":\"Per\"},\"key2\":{\"name\":\"Shahid Khali"
-            "q\",\"age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"1"
-            "23321\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:"
-            "01:54+00:00\",\"personType\":\"Per\"}}]}}",
+            "{\"multiAnyOf\":\"some string\",\"multiOneOfAnyOf\":\"some string\",\"si"
+            "ngleInnerMapOfArray\":{\"key1\":[23,23],\"key2\":[23,23]},\"outerMapOfSi"
+            "ngleInnerArray\":{\"key1\":[23,23],\"key2\":{\"NumberOfElectrons\":4}},"
+            "\"allInnerArrayOfMap\":[{\"key1\":false,\"key2\":true},{\"key1\":false,"
+            "\"key2\":true}],\"allInnerArrayOfMap2\":{\"key1\":[{\"key1\":false,\"key"
+            "2\":true},{\"key1\":false,\"key2\":true}],\"key2\":[{\"key1\":{\"NumberO"
+            "fTyres\":\"4\"},\"key2\":{\"NumberOfTyres\":\"4\"}}]},\"outerArrayOfMap"
+            "\":[{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":\"so"
+            "me string\"},{\"key1\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},\"ke"
+            "y2\":{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}}],\"outerArrayOfMap2\""
+            ":[{\"key1\":[{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true},{\"NumberOfTyr"
+            "es\":\"4\",\"HaveTrunk\":true}],\"key2\":[\"some string\",\"some string"
+            "\"]},{\"key1\":[{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],\"key2\":["
+            "{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}]}],\"outerMapOfArray\":{\"k"
+            "ey1\":[{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"address\":\"H # "
+            "531, S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"birthtime"
+            "\":\"1994-02-13T14:01:54+00:00\",\"personType\":\"Per\"},12.3],\"key2\":"
+            "[12.3,12.3]},\"outerMapOfArray2\":{\"key1\":[{\"key1\":12.3,\"key2\":12."
+            "3},{\"key1\":{\"name\":\"Shahid Khaliq\",\"age\":5147483645,\"address\":"
+            "\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"bir"
+            "thtime\":\"1994-02-13T14:01:54+00:00\",\"personType\":\"Per\"}}],\"key2"
+            "\":[{\"key1\":12.3,\"key2\":12.3},{\"key1\":{\"name\":\"Shahid Khaliq\","
+            "\"age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321\",\""
+            "birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54+00:00\",\""
+            "personType\":\"Per\"},\"key2\":{\"name\":\"Shahid Khaliq\",\"age\":51474"
+            "83645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":\""
+            "1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54+00:00\",\"personType\":"
+            "\"Per\"}}]}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,
@@ -491,32 +479,30 @@ class ReceiverControllerTests(ControllerTestBase):
         # Test whether the captured response is as we expected
         assert result is not None
         expected_body = APIHelper.json_deserialize(
-            "{\"multiAnyOf\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offe"
-            "rTeaBreak\":true,\"sessionType\":\"Morning\"},\"multiOneOfAnyOf\":"
-            "{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true"
-            ",\"sessionType\":\"Morning\"},\"singleInnerMapOfArray\":{\"key1\":"
-            "{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfElectrons\":4}},\"ou"
-            "terMapOfSingleInnerArray\":{\"key1\":{\"NumberOfElectrons\":4},\"k"
-            "ey2\":{\"NumberOfElectrons\":4}},\"allInnerArrayOfMap\":[{\"key1\""
-            ":{\"NumberOfTyres\":\"4\"},\"key2\":{\"NumberOfTyres\":\"4\"}},{\""
-            "key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{\"NumberOfTyres\":\"4\""
-            "}}],\"allInnerArrayOfMap2\":{\"key1\":[{\"key1\":false,\"key2\":tr"
-            "ue},{\"key1\":false,\"key2\":true}],\"key2\":[{\"key1\":false,\"ke"
-            "y2\":true},{\"key1\":false,\"key2\":true}]},\"outerArrayOfMap\":[{"
-            "\"key1\":\"some string\",\"key2\":\"some string\"},{\"key1\":{\"Nu"
-            "mberOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":\"some string\"}]"
-            ",\"outerArrayOfMap2\":[{\"key1\":[\"some string\",\"some string\"]"
-            ",\"key2\":[\"some string\"]},{\"key1\":[{\"NumberOfTyres\":\"4\","
-            "\"HaveTrunk\":true}],\"key2\":[\"some string\"]}],\"outerMapOfArra"
-            "y\":{\"key1\":[12.3,{\"name\":\"Shahid Khaliq\",\"age\":5147483645"
-            ",\"address\":\"H # 531, S # 20\",\"uid\":\"123321\",\"birthday\":"
-            "\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54+00:00\",\"perso"
-            "nType\":\"Per\"}],\"key2\":[{\"name\":\"Shahid Khaliq\",\"age\":51"
-            "47483645,\"address\":\"H # 531, S # 20\",\"uid\":\"123321\",\"birt"
-            "hday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54+00:00\","
-            "\"personType\":\"Per\"},12.3]},\"outerMapOfArray2\":{\"key1\":[{\""
-            "key1\":12.3,\"key2\":12.3},{\"key1\":12.3}],\"key2\":[{\"key1\":12"
-            ".3},{\"key1\":12.3}]}}",
+            "{\"multiAnyOf\":{\"startsAt\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBr"
+            "eak\":true,\"sessionType\":\"Morning\"},\"multiOneOfAnyOf\":{\"startsAt"
+            "\":\"6:00\",\"endsAt\":\"11:00\",\"offerTeaBreak\":true,\"sessionType\":"
+            "\"Morning\"},\"singleInnerMapOfArray\":{\"key1\":{\"NumberOfElectrons\":"
+            "4},\"key2\":{\"NumberOfElectrons\":4}},\"outerMapOfSingleInnerArray\":{"
+            "\"key1\":{\"NumberOfElectrons\":4},\"key2\":{\"NumberOfElectrons\":4}},"
+            "\"allInnerArrayOfMap\":[{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{\""
+            "NumberOfTyres\":\"4\"}},{\"key1\":{\"NumberOfTyres\":\"4\"},\"key2\":{\""
+            "NumberOfTyres\":\"4\"}}],\"allInnerArrayOfMap2\":{\"key1\":[{\"key1\":fa"
+            "lse,\"key2\":true},{\"key1\":false,\"key2\":true}],\"key2\":[{\"key1\":f"
+            "alse,\"key2\":true},{\"key1\":false,\"key2\":true}]},\"outerArrayOfMap\""
+            ":[{\"key1\":\"some string\",\"key2\":\"some string\"},{\"key1\":{\"Numbe"
+            "rOfTyres\":\"4\",\"HaveTrunk\":true},\"key2\":\"some string\"}],\"outerA"
+            "rrayOfMap2\":[{\"key1\":[\"some string\",\"some string\"],\"key2\":[\"so"
+            "me string\"]},{\"key1\":[{\"NumberOfTyres\":\"4\",\"HaveTrunk\":true}],"
+            "\"key2\":[\"some string\"]}],\"outerMapOfArray\":{\"key1\":[12.3,{\"name"
+            "\":\"Shahid Khaliq\",\"age\":5147483645,\"address\":\"H # 531, S # 20\","
+            "\"uid\":\"123321\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-1"
+            "3T14:01:54+00:00\",\"personType\":\"Per\"}],\"key2\":[{\"name\":\"Shahid"
+            " Khaliq\",\"age\":5147483645,\"address\":\"H # 531, S # 20\",\"uid\":\"1"
+            "23321\",\"birthday\":\"1994-02-13\",\"birthtime\":\"1994-02-13T14:01:54+"
+            "00:00\",\"personType\":\"Per\"},12.3]},\"outerMapOfArray2\":{\"key1\":[{"
+            "\"key1\":12.3,\"key2\":12.3},{\"key1\":12.3}],\"key2\":[{\"key1\":12.3},"
+            "{\"key1\":12.3}]}}",
         )
         received_body = APIHelper.json_deserialize(
             self.response_catcher.response.text,

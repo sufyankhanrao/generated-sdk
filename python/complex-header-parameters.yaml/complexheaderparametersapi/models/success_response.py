@@ -25,8 +25,9 @@ class SuccessResponse(object):
         "message",
     ]
 
-    def __init__(self,
-                 message=APIHelper.SKIP):
+    def __init__(
+        self,
+        message=APIHelper.SKIP):
         """Initialize a SuccessResponse instance."""
         # Initialize members of the class
         if message is not APIHelper.SKIP:
@@ -52,18 +53,34 @@ class SuccessResponse(object):
         # Extract variables from the dictionary
         message =\
             dictionary.get("message")\
-            if dictionary.get("message") else APIHelper.SKIP
+            if dictionary.get("message")\
+                else APIHelper.SKIP
+
         # Return an object of this model
         return cls(message)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"message={(self.message
-                     if hasattr(self, 'message') else None)!r})")
+        _message=(
+            self.message
+            if hasattr(self, "message")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"message={_message!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"message={(self.message
-                     if hasattr(self, 'message') else None)!s})")
+        _message=(
+            self.message
+            if hasattr(self, "message")
+            else None
+        )
+        return (
+            f"{self.__class__.__name__}("
+            f"message={_message!s}"
+            f")"
+        )

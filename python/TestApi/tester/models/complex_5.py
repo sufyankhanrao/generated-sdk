@@ -14,8 +14,8 @@ class Complex5(object):
         response_data (ResponseData): The model property of type ResponseData.
         response_details (str): The model property of type str.
         response_status (int): The model property of type int.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -30,11 +30,12 @@ class Complex5(object):
         "response_details",
     ]
 
-    def __init__(self,
-                 response_data=None,
-                 response_details=None,
-                 response_status=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        response_data=None,
+        response_details=None,
+        response_status=None,
+        additional_properties=None):
         """Initialize a Complex5 instance."""
         # Initialize members of the class
         self.response_data = response_data
@@ -64,15 +65,19 @@ class Complex5(object):
             return None
 
         # Extract variables from the dictionary
-        response_data = ResponseData.from_dictionary(
+        response_data =\
+            ResponseData.from_dictionary(
             dictionary.get("responseData"))\
-            if dictionary.get("responseData") else None
+                if dictionary.get("responseData") else None
         response_details =\
             dictionary.get("responseDetails")\
-            if dictionary.get("responseDetails") else None
+            if dictionary.get("responseDetails")\
+                else None
         response_status =\
             dictionary.get("responseStatus")\
-            if dictionary.get("responseStatus") else None
+            if dictionary.get("responseStatus")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -84,16 +89,30 @@ class Complex5(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"response_data={self.response_data!r}, "
-                f"response_details={self.response_details!r}, "
-                f"response_status={self.response_status!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _response_data=self.response_data
+        _response_details=self.response_details
+        _response_status=self.response_status
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"response_data={_response_data!r}"
+            f"response_details={_response_details!r}"
+            f"response_status={_response_status!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"response_data={self.response_data!s}, "
-                f"response_details={self.response_details!s}, "
-                f"response_status={self.response_status!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _response_data=self.response_data
+        _response_details=self.response_details
+        _response_status=self.response_status
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"response_data={_response_data!s}"
+            f"response_details={_response_details!s}"
+            f"response_status={_response_status!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )

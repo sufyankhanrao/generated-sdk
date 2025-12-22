@@ -9,8 +9,8 @@ class Job(object):
 
     Attributes:
         company (str): The model property of type str.
-        additional_properties (Dict[str, object]): The additional properties
-            for the model.
+        additional_properties (Dict[str, object]): The additional properties for the
+            model.
 
     """
 
@@ -19,9 +19,10 @@ class Job(object):
         "company": "company",
     }
 
-    def __init__(self,
-                 company=None,
-                 additional_properties=None):
+    def __init__(
+        self,
+        company=None,
+        additional_properties=None):
         """Initialize a Job instance."""
         # Initialize members of the class
         self.company = company
@@ -49,7 +50,11 @@ class Job(object):
             return None
 
         # Extract variables from the dictionary
-        company = dictionary.get("company") if dictionary.get("company") else None
+        company =\
+            dictionary.get("company")\
+            if dictionary.get("company")\
+                else None
+
         # Clean out expected properties from dictionary
         additional_properties =\
             {k: v for k, v in dictionary.items() if k not in cls._names.values()}
@@ -59,12 +64,22 @@ class Job(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        return (f"{self.__class__.__name__}("
-                f"company={self.company!r}, "
-                f"additional_properties={self.additional_properties!r})")
+        _company=self.company
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"company={_company!r}"
+            f"additional_properties={_additional_properties!r}"
+            f")"
+        )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        return (f"{self.__class__.__name__}("
-                f"company={self.company!s}, "
-                f"additional_properties={self.additional_properties!s})")
+        _company=self.company
+        _additional_properties=self.additional_properties
+        return (
+            f"{self.__class__.__name__}("
+            f"company={_company!s}"
+            f"additional_properties={_additional_properties!s}"
+            f")"
+        )
